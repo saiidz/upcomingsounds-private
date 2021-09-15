@@ -1,0 +1,49 @@
+/** @format */
+
+.bg-gradiant-purple {
+    background: linear-gradient(180deg, #383760 0%, #030306 100%);
+    /* height: calc(100vh - -100px); */
+}
+.btn-white {
+    border: 1px solid #fff;
+    color: #f41a2d;
+    font-family: "Charlie Display Samibold";
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    line-height: 20px;
+    padding: 13px 17px 16px;
+    text-align: center;
+    display: block;
+    border-radius: 15px;
+    margin: 0 auto 22px auto;
+    background: #fff;
+}
+
+.btn-transparent {
+    border: 1px solid #fff;
+    color: #fff;
+    font-family: "Charlie Display Samibold";
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    line-height: 20px;
+    padding: 13px 17px 16px;
+    text-align: center;
+    display: block;
+    border-radius: 15px;
+    margin: 0 auto 22px auto;
+}
+.text-btn-light {
+    color: #a1a1c8 !important;
+}
+.text-color-white {
+    color: #fff !important;
+}
+.text-yellow {
+    color: #ffb001 !important;
+}
+.text-red {
+    color: #ff0e0e !important;
+}
+.text-green {
+    color: #5acc54 !important;
+}

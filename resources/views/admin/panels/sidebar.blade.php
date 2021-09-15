@@ -1,0 +1,115 @@
+<!-- BEGIN: SideNav-->
+<aside class="sidenav-main nav-expanded nav-lock nav-collapsible sidenav-light sidenav-active-square">
+    <div class="brand-sidebar">
+        <h1 class="logo-wrapper">
+            <a class="brand-logo darken-1" href="{{route('admin.dashboard')}}">
+{{--                <img class="hide-on-med-and-down" src="{{asset('images/logo/logo1.svg')}}" alt="materialize logo"/>--}}
+                <img class="show-on-medium-and-down hide-on-med-and-up" src="{{asset('images/logo/logo1.svg')}}" alt="materialize logo"/>
+                <span class="logo-text hide-on-med-and-down">
+                    <img class="hide-on-med-and-down" src="{{asset('images/logo/logo1.svg')}}" alt="materialize logo"/>
+                </span>
+            </a>
+            <a class="navbar-toggler" href="#">
+                <i class="material-icons">radio_button_checked</i>
+            </a>
+        </h1>
+    </div>
+    <ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out" data-menu="menu-navigation" data-collapsible="menu-accordion">
+        <li class="bold"><a class="waves-effect waves-cyan {{Request::segment(2) == 'dashboard' ? 'active' : ''}}" href="{{route('admin.dashboard')}}"><i class="material-icons">settings_input_svideo</i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a></li>
+
+        {{-- Categories   --}}
+        <li class="bold {{Request::segment(2) == 'categories' ? 'active open' : ''}}"><a class="collapsible-header waves-effect waves-cyan {{Request::segment(2) == 'categories'  && Request::segment(4) == 'edit' ? 'active' : ''}}" href="JavaScript:void(0)"><i class="material-icons">view_agenda</i><span class="menu-title" data-i18n="Categories">Category</span></a>
+            <div class="collapsible-body">
+                <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+                    <li><a href="{{route('categories.index')}}" class="{{Request::segment(2) == 'categories'  && Request::segment(3) == '' ? 'active' : ''}}"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Category List">Category List</span></a>
+                    </li>
+                    <li><a href="{{route('categories.create')}}" class="{{Request::segment(2) == 'categories' && Request::segment(3) == 'create' ? 'active' : ''}}"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Category Add">Category Add</span></a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        {{-- Vehicles   --}}
+        <li class="bold {{Request::segment(2) == 'vehicles' || Request::segment(2) == 'unapproved-user-vehicle' || Request::segment(2) == 'list-approved-user-vehicle' || Request::segment(2) == 'view-user-vehicle' ? 'active open' : ''}}"><a class="collapsible-header waves-effect waves-cyan {{Request::segment(2) == 'vehicles'  && Request::segment(4) == 'edit' || Request::segment(2) == 'view-user-vehicle' ? 'active' : ''}}" href="JavaScript:void(0)"><i class="material-icons">directions_car</i><span class="menu-title" data-i18n="Vehicles">Vehicles</span></a>
+            <div class="collapsible-body">
+                <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+                    <li><a href="{{route('vehicles.index')}}" class="{{Request::segment(2) == 'vehicles'  && Request::segment(3) == '' ? 'active' : ''}}"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Vehicle List">Vehicle List</span></a>
+                    </li>
+                    <li><a href="{{route('vehicles.create')}}" class="{{Request::segment(2) == 'vehicles' && Request::segment(3) == 'create' ? 'active' : ''}}"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Vehicle Add">Vehicle Add</span></a>
+                    </li>
+                    <li><a href="{{route('listApprovedVehicles.user')}}" class="{{Request::segment(2) == 'list-approved-user-vehicle' ? 'active' : ''}}"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Approved User Vehicles">Approved User Vehicles</span></a>
+                    </li>
+                    <li><a href="{{route('unapprovedVehicles.user')}}" class="{{Request::segment(2) == 'unapproved-user-vehicle' ? 'active' : ''}}"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Unapproved User Vehicles">Unapproved User Vehicles</span></a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        {{-- Auctions --}}
+        <li class="bold {{Request::segment(2) == 'auctions' ? 'active open' : ''}}"><a class="collapsible-header waves-effect waves-cyan {{Request::segment(2) == 'auctions'  && Request::segment(4) == 'edit' ? 'active' : ''}}" href="JavaScript:void(0)"><i class="material-icons">query_builder</i><span class="menu-title" data-i18n="Auctions">Auctions</span></a>
+            <div class="collapsible-body">
+                <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+                    <li><a href="{{route('auctions.index')}}" class="{{Request::segment(2) == 'auctions'  && Request::segment(3) == '' ? 'active' : ''}}"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Auction List">Auction List</span></a>
+                    </li>
+                    <li><a href="{{route('auctions.create')}}" class="{{Request::segment(2) == 'auctions' && Request::segment(3) == 'create' ? 'active' : ''}}"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Auction Add">Auction Add</span></a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        {{-- Bidders --}}
+        <li class="bold {{Request::segment(2) == 'bidders' || Request::segment(2) == 'suspend-bidders' || Request::segment(2) == 'block-bidders' ? 'active open' : ''}}"><a class="collapsible-header waves-effect waves-cyan {{Request::segment(2) == 'bidders'  && Request::segment(4) == 'edit' || Request::segment(2) == 'suspend-bidders' || Request::segment(2) == 'block-bidders' ? 'active' : ''}}" href="JavaScript:void(0)"><i class="material-icons">face</i><span class="menu-title" data-i18n="Bidders">Bidders</span></a>
+            <div class="collapsible-body">
+                <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+                    <li><a href="{{route('bidders.index')}}" class="{{Request::segment(2) == 'bidders'  && Request::segment(3) == '' ? 'active' : ''}}"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Bidder List">Bidders List</span></a>
+                    </li>
+                    <li><a href="{{route('bidders.create')}}" class="{{Request::segment(2) == 'bidders' && Request::segment(3) == 'create' ? 'active' : ''}}"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Bidder Add">Bidder Add</span></a>
+                    </li>
+                    <li><a href="{{route('suspendBidders')}}" class="{{Request::segment(2) == 'suspend-bidders'  && Request::segment(3) == '' ? 'active' : ''}}"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Bidder List">Suspend Bidders</span></a>
+                    </li>
+                    <li><a href="{{route('blockBidders')}}" class="{{Request::segment(2) == 'block-bidders'  && Request::segment(3) == '' ? 'active' : ''}}"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Bidder List">Block Bidders</span></a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        {{-- System Users --}}
+        <li class="bold {{Request::segment(2) == 'system-users' ? 'active open' : ''}}"><a class="collapsible-header waves-effect waves-cyan {{Request::segment(2) == 'system-users'  && Request::segment(4) == 'edit' ? 'active' : ''}}" href="JavaScript:void(0)"><i class="material-icons">face</i><span class="menu-title" data-i18n="System Users">System Users</span></a>
+            <div class="collapsible-body">
+                <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+                    <li><a href="{{route('system-users.index')}}" class="{{Request::segment(2) == 'system-users'  && Request::segment(3) == '' ? 'active' : ''}}"><i class="material-icons">radio_button_unchecked</i><span data-i18n="System Users List">System Users List</span></a>
+                    </li>
+                    <li><a href="{{route('system-users.create')}}" class="{{Request::segment(2) == 'system-users' && Request::segment(3) == 'create' ? 'active' : ''}}"><i class="material-icons">radio_button_unchecked</i><span data-i18n="System User Add">System User Add</span></a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        {{-- Feature Tags   --}}
+        <li class="bold {{Request::segment(2) == 'feature_tags' ? 'active open' : ''}}"><a class="collapsible-header waves-effect waves-cyan {{Request::segment(2) == 'feature_tags'  && Request::segment(4) == 'edit' ? 'active' : ''}}" href="JavaScript:void(0)"><i class="material-icons">view_list</i><span class="menu-title" data-i18n="Categories">Feature Tags</span></a>
+            <div class="collapsible-body">
+                <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+                    <li><a href="{{route('feature_tags.index')}}" class="{{Request::segment(2) == 'feature_tags'  && Request::segment(3) == '' ? 'active' : ''}}"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Feature List">Feature List</span></a>
+                    </li>
+                    <li><a href="{{route('feature_tags.create')}}" class="{{Request::segment(2) == 'feature_tags' && Request::segment(3) == 'create' ? 'active' : ''}}"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Feature Add">Feature Add</span></a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="bold {{Request::segment(2) == 'settings' ? 'active open' : ''}}"><a class="collapsible-header waves-effect waves-cyan {{Request::segment(2) == 'settings'  && Request::segment(4) == 'edit' ? 'active' : ''}}" href="JavaScript:void(0)"><i class="material-icons">view_list</i><span class="menu-title" data-i18n="settings">Settings</span></a>
+            <div class="collapsible-body">
+                <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+                    <li class="bold"><a class="waves-effect waves-cyan {{Request::segment(3) == null && Request::segment(2) == 'settings' ? 'active' : ''}}" href="{{route('settings.index')}}"><i class="material-icons">settings_input_svideo</i><span class="menu-title" data-i18n="Feature Add">View Settings</span></a></li>
+                    {{--  <li><a href="{{route('settings.create')}}" class="{{Request::segment(3) == 'create' && Request::segment(3) == 'create' ? 'active' : ''}}"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Feature Add">Add Settings</span></a>  --}}
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+
+
+    </ul>
+    <div class="navigation-background"></div><a class="sidenav-trigger btn-sidenav-toggle btn-floating btn-medium waves-effect waves-light hide-on-large-only" href="#" data-target="slide-out"><i class="material-icons">menu</i></a>
+</aside>
+<!-- END: SideNav-->

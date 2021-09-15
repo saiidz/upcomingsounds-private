@@ -1,0 +1,628 @@
+/** @format */
+/* @media only screen and (min-width: 1300px) {
+    .auction-section .slide-box {
+        min-height: 310px;
+    }
+} */
+@media only screen and (min-width: 1800px) {
+    .slider-section .slide-box {
+        width: 320px;
+        min-height: 371px;
+        background-size: cover;
+        border-radius: 15px;
+    }
+    .slider-section .img-box img {
+        width: 320px;
+        transform: translate(30px, 36px);
+    }
+}
+@media only screen and (max-width: 1900px) and (min-width: 1600px) {
+    #ui-datepicker-div {
+        width: 470px;
+    }
+    select.ui-datepicker-month,
+    select.ui-datepicker-year {
+        margin: 0 30px 0 0;
+    }
+}
+
+@media only screen and (max-width: 1415px) {
+    .rightbar .rightbox .car-detail span {
+        font-size: 16px;
+        margin: 0;
+    }
+    .rightbar .rightbox .statussection span {
+        font-size: 16px;
+    }
+    .rightbar .rightbox .inofsection p {
+        font-size: 16px;
+    }
+    .rightbar .rightbox .statussection p {
+        font-size: 16px;
+    }
+}
+@media only screen and (max-width: 1250px) and (min-width: 992px) {
+    .col-2 {
+        display: none;
+    }
+    .sidenav {
+        min-width: 20%;
+        width: auto;
+    }
+    .sidenav .top-head {
+        width: 272px;
+    }
+    .col-8 {
+        width: 100%;
+        padding-left: 272px;
+    }
+    #ui-datepicker-div {
+        left: 54.5% !important;
+    }
+}
+
+@media only screen and (min-width: 992) {
+    .sidenav {
+        left: 0;
+    }
+    .desktop_ver {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .search-auction .search-box .input-field {
+        border: 1px solid #ebebef;
+        border-radius: 12px;
+    }
+    .search-auction .vahicles-information.advance_search {
+        padding: 0;
+    }
+    .bg-login.login_main .text-box input {
+        width: 90%;
+    }
+    .bg-login.login_main .input-group img.password-toggle {
+        width: 19px;
+    }
+    .bg-login.login_main .text-box .btn-white {
+        width: 90%;
+    }
+    .iti.iti--allow-dropdown.iti--separate-dial-code {
+        width: 90%;
+    }
+    .bg-gradiant-purple {
+        /* height: calc(100vh - -100px); */
+    }
+    .dateRangeField {
+        background-color: #ffffff;
+    }
+    body {
+        background: #fff;
+    }
+    .desktop_ver {
+        display: none;
+    }
+    .main-header {
+        background-image: url(../images/header-bg.svg);
+    }
+    #ui-datepicker-div {
+        left: 38px !important;
+    }
+
+    .header-tablet h1 {
+        color: #383760;
+        font-weight: 500;
+        margin-left: -10px;
+    }
+    .header-tablet {
+        background-image: none;
+    }
+    .display-none {
+        display: none !important;
+    }
+    .mobile-toggle {
+        display: block;
+    }
+    nav ul {
+        display: none;
+    }
+    nav ul li {
+        width: 100%;
+        padding: 7px 0;
+        margin: 0;
+    }
+    .sidenav {
+        width: 310px;
+        margin-left: -310px;
+    }
+    .sidenav .top-head {
+        width: 310px;
+    }
+    .col-8 {
+        width: 100%;
+        /* margin: 0 auto; */
+    }
+    .col-2 {
+        display: none;
+    }
+
+    .container {
+        max-width: 100%;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .bg-login .text-box {
+        margin-top: 400px;
+        /* position: absolute;
+        top: 108px;
+        width: 70%; */
+    }
+    .bg-login .main-flex-box {
+        min-height: unset;
+        display: flex;
+        justify-content: center;
+        /* width: 508px; */
+        height: unset;
+        margin: 0 auto;
+        background-image: unset;
+        background-repeat: unset;
+        background-position: unset;
+        border: unset;
+        border-radius: unset;
+        background-size: unset;
+    }
+    .bg-login {
+        /* height: 100vh; */
+        /* display: flex; */
+        /* align-items: cente r; */
+        background-image: url(../images/loginauto.svg);
+        background-repeat: no-repeat;
+        background-position: right 10px;
+        background-size: 400px;
+    }
+    .bg-login.login_main .text-box {
+        width: 100%;
+        top: 108px;
+    }
+    section.bg-login.login_main.signup {
+        margin: 0;
+        min-height: 100vh;
+        height: auto;
+    }
+    .bg-login .text-box.mobile_login input {
+        margin: 0 21px;
+    }
+
+    section.bg-login.login_main.signup .text-box {
+        margin-top: 346px;
+        display: block;
+        position: unset;
+    }
+    section.bg-login.login_main.signup .input-group img.password-toggle {
+        right: 6%;
+    }
+    section.bg-login.login_main.signup .text-box input {
+        background: transparent;
+        width: 90%;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .auction-section .img-box img {
+        width: 90% !important;
+        /* transform: translate(0, -7px); */
+        height: unset !important;
+    }
+    .bg-login .main-flex-box {
+        width: 80%;
+    }
+    .logo img {
+        width: 50px;
+    }
+    .myname {
+        font-size: 22px;
+        margin-left: -15px;
+    }
+    .modal {
+        width: 80%;
+    }
+
+    .btn {
+        padding: 12px 13%;
+    }
+    .bid-box .btn {
+        padding: 12px 14px;
+    }
+    .delete-one {
+        margin: 0 5% 0 0px;
+    }
+    .tab button {
+        font-size: 20px;
+    }
+
+    .vehicle-detail h4 {
+        font-size: 20px;
+    }
+    /* .total-cars {
+        bottom: 5px;
+    } */
+    .date-limit {
+        margin: 6px 23px 0 30px;
+    }
+    /* .slide-box h3 {
+        margin: 14px 25px 0 25px;
+    } */
+    .auction-section .total-cars {
+        /* left: 6px;
+        width: 98%; */
+    }
+    .auction-section .slide-box {
+        margin: 0 auto 15px auto;
+    }
+    .car-detail span {
+        line-height: 23px;
+    }
+    .time-left {
+        padding: 3px 0 0 0;
+    }
+}
+@media only screen and (max-width: 414px) {
+    .empty_box img {
+        width: 215px;
+    }
+    /* .profile.vehicles-section {
+        margin: 0;
+    } */
+    .hero {
+        height: 500px;
+        padding-top: 80px;
+    }
+    .content {
+        margin-top: 50px;
+    }
+    .myname {
+        display: none;
+    }
+    .contact {
+        left: 0;
+        bottom: -68px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .auction-section .img-box img {
+        width: unset;
+        /* transform: translate(0, -7px); */
+        height: 220px;
+    }
+    .car-detail span {
+        font-size: 18px;
+    }
+    .car-detail .text-red {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (min-width: 1650px) {
+    .sidenav .top-head {
+        height: 243px;
+        background-size: cover;
+        width: 19.9%;
+        margin: 0 0 0 -1px;
+    }
+    .sidenav ul {
+        margin-top: 260px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .vahicles-box {
+        padding: 0 0 0 16px;
+    }
+
+    .vahicle-img img {
+        height: 71.88px;
+        width: 120px;
+        margin: 0;
+    }
+    .vahicles-detail {
+        margin-left: 12px;
+    }
+    .vahicles-detail h5 {
+        font-size: 20px;
+        line-height: 20px;
+        margin: 0 0 5px 0;
+    }
+    .car-detail img {
+        height: 16px;
+        width: 16px;
+    }
+    .car-detail span {
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 20px;
+    }
+    .vehicles-heading h4 {
+        font-size: 22px;
+    }
+
+    .vehicles-heading span {
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .details img {
+        width: 30px;
+    }
+    .car-detail .text-red {
+        font-size: 15px;
+        line-height: 20px;
+    }
+    .slider-section .slide-box {
+        min-height: 330px;
+        background-size: contain;
+    }
+    .slider-section .img-box img {
+        width: 270px;
+    }
+    .btn {
+        padding: 7px 13%;
+    }
+    .delete-box h3 {
+        font-weight: 500;
+        font-size: 22px;
+    }
+    .delete-box p {
+        font-size: 15px;
+        font-weight: 500;
+    }
+    .delete-box img {
+        width: 75%;
+    }
+    .modal {
+        width: 90%;
+    }
+
+    .delete-btn {
+        padding: 12px 0 0 0;
+    }
+}
+@media only screen and (max-width: 639px) {
+    .dateRangeField {
+        width: 90%;
+        padding: 0 32px;
+        font-size: 17px;
+    }
+    .invoice-dropdown #model {
+        padding: 15px 27px;
+        font-size: 17px;
+    }
+}
+@media only screen and (max-width: 1050px) and (min-width: 992px) {
+    #ui-datepicker-div {
+        left: 332px !important;
+    }
+}
+@media only screen and (max-width: 479px) {
+    .auction-section .img-box img {
+        width: 90%;
+        /* transform: translate(0, -7px); */
+        height: 210px;
+        transform: translate(0, 8px);
+    }
+    .bg-login {
+        background-size: 90%;
+    }
+    .bg-login .text-box {
+        margin-top: 90%;
+    }
+    .car-name h2 {
+        font-size: 20px;
+        line-height: 18px;
+    }
+    .car-name h3 {
+        font-size: 18px;
+    }
+    .car-heading {
+        padding: 25px 15px 0 15px;
+    }
+    .time-box {
+        padding: 30px 15px 0 15px;
+    }
+    .time-box-one h6 {
+        font-size: 14px;
+    }
+    .time-box-one span {
+        font-size: 14px;
+    }
+    .time-box-one {
+        height: 90px;
+        padding: 15px 0;
+        margin: 0 6px 0 0;
+    }
+    .vehicle-detail-one .information-box {
+        margin: 10px 15px 28px 15px;
+    }
+    .information-box ul li {
+        width: 33.3%;
+        margin: 0 0 0 0;
+        padding: 5px 0 10px 0;
+    }
+    .information-box ul {
+        padding: 20px 0 20px 0;
+        flex-wrap: wrap;
+    }
+    .vehicle-detail h4 {
+        font-size: 22px;
+    }
+    .car-features-box {
+        padding: 0 15px;
+    }
+    .car-features ul li {
+        font-size: 14px;
+    }
+    .car-features ul {
+        padding: 0 0 0 31px;
+    }
+    .vehicle-detail #car-detail {
+        padding: 30px 0 6px 0;
+        margin: 0 auto 20px auto;
+    }
+    .main-box .bid-btn {
+        margin: 30px auto 0 auto;
+    }
+    .information-box {
+        margin: 28px 15px;
+    }
+    .car-price p {
+        font-size: 22px;
+    }
+    .car-price p span {
+        font-size: 20px;
+    }
+    .vahicles-information input {
+        font-size: 18px;
+    }
+    .profile .vahicles-information {
+        padding: 30px 18px 25px 18px;
+    }
+    .vahicles-information label {
+        font-size: 15px;
+    }
+    .vahicle-photos {
+        padding: 25px 0px 30px 18px;
+    }
+    .add-vahicle h3 {
+        font-size: 18px;
+    }
+    .upload-wrapper label {
+        height: 80px;
+        width: 80px;
+    }
+    .change-password {
+        height: 75px;
+    }
+    .change-password h4 {
+        font-size: 18px;
+        font-weight: 500;
+    }
+    #submit {
+        padding: 8px 0;
+        height: 52px;
+    }
+    img.thumb {
+        width: 80px;
+        height: 80px;
+    }
+    .vahicle-img.shadow img {
+        width: 122px;
+        /* height: 122px; */
+    }
+    .tab button {
+        font-size: 18px;
+        margin: 0 5px 0 0;
+    }
+    .auction-bg-one {
+        background-image: url(../images/live_bg_mob.svg);
+    }
+    .auction-bg-two {
+        background-image: url("../images/upcoming_bg_mob.svg");
+    }
+    .auction-bg-three {
+        background-image: url("../images/closed_bg_mob.svg");
+    }
+    .auction-section .slide-box {
+        border-radius: 15px;
+        /* height: 180px; */
+    }
+    .date-limit {
+        margin: 6px 10px 0 35px;
+    }
+    .slide-box h3 {
+        margin: 14px 0 0 10px !important;
+    }
+    .vehicle-detail h4 {
+        font-size: 18px;
+    }
+    .auction-section .total-cars a {
+        font-size: 15px;
+    }
+    .total-cars img {
+        width: 8px;
+    }
+    .total-cars {
+        padding: 10px 14px 10px 14px;
+    }
+    /* .auction-section .total-cars {
+        width: 93%;
+    } */
+    /* .auction-section .img-box img {
+        width: 240px;
+        transform: translate(0, 17px);
+    } */
+    .date-limit span {
+        font-size: 14px;
+    }
+    .auction-list .vahicles-detail {
+        padding: 0;
+        margin-left: 10px;
+    }
+    .about-car {
+        margin: 0 10px 0 0;
+    }
+    .car-detail span {
+        margin: 0;
+    }
+    .auction-list .price-box span {
+        font-size: 16px;
+        font-weight: 500;
+        padding: 0 10px 0 0px;
+    }
+    .vahicles-detail h5 {
+        padding: 0;
+    }
+    .time-left span {
+        font-size: 14px;
+    }
+    .time-left {
+        padding: 3px 10px 0 0px;
+    }
+    .invoices .invoicebox h2 {
+        font-size: 22px;
+    }
+    .invoices .invoicebox p {
+        font-size: 16px;
+    }
+    .invoice-dropdown .select-box {
+        width: 60%;
+    }
+    .invoice-dropdown #model {
+        padding: 15px 7px;
+        font-size: 14px;
+    }
+    .dateRangeField {
+        width: 90%;
+        padding: 0 25px 0 5px;
+        font-size: 14px;
+    }
+    ul.thumb-Images li:first-child {
+        margin: 0 0 0 98px;
+    }
+    output#image-gallery {
+        margin: 0 0 0 -98px;
+    }
+}
+@media only screen and (min-width: 375px) and (max-width: 479px) {
+    .auction-section .slide-box h3 {
+        margin: 12px 20px 0 10px;
+        padding: 6px 15px;
+    }
+
+    .auction-section .img-box img {
+        width: 90%;
+        /* transform: translate(0, -7px); */
+        height: 210px;
+        transform: translate(0, 8px);
+    }
+    /* .auction-section .slide-box {
+        height: 210px;
+    } */
+}

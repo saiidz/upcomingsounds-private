@@ -1,0 +1,249 @@
+{{-- layout --}}
+@extends('layouts.guest')
+
+{{-- page title --}}
+@section('title','Login')
+
+{{-- page content --}}
+@section('content')
+    <div class="app dk" id="app">
+
+        <!-- ############ LAYOUT START-->
+
+        <div class="padding">
+            <div class="navbar">
+                <div class="pull-center">
+                    <!-- brand -->
+                    <a href="index.html" class="navbar-brand md">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32">
+                            <circle cx="24" cy="24" r="24" fill="rgba(255,255,255,0.2)"/>
+                            <circle cx="24" cy="24" r="22" fill="#1c202b" class="brand-color"/>
+                            <circle cx="24" cy="24" r="10" fill="#ffffff"/>
+                            <circle cx="13" cy="13" r="2"  fill="#ffffff" class="brand-animate"/>
+                            <path d="M 14 24 L 24 24 L 14 44 Z" fill="#FFFFFF" />
+                            <circle cx="24" cy="24" r="3" fill="#000000"/>
+                        </svg>
+
+                        <img src="images/logo.png" alt="." class="hide">
+                        <span class="hidden-folded inline">pulse</span>
+                    </a>
+                    <!-- / brand -->
+                </div>
+            </div>
+        </div>
+        <div class="b-t">
+            <div class="center-block w-xxl w-auto-xs p-y-md text-center">
+                <div class="p-a-md">
+                    <div>
+                        <a href="{{ url('/login/facebook') }}" class="btn btn-block indigo text-white m-b-sm">
+                            <i class="fa fa-facebook pull-left"></i>
+                            Sign up with Facebook
+                        </a>
+                        <a href="{{ url('/login/google') }}" class="btn btn-block red text-white">
+                            <i class="fa fa-google-plus pull-left"></i>
+                            Sign up with Google+
+                        </a>
+                        <a href="{{ url('/login/twitter') }}" style="background-color: #1C9CEA;" class="btn btn-block text-white m-b-sm">
+                            <i class="fa fa-twitter pull-left"></i>
+                            Sign up with Twitter
+                        </a>
+                    </div>
+                    <div class="m-y text-sm">
+                        OR
+                    </div>
+                    <form method="POST" action="{{ route('login') }}" autocomplete="off">
+                        @csrf
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="Email" required>
+                            @error('email')
+                            <small class="red-text ml-10" role="alert">
+                                {{ $message }}
+                            </small>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <input id="password-field" type="password"
+                                   class="form-control @error('password') is-invalid @enderror"
+                                   name="password" placeholder="Password" required
+                                   autocomplete="current-password">
+{{--                            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" value="{{ old('password') }}" placeholder="Password" required>--}}
+                            @error('password')
+                            <small class="red-text ml-10" role="alert">
+                                {{ $message }}
+                            </small>
+                            @enderror
+                        </div>
+                        <div class="m-b-md">
+                            <label class="md-check">
+                                <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}><i class="primary"></i> Keep me signed in
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-lg black p-x-lg">Sign in</button>
+                    </form>
+                    <div class="m-y">
+                        <a href="{{ route('password.request') }}" class="_600">Forgot password?</a>
+                    </div>
+                    <div>
+                        Do not have an account?
+                        <a href="{{ route('register') }}" class="text-primary _600">Sign up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ############ LAYOUT END-->
+    </div>
+
+{{--    <div id="main" class="bg-gradiant-purple authentication-page">--}}
+{{--        <section class="bg-login login_main ">--}}
+{{--            <div class="container">--}}
+{{--                <div class="main-flex-box">--}}
+{{--                    <div class="text-box">--}}
+{{--                        <h1>Login</h1>--}}
+{{--                        <p>Sign in with the email and password</p>--}}
+{{--                       @if(session('failed') !== null)--}}
+{{--                            <p style="color:red">{{session('failed')}}</p>--}}
+{{--                       @endif--}}
+{{--                        <form class="login-form" method="POST" action="{{ route('login') }}">--}}
+{{--                            @csrf--}}
+{{--                            <div class="login_input">--}}
+{{--                                <div class="input-group">--}}
+{{--                                    <span><img src="{{asset('images/email.svg')}}" alt=""/></span>--}}
+{{--                                    <input id="icon_prefix" type="email" class=" @error('email') is-invalid @enderror"--}}
+{{--                                           name="email"--}}
+{{--                                           value="{{ old('email') }}" placeholder="Email" required autocomplete="off"--}}
+{{--                                           autofocus>--}}
+{{--                                    @error('email')--}}
+{{--                                    <small class="red-text ml-10" role="alert">--}}
+{{--                                        {{ $message }}--}}
+{{--                                    </small>--}}
+{{--                                    @enderror--}}
+{{--                                </div>--}}
+{{--                                <div class="input-group">--}}
+{{--                                    <span class="password-icon"><img src="{{asset('images/password.svg')}}" alt=""/></span>--}}
+{{--                                    <input id="password-field" type="password"--}}
+{{--                                           class="form-control @error('password') is-invalid @enderror"--}}
+{{--                                           name="password" placeholder="Password" required--}}
+{{--                                           autocomplete="current-password">--}}
+{{--                                    @error('password')--}}
+{{--                                    <small class="red-text ml-10" role="alert">--}}
+{{--                                        {{ $message }}--}}
+{{--                                    </small>--}}
+{{--                                    @enderror--}}
+{{--                                    <span--}}
+{{--                                        toggle="#password-field"--}}
+{{--                                        class="show-pas toggle-password"--}}
+{{--                                     autocomplete="off"><img--}}
+{{--                                            src="{{asset('images/toggle.svg')}}"--}}
+{{--                                            alt=""--}}
+{{--                                            class="password-toggle show"--}}
+{{--                                        />--}}
+
+{{--										<img--}}
+{{--                                            src="{{asset('images/show-pas.svg')}}"--}}
+{{--                                            alt=""--}}
+{{--                                            class="password-toggle hide"--}}
+{{--                                        />--}}
+{{--									</span>--}}
+{{--                                </div>--}}
+{{--                                <p>--}}
+{{--                                    <a href="{{ route('password.request') }}" class="text-color-white"--}}
+{{--                                    >Forgot Password?</a--}}
+{{--                                    >--}}
+{{--                                </p>--}}
+{{--                                <button type="submit" class="btn-white">--}}
+{{--                                    Login--}}
+{{--                                </button>--}}
+
+{{--                            </div>--}}
+
+{{--                            <div class="login_terms">--}}
+{{--                                <p>Don't have account? <a href="{{ route('register') }}">SIGN UP </a></p>--}}
+{{--                            </div>--}}
+{{--                        </form>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </section>--}}
+{{--    </div>--}}
+    {{--<div id="login-page" class="row">--}}
+    {{--  <div class="col s12 m6 l4 z-depth-4 card-panel border-radius-6 login-card bg-opacity-8">--}}
+    {{--    <form class="login-form" method="POST" action="{{ route('login') }}">--}}
+    {{--      @csrf--}}
+    {{--      <div class="row">--}}
+    {{--        <div class="input-field col s12">--}}
+    {{--          <h5 class="ml-4">{{ __('Sign in') }}</h5>--}}
+    {{--        </div>--}}
+    {{--      </div>--}}
+    {{--      <div class="row margin">--}}
+    {{--        <div class="input-field col s12">--}}
+    {{--          <i class="material-icons prefix pt-2">person_outline</i>--}}
+    {{--          <input id="email" type="email" class=" @error('email') is-invalid @enderror" name="email"--}}
+    {{--            value="{{ old('email') }}" required autocomplete="email" autofocus>--}}
+    {{--          <label for="email" class="center-align">{{ __('Email') }}</label>--}}
+    {{--          @error('email')--}}
+    {{--          <small class="red-text ml-10" role="alert">--}}
+    {{--            {{ $message }}--}}
+    {{--          </small>--}}
+    {{--          @enderror--}}
+    {{--        </div>--}}
+    {{--      </div>--}}
+    {{--      <div class="row margin">--}}
+    {{--        <div class="input-field col s12">--}}
+    {{--          <i class="material-icons prefix pt-2">lock_outline</i>--}}
+    {{--          <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"--}}
+    {{--            name="password" required autocomplete="current-password">--}}
+    {{--          <label for="password">{{ __('password') }}</label>--}}
+    {{--          @error('password')--}}
+    {{--          <small class="red-text ml-10" role="alert">--}}
+    {{--            {{ $message }}--}}
+    {{--          </small>--}}
+    {{--          @enderror--}}
+    {{--        </div>--}}
+    {{--      </div>--}}
+    {{--      <div class="row">--}}
+    {{--        <div class="col s12 m12 l12 ml-2 mt-1">--}}
+    {{--          <p>--}}
+    {{--            <label>--}}
+    {{--              <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>--}}
+    {{--              <span>Remember Me</span>--}}
+    {{--            </label>--}}
+    {{--          </p>--}}
+    {{--        </div>--}}
+    {{--      </div>--}}
+    {{--      <div class="row">--}}
+    {{--        <div class="input-field col s12">--}}
+    {{--          <button type="submit" class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12">--}}
+    {{--            Login--}}
+    {{--          </button>--}}
+    {{--        </div>--}}
+    {{--      </div>--}}
+    {{--      <div class="row">--}}
+    {{--        <div class="input-field col s6 m6 l6">--}}
+    {{--          <p class="margin medium-small"><a href="{{ route('register') }}">Register Now!</a></p>--}}
+    {{--        </div>--}}
+    {{--        <div class="input-field col s6 m6 l6">--}}
+    {{--          <p class="margin right-align medium-small">--}}
+    {{--            <a href="{{ route('password.request') }}">Forgot password?</a>--}}
+    {{--          </p>--}}
+    {{--        </div>--}}
+    {{--      </div>--}}
+    {{--    </form>--}}
+    {{--  </div>--}}
+    {{--</div>--}}
+@endsection
+{{-- page script --}}
+@section('page-script')
+
+<script>
+    $(".toggle-password").click(function () {
+        $(this).toggleClass("show-pas");
+        var input = $($(this).attr("toggle"));
+        if (input.attr("type") == "password") {
+            input.attr("type", "text");
+        } else {
+            input.attr("type", "password");
+        }
+    });
+</script>
+@endsection

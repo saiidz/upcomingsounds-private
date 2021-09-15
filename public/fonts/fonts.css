@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'Charlie Display';
+    src: url('CharlieDisplay-Regular.eot');
+    src: url('CharlieDisplay-Regular.eot?#iefix') format('embedded-opentype'),
+        url('CharlieDisplay-Regular.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Charlie Display Samibold';
+    src: url('CharlieDisplay-Semibold.eot');
+    src: url('CharlieDisplay-Semibold.eot?#iefix') format('embedded-opentype'),
+        url('CharlieDisplay-Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Charlie Display';
+    src:url('CharlieDisplay-bold.TTF') format('truetype');
+   
+}
+
+@font-face {
+    font-family: 'Charlie Display';
+    src:url('CharlieDisplay-light.TTF') format('truetype');
+   
+}
