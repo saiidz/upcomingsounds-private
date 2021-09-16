@@ -135,7 +135,8 @@
                             <div class="p-a-lg text-center">
                                 <h3 class="display-3 m-y-lg">Artists</h3>
                                 <p class="text-muted text-md m-b-lg">Listen to your favorite Artists.</p>
-                                <a href="home.html" class="btn circle white m-b-lg p-x-md">View Artists</a>
+                                <a href="{{url('/artist-home')}}" class="btn circle white m-b-lg p-x-md">For Artists</a>
+{{--                                <a href="home.html" class="btn circle white m-b-lg p-x-md">View Artists</a>--}}
                             </div>
                         </div>
                     </div>

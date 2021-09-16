@@ -1,0 +1,127 @@
+/*
+Theme Name: PlaylistPush Theme
+Version: 1.0.0
+Text Domain: playlistpush-child
+Template: sanjose
+*/
+
+body.home .sanjose-banner.style_2 {
+  background-color: #3f8bb5 !important;
+  background-image: linear-gradient(180deg, #455eb8 0%, #72c5db 100%), linear-gradient(to top, #48d7db 0%, #17174d 91%, #17174d 100%);
+}
+
+.sanjose-clients .clients-item img {
+	opacity:1 !important;
+}
+
+/* Make clients square */
+.sanjose-clients-all-information .sanjose-wrap-info {
+  height:270px !important;
+}
+
+/* Color `Push` in title */
+.main-header .logo a i {
+  color: #EA5054 !important;
+}
+
+/* Bug: always hide play button */
+.style_2 .play-button {
+  display:none !important;
+}
+
+.sanjose-clients-all-information .sanjose-wrap-info {
+  height:220px !important;
+}
+
+/* Hide blog header/banner */
+.banner-blog {
+  display:none !important;
+}
+
+.sidebar.blog-sidebar {
+	padding-bottom: 120px !important;
+}
+
+.sanjose-banner .content-banner .btn.transparent {
+	background-color: #fff;
+    border-color: #fff;
+    color: #3b55e6;
+}
+.sanjose-banner .content-banner .btn.transparent:hover {
+	color: #fff;
+}
+
+/* Add text buttons on homepage */
+.sanjose-banner.style_2 .content-banner .list-button a {
+  height: auto !important;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 600px) {
+  /* Make titles bigger on mobile */
+  .content-banner .title {
+    font-size: 42px !important;
+    line-height: 52px !important;
+    margin-bottom: 15px;
+  }
+  .sanjose-banner .content-banner .btn {
+    width:100% !important;
+  }
+}
+
+@media (min-width: 600px) {
+  .sanjose-banner.style_2 .content-banner .list-button a {
+    width: auto !important;
+  }
+}
+
+
+.main-footer .post-date {
+	font-size:0.8em;
+	opacity:0.5;
+}
+
+.sanjose-widget {
+	height:250px;
+}
+
+.sidebar.blog-sidebar .sanjose-widget li {
+	color:#aaa !important;
+}
+.sidebar.blog-sidebar .sanjose-widget li a {
+	color:#111 !important;
+}
+
+.no-margin {
+	margin-left:0 !important;
+	margin-right:0 !important;
+}
+
+.sanjose-text.custom-size .link {
+	margin-top:45px !important;
+}
+
+#snippet-box {
+	display:none !important;
+}
+
+.main-footer .sidebar .sanjose-widget a:hover {
+	color:#EA5154 !important;
+}
+
+.main-header .navigation ul li .sub-menu {
+	min-width:0;
+}
+.main-header .navigation ul li .sub-menu li {
+	padding: 10px 25px !important;
+}
+
+@media (max-width: 580px) {
+	.sanjose-banner .content-banner {
+		top: 32% !important;
+	}
+	.button {
+		width: 100%;
+		text-align: center;
+	}
+}

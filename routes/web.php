@@ -22,10 +22,6 @@ Route::get('/', function () {
 
 require __DIR__.'/auth.php';
 
-// AjaxCall route
-Route::get('get-states/{id}', [AjaxController::class,'getStates'])->name('getStates');
-Route::get('get-cites/{id}', [AjaxController::class,'getCities'])->name('getCities');
-
 
 Route::group(['middleware' => ['try_catch']], function() {
 
@@ -38,7 +34,7 @@ Route::group(['middleware' => ['try_catch']], function() {
     });
 
 
-//    Route::prefix('')->group(base_path('routes/client/no_auth.php'));
+    Route::prefix('')->group(base_path('routes/client/no_auth.php'));
 });
 
 Route::any('{url?}/{sub_url?}', [Helper::class, 'fallback']);
