@@ -38,12 +38,10 @@
                                     data-v-016dc5dc data-v-6f53582b>
           On Groover, the music curators and professionals listen to your track for real. They finally give you feedback and make every effort to give exposure to the artists they have a crush on!
         </span>
-                                <div class="buttonWrapper tw-m-auto 600:tw-m-0" data-v-6f53582b>
+                                <div class="buttonWrapper tw-m-auto 600:tw-m-0" data-v-6f53582b id="upClick">
                                     <button tabindex="0" class="btn main" data-v-27387d44 data-v-a87ce58e
                                             data-v-6f53582b>
-{{--                                        <a href="#tell-me-more" id="upClick" class="btnText" data-v-27387d44 data-v-a87ce58e>Tell me--}}
-{{--                                            more</a>--}}
-                                            <div class="btnText" id="upClick" data-v-27387d44 data-v-a87ce58e>
+                                            <div class="btnText"  data-v-27387d44 data-v-a87ce58e>
                                                 Tell me more
                                             </div>
                                     </button>
@@ -123,6 +121,85 @@
                         </button>
                     </div>
                 </div>
+
+                {{-- Send Your music --}}
+                <div class="mm-slideout">
+                    <div class="container no-padd-md">
+                        <div class="vc_row-full-width"></div>
+                        <div id="tell-me-more"
+                             class="vc_row wpb_row vc_row-fluid padding-lg-75t padding-lg-60b padding-md-75t padding-md-60b padding-sm-30t padding-sm-30b padding-xs-30t padding-xs-30b">
+                            <div class="no-padd-right wpb_column vc_column_container vc_col-sm-4  padding-lg-35t">
+                                <div class="vc_column-inner ">
+                                    <div class="wpb_wrapper">
+                                        <div class="sanjose-text custom-size text-left submit_music"><h2>Submit <i>your</i> music</h2>
+                                            <div><p>The playlist is the most powerful medium in music. Streaming music companies
+                                                    spend
+                                                    millions developing algorithms and hiring teams of curators to create them,
+                                                    millions of
+                                                    people tap play on them each day.</p>
+                                                <p>We get your music heard by independent music curators that manage playlists on
+                                                    multiple streaming services like Spotify, Youtube, Apple music and others.</p>
+                                            </div>
+                                            <a href="#" class="link" data-color="">Apply for Campaign</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wpb_column vc_column_container vc_col-sm-1 ">
+                                <div class="vc_column-inner ">
+                                    <div class="wpb_wrapper"></div>
+                                </div>
+                            </div>
+                            <div class="no-padd-r-md wpb_column vc_column_container vc_col-sm-3  padding-lg-25t">
+                                <div class="vc_column-inner ">
+                                    <div class="wpb_wrapper">
+                                        <div class="featured-block text-left   default">
+                                            <div class="icon"><i class="icon-info-5"></i></div>
+                                            <h6 class="title">Targeted campaign</h6>
+                                            <div class="desc"><p>We send your music to<br/>
+                                                    a targeted group of<br/>
+                                                    playlist curators,<br/>
+                                                    they review your song<br/>
+                                                    for playlist consideration.</p></div>
+                                        </div>
+                                        <div class="featured-block text-left   default">
+                                            <div class="icon"><i class="icon-info-8"></i></div>
+                                            <h6 class="title">Detailed report</h6>
+                                            <div class="desc"><p>See who added your song, their total reach/followers and how much
+                                                    popularity your song gained during the campaign.</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wpb_column vc_column_container vc_col-sm-1 ">
+                                <div class="vc_column-inner ">
+                                    <div class="wpb_wrapper"></div>
+                                </div>
+                            </div>
+                            <div class="wpb_column vc_column_container vc_col-sm-3  padding-lg-25t">
+                                <div class="vc_column-inner ">
+                                    <div class="wpb_wrapper">
+                                        <div class="featured-block text-left   default">
+                                            <div class="icon"><i class="icon-info-9"></i></div>
+                                            <h6 class="title">Flex pricing</h6>
+                                            <div class="desc"><p>Whether you make pop music or are an instrumental pianist, you only
+                                                    pay
+                                                    to reach the curators that will dig your music.</p></div>
+                                        </div>
+                                        <div class="featured-block text-left   default">
+                                            <div class="icon"><i class="icon-info-12"></i></div>
+                                            <h6 class="title">ARTISTS &amp; LABELS</h6>
+                                            <div class="desc"><p>In addition to serving thousands of independent artists, we run
+                                                    campaigns for artists on Def Jam and Atlantic Records.</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vc_row-full-width"></div>
+                    </div>
+                </div>
+                {{-- Send Your music --}}
+
                 <span id="mediasAndPros"
                       class="text tw-block tw-text-center tw-mx-auto mainTitleComponent tw-w-full tw-pb-10"
                       data-v-9670100e data-v-6aa5a2f4><span data-v-9670100e data-v-6aa5a2f4>Direct and fast access<br> to the curators,<br
@@ -1422,82 +1499,6 @@ However, in recent years, things have been changing, and new alternatives are be
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="mm-slideout">
-        <div class="container no-padd-md">
-            <div class="vc_row-full-width"></div>
-            <div id="tell-me-more"
-                 class="vc_row wpb_row vc_row-fluid padding-lg-75t padding-lg-60b padding-md-75t padding-md-60b padding-sm-30t padding-sm-30b padding-xs-30t padding-xs-30b">
-                <div class="no-padd-right wpb_column vc_column_container vc_col-sm-4  padding-lg-35t">
-                    <div class="vc_column-inner ">
-                        <div class="wpb_wrapper">
-                            <div class="sanjose-text custom-size text-left submit_music"><h2>Submit <i>your</i> music</h2>
-                                <div><p>The playlist is the most powerful medium in music. Streaming music companies
-                                        spend
-                                        millions developing algorithms and hiring teams of curators to create them,
-                                        millions of
-                                        people tap play on them each day.</p>
-                                    <p>We get your music heard by independent music curators that manage playlists on
-                                        multiple streaming services like Spotify, Youtube, Apple music and others.</p>
-                                </div>
-                                <a href="#" class="link" data-color="">Apply for Campaign</a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="wpb_column vc_column_container vc_col-sm-1 ">
-                    <div class="vc_column-inner ">
-                        <div class="wpb_wrapper"></div>
-                    </div>
-                </div>
-                <div class="no-padd-r-md wpb_column vc_column_container vc_col-sm-3  padding-lg-25t">
-                    <div class="vc_column-inner ">
-                        <div class="wpb_wrapper">
-                            <div class="featured-block text-left   default">
-                                <div class="icon"><i class="icon-info-5"></i></div>
-                                <h6 class="title">Targeted campaign</h6>
-                                <div class="desc"><p>We send your music to<br/>
-                                        a targeted group of<br/>
-                                        playlist curators,<br/>
-                                        they review your song<br/>
-                                        for playlist consideration.</p></div>
-                            </div>
-                            <div class="featured-block text-left   default">
-                                <div class="icon"><i class="icon-info-8"></i></div>
-                                <h6 class="title">Detailed report</h6>
-                                <div class="desc"><p>See who added your song, their total reach/followers and how much
-                                        popularity your song gained during the campaign.</p></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="wpb_column vc_column_container vc_col-sm-1 ">
-                    <div class="vc_column-inner ">
-                        <div class="wpb_wrapper"></div>
-                    </div>
-                </div>
-                <div class="wpb_column vc_column_container vc_col-sm-3  padding-lg-25t">
-                    <div class="vc_column-inner ">
-                        <div class="wpb_wrapper">
-                            <div class="featured-block text-left   default">
-                                <div class="icon"><i class="icon-info-9"></i></div>
-                                <h6 class="title">Flex pricing</h6>
-                                <div class="desc"><p>Whether you make pop music or are an instrumental pianist, you only
-                                        pay
-                                        to reach the curators that will dig your music.</p></div>
-                            </div>
-                            <div class="featured-block text-left   default">
-                                <div class="icon"><i class="icon-info-12"></i></div>
-                                <h6 class="title">ARTISTS &amp; LABELS</h6>
-                                <div class="desc"><p>In addition to serving thousands of independent artists, we run
-                                        campaigns for artists on Def Jam and Atlantic Records.</p></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="vc_row-full-width"></div>
         </div>
     </div>
 
