@@ -7,10 +7,17 @@ use Illuminate\Http\Request;
 class ArtistController extends Controller
 {
     /**
-     * Artist
+     * Artist Home
      */
-    public function index(Request $request)
+    public function index()
     {
         return view('pages.artists.artist-home');
+    }
+    /**
+     * Artists
+     */
+    public function artists()
+    {
+        return view('pages.artists.artists_details');
     }
 }

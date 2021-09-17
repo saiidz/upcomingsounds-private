@@ -6,3 +6,4 @@ use Illuminate\Support\Facades\Route;
 
 // User Routes
 Route::get('artist-home', [ArtistController::class,'index']);
+Route::get('artists', [ArtistController::class,'artists']);
