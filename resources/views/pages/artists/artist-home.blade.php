@@ -28,6 +28,8 @@
             padding: 0 !important;
         }
     </style>
+    <link rel='stylesheet' id='bootstrap-css'
+          href='{{asset('css/custom/custom.css')}}' type='text/css'/>
     <link rel='stylesheet' id='wp-block-library-css'
           href='{{asset('wp-includes/css/dist/block-library/style.min6619.css?ver=5.2.5')}}' type='text/css' media='all'/>
     <link rel='stylesheet' id='trp-language-switcher-style-css'
@@ -118,10 +120,6 @@
         .vc_custom_1510755766812 {
             padding-top: 12px !important;
         }
-        .artist_login:hover, .artist_login:focus, .learn_more:hover, .learn_more:focus {
-            color: rgba(255, 255, 255, 0.87) !important;
-            background-color: #02b875!important;
-        }
     </style>
     <noscript>
         <style type="text/css"> .wpb_animate_when_almost_visible {
@@ -143,7 +141,7 @@
         </div>
         <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-6 vc_col-md-6  padding-lg-140t padding-md-140t padding-sm-50t padding-xs-30t">
             <div class="vc_column-inner ">
-                <div class="wpb_wrapper">
+                <div class="wpb_wrapper" id="homeArtist">
                     <div class="sanjose-text custom-mb text-left"><h2><i>for</i> Artists</h2>
                         <div><p><span style="font-weight: 400">Promote your music by submitting your songs to active playlist curators.</span>
                             </p></div>
@@ -152,9 +150,8 @@
                         <div class="wpb_column vc_column_container vc_col-sm-6">
                             <div class="vc_column-inner">
                                 <div class="wpb_wrapper">
-                                    <div class="featured-block text-left  small-size default">
-                                        <div class="icon"><i class="icon-info-9"
-                                                             style=" font-size: ;line-height: font-size: ;;"></i>
+                                    <div class="featured-block text-left  small-size default" id="homeArtist">
+                                        <div class="icon"><i class="icon-info-9"></i>
                                         </div>
                                         <h6 class="title">Flex Pricing</h6>
                                         <div class="desc"><p>Whether you make pop music or are an instrumental
@@ -167,7 +164,7 @@
                         <div class="wpb_column vc_column_container vc_col-sm-6">
                             <div class="vc_column-inner">
                                 <div class="wpb_wrapper">
-                                    <div class="featured-block text-left  small-size default">
+                                    <div class="featured-block text-left  small-size default" id="homeArtist">
                                         <div class="icon"><i class="icon-info-6"></i>
                                         </div>
                                         <h6 class="title">Getting picked up</h6>
@@ -178,8 +175,8 @@
                             </div>
                         </div>
                     </div>
-                    <a href="{{url('/artists')}}" class="button transparent learn_more" style="border-color: #02b875;background-color: black;color: white;">Learn more </a>
-                    <a href="#" class="button default artist_login" style="border-color: #02b875;background-color: black;color: white;"
+                    <a href="{{url('/artists')}}" class="button transparent learn_more tellMeMore">Learn more </a>
+                    <a href="#" class="button default artist_login tellMeMore"
                         >SignUp/ Login</a></div>
             </div>
         </div>

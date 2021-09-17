@@ -16,3 +16,142 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 .red-text{
     color: red;
 }
+/*.learn_more,*/
+/*.artist_login,*/
+/*.submitMyMusic,*/
+/*.tellMeMore{*/
+/*    border-color: blue !important;*/
+/*    background-color: black!important;*/
+/*    color: white!important;*/
+/*}*/
+/*.artist_login:hover,*/
+/*.artist_login:focus,*/
+/*.learn_more:hover,*/
+/*.learn_more:focus ,*/
+/*.tellMeMore:hover,*/
+/*.tellMeMore:focus,*/
+/*.submitMyMusic:hover,*/
+/*.submitMyMusic:focus*/
+/*{*/
+/*    color: rgba(255, 255, 255, 0.87) !important;*/
+/*    background-color: #02b875!important;*/
+/*}*/
+
+.tellMeMore {
+    background-color: #1f1f25 !important;
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3)!important;
+    border-radius: 500px!important;
+    color: white!important;
+    text-align: center!important;
+    white-space: nowrap!important;
+    vertical-align: middle!important;
+    border: 1px solid transparent!important;
+}
+.tellMeMore:hover{
+    box-shadow: inset 0 -10rem 0px rgba(158, 158, 158, 0.1)!important;
+}
+.textCOlor{
+    font-size: 1rem !important;
+    line-height: 1.25 !important;
+    padding-right: 1.5rem !important;
+    color: white !important;
+    padding-left: 1.5rem !important;
+}
+.btn[data-v-27387d44]:not(.cancelBtnStyle):not(.small){
+    padding: 12px 17px !important;
+    min-height: 0px;
+}
+.padding-lg-60b{
+    padding: 0px !important;
+}
+.mm-slideout{
+    padding-bottom: 70px!important;
+}
+.imageMobileContainer[data-v-6f53582b] {
+    height: 50vw!important;
+}
+
+
+
+
+
+
+/*
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+
+    /* CSS */
+
+}
+
+/*
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+    /* CSS */
+.artist_login{
+    margin-right: 15px!important;
+}
+}
+
+/*
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    /* CSS */
+    .artist_login{
+        margin-right: 15px!important;
+    }
+}
+
+/*
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+    /* CSS */
+    .artist_login{
+        margin-right: 15px!important;
+    }
+}
+
+/*
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    /* CSS */
+    .tellMeMore{
+        display: inline-table !important;
+    }
+}
+
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+    /* CSS */
+    .tellMeMore{
+        display: inline-table !important;
+    }
+    #homeArtist h2{
+        display: flex !important;
+    }
+
+}

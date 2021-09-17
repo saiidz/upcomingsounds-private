@@ -4,6 +4,9 @@
 <head>
     @include('pages.artists.style')
     <link rel='stylesheet' id='bootstrap-css'
+          href='{{asset('css/custom/custom.css')}}' type='text/css'/>
+
+    <link rel='stylesheet' id='bootstrap-css'
           href='{{asset('wp-content/themes/sanjose/assets/css/bootstrap.min6619.css?ver=5.2.5')}}' type='text/css' media='all'/>
 
     <link rel='stylesheet' id='sanjose-custom-spacing-css'
@@ -39,9 +42,9 @@
           On Groover, the music curators and professionals listen to your track for real. They finally give you feedback and make every effort to give exposure to the artists they have a crush on!
         </span>
                                 <div class="buttonWrapper tw-m-auto 600:tw-m-0" data-v-6f53582b id="upClick">
-                                    <button tabindex="0" class="btn main" data-v-27387d44 data-v-a87ce58e
+                                    <button tabindex="0"  class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e
                                             data-v-6f53582b>
-                                            <div class="btnText"  data-v-27387d44 data-v-a87ce58e>
+                                            <div class="btnText textCOlor"  data-v-27387d44 data-v-a87ce58e>
                                                 Tell me more
                                             </div>
                                     </button>
@@ -108,15 +111,15 @@
                     </div>
                 </div>
                 <div class="btnWrapper btnWrapTopSpacing bottomSpacing" data-v-69b657ff data-v-6aa5a2f4>
-                    <button tabindex="0" class="btn main" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>
+                    <button tabindex="0" class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>
                         <div class="btnText" data-v-27387d44 data-v-a87ce58e>
-                            <div class="btnText" data-v-27387d44 data-v-69b657ff>Send my music</div>
+                            <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Send my music</div>
                         </div>
                     </button>
                     <div data-v-69b657ff>
-                        <button tabindex="0" class="btn outlined" data-v-27387d44 data-v-e29b8620 data-v-69b657ff>
+                        <button tabindex="0" class="btn outlined tellMeMore" data-v-27387d44 data-v-e29b8620 data-v-69b657ff>
                             <div class="btnText" data-v-27387d44 data-v-e29b8620>
-                                <div class="btnText" data-v-27387d44 data-v-69b657ff>How it works</div>
+                                <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>How it works</div>
                             </div>
                         </button>
                     </div>
@@ -125,7 +128,6 @@
                 {{-- Send Your music --}}
                 <div class="mm-slideout">
                     <div class="container no-padd-md">
-                        <div class="vc_row-full-width"></div>
                         <div id="tell-me-more"
                              class="vc_row wpb_row vc_row-fluid padding-lg-75t padding-lg-60b padding-md-75t padding-md-60b padding-sm-30t padding-sm-30b padding-xs-30t padding-xs-30b">
                             <div class="no-padd-right wpb_column vc_column_container vc_col-sm-4  padding-lg-35t">
@@ -140,7 +142,7 @@
                                                 <p>We get your music heard by independent music curators that manage playlists on
                                                     multiple streaming services like Spotify, Youtube, Apple music and others.</p>
                                             </div>
-                                            <a href="#" class="link" data-color="">Apply for Campaign</a></div>
+                                            <a href="#" class="link tellMeMore" data-color="">Apply for Campaign</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -530,19 +532,19 @@
                             </div>
                         </div>
                         <div class="btnWrapper tw-mt-6 600:tw-mt-10" data-v-69b657ff data-v-edc6e51c>
-                            <button tabindex="0" class="btn main" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>
+                            <button tabindex="0" class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>
                                 <div class="btnText" data-v-27387d44 data-v-a87ce58e>
-                                    <div class="btnText" data-v-27387d44 data-v-69b657ff>
+                                    <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>
                                         Discover the 1129 curators and pros
                                     </div>
                                 </div>
                             </button>
                             <a href="#"
                                target="_blank" data-v-69b657ff>
-                                <button tabindex="0" class="btn outlined" data-v-27387d44 data-v-e29b8620
+                                <button tabindex="0" class="btn outlined tellMeMore" data-v-27387d44 data-v-e29b8620
                                         data-v-69b657ff>
                                     <div class="btnText" data-v-27387d44 data-v-e29b8620>
-                                        <div class="btnText" data-v-27387d44 data-v-69b657ff>Who are the curators / pros
+                                        <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Who are the curators / pros
                                             on
                                             Groover?
                                         </div>
@@ -748,9 +750,9 @@
                         </div>
                     </div>
                     <div class="btnWrapper btnWrapTopSpacing bottomSpacing" data-v-69b657ff data-v-6aa5a2f4>
-                        <button tabindex="0" class="btn main" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>
+                        <button tabindex="0" class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>
                             <div class="btnText" data-v-27387d44 data-v-a87ce58e>
-                                <div class="btnText" data-v-27387d44 data-v-69b657ff>Try Groover Now</div>
+                                <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Try Groover Now</div>
                             </div>
                         </button> <!----></div>
                     <div id="landingPricing" class="upDownSpacer" data-v-6aa5a2f4><span
@@ -800,17 +802,17 @@
       If you don't get some of the answers expected after 7 days, you get Grooviz back to send your music to new curators and pros on Groover
     </span></div>
                             <div class="btnWrapper tw-my-6 600:tw-my-10" data-v-69b657ff data-v-39f43f18>
-                                <button tabindex="0" class="btn main" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>
+                                <button tabindex="0" class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>
                                     <div class="btnText" data-v-27387d44 data-v-a87ce58e>
-                                        <div class="btnText" data-v-27387d44 data-v-69b657ff>Send my music</div>
+                                        <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Send my music</div>
                                     </div>
                                 </button>
                                 <a href="#"
                                    target="_new" data-v-69b657ff>
-                                    <button tabindex="0" class="btn outlined" data-v-27387d44 data-v-e29b8620
+                                    <button tabindex="0" class="btn outlined tellMeMore" data-v-27387d44 data-v-e29b8620
                                             data-v-69b657ff>
                                         <div class="btnText" data-v-27387d44 data-v-e29b8620>
-                                            <div class="btnText" data-v-27387d44 data-v-69b657ff>More info</div>
+                                            <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>More info</div>
                                         </div>
                                     </button>
                                 </a></div>
@@ -1195,9 +1197,9 @@
 {{--                                <i class="fas fa-chevron-right arrow tw-hidden lg:tw-block" data-v-dd9dd3ba></i></div>--}}
                         </div>
                         <div class="btnWrapper btnWrapTopSpacing" data-v-69b657ff data-v-6aa5a2f4>
-                            <button tabindex="0" class="btn main" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>
+                            <button tabindex="0" class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>
                                 <div class="btnText" data-v-27387d44 data-v-a87ce58e>
-                                    <div class="btnText" data-v-27387d44 data-v-69b657ff>Promote my music</div>
+                                    <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Promote my music</div>
                                 </div>
                             </button> <!----></div>
                     </div>
@@ -1289,17 +1291,17 @@
                                 </div> <!----></div>
                         </div>
                         <div class="btnWrapper btnWrapTopSpacing bottomSpacing" data-v-69b657ff data-v-6aa5a2f4>
-                            <button tabindex="0" class="btn main" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>
+                            <button tabindex="0" class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>
                                 <div class="btnText" data-v-27387d44 data-v-a87ce58e>
-                                    <div class="btnText" data-v-27387d44 data-v-69b657ff>Promote my music</div>
+                                    <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Promote my music</div>
                                 </div>
                             </button>
                             <a href="#" target="_new"
                                data-v-69b657ff>
-                                <button tabindex="0" class="btn outlined" data-v-27387d44 data-v-e29b8620
+                                <button tabindex="0" class="btn outlined tellMeMore" data-v-27387d44 data-v-e29b8620
                                         data-v-69b657ff>
                                     <div class="btnText" data-v-27387d44 data-v-e29b8620>
-                                        <div class="btnText" data-v-27387d44 data-v-69b657ff>Read all Groover success
+                                        <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Read all Groover success
                                             stories
                                         </div>
                                     </div>
@@ -1331,9 +1333,9 @@
         </span></div>
                                     <a href="#" target="_new" data-v-d883c7e6>
                                         <div class="buttonWrapper tw-mx-auto 600:tw-mx-0" data-v-d883c7e6>
-                                            <button tabindex="0" class="btn main 375:tw-text-base" data-v-27387d44
+                                            <button tabindex="0" class="btn main 375:tw-text-base tellMeMore" data-v-27387d44
                                                     data-v-a87ce58e data-v-d883c7e6>
-                                                <div class="btnText" data-v-27387d44 data-v-a87ce58e>More info</div>
+                                                <div class="btnText textCOlor" data-v-27387d44 data-v-a87ce58e>More info</div>
                                             </button>
                                         </div>
                                     </a></div>
@@ -1355,9 +1357,9 @@
         </span></div>
                                     <a href="#" target="_new" data-v-d883c7e6>
                                         <div class="buttonWrapper tw-mx-auto 600:tw-mx-0" data-v-d883c7e6>
-                                            <button tabindex="0" class="btn main 375:tw-text-base" data-v-27387d44
+                                            <button tabindex="0" class="btn main 375:tw-text-base tellMeMore" data-v-27387d44
                                                     data-v-a87ce58e data-v-d883c7e6>
-                                                <div class="btnText" data-v-27387d44 data-v-a87ce58e>Join us</div>
+                                                <div class="btnText textCOlor" data-v-27387d44 data-v-a87ce58e>Join us</div>
                                             </button>
                                         </div>
                                     </a></div>
@@ -1456,16 +1458,16 @@ However, in recent years, things have been changing, and new alternatives are be
                                 </div> <!----></div>
                         </div>
                         <div class="btnWrapper btnWrapTopSpacing bottomSpacing" data-v-69b657ff data-v-6aa5a2f4>
-                            <button tabindex="0" class="btn main" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>
+                            <button tabindex="0" class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>
                                 <div class="btnText" data-v-27387d44 data-v-a87ce58e>
-                                    <div class="btnText" data-v-27387d44 data-v-69b657ff>Try Groover Now</div>
+                                    <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Try Groover Now</div>
                                 </div>
                             </button>
                             <a href="#" target="_blank" data-v-69b657ff>
-                                <button tabindex="0" class="btn outlined" data-v-27387d44 data-v-e29b8620
+                                <button tabindex="0" class="btn outlined tellMeMore" data-v-27387d44 data-v-e29b8620
                                         data-v-69b657ff>
                                     <div class="btnText" data-v-27387d44 data-v-e29b8620>
-                                        <div class="btnText" data-v-27387d44 data-v-69b657ff>Visit the Groover Blog
+                                        <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Visit the Groover Blog
                                         </div>
                                     </div>
                                 </button>
@@ -1477,18 +1479,18 @@ However, in recent years, things have been changing, and new alternatives are be
                                     class='600:tw-hidden'/> of tomorrow</span></span>
                         <div class="tw-text-center mainParentContainer" data-v-daaf7032 data-v-6aa5a2f4>
                             <div class="btnWrapper tw-my-6 600:tw-my-10" data-v-69b657ff data-v-daaf7032>
-                                <button tabindex="0" class="btn main" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>
+                                <button tabindex="0" class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>
                                     <div class="btnText" data-v-27387d44 data-v-a87ce58e>
-                                        <div class="btnText" data-v-27387d44 data-v-69b657ff>Apply as curator / pro
+                                        <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Apply as curator / pro
                                         </div>
                                     </div>
                                 </button>
                                 <a href="#"
                                    target="_new" data-v-69b657ff>
-                                    <button tabindex="0" class="btn outlined" data-v-27387d44 data-v-e29b8620
+                                    <button tabindex="0" class="btn outlined tellMeMore" data-v-27387d44 data-v-e29b8620
                                             data-v-69b657ff>
                                         <div class="btnText" data-v-27387d44 data-v-e29b8620>
-                                            <div class="btnText" data-v-27387d44 data-v-69b657ff>Who are the curators /
+                                            <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Who are the curators /
                                                 pros
                                                 on Groover?
                                             </div>
