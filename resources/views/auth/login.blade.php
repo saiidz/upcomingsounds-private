@@ -6,10 +6,7 @@
 
 {{-- page content --}}
 @section('content')
-    <div class="app dk" id="app">
 
-        <!-- ############ LAYOUT START-->
-@include('panels.header')
         <div class="b-t">
             <div class="center-block w-xxl w-auto-xs p-y-md text-center">
                 <div class="p-a-md">
@@ -69,10 +66,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- ############ LAYOUT END-->
-    </div>
-
 {{--    <div id="main" class="bg-gradiant-purple authentication-page">--}}
 {{--        <section class="bg-login login_main ">--}}
 {{--            <div class="container">--}}

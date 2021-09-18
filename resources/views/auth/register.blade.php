@@ -6,11 +6,7 @@
 
 {{-- page content --}}
 @section('content')
-    <div class="app dk" id="app">
 
-        <!-- ############ LAYOUT START-->
-
-        @include('panels.header')
         <div id="snackbar"></div>
         <div id="snackbarError"></div>
         <div class="b-t">
@@ -76,9 +72,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- ############ LAYOUT END-->
-    </div>
 
 
 
