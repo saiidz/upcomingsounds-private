@@ -5,7 +5,7 @@
     @include('pages.artists.style')
     <link rel='stylesheet' id='bootstrap-css'
           href='{{asset('css/custom/custom.css')}}' type='text/css'/>
-    <link rel="shortcut icon" sizes="196x196" href="{{asset('images/favicon.ico')}}">
+    <link rel="shortcut icon" sizes="196x196" href="{{asset('images/favicon.png')}}">
     <link rel='stylesheet' id='bootstrap-css'
           href='{{asset('wp-content/themes/sanjose/assets/css/bootstrap.min6619.css?ver=5.2.5')}}' type='text/css' media='all'/>
 
