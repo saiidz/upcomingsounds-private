@@ -46,6 +46,27 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 .textCOlor{
     color: white!important;
 }
+
+/*#for-artists .vc_col-lg-6 {*/
+/*    width: 60%;*/
+/*}*/
+#for-artists{
+    /*padding-bottom: 133px !important;*/
+}
+
+/*#for-artists .arTiSts{*/
+/*    margin-left: 150px !important;*/
+/*    padding-bottom: 45px;*/
+/*}*/
+/*#for-artists .padding-lg-140t {*/
+/*    padding-top: 109px!important;*/
+/*}*/
+/*#homeArtist{*/
+/*    padding: 0px;*/
+/*}*/
+/*#for-artists .vc_column-inner {*/
+/*    padding: 0px !important;*/
+/*}*/
 /*.tellMeMore {*/
 /*    background-color: #1f1f25 !important;*/
 /*    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3)!important;*/
@@ -107,6 +128,9 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 .artist_login{
     margin-right: 15px!important;
 }
+    .learnMore {
+        display: flex;
+    }
 }
 
 /*
@@ -119,6 +143,9 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     /* CSS */
     .artist_login{
         margin-right: 15px!important;
+    }
+    .learnMore {
+        display: flex;
     }
 }
 
@@ -146,6 +173,10 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     .tellMeMore{
         display: inline-table !important;
     }
+    #homeArtist{
+        float: right!important;
+        margin-right: -39px!important;
+    }
 }
 
 /*
@@ -163,4 +194,11 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
         display: flex !important;
     }
 
+    #homeArtist{
+        float: right!important;
+        margin-right: -39px!important;
+    }
+    a.button.transparent.learn_more.tellMeMore {
+        font-size: 10px!important;
+    }
 }

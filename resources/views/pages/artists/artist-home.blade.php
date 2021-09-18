@@ -83,7 +83,7 @@
 
 
     <style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1513981483432 {
-            background-image: url({{asset('wp-content/uploads/2017/06/artist-bgcaf4.jpg')}}) !important;
+            background-image: url({{asset('images/artistbackgrounds.jpg')}}) !important;
             background-position: center !important;
             background-repeat: no-repeat !important;
             background-size: cover !important;
@@ -134,17 +134,15 @@
 <div class="container no-padd-md">
     <div id="for-artists" data-vc-full-width="true" data-vc-full-width-init="false"
          class="vc_row wpb_row vc_row-fluid vc_custom_1513981483432 vc_row-has-fill padding-lg-150b padding-md-110b padding-sm-50b padding-xs-30b">
-        <div class="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-6 vc_col-md-6 vc_hidden-sm ">
-            <div class="vc_column-inner vc_custom_1494719181657">
-                <div class="wpb_wrapper"></div>
-            </div>
-        </div>
-        <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-6 vc_col-md-6  padding-lg-140t padding-md-140t padding-sm-50t padding-xs-30t">
+        <div class="wpb_column vc_column_container arTiSts vc_col-sm-12 vc_col-lg-6 vc_col-md-6  padding-lg-140t padding-md-140t padding-sm-50t padding-xs-30t">
             <div class="vc_column-inner ">
                 <div class="wpb_wrapper" id="homeArtist">
                     <div class="sanjose-text custom-mb text-left"><h2><i>for</i> Artists</h2>
-                        <div><p><span style="font-weight: 400">Promote your music by submitting your songs to active playlist curators.</span>
-                            </p></div>
+                        <div>
+                            <p>
+                                <span style="font-weight: 400">Promote your music by submitting your songs to active playlist curators.</span>
+                            </p>
+                        </div>
                     </div>
                     <div class="vc_row wpb_row vc_inner vc_row-fluid  margin-lg-45t margin-md-45t margin-sm-30t margin-xs-30t">
                         <div class="wpb_column vc_column_container vc_col-sm-6">
@@ -175,9 +173,13 @@
                             </div>
                         </div>
                     </div>
-                    <a href="{{url('/artists')}}" class="button transparent learn_more tellMeMore">Learn more </a>
-                    <a href="#" class="button default artist_login tellMeMore"
-                        >SignUp/ Login</a></div>
+                    <div class="learnMore">
+                        <a href="{{url('/artists')}}" class="button transparent  tellMeMore">Learn more </a>
+                        <a href="#" class="button default tellMeMore"
+                        >SignUp/ Login</a>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
