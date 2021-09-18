@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Artist Home | {{ config('app.name', 'Upcoming Sound') }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <link rel="shortcut icon" sizes="196x196" href="{{asset('images/favicon.ico')}}">
     <!-- This site is optimized with the Yoast SEO plugin v12.2 - https://yoast.com/wordpress/plugins/seo/ -->
     <meta name="description"
           content="Our mission is to help independent artist and small record labels to get their music heard by Spotify playlist curators and Youtube influencers."/>
