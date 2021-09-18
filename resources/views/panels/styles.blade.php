@@ -12,7 +12,7 @@
     <meta name="apple-mobile-web-app-title" content="Flatkit">
     <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
     <meta name="mobile-web-app-capable" content="yes">
-    <link rel="shortcut icon" sizes="196x196" href="{{asset('images/favicon.ico')}}">
+    <link rel="shortcut icon" sizes="196x196" href="{{asset('images/favicon.png')}}">
 
     <!-- style -->
     <link rel="stylesheet" href="{{asset('css/animate.css/animate.min.css')}}" type="text/css" />

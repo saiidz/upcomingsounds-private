@@ -1,87 +1,18 @@
 {{-- layout --}}
-@extends('layouts.guest')
+@extends('layouts.welcomeLayout')
 
 {{-- page title --}}
 @section('title','Welcome')
 
 {{-- page content --}}
 @section('content')
-    <div class="app dk" id="app">
-
-        <!-- ############ LAYOUT START-->
-
-        <!-- content -->
-        <div id="content" class="app-content" role="main">
-            <div class="app-header navbar-md black box-shadow-z1">
-                <div class="navbar" data-pjax>
-                    <a data-toggle="collapse" data-target="#navbar" class="navbar-item pull-right hidden-md-up m-r-0 m-l">
-                        <i class="material-icons">menu</i>
-                    </a>
-                    <!-- brand -->
-                    <a href="{{url('/dashboard')}}" class="navbar-brand md">
-{{--                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32">--}}
-{{--                            <circle cx="24" cy="24" r="24" fill="rgba(255,255,255,0.2)"/>--}}
-{{--                            <circle cx="24" cy="24" r="22" fill="#1c202b" class="brand-color"/>--}}
-{{--                            <circle cx="24" cy="24" r="10" fill="#ffffff"/>--}}
-{{--                            <circle cx="13" cy="13" r="2"  fill="#ffffff" class="brand-animate"/>--}}
-{{--                            <path d="M 14 24 L 24 24 L 14 44 Z" fill="#FFFFFF" />--}}
-{{--                            <circle cx="24" cy="24" r="3" fill="#000000"/>--}}
-{{--                        </svg>--}}
-
-                        <img src="{{asset('images/logo.png')}}" alt="">
-{{--                        <img src="{{asset('images/logo.png')}}" alt="." class="hide">--}}
-{{--                        <span class="hidden-folded inline">pulse</span>--}}
-                    </a>
-                    <!-- / brand -->
-
-                    <!-- nabar right -->
-                    <ul class="nav navbar-nav pull-right">
-                        <li class="nav-item">
-                            <a href="{{ route('register') }}" class="nav-link">
-                                Signup
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('login') }}" class="nav-link">
-                    <span class="btn btn-sm rounded primary _600">
-                      Signin
-                    </span>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- / navbar right -->
-
-                    <!-- navbar collapse -->
-                    <div class="collapse navbar-toggleable-sm l-h-0 text-center" id="navbar">
-                        <!-- link and dropdown -->
-                        <ul class="nav navbar-nav nav-md inline text-primary-hover">
-                            <li class="nav-item">
-                                <a href="home.html" class="nav-link">
-                                    <span class="nav-text">Site</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="player.html" class="nav-link">
-                                    <span class="nav-text">Web App</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="rtl.html" class="nav-link">
-                                    <span class="nav-text">Rtl</span>
-                                </a>
-                            </li>
-                        </ul>
-                        <!-- / link and dropdown -->
-                    </div>
-                    <!-- / navbar collapse -->
-                </div>
-            </div>
             <div class="app-body">
 
                 <!-- ############ PAGE START-->
 
 
-                <div class="owl-carousel black owl-theme owl-dots-bottom-center" data-ui-jp="owlCarousel" data-ui-options="{
+                <div class="owl-carousel black owl-theme owl-dots-bottom-center" data-ui-jp="owlCarousel"
+                     data-ui-options="{
              items: 1
             ,loop: true
             ,autoplay: true
@@ -93,7 +24,8 @@
                             <div class="p-a-lg">
                                 <h2 class="display-4 m-y-lg">A simple, fast and responsive music template</h2>
                                 <h6 class="text-muted m-b-lg">HTML5 Music Template</h6>
-                                <a href="home.html" class="btn circle btn-outline b-primary m-b-lg p-x-md">Get it now</a>
+                                <a href="home.html" class="btn circle btn-outline b-primary m-b-lg p-x-md">Get it
+                                    now</a>
                             </div>
                         </div>
                         <div class="col-lg-2"></div>
@@ -104,7 +36,8 @@
                             <div class="p-a-lg">
                                 <h2 class="display-4 m-y-lg">Bootstrap 4 CSS framework</h2>
                                 <h6 class="text-muted m-b-lg">Responsive layout</h6>
-                                <a href="player.html" class="btn circle btn-outline b-primary m-b-lg p-x-md">View App</a>
+                                <a href="player.html" class="btn circle btn-outline b-primary m-b-lg p-x-md">View
+                                    App</a>
                             </div>
                         </div>
                         <div class="col-lg-2"></div>
@@ -137,7 +70,7 @@
                                 <h3 class="display-3 m-y-lg">Artists</h3>
                                 <p class="text-muted text-md m-b-lg">Listen to your favorite Artists.</p>
                                 <a href="{{url('/artist-home')}}" class="btn circle white m-b-lg p-x-md">For Artists</a>
-{{--                                <a href="home.html" class="btn circle white m-b-lg p-x-md">View Artists</a>--}}
+                                {{--                                <a href="home.html" class="btn circle white m-b-lg p-x-md">View Artists</a>--}}
                             </div>
                         </div>
                     </div>
@@ -155,18 +88,21 @@
                     <div class="col-md-3"></div>
                 </div>
 
-                <div class="black cover" data-stellar-background-ratio="0.5" style="background-image: url('images/b10.jpg');">
+                <div class="black cover" data-stellar-background-ratio="0.5"
+                     style="background-image: url('images/b10.jpg');">
                     <div class="row-col">
                         <div class="col-md-4">
                             <div class="p-a-lg text-center">
                                 <h4 class="m-y-lg">One Css framework, Unlimited options &amp; variables</h4>
-                                <p class="text-muted text-md m-b-lg">Colors, layouts, components and widgets. we pre-build them for you.</p>
+                                <p class="text-muted text-md m-b-lg">Colors, layouts, components and widgets. we
+                                    pre-build them for you.</p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="p-a-lg text-center">
                                 <h4 class="m-y-lg">Two layouts, Horizontal and side navigation</h4>
-                                <p class="text-muted text-md m-b-lg">With the flexiable layout options, you can build responsive layouts.</p>
+                                <p class="text-muted text-md m-b-lg">With the flexiable layout options, you can build
+                                    responsive layouts.</p>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -189,12 +125,13 @@
                                 <div class="clearfix m-b-lg">
                                     <!-- brand -->
                                     <a href="index.html" class="navbar-brand md">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32"
+                                             height="32">
                                             <circle cx="24" cy="24" r="24" fill="rgba(255,255,255,0.2)"/>
                                             <circle cx="24" cy="24" r="22" fill="#1c202b" class="brand-color"/>
                                             <circle cx="24" cy="24" r="10" fill="#ffffff"/>
-                                            <circle cx="13" cy="13" r="2"  fill="#ffffff" class="brand-animate"/>
-                                            <path d="M 14 24 L 24 24 L 14 44 Z" fill="#FFFFFF" />
+                                            <circle cx="13" cy="13" r="2" fill="#ffffff" class="brand-animate"/>
+                                            <path d="M 14 24 L 24 24 L 14 44 Z" fill="#FFFFFF"/>
                                             <circle cx="24" cy="24" r="3" fill="#000000"/>
                                         </svg>
 
@@ -263,7 +200,8 @@
                                 <p>Do not want to miss our newsletter?</p>
                                 <form class="m-b-lg">
                                     <input type="text" class="form-control" placeholder="Your email">
-                                    <button type="submit" class="btn btn-sm btn-outline b-dark rounded m-t">Subscribe</button>
+                                    <button type="submit" class="btn btn-sm btn-outline b-dark rounded m-t">Subscribe
+                                    </button>
                                 </form>
                             </div>
                         </div>
@@ -281,9 +219,4 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- / -->
-
-        <!-- ############ LAYOUT END-->
-    </div>
 @endsection
