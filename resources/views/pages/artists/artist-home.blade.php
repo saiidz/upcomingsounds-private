@@ -200,14 +200,7 @@
         src='{{asset('wp-content/plugins/js_composer/assets/lib/bower/isotope/dist/isotope.pkgd.min24b2.js?ver=5.5.5')}}'></script>
 <script type='text/javascript' src='{{asset('wp-content/themes/sanjose/assets/js/lightgallery6619.js?ver=5.2.5')}}'></script>
 <script type='text/javascript' src='{{asset('wp-content/themes/sanjose/assets/js/scripts6619.js?ver=5.2.5')}}'></script>
-<script type='text/javascript'>
-    /* <![CDATA[ */
-    var ajax_data = {
-        "ajaxurl": "https:\/\/playlistpush.com\/wp-admin\/admin-ajax.php",
-        "sanjose-siteurl": "https:\/\/playlistpush.com\/wp-content\/themes\/sanjose"
-    };
-    /* ]]> */
-</script>
+
 <script type='text/javascript' src='{{asset('wp-content/themes/sanjose/assets/js/main6619.js?ver=5.2.5')}}'></script>
 <script type='text/javascript' src='{{asset('wp-includes/js/comment-reply.min6619.js?ver=5.2.5')}}'></script>
 <script type='text/javascript' src='{{asset('wp-includes/js/wp-embed.min6619.js?ver=5.2.5')}}'></script>

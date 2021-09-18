@@ -16,47 +16,56 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 .red-text{
     color: red;
 }
-/*.learn_more,*/
-/*.artist_login,*/
-/*.submitMyMusic,*/
-/*.tellMeMore{*/
-/*    border-color: blue !important;*/
-/*    background-color: black!important;*/
-/*    color: white!important;*/
-/*}*/
-/*.artist_login:hover,*/
-/*.artist_login:focus,*/
-/*.learn_more:hover,*/
-/*.learn_more:focus ,*/
-/*.tellMeMore:hover,*/
-/*.tellMeMore:focus,*/
-/*.submitMyMusic:hover,*/
-/*.submitMyMusic:focus*/
-/*{*/
-/*    color: rgba(255, 255, 255, 0.87) !important;*/
-/*    background-color: #02b875!important;*/
-/*}*/
-
-.tellMeMore {
+.learn_more,
+.artist_login,
+.submitMyMusic,
+.tellMeMore{
+    border-color: #02b875 !important;
     background-color: #1f1f25 !important;
-    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3)!important;
-    border-radius: 500px!important;
     color: white!important;
     text-align: center!important;
+    padding: 10px 1.5rem 10px 1.5rem !important;
     white-space: nowrap!important;
     vertical-align: middle!important;
-    border: 1px solid transparent!important;
+    /*box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3)!important;*/
+    border-radius: 500px!important;
 }
-.tellMeMore:hover{
-    box-shadow: inset 0 -10rem 0px rgba(158, 158, 158, 0.1)!important;
+.artist_login:hover,
+.artist_login:focus,
+.learn_more:hover,
+.learn_more:focus ,
+.tellMeMore:hover,
+.tellMeMore:focus,
+.submitMyMusic:hover,
+.submitMyMusic:focus
+{
+    color: rgba(255, 255, 255, 0.87) !important;
+    background-color: #02b875!important;
+    box-shadow: 0 10px 20px rgba(55, 206, 23, 0.72) !important;
 }
 .textCOlor{
-    font-size: 1rem !important;
-    line-height: 1.25 !important;
-    padding-right: 1.5rem !important;
-    color: white !important;
-    padding-left: 1.5rem !important;
+    color: white!important;
 }
+/*.tellMeMore {*/
+/*    background-color: #1f1f25 !important;*/
+/*    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3)!important;*/
+/*    border-radius: 500px!important;*/
+/*    color: white!important;*/
+/*    text-align: center!important;*/
+/*    white-space: nowrap!important;*/
+/*    vertical-align: middle!important;*/
+/*    border: 1px solid transparent!important;*/
+/*}*/
+/*.tellMeMore:hover{*/
+/*    box-shadow: inset 0 -10rem 0px rgba(158, 158, 158, 0.1)!important;*/
+/*}*/
+/*.textCOlor{*/
+/*    font-size: 1rem !important;*/
+/*    line-height: 1.25 !important;*/
+/*    padding-right: 1.5rem !important;*/
+/*    color: white !important;*/
+/*    padding-left: 1.5rem !important;*/
+/*}*/
 .btn[data-v-27387d44]:not(.cancelBtnStyle):not(.small){
     padding: 12px 17px !important;
     min-height: 0px;
@@ -123,7 +132,7 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     /* CSS */
     .artist_login{
         margin-right: 15px!important;
-    }
+    }aa
 }
 
 /*
