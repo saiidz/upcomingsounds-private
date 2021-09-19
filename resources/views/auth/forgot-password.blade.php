@@ -11,59 +11,95 @@
 
 {{-- page content --}}
 @section('content')
-    <div id="main" class="bg-gradiant-purple authentication-page">
-        <section class="bg-login login_main">
-            <div class="container">
-                <div class="main-flex-box">
-                    <div class="text-box">
-                        <h1>Forgot Password</h1>
-                        <p>
-                            Enter email and click the button to get a link in your <br/>
 
-                            email inbox.
-                        </p>
-                        {{-- success status --}}
-                        @if (session('status'))
-                            <div class="card-alert card green lighten-5 remove_message">
-                                <div class="card-content green-text">
-                                    <p>{{ session('status') }}</p>
-                                </div>
-                                <button type="button" class="close green-text" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                        @endif
-                        <form class="login-form" method="POST" action="{{ route('password.email') }}">
-                            @csrf
-                            <div class="login_input">
-                                <div class="input-group">
-                                    <span><img src="{{asset('images/email.svg')}}" alt=""/></span>
-                                    <input id="email" type="email"
-                                           class="form-control @error('email') is-invalid @enderror" name="email"
-                                           value="{{ old('email') }}" placeholder="Email" required autocomplete="off"
-                                           autofocus>
-                                    @error('email')
-                                    <small class="red-text ml-10" role="alert">
-                                        {{ $message }}
-                                    </small>
-
-                                
-                                    @enderror
-                                </div>
-                                <button type="submit"
-                                        class="btn-white">Send
-                                </button>
-                            </div>
-
-                            <div class="login_terms">
-                                <p>Don't have account? <a href="{{route('register')}}">SIGN UP </a></p>
-                            </div>
-                        </form>
+    <div class="b-t">
+        <div class="center-block w-xxl w-auto-xs p-y-md text-center">
+            <div class="p-a-md">
+                <div>
+                    <h4>Forgot your password?</h4>
+                    <p class="text-muted m-y">
+                        Enter your email below and we will send you instructions on how to change your password.
+                    </p>
+                </div>
+                <div id="snackbar"></div>
+                <div id="snackbarError"></div>
+                <form name="reset" method="POST" action="{{ route('password.email') }}">
+                    @csrf
+                    <div class="form-group">
+                        <input id="email" type="email"
+                               class="form-control @error('email') is-invalid @enderror" name="email"
+                               value="{{ old('email') }}" placeholder="Email" required autocomplete="off"
+                               autofocus>
+                        @error('email')
+                        <small class="red-text ml-10" role="alert">
+                            {{ $message }}
+                        </small>
+                        @enderror
                     </div>
+                    <button type="submit" class="btn black btn-block p-x-md" >Send</button>
+                </form>
+                <div class="p-y-lg">
+                    Return to
+                    <a href="{{route('register')}}" class="text-primary _600">Sign in</a>
                 </div>
             </div>
-        </section>
+        </div>
     </div>
+
+
+{{--    <div id="main" class="bg-gradiant-purple authentication-page">--}}
+{{--        <section class="bg-login login_main">--}}
+{{--            <div class="container">--}}
+{{--                <div class="main-flex-box">--}}
+{{--                    <div class="text-box">--}}
+{{--                        <h1>Forgot Password</h1>--}}
+{{--                        <p>--}}
+{{--                            Enter email and click the button to get a link in your <br/>--}}
+
+{{--                            email inbox.--}}
+{{--                        </p>--}}
+{{--                        --}}{{-- success status --}}
+{{--                        @if (session('status'))--}}
+{{--                            <div class="card-alert card green lighten-5 remove_message">--}}
+{{--                                <div class="card-content green-text">--}}
+{{--                                    <p>{{ session('status') }}</p>--}}
+{{--                                </div>--}}
+{{--                                <button type="button" class="close green-text" data-dismiss="alert" aria-label="Close">--}}
+{{--                                    <span aria-hidden="true">×</span>--}}
+{{--                                </button>--}}
+{{--                            </div>--}}
+{{--                        @endif--}}
+{{--                        <form class="login-form" method="POST" action="{{ route('password.email') }}">--}}
+{{--                            @csrf--}}
+{{--                            <div class="login_input">--}}
+{{--                                <div class="input-group">--}}
+{{--                                    <span><img src="{{asset('images/email.svg')}}" alt=""/></span>--}}
+{{--                                    <input id="email" type="email"--}}
+{{--                                           class="form-control @error('email') is-invalid @enderror" name="email"--}}
+{{--                                           value="{{ old('email') }}" placeholder="Email" required autocomplete="off"--}}
+{{--                                           autofocus>--}}
+{{--                                    @error('email')--}}
+{{--                                    <small class="red-text ml-10" role="alert">--}}
+{{--                                        {{ $message }}--}}
+{{--                                    </small>--}}
+
+{{--                                --}}
+{{--                                    @enderror--}}
+{{--                                </div>--}}
+{{--                                <button type="submit"--}}
+{{--                                        class="btn-white">Send--}}
+{{--                                </button>--}}
+{{--                            </div>--}}
+
+{{--                            <div class="login_terms">--}}
+{{--                                <p>Don't have account? <a href="{{route('register')}}">SIGN UP </a></p>--}}
+{{--                            </div>--}}
+{{--                        </form>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </section>--}}
+{{--    </div>--}}
 
 
     {{--    <div id="forgot-password" class="row">--}}

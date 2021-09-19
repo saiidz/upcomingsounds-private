@@ -31,53 +31,70 @@ class PasswordResetLinkController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->wantsJson()) {
+        $request->validate([
+            'email' => 'required|email',
+        ]);
 
-            $input = $request->only('email');
+        // We will send the password reset link to this user. Once we have attempted
+        // to send the link, we will examine the response then see the message we
+        // need to show to the user. Finally, we'll send out a proper response.
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
 
-            $validator = Validator::make($input, [
-                'email' => "required|email"
-            ]);
-
-            if ($validator->fails()) {
-                return sendError($request->wantsJson(), null, $validator->messages(), 'The given data was invalid', 422);
-            }
-
-            // We will send the password reset link to this user. Once we have attempted
-            // to send the link, we will examine the response then see the message we
-            // need to show to the user. Finally, we'll send out a proper response.
-            $status = Password::sendResetLink(
-                $request->only('email')
-            );
-            if($status == Password::RESET_LINK_SENT){
-                return response()->json([
-                    'success' => "We have emailed your password reset link!",
-                ]);
-
-            }else{
-                return response()->json([
-                    'error' => "We can't find a user with that email address.",
-                ]);
-            }
+        return $status == Password::RESET_LINK_SENT
+            ? back()->with('success', __($status))
+            : back()->withInput($request->only('email'))
+                ->withErrors(['email' => __($status)]);
 
 
-        } else {
-            $request->validate([
-                'email' => 'required|email',
-            ]);
-
-            // We will send the password reset link to this user. Once we have attempted
-            // to send the link, we will examine the response then see the message we
-            // need to show to the user. Finally, we'll send out a proper response.
-            $status = Password::sendResetLink(
-                $request->only('email')
-            );
-
-            return $status == Password::RESET_LINK_SENT
-                ? back()->with('status', __($status))
-                : back()->withInput($request->only('email'))
-                    ->withErrors(['email' => __($status)]);
-        }
+//        if ($request->wantsJson()) {
+//
+//            $input = $request->only('email');
+//
+//            $validator = Validator::make($input, [
+//                'email' => "required|email"
+//            ]);
+//
+//            if ($validator->fails()) {
+//                return sendError($request->wantsJson(), null, $validator->messages(), 'The given data was invalid', 422);
+//            }
+//
+//            // We will send the password reset link to this user. Once we have attempted
+//            // to send the link, we will examine the response then see the message we
+//            // need to show to the user. Finally, we'll send out a proper response.
+//            $status = Password::sendResetLink(
+//                $request->only('email')
+//            );
+//            if($status == Password::RESET_LINK_SENT){
+//                return response()->json([
+//                    'success' => "We have emailed your password reset link!",
+//                ]);
+//
+//            }else{
+//                return response()->json([
+//                    'error' => "We can't find a user with that email address.",
+//                ]);
+//            }
+//
+//
+//        } else {
+//            $request->validate([
+//                'email' => 'required|email',
+//            ]);
+//
+//            // We will send the password reset link to this user. Once we have attempted
+//            // to send the link, we will examine the response then see the message we
+//            // need to show to the user. Finally, we'll send out a proper response.
+//            $status = Password::sendResetLink(
+//                $request->only('email')
+//            );
+//
+//            return $status == Password::RESET_LINK_SENT
+//                ? back()->with('status', __($status))
+//                : back()->withInput($request->only('email'))
+//                    ->withErrors(['email' => __($status)]);
+//        }
 
 
     }

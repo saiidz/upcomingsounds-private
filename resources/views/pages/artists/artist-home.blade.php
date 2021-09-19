@@ -175,7 +175,7 @@
                     </div>
                     <div class="learnMore">
                         <a href="{{url('/artists')}}" class="button transparent  tellMeMore">Learn more </a>
-                        <a href="#" class="button default tellMeMore"
+                        <a href="{{url('register')}}" class="button default tellMeMore"
                         >SignUp/ Login</a>
                     </div>
 

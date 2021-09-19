@@ -11,80 +11,121 @@
 
 {{-- page content --}}
 @section('content')
-    <div id="main" class="bg-gradiant-purple authentication-page">
-        <section class="bg-login login_main forget-pass-2">
-            <div class="container">
-                <div class="main-flex-box">
-                    <div class="text-box">
-                        <h1>Reset Password</h1>
-                        <form class="login-form" method="POST" action="{{ route('password.update') }}">
-                            @csrf
-                            <input type="hidden" name="token" value="{{ $request->route('token') }}">
-                            <div class="login_input">
-                                <div class="input-group">
-                                    <span><img src="{{asset('images/email.svg')}}"/></span>
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
-                                           value="{{ $email ?? old('email') }}" placeholder="Email" required autocomplete="email" autofocus>
-                                    @error('email')
-                                        <small class="red-text ml-10" role="alert">
-                                            {{ $message }}
-                                        </small>
-                                    @enderror
-                                </div>
-                                <div class="input-group">
-                                    <span><img src="{{asset('images/password.svg')}}" alt=""/></span>
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
-                                           name="password" placeholder="Password" required autocomplete="new-password">
-                                    @error('password')
-                                    <small class="red-text ml-10" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
-                                    <span
-                                        toggle="#password-field"
-                                        class="show-pas toggle-password"
-                                    ><img
-                                            src="{{asset('images/toggle.svg')}}" alt=""
-                                            class="password-toggle hide"
-                                        />
-
-										<img
-                                            src="{{asset('images/show-pas.svg')}}"
-                                            alt=""
-                                            class="password-toggle show"
-                                        />
-									</span>
-                                </div>
-                                <div class="input-group">
-                                    <span><img src="{{asset('images/password.svg')}}" alt=""/></span>
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required
-                                           placeholder="Password Confirm" autocomplete="new-password">
-
-                                    <span
-                                        toggle="#password-field"
-                                        class="show-pas toggle-password"
-                                    ><img
-                                            src="{{asset('images/toggle.svg')}}"
-                                            alt=""
-                                            class="password-toggle hide"
-                                        />
-
-										<img
-                                            src="{{asset('images/show-pas.svg')}}"
-                                            alt=""
-                                            class="password-toggle show"
-                                        />
-									</span>
-                                </div>
-                                <button type="submit"
-                                        class="btn-white">Login</button>
-                            </div>
-                        </form>
-                    </div>
+    <div class="b-t">
+        <div class="center-block w-xxl w-auto-xs p-y-md text-center">
+            <div class="p-a-md">
+                <div>
+                    <h4>Reset Password</h4>
                 </div>
+                <div id="snackbar"></div>
+                <div id="snackbarError"></div>
+                <form class="login-form" method="POST" action="{{ route('password.update') }}">
+                    @csrf
+                    <input type="hidden" name="token" value="{{ $request->route('token') }}">
+                    <div class="form-group">
+                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
+                               value="{{ $email ?? old('email') }}" placeholder="Email" required autocomplete="email" autofocus>
+                        @error('email')
+                        <small class="red-text ml-10" role="alert">
+                            {{ $message }}
+                        </small>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                               name="password" placeholder="Password" required autocomplete="new-password">
+                        @error('password')
+                        <small class="red-text ml-10" role="alert">
+                            {{ $message }}
+                        </small>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required
+                               placeholder="Password Confirm" autocomplete="new-password">
+                    </div>
+
+                    <button type="submit" class="btn black btn-block p-x-md" >Login</button>
+                </form>
             </div>
-        </section>
+        </div>
     </div>
+
+{{--    <div id="main" class="bg-gradiant-purple authentication-page">--}}
+{{--        <section class="bg-login login_main forget-pass-2">--}}
+{{--            <div class="container">--}}
+{{--                <div class="main-flex-box">--}}
+{{--                    <div class="text-box">--}}
+{{--                        <h1>Reset Password</h1>--}}
+{{--                        <form class="login-form" method="POST" action="{{ route('password.update') }}">--}}
+{{--                            @csrf--}}
+{{--                            <input type="hidden" name="token" value="{{ $request->route('token') }}">--}}
+{{--                            <div class="login_input">--}}
+{{--                                <div class="input-group">--}}
+{{--                                    <span><img src="{{asset('images/email.svg')}}"/></span>--}}
+{{--                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"--}}
+{{--                                           value="{{ $email ?? old('email') }}" placeholder="Email" required autocomplete="email" autofocus>--}}
+{{--                                    @error('email')--}}
+{{--                                        <small class="red-text ml-10" role="alert">--}}
+{{--                                            {{ $message }}--}}
+{{--                                        </small>--}}
+{{--                                    @enderror--}}
+{{--                                </div>--}}
+{{--                                <div class="input-group">--}}
+{{--                                    <span><img src="{{asset('images/password.svg')}}" alt=""/></span>--}}
+{{--                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"--}}
+{{--                                           name="password" placeholder="Password" required autocomplete="new-password">--}}
+{{--                                    @error('password')--}}
+{{--                                    <small class="red-text ml-10" role="alert">--}}
+{{--                                        {{ $message }}--}}
+{{--                                    </small>--}}
+{{--                                    @enderror--}}
+{{--                                    <span--}}
+{{--                                        toggle="#password-field"--}}
+{{--                                        class="show-pas toggle-password"--}}
+{{--                                    ><img--}}
+{{--                                            src="{{asset('images/toggle.svg')}}" alt=""--}}
+{{--                                            class="password-toggle hide"--}}
+{{--                                        />--}}
+
+{{--										<img--}}
+{{--                                            src="{{asset('images/show-pas.svg')}}"--}}
+{{--                                            alt=""--}}
+{{--                                            class="password-toggle show"--}}
+{{--                                        />--}}
+{{--									</span>--}}
+{{--                                </div>--}}
+{{--                                <div class="input-group">--}}
+{{--                                    <span><img src="{{asset('images/password.svg')}}" alt=""/></span>--}}
+{{--                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required--}}
+{{--                                           placeholder="Password Confirm" autocomplete="new-password">--}}
+
+{{--                                    <span--}}
+{{--                                        toggle="#password-field"--}}
+{{--                                        class="show-pas toggle-password"--}}
+{{--                                    ><img--}}
+{{--                                            src="{{asset('images/toggle.svg')}}"--}}
+{{--                                            alt=""--}}
+{{--                                            class="password-toggle hide"--}}
+{{--                                        />--}}
+
+{{--										<img--}}
+{{--                                            src="{{asset('images/show-pas.svg')}}"--}}
+{{--                                            alt=""--}}
+{{--                                            class="password-toggle show"--}}
+{{--                                        />--}}
+{{--									</span>--}}
+{{--                                </div>--}}
+{{--                                <button type="submit"--}}
+{{--                                        class="btn-white">Login</button>--}}
+{{--                            </div>--}}
+{{--                        </form>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </section>--}}
+{{--    </div>--}}
     {{--    <div id="login-page" class="row">--}}
     {{--        <div class="col s12 m6 l4 z-depth-4 card-panel border-radius-6 login-card bg-opacity-8">--}}
     {{--            <form class="login-form" method="POST" action="{{ route('password.update') }}">--}}
