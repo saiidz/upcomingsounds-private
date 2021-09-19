@@ -7,16 +7,20 @@
           href='{{asset('css/custom/custom.css')}}' type='text/css'/>
     <link rel="shortcut icon" sizes="196x196" href="{{asset('images/favicon.png')}}">
     <link rel='stylesheet' id='bootstrap-css'
-          href='{{asset('wp-content/themes/sanjose/assets/css/bootstrap.min6619.css?ver=5.2.5')}}' type='text/css' media='all'/>
+          href='{{asset('wp-content/themes/sanjose/assets/css/bootstrap.min6619.css?ver=5.2.5')}}' type='text/css'
+          media='all'/>
 
     <link rel='stylesheet' id='sanjose-custom-spacing-css'
-          href='{{asset('wp-content/themes/sanjose/assets/css/custom-spacing6619.css?ver=5.2.5')}}' type='text/css' media='all'/>
+          href='{{asset('wp-content/themes/sanjose/assets/css/custom-spacing6619.css?ver=5.2.5')}}' type='text/css'
+          media='all'/>
 
-    <link rel='stylesheet' id='sanjose-theme-css' href='{{asset('wp-content/themes/sanjose/assets/css/styles6619.css?ver=5.2.5')}}'
+    <link rel='stylesheet' id='sanjose-theme-css'
+          href='{{asset('wp-content/themes/sanjose/assets/css/styles6619.css?ver=5.2.5')}}'
           type='text/css' media='all'/>
 
     <link rel='stylesheet' id='js_composer_front-css'
-          href='{{asset('wp-content/plugins/js_composer/assets/css/js_composer.min24b2.css?ver=5.5.5')}}' type='text/css'
+          href='{{asset('wp-content/plugins/js_composer/assets/css/js_composer.min24b2.css?ver=5.5.5')}}'
+          type='text/css'
           media='all'/>
 </head>
 <body>
@@ -41,14 +45,20 @@
                                     data-v-016dc5dc data-v-6f53582b>
           On Groover, the music curators and professionals listen to your track for real. They finally give you feedback and make every effort to give exposure to the artists they have a crush on!
         </span>
-                                <div class="buttonWrapper tw-m-auto 600:tw-m-0" data-v-6f53582b id="upClick">
-                                    <a href="#" class="button transparent learn_more tellMeMore">Tell me more </a>
-{{--                                    <button tabindex="0"  class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e--}}
-{{--                                            data-v-6f53582b>--}}
-{{--                                            <div class="btnText textCOlor"  data-v-27387d44 data-v-a87ce58e>--}}
-{{--                                                Tell me more--}}
-{{--                                            </div>--}}
-{{--                                    </button>--}}
+                                <div class="buttonWrapper tw-m-auto 600:tw-m-0" data-v-6f53582b  style="display: flex;">
+                                    <div id="upClick">
+                                        <a href="#" class="button transparent learn_more tellMeMore">Tell me more </a>
+                                    </div>
+                                    <div id="SendMyMusic">
+                                        <a href="#" class="button transparent learn_more tellMeMore">Send my music </a>
+                                    </div>
+{{--                                    <a href="#" class="button transparent learn_more tellMeMore">Send my music </a>--}}
+                                    {{--                                    <button tabindex="0"  class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e--}}
+                                    {{--                                            data-v-6f53582b>--}}
+                                    {{--                                            <div class="btnText textCOlor"  data-v-27387d44 data-v-a87ce58e>--}}
+                                    {{--                                                Tell me more--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                    </button>--}}
                                 </div>
                             </div>
                             <div class="imageDesktopContainer tw-hidden 600:tw-block" data-v-6f53582b>
@@ -111,22 +121,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="btnWrapper btnWrapTopSpacing bottomSpacing" data-v-69b657ff data-v-6aa5a2f4>
-                    <a href="#" class="button transparent learn_more tellMeMore">Send my music </a>
-{{--                    <button tabindex="0" class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>--}}
-{{--                        <div class="btnText" data-v-27387d44 data-v-a87ce58e>--}}
-{{--                            <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Send my music</div>--}}
-{{--                        </div>--}}
-{{--                    </button>--}}
-                    <div data-v-69b657ff>
-                        <a href="#" class="button transparent learn_more tellMeMore">How it works </a>
-{{--                        <button tabindex="0" class="btn outlined tellMeMore" data-v-27387d44 data-v-e29b8620 data-v-69b657ff>--}}
-{{--                            <div class="btnText" data-v-27387d44 data-v-e29b8620>--}}
-{{--                                <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>How it works</div>--}}
-{{--                            </div>--}}
-{{--                        </button>--}}
-                    </div>
-                </div>
+{{--                <div class="btnWrapper btnWrapTopSpacing bottomSpacing" data-v-69b657ff data-v-6aa5a2f4>--}}
+{{--                    <a href="#" class="button transparent learn_more tellMeMore">Send my music </a>--}}
+{{--                    --}}{{--                    <button tabindex="0" class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>--}}
+{{--                    --}}{{--                        <div class="btnText" data-v-27387d44 data-v-a87ce58e>--}}
+{{--                    --}}{{--                            <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Send my music</div>--}}
+{{--                    --}}{{--                        </div>--}}
+{{--                    --}}{{--                    </button>--}}
+{{--                    <div data-v-69b657ff>--}}
+{{--                        <a href="#" class="button transparent learn_more tellMeMore">How it works </a>--}}
+{{--                        --}}{{--                        <button tabindex="0" class="btn outlined tellMeMore" data-v-27387d44 data-v-e29b8620 data-v-69b657ff>--}}
+{{--                        --}}{{--                            <div class="btnText" data-v-27387d44 data-v-e29b8620>--}}
+{{--                        --}}{{--                                <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>How it works</div>--}}
+{{--                        --}}{{--                            </div>--}}
+{{--                        --}}{{--                        </button>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
                 {{-- Send Your music --}}
                 <div class="mm-slideout">
@@ -136,16 +146,33 @@
                             <div class="no-padd-right wpb_column vc_column_container vc_col-sm-4  padding-lg-35t">
                                 <div class="vc_column-inner ">
                                     <div class="wpb_wrapper">
-                                        <div class="sanjose-text custom-size text-left submit_music"><h2>Submit <i>your</i> music</h2>
-                                            <div><p>The playlist is the most powerful medium in music. Streaming music companies
+                                        <div class="sanjose-text custom-size text-left submit_music"><h2>Submit
+                                                <i>your</i> music</h2>
+                                            <div><p>The playlist is the most powerful medium in music. Streaming music
+                                                    companies
                                                     spend
-                                                    millions developing algorithms and hiring teams of curators to create them,
+                                                    millions developing algorithms and hiring teams of curators to
+                                                    create them,
                                                     millions of
                                                     people tap play on them each day.</p>
-                                                <p>We get your music heard by independent music curators that manage playlists on
-                                                    multiple streaming services like Spotify, Youtube, Apple music and others.</p>
+                                                <p>We get your music heard by independent music curators that manage
+                                                    playlists on
+                                                    multiple streaming services like Spotify, Youtube, Apple music and
+                                                    others.</p>
                                             </div>
-                                            <a href="#" class="button transparent learn_more tellMeMore" data-color="">Apply for Campaign</a></div>
+                                            {{--                                            <a href="#" class="button transparent learn_more tellMeMore" data-color="">Apply for Campaign</a>--}}
+                                            <div class="btnWrapper btnWrapTopSpacing bottomSpacing" data-v-69b657ff
+                                                 data-v-6aa5a2f4>
+                                                <div id="howItsWork">
+                                                    <a href="#" class="button transparent learn_more tellMeMore">How it works </a>
+                                                </div>
+
+                                                <div data-v-69b657ff>
+                                                    <a href="#" class="button transparent learn_more tellMeMore">Apply
+                                                        for Campaign </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -169,7 +196,8 @@
                                         <div class="featured-block text-left   default">
                                             <div class="icon"><i class="icon-info-8"></i></div>
                                             <h6 class="title">Detailed report</h6>
-                                            <div class="desc"><p>See who added your song, their total reach/followers and how much
+                                            <div class="desc"><p>See who added your song, their total reach/followers
+                                                    and how much
                                                     popularity your song gained during the campaign.</p></div>
                                         </div>
                                     </div>
@@ -186,14 +214,16 @@
                                         <div class="featured-block text-left   default">
                                             <div class="icon"><i class="icon-info-9"></i></div>
                                             <h6 class="title">Flex pricing</h6>
-                                            <div class="desc"><p>Whether you make pop music or are an instrumental pianist, you only
+                                            <div class="desc"><p>Whether you make pop music or are an instrumental
+                                                    pianist, you only
                                                     pay
                                                     to reach the curators that will dig your music.</p></div>
                                         </div>
                                         <div class="featured-block text-left   default">
                                             <div class="icon"><i class="icon-info-12"></i></div>
                                             <h6 class="title">ARTISTS &amp; LABELS</h6>
-                                            <div class="desc"><p>In addition to serving thousands of independent artists, we run
+                                            <div class="desc"><p>In addition to serving thousands of independent
+                                                    artists, we run
                                                     campaigns for artists on Def Jam and Atlantic Records.</p></div>
                                         </div>
                                     </div>
@@ -204,6 +234,209 @@
                     </div>
                 </div>
                 {{-- Send Your music --}}
+
+
+                {{-- How it works --}}
+                <span id="howitworks"
+                      class="text tw-block tw-text-center tw-mx-auto mainTitleComponent tw-w-full titleBottomSpacing"
+                      data-v-9670100e data-v-6aa5a2f4><span data-v-9670100e data-v-6aa5a2f4>How does<br
+                            class='600:tw-hidden'/> it work?</span></span>
+                {{--                <div class="videoPresentationContainer offsettedBackground" data-v-6aa5a2f4>--}}
+                {{--                    <div class="mainComponentWrapper" data-v-65ef82aa data-v-6aa5a2f4>--}}
+                {{--                        <div class="clickables" data-v-65ef82aa>--}}
+                {{--                            <div--}}
+                {{--                                class="tw-w-full tw-relative tw-grid tw-grid-cols-1 tw-gap-4 md:tw-gap-6 tw-mb-6 md:tw-mb-10"--}}
+                {{--                                data-v-65ef82aa>--}}
+                {{--                                <div class="tw-flex tw-flex-row tw-w-full tw-cursor-pointer" data-v-65ef82aa>--}}
+                {{--                                    <div--}}
+                {{--                                        class="tw-h-auto tw-rounded-full tw-w-1 tw-bg-orange-500 tw-bg-opacity-25 tw-relative tw-mr-4 tw-flex-shrink-0 progressBar"--}}
+                {{--                                        data-v-65ef82aa>--}}
+                {{--                                        <div--}}
+                {{--                                            class="tw-absolute tw-top-0 tw-left-0 tw-rounded-full tw-w-full tw-bg-orange-500 tw-transition-all tw-duration-150"--}}
+                {{--                                            style="height:0%;" data-v-65ef82aa data-v-65ef82aa></div>--}}
+                {{--                                    </div>--}}
+                {{--                                    <div class="tw-flex tw-justify-start tw-items-start tw-w-full" data-v-65ef82aa><span--}}
+                {{--                                            class="text tw-w-5 tw-block tw-mr-2 tw-flex-shrink-0" data-v-3862dafe--}}
+                {{--                                            data-v-65ef82aa>--}}
+                {{--            1.--}}
+                {{--          </span> <span class="text tw-w-full tw-inline-block tw-text-center" data-v-456eebce data-v-65ef82aa>--}}
+                {{--            Add your track--}}
+                {{--          </span></div>--}}
+                {{--                                </div>--}}
+                {{--                                <div class="tw-flex tw-flex-row tw-w-full tw-cursor-pointer" data-v-65ef82aa>--}}
+                {{--                                    <div--}}
+                {{--                                        class="tw-h-auto tw-rounded-full tw-w-1 tw-bg-orange-500 tw-bg-opacity-25 tw-relative tw-mr-4 tw-flex-shrink-0 progressBar"--}}
+                {{--                                        data-v-65ef82aa><!----></div>--}}
+                {{--                                    <div class="tw-flex tw-justify-start tw-items-start tw-w-full notCurrentVideo"--}}
+                {{--                                         data-v-65ef82aa><span class="text tw-w-5 tw-block tw-mr-2 tw-flex-shrink-0"--}}
+                {{--                                                               data-v-3862dafe data-v-65ef82aa>--}}
+                {{--            2.--}}
+                {{--          </span> <span class="text tw-w-full tw-inline-block" data-v-456eebce data-v-65ef82aa>--}}
+                {{--            Select the curators, radios and music professionals of your choice--}}
+                {{--          </span></div>--}}
+                {{--                                </div>--}}
+                {{--                                <div class="tw-flex tw-flex-row tw-w-full tw-cursor-pointer" data-v-65ef82aa>--}}
+                {{--                                    <div--}}
+                {{--                                        class="tw-h-auto tw-rounded-full tw-w-1 tw-bg-orange-500 tw-bg-opacity-25 tw-relative tw-mr-4 tw-flex-shrink-0 progressBar"--}}
+                {{--                                        data-v-65ef82aa><!----></div>--}}
+                {{--                                    <div class="tw-flex tw-justify-start tw-items-start tw-w-full notCurrentVideo"--}}
+                {{--                                         data-v-65ef82aa><span class="text tw-w-5 tw-block tw-mr-2 tw-flex-shrink-0"--}}
+                {{--                                                               data-v-3862dafe data-v-65ef82aa>--}}
+                {{--            3.--}}
+                {{--          </span> <span class="text tw-w-full tw-inline-block" data-v-456eebce data-v-65ef82aa>--}}
+                {{--            Personalize your submissions--}}
+                {{--          </span></div>--}}
+                {{--                                </div>--}}
+                {{--                                <div class="tw-flex tw-flex-row tw-w-full tw-cursor-pointer" data-v-65ef82aa>--}}
+                {{--                                    <div--}}
+                {{--                                        class="tw-h-auto tw-rounded-full tw-w-1 tw-bg-orange-500 tw-bg-opacity-25 tw-relative tw-mr-4 tw-flex-shrink-0 progressBar"--}}
+                {{--                                        data-v-65ef82aa><!----></div>--}}
+                {{--                                    <div class="tw-flex tw-justify-start tw-items-start tw-w-full notCurrentVideo"--}}
+                {{--                                         data-v-65ef82aa><span class="text tw-w-5 tw-block tw-mr-2 tw-flex-shrink-0"--}}
+                {{--                                                               data-v-3862dafe data-v-65ef82aa>--}}
+                {{--            4.--}}
+                {{--          </span> <span class="text tw-w-full tw-inline-block" data-v-456eebce data-v-65ef82aa>--}}
+                {{--            Send your track to your selection--}}
+                {{--          </span></div>--}}
+                {{--                                </div>--}}
+                {{--                                <div class="tw-flex tw-flex-row tw-w-full tw-cursor-pointer" data-v-65ef82aa>--}}
+                {{--                                    <div--}}
+                {{--                                        class="tw-h-auto tw-rounded-full tw-w-1 tw-bg-orange-500 tw-bg-opacity-25 tw-relative tw-mr-4 tw-flex-shrink-0 progressBar"--}}
+                {{--                                        data-v-65ef82aa><!----></div>--}}
+                {{--                                    <div class="tw-flex tw-justify-start tw-items-start tw-w-full notCurrentVideo"--}}
+                {{--                                         data-v-65ef82aa><span class="text tw-w-5 tw-block tw-mr-2 tw-flex-shrink-0"--}}
+                {{--                                                               data-v-3862dafe data-v-65ef82aa>--}}
+                {{--            5.--}}
+                {{--          </span> <span class="text tw-w-full tw-inline-block" data-v-456eebce data-v-65ef82aa>--}}
+                {{--            Get valuable feedback and concrete opportunities!--}}
+                {{--          </span></div>--}}
+                {{--                                </div>--}}
+                {{--                            </div>--}}
+                {{--                        </div>--}}
+                {{--                        <div class="tw-w-full tw-relative videoWrapper" data-v-65ef82aa>--}}
+                {{--                            <div data-v-65ef82aa>--}}
+                {{--                                <div class="videoWrapper" data-v-65ef82aa>--}}
+                {{--                                    <div class="tw-w-full tw-relative" style="padding-top:71.14624505928853%;"--}}
+                {{--                                         data-v-65ef82aa>--}}
+                {{--                                        <div class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full">--}}
+                {{--                                            <div class="videoSplitPlayerWrapper tw-shadow" data-v-fd93e73a--}}
+                {{--                                                 data-v-65ef82aa>--}}
+                {{--                                                <video autoplay="autoplay" playsinline="true" muted="muted"--}}
+                {{--                                                       class="tw-w-full">--}}
+                {{--                                                    <source type="video/webm"--}}
+                {{--                                                            src="https://groover.co/media/welcomeVideos/Step1_Desktop_EN.webm">--}}
+                {{--                                                    <source type="video/mp4"--}}
+                {{--                                                            src="https://groover.co/media/welcomeVideos/Step1_Desktop_EN.mp4">--}}
+                {{--                                                </video>--}}
+                {{--                                            </div>--}}
+                {{--                                            <div--}}
+                {{--                                                class="tw-absolute tw-w-full tw-h-full tw-top-0 tw-left-0 loaderContainer"--}}
+                {{--                                                data-v-65ef82aa data-v-65ef82aa>--}}
+                {{--                                                <div--}}
+                {{--                                                    class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-z-50 tw-flex tw-items-center tw-justify-center"--}}
+                {{--                                                    data-v-66e782d0 data-v-66e782d0 data-v-65ef82aa><img--}}
+                {{--                                                        src="../media/loader.gif"--}}
+                {{--                                                        class="tw-block tw-m-auto tw-h-full tw-object-contain tw-object-center"--}}
+                {{--                                                        data-v-66e782d0></div>--}}
+                {{--                                            </div>--}}
+                {{--                                        </div>--}}
+                {{--                                    </div>--}}
+                {{--                                </div>--}}
+                {{--                            </div>--}}
+                {{--                        </div>--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
+                <div class="adjustBg adjustToPagePadding tw-py-6 md:tw-pt-10 lg:tw-py-10" data-v-1ba8feb0
+                     data-v-6aa5a2f4>
+                    <div
+                        class="tw-grid tw-grid-cols-1 tw-gap-4 md:tw-gap-6 md:tw-mx-auto lg:tw-grid-cols-3 tw-w-full mainContainer"
+                        data-v-1ba8feb0>
+                        <div
+                            class="tw-bg-white tw-rounded-sm tw-shadow tw-transition-shadow tw-duration-150 vCardContainer tw-p-0"
+                            data-v-1c424df4 data-v-1ba8feb0><a
+                                href="#"
+                                target="_blank"
+                                class="tw-cursor-pointer tw-flex tw-flex-col tw-justify-between tw-items-center tw-flex-wrap tw-h-full"
+                                data-v-1c424df4 data-v-1ba8feb0>
+                                <div class="tw-p-5 tw-pb-0" data-v-1c424df4 data-v-1ba8feb0>
+                                    <div class="head tw-mb-6 tw-w-full tw-relative" data-v-1c424df4 data-v-1ba8feb0>
+                                        <img
+                                            src="https://groover.co/media/openForAll.svg"
+                                            class="tw-h-full tw-object-contain tw-object-center" data-v-1c424df4
+                                            data-v-1ba8feb0></div>
+                                    <div class="body" data-v-1c424df4 data-v-1ba8feb0><span
+                                            class="text tw-mb-2 tw-block tw-w-full" data-v-456eebce data-v-1ba8feb0>A tool open for all</span>
+                                        <span class="text tw-mb-4 tw-block tw-w-full" data-v-016dc5dc
+                                              data-v-1ba8feb0>
+              Groover is open to all artists and professionals, no matter the state of their current project
+            </span></div>
+                                </div>
+                                <div class="foot tw-p-4 tw-bg-gray-100 tw-text-right tw-w-full" data-v-1c424df4
+                                     data-v-1ba8feb0><span class="text" data-v-1ad422c5
+                                                           data-v-1ba8feb0>More info</span>
+                                    <i
+                                        class="fas fa-arrow-right tw-text-orange-500 tw-ml-1" data-v-1c424df4
+                                        data-v-1ba8feb0></i></div>
+                            </a></div>
+                        <div
+                            class="tw-bg-white tw-rounded-sm tw-shadow tw-transition-shadow tw-duration-150 vCardContainer tw-p-0"
+                            data-v-1c424df4 data-v-1ba8feb0><a
+                                href="#"
+                                target="_blank"
+                                class="tw-cursor-pointer tw-flex tw-flex-col tw-justify-between tw-items-center tw-flex-wrap tw-h-full"
+                                data-v-1c424df4 data-v-1ba8feb0>
+                                <div class="tw-p-5 tw-pb-0" data-v-1c424df4 data-v-1ba8feb0>
+                                    <div class="head tw-mb-6 tw-w-full tw-relative" data-v-1c424df4 data-v-1ba8feb0>
+                                        <img
+                                            src="https://groover.co/media/allTimingsAllowed.svg"
+                                            class="tw-h-full tw-object-contain tw-object-center" data-v-1c424df4
+                                            data-v-1ba8feb0></div>
+                                    <div class="body" data-v-1c424df4 data-v-1ba8feb0><span
+                                            class="text tw-mb-2 tw-block tw-w-full" data-v-456eebce data-v-1ba8feb0>Before, during and after release</span>
+                                        <span class="text tw-mb-4 tw-block tw-w-full" data-v-016dc5dc
+                                              data-v-1ba8feb0>
+              You can send a track at any moment, may it be on release date, before it or after! You can even ask for feedback on an unfinished demo
+            </span></div>
+                                </div>
+                                <div class="foot tw-p-4 tw-bg-gray-100 tw-text-right tw-w-full" data-v-1c424df4
+                                     data-v-1ba8feb0><span class="text" data-v-1ad422c5
+                                                           data-v-1ba8feb0>More info</span>
+                                    <i
+                                        class="fas fa-arrow-right tw-text-orange-500 tw-ml-1" data-v-1c424df4
+                                        data-v-1ba8feb0></i></div>
+                            </a></div>
+                        <div
+                            class="tw-bg-white tw-rounded-sm tw-shadow tw-transition-shadow tw-duration-150 vCardContainer tw-p-0"
+                            data-v-1c424df4 data-v-1ba8feb0><a
+                                href="#"
+                                target="_blank"
+                                class="tw-cursor-pointer tw-flex tw-flex-col tw-justify-between tw-items-center tw-flex-wrap tw-h-full"
+                                data-v-1c424df4 data-v-1ba8feb0>
+                                <div class="tw-p-5 tw-pb-0" data-v-1c424df4 data-v-1ba8feb0>
+                                    <div class="head tw-mb-6 tw-w-full tw-relative" data-v-1c424df4 data-v-1ba8feb0>
+                                        <img
+                                            src="https://groover.co/media/curatedProfessionals.svg"
+                                            class="tw-h-full tw-object-contain tw-object-center" data-v-1c424df4
+                                            data-v-1ba8feb0></div>
+                                    <div class="body" data-v-1c424df4 data-v-1ba8feb0><span
+                                            class="text tw-mb-2 tw-block tw-w-full" data-v-456eebce data-v-1ba8feb0>Get feedback and opportunities from the curators and pros!</span>
+                                        <span class="text tw-mb-4 tw-block tw-w-full" data-v-016dc5dc
+                                              data-v-1ba8feb0>
+              Blogs, radios and curators for promotion, labels and publishers to build up your team, mentors for advice... Find carefully selected music enthusiasts!
+            </span></div>
+                                </div>
+                                <div class="foot tw-p-4 tw-bg-gray-100 tw-text-right tw-w-full" data-v-1c424df4
+                                     data-v-1ba8feb0><span class="text" data-v-1ad422c5
+                                                           data-v-1ba8feb0>More info</span>
+                                    <i
+                                        class="fas fa-arrow-right tw-text-orange-500 tw-ml-1" data-v-1c424df4
+                                        data-v-1ba8feb0></i></div>
+                            </a></div>
+                    </div>
+                </div>
+                {{-- How it works --}}
+
+
 
                 <span id="mediasAndPros"
                       class="text tw-block tw-text-center tw-mx-auto mainTitleComponent tw-w-full tw-pb-10"
@@ -534,236 +767,42 @@
                                           data-v-3fa2478d>Brazil</span></div>
                             </div>
                         </div>
-                        <div class="btnWrapper tw-mt-6 600:tw-mt-10" data-v-69b657ff data-v-edc6e51c style="margin-bottom: 23px;">
-                            <a href="#" class="button transparent learn_more tellMeMore">Discover the 1129 curators and pros </a>
-{{--                            <button tabindex="0" class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>--}}
-{{--                                <div class="btnText" data-v-27387d44 data-v-a87ce58e>--}}
-{{--                                    <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>--}}
-{{--                                        Discover the 1129 curators and pros--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </button>--}}
+                        <div class="btnWrapper tw-mt-6 600:tw-mt-10" data-v-69b657ff data-v-edc6e51c
+                             style="margin-bottom: 23px;">
+                            <a href="#" class="button transparent learn_more tellMeMore">Discover the 1129 curators and
+                                pros </a>
+                            {{--                            <button tabindex="0" class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>--}}
+                            {{--                                <div class="btnText" data-v-27387d44 data-v-a87ce58e>--}}
+                            {{--                                    <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>--}}
+                            {{--                                        Discover the 1129 curators and pros--}}
+                            {{--                                    </div>--}}
+                            {{--                                </div>--}}
+                            {{--                            </button>--}}
                             <a href="#"
                                target="_blank" data-v-69b657ff>
                                 <a href="#" class="button transparent learn_more tellMeMore">Who are the curators / pros
                                     on
                                     Groover? </a>
-{{--                                <button tabindex="0" class="btn outlined tellMeMore" data-v-27387d44 data-v-e29b8620--}}
-{{--                                        data-v-69b657ff>--}}
-{{--                                    <div class="btnText" data-v-27387d44 data-v-e29b8620>--}}
-{{--                                        <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Who are the curators / pros--}}
-{{--                                            on--}}
-{{--                                            Groover?--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </button>--}}
+                                {{--                                <button tabindex="0" class="btn outlined tellMeMore" data-v-27387d44 data-v-e29b8620--}}
+                                {{--                                        data-v-69b657ff>--}}
+                                {{--                                    <div class="btnText" data-v-27387d44 data-v-e29b8620>--}}
+                                {{--                                        <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Who are the curators / pros--}}
+                                {{--                                            on--}}
+                                {{--                                            Groover?--}}
+                                {{--                                        </div>--}}
+                                {{--                                    </div>--}}
+                                {{--                                </button>--}}
                             </a></div>
                     </div>
-                    <span id="howitworks"
-                          class="text tw-block tw-text-center tw-mx-auto mainTitleComponent tw-w-full titleBottomSpacing"
-                          data-v-9670100e data-v-6aa5a2f4><span data-v-9670100e data-v-6aa5a2f4>How does<br
-                                class='600:tw-hidden'/> it work?</span></span>
-                    {{--                <div class="videoPresentationContainer offsettedBackground" data-v-6aa5a2f4>--}}
-                    {{--                    <div class="mainComponentWrapper" data-v-65ef82aa data-v-6aa5a2f4>--}}
-                    {{--                        <div class="clickables" data-v-65ef82aa>--}}
-                    {{--                            <div--}}
-                    {{--                                class="tw-w-full tw-relative tw-grid tw-grid-cols-1 tw-gap-4 md:tw-gap-6 tw-mb-6 md:tw-mb-10"--}}
-                    {{--                                data-v-65ef82aa>--}}
-                    {{--                                <div class="tw-flex tw-flex-row tw-w-full tw-cursor-pointer" data-v-65ef82aa>--}}
-                    {{--                                    <div--}}
-                    {{--                                        class="tw-h-auto tw-rounded-full tw-w-1 tw-bg-orange-500 tw-bg-opacity-25 tw-relative tw-mr-4 tw-flex-shrink-0 progressBar"--}}
-                    {{--                                        data-v-65ef82aa>--}}
-                    {{--                                        <div--}}
-                    {{--                                            class="tw-absolute tw-top-0 tw-left-0 tw-rounded-full tw-w-full tw-bg-orange-500 tw-transition-all tw-duration-150"--}}
-                    {{--                                            style="height:0%;" data-v-65ef82aa data-v-65ef82aa></div>--}}
-                    {{--                                    </div>--}}
-                    {{--                                    <div class="tw-flex tw-justify-start tw-items-start tw-w-full" data-v-65ef82aa><span--}}
-                    {{--                                            class="text tw-w-5 tw-block tw-mr-2 tw-flex-shrink-0" data-v-3862dafe--}}
-                    {{--                                            data-v-65ef82aa>--}}
-                    {{--            1.--}}
-                    {{--          </span> <span class="text tw-w-full tw-inline-block tw-text-center" data-v-456eebce data-v-65ef82aa>--}}
-                    {{--            Add your track--}}
-                    {{--          </span></div>--}}
-                    {{--                                </div>--}}
-                    {{--                                <div class="tw-flex tw-flex-row tw-w-full tw-cursor-pointer" data-v-65ef82aa>--}}
-                    {{--                                    <div--}}
-                    {{--                                        class="tw-h-auto tw-rounded-full tw-w-1 tw-bg-orange-500 tw-bg-opacity-25 tw-relative tw-mr-4 tw-flex-shrink-0 progressBar"--}}
-                    {{--                                        data-v-65ef82aa><!----></div>--}}
-                    {{--                                    <div class="tw-flex tw-justify-start tw-items-start tw-w-full notCurrentVideo"--}}
-                    {{--                                         data-v-65ef82aa><span class="text tw-w-5 tw-block tw-mr-2 tw-flex-shrink-0"--}}
-                    {{--                                                               data-v-3862dafe data-v-65ef82aa>--}}
-                    {{--            2.--}}
-                    {{--          </span> <span class="text tw-w-full tw-inline-block" data-v-456eebce data-v-65ef82aa>--}}
-                    {{--            Select the curators, radios and music professionals of your choice--}}
-                    {{--          </span></div>--}}
-                    {{--                                </div>--}}
-                    {{--                                <div class="tw-flex tw-flex-row tw-w-full tw-cursor-pointer" data-v-65ef82aa>--}}
-                    {{--                                    <div--}}
-                    {{--                                        class="tw-h-auto tw-rounded-full tw-w-1 tw-bg-orange-500 tw-bg-opacity-25 tw-relative tw-mr-4 tw-flex-shrink-0 progressBar"--}}
-                    {{--                                        data-v-65ef82aa><!----></div>--}}
-                    {{--                                    <div class="tw-flex tw-justify-start tw-items-start tw-w-full notCurrentVideo"--}}
-                    {{--                                         data-v-65ef82aa><span class="text tw-w-5 tw-block tw-mr-2 tw-flex-shrink-0"--}}
-                    {{--                                                               data-v-3862dafe data-v-65ef82aa>--}}
-                    {{--            3.--}}
-                    {{--          </span> <span class="text tw-w-full tw-inline-block" data-v-456eebce data-v-65ef82aa>--}}
-                    {{--            Personalize your submissions--}}
-                    {{--          </span></div>--}}
-                    {{--                                </div>--}}
-                    {{--                                <div class="tw-flex tw-flex-row tw-w-full tw-cursor-pointer" data-v-65ef82aa>--}}
-                    {{--                                    <div--}}
-                    {{--                                        class="tw-h-auto tw-rounded-full tw-w-1 tw-bg-orange-500 tw-bg-opacity-25 tw-relative tw-mr-4 tw-flex-shrink-0 progressBar"--}}
-                    {{--                                        data-v-65ef82aa><!----></div>--}}
-                    {{--                                    <div class="tw-flex tw-justify-start tw-items-start tw-w-full notCurrentVideo"--}}
-                    {{--                                         data-v-65ef82aa><span class="text tw-w-5 tw-block tw-mr-2 tw-flex-shrink-0"--}}
-                    {{--                                                               data-v-3862dafe data-v-65ef82aa>--}}
-                    {{--            4.--}}
-                    {{--          </span> <span class="text tw-w-full tw-inline-block" data-v-456eebce data-v-65ef82aa>--}}
-                    {{--            Send your track to your selection--}}
-                    {{--          </span></div>--}}
-                    {{--                                </div>--}}
-                    {{--                                <div class="tw-flex tw-flex-row tw-w-full tw-cursor-pointer" data-v-65ef82aa>--}}
-                    {{--                                    <div--}}
-                    {{--                                        class="tw-h-auto tw-rounded-full tw-w-1 tw-bg-orange-500 tw-bg-opacity-25 tw-relative tw-mr-4 tw-flex-shrink-0 progressBar"--}}
-                    {{--                                        data-v-65ef82aa><!----></div>--}}
-                    {{--                                    <div class="tw-flex tw-justify-start tw-items-start tw-w-full notCurrentVideo"--}}
-                    {{--                                         data-v-65ef82aa><span class="text tw-w-5 tw-block tw-mr-2 tw-flex-shrink-0"--}}
-                    {{--                                                               data-v-3862dafe data-v-65ef82aa>--}}
-                    {{--            5.--}}
-                    {{--          </span> <span class="text tw-w-full tw-inline-block" data-v-456eebce data-v-65ef82aa>--}}
-                    {{--            Get valuable feedback and concrete opportunities!--}}
-                    {{--          </span></div>--}}
-                    {{--                                </div>--}}
-                    {{--                            </div>--}}
-                    {{--                        </div>--}}
-                    {{--                        <div class="tw-w-full tw-relative videoWrapper" data-v-65ef82aa>--}}
-                    {{--                            <div data-v-65ef82aa>--}}
-                    {{--                                <div class="videoWrapper" data-v-65ef82aa>--}}
-                    {{--                                    <div class="tw-w-full tw-relative" style="padding-top:71.14624505928853%;"--}}
-                    {{--                                         data-v-65ef82aa>--}}
-                    {{--                                        <div class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full">--}}
-                    {{--                                            <div class="videoSplitPlayerWrapper tw-shadow" data-v-fd93e73a--}}
-                    {{--                                                 data-v-65ef82aa>--}}
-                    {{--                                                <video autoplay="autoplay" playsinline="true" muted="muted"--}}
-                    {{--                                                       class="tw-w-full">--}}
-                    {{--                                                    <source type="video/webm"--}}
-                    {{--                                                            src="https://groover.co/media/welcomeVideos/Step1_Desktop_EN.webm">--}}
-                    {{--                                                    <source type="video/mp4"--}}
-                    {{--                                                            src="https://groover.co/media/welcomeVideos/Step1_Desktop_EN.mp4">--}}
-                    {{--                                                </video>--}}
-                    {{--                                            </div>--}}
-                    {{--                                            <div--}}
-                    {{--                                                class="tw-absolute tw-w-full tw-h-full tw-top-0 tw-left-0 loaderContainer"--}}
-                    {{--                                                data-v-65ef82aa data-v-65ef82aa>--}}
-                    {{--                                                <div--}}
-                    {{--                                                    class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-z-50 tw-flex tw-items-center tw-justify-center"--}}
-                    {{--                                                    data-v-66e782d0 data-v-66e782d0 data-v-65ef82aa><img--}}
-                    {{--                                                        src="../media/loader.gif"--}}
-                    {{--                                                        class="tw-block tw-m-auto tw-h-full tw-object-contain tw-object-center"--}}
-                    {{--                                                        data-v-66e782d0></div>--}}
-                    {{--                                            </div>--}}
-                    {{--                                        </div>--}}
-                    {{--                                    </div>--}}
-                    {{--                                </div>--}}
-                    {{--                            </div>--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
-                    {{--                </div>--}}
-                    <div class="adjustBg adjustToPagePadding tw-py-6 md:tw-pt-10 lg:tw-py-10" data-v-1ba8feb0
-                         data-v-6aa5a2f4>
-                        <div
-                            class="tw-grid tw-grid-cols-1 tw-gap-4 md:tw-gap-6 md:tw-mx-auto lg:tw-grid-cols-3 tw-w-full mainContainer"
-                            data-v-1ba8feb0>
-                            <div
-                                class="tw-bg-white tw-rounded-sm tw-shadow tw-transition-shadow tw-duration-150 vCardContainer tw-p-0"
-                                data-v-1c424df4 data-v-1ba8feb0><a
-                                    href="#"
-                                    target="_blank"
-                                    class="tw-cursor-pointer tw-flex tw-flex-col tw-justify-between tw-items-center tw-flex-wrap tw-h-full"
-                                    data-v-1c424df4 data-v-1ba8feb0>
-                                    <div class="tw-p-5 tw-pb-0" data-v-1c424df4 data-v-1ba8feb0>
-                                        <div class="head tw-mb-6 tw-w-full tw-relative" data-v-1c424df4 data-v-1ba8feb0>
-                                            <img
-                                                src="https://groover.co/media/openForAll.svg"
-                                                class="tw-h-full tw-object-contain tw-object-center" data-v-1c424df4
-                                                data-v-1ba8feb0></div>
-                                        <div class="body" data-v-1c424df4 data-v-1ba8feb0><span
-                                                class="text tw-mb-2 tw-block tw-w-full" data-v-456eebce data-v-1ba8feb0>A tool open for all</span>
-                                            <span class="text tw-mb-4 tw-block tw-w-full" data-v-016dc5dc
-                                                  data-v-1ba8feb0>
-              Groover is open to all artists and professionals, no matter the state of their current project
-            </span></div>
-                                    </div>
-                                    <div class="foot tw-p-4 tw-bg-gray-100 tw-text-right tw-w-full" data-v-1c424df4
-                                         data-v-1ba8feb0><span class="text" data-v-1ad422c5
-                                                               data-v-1ba8feb0>More info</span>
-                                        <i
-                                            class="fas fa-arrow-right tw-text-orange-500 tw-ml-1" data-v-1c424df4
-                                            data-v-1ba8feb0></i></div>
-                                </a></div>
-                            <div
-                                class="tw-bg-white tw-rounded-sm tw-shadow tw-transition-shadow tw-duration-150 vCardContainer tw-p-0"
-                                data-v-1c424df4 data-v-1ba8feb0><a
-                                    href="#"
-                                    target="_blank"
-                                    class="tw-cursor-pointer tw-flex tw-flex-col tw-justify-between tw-items-center tw-flex-wrap tw-h-full"
-                                    data-v-1c424df4 data-v-1ba8feb0>
-                                    <div class="tw-p-5 tw-pb-0" data-v-1c424df4 data-v-1ba8feb0>
-                                        <div class="head tw-mb-6 tw-w-full tw-relative" data-v-1c424df4 data-v-1ba8feb0>
-                                            <img
-                                                src="https://groover.co/media/allTimingsAllowed.svg"
-                                                class="tw-h-full tw-object-contain tw-object-center" data-v-1c424df4
-                                                data-v-1ba8feb0></div>
-                                        <div class="body" data-v-1c424df4 data-v-1ba8feb0><span
-                                                class="text tw-mb-2 tw-block tw-w-full" data-v-456eebce data-v-1ba8feb0>Before, during and after release</span>
-                                            <span class="text tw-mb-4 tw-block tw-w-full" data-v-016dc5dc
-                                                  data-v-1ba8feb0>
-              You can send a track at any moment, may it be on release date, before it or after! You can even ask for feedback on an unfinished demo
-            </span></div>
-                                    </div>
-                                    <div class="foot tw-p-4 tw-bg-gray-100 tw-text-right tw-w-full" data-v-1c424df4
-                                         data-v-1ba8feb0><span class="text" data-v-1ad422c5
-                                                               data-v-1ba8feb0>More info</span>
-                                        <i
-                                            class="fas fa-arrow-right tw-text-orange-500 tw-ml-1" data-v-1c424df4
-                                            data-v-1ba8feb0></i></div>
-                                </a></div>
-                            <div
-                                class="tw-bg-white tw-rounded-sm tw-shadow tw-transition-shadow tw-duration-150 vCardContainer tw-p-0"
-                                data-v-1c424df4 data-v-1ba8feb0><a
-                                    href="#"
-                                    target="_blank"
-                                    class="tw-cursor-pointer tw-flex tw-flex-col tw-justify-between tw-items-center tw-flex-wrap tw-h-full"
-                                    data-v-1c424df4 data-v-1ba8feb0>
-                                    <div class="tw-p-5 tw-pb-0" data-v-1c424df4 data-v-1ba8feb0>
-                                        <div class="head tw-mb-6 tw-w-full tw-relative" data-v-1c424df4 data-v-1ba8feb0>
-                                            <img
-                                                src="https://groover.co/media/curatedProfessionals.svg"
-                                                class="tw-h-full tw-object-contain tw-object-center" data-v-1c424df4
-                                                data-v-1ba8feb0></div>
-                                        <div class="body" data-v-1c424df4 data-v-1ba8feb0><span
-                                                class="text tw-mb-2 tw-block tw-w-full" data-v-456eebce data-v-1ba8feb0>Get feedback and opportunities from the curators and pros!</span>
-                                            <span class="text tw-mb-4 tw-block tw-w-full" data-v-016dc5dc
-                                                  data-v-1ba8feb0>
-              Blogs, radios and curators for promotion, labels and publishers to build up your team, mentors for advice... Find carefully selected music enthusiasts!
-            </span></div>
-                                    </div>
-                                    <div class="foot tw-p-4 tw-bg-gray-100 tw-text-right tw-w-full" data-v-1c424df4
-                                         data-v-1ba8feb0><span class="text" data-v-1ad422c5
-                                                               data-v-1ba8feb0>More info</span>
-                                        <i
-                                            class="fas fa-arrow-right tw-text-orange-500 tw-ml-1" data-v-1c424df4
-                                            data-v-1ba8feb0></i></div>
-                                </a></div>
-                        </div>
-                    </div>
-                    <div class="btnWrapper btnWrapTopSpacing bottomSpacing" data-v-69b657ff data-v-6aa5a2f4>
-                        <a href="#" class="button transparent learn_more tellMeMore">Try Groover Now</a>
-{{--                        <button tabindex="0" class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>--}}
-{{--                            <div class="btnText" data-v-27387d44 data-v-a87ce58e>--}}
-{{--                                <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Try Groover Now</div>--}}
-{{--                            </div>--}}
-{{--                        </button> --}}
-                        <!----></div>
+
+{{--                    <div class="btnWrapper btnWrapTopSpacing bottomSpacing" data-v-69b657ff data-v-6aa5a2f4>--}}
+{{--                        <a href="#" class="button transparent learn_more tellMeMore">Try Groover Now</a>--}}
+{{--                    --}}{{--                        <button tabindex="0" class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>--}}
+{{--                    --}}{{--                            <div class="btnText" data-v-27387d44 data-v-a87ce58e>--}}
+{{--                    --}}{{--                                <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Try Groover Now</div>--}}
+{{--                    --}}{{--                            </div>--}}
+{{--                    --}}{{--                        </button> --}}
+{{--                    <!----></div>--}}
                     <div id="landingPricing" class="upDownSpacer" data-v-6aa5a2f4><span
                             class="text tw-block tw-text-center tw-mx-auto mainTitleComponent tw-w-full tw-pb-6 sm:tw-pb-10"
                             data-v-9670100e data-v-6aa5a2f4>
@@ -812,20 +851,20 @@
     </span></div>
                             <div class="btnWrapper tw-my-6 600:tw-my-10" data-v-69b657ff data-v-39f43f18>
                                 <a href="#" class="button transparent learn_more tellMeMore">Send my music</a>
-{{--                                <button tabindex="0" class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>--}}
-{{--                                    <div class="btnText" data-v-27387d44 data-v-a87ce58e>--}}
-{{--                                        <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Send my music</div>--}}
-{{--                                    </div>--}}
-{{--                                </button>--}}
+                                {{--                                <button tabindex="0" class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>--}}
+                                {{--                                    <div class="btnText" data-v-27387d44 data-v-a87ce58e>--}}
+                                {{--                                        <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Send my music</div>--}}
+                                {{--                                    </div>--}}
+                                {{--                                </button>--}}
                                 <a href="#"
                                    target="_new" class="button transparent learn_more tellMeMore" data-v-69b657ff>
                                     More info
-{{--                                    <button tabindex="0" class="btn outlined tellMeMore" data-v-27387d44 data-v-e29b8620--}}
-{{--                                            data-v-69b657ff>--}}
-{{--                                        <div class="btnText" data-v-27387d44 data-v-e29b8620>--}}
-{{--                                            <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>More info</div>--}}
-{{--                                        </div>--}}
-{{--                                    </button>--}}
+                                    {{--                                    <button tabindex="0" class="btn outlined tellMeMore" data-v-27387d44 data-v-e29b8620--}}
+                                    {{--                                            data-v-69b657ff>--}}
+                                    {{--                                        <div class="btnText" data-v-27387d44 data-v-e29b8620>--}}
+                                    {{--                                            <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>More info</div>--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                    </button>--}}
                                 </a></div>
                         </div>
                     </div>
@@ -838,8 +877,8 @@
                         <div class="tw-w-full tw-relative" data-v-dd9dd3ba data-v-6aa5a2f4>
                             <div id="indexInfluencerReferencesParent"
                                  class="outerScroller tw-overflow-y-auto lg:tw-overflow-hidden" data-v-dd9dd3ba>
-{{--                                <i--}}
-{{--                                    class="fas fa-chevron-left arrow" data-v-dd9dd3ba></i>--}}
+                                {{--                                <i--}}
+                                {{--                                    class="fas fa-chevron-left arrow" data-v-dd9dd3ba></i>--}}
                                 <div id="indexInfluencerReferencesChild" class="scroller"
                                      style="transform:translateX(0px);"
                                      data-v-dd9dd3ba>
@@ -1205,165 +1244,173 @@
                                     </div>
                                     <div class="filler tw-flex-shrink-0 lg:tw-hidden" data-v-dd9dd3ba></div>
                                 </div>
-{{--                                <i class="fas fa-chevron-right arrow tw-hidden lg:tw-block" data-v-dd9dd3ba></i></div>--}}
-                        </div>
-                        <div class="btnWrapper btnWrapTopSpacing" data-v-69b657ff data-v-6aa5a2f4>
-                            <a href="#" class="button transparent learn_more tellMeMore">Promote my music </a>
-{{--                            <button tabindex="0" class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>--}}
-{{--                                <div class="btnText" data-v-27387d44 data-v-a87ce58e>--}}
-{{--                                    <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Promote my music</div>--}}
-{{--                                </div>--}}
-{{--                            </button>--}}
+                                {{--                                <i class="fas fa-chevron-right arrow tw-hidden lg:tw-block" data-v-dd9dd3ba></i></div>--}}
+                            </div>
+                            <div class="btnWrapper btnWrapTopSpacing" data-v-69b657ff data-v-6aa5a2f4>
+                                <a href="#" class="button transparent learn_more tellMeMore">Promote my music </a>
+                            {{--                            <button tabindex="0" class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>--}}
+                            {{--                                <div class="btnText" data-v-27387d44 data-v-a87ce58e>--}}
+                            {{--                                    <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Promote my music</div>--}}
+                            {{--                                </div>--}}
+                            {{--                            </button>--}}
                             <!----></div>
-                    </div>
-                        <br>
-                    <div data-v-6aa5a2f4><span
-                            class="text tw-block tw-text-center tw-mx-auto mainTitleComponent tw-w-full tw-mb-5"
-                            data-v-9670100e data-v-6aa5a2f4><span data-v-9670100e data-v-6aa5a2f4>Their careers<br
-                                    class='sm:tw-hidden'/> are taking off<br
-                                    class='tw-hidden sm:tw-block'/> thanks to<br
-                                    class='sm:tw-hidden'/> Groover</span></span>
-                        <div class="successStoriesContainer offsettedBackground" data-v-6aa5a2f4>
-                            <div class="tw-relative tw-w-full" data-v-1ffacd51 data-v-6aa5a2f4><a
-                                    href="#" target="_blank"
-                                    rel="noopener noreferrer" data-v-1ffacd51><!----></a> <!---->
-                                <div class="tw-relative tw-overflow-x-auto noScrollbar" data-v-1ffacd51>
-                                    <div class="absoluteWrap leftPadAjust rightPadAjust" data-v-1ffacd51>
-                                        <div class="cardArea tw-px-0 tw-py-6 lg:tw-py-10 baseGridGap noAdditionalCard"
-                                             data-v-1ffacd51>
-                                            <div class="tw-relative tw-w-full" data-v-32f4ecbe data-v-1ffacd51>
-                                                <div
-                                                    class="tw-w-full tw-rounded tw-bg-white tw-shadow tw-transition-shadow tw-ease-out tw-duration-100 hover:tw-shadow-hover tw-h-full"
-                                                    data-v-32f4ecbe>
-                                                    <div class="tw-w-full tw-relative"
-                                                         style="padding-top:66.66666666666666%;" data-v-32f4ecbe>
-                                                        <div class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full">
-                                                            <a
-                                                                href="#"
-                                                                target="_blank"
-                                                                class="tw-h-full tw-w-full tw-relative tw-block"
-                                                                data-v-32f4ecbe><img
-                                                                    src="{{asset('artist/blog.groover.co/wp-content/uploads/2020/07/DOLCHE-wp-1-1.jpg')}}"
-                                                                    class="tw-h-full tw-w-full tw-object-center tw-object-cover"
-                                                                    data-v-32f4ecbe></a></div>
-                                                    </div>
-                                                    <div class="tw-w-full tw-flex tw-flex-col tw-p-5"
-                                                         data-v-32f4ecbe><span
-                                                            class="text clamp tw-mb-2" data-v-2aa41bc4 data-v-32f4ecbe>Dolche (Italy) expands her network globally</span>
-                                                        <span class="text clamp" data-v-07afc3fc data-v-32f4ecbe>&quot;It's a chance to get heard, a great international approach and good vibes!&quot;.</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="tw-relative tw-w-full" data-v-32f4ecbe data-v-1ffacd51>
-                                                <div
-                                                    class="tw-w-full tw-rounded tw-bg-white tw-shadow tw-transition-shadow tw-ease-out tw-duration-100 hover:tw-shadow-hover tw-h-full"
-                                                    data-v-32f4ecbe>
-                                                    <div class="tw-w-full tw-relative"
-                                                         style="padding-top:66.66666666666666%;" data-v-32f4ecbe>
-                                                        <div class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full">
-                                                            <a
-                                                                href="#"
-                                                                target="_blank"
-                                                                class="tw-h-full tw-w-full tw-relative tw-block"
-                                                                data-v-32f4ecbe><img
-                                                                    src="{{asset('artist/blog.groover.co/wp-content/uploads/2020/09/Alec-Wp-1-1.jpg')}}"
-                                                                    class="tw-h-full tw-w-full tw-object-center tw-object-cover"
-                                                                    data-v-32f4ecbe></a></div>
-                                                    </div>
-                                                    <div class="tw-w-full tw-flex tw-flex-col tw-p-5"
-                                                         data-v-32f4ecbe><span
-                                                            class="text clamp tw-mb-2" data-v-2aa41bc4 data-v-32f4ecbe>Álec gets his music in Rolling Stone Brasil</span>
-                                                        <span class="text clamp" data-v-07afc3fc data-v-32f4ecbe>&quot;Groover is a very important platform for artists who need help to get noticed!&quot;.</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="tw-relative tw-w-full" data-v-32f4ecbe data-v-1ffacd51>
-                                                <div
-                                                    class="tw-w-full tw-rounded tw-bg-white tw-shadow tw-transition-shadow tw-ease-out tw-duration-100 hover:tw-shadow-hover tw-h-full"
-                                                    data-v-32f4ecbe>
-                                                    <div class="tw-w-full tw-relative"
-                                                         style="padding-top:66.66666666666666%;" data-v-32f4ecbe>
-                                                        <div class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full">
-                                                            <a
-                                                                href="#"
-                                                                target="_blank"
-                                                                class="tw-h-full tw-w-full tw-relative tw-block"
-                                                                data-v-32f4ecbe><img
-                                                                    src="{{asset('artist/blog.groover.co/wp-content/uploads/2020/11/Tanya-George-Wp-min-1.jpg')}}"
-                                                                    class="tw-h-full tw-w-full tw-object-center tw-object-cover"
-                                                                    data-v-32f4ecbe></a></div>
-                                                    </div>
-                                                    <div class="tw-w-full tw-flex tw-flex-col tw-p-5"
-                                                         data-v-32f4ecbe><span
-                                                            class="text clamp tw-mb-2" data-v-2aa41bc4 data-v-32f4ecbe>Tanya George (Australia) exports her music to Europe</span>
-                                                        <span class="text clamp" data-v-07afc3fc data-v-32f4ecbe>&quot;I was able to connect with reviewers, playlists and people from overseas and new audiences!&quot;.</span>
-                                                    </div>
-                                                </div>
-                                            </div> <!----></div>
-                                    </div>
-                                </div> <!----></div>
                         </div>
-                        <div class="btnWrapper btnWrapTopSpacing bottomSpacing" data-v-69b657ff data-v-6aa5a2f4>
-                            <a href="#" class="button transparent learn_more tellMeMore">Promote my music</a>
-{{--                            <button tabindex="0" class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>--}}
-{{--                                <div class="btnText" data-v-27387d44 data-v-a87ce58e>--}}
-{{--                                    <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Promote my music</div>--}}
-{{--                                </div>--}}
-{{--                            </button>--}}
-                            <a href="#" target="_new"
-                               data-v-69b657ff class="button transparent learn_more tellMeMore">
-                                Read all Groover success stories
-{{--                                <button tabindex="0" class="btn outlined tellMeMore" data-v-27387d44 data-v-e29b8620--}}
-{{--                                        data-v-69b657ff>--}}
-{{--                                    <div class="btnText" data-v-27387d44 data-v-e29b8620>--}}
-{{--                                        <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Read all Groover success--}}
-{{--                                            stories--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </button>--}}
-                            </a></div>
-                    </div>
-                    <div class="upDownSpacer" data-v-6aa5a2f4><span
-                            class="text tw-block tw-text-center tw-mx-auto mainTitleComponent tw-w-full tw-pb-6 sm:tw-pb-10"
-                            data-v-9670100e data-v-6aa5a2f4>
+                        <br>
+                        <div data-v-6aa5a2f4><span
+                                class="text tw-block tw-text-center tw-mx-auto mainTitleComponent tw-w-full tw-mb-5"
+                                data-v-9670100e data-v-6aa5a2f4><span data-v-9670100e data-v-6aa5a2f4>Their careers<br
+                                        class='sm:tw-hidden'/> are taking off<br
+                                        class='tw-hidden sm:tw-block'/> thanks to<br
+                                        class='sm:tw-hidden'/> Groover</span></span>
+                            <div class="successStoriesContainer offsettedBackground" data-v-6aa5a2f4>
+                                <div class="tw-relative tw-w-full" data-v-1ffacd51 data-v-6aa5a2f4><a
+                                        href="#" target="_blank"
+                                        rel="noopener noreferrer" data-v-1ffacd51><!----></a> <!---->
+                                    <div class="tw-relative tw-overflow-x-auto noScrollbar" data-v-1ffacd51>
+                                        <div class="absoluteWrap leftPadAjust rightPadAjust" data-v-1ffacd51>
+                                            <div
+                                                class="cardArea tw-px-0 tw-py-6 lg:tw-py-10 baseGridGap noAdditionalCard"
+                                                data-v-1ffacd51>
+                                                <div class="tw-relative tw-w-full" data-v-32f4ecbe data-v-1ffacd51>
+                                                    <div
+                                                        class="tw-w-full tw-rounded tw-bg-white tw-shadow tw-transition-shadow tw-ease-out tw-duration-100 hover:tw-shadow-hover tw-h-full"
+                                                        data-v-32f4ecbe>
+                                                        <div class="tw-w-full tw-relative"
+                                                             style="padding-top:66.66666666666666%;" data-v-32f4ecbe>
+                                                            <div
+                                                                class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full">
+                                                                <a
+                                                                    href="#"
+                                                                    target="_blank"
+                                                                    class="tw-h-full tw-w-full tw-relative tw-block"
+                                                                    data-v-32f4ecbe><img
+                                                                        src="{{asset('artist/blog.groover.co/wp-content/uploads/2020/07/DOLCHE-wp-1-1.jpg')}}"
+                                                                        class="tw-h-full tw-w-full tw-object-center tw-object-cover"
+                                                                        data-v-32f4ecbe></a></div>
+                                                        </div>
+                                                        <div class="tw-w-full tw-flex tw-flex-col tw-p-5"
+                                                             data-v-32f4ecbe><span
+                                                                class="text clamp tw-mb-2" data-v-2aa41bc4
+                                                                data-v-32f4ecbe>Dolche (Italy) expands her network globally</span>
+                                                            <span class="text clamp" data-v-07afc3fc data-v-32f4ecbe>&quot;It's a chance to get heard, a great international approach and good vibes!&quot;.</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tw-relative tw-w-full" data-v-32f4ecbe data-v-1ffacd51>
+                                                    <div
+                                                        class="tw-w-full tw-rounded tw-bg-white tw-shadow tw-transition-shadow tw-ease-out tw-duration-100 hover:tw-shadow-hover tw-h-full"
+                                                        data-v-32f4ecbe>
+                                                        <div class="tw-w-full tw-relative"
+                                                             style="padding-top:66.66666666666666%;" data-v-32f4ecbe>
+                                                            <div
+                                                                class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full">
+                                                                <a
+                                                                    href="#"
+                                                                    target="_blank"
+                                                                    class="tw-h-full tw-w-full tw-relative tw-block"
+                                                                    data-v-32f4ecbe><img
+                                                                        src="{{asset('artist/blog.groover.co/wp-content/uploads/2020/09/Alec-Wp-1-1.jpg')}}"
+                                                                        class="tw-h-full tw-w-full tw-object-center tw-object-cover"
+                                                                        data-v-32f4ecbe></a></div>
+                                                        </div>
+                                                        <div class="tw-w-full tw-flex tw-flex-col tw-p-5"
+                                                             data-v-32f4ecbe><span
+                                                                class="text clamp tw-mb-2" data-v-2aa41bc4
+                                                                data-v-32f4ecbe>Álec gets his music in Rolling Stone Brasil</span>
+                                                            <span class="text clamp" data-v-07afc3fc data-v-32f4ecbe>&quot;Groover is a very important platform for artists who need help to get noticed!&quot;.</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tw-relative tw-w-full" data-v-32f4ecbe data-v-1ffacd51>
+                                                    <div
+                                                        class="tw-w-full tw-rounded tw-bg-white tw-shadow tw-transition-shadow tw-ease-out tw-duration-100 hover:tw-shadow-hover tw-h-full"
+                                                        data-v-32f4ecbe>
+                                                        <div class="tw-w-full tw-relative"
+                                                             style="padding-top:66.66666666666666%;" data-v-32f4ecbe>
+                                                            <div
+                                                                class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full">
+                                                                <a
+                                                                    href="#"
+                                                                    target="_blank"
+                                                                    class="tw-h-full tw-w-full tw-relative tw-block"
+                                                                    data-v-32f4ecbe><img
+                                                                        src="{{asset('artist/blog.groover.co/wp-content/uploads/2020/11/Tanya-George-Wp-min-1.jpg')}}"
+                                                                        class="tw-h-full tw-w-full tw-object-center tw-object-cover"
+                                                                        data-v-32f4ecbe></a></div>
+                                                        </div>
+                                                        <div class="tw-w-full tw-flex tw-flex-col tw-p-5"
+                                                             data-v-32f4ecbe><span
+                                                                class="text clamp tw-mb-2" data-v-2aa41bc4
+                                                                data-v-32f4ecbe>Tanya George (Australia) exports her music to Europe</span>
+                                                            <span class="text clamp" data-v-07afc3fc data-v-32f4ecbe>&quot;I was able to connect with reviewers, playlists and people from overseas and new audiences!&quot;.</span>
+                                                        </div>
+                                                    </div>
+                                                </div> <!----></div>
+                                        </div>
+                                    </div> <!----></div>
+                            </div>
+                            <div class="btnWrapper btnWrapTopSpacing bottomSpacing" data-v-69b657ff data-v-6aa5a2f4>
+                                <a href="#" class="button transparent learn_more tellMeMore">Promote my music</a>
+                                {{--                            <button tabindex="0" class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>--}}
+                                {{--                                <div class="btnText" data-v-27387d44 data-v-a87ce58e>--}}
+                                {{--                                    <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Promote my music</div>--}}
+                                {{--                                </div>--}}
+                                {{--                            </button>--}}
+                                <a href="#" target="_new"
+                                   data-v-69b657ff class="button transparent learn_more tellMeMore">
+                                    Read all Groover success stories
+                                    {{--                                <button tabindex="0" class="btn outlined tellMeMore" data-v-27387d44 data-v-e29b8620--}}
+                                    {{--                                        data-v-69b657ff>--}}
+                                    {{--                                    <div class="btnText" data-v-27387d44 data-v-e29b8620>--}}
+                                    {{--                                        <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Read all Groover success--}}
+                                    {{--                                            stories--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                    </div>--}}
+                                    {{--                                </button>--}}
+                                </a></div>
+                        </div>
+                        <div class="upDownSpacer" data-v-6aa5a2f4><span
+                                class="text tw-block tw-text-center tw-mx-auto mainTitleComponent tw-w-full tw-pb-6 sm:tw-pb-10"
+                                data-v-9670100e data-v-6aa5a2f4>
       Serving artists<br data-v-9670100e data-v-6aa5a2f4>
       every day
     </span>
-                        <div id="ignoreFontUpscale"
-                             class="ignoreFontUpscale tw-text-center 600:tw-text-left mainParentContainer"
-                             data-v-d883c7e6
-                             data-v-6aa5a2f4>
-                            <div
-                                class="tw-flex tw-flex-col tw-space-y-6 600:tw-space-y-0 600:tw-grid 600:tw-grid-cols-2 600:tw-gap-4 md:tw-gap-6"
-                                data-v-d883c7e6>
-                                <div data-v-d883c7e6><img
-                                        src="{{asset('artist/groover.co/media/welcomeImages/mission_HD.jpg')}}" alt
-                                        class="tw-w-full tw-h-auto tw-mb-4 tw-rounded-sm tw-shadow-heavy"
-                                        data-v-d883c7e6> <span class="text" data-v-456eebce
-                                                               data-v-d883c7e6>Our mission</span>
-                                    <div class="tw-flex tw-flex-col" data-v-d883c7e6></div>
-                                    <div class="descriptionContainer tw-mt-2 tw-mb-4" data-v-d883c7e6><span
-                                            class="text tw-block" data-v-016dc5dc data-v-d883c7e6>
+                            <div id="ignoreFontUpscale"
+                                 class="ignoreFontUpscale tw-text-center 600:tw-text-left mainParentContainer"
+                                 data-v-d883c7e6
+                                 data-v-6aa5a2f4>
+                                <div
+                                    class="tw-flex tw-flex-col tw-space-y-6 600:tw-space-y-0 600:tw-grid 600:tw-grid-cols-2 600:tw-gap-4 md:tw-gap-6"
+                                    data-v-d883c7e6>
+                                    <div data-v-d883c7e6><img
+                                            src="{{asset('artist/groover.co/media/welcomeImages/mission_HD.jpg')}}" alt
+                                            class="tw-w-full tw-h-auto tw-mb-4 tw-rounded-sm tw-shadow-heavy"
+                                            data-v-d883c7e6> <span class="text" data-v-456eebce
+                                                                   data-v-d883c7e6>Our mission</span>
+                                        <div class="tw-flex tw-flex-col" data-v-d883c7e6></div>
+                                        <div class="descriptionContainer tw-mt-2 tw-mb-4" data-v-d883c7e6><span
+                                                class="text tw-block" data-v-016dc5dc data-v-d883c7e6>
           Empower artists to get their music heard and accelerate their careers
         </span></div>
 
-                                    <a href="#" class="button transparent learn_more tellMeMore" target="_new" data-v-d883c7e6>
-                                        More info
-{{--                                        <div class="buttonWrapper tw-mx-auto 600:tw-mx-0" data-v-d883c7e6>--}}
-{{--                                            <button tabindex="0" class="btn main 375:tw-text-base tellMeMore" data-v-27387d44--}}
-{{--                                                    data-v-a87ce58e data-v-d883c7e6>--}}
-{{--                                                <div class="btnText textCOlor" data-v-27387d44 data-v-a87ce58e>More info</div>--}}
-{{--                                            </button>--}}
-{{--                                        </div>--}}
-                                    </a></div>
-                                <div data-v-d883c7e6><img
-                                        src="{{asset('artist/groover.co/media/welcomeImages/valeurs_HD.jpg')}}" alt
-                                        class="tw-w-full tw-h-auto tw-mb-4 tw-rounded-sm tw-shadow-heavy"
-                                        data-v-d883c7e6> <span class="text" data-v-456eebce
-                                                               data-v-d883c7e6>Our values</span>
-                                    <div class="tw-flex tw-flex-col" data-v-d883c7e6></div>
-                                    <div class="descriptionContainer tw-mt-2 tw-mb-4" data-v-d883c7e6><span
-                                            class="text tw-block" data-v-016dc5dc data-v-d883c7e6>
+                                        <a href="#" class="button transparent learn_more tellMeMore" target="_new"
+                                           data-v-d883c7e6>
+                                            More info
+                                            {{--                                        <div class="buttonWrapper tw-mx-auto 600:tw-mx-0" data-v-d883c7e6>--}}
+                                            {{--                                            <button tabindex="0" class="btn main 375:tw-text-base tellMeMore" data-v-27387d44--}}
+                                            {{--                                                    data-v-a87ce58e data-v-d883c7e6>--}}
+                                            {{--                                                <div class="btnText textCOlor" data-v-27387d44 data-v-a87ce58e>More info</div>--}}
+                                            {{--                                            </button>--}}
+                                            {{--                                        </div>--}}
+                                        </a></div>
+                                    <div data-v-d883c7e6><img
+                                            src="{{asset('artist/groover.co/media/welcomeImages/valeurs_HD.jpg')}}" alt
+                                            class="tw-w-full tw-h-auto tw-mb-4 tw-rounded-sm tw-shadow-heavy"
+                                            data-v-d883c7e6> <span class="text" data-v-456eebce
+                                                                   data-v-d883c7e6>Our values</span>
+                                        <div class="tw-flex tw-flex-col" data-v-d883c7e6></div>
+                                        <div class="descriptionContainer tw-mt-2 tw-mb-4" data-v-d883c7e6><span
+                                                class="text tw-block" data-v-016dc5dc data-v-d883c7e6>
           Give first, speak true
         </span><span class="text tw-block" data-v-016dc5dc data-v-d883c7e6>
           Think about the next step
@@ -1373,161 +1420,172 @@
           Keep learning and progressing
         </span></div>
 
-                                    <a href="#" class="button transparent learn_more tellMeMore" target="_new" data-v-d883c7e6>
-                                        Join us
-{{--                                        <div class="buttonWrapper tw-mx-auto 600:tw-mx-0" data-v-d883c7e6>--}}
-{{--                                            <button tabindex="0" class="btn main 375:tw-text-base tellMeMore" data-v-27387d44--}}
-{{--                                                    data-v-a87ce58e data-v-d883c7e6>--}}
-{{--                                                <div class="btnText textCOlor" data-v-27387d44 data-v-a87ce58e>Join us</div>--}}
-{{--                                            </button>--}}
-{{--                                        </div>--}}
-                                    </a></div>
+                                        <a href="#" class="button transparent learn_more tellMeMore" target="_new"
+                                           data-v-d883c7e6>
+                                            Join us
+                                            {{--                                        <div class="buttonWrapper tw-mx-auto 600:tw-mx-0" data-v-d883c7e6>--}}
+                                            {{--                                            <button tabindex="0" class="btn main 375:tw-text-base tellMeMore" data-v-27387d44--}}
+                                            {{--                                                    data-v-a87ce58e data-v-d883c7e6>--}}
+                                            {{--                                                <div class="btnText textCOlor" data-v-27387d44 data-v-a87ce58e>Join us</div>--}}
+                                            {{--                                            </button>--}}
+                                            {{--                                        </div>--}}
+                                        </a></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div data-v-6aa5a2f4>
+                        <div data-v-6aa5a2f4>
                     <span
                         class="text tw-block tw-text-center tw-mx-auto mainTitleComponent tw-w-full tw-mb-5"
                         data-v-9670100e data-v-6aa5a2f4><span data-v-9670100e data-v-6aa5a2f4>Our latest articles:<br/> our best advice<br
                                 class='lg:tw-hidden'/> for musicians</span></span>
-                        <div class="blogContainer offsettedBackground" data-v-6aa5a2f4>
-                            <div class="tw-relative" data-v-0b5152bc data-v-6aa5a2f4><a href="#"
-                                                                                        target="_blank"
-                                                                                        rel="noopener noreferrer"
-                                                                                        data-v-0b5152bc><!----></a>
-                                <!---->
-                                <div class="tw-relative tw-overflow-x-auto noScrollbar" data-v-0b5152bc>
-                                    <div class="absoluteWrap leftPadAjust rightPadAjust" data-v-0b5152bc>
-                                        <div class="cardArea tw-px-0 tw-py-6 lg:tw-py-10 baseGridGap noAdditionalCard"
-                                             data-v-0b5152bc>
-                                            <div class="tw-relative tw-w-full" data-v-b6230746 data-v-0b5152bc>
-                                                <div
-                                                    class="tw-w-full tw-rounded tw-bg-white tw-shadow tw-transition-shadow tw-ease-out tw-duration-100 hover:tw-shadow-hover tw-h-full"
-                                                    data-v-b6230746>
-                                                    <div class="tw-w-full tw-relative"
-                                                         style="padding-top:66.66666666666666%;" data-v-b6230746>
-                                                        <div class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full">
-                                                            <a
-                                                                href="#"
-                                                                target="_blank"
-                                                                class="tw-h-full tw-w-full tw-relative tw-block"
-                                                                data-v-b6230746><img
-                                                                    src="{{asset('artist/blog.groover.co/wp-content/uploads/2020/11/Budget-promo-EN-Wp-min-1.jpg')}}"
-                                                                    class="tw-h-full tw-w-full tw-object-center tw-object-cover"
-                                                                    data-v-b6230746></a></div>
-                                                    </div>
-                                                    <div class="tw-w-full tw-flex tw-flex-col tw-p-5"
-                                                         data-v-b6230746><span
-                                                            class="text clamp tw-mb-2" data-v-2aa41bc4 data-v-b6230746>Promotion: how to choose a budget for your release</span>
-                                                        <span class="text clamp" data-v-07afc3fc data-v-b6230746>Music promotion is the crucial step that follows the production of your music and its distribution on streaming platforms. Music promotion starts when your track/EP/album is ready and its release strategy is prepared. There are great tools to help you in this crucial stage of music promotion- including Groover, which allows you to contact the best media, labels and music industry professionals with the guarantee of a response within 7 days. But one question remains, the one that many musicians and music professionals ask themselves: what kind of budget should you invest in to promote your music?.</span>
+                            <div class="blogContainer offsettedBackground" data-v-6aa5a2f4>
+                                <div class="tw-relative" data-v-0b5152bc data-v-6aa5a2f4><a href="#"
+                                                                                            target="_blank"
+                                                                                            rel="noopener noreferrer"
+                                                                                            data-v-0b5152bc><!----></a>
+                                    <!---->
+                                    <div class="tw-relative tw-overflow-x-auto noScrollbar" data-v-0b5152bc>
+                                        <div class="absoluteWrap leftPadAjust rightPadAjust" data-v-0b5152bc>
+                                            <div
+                                                class="cardArea tw-px-0 tw-py-6 lg:tw-py-10 baseGridGap noAdditionalCard"
+                                                data-v-0b5152bc>
+                                                <div class="tw-relative tw-w-full" data-v-b6230746 data-v-0b5152bc>
+                                                    <div
+                                                        class="tw-w-full tw-rounded tw-bg-white tw-shadow tw-transition-shadow tw-ease-out tw-duration-100 hover:tw-shadow-hover tw-h-full"
+                                                        data-v-b6230746>
+                                                        <div class="tw-w-full tw-relative"
+                                                             style="padding-top:66.66666666666666%;" data-v-b6230746>
+                                                            <div
+                                                                class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full">
+                                                                <a
+                                                                    href="#"
+                                                                    target="_blank"
+                                                                    class="tw-h-full tw-w-full tw-relative tw-block"
+                                                                    data-v-b6230746><img
+                                                                        src="{{asset('artist/blog.groover.co/wp-content/uploads/2020/11/Budget-promo-EN-Wp-min-1.jpg')}}"
+                                                                        class="tw-h-full tw-w-full tw-object-center tw-object-cover"
+                                                                        data-v-b6230746></a></div>
+                                                        </div>
+                                                        <div class="tw-w-full tw-flex tw-flex-col tw-p-5"
+                                                             data-v-b6230746><span
+                                                                class="text clamp tw-mb-2" data-v-2aa41bc4
+                                                                data-v-b6230746>Promotion: how to choose a budget for your release</span>
+                                                            <span class="text clamp" data-v-07afc3fc data-v-b6230746>Music promotion is the crucial step that follows the production of your music and its distribution on streaming platforms. Music promotion starts when your track/EP/album is ready and its release strategy is prepared. There are great tools to help you in this crucial stage of music promotion- including Groover, which allows you to contact the best media, labels and music industry professionals with the guarantee of a response within 7 days. But one question remains, the one that many musicians and music professionals ask themselves: what kind of budget should you invest in to promote your music?.</span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="tw-relative tw-w-full" data-v-b6230746 data-v-0b5152bc>
-                                                <div
-                                                    class="tw-w-full tw-rounded tw-bg-white tw-shadow tw-transition-shadow tw-ease-out tw-duration-100 hover:tw-shadow-hover tw-h-full"
-                                                    data-v-b6230746>
-                                                    <div class="tw-w-full tw-relative"
-                                                         style="padding-top:66.66666666666666%;" data-v-b6230746>
-                                                        <div class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full">
-                                                            <a
-                                                                href="#"
-                                                                target="_blank"
-                                                                class="tw-h-full tw-w-full tw-relative tw-block"
-                                                                data-v-b6230746><img
-                                                                    src="{{asset('artist/blog.groover.co/wp-content/uploads/2020/10/Spotify-streams-Wp-1.jpg')}}"
-                                                                    class="tw-h-full tw-w-full tw-object-center tw-object-cover"
-                                                                    data-v-b6230746></a></div>
-                                                    </div>
-                                                    <div class="tw-w-full tw-flex tw-flex-col tw-p-5"
-                                                         data-v-b6230746><span
-                                                            class="text clamp tw-mb-2" data-v-2aa41bc4 data-v-b6230746>How to get more Spotify streams without cheating</span>
-                                                        <span class="text clamp" data-v-07afc3fc data-v-b6230746>In an ever changing market, promoting your music is essential. Fortunately, there are more and more powerful tools to help you do so- including Groover. Streaming has become a new pillar of the recorded music sector and now represents more than 59% of the French market. In 2019, there were 350 million paying users on streaming services worldwide. With Spotify at the top of the list (far ahead of Apple Music and Amazon Music), it is now becoming necessary for every artist to develop their business on the platform and boost their streams.
+                                                <div class="tw-relative tw-w-full" data-v-b6230746 data-v-0b5152bc>
+                                                    <div
+                                                        class="tw-w-full tw-rounded tw-bg-white tw-shadow tw-transition-shadow tw-ease-out tw-duration-100 hover:tw-shadow-hover tw-h-full"
+                                                        data-v-b6230746>
+                                                        <div class="tw-w-full tw-relative"
+                                                             style="padding-top:66.66666666666666%;" data-v-b6230746>
+                                                            <div
+                                                                class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full">
+                                                                <a
+                                                                    href="#"
+                                                                    target="_blank"
+                                                                    class="tw-h-full tw-w-full tw-relative tw-block"
+                                                                    data-v-b6230746><img
+                                                                        src="{{asset('artist/blog.groover.co/wp-content/uploads/2020/10/Spotify-streams-Wp-1.jpg')}}"
+                                                                        class="tw-h-full tw-w-full tw-object-center tw-object-cover"
+                                                                        data-v-b6230746></a></div>
+                                                        </div>
+                                                        <div class="tw-w-full tw-flex tw-flex-col tw-p-5"
+                                                             data-v-b6230746><span
+                                                                class="text clamp tw-mb-2" data-v-2aa41bc4
+                                                                data-v-b6230746>How to get more Spotify streams without cheating</span>
+                                                            <span class="text clamp" data-v-07afc3fc data-v-b6230746>In an ever changing market, promoting your music is essential. Fortunately, there are more and more powerful tools to help you do so- including Groover. Streaming has become a new pillar of the recorded music sector and now represents more than 59% of the French market. In 2019, there were 350 million paying users on streaming services worldwide. With Spotify at the top of the list (far ahead of Apple Music and Amazon Music), it is now becoming necessary for every artist to develop their business on the platform and boost their streams.
 
 However, there’s no use in cheating by buying streams! Depending on the service you use, your distributor or Spotify may notice that you’ve purchased streams and penalize you by permanently disabling your artist account. That’s why it’s important to build up your visibility on the platform in a progressive and organic way. Here are 7 tips to boost your streams without cheating and finally stand out from the crowd..</span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="tw-relative tw-w-full" data-v-b6230746 data-v-0b5152bc>
-                                                <div
-                                                    class="tw-w-full tw-rounded tw-bg-white tw-shadow tw-transition-shadow tw-ease-out tw-duration-100 hover:tw-shadow-hover tw-h-full"
-                                                    data-v-b6230746>
-                                                    <div class="tw-w-full tw-relative"
-                                                         style="padding-top:66.66666666666666%;" data-v-b6230746>
-                                                        <div class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full">
-                                                            <a
-                                                                href="#"
-                                                                target="_blank"
-                                                                class="tw-h-full tw-w-full tw-relative tw-block"
-                                                                data-v-b6230746><img
-                                                                    src="{{asset('artist/blog.groover.co/wp-content/uploads/2020/01/Radio_EN-WP.jpg')}}"
-                                                                    class="tw-h-full tw-w-full tw-object-center tw-object-cover"
-                                                                    data-v-b6230746></a></div>
-                                                    </div>
-                                                    <div class="tw-w-full tw-flex tw-flex-col tw-p-5"
-                                                         data-v-b6230746><span
-                                                            class="text clamp tw-mb-2" data-v-2aa41bc4 data-v-b6230746>Radio: how to get your songs successfully on the air</span>
-                                                        <span class="text clamp" data-v-07afc3fc data-v-b6230746>Among the many options available to emerging artists to promote their music, it is difficult to find the methods adapted to their ambitions, needs and means. Getting your song played on the radio has long been a luxury, a service reserved for artists signed to major labels or benefiting from a huge network of influence.
+                                                <div class="tw-relative tw-w-full" data-v-b6230746 data-v-0b5152bc>
+                                                    <div
+                                                        class="tw-w-full tw-rounded tw-bg-white tw-shadow tw-transition-shadow tw-ease-out tw-duration-100 hover:tw-shadow-hover tw-h-full"
+                                                        data-v-b6230746>
+                                                        <div class="tw-w-full tw-relative"
+                                                             style="padding-top:66.66666666666666%;" data-v-b6230746>
+                                                            <div
+                                                                class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full">
+                                                                <a
+                                                                    href="#"
+                                                                    target="_blank"
+                                                                    class="tw-h-full tw-w-full tw-relative tw-block"
+                                                                    data-v-b6230746><img
+                                                                        src="{{asset('artist/blog.groover.co/wp-content/uploads/2020/01/Radio_EN-WP.jpg')}}"
+                                                                        class="tw-h-full tw-w-full tw-object-center tw-object-cover"
+                                                                        data-v-b6230746></a></div>
+                                                        </div>
+                                                        <div class="tw-w-full tw-flex tw-flex-col tw-p-5"
+                                                             data-v-b6230746><span
+                                                                class="text clamp tw-mb-2" data-v-2aa41bc4
+                                                                data-v-b6230746>Radio: how to get your songs successfully on the air</span>
+                                                            <span class="text clamp" data-v-07afc3fc data-v-b6230746>Among the many options available to emerging artists to promote their music, it is difficult to find the methods adapted to their ambitions, needs and means. Getting your song played on the radio has long been a luxury, a service reserved for artists signed to major labels or benefiting from a huge network of influence.
 
 However, in recent years, things have been changing, and new alternatives are being put in place to encourage the discovery of new artists. Because going on the radio, broadcasting your songs on FM, remains an indispensable lever to propel your career..</span>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div> <!----></div>
-                                    </div>
-                                </div> <!----></div>
-                        </div>
-                        <div class="btnWrapper btnWrapTopSpacing bottomSpacing" data-v-69b657ff data-v-6aa5a2f4>
-                            <a href="#" class="button transparent learn_more tellMeMore">Try Groover Now</a>
-{{--                            <button tabindex="0" class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>--}}
-{{--                                <div class="btnText" data-v-27387d44 data-v-a87ce58e>--}}
-{{--                                    <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Try Groover Now</div>--}}
-{{--                                </div>--}}
-{{--                            </button>--}}
-                            <a href="#" class="button transparent learn_more tellMeMore" target="_blank" data-v-69b657ff>
-                                Visit the Groover Blog
-{{--                                <button tabindex="0" class="btn outlined tellMeMore" data-v-27387d44 data-v-e29b8620--}}
-{{--                                        data-v-69b657ff>--}}
-{{--                                    <div class="btnText" data-v-27387d44 data-v-e29b8620>--}}
-{{--                                        <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Visit the Groover Blog--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </button>--}}
-                            </a></div>
-                    </div>
-                    <div class="upDownSpacer" data-v-6aa5a2f4><span
-                            class="text tw-block tw-text-center tw-mx-auto mainTitleComponent tw-w-full" data-v-9670100e
-                            data-v-6aa5a2f4><span data-v-9670100e data-v-6aa5a2f4>Are you<br class='600:tw-hidden'/> a music curator<br/>or professional?<br/> Join Groover and discover<br/> the artists<br
-                                    class='600:tw-hidden'/> of tomorrow</span></span>
-                        <div class="tw-text-center mainParentContainer" data-v-daaf7032 data-v-6aa5a2f4>
-                            <div class="btnWrapper tw-my-6 600:tw-my-10" data-v-69b657ff data-v-daaf7032>
-                                <a href="#" class="button transparent learn_more tellMeMore">Apply as curator / pro</a>
-{{--                                <button tabindex="0" class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>--}}
-{{--                                    <div class="btnText" data-v-27387d44 data-v-a87ce58e>--}}
-{{--                                        <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Apply as curator / pro--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </button>--}}
-                                <a href="#" class="button transparent learn_more tellMeMore"
-                                   target="_new" data-v-69b657ff>
-                                    Who are the curators /
-                                    pros
-                                    on Groover?
-{{--                                    <button tabindex="0" class="btn outlined tellMeMore" data-v-27387d44 data-v-e29b8620--}}
-{{--                                            data-v-69b657ff>--}}
-{{--                                        <div class="btnText" data-v-27387d44 data-v-e29b8620>--}}
-{{--                                            <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Who are the curators /--}}
-{{--                                                pros--}}
-{{--                                                on Groover?--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </button>--}}
+                                                </div> <!----></div>
+                                        </div>
+                                    </div> <!----></div>
+                            </div>
+                            <div class="btnWrapper btnWrapTopSpacing bottomSpacing" data-v-69b657ff data-v-6aa5a2f4>
+                                <a href="#" class="button transparent learn_more tellMeMore">Try Groover Now</a>
+                                {{--                            <button tabindex="0" class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>--}}
+                                {{--                                <div class="btnText" data-v-27387d44 data-v-a87ce58e>--}}
+                                {{--                                    <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Try Groover Now</div>--}}
+                                {{--                                </div>--}}
+                                {{--                            </button>--}}
+                                <a href="#" class="button transparent learn_more tellMeMore" target="_blank"
+                                   data-v-69b657ff>
+                                    Visit the Groover Blog
+                                    {{--                                <button tabindex="0" class="btn outlined tellMeMore" data-v-27387d44 data-v-e29b8620--}}
+                                    {{--                                        data-v-69b657ff>--}}
+                                    {{--                                    <div class="btnText" data-v-27387d44 data-v-e29b8620>--}}
+                                    {{--                                        <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Visit the Groover Blog--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                    </div>--}}
+                                    {{--                                </button>--}}
                                 </a></div>
+                        </div>
+                        <div class="upDownSpacer" data-v-6aa5a2f4><span
+                                class="text tw-block tw-text-center tw-mx-auto mainTitleComponent tw-w-full"
+                                data-v-9670100e
+                                data-v-6aa5a2f4><span data-v-9670100e data-v-6aa5a2f4>Are you<br class='600:tw-hidden'/> a music curator<br/>or professional?<br/> Join Groover and discover<br/> the artists<br
+                                        class='600:tw-hidden'/> of tomorrow</span></span>
+                            <div class="tw-text-center mainParentContainer" data-v-daaf7032 data-v-6aa5a2f4>
+                                <div class="btnWrapper tw-my-6 600:tw-my-10" data-v-69b657ff data-v-daaf7032>
+                                    <a href="#" class="button transparent learn_more tellMeMore">Apply as curator /
+                                        pro</a>
+                                    {{--                                <button tabindex="0" class="btn main tellMeMore" data-v-27387d44 data-v-a87ce58e data-v-69b657ff>--}}
+                                    {{--                                    <div class="btnText" data-v-27387d44 data-v-a87ce58e>--}}
+                                    {{--                                        <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Apply as curator / pro--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                    </div>--}}
+                                    {{--                                </button>--}}
+                                    <a href="#" class="button transparent learn_more tellMeMore"
+                                       target="_new" data-v-69b657ff>
+                                        Who are the curators /
+                                        pros
+                                        on Groover?
+                                        {{--                                    <button tabindex="0" class="btn outlined tellMeMore" data-v-27387d44 data-v-e29b8620--}}
+                                        {{--                                            data-v-69b657ff>--}}
+                                        {{--                                        <div class="btnText" data-v-27387d44 data-v-e29b8620>--}}
+                                        {{--                                            <div class="btnText textCOlor" data-v-27387d44 data-v-69b657ff>Who are the curators /--}}
+                                        {{--                                                pros--}}
+                                        {{--                                                on Groover?--}}
+                                        {{--                                            </div>--}}
+                                        {{--                                        </div>--}}
+                                        {{--                                    </button>--}}
+                                    </a></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
 @include('pages.artists.script')

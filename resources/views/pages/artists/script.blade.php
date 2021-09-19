@@ -5,6 +5,11 @@
                 scrollTop: $(".submit_music").offset().top
             }, 1500);
         });
+        $("#howItsWork").click(function() {
+            $('html, body').animate({
+                scrollTop: $("#howitworks").offset().top
+            }, 1500);
+        });
 </script>
 
 

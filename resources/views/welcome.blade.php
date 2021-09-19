@@ -24,7 +24,7 @@
                             <div class="p-a-lg">
                                 <h2 class="display-4 m-y-lg">A simple, fast and responsive music template</h2>
                                 <h6 class="text-muted m-b-lg">HTML5 Music Template</h6>
-                                <a href="home.html" class="btn circle btn-outline b-primary m-b-lg p-x-md">Get it
+                                <a href="#" class="btn circle btn-outline b-primary m-b-lg p-x-md">Get it
                                     now</a>
                             </div>
                         </div>
@@ -36,7 +36,7 @@
                             <div class="p-a-lg">
                                 <h2 class="display-4 m-y-lg">Bootstrap 4 CSS framework</h2>
                                 <h6 class="text-muted m-b-lg">Responsive layout</h6>
-                                <a href="player.html" class="btn circle btn-outline b-primary m-b-lg p-x-md">View
+                                <a href="#" class="btn circle btn-outline b-primary m-b-lg p-x-md">View
                                     App</a>
                             </div>
                         </div>
@@ -48,7 +48,7 @@
                             <div class="p-a-lg">
                                 <h2 class="display-4 m-y-lg">Ajax powered page switch with great experience</h2>
                                 <h6 class="text-muted m-b-lg">No refresh page when switching pages</h6>
-                                <a href="rtl.html" class="btn circle btn-outline b-primary m-b-lg p-x-md">Get RTL</a>
+                                <a href="#" class="btn circle btn-outline b-primary m-b-lg p-x-md">Get RTL</a>
                             </div>
                         </div>
                         <div class="col-lg-2"></div>
@@ -60,7 +60,7 @@
                             <div class="p-a-lg text-center">
                                 <h3 class="display-3 m-y-lg">Music</h3>
                                 <p class="text-muted text-md m-b-lg">Get ready for high sound quality.</p>
-                                <a href="player.html" class="btn circle white m-b-lg p-x-md">Try Free</a>
+                                <a href="#" class="btn circle white m-b-lg p-x-md">Try Free</a>
                             </div>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                         <div class="p-a-lg text-center">
                             <h3 class="display-4 m-y-lg">Light, Grey, Dark, Black themes</h3>
                             <p class="text-muted text-md m-b-lg">Config any blocks with any colors</p>
-                            <a href="home.html" class="btn circle btn-outline b-black m-b-lg p-x-md">Try Settings</a>
+                            <a href="#" class="btn circle btn-outline b-black m-b-lg p-x-md">Try Settings</a>
                         </div>
                     </div>
                     <div class="col-md-3"></div>
@@ -124,7 +124,7 @@
                             <div class="col-md-3">
                                 <div class="clearfix m-b-lg">
                                     <!-- brand -->
-                                    <a href="index.html" class="navbar-brand md">
+                                    <a href="#" class="navbar-brand md">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32"
                                              height="32">
                                             <circle cx="24" cy="24" r="24" fill="rgba(255,255,255,0.2)"/>
