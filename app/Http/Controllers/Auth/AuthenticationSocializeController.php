@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Exception;
 use Laravel\Socialite\Facades\Socialite;
@@ -51,21 +52,23 @@ class AuthenticationSocializeController extends Controller
         $user = User::where('provider_id', $providerUser->id)->first();
         if ($user) {
             $user->update([
-                'name'         => $providerUser->name,
-                'email'        => $providerUser->email,
-                'profile'      => $providerUser->avatar,
-                'provider'     => $provider,
-                'provider_id'  => $providerUser->id,
-                'access_token' => $providerUser->token
+                'name'              => $providerUser->name,
+                'email'             => $providerUser->email,
+                'email_verified_at' => Carbon::now(),
+                'profile'           => $providerUser->avatar,
+                'provider'          => $provider,
+                'provider_id'       => $providerUser->id,
+                'access_token'      => $providerUser->token
             ]);
         }else{
             $user = User::create([
-                'name'         => $providerUser->getName(),
-                'email'        => $providerUser->getEmail(),
-                'profile'        => $providerUser->getAvatar(),
-                'provider'     => $provider,
-                'provider_id'  => $providerUser->getId(),
-                'access_token' => $providerUser->token,
+                'name'              => $providerUser->getName(),
+                'email'             => $providerUser->getEmail(),
+                'email_verified_at' => Carbon::now(),
+                'profile'           => $providerUser->getAvatar(),
+                'provider'          => $provider,
+                'provider_id'       => $providerUser->getId(),
+                'access_token'      => $providerUser->token,
             ]);
         }
         return $user;

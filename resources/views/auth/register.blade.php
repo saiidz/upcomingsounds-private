@@ -63,7 +63,8 @@
                             <span class="text-muted">and</span>
                             <a href="#">Policy Privacy.</a>
                         </div>
-                        <button type="submit" class="btn btn-lg black p-x-lg">Sign Up</button>
+                        <button type="submit" class="btn circle btn-outline b-primary p-x-md auth_btn">Sign Up</button>
+{{--                        <button type="submit" class="btn btn-lg black p-x-lg">Sign Up</button>--}}
                     </form>
 
                     <div class="p-y-lg text-center">

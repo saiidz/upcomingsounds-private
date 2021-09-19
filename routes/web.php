@@ -29,7 +29,7 @@ Route::group(['middleware' => ['try_catch']], function() {
 
     Route::prefix('admin')->group(base_path('routes/admin.php'));
     /***************************************************** Front *********************************************************/
-    Route::group(['middleware' => ['auth','verify_if_user', 'check_if_blocked']], function() {
+    Route::group(['middleware' => ['auth','verify_if_user', 'check_if_blocked','verified']], function() {
         Route::prefix('')->group(base_path('routes/client/auth.php'));
     });
 

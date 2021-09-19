@@ -19,6 +19,7 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 .learn_more,
 .artist_login,
 .submitMyMusic,
+.auth_btn,
 .tellMeMore{
     border-color: #02b875 !important;
     background-color: #1f1f25 !important;
@@ -28,7 +29,7 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     white-space: nowrap!important;
     vertical-align: middle!important;
     /*box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3)!important;*/
-    border-radius: 500px!important;
+    /*border-radius: 500px!important;*/
 }
 .artist_login:hover,
 .artist_login:focus,
@@ -37,12 +38,15 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 .tellMeMore:hover,
 .tellMeMore:focus,
 .submitMyMusic:hover,
-.submitMyMusic:focus
+.submitMyMusic:focus,
+.auth_btn:hover,
+.auth_btn:focus
 {
     color: rgba(255, 255, 255, 0.87) !important;
     background-color: #02b875!important;
     box-shadow: 0 10px 20px rgba(55, 206, 23, 0.72) !important;
 }
+
 .textCOlor{
     color: white!important;
 }
@@ -101,7 +105,9 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     height: 50vw!important;
 }
 
-
+.navbar-brand.md img, .navbar-brand.md svg{
+    max-height: 45px!important;
+}
 
 
 

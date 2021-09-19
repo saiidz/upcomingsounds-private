@@ -36,7 +36,8 @@
                         </small>
                         @enderror
                     </div>
-                    <button type="submit" class="btn black btn-block p-x-md" >Send</button>
+                    <button type="submit" class="btn circle btn-outline b-primary p-x-md auth_btn">Send</button>
+{{--                    <button type="submit" class="btn black btn-block p-x-md" >Send</button>--}}
                 </form>
                 <div class="p-y-lg">
                     Return to

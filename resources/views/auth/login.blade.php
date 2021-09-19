@@ -54,7 +54,8 @@
                                 <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}><i class="primary"></i> Keep me signed in
                             </label>
                         </div>
-                        <button type="submit" class="btn btn-lg black p-x-lg">Sign in</button>
+                        <button type="submit" class="btn circle btn-outline b-primary p-x-md auth_btn">Sign in</button>
+{{--                        <button type="submit" class="btn btn-lg black p-x-lg">Sign in</button>--}}
                     </form>
                     <div class="m-y">
                         <a href="{{ route('password.request') }}" class="_600">Forgot password?</a>
