@@ -25,6 +25,10 @@
                             <i class="fa fa-twitter pull-left"></i>
                             Sign up with Twitter
                         </a>
+                        <a href="{{url('/login/spotify')}}" style="background-color: #1ed760;;" class="btn btn-block text-white m-b-sm">
+                            <i class="fa fa-spotify pull-left"></i>
+                            Sign up with Spotify
+                        </a>
                     </div>
                     <div class="m-y text-sm">
                         OR

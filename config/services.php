@@ -44,5 +44,9 @@ return [
         'client_secret' => env('GOOGLE_API_SECRET_KEY'),
         'redirect' => env('GOOGLE_CALLBACK_URL'),
     ],
-
+    'spotify' => [
+        'client_id' => env('SPOTIFY_CLIENT_ID'),
+        'client_secret' => env('SPOTIFY_CLIENT_SECRET'),
+        'redirect' => env('SPOTIFY_REDIRECT_URI')
+    ],
 ];
