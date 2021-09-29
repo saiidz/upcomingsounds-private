@@ -18,7 +18,10 @@ use Twilio\Rest\Client;
 
 Route::get('/', function () {
     return view('welcome');
-})->middleware('guest');;
+});
+//Route::get('/', function () {
+//    return view('welcome');
+//})->middleware('guest');
 
 require __DIR__.'/auth.php';
 
@@ -28,8 +31,9 @@ Route::group(['middleware' => ['try_catch']], function() {
     /***************************************************** Admin *********************************************************/
 
     Route::prefix('admin')->group(base_path('routes/admin.php'));
-    /***************************************************** Front *********************************************************/
-    Route::group(['middleware' => ['auth','verify_if_user', 'check_if_blocked','verified']], function() {
+
+    /***************************************************** Artist Routes *********************************************************/
+    Route::group(['middleware' => ['auth','verify_if_user', 'check_if_blocked','artist_signup','verified']], function() {
         Route::prefix('')->group(base_path('routes/client/auth.php'));
     });
 

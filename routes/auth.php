@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\ArtistSignupController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\AuthenticationSocializeController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
@@ -95,4 +96,56 @@ Route::any('/logout', [AuthenticatedSessionController::class, 'destroy'])
 Route::get('login/{provider}', [AuthenticationSocializeController::class, 'redirectToProvider']);
 Route::get('auth/callback/{provider}', [AuthenticationSocializeController::class, 'handleProviderCallback']);
 
-// Mobile Authenticated Controller
+
+
+
+
+/***************************************************** Artist Routes *********************************************************/
+
+
+Route::get('/artist-signup-step-1', [ArtistSignupController::class, '__invoke'])
+    ->middleware('auth')
+    ->name('artist.signup.notice');
+
+Route::get('/artist-signup-step-2', [ArtistSignupController::class, 'artistSignupStep2'])
+    ->middleware('auth')
+    ->name('artist.signup.step.2');
+Route::post('/artist-signup-step-2', [ArtistSignupController::class, 'postArtistSignupStep2'])
+    ->middleware('auth')
+    ->name('artist.signup.step.2.post');
+
+Route::get('/artist-signup-step-3', [ArtistSignupController::class, 'artistSignupStep3'])
+    ->middleware('auth')
+    ->name('artist.signup.step.3');
+Route::post('/artist-signup-step-3', [ArtistSignupController::class, 'postArtistSignupStep3'])
+    ->middleware('auth')
+    ->name('artist.signup.step.3.post');
+
+Route::get('/artist-signup-step-4', [ArtistSignupController::class, 'artistSignupStep4'])
+    ->middleware('auth')
+    ->name('artist.signup.step.4');
+Route::post('/artist-signup-step-4', [ArtistSignupController::class, 'postArtistSignupStep4'])
+    ->middleware('auth')
+    ->name('artist.signup.step.4.post');
+
+Route::get('/artist-signup-step-5', [ArtistSignupController::class, 'artistSignupStep5'])
+    ->middleware('auth')
+    ->name('artist.signup.step.5');
+Route::post('/artist-signup-step-5', [ArtistSignupController::class, 'postArtistSignupStep5'])
+    ->middleware('auth')
+    ->name('artist.signup.step.5.post');
+
+Route::get('/artist-signup-step-6', [ArtistSignupController::class, 'artistSignupStep6'])
+    ->middleware('auth')
+    ->name('artist.signup.step.6');
+Route::post('/artist-signup-step-6', [ArtistSignupController::class, 'postArtistSignupStep6'])
+    ->middleware('auth')
+    ->name('artist.signup.step.6.post');
+
+Route::get('/artist-signup-step-7', [ArtistSignupController::class, 'artistSignupStep7'])
+    ->middleware('auth')
+    ->name('artist.signup.step.7');
+Route::post('/artist-signup-step-7', [ArtistSignupController::class, 'postArtistSignupStep7'])
+    ->middleware('auth')
+    ->name('artist.signup.step.7.post');
+// Artist Signup

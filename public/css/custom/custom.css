@@ -10,6 +10,12 @@ NOTE:
 PLACE HERE YOUR OWN CSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
 
+.navbar-brand, .display-1, .display-2, .display-3, .display-4, .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-family: "Poppins", "Trebuchet MS", "PT Sans", "Helvetica Neue", "HelveticaNeue-Light", Helvetica, Arial, sans-serif!important;
+    letter-spacing: -0.04em!important;
+    font-weight: bold!important;
+}
+
 .toast{
     display: none;
 }
@@ -29,7 +35,7 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     white-space: nowrap!important;
     vertical-align: middle!important;
     /*box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3)!important;*/
-    /*border-radius: 500px!important;*/
+    border-radius: 500px!important;
 }
 .artist_login:hover,
 .artist_login:focus,
@@ -112,6 +118,192 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 
 
 
+.cardcontainer {
+    width: 350px;
+    height: 500px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    transition: 0.3s
+}
+
+.cardcontainer:hover {
+    box-shadow: 0 10px 20px rgba(55, 206, 23, 0.72) !important;
+}
+
+.photo {
+    height: 300px;
+    width: 100%
+}
+
+.photo img {
+    height: 80%;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.content_artist {
+    width: 80%;
+    height: 155px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: -33px
+}
+
+.photos {
+    width: 90px;
+    height: 30px;
+    background-color: #E74C3C;
+    color: white;
+    position: relative;
+    top: -30px;
+    padding-left: 10px;
+    font-size: 20px
+}
+
+.Iam_artist {
+    font-size: 20px;
+    position: relative;
+    top: 40px
+}
+
+.Iam_artist_detail {
+    position: relative;
+    top: 30px
+}
+
+.cardcontainer:hover>.photo {
+    /*height: 200px;*/
+    /*animation: move1 0.5s ease both*/
+}
+
+/*@keyframes move1 {*/
+/*    0% {*/
+/*        height: 300px;*/
+/*    }*/
+
+/*    100% {*/
+/*        height: 200px*/
+/*    }*/
+/*}*/
+
+.cardcontainer:hover>.content_artist {
+    /*height: 150px;*/
+}
+
+.artist_footer {
+    width: 80%;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    /*background-color: white;*/
+    position: relative;
+    top: -15px
+}
+.cardsTep2{
+    box-shadow: 0 10px 20px rgb(128,128,128) !important;
+}
+.social_link{
+    margin-right:8px;
+}
+.sTep3,
+.sTep4
+{
+    width:80%!important
+}
+.sTep3 .tellMeMore{
+    margin-right : 15px;
+}
+
+.underline{
+    width: 48px;
+    height: 4px;
+    --bg-opacity: 1;
+    background-color: #da4441;
+    border-radius: .125rem;
+}
+.sTep4 .music{
+    margin-top: 30px;
+}
+.saiidzeidan{
+    color:gray;;
+}
+.features_tAgs{
+    box-shadow: 0px 0px 3px 0px #00000017!important;
+    background-color: #f9f9f9!important;
+}
+
+/*check box field style*/
+
+ul.ks-cboxtags {
+    list-style: none;
+    padding: 0;
+}
+
+ul.ks-cboxtags li {
+    display: inline;
+    height: 23px;
+}
+
+ul.ks-cboxtags li label {
+    border-radius: 25px;
+    white-space: nowrap;
+    margin: 3px 0px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* -webkit-tap-highlight-color: transparent; */
+    color: #383760;
+    font-size: 16px;
+    line-height: 16px;
+}
+
+ul.ks-cboxtags li label {
+    padding: 17px 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    height: 23px;
+    margin: 0 12px 17px 0px;
+    background-color: #ebebef;
+    border: none;
+}
+
+
+
+ul.ks-cboxtags li input[type="checkbox"] {
+    display: absolute;
+}
+
+ul.ks-cboxtags li input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.features-box {
+    /*background-color: #fff;*/
+    /*box-shadow: 0 0 10px 0 rgb(0 0 0 / 10%);*/
+    /*margin: 25px 0;*/
+    /*border-radius: 20px;*/
+    padding: 25px 30px 10px 30px;
+}
+
+ul.ks-cboxtags {
+    margin: 0;
+}
+
+
+[type="radio"]:checked + span::after, [type="radio"].with-gap:checked + span::after{
+    background-color: #02b875!important;
+}
+[type="radio"]:checked + span::after, [type="radio"].with-gap:checked + span::before, [type="radio"].with-gap:checked + span::after{
+    border: 2px solid #02b875!important;
+}
+.dropdown-content li > a{
+    color: #da4441!important;
+}
 /*
   ##Device = Desktops
   ##Screen = 1281px to higher resolution desktops
@@ -153,6 +345,15 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     .learnMore {
         display: flex;
     }
+    .sTep2{
+        width:100%!important;
+    }
+    .sTep3{
+        width:100%!important;
+    }
+    .sTep4{
+        width:100%!important;
+    }
 }
 
 /*
@@ -165,7 +366,10 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     /* CSS */
     .artist_login{
         margin-right: 15px!important;
-    }aa
+    }
+    .cardcontainer{
+        margin-bottom:30px!important;
+    }
 }
 
 /*
@@ -182,6 +386,22 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     #homeArtist{
         float: right!important;
         margin-right: -39px!important;
+    }
+    .cardcontainer{
+        margin-bottom:30px!important;
+    }
+    .sTep2{
+        width:100%!important;
+    }
+    .sTep3{
+        width:100%!important;
+    }
+    .sTep4{
+        width:100%!important;
+    }
+    .sTep3 .tellMeMore {
+        margin-right: 15px;
+        margin-bottom: 15px;
     }
 }
 
@@ -206,5 +426,21 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     }
     a.button.transparent.learn_more.tellMeMore {
         font-size: 10px!important;
+    }
+    .cardcontainer{
+        margin-bottom:30px!important;
+    }
+    .sTep2{
+        width:100%!important;
+    }
+    .sTep3{
+        width:100%!important;
+    }
+    .sTep4{
+        width:100%!important;
+    }
+    .sTep3 .tellMeMore {
+        margin-right: 15px;
+        margin-bottom: 15px;
     }
 }

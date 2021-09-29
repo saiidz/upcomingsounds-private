@@ -17,13 +17,8 @@ class Country extends Model
             'iso2',
             'phonecode',
         ];
-    // State can have many auction
-    public function state(){
-        return $this->hasMany(State::class);
-    }
-
-    // City can have many auction
-    public function city(){
-        return $this->hasMany(City::class);
+    // user can have many user
+    public function user(){
+        return $this->hasMany(User::class);
     }
 }
