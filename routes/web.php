@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AjaxController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use App\Helpers\Helper;
 use Twilio\Rest\Client;
@@ -15,6 +16,12 @@ use Twilio\Rest\Client;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/clear-cache', function(){
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    Artisan::call('route:clear');
+    Artisan::call('view:clear');
+});
 
 Route::get('/', function () {
     return view('welcome');

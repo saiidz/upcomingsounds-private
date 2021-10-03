@@ -30,6 +30,7 @@
 <script src="{{asset('scripts/app.js')}}"></script>
 <script src="{{asset('scripts/site.js')}}"></script>
 <script src="{{asset('scripts/ajax.js')}}"></script>
+<script src="{{asset('js/swiper-bundle.min.js')}}"></script>
 @yield('page-script')
 
 <script type="text/javascript">

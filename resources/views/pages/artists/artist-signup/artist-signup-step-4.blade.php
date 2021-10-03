@@ -13,13 +13,18 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/pages/page-faq.css')}}">
     <style>
         ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
-            content: url("../images/select-tick.svg");
-            width: 23px;
-            height: 34px;
-            margin: 0 5px 0 0px;
-            background-position: 40px;
-            display: block;
-            transform: translate(-2px, 5px);
+            /*content: "";*/
+            /*content: url("../images/select-tick.svg");*/
+            /*width: 23px;*/
+            /*height: 34px;*/
+            /*margin: 0 5px 0 0px;*/
+            /*background-position: 40px;*/
+            /*display: block;*/
+            /*transform: translate(-2px, 5px);*/
+        }
+        ul.ks-cboxtags li input[type="checkbox"]:checked + label{
+            background-color:#02b875 !important;
+            color:white;
         }
     </style>
 @endsection
@@ -471,11 +476,11 @@
 
                                                     <div class="row">
                                                         <div class="input-field col s12">
-                                                            <a class="tellMeMore left"
+                                                            <a class="tellMeMore left LeftSide"
                                                                onclick="window.history.go(-1); return false;"
                                                                href="javascript:void(0)">Previous
                                                             </a>
-                                                            <button class="tellMeMore right" style="border:none;"
+                                                            <button class="tellMeMore right RightSide" style="border:none;"
                                                                     type="submit">Next
                                                             </button>
                                                         </div>

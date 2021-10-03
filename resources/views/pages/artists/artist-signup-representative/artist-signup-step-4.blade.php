@@ -39,13 +39,13 @@
                         <div class="col s12">
                             <div id="input-fields" class="card card-tabs cardsTep2">
                                 <div class="card-content">
-{{--                                    <div class="card-title">--}}
-{{--                                        <div class="row">--}}
-{{--                                            <div class="col s12 m6 l10">--}}
-{{--                                                <h4 class="card-title bold">Your social media links</h4>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                                    {{--                                    <div class="card-title">--}}
+                                    {{--                                        <div class="row">--}}
+                                    {{--                                            <div class="col s12 m6 l10">--}}
+                                    {{--                                                <h4 class="card-title bold">Your social media links</h4>--}}
+                                    {{--                                            </div>--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                    </div>--}}
                                     <div id="view-input-fields">
                                         <div class="row">
                                             <div class="col s12 m6 l10">
@@ -54,7 +54,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col s12">
-                                                <form method="POST" action="{{route('artist.signup.step.3.post')}}"
+                                                <form method="POST" action="{{route('artist.signup.representative.step.4.post')}}"
                                                       enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="row">
@@ -141,7 +141,7 @@
                                                                         <div class="collapsible-header">Q: Why share your social media links on Upcoming Sounds? <i class="material-icons">
                                                                                 keyboard_arrow_right </i></div>
                                                                         <div class="collapsible-body">
-                                                                            <p>The music curators & pros on Groover enjoy browsing the social media accounts of an artist which they have received a track from. Filling in your main social media profiles is a way for them to get to know your project better </p>
+                                                                            <p>The music curators & pros on Upcoming Sounds enjoy browsing the social media accounts of an artist which they have received a track from. Filling in your main social media profiles is a way for them to get to know your project better </p>
                                                                         </div>
                                                                     </li>
                                                                     <li>

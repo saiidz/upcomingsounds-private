@@ -26,7 +26,7 @@ class ArtistSignupController extends Controller
     {
         return $request->user()->artist_completed_signup
         ? redirect()->intended(RouteServiceProvider::HOME)
-        : view('pages.artists.artist-signup.artist-signup-step-1');
+        : view('pages.artists.artist-signup-step-1');
 
     }
 
@@ -146,11 +146,11 @@ class ArtistSignupController extends Controller
                 ->withInput();
         }
         $artist_data = $request->session()->get('artist_data');
-        $artist_social = $request->session()->get('artist_data');
+        $artist_social = $request->session()->get('artist_social');
 
         if(!empty($artist_data) && !empty($artist_social)){
             $request->session()->get('artist_data');
-            $request->session()->get('artist_data');
+            $request->session()->get('artist_social');
             $request->session()->put('artist_tags', $request->all());
         }else{
             $request->session()->put('artist_tags', $request->all());
@@ -171,7 +171,7 @@ class ArtistSignupController extends Controller
         $artist_tags = $request->session()->get('artist_tags');
 
         if(!empty($artist_data) && !empty($artist_social) && !empty($artist_tags)){
-            return view('pages.artists.artist-signup.artist-signup-step-5',compact('artist_data','artist_social'));
+            return view('pages.artists.artist-signup.artist-signup-step-5',compact('artist_data','artist_social','artist_tags'));
         }else{
             return redirect()->back();
         }

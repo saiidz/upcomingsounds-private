@@ -30,7 +30,7 @@
                         <p class="Iam_artist_detail">Fill in your artist profile and send your music to the curators and pros available on Upcoming Sounds</p>
                     </div>
                     <div class="artist_footer">
-                        <a class="button transparent  tellMeMore" href="{{route('artist.signup.step.2')}}">Start</a>
+                        <a class="button transparent  tellMeMore siGnup1" href="{{route('artist.signup.step.2')}}">Start</a>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@
                         <p class="Iam_artist_detail">Set up a profile for each one of your artists and send their tracks to the music curators & pros available on Upcoming Sounds</p>
                     </div>
                     <div class="artist_footer">
-                        <a class="button transparent  tellMeMore" href="#">Start</a>
+                        <a class="button transparent  tellMeMore siGnup1" href="{{route('artist.signup.representative.step.2')}}">Start</a>
                     </div>
                 </div>
             </div>

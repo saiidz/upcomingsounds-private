@@ -127,7 +127,7 @@
                                         <div class="underline"></div>
                                         <div class="row">
                                             <div class="col s12">
-                                                <form method="POST" action="{{route('artist.signup.step.5.post')}}"
+                                                <form method="POST" action="{{route('artist.signup.representative.step.6.post')}}"
                                                       enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="section" id="faq">
@@ -151,6 +151,7 @@
                                                                     }else{
                                                                         $pos = $poshttp;
                                                                     }
+
                                                                 @endphp
 
                                                                 @if($pos === false)
@@ -170,9 +171,9 @@
                                                                 @endif
 
                                                                 @error('profile')
-                                                                    <small class="red-text" role="alert">
-                                                                        {{ $message }}
-                                                                    </small>
+                                                                <small class="red-text" role="alert">
+                                                                    {{ $message }}
+                                                                </small>
                                                                 @enderror
                                                             </div>
                                                             <h4 class="profile-heading" style="text-align: center; font-size: 1.28rem;">{{(auth()->user()) ? auth()->user()->name : 'test'}}</h4>

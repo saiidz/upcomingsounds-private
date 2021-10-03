@@ -196,6 +196,7 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     width: 80%;
     height: 100px;
     margin-left: auto;
+    text-align:center;
     margin-right: auto;
     /*background-color: white;*/
     position: relative;
@@ -304,6 +305,41 @@ ul.ks-cboxtags {
 .dropdown-content li > a{
     color: #da4441!important;
 }
+.dropdown-content li > span{
+    color: black!important;
+}
+.siGnup1{
+    padding: 10px 5.5rem 10px 5.5rem !important;
+}
+.Login,
+.Rigister,
+.LeftSide,
+.RightSide
+{
+    padding: 10px 2.5rem 12px 2.5rem !important;
+}
+.social_label{
+    color: #02b875 !important;
+}
+
+[type="checkbox"].filled-in:checked + span:not(.lever)::after {
+    border: #02b875!important;
+    background-color: #02b875!important;
+}
+
+.record_label{
+    padding-left:40px !important;
+}
+
+
+
+
+
+
+
+
+
+
 /*
   ##Device = Desktops
   ##Screen = 1281px to higher resolution desktops
@@ -442,5 +478,8 @@ ul.ks-cboxtags {
     .sTep3 .tellMeMore {
         margin-right: 15px;
         margin-bottom: 15px;
+    }
+    .record_label{
+        padding:0px !important;
     }
 }

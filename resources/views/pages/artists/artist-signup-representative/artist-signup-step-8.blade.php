@@ -48,7 +48,7 @@
                                         <div class="underline"></div>
                                         <div class="row">
                                             <div class="col s12">
-                                                <form method="POST" action="{{route('artist.signup.step.7.post')}}"
+                                                <form method="POST" action="{{route('artist.signup.representative.step.8.post')}}"
                                                       enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="section mt-2" id="faq">
@@ -164,40 +164,4 @@
 @section('page-script')
     <script src="{{asset('js/vendors.min.js')}}"></script>
     <script src="{{asset('js/plugins.js')}}"></script>
-    <script>
-        // $(document).ready(function(e){
-        //     $("#releasedSoon1 *").prop("disabled", "disabled");
-        // });
-        // $(document).ready(function(e){
-        //     $("#releasedSoon2 *").prop("disabled", "disabled");
-        // });
-        // $("#releasedSoon1").prop("disabled",true);
-        // $("#releasedSoon2").prop("disabled",true);
-
-        $("#releasedSoon1").hide();
-        $("#releasedSoon2").hide();
-
-        function releasedSoonChanged(){
-            if($('.releasedSoon').is(":checked")){
-                $("#releasedSoon2").hide();
-                $("#releasedSoon1").show();
-            }
-        }
-
-        function alreadyReleasedChanged(){
-            if($('.alreadyReleased').is(":checked")){
-                $("#releasedSoon1").hide();
-                $("#releasedSoon2").show();
-            }
-        }
-        // var checkedValue = document.getElementsByClassName('.messageCheckbox:checked').value;
-        // $('#releasedSoon').click(function (){
-        //     alert($('#releasedSoon').is(':checked'));
-        //     document.getElementById('releasedSoon1').style = 'block';
-        // })
-        // $("input:checkbox:not(:checked)")
-        // $(".messageCheckbox:checked").change(function () {
-        //     console.log('checkedValue');
-        // });
-    </script>
 @endsection

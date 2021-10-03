@@ -7,7 +7,7 @@
     <div class="app dk" id="app">
 
         <!-- ############ LAYOUT START-->
-<div id="snackbar"></div>
+
         <!-- content -->
         <div id="content" class="app-content white bg" role="main">
             <div class="app-header white lt box-shadow-z1">
@@ -283,7 +283,7 @@
                             </div>
                         </div>
                     </div>
-
+                    <div id="snackbar"></div>
                     <div class="row-col">
                         <div class="col-lg-9 b-r no-border-md">
                             <div class="padding">

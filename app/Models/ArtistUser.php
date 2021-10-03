@@ -23,6 +23,11 @@ class ArtistUser extends Model
         'released',
         'released_day',
         'come_upcoming',
+        'artist_representative_record',
+        'artist_representative_manager',
+        'artist_representative_press',
+        'artist_representative_publisher',
+        'artist_country_id',
         'deleted_at',
     ];
 
