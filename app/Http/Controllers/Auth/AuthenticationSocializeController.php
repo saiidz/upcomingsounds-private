@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Exception;
@@ -31,7 +32,7 @@ class AuthenticationSocializeController extends Controller
             $user = Socialite::driver($provider)->user();
             $user =  $this->findOrCreateUser($user, $provider);
             Auth::login($user, true);
-            return redirect('/dashboard');
+            return redirect(RouteServiceProvider::HOME);
         } catch (Exception $e) {
             return $this->sendFailedResponse($e->getMessage());
         }
