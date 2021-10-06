@@ -85,8 +85,13 @@
                                                     </div>
                                                     <div class="row">
                                                         <div class="col s12">
+                                                            @if(Session::has('error_message'))
+                                                                <small class="red-text" role="alert">
+                                                                    {{Session::get('error_message')}}
+                                                                </small>
+                                                            @endif
                                                             <div class="input-field col s12">
-                                                                <input id="instagram_url" class="@error('instagram_url') is-invalid @enderror" placeholder="@" name="instagram_url" value="{{old('instagram_url')}}" type="text">
+                                                                <input id="instagram_url" class="@error('instagram_url') is-invalid @enderror" placeholder="https://www.instagram.com/username" name="instagram_url" value="{{old('instagram_url')}}" type="text">
                                                                 <label for="instagram_url" class="social_label">Instagram</label>
                                                                 @error('instagram_url')
                                                                 <small class="red-text" role="alert">
@@ -95,7 +100,7 @@
                                                                 @enderror
                                                             </div>
                                                             <div class="input-field col s12">
-                                                                <input id="facebook_url" class="@error('facebook_url') is-invalid @enderror" placeholder="@" name="facebook_url" value="{{old('facebook_url')}}" type="text">
+                                                                <input id="facebook_url" class="@error('facebook_url') is-invalid @enderror" placeholder="https://www.facebook.com/username" name="facebook_url" value="{{old('facebook_url')}}" type="text">
                                                                 <label for="facebook_url" class="social_label">Facebook</label>
                                                                 @error('facebook_url')
                                                                 <small class="red-text" role="alert">
@@ -104,7 +109,7 @@
                                                                 @enderror
                                                             </div>
                                                             <div class="input-field col s12">
-                                                                <input id="spotify_url" class="@error('spotify_url') is-invalid @enderror" placeholder="@" name="spotify_url" value="{{old('spotify_url')}}" type="text">
+                                                                <input id="spotify_url" class="@error('spotify_url') is-invalid @enderror" placeholder="https://www.spotify.com/username" name="spotify_url" value="{{old('spotify_url')}}" type="text">
                                                                 <label for="spotify_url" class="social_label">Spotify</label>
                                                                 @error('spotify_url')
                                                                 <small class="red-text" role="alert">
@@ -113,7 +118,7 @@
                                                                 @enderror
                                                             </div>
                                                             <div class="input-field col s12">
-                                                                <input id="soundcloud_url" class="@error('soundcloud_url') is-invalid @enderror" placeholder="@" name="soundcloud_url" value="{{old('soundcloud_url')}}" type="text">
+                                                                <input id="soundcloud_url" class="@error('soundcloud_url') is-invalid @enderror" placeholder="https://www.soundcloud.com/username" name="soundcloud_url" value="{{old('soundcloud_url')}}" type="text">
                                                                 <label for="soundcloud_url" class="social_label">Sound Cloud</label>
                                                                 @error('soundcloud_url')
                                                                 <small class="red-text" role="alert">
@@ -122,7 +127,7 @@
                                                                 @enderror
                                                             </div>
                                                             <div class="input-field col s12">
-                                                                <input id="youtube_url" class="@error('youtube_url') is-invalid @enderror" placeholder="@" name="youtube_url" value="{{old('youtube_url')}}" type="text">
+                                                                <input id="youtube_url" class="@error('youtube_url') is-invalid @enderror" placeholder="https://www.youtube.com/username" name="youtube_url" value="{{old('youtube_url')}}" type="text">
                                                                 <label for="youtube_url" class="social_label">Youtube</label>
                                                                 @error('youtube_url')
                                                                 <small class="red-text" role="alert">

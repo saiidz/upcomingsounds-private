@@ -88,27 +88,32 @@ class ArtistSignupController extends Controller
      */
     public function postArtistSignupStep3(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'instagram_url'  => 'required|url',
-            'facebook_url' => 'required|url',
-            'spotify_url' => 'required|url',
-            'soundcloud_url' => 'required|url',
-            'youtube_url' => 'required|url',
-        ]);
-
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
-        }
-
-        if(!empty($request->session()->get('artist_data'))){
-            $request->session()->get('artist_data');
-            $request->session()->put('artist_social', $request->all());
+        if(isset($request->instagram_url) || isset($request->facebook_url) || isset($request->spotify_url) || isset($request->soundcloud_url) || isset($request->youtube_url))    {
+            if(!empty($request->session()->get('artist_data'))){
+                $request->session()->get('artist_data');
+                $request->session()->put('artist_social', $request->all());
+            }else{
+                $request->session()->put('artist_social', $request->all());
+            }
+            return redirect()->route('artist.signup.step.4');
         }else{
-            $request->session()->put('artist_social', $request->all());
+            return redirect()->back()->with('error_message', 'One field is required');
         }
-        return redirect()->route('artist.signup.step.4');
+//        $validator = Validator::make($request->all(), [
+//            'instagram_url'  => 'url',
+//            'facebook_url' => 'required|url',
+//            'spotify_url' => 'required|url',
+//            'soundcloud_url' => 'required|url',
+//            'youtube_url' => 'required|url',
+//        ]);
+//
+//        if ($validator->fails()) {
+//            return redirect()->back()
+//                ->withErrors($validator)
+//                ->withInput();
+//        }
+
+
     }
 
     /**

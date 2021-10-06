@@ -130,30 +130,35 @@ class ArtistSignupRepresentativeController extends Controller
      */
     public function postArtistSignupRepresentativeStep4(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'instagram_url'  => 'required|url',
-            'facebook_url' => 'required|url',
-            'spotify_url' => 'required|url',
-            'soundcloud_url' => 'required|url',
-            'youtube_url' => 'required|url',
-        ]);
+        if(isset($request->instagram_url) || isset($request->facebook_url) || isset($request->spotify_url) || isset($request->soundcloud_url) || isset($request->youtube_url))    {
+            $artist_representative_data = $request->session()->get('artist_representative_data');
+            $artist_artist_data = $request->session()->get('artist_artist_data');
 
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
-        }
-        $artist_representative_data = $request->session()->get('artist_representative_data');
-        $artist_artist_data = $request->session()->get('artist_artist_data');
-
-        if(!empty($artist_representative_data) && !empty($artist_artist_data)){
-            $request->session()->get('artist_representative_data');
-            $request->session()->get('artist_artist_data');
-            $request->session()->put('artist_representative_social', $request->all());
+            if(!empty($artist_representative_data) && !empty($artist_artist_data)){
+                $request->session()->get('artist_representative_data');
+                $request->session()->get('artist_artist_data');
+                $request->session()->put('artist_representative_social', $request->all());
+            }else{
+                $request->session()->put('artist_representative_social', $request->all());
+            }
+            return redirect()->route('artist.signup.representative.step.5');
         }else{
-            $request->session()->put('artist_representative_social', $request->all());
+            return redirect()->back()->with('error_message', 'One field is required');
         }
-        return redirect()->route('artist.signup.representative.step.5');
+//        $validator = Validator::make($request->all(), [
+//            'instagram_url'  => 'url',
+//            'facebook_url' => 'required|url',
+//            'spotify_url' => 'required|url',
+//            'soundcloud_url' => 'required|url',
+//            'youtube_url' => 'required|url',
+//        ]);
+//
+//        if ($validator->fails()) {
+//            return redirect()->back()
+//                ->withErrors($validator)
+//                ->withInput();
+//        }
+
     }
 
     /**
