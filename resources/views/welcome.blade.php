@@ -113,7 +113,15 @@
                         </div>
                     </div>
                 </div>
-
+{{--                <div class="row-col dark-white">--}}
+{{--                    <div class="col-md-3"></div>--}}
+{{--                    <div class="col-md-6">--}}
+{{--                        <div class="p-a-lg">--}}
+{{--                            <iframe style="border:none;height:605px;width:616px;" class="artist_frame" src="https://cdn.forms-content.sg-form.com/b036d0d1-262d-11ec-837e-ba9b577a670d"></iframe>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="col-md-3"></div>--}}
+{{--                </div>--}}
                 <!-- ############ PAGE END-->
 
             </div>

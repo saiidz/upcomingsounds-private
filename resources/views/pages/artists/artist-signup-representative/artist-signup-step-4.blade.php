@@ -163,10 +163,7 @@
 
                                                     <div class="row">
                                                         <div class="input-field col s12">
-                                                            <a class="tellMeMore left LeftSide"
-                                                               onclick="window.history.go(-1); return false;"
-                                                               href="javascript:void(0)">Previous
-                                                            </a>
+                                                            <button class="tellMeMore left LeftSide" onclick="window.history.go(-1); return false;" style="border:none;">Previous</button>
                                                             <button class="tellMeMore right RightSide" style="border:none;"
                                                                     type="submit">Next
                                                             </button>

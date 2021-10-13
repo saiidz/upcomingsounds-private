@@ -63,9 +63,9 @@
                         </div>
                         <div class="m-b-md text-sm">
                             <span class="text-muted">By clicking Sign Up, I agree to the</span>
-                            <a href="#">Terms of service</a>
+                            <a href="javascript:void(0)" data-toggle="modal" data-target="#m-a-a" data-ui-toggle-class="zoom" data-ui-target="#animate">Terms of service</a>
                             <span class="text-muted">and</span>
-                            <a href="#">Policy Privacy.</a>
+                            <a href="javascript:void(0)" data-toggle="modal" data-target="#m-a-a-policy" data-ui-toggle-class="zoom" data-ui-target="#animatepolicy">Policy Privacy.</a>
                         </div>
                         <button type="submit" class="btn circle btn-outline b-primary p-x-md auth_btn Rigister">Sign Up</button>
 {{--                        <button type="submit" class="btn btn-lg black p-x-lg">Sign Up</button>--}}
@@ -79,7 +79,43 @@
         </div>
 
 
+        <!-- .Terms of service -->
+        <div id="m-a-a" class="modal fade animate" data-backdrop="true">
+            <div class="modal-dialog" id="animate">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Terms of service</h5>
+                    </div>
+                    <div class="modal-body text-center p-lg">
+                        <p>Terms of service</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn dark-white p-x-md transparent  tellMeMore" data-dismiss="modal">No</button>
+                        <button type="button" class="btn danger p-x-md transparent  tellMeMore" data-dismiss="modal">Yes</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div>
+        </div>
+        <!-- / .Terms of service -->
 
+        <!-- .Policy Privacy -->
+        <div id="m-a-a-policy" class="modal fade animate" data-backdrop="true">
+            <div class="modal-dialog" id="animatepolicy">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Policy Privacy</h5>
+                    </div>
+                    <div class="modal-body text-center p-lg">
+                        <p>Policy Privacy</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn dark-white p-x-md transparent tellMeMore" data-dismiss="modal">No</button>
+                        <button type="button" class="btn danger p-x-md transparent tellMeMore " data-dismiss="modal">Yes</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div>
+        </div>
+        <!-- / .Policy Privacy -->
 
     {{--<div id="register-page" class="row">--}}
     {{--  <div class="col s12 m6 l4 z-depth-4 card-panel border-radius-6 register-card bg-opacity-8">--}}

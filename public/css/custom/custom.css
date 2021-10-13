@@ -15,7 +15,9 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     letter-spacing: -0.04em!important;
     font-weight: bold!important;
 }
-
+h1,h2,h3,h4,h5{
+    color:#02b875 !important;
+}
 .toast{
     display: none;
 }
@@ -354,6 +356,10 @@ input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default
     box-shadow: 0 1px 0 0 green!important;
 }
 
+#animate .modal-content,
+#animatepolicy .modal-content{
+    top:150px !important;
+}
 
 
 
@@ -500,5 +506,8 @@ input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default
     }
     .record_label{
         padding:0px !important;
+    }
+    .learn_more, .artist_login, .submitMyMusic, .auth_btn, .tellMeMore {
+        padding: 10px 2.5rem 10px 2.5rem !important;
     }
 }
