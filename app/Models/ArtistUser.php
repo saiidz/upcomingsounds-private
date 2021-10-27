@@ -21,6 +21,7 @@ class ArtistUser extends Model
         'spotify_url',
         'soundcloud_url',
         'youtube_url',
+        'website_url',
         'released',
         'released_day',
         'come_upcoming',

@@ -130,7 +130,7 @@ class ArtistSignupRepresentativeController extends Controller
      */
     public function postArtistSignupRepresentativeStep4(Request $request)
     {
-        if(isset($request->instagram_url) || isset($request->facebook_url) || isset($request->spotify_url) || isset($request->soundcloud_url) || isset($request->youtube_url))    {
+        if(isset($request->instagram_url) || isset($request->facebook_url) || isset($request->spotify_url) || isset($request->soundcloud_url) || isset($request->youtube_url) || isset($request->website_url))    {
             $artist_representative_data = $request->session()->get('artist_representative_data');
             $artist_artist_data = $request->session()->get('artist_artist_data');
 
@@ -375,6 +375,7 @@ class ArtistSignupRepresentativeController extends Controller
                 $input['spotify_url']                     = isset($artist_representative_social['spotify_url']) ? $artist_representative_social['spotify_url'] : null;
                 $input['soundcloud_url']                  = isset($artist_representative_social['soundcloud_url']) ? $artist_representative_social['soundcloud_url'] : null;
                 $input['youtube_url']                     = isset($artist_representative_social['youtube_url']) ? $artist_representative_social['youtube_url'] : null;
+                $input['website_url']                     = isset($artist_representative_social['website_url']) ? $artist_representative_social['website_url'] : null;
                 $input['released']                        = isset($released_representative['released']) ? $released_representative['released'] : null;
                 $input['released_day']                    = $released_day;
                 $input['come_upcoming']                   = !empty($request->get('come_upcoming')) ? $request->get('come_upcoming') : null;

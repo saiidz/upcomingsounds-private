@@ -80,6 +80,10 @@
                                                                     <i class="fa fa-youtube social_link"></i>
                                                                     <span>Youtube</span>
                                                                 </a>
+                                                                <a class="tellMeMore left" href="javascript:void(0)">
+                                                                    <i class="fa fa-link social_link"></i>
+                                                                    <span>Add Website</span>
+                                                                </a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -130,6 +134,15 @@
                                                                 <input id="youtube_url" class="@error('youtube_url') is-invalid @enderror" placeholder="https://www.youtube.com/username" name="youtube_url" value="{{old('youtube_url')}}" type="text">
                                                                 <label for="youtube_url" class="social_label">Youtube</label>
                                                                 @error('youtube_url')
+                                                                <small class="red-text" role="alert">
+                                                                    {{ $message }}
+                                                                </small>
+                                                                @enderror
+                                                            </div>
+                                                            <div class="input-field col s12">
+                                                                <input id="website_url" class="@error('website_url') is-invalid @enderror" placeholder="https://www.website.com" name="website_url" value="{{old('website_url')}}" type="text">
+                                                                <label for="website_url" class="social_label">Add Website</label>
+                                                                @error('website_url')
                                                                 <small class="red-text" role="alert">
                                                                     {{ $message }}
                                                                 </small>
