@@ -313,17 +313,18 @@ class ArtistSignupController extends Controller
                     $released_day = null;
                 }
 
-                $input['user_id']        = $user->id;
-                $input['artist_name']    = isset($artist_data['artist_name']) ? $artist_data['artist_name'] : null;
-                $input['country_id']     = isset($artist_data['country_name']) ? (int) $artist_data['country_name'] : null;
-                $input['instagram_url']  = isset($artist_social['instagram_url']) ? $artist_social['instagram_url'] : null;
-                $input['facebook_url']   = isset($artist_social['facebook_url']) ? $artist_social['facebook_url'] : null;
-                $input['spotify_url']    = isset($artist_social['spotify_url']) ? $artist_social['spotify_url'] : null;
-                $input['soundcloud_url'] = isset($artist_social['soundcloud_url']) ? $artist_social['soundcloud_url'] : null;
-                $input['youtube_url']    = isset($artist_social['youtube_url']) ? $artist_social['youtube_url'] : null;
-                $input['released']       = isset($released['released']) ? $released['released'] : null;
-                $input['released_day']   = $released_day;
-                $input['come_upcoming']  = !empty($request->get('come_upcoming')) ? $request->get('come_upcoming') : null;
+                $input['user_id']            = $user->id;
+                $input['artist_signup_from'] = 'artist';
+                $input['artist_name']        = isset($artist_data['artist_name']) ? $artist_data['artist_name'] : null;
+                $input['country_id']         = isset($artist_data['country_name']) ? (int) $artist_data['country_name'] : null;
+                $input['instagram_url']      = isset($artist_social['instagram_url']) ? $artist_social['instagram_url'] : null;
+                $input['facebook_url']       = isset($artist_social['facebook_url']) ? $artist_social['facebook_url'] : null;
+                $input['spotify_url']        = isset($artist_social['spotify_url']) ? $artist_social['spotify_url'] : null;
+                $input['soundcloud_url']     = isset($artist_social['soundcloud_url']) ? $artist_social['soundcloud_url'] : null;
+                $input['youtube_url']        = isset($artist_social['youtube_url']) ? $artist_social['youtube_url'] : null;
+                $input['released']           = isset($released['released']) ? $released['released'] : null;
+                $input['released_day']       = $released_day;
+                $input['come_upcoming']      = !empty($request->get('come_upcoming')) ? $request->get('come_upcoming') : null;
                 $user->artistUsers()->create($input);
 
                 // user tags store
@@ -338,7 +339,7 @@ class ArtistSignupController extends Controller
                 // Artist Signup complete
                 $user->update(['artist_completed_signup' => Carbon::now()]);
 
-                return redirect('/dashboard')->with('success','Artist Profile is created successfully');
+                return redirect('/artist-profile')->with('success','Artist Profile is created successfully');
             }else{
                 return redirect()->back()->with('error', 'Please fill out data');
             }

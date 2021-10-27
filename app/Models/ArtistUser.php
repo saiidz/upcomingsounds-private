@@ -13,6 +13,7 @@ class ArtistUser extends Model
 
     protected $fillable = [
         'user_id',
+        'artist_signup_from',
         'artist_name',
         'country_id',
         'instagram_url',

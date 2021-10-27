@@ -361,22 +361,23 @@ class ArtistSignupRepresentativeController extends Controller
                     $released_day = null;
                 }
 
-                $input['user_id']        = $user->id;
+                $input['user_id']                         = $user->id;
+                $input['artist_signup_from']              = 'artist_representative';
                 $input['artist_representative_record']    = isset($artist_representative_data['artist_representative_record']) ? $artist_representative_data['artist_representative_record'] : null;
                 $input['artist_representative_manager']   = isset($artist_representative_data['artist_representative_manager']) ? $artist_representative_data['artist_representative_manager'] : null;
                 $input['artist_representative_press']     = isset($artist_representative_data['artist_representative_press']) ? $artist_representative_data['artist_representative_press'] : null;
                 $input['artist_representative_publisher'] = isset($artist_representative_data['artist_representative_publisher']) ? $artist_representative_data['artist_representative_publisher'] : null;
-                $input['artist_country_id']    = isset($artist_representative_data['artist_country_name']) ? $artist_representative_data['artist_country_name'] : null;
-                $input['artist_name']    = isset($artist_artist_data['artist_name']) ? $artist_artist_data['artist_name'] : null;
-                $input['country_id']     = isset($artist_artist_data['country_name']) ? (int) $artist_artist_data['country_name'] : null;
-                $input['instagram_url']  = isset($artist_representative_social['instagram_url']) ? $artist_representative_social['instagram_url'] : null;
-                $input['facebook_url']   = isset($artist_representative_social['facebook_url']) ? $artist_representative_social['facebook_url'] : null;
-                $input['spotify_url']    = isset($artist_representative_social['spotify_url']) ? $artist_representative_social['spotify_url'] : null;
-                $input['soundcloud_url'] = isset($artist_representative_social['soundcloud_url']) ? $artist_representative_social['soundcloud_url'] : null;
-                $input['youtube_url']    = isset($artist_representative_social['youtube_url']) ? $artist_representative_social['youtube_url'] : null;
-                $input['released']       = isset($released_representative['released']) ? $released_representative['released'] : null;
-                $input['released_day']   = $released_day;
-                $input['come_upcoming']  = !empty($request->get('come_upcoming')) ? $request->get('come_upcoming') : null;
+                $input['artist_country_id']               = isset($artist_representative_data['artist_country_name']) ? $artist_representative_data['artist_country_name'] : null;
+                $input['artist_name']                     = isset($artist_artist_data['artist_name']) ? $artist_artist_data['artist_name'] : null;
+                $input['country_id']                      = isset($artist_artist_data['country_name']) ? (int) $artist_artist_data['country_name'] : null;
+                $input['instagram_url']                   = isset($artist_representative_social['instagram_url']) ? $artist_representative_social['instagram_url'] : null;
+                $input['facebook_url']                    = isset($artist_representative_social['facebook_url']) ? $artist_representative_social['facebook_url'] : null;
+                $input['spotify_url']                     = isset($artist_representative_social['spotify_url']) ? $artist_representative_social['spotify_url'] : null;
+                $input['soundcloud_url']                  = isset($artist_representative_social['soundcloud_url']) ? $artist_representative_social['soundcloud_url'] : null;
+                $input['youtube_url']                     = isset($artist_representative_social['youtube_url']) ? $artist_representative_social['youtube_url'] : null;
+                $input['released']                        = isset($released_representative['released']) ? $released_representative['released'] : null;
+                $input['released_day']                    = $released_day;
+                $input['come_upcoming']                   = !empty($request->get('come_upcoming')) ? $request->get('come_upcoming') : null;
                 $user->artistUsers()->create($input);
 
                 // user tags store
@@ -391,7 +392,7 @@ class ArtistSignupRepresentativeController extends Controller
                 // Artist Signup complete
                 $user->update(['artist_completed_signup' => Carbon::now()]);
 
-                return redirect('/dashboard')->with('success','Artist Representative Profile is created successfully');
+                return redirect('/artist-profile')->with('success','Artist Representative Profile is created successfully');
             }else{
                 return redirect()->back()->with('error', 'Please fill out data');
             }

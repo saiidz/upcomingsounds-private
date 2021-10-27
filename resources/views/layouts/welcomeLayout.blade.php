@@ -20,7 +20,7 @@
                     <i class="material-icons">menu</i>
                 </a>
                 <!-- brand -->
-                <a href="{{url('/dashboard')}}" class="navbar-brand md">
+                <a href="{{url('/')}}" class="navbar-brand md">
                     {{--                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32">--}}
                     {{--                            <circle cx="24" cy="24" r="24" fill="rgba(255,255,255,0.2)"/>--}}
                     {{--                            <circle cx="24" cy="24" r="22" fill="#1c202b" class="brand-color"/>--}}
@@ -38,18 +38,27 @@
 
                 <!-- nabar right -->
                 <ul class="nav navbar-nav pull-right">
-                    <li class="nav-item">
-                        <a href="{{ route('register') }}" class="nav-link">
-                            Signup
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('login') }}" class="nav-link">
+                    @if(Auth::check())
+                        <li class="nav-item">
+                            <a href="{{ route('logout') }}" class="nav-link">
+                                Sign out
+                            </a>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a href="{{ route('register') }}" class="nav-link">
+                                Signup
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('login') }}" class="nav-link">
                     <span class="btn btn-sm rounded primary _600">
                       Signin
                     </span>
-                        </a>
-                    </li>
+                            </a>
+                        </li>
+                    @endif
+
                 </ul>
                 <!-- / navbar right -->
 

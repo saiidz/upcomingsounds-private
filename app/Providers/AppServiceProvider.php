@@ -31,10 +31,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Artisan::call('cache:clear');
-        Artisan::call('config:clear');
-        Artisan::call('route:clear');
-        Artisan::call('view:clear');
+//        Artisan::call('cache:clear');
+//        Artisan::call('config:clear');
+//        Artisan::call('route:clear');
+//        Artisan::call('view:clear');
         Paginator::useBootstrap();
     }
 }
