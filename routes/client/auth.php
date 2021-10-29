@@ -12,5 +12,5 @@ use Illuminate\Support\Facades\Route;
 // Dashboard Route
 Route::get('dashboard', [DashboardController::class,'index']);
 Route::get('artist-profile', [ArtistController::class,'artistProfile']);
-
+Route::post('update-artist-profile', [ArtistController::class, 'updateArtistProfile']);
 /***************************************************** Artist Routes *********************************************************/

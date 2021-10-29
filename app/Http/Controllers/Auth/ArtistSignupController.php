@@ -326,7 +326,7 @@ class ArtistSignupController extends Controller
                 $input['released']           = isset($released['released']) ? $released['released'] : null;
                 $input['released_day']       = $released_day;
                 $input['come_upcoming']      = !empty($request->get('come_upcoming')) ? $request->get('come_upcoming') : null;
-                $user->artistUsers()->create($input);
+                $user->artistUser()->create($input);
 
                 // user tags store
                 if(!empty($artist_tags)){

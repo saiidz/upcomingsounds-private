@@ -379,7 +379,7 @@ class ArtistSignupRepresentativeController extends Controller
                 $input['released']                        = isset($released_representative['released']) ? $released_representative['released'] : null;
                 $input['released_day']                    = $released_day;
                 $input['come_upcoming']                   = !empty($request->get('come_upcoming')) ? $request->get('come_upcoming') : null;
-                $user->artistUsers()->create($input);
+                $user->artistUser()->create($input);
 
                 // user tags store
                 if(!empty($artist_representative_tags)){

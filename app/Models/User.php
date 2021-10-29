@@ -62,8 +62,8 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(UserTag::class, 'user_id');
     }
     // artist user
-    public function artistUsers(){
-        return $this->hasMany(ArtistUser::class,'user_id');
+    public function artistUser(){
+        return $this->hasOne(ArtistUser::class,'user_id');
     }
     // user belongs to country
     public function country(){

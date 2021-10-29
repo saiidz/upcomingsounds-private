@@ -59,8 +59,7 @@
                                     <div id="view-input-fields">
                                         <div class="row">
                                             <div class="col s12 m6 l10">
-                                                <h4 class="card-title bold"><span class="text tw-mr-2">1.</span> Your
-                                                    social media links</h4>
+                                                <h4 class="card-title bold"><span class="text tw-mr-2">1.</span> Your universe</h4>
                                             </div>
                                         </div>
                                         <div class="underline"></div>

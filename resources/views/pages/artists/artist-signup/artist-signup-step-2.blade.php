@@ -45,7 +45,7 @@
                                                     <div class="row">
                                                         <div class="col s12">
                                                             <div class="input-field col s12">
-                                                                <input id="artist_name" class="@error('vehicle_image') is-invalid @enderror" name="artist_name" value="{{old('artist_name')}}" type="text">
+                                                                <input id="artist_name" class="@error('artist_name') is-invalid @enderror" name="artist_name" value="{{old('artist_name')}}" type="text">
                                                                 <label for="artist_name">Your Artist name</label>
                                                                 @error('artist_name')
                                                                 <small class="red-text" role="alert">
