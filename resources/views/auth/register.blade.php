@@ -63,9 +63,11 @@
                         </div>
                         <div class="m-b-md text-sm">
                             <span class="text-muted">By clicking Sign Up, I agree to the</span>
-                            <a href="javascript:void(0)" data-toggle="modal" data-target="#m-a-a" data-ui-toggle-class="zoom" data-ui-target="#animate">Terms of service</a>
+                            <a href="{{url('/term-of-service')}}">Terms of service</a>
+{{--                            <a href="javascript:void(0)" data-toggle="modal" data-target="#m-a-a" data-ui-toggle-class="zoom" data-ui-target="#animate">Terms of service</a>--}}
                             <span class="text-muted">and</span>
-                            <a href="javascript:void(0)" data-toggle="modal" data-target="#m-a-a-policy" data-ui-toggle-class="zoom" data-ui-target="#animatepolicy">Policy Privacy.</a>
+                            <a href="{{url('/privacy-policy')}}">Policy Privacy.</a>
+{{--                            <a href="javascript:void(0)" data-toggle="modal" data-target="#m-a-a-policy" data-ui-toggle-class="zoom" data-ui-target="#animatepolicy">Policy Privacy.</a>--}}
                         </div>
                         <button type="submit" class="btn circle btn-outline b-primary p-x-md auth_btn Rigister">Sign Up</button>
 {{--                        <button type="submit" class="btn btn-lg black p-x-lg">Sign Up</button>--}}

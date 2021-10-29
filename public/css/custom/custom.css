@@ -114,7 +114,8 @@ h1,h2,h3,h4,h5{
 }
 
 .navbar-brand.md img, .navbar-brand.md svg{
-    max-height: 45px!important;
+    max-height: 32px!important;
+    /*max-height: 45px!important;*/
 }
 
 

@@ -29,4 +29,18 @@ class DashboardController extends Controller
     {
         return view('pages.dashboard');
     }
+    /**
+     * privacyPolicy
+     */
+    public function privacyPolicy(Request $request)
+    {
+        return view('privacy-policy');
+    }
+    /**
+     * termOfService
+     */
+    public function termOfService(Request $request)
+    {
+        return view('term-of-service');
+    }
 }
