@@ -165,6 +165,9 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">Jobs</a>
                                         </li>
+                                        <li class="nav-item">
+                                            <a href="{{url('/privacy-policy')}}" class="nav-link">Policy Privacy.</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
