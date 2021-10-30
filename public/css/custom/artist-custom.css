@@ -1,6 +1,7 @@
 .update_profile{
     color:#02b875 !important;
     border-bottom: 2px solid #02b875;
+    font-size:20px;
 }
 /*check box field style*/
 
@@ -97,4 +98,23 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label{
     color: rgba(255, 255, 255, 0.87) !important;
     background-color: #02b875 !important;
     box-shadow: 0 10px 20px rgba(55, 206, 23, 0.72) !important;
+}
+.artist-features{
+    display: flex;
+    align-items: center;
+    margin: 0 28px 20px 10px;
+    flex-wrap: wrap;
+}
+.artist-features ul{
+    margin: 0;
+    padding: 0 0px 0 40px;
+}
+.artist-features ul li{
+    color: #8d8ca4;
+    font-size: 16px;
+    line-height: 16px;
+    margin: 10px 0 0 0
+}
+.artist-features ul li::marker {
+    color: #02b875 ;
 }

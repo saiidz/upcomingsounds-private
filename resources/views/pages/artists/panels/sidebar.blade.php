@@ -114,6 +114,16 @@
                             <span class="nav-text">Saved</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="{{url('/artist-profile')}}#edit-profile">
+                  <span class="nav-icon">
+                    <i class="material-icons">
+                      edit
+                    </i>
+                  </span>
+                            <span class="nav-text">Edit Profile</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>

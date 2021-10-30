@@ -20,8 +20,8 @@ class FeatureTag extends Model
         return $this->belongsTo(Feature::class);
     }
     // UserTag
-    public function userTag(){
-        return $this->belongsTo(UserTag::class);
-    }
+//    public function userTag(){
+//        return $this->belongsTo(UserTag::class);
+//    }
 
 }

@@ -184,7 +184,7 @@
                                                                 <ul class="collapsible categories-collapsible">
                                                                     <li class="active">
                                                                         <div class="collapsible-header">Q: No cool photo
-                                                                            for farhan? <i class="material-icons">
+                                                                            for {{(auth()->user()) ? auth()->user()->name : 'test'}}? <i class="material-icons">
                                                                                 keyboard_arrow_right </i></div>
                                                                         <div class="collapsible-body">
                                                                             <p>KDon't worry, you can always add one

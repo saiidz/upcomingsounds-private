@@ -22,6 +22,8 @@ class ArtistUser extends Model
         'soundcloud_url',
         'youtube_url',
         'website_url',
+        'deezer_url',
+        'bandcamp_url',
         'released',
         'released_day',
         'come_upcoming',
@@ -36,5 +38,9 @@ class ArtistUser extends Model
     // artist user
     public function user(){
         return $this->belongsTo(User::class);
+    }
+    // artist user belongs to country
+    public function country(){
+        return $this->belongsTo(Country::class);
     }
 }

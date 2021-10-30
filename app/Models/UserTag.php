@@ -20,6 +20,6 @@ class UserTag extends Model
         return $this->belongsTo(User::class);
     }
     public function featureTag(){
-        return $this->hasMany(FeatureTag::class,'id','feature_tag_id');
+        return $this->belongsTo(FeatureTag::class);
     }
 }

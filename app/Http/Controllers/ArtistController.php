@@ -16,6 +16,7 @@ class ArtistController extends Controller
     // Artist Profile
     public function artistProfile(){
         $user_artist = Auth::user();
+//        dd($user_artist->userTags[0]->featureTag->name);
         $selected_feature = $user_artist->userTags->pluck('feature_tag_id')->toArray();
         $countries = Country::all();
         $features = Feature::all();
@@ -51,6 +52,10 @@ class ArtistController extends Controller
                 'soundcloud_url'                  => ($request->get('soundcloud_url')) ? $request->get('soundcloud_url') : null,
                 'youtube_url'                     => ($request->get('youtube_url')) ? $request->get('youtube_url') : null,
                 'website_url'                     => ($request->get('website_url')) ? $request->get('website_url') : null,
+                'deezer_url'                      => ($request->get('deezer_url')) ? $request->get('deezer_url') : null,
+                'bandcamp_url'                    => ($request->get('bandcamp_url')) ? $request->get('bandcamp_url') : null,
+                'artist_bio'                      => ($request->get('artist_bio')) ? $request->get('artist_bio') : null,
+                'hot_news'                        => ($request->get('hot_news')) ? $request->get('hot_news') : null,
                 'artist_representative_record'    => ($request->get('artist_representative_record')) ? $request->get('artist_representative_record') : null,
                 'artist_representative_manager'   => ($request->get('artist_representative_manager')) ? $request->get('artist_representative_manager') : null,
                 'artist_representative_press'     => ($request->get('artist_representative_press')) ? $request->get('artist_representative_press') : null,
