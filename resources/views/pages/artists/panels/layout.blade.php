@@ -6,6 +6,7 @@
 <!-- END: Head-->
 
 <body>
+<div id="loadings"></div>
 <div class="app dk" id="app">
 
     <!-- BEGIN: SideNav-->

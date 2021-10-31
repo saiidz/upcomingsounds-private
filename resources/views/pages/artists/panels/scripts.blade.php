@@ -32,7 +32,15 @@
 <script src="{{asset('scripts/ajax.js')}}"></script>
 <script src="{{asset('js/swiper-bundle.min.js')}}"></script>
 @yield('page-script')
-
+<script>
+    var preload = document.getElementById("loadings");
+    function loader(){
+        preload.style.display='none';
+    }
+    function showLoader(){
+        preload.style.display='block';
+    }
+</script>
 
 @if (Session::get('success'))
     @php $message = (Session::get('success')) @endphp

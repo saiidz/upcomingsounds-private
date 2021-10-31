@@ -4,60 +4,11 @@
 @section('title','Artist Profile')
 
 @section('page-style')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        /*label {*/
-        /*    display: inline-block;*/
-        /*    margin-bottom: .5rem;*/
-        /*    font-size: 0.8rem;*/
-        /*    color: #9e9e9e;*/
-        /*}*/
-        /*[type="checkbox"]:not(:checked), [type="checkbox"]:checked {*/
-        /*    position: absolute;*/
-        /*    opacity: 0;*/
-        /*    pointer-events: none;*/
-        /*}*/
-        /*[type="checkbox"] + span:not(.lever) {*/
-        /*    position: relative;*/
-        /*    padding-left: 35px;*/
-        /*    cursor: pointer;*/
-        /*    display: inline-block;*/
-        /*    height: 25px;*/
-        /*    line-height: 25px;*/
-        /*    font-size: 1rem;*/
-        /*    user-select: none;*/
-        /*}*/
-
-        /*[type="checkbox"].filled-in:checked + span:not(.lever)::before {*/
-        /*    top: 0;*/
-        /*    left: 1px;*/
-        /*    width: 8px;*/
-        /*    height: 13px;*/
-        /*    border-top: 2px solid transparent;*/
-        /*    border-left: 2px solid transparent;*/
-        /*    border-right: 2px solid #fff;*/
-        /*    border-bottom: 2px solid #fff;*/
-        /*    transform: rotateZ(37deg);*/
-        /*    transform-origin: 100% 100%;*/
-        /*}*/
-        /*[type="checkbox"].filled-in + span:not(.lever)::before, [type="checkbox"].filled-in + span:not(.lever)::after{*/
-        /*    content: "";*/
-        /*    position: absolute;*/
-        /*    transition: border 0.25s, background-color 0.25s, width 0.2s 0.1s, height 0.2s 0.1s, top 0.2s 0.1s, left 0.2s 0.1s;*/
-        /*    z-index: 1;*/
-        /*}*/
-        /*[type="checkbox"].filled-in:checked + span:not(.lever)::after {*/
-        /*    top: 0;*/
-        /*    width: 20px;*/
-        /*    height: 20px;*/
-        /*    border: 2px solid #ff4081;*/
-        /*    background-color: #ff4081;*/
-        /*    z-index: 0;*/
-        /*}*/
-        /*[type="checkbox"].filled-in:checked + span:not(.lever)::after {*/
-        /*    border: #02b875 !important;*/
-        /*    background-color: #02b875 !important;*/
-        /*}*/
-
+        #loadings{
+            background: rgba(255, 255, 255, .4) url({{asset('images/loader.gif')}}) no-repeat center center !important;
+        }
     </style>
 @endsection
 
@@ -128,17 +79,17 @@
                                     @endphp
                                     @if($pos === false)
                                         @if(!empty($user_artist->profile))
-                                            <div class="item-media-content"
+                                            <div class="item-media-content" id="upload_profile"
                                                  style="background-image: url({{URL('/')}}/uploads/profile/{{$user_artist->profile}});"></div>
                                         @else
-                                            <div class="item-media-content"
+                                            <div class="item-media-content" id="upload_profile"
                                                  style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>
                                         @endif
                                     @elseif($pos == 0)
-                                        <div class="item-media-content"
+                                        <div class="item-media-content" id="upload_profile"
                                              style="background-image: url({{$user_artist->profile}});"></div>
                                     @else
-                                        <div class="item-media-content"
+                                        <div class="item-media-content" id="upload_profile"
                                              style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>
                                     @endif
 
@@ -150,18 +101,91 @@
                                 <h1 class="page-title">
                                     <span class="h1 _800">{{($user_artist) ? $user_artist->name : ''}}</span>
                                 </h1>
-                                <p class="item-desc text-ellipsis text-muted" data-ui-toggle-class="text-ellipsis">Lorem
-                                    ipsum dolor sit amet, consectetur adipiscing elit. Quamquam tu hanc copiosiorem
-                                    etiam soles dicere. Nihil illinc huc pervenit. Verum hoc idem saepe faciamus. Quid
-                                    ad utilitatem tantae pecuniae? Utram tandem linguam nescio? Sed hoc sane
-                                    concedamus.</p>
-                                <div class="item-action m-b">
-                                    <a href="#" class="btn btn-sm rounded primary">Upload</a>
-                                    {{--                                    <a href="#" class="btn btn-sm rounded white">Edit Profile</a>--}}
-                                </div>
+                                <p class="item-desc text-ellipsis text-muted" data-ui-toggle-class="text-ellipsis">
+                                    @if(!empty($user_artist->artistUser->artist_bio))
+                                        {{$user_artist->artistUser->artist_bio}}
+                                    @endif
+                                </p>
+                                <form class="profile-pic" method="post" enctype="multipart/form-data">
+                                    <div class="item-action m-b">
+                                        <label for="file" class="btn btn-sm rounded primary">Upload</label>
+                                        <input id="file" type="file" class="btn btn-sm rounded primary" name="file" accept="image/*"/>
+                                        {{--                                        <a href="#" class="btn btn-sm rounded primary">Upload</a>--}}
+                                        {{--                                    <a href="#" class="btn btn-sm rounded white">Edit Profile</a>--}}
+                                    </div>
+                                </form>
+
                                 <div class="block clearfix m-b">
                                     <span>9</span> <span class="text-muted">Albums</span>, <span>23</span> <span
                                         class="text-muted">Tracks</span>
+                                </div>
+                                <div class="row-col m-b">
+                                    <div class="col-xs">
+                                        @if(!empty($user_artist->artistUser->instagram_url))
+                                            <a href="{{$user_artist->artistUser->instagram_url}}" target="_blank"
+                                               class="btn btn-icon btn-social rounded btn-social-colored light-blue-800"
+                                               style="background-color: #a93691 !important;" title="Instagram">
+                                                <i class="fa fa-instagram"></i>
+                                                <i class="fa fa-instagram"></i>
+                                            </a>
+                                        @endif
+                                        @if(!empty($user_artist->artistUser->facebook_url))
+                                            <a href="{{$user_artist->artistUser->facebook_url}}" target="_blank"
+                                               class="btn btn-icon btn-social rounded btn-social-colored indigo"
+                                               title="Facebook">
+                                                <i class="fa fa-facebook"></i>
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        @endif
+                                        @if(!empty($user_artist->artistUser->spotify_url))
+                                            <a href="{{$user_artist->artistUser->spotify_url}}" target="_blank"
+                                               class="btn btn-icon btn-social rounded btn-social-colored light-green-500"
+                                               title="Spotify">
+                                                <i class="fa fa-spotify"></i>
+                                                <i class="fa fa-spotify"></i>
+                                            </a>
+                                        @endif
+                                        @if(!empty($user_artist->artistUser->soundcloud_url))
+                                            <a href="{{$user_artist->artistUser->soundcloud_url}}" target="_blank"
+                                               class="btn btn-icon btn-social rounded btn-social-colored orange-700"
+                                               title="SoundCloud">
+                                                <i class="fa fa-soundcloud"></i>
+                                                <i class="fa fa-soundcloud"></i>
+                                            </a>
+                                        @endif
+                                        @if(!empty($user_artist->artistUser->youtube_url))
+                                            <a href="{{$user_artist->artistUser->youtube_url}}" target="_blank"
+                                               class="btn btn-icon btn-social rounded btn-social-colored red-600"
+                                               title="Youtube">
+                                                <i class="fa fa-youtube"></i>
+                                                <i class="fa fa-youtube"></i>
+                                            </a>
+                                        @endif
+                                        @if(!empty($user_artist->artistUser->website_url))
+                                            <a href="{{$user_artist->artistUser->website_url}}" target="_blank"
+                                               class="btn btn-icon btn-social rounded btn-social-colored"
+                                               style="background-color:#333;" title="Website">
+                                                <i class="fa fa-link"></i>
+                                                <i class="fa fa-link"></i>
+                                            </a>
+                                        @endif
+                                        @if(!empty($user_artist->artistUser->deezer_url))
+                                            <a href="{{$user_artist->artistUser->deezer_url}}" target="_blank"
+                                               class="btn btn-icon btn-social rounded btn-social-colored"
+                                               style="background-color:#eb9d00;" title="Deezer">
+                                                {{--                                                <span class="iconify" data-icon="fa-brands:deezer"></span>--}}
+                                                <i class="iconify" data-icon="fa-brands:deezer"></i>
+                                            </a>
+                                        @endif
+                                        @if(!empty($user_artist->artistUser->bandcamp_url))
+                                            <a href="{{$user_artist->artistUser->bandcamp_url}}" target="_blank"
+                                               class="btn btn-icon btn-social rounded btn-social-colored"
+                                               style="background-color:#333;" title="Bandcamp">
+                                                <i class="fa fa-bandcamp"></i>
+                                                <i class="fa fa-bandcamp"></i>
+                                            </a>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -2354,3 +2378,56 @@
     <!-- ############ LAYOUT END-->
 @endsection
 
+@section('page-script')
+    <script>
+        $(document).ready(function (e) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $('#file').change(function(e) {
+                e.preventDefault();
+                var formData = new FormData();
+                formData.append('file', this.files[0]);
+                console.log(this.files[0]);
+                // Preloader
+                // $("#loading").delay(700).fadeOut("slow");
+                // return false;
+                showLoader();
+                $.ajax({
+                    type:'POST',
+                    url: "{{ url('/upload-artist-profile')}}",
+                    data: formData,
+                    // dataType: 'json',
+                    cache:false,
+                    contentType: false,
+                    processData: false,
+                    success: (data) => {
+                        if(data.success){
+                            loader();
+                            var image = document.getElementById('upload_profile');
+                            var path = window.location.origin + '/uploads/profile/'+ data.profile_user;
+                            image.style.backgroundImage = "url('"+path+"')";
+                            $('#snackbar').html(data.success);
+                            $('#snackbar').addClass("show");
+                            setTimeout(function () {
+                                $('#snackbar').removeClass("show");
+                            }, 5000);
+                        }
+                        if(data.error){
+                            // loader();
+                            $('#snackbarError').html(data.error);
+                            $('#snackbarError').addClass("show");
+                            setTimeout(function () {
+                                $('#snackbarError').removeClass("show");
+                            }, 5000);
+
+                        }
+                    },
+                });
+            });
+        });
+    </script>
+    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+@endsection

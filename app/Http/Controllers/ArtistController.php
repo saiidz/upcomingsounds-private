@@ -83,4 +83,43 @@ class ArtistController extends Controller
             }
 
     }
+
+    /**
+     * User artist upload Profile
+     */
+    public function uploadArtistProfile(Request $request)
+    {
+//        $validator = Validator::make($request->all(), [
+//            'file' => 'required|mimes:jpeg,jpg,png|max:2048',
+//        ]);
+//        if ($validator->fails()) {
+//            return response()->json([
+//                'status'    => FALSE,
+//                'error' =>  'The file must be a file of type: jpeg, jpg, png.',
+//            ]);
+//        }
+
+        $profile_exist = auth()->user() ? auth()->user()->profile : '';
+        $image = public_path('uploads/profile/' . $profile_exist);
+        if(file_exists($image)) {
+            unlink($image);
+        }
+
+        if ($request->hasfile('file')) {
+            $file = $request->file('file');
+            $name = $file->getClientOriginalName();
+            $image_path = 'default_' . time() . $name;
+            $file->move(public_path() . '/uploads/profile/', $image_path);
+            //store image file into directory and db
+            $input['profile'] = $image_path;
+            auth()->user()->update($input);
+        }
+
+        return response()->json([
+            'status'    => TRUE,
+            'profile_user' => auth()->user() ? auth()->user()->profile : '',
+            'success' => 'Artist Profile Successfully Updated.',
+        ]);
+    }
+
 }

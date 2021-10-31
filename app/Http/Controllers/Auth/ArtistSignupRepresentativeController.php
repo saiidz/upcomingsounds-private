@@ -241,6 +241,12 @@ class ArtistSignupRepresentativeController extends Controller
      */
     public function postArtistSignupRepresentativeStep6(Request $request)
     {
+        $profile_exist = auth()->user() ? auth()->user()->profile : '';
+        $image = public_path('uploads/profile/' . $profile_exist);
+        if(file_exists($image)) {
+            unlink($image);
+        }
+
         if ($request->hasfile('profile')) {
             $file = $request->file('profile');
             $name = $file->getClientOriginalName();
