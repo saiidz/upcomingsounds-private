@@ -106,7 +106,7 @@
                                         {{$user_artist->artistUser->artist_bio}}
                                     @endif
                                 </p>
-                                <form class="profile-pic" method="post" enctype="multipart/form-data">
+                                <form class="profile-pic" id="profileBtnShow" method="post" enctype="multipart/form-data" style="display:none;">
                                     <div class="item-action m-b">
                                         <label for="file" class="btn btn-sm rounded primary">Upload</label>
                                         <input id="file" type="file" class="btn btn-sm rounded primary" name="file" accept="image/*"/>
@@ -198,20 +198,20 @@
                             <div class="nav-active-border b-primary bottom m-b-md m-t">
                                 <ul class="nav l-h-2x" data-ui-jp="taburl">
                                     <li class="nav-item m-r inline">
-                                        <a class="nav-link active" href="#" data-toggle="tab" data-target="#track">Tracks</a>
+                                        <a class="nav-link active RemoveUpload" href="#" data-toggle="tab" data-target="#track">Tracks</a>
                                     </li>
                                     <li class="nav-item m-r inline">
-                                        <a class="nav-link" href="#" data-toggle="tab" data-target="#playlist">Lists</a>
+                                        <a class="nav-link RemoveUpload" href="#" data-toggle="tab" data-target="#playlist">Lists</a>
                                     </li>
                                     <li class="nav-item m-r inline">
-                                        <a class="nav-link" href="#" data-toggle="tab" data-target="#like">Saved</a>
+                                        <a class="nav-link RemoveUpload" href="#" data-toggle="tab" data-target="#like">Saved</a>
                                     </li>
                                     <li class="nav-item m-r inline">
-                                        <a class="nav-link" href="#" data-toggle="tab"
+                                        <a class="nav-link RemoveUpload" href="#" data-toggle="tab"
                                            data-target="#profile">Profile</a>
                                     </li>
                                     <li class="nav-item m-r inline">
-                                        <a class="nav-link" href="#" data-toggle="tab"
+                                        <a class="nav-link" id="EditProfile" href="#" data-toggle="tab"
                                            data-target="#edit-profile">Edit Profile</a>
                                     </li>
                                 </ul>
@@ -1051,93 +1051,93 @@
                                             </div>
                                         </div>
 
-                                        <div class="page-title m-b">
-                                            <h4 class="inline m-a-0 update_profile">Social Media Links</h4>
-                                        </div>
+{{--                                        <div class="page-title m-b">--}}
+{{--                                            <h4 class="inline m-a-0 update_profile">Social Media Links</h4>--}}
+{{--                                        </div>--}}
 
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 form-control-label text-muted">Instagram</div>
-                                            <div class="col-sm-9">
-                                                <input type="text"
-                                                       class="form-control"
-                                                       value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->instagram_url : ''}}"
-                                                       readonly>
-                                            </div>
-                                        </div>
+{{--                                        <div class="form-group row">--}}
+{{--                                            <div class="col-sm-3 form-control-label text-muted">Instagram</div>--}}
+{{--                                            <div class="col-sm-9">--}}
+{{--                                                <input type="text"--}}
+{{--                                                       class="form-control"--}}
+{{--                                                       value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->instagram_url : ''}}"--}}
+{{--                                                       readonly>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 form-control-label text-muted">Facebook</div>
-                                            <div class="col-sm-9">
-                                                <input type="text"
-                                                       class="form-control"
-                                                       value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->facebook_url : ''}}"
-                                                       readonly>
-                                            </div>
-                                        </div>
+{{--                                        <div class="form-group row">--}}
+{{--                                            <div class="col-sm-3 form-control-label text-muted">Facebook</div>--}}
+{{--                                            <div class="col-sm-9">--}}
+{{--                                                <input type="text"--}}
+{{--                                                       class="form-control"--}}
+{{--                                                       value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->facebook_url : ''}}"--}}
+{{--                                                       readonly>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 form-control-label text-muted">Spotify</div>
-                                            <div class="col-sm-9">
-                                                <input type="text"
-                                                       class="form-control"
-                                                       value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->spotify_url : ''}}"
-                                                       readonly>
-                                            </div>
-                                        </div>
+{{--                                        <div class="form-group row">--}}
+{{--                                            <div class="col-sm-3 form-control-label text-muted">Spotify</div>--}}
+{{--                                            <div class="col-sm-9">--}}
+{{--                                                <input type="text"--}}
+{{--                                                       class="form-control"--}}
+{{--                                                       value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->spotify_url : ''}}"--}}
+{{--                                                       readonly>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 form-control-label text-muted">Sound Cloud
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <input type="text"
-                                                       class="form-control"
-                                                       value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->soundcloud_url : ''}}"
-                                                       readonly>
-                                            </div>
-                                        </div>
+{{--                                        <div class="form-group row">--}}
+{{--                                            <div class="col-sm-3 form-control-label text-muted">Sound Cloud--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-sm-9">--}}
+{{--                                                <input type="text"--}}
+{{--                                                       class="form-control"--}}
+{{--                                                       value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->soundcloud_url : ''}}"--}}
+{{--                                                       readonly>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 form-control-label text-muted">Youtube</div>
-                                            <div class="col-sm-9">
-                                                <input type="text"
-                                                       class="form-control"
-                                                       value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->youtube_url : ''}}"
-                                                       readonly>
-                                            </div>
-                                        </div>
+{{--                                        <div class="form-group row">--}}
+{{--                                            <div class="col-sm-3 form-control-label text-muted">Youtube</div>--}}
+{{--                                            <div class="col-sm-9">--}}
+{{--                                                <input type="text"--}}
+{{--                                                       class="form-control"--}}
+{{--                                                       value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->youtube_url : ''}}"--}}
+{{--                                                       readonly>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 form-control-label text-muted">Add Website
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <input type="text"
-                                                       class="form-control"
-                                                       value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->website_url : ''}}"
-                                                       readonly>
-                                            </div>
-                                        </div>
+{{--                                        <div class="form-group row">--}}
+{{--                                            <div class="col-sm-3 form-control-label text-muted">Add Website--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-sm-9">--}}
+{{--                                                <input type="text"--}}
+{{--                                                       class="form-control"--}}
+{{--                                                       value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->website_url : ''}}"--}}
+{{--                                                       readonly>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 form-control-label text-muted">Deezer
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <input type="text"
-                                                       class="form-control"
-                                                       value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->deezer_url : ''}}"
-                                                       readonly>
-                                            </div>
-                                        </div>
+{{--                                        <div class="form-group row">--}}
+{{--                                            <div class="col-sm-3 form-control-label text-muted">Deezer--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-sm-9">--}}
+{{--                                                <input type="text"--}}
+{{--                                                       class="form-control"--}}
+{{--                                                       value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->deezer_url : ''}}"--}}
+{{--                                                       readonly>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 form-control-label text-muted">Bandcamp
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <input type="text"
-                                                       class="form-control"
-                                                       value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->bandcamp_url : ''}}"
-                                                       readonly>
-                                            </div>
-                                        </div>
+{{--                                        <div class="form-group row">--}}
+{{--                                            <div class="col-sm-3 form-control-label text-muted">Bandcamp--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-sm-9">--}}
+{{--                                                <input type="text"--}}
+{{--                                                       class="form-control"--}}
+{{--                                                       value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->bandcamp_url : ''}}"--}}
+{{--                                                       readonly>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
                                         <div class="page-title m-b-1">
                                             <h4 class="inline m-a-0 update_profile">Artist Features</h4>
@@ -2427,6 +2427,15 @@
                     },
                 });
             });
+        });
+        $('#EditProfile').click(function (){
+            var display_btn = document.getElementById('profileBtnShow');
+            display_btn.style.display = 'block';
+        });
+
+        $('.RemoveUpload').click(function (){
+            var display_upload= document.getElementById('profileBtnShow');
+            display_upload.style.display = 'none';
         });
     </script>
     <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
