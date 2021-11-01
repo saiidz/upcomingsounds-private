@@ -163,10 +163,11 @@
                                             <a class="nav-link" href="#">Blog</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Jobs</a>
+                                            <a href="{{url('/term-of-service')}}" class="nav-link">Term of Service</a>
+{{--                                            <a class="nav-link" href="#">Jobs</a>--}}
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{url('/privacy-policy')}}" class="nav-link">Policy Privacy.</a>
+                                            <a href="{{url('/privacy-policy')}}" class="nav-link">Policy Privacy</a>
                                         </li>
                                     </ul>
                                 </div>
