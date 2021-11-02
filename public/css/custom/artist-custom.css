@@ -129,3 +129,10 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label{
     /*background: #fff url(../images/loader.gif) no-repeat center center;*/
     z-index: 999999;
 }
+.flag_style{
+    display:flex;
+}
+.flag-icon{
+    font-size:20px !important;
+    margin-right: 8px;
+}

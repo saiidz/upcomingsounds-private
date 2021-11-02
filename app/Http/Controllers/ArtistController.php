@@ -10,17 +10,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
+use PragmaRX\Countries\Package\Countries;
 
 class ArtistController extends Controller
 {
     // Artist Profile
     public function artistProfile(){
         $user_artist = Auth::user();
-//        dd($user_artist->userTags[0]->featureTag->name);
         $selected_feature = $user_artist->userTags->pluck('feature_tag_id')->toArray();
         $countries = Country::all();
+        $countries_flag = new Countries();
+        $countries_flag = $countries_flag->all();
         $features = Feature::all();
-        return view('pages.artists.artist-profile',compact('user_artist','countries','features','selected_feature'));
+        return view('pages.artists.artist-profile',compact('user_artist','countries_flag','countries','features','selected_feature'));
     }
     // Artist Update Profile
     public function updateArtistProfile(Request $request)

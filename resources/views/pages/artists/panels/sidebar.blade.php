@@ -154,7 +154,7 @@
                     <a class="dropdown-item" href="docs.html">
                         Need help?
                     </a>
-                    <a class="dropdown-item" href="signin.html">Sign out</a>
+                    <a class="dropdown-item" href="{{route('logout')}}">Sign out</a>
                 </div>
             </div>
 
