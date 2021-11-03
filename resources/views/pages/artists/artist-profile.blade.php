@@ -6,7 +6,7 @@
 @section('page-style')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        #loadings{
+        #loadings {
             background: rgba(255, 255, 255, .4) url({{asset('images/loader.gif')}}) no-repeat center center !important;
         }
     </style>
@@ -25,17 +25,7 @@
             <div class="navbar">
                 <!-- brand -->
                 <a href="{{url('/')}}" class="navbar-brand md">
-                    {{--                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32">--}}
-                    {{--                            <circle cx="24" cy="24" r="24" fill="rgba(255,255,255,0.2)"/>--}}
-                    {{--                            <circle cx="24" cy="24" r="22" fill="#1c202b" class="brand-color"/>--}}
-                    {{--                            <circle cx="24" cy="24" r="10" fill="#ffffff"/>--}}
-                    {{--                            <circle cx="13" cy="13" r="2"  fill="#ffffff" class="brand-animate"/>--}}
-                    {{--                            <path d="M 14 24 L 24 24 L 14 44 Z" fill="#FFFFFF" />--}}
-                    {{--                            <circle cx="24" cy="24" r="3" fill="#000000"/>--}}
-                    {{--                        </svg>--}}
-
                     <img src="{{asset('images/logo.png')}}" alt=".">
-                    {{--                        <span class="hidden-folded inline">pulse</span>--}}
                 </a>
                 <!-- / brand -->
                 <!-- nabar right -->
@@ -113,13 +103,16 @@
                                                 {!! $flag->flag['flag-icon'] !!}
                                             @endif
                                         @endforeach
-                                        <span class="text-muted" style="font-size:15px">{{($user_artist->artistUser->country) ? $user_artist->artistUser->country->name : ''}}</span>
+                                        <span class="text-muted"
+                                              style="font-size:15px">{{($user_artist->artistUser->country) ? $user_artist->artistUser->country->name : ''}}</span>
                                     </div>
                                 @endif
-                                <form class="profile-pic" id="profileBtnShow" method="post" enctype="multipart/form-data" style="display:none;">
+                                <form class="profile-pic" id="profileBtnShow" method="post"
+                                      enctype="multipart/form-data" style="display:none;">
                                     <div class="item-action m-b">
                                         <label for="file" class="btn btn-sm rounded primary">Upload</label>
-                                        <input id="file" type="file" class="btn btn-sm rounded primary" name="file" accept="image/*"/>
+                                        <input id="file" type="file" class="btn btn-sm rounded primary" name="file"
+                                               accept="image/*"/>
                                         {{--                                        <a href="#" class="btn btn-sm rounded primary">Upload</a>--}}
                                         {{--                                    <a href="#" class="btn btn-sm rounded white">Edit Profile</a>--}}
                                     </div>
@@ -208,10 +201,12 @@
                             <div class="nav-active-border b-primary bottom m-b-md m-t">
                                 <ul class="nav l-h-2x" data-ui-jp="taburl">
                                     <li class="nav-item m-r inline">
-                                        <a class="nav-link active RemoveUpload" href="#" data-toggle="tab" data-target="#track">Tracks</a>
+                                        <a class="nav-link active RemoveUpload" href="#" data-toggle="tab"
+                                           data-target="#track">Tracks</a>
                                     </li>
                                     <li class="nav-item m-r inline">
-                                        <a class="nav-link RemoveUpload" href="#" data-toggle="tab" data-target="#playlist">Lists</a>
+                                        <a class="nav-link RemoveUpload" href="#" data-toggle="tab"
+                                           data-target="#playlist">Lists</a>
                                     </li>
                                     <li class="nav-item m-r inline">
                                         <a class="nav-link RemoveUpload" href="#" data-toggle="tab" data-target="#like">Saved</a>
@@ -950,954 +945,12 @@
                                 </div>
                                 <div class="tab-pane" id="profile">
                                     {{--               Artist Profile                     --}}
-                                    <div class="page-title m-b">
-                                        <h4 class="inline m-a-0 update_profile">Basic Info</h4>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-3 form-control-label text-muted">Name</div>
-                                        <div class="col-sm-9">
-                                            <input type="text"
-                                                   class="form-control"
-                                                   value="{{ isset($user_artist->name) ? $user_artist->name : ''  }}"
-                                                   readonly>
-                                        </div>
-                                    </div>
-                                    @if(!empty($user_artist->artistUser))
-                                        @if($user_artist->artistUser->artist_signup_from == 'artist')
-                                            <input type="hidden" name="artist_signup_from"
-                                                   value="{{($user_artist->artistUser) ? $user_artist->artistUser->artist_signup_from : ''}}">
-                                            <div class="page-title m-b">
-                                                <h4 class="inline m-a-0 update_profile">Artist Info</h4>
-                                            </div>
-
-                                        @elseif($user_artist->artistUser->artist_signup_from == 'artist_representative')
-                                            <input type="hidden" name="artist_signup_from"
-                                                   value="{{($user_artist->artistUser) ? $user_artist->artistUser->artist_signup_from : ''}}">
-                                            <div class="page-title m-b">
-                                                <h4 class="inline m-a-0 update_profile">Artist Representative
-                                                    Info</h4>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <div class="col-sm-3 form-control-label text-muted">What kind of
-                                                    artist representative are you ?
-                                                </div>
-                                                <div class="col-sm-9">
-                                                    <div class="col s12">
-                                                        <p class="mb-1">
-                                                            @if($user_artist->artistUser->artist_representative_record == 1)
-                                                                <label>
-                                                                    <span>Record Label 🎧</span>
-                                                                </label>
-                                                            @endif
-
-                                                            @if($user_artist->artistUser->artist_representative_manager == 2)
-                                                                <label class="record_label">
-                                                                    <span>Manager 🚀</span>
-                                                                </label>
-                                                            @endif
-
-                                                        </p>
-                                                    </div>
-                                                    <div class="col s12">
-                                                        <p class="mb-1">
-                                                            @if($user_artist->artistUser->artist_representative_press == 3)
-                                                                <label class="record_label">
-                                                                    <span>Press Officer 🎤</span>
-                                                                </label>
-                                                            @endif
-                                                            @if($user_artist->artistUser->artist_representative_publisher == 4)
-                                                                <label class="record_label">
-                                                                    <span>Publisher 🎯</span>
-                                                                </label>
-                                                            @endif
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        @else
-                                        @endif
-
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 form-control-label text-muted">Artist Name
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <input type="text"
-                                                       class="form-control"
-                                                       value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->artist_name : ''}}"
-                                                       readonly>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 form-control-label text-muted">Country</div>
-                                            <div class="col-sm-9">
-                                                <input type="text"
-                                                       class="form-control"
-                                                       value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->country->name : ''}}"
-                                                       readonly>
-                                            </div>
-                                        </div>
-
-                                        <div class="page-title m-b">
-                                            <h4 class="inline m-a-0 update_profile">Artist's Bio</h4>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 form-control-label text-muted">Bio</div>
-                                            <div class="col-sm-9">
-                                                <textarea class="form-control"
-                                                          readonly>{{isset($user_artist->artistUser) ? $user_artist->artistUser->artist_bio : ''}}</textarea>
-                                            </div>
-                                        </div>
-
-                                        <div class="page-title m-b">
-                                            <h4 class="inline m-a-0 update_profile">Right now</h4>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 form-control-label text-muted">Hot News</div>
-                                            <div class="col-sm-9">
-                                                <textarea class="form-control"
-                                                          readonly>{{isset($user_artist->artistUser) ? $user_artist->artistUser->hot_news : ''}}</textarea>
-                                            </div>
-                                        </div>
-
-{{--                                        <div class="page-title m-b">--}}
-{{--                                            <h4 class="inline m-a-0 update_profile">Social Media Links</h4>--}}
-{{--                                        </div>--}}
-
-{{--                                        <div class="form-group row">--}}
-{{--                                            <div class="col-sm-3 form-control-label text-muted">Instagram</div>--}}
-{{--                                            <div class="col-sm-9">--}}
-{{--                                                <input type="text"--}}
-{{--                                                       class="form-control"--}}
-{{--                                                       value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->instagram_url : ''}}"--}}
-{{--                                                       readonly>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-
-{{--                                        <div class="form-group row">--}}
-{{--                                            <div class="col-sm-3 form-control-label text-muted">Facebook</div>--}}
-{{--                                            <div class="col-sm-9">--}}
-{{--                                                <input type="text"--}}
-{{--                                                       class="form-control"--}}
-{{--                                                       value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->facebook_url : ''}}"--}}
-{{--                                                       readonly>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-
-{{--                                        <div class="form-group row">--}}
-{{--                                            <div class="col-sm-3 form-control-label text-muted">Spotify</div>--}}
-{{--                                            <div class="col-sm-9">--}}
-{{--                                                <input type="text"--}}
-{{--                                                       class="form-control"--}}
-{{--                                                       value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->spotify_url : ''}}"--}}
-{{--                                                       readonly>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-
-{{--                                        <div class="form-group row">--}}
-{{--                                            <div class="col-sm-3 form-control-label text-muted">Sound Cloud--}}
-{{--                                            </div>--}}
-{{--                                            <div class="col-sm-9">--}}
-{{--                                                <input type="text"--}}
-{{--                                                       class="form-control"--}}
-{{--                                                       value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->soundcloud_url : ''}}"--}}
-{{--                                                       readonly>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-
-{{--                                        <div class="form-group row">--}}
-{{--                                            <div class="col-sm-3 form-control-label text-muted">Youtube</div>--}}
-{{--                                            <div class="col-sm-9">--}}
-{{--                                                <input type="text"--}}
-{{--                                                       class="form-control"--}}
-{{--                                                       value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->youtube_url : ''}}"--}}
-{{--                                                       readonly>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-
-{{--                                        <div class="form-group row">--}}
-{{--                                            <div class="col-sm-3 form-control-label text-muted">Add Website--}}
-{{--                                            </div>--}}
-{{--                                            <div class="col-sm-9">--}}
-{{--                                                <input type="text"--}}
-{{--                                                       class="form-control"--}}
-{{--                                                       value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->website_url : ''}}"--}}
-{{--                                                       readonly>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-
-{{--                                        <div class="form-group row">--}}
-{{--                                            <div class="col-sm-3 form-control-label text-muted">Deezer--}}
-{{--                                            </div>--}}
-{{--                                            <div class="col-sm-9">--}}
-{{--                                                <input type="text"--}}
-{{--                                                       class="form-control"--}}
-{{--                                                       value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->deezer_url : ''}}"--}}
-{{--                                                       readonly>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-
-{{--                                        <div class="form-group row">--}}
-{{--                                            <div class="col-sm-3 form-control-label text-muted">Bandcamp--}}
-{{--                                            </div>--}}
-{{--                                            <div class="col-sm-9">--}}
-{{--                                                <input type="text"--}}
-{{--                                                       class="form-control"--}}
-{{--                                                       value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->bandcamp_url : ''}}"--}}
-{{--                                                       readonly>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-
-                                        <div class="page-title m-b-1">
-                                            <h4 class="inline m-a-0 update_profile">Artist Features</h4>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="artist-features">
-                                                @if(count($user_artist->userTags) > 0)
-                                                    @php
-                                                        $userTags = $user_artist->userTags->chunk(6);
-                                                    @endphp
-                                                    @foreach($userTags as $tags)
-                                                        <ul>
-                                                            @foreach($tags as $tag)
-                                                                <li>{{$tag->featureTag->name}}</li>
-                                                            @endforeach
-                                                        </ul>
-                                                    @endforeach
-                                                @endif
-                                            </div>
-                                        </div>
-                                    @endif
+                                    @include('pages.artists.artist-profile-panels.artist-show-profile')
                                     {{--               Artist Profile                     --}}
                                 </div>
                                 <div class="tab-pane" id="edit-profile">
                                     {{--               Artist Update Profile                     --}}
-                                    <form method="POST" action="{{url('/update-artist-profile')}}"
-                                          enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="page-title m-b">
-                                            <h4 class="inline m-a-0 update_profile">Basic Info</h4>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-3 form-control-label text-muted">Name</div>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="name"
-                                                       class="form-control @error('name') is-invalid @enderror"
-                                                       value="{{ isset($user_artist->name) ? $user_artist->name : ''  }}"
-                                                       placeholder="Username" required>
-                                                @error('name')
-                                                <small class="red-text ml-10" role="alert">
-                                                    {{ $message }}
-                                                </small>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        @if(!empty($user_artist->artistUser))
-                                            @if($user_artist->artistUser->artist_signup_from == 'artist')
-                                                <input type="hidden" name="artist_signup_from"
-                                                       value="{{($user_artist->artistUser) ? $user_artist->artistUser->artist_signup_from : ''}}">
-                                                <div class="page-title m-b">
-                                                    <h4 class="inline m-a-0 update_profile">Artist Info</h4>
-                                                </div>
-
-                                            @elseif($user_artist->artistUser->artist_signup_from == 'artist_representative')
-                                                <input type="hidden" name="artist_signup_from"
-                                                       value="{{($user_artist->artistUser) ? $user_artist->artistUser->artist_signup_from : ''}}">
-                                                <div class="page-title m-b">
-                                                    <h4 class="inline m-a-0 update_profile">Artist Representative
-                                                        Info</h4>
-                                                </div>
-
-                                                <div class="form-group row">
-                                                    <div class="col-sm-3 form-control-label text-muted">What kind of
-                                                        artist representative are you ?
-                                                    </div>
-                                                    <div class="col-sm-9">
-                                                        <div class="col s12">
-                                                            <p class="mb-1">
-                                                                <label>
-                                                                    <input type="checkbox"
-                                                                           {{($user_artist->artistUser->artist_representative_record == 1) ? 'checked' : ''}} class="filled-in"
-                                                                           name="artist_representative_record"
-                                                                           value="1"/>
-                                                                    <span>Record Label 🎧</span>
-                                                                </label>
-                                                                <label class="record_label">
-                                                                    <input type="checkbox"
-                                                                           {{($user_artist->artistUser->artist_representative_manager == 2) ? 'checked' : ''}} class="filled-in"
-                                                                           name="artist_representative_manager"
-                                                                           value="2"/>
-                                                                    <span>Manager 🚀</span>
-                                                                </label>
-                                                            </p>
-                                                        </div>
-                                                        <div class="col s12">
-                                                            <p class="mb-1">
-                                                                <label>
-                                                                    <input type="checkbox"
-                                                                           {{($user_artist->artistUser->artist_representative_press == 3) ? 'checked' : ''}} class="filled-in"
-                                                                           name="artist_representative_press"
-                                                                           value="3"/>
-                                                                    <span>Press Officer 🎤</span>
-                                                                </label>
-                                                                <label class="record_label">
-                                                                    <input type="checkbox"
-                                                                           {{($user_artist->artistUser->artist_representative_publisher == 4) ? 'checked' : ''}} class="filled-in"
-                                                                           name="artist_representative_publisher"
-                                                                           value="4"/>
-                                                                    <span>Publisher 🎯</span>
-                                                                </label>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            @else
-                                            @endif
-
-
-
-                                            <div class="form-group row">
-                                                <div class="col-sm-3 form-control-label text-muted">Artist Name
-                                                </div>
-                                                <div class="col-sm-9">
-                                                    <input id="artist_name"
-                                                           class="form-control @error('artist_name') is-invalid @enderror"
-                                                           name="artist_name"
-                                                           value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->artist_name : ''}}"
-                                                           type="text" placeholder="Artist Name" required>
-                                                    @error('artist_name')
-                                                    <small class="red-text" role="alert">
-                                                        {{ $message }}
-                                                    </small>
-                                                    @enderror
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col-sm-3 form-control-label text-muted">Country</div>
-                                                <div class="col-sm-9">
-                                                    <select class="form-control c-select" name="country_name">
-                                                        <option value="" disabled selected>Choose Country</option>
-                                                        @foreach($countries as $country)
-                                                            <option value="{{$country->id}}"
-                                                                    @if($country->id == $user_artist->artistUser->country_id) selected @endif>{{$country->name}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="page-title m-b">
-                                                <h4 class="inline m-a-0 update_profile">Artist's Bio</h4>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col-sm-3 form-control-label text-muted">Bio</div>
-                                                <div class="col-sm-9">
-                                                    <textarea name="artist_bio"
-                                                              placeholder="Parisian singer, songwriter & producer..."
-                                                              class="form-control @error('artist_bio') is-invalid @enderror">{{isset($user_artist->artistUser) ? $user_artist->artistUser->artist_bio : ''}}</textarea>
-                                                    @error('artist_bio')
-                                                    <small class="red-text ml-10" role="alert">
-                                                        {{ $message }}
-                                                    </small>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
-                                            <div class="page-title m-b">
-                                                <h4 class="inline m-a-0 update_profile">Right now</h4>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col-sm-3 form-control-label text-muted">Hot News</div>
-                                                <div class="col-sm-9">
-                                                    <textarea name="hot_news"
-                                                              placeholder="I'm releasing my next EP in March..."
-                                                              class="form-control @error('hot_news') is-invalid @enderror">{{isset($user_artist->artistUser) ? $user_artist->artistUser->hot_news : ''}}</textarea>
-                                                    @error('hot_news')
-                                                    <small class="red-text ml-10" role="alert">
-                                                        {{ $message }}
-                                                    </small>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
-                                            <div class="page-title m-b">
-                                                <h4 class="inline m-a-0 update_profile">Social Media Links</h4>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <div class="col-sm-3 form-control-label text-muted">Instagram</div>
-                                                <div class="col-sm-9">
-                                                    <input id="instagram_url"
-                                                           class="form-control @error('instagram_url') is-invalid @enderror"
-                                                           placeholder="https://www.instagram.com/username"
-                                                           name="instagram_url"
-                                                           value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->instagram_url : ''}}"
-                                                           type="text">
-                                                    @error('instagram_url')
-                                                    <small class="red-text" role="alert">
-                                                        {{ $message }}
-                                                    </small>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <div class="col-sm-3 form-control-label text-muted">Facebook</div>
-                                                <div class="col-sm-9">
-                                                    <input id="facebook_url"
-                                                           class="form-control @error('facebook_url') is-invalid @enderror"
-                                                           placeholder="https://www.facebook.com/username"
-                                                           name="facebook_url"
-                                                           value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->facebook_url : ''}}"
-                                                           type="text">
-                                                    @error('facebook_url')
-                                                    <small class="red-text" role="alert">
-                                                        {{ $message }}
-                                                    </small>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <div class="col-sm-3 form-control-label text-muted">Spotify</div>
-                                                <div class="col-sm-9">
-                                                    <input id="spotify_url"
-                                                           class="form-control @error('spotify_url') is-invalid @enderror"
-                                                           placeholder="https://www.spotify.com/username"
-                                                           name="spotify_url"
-                                                           value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->spotify_url : ''}}"
-                                                           type="text">
-                                                    @error('spotify_url')
-                                                    <small class="red-text" role="alert">
-                                                        {{ $message }}
-                                                    </small>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <div class="col-sm-3 form-control-label text-muted">Sound Cloud
-                                                </div>
-                                                <div class="col-sm-9">
-                                                    <input id="soundcloud_url"
-                                                           class="form-control @error('soundcloud_url') is-invalid @enderror"
-                                                           placeholder="https://www.soundcloud.com/username"
-                                                           name="soundcloud_url"
-                                                           value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->soundcloud_url : ''}}"
-                                                           type="text">
-                                                    @error('soundcloud_url')
-                                                    <small class="red-text" role="alert">
-                                                        {{ $message }}
-                                                    </small>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <div class="col-sm-3 form-control-label text-muted">Youtube</div>
-                                                <div class="col-sm-9">
-                                                    <input id="youtube_url"
-                                                           class="form-control @error('youtube_url') is-invalid @enderror"
-                                                           placeholder="https://www.youtube.com/username"
-                                                           name="youtube_url"
-                                                           value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->youtube_url : ''}}"
-                                                           type="text">
-                                                    @error('youtube_url')
-                                                    <small class="red-text" role="alert">
-                                                        {{ $message }}
-                                                    </small>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <div class="col-sm-3 form-control-label text-muted">Add Website
-                                                </div>
-                                                <div class="col-sm-9">
-                                                    <input id="website_url"
-                                                           class="form-control @error('website_url') is-invalid @enderror"
-                                                           placeholder="https://www.website.com/"
-                                                           name="website_url"
-                                                           value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->website_url : ''}}"
-                                                           type="text">
-                                                    @error('website_url')
-                                                    <small class="red-text" role="alert">
-                                                        {{ $message }}
-                                                    </small>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <div class="col-sm-3 form-control-label text-muted">Deezer
-                                                </div>
-                                                <div class="col-sm-9">
-                                                    <input id="deezer_url"
-                                                           class="form-control @error('deezer_url') is-invalid @enderror"
-                                                           placeholder="https://www.deezer.com/"
-                                                           name="deezer_url"
-                                                           value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->deezer_url : ''}}"
-                                                           type="text">
-                                                    @error('deezer_url')
-                                                    <small class="red-text" role="alert">
-                                                        {{ $message }}
-                                                    </small>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <div class="col-sm-3 form-control-label text-muted">Bandcamp
-                                                </div>
-                                                <div class="col-sm-9">
-                                                    <input id="bandcamp_url"
-                                                           class="form-control @error('bandcamp_url') is-invalid @enderror"
-                                                           placeholder="https://www.bandcamp.com/"
-                                                           name="bandcamp_url"
-                                                           value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->bandcamp_url : ''}}"
-                                                           type="text">
-                                                    @error('bandcamp_url')
-                                                    <small class="red-text" role="alert">
-                                                        {{ $message }}
-                                                    </small>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
-                                            <div class="page-title m-b-2">
-                                                <h4 class="inline m-a-0 update_profile">Your universe</h4>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <div class="col-sm-3">
-                                                    <h6 class="card-title bold">Music genres <span
-                                                            class="text tw-mr-2"
-                                                            style="color:gray;">(Optional)</span>
-                                                    </h6>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col-sm-12">
-                                                    <div class="section" id="faq">
-                                                        @if(isset($features) && !empty($features))
-                                                            @if($features[0]->name == 'Metal')
-                                                                <div class="faq row">
-                                                                    <div class="col-sm-12">
-                                                                        <div
-                                                                            class="collapsible-header features_tAgs">
-                                                                            Metal
-                                                                        </div>
-                                                                        <div class="features-box">
-                                                                            <ul class="ks-cboxtags">
-                                                                                @foreach($features[0]->featureTags as $feature)
-                                                                                    <li>
-                                                                                        <input type="checkbox"
-                                                                                               id="checkboxOne{{$feature->id}}"
-                                                                                               name="tag[]"
-                                                                                               value="{{$feature->id}}"
-                                                                                               {{in_array($feature->id, $selected_feature) ? 'checked' : ''}}
-                                                                                               class="@error('tag') is-invalid @enderror">
-                                                                                        <label
-                                                                                            for="checkboxOne{{$feature->id}}">
-                                                                                            {{$feature->name}}
-                                                                                        </label>
-                                                                                    </li>
-                                                                                @endforeach
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            @endif
-
-                                                            @if($features[1]->name == 'Reggae')
-                                                                <div class="faq row">
-                                                                    <div class="col-sm-12">
-                                                                        <div
-                                                                            class="collapsible-header features_tAgs">
-                                                                            Reggae
-                                                                        </div>
-                                                                        <div class="features-box">
-                                                                            <ul class="ks-cboxtags">
-                                                                                @foreach($features[1]->featureTags as $feature)
-                                                                                    <li>
-                                                                                        <input type="checkbox"
-                                                                                               id="checkboxOne{{$feature->id}}"
-                                                                                               name="tag[]"
-                                                                                               value="{{$feature->id}}"
-                                                                                               {{in_array($feature->id, $selected_feature) ? 'checked' : ''}}
-                                                                                               class="">
-                                                                                        <label
-                                                                                            for="checkboxOne{{$feature->id}}">
-                                                                                            {{$feature->name}}
-                                                                                        </label>
-                                                                                    </li>
-                                                                                @endforeach
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            @endif
-
-                                                            @if($features[2]->name == 'Popular Music')
-                                                                <div class="faq row">
-                                                                    <div class="col-sm-12">
-                                                                        <div
-                                                                            class="collapsible-header features_tAgs">
-                                                                            Popular Music
-                                                                        </div>
-                                                                        <div class="features-box">
-                                                                            <ul class="ks-cboxtags">
-                                                                                @foreach($features[2]->featureTags as $feature)
-                                                                                    <li>
-                                                                                        <input type="checkbox"
-                                                                                               id="checkboxOne{{$feature->id}}"
-                                                                                               name="tag[]"
-                                                                                               value="{{$feature->id}}"
-                                                                                               {{in_array($feature->id, $selected_feature) ? 'checked' : ''}}
-                                                                                               class="">
-                                                                                        <label
-                                                                                            for="checkboxOne{{$feature->id}}">
-                                                                                            {{$feature->name}}
-                                                                                        </label>
-                                                                                    </li>
-                                                                                @endforeach
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            @endif
-                                                            @if($features[3]->name == 'Classic / Instrumental')
-                                                                <div class="faq row">
-                                                                    <div class="col-sm-12">
-                                                                        <div
-                                                                            class="collapsible-header features_tAgs">
-                                                                            Classic / Instrumental
-                                                                        </div>
-                                                                        <div class="features-box">
-                                                                            <ul class="ks-cboxtags">
-                                                                                @foreach($features[3]->featureTags as $feature)
-                                                                                    <li>
-                                                                                        <input type="checkbox"
-                                                                                               id="checkboxOne{{$feature->id}}"
-                                                                                               name="tag[]"
-                                                                                               value="{{$feature->id}}"
-                                                                                               {{in_array($feature->id, $selected_feature) ? 'checked' : ''}}
-                                                                                               class="">
-                                                                                        <label
-                                                                                            for="checkboxOne{{$feature->id}}">
-                                                                                            {{$feature->name}}
-                                                                                        </label>
-                                                                                    </li>
-                                                                                @endforeach
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            @endif
-
-                                                            @if($features[4]->name == 'Electronic')
-                                                                <div class="faq row">
-                                                                    <div class="col-sm-12">
-                                                                        <div
-                                                                            class="collapsible-header features_tAgs">
-                                                                            Electronic
-                                                                        </div>
-                                                                        <div class="features-box">
-                                                                            <ul class="ks-cboxtags">
-                                                                                @foreach($features[4]->featureTags as $feature)
-                                                                                    <li>
-                                                                                        <input type="checkbox"
-                                                                                               id="checkboxOne{{$feature->id}}"
-                                                                                               name="tag[]"
-                                                                                               value="{{$feature->id}}"
-                                                                                               {{in_array($feature->id, $selected_feature) ? 'checked' : ''}}
-                                                                                               class="">
-                                                                                        <label
-                                                                                            for="checkboxOne{{$feature->id}}">
-                                                                                            {{$feature->name}}
-                                                                                        </label>
-                                                                                    </li>
-                                                                                @endforeach
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            @endif
-
-                                                            @if($features[5]->name == 'Folk / Acoustic')
-                                                                <div class="faq row">
-                                                                    <div class="col-sm-12">
-                                                                        <div
-                                                                            class="collapsible-header features_tAgs">
-                                                                            Folk / Acoustic
-                                                                        </div>
-                                                                        <div class="features-box">
-                                                                            <ul class="ks-cboxtags">
-                                                                                @foreach($features[5]->featureTags as $feature)
-                                                                                    <li>
-                                                                                        <input type="checkbox"
-                                                                                               id="checkboxOne{{$feature->id}}"
-                                                                                               name="tag[]"
-                                                                                               value="{{$feature->id}}"
-                                                                                               {{in_array($feature->id, $selected_feature) ? 'checked' : ''}}
-                                                                                               class="">
-                                                                                        <label
-                                                                                            for="checkboxOne{{$feature->id}}">
-                                                                                            {{$feature->name}}
-                                                                                        </label>
-                                                                                    </li>
-                                                                                @endforeach
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            @endif
-
-                                                            @if($features[6]->name == 'Jazz')
-                                                                <div class="faq row">
-                                                                    <div class="col-sm-12">
-                                                                        <div
-                                                                            class="collapsible-header features_tAgs">
-                                                                            Jazz
-                                                                        </div>
-                                                                        <div class="features-box">
-                                                                            <ul class="ks-cboxtags">
-                                                                                @foreach($features[6]->featureTags as $feature)
-                                                                                    <li>
-                                                                                        <input type="checkbox"
-                                                                                               id="checkboxOne{{$feature->id}}"
-                                                                                               name="tag[]"
-                                                                                               value="{{$feature->id}}"
-                                                                                               {{in_array($feature->id, $selected_feature) ? 'checked' : ''}}
-                                                                                               class="">
-                                                                                        <label
-                                                                                            for="checkboxOne{{$feature->id}}">
-                                                                                            {{$feature->name}}
-                                                                                        </label>
-                                                                                    </li>
-                                                                                @endforeach
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            @endif
-
-                                                            @if($features[7]->name == 'Pop')
-                                                                <div class="faq row">
-                                                                    <div class="col-sm-12">
-                                                                        <div
-                                                                            class="collapsible-header features_tAgs">
-                                                                            Pop
-                                                                        </div>
-                                                                        <div class="features-box">
-                                                                            <ul class="ks-cboxtags">
-                                                                                @foreach($features[7]->featureTags as $feature)
-                                                                                    <li>
-                                                                                        <input type="checkbox"
-                                                                                               id="checkboxOne{{$feature->id}}"
-                                                                                               name="tag[]"
-                                                                                               value="{{$feature->id}}"
-                                                                                               {{in_array($feature->id, $selected_feature) ? 'checked' : ''}}
-                                                                                               class="">
-                                                                                        <label
-                                                                                            for="checkboxOne{{$feature->id}}">
-                                                                                            {{$feature->name}}
-                                                                                        </label>
-                                                                                    </li>
-                                                                                @endforeach
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            @endif
-
-                                                            @if($features[8]->name == 'R&B / Soul')
-                                                                <div class="faq row">
-                                                                    <div class="col-sm-12">
-                                                                        <div
-                                                                            class="collapsible-header features_tAgs">
-                                                                            R&B / Soul
-                                                                        </div>
-                                                                        <div class="features-box">
-                                                                            <ul class="ks-cboxtags">
-                                                                                @foreach($features[8]->featureTags as $feature)
-                                                                                    <li>
-                                                                                        <input type="checkbox"
-                                                                                               id="checkboxOne{{$feature->id}}"
-                                                                                               name="tag[]"
-                                                                                               value="{{$feature->id}}"
-                                                                                               {{in_array($feature->id, $selected_feature) ? 'checked' : ''}}
-                                                                                               class="">
-                                                                                        <label
-                                                                                            for="checkboxOne{{$feature->id}}">
-                                                                                            {{$feature->name}}
-                                                                                        </label>
-                                                                                    </li>
-                                                                                @endforeach
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            @endif
-
-                                                            @if($features[9]->name == 'Rock / Punk')
-                                                                <div class="faq row">
-                                                                    <div class="col-sm-12">
-                                                                        <div
-                                                                            class="collapsible-header features_tAgs">
-                                                                            Rock / Punk
-                                                                        </div>
-                                                                        <div class="features-box">
-                                                                            <ul class="ks-cboxtags">
-                                                                                @foreach($features[9]->featureTags as $feature)
-                                                                                    <li>
-                                                                                        <input type="checkbox"
-                                                                                               id="checkboxOne{{$feature->id}}"
-                                                                                               name="tag[]"
-                                                                                               value="{{$feature->id}}"
-                                                                                               {{in_array($feature->id, $selected_feature) ? 'checked' : ''}}
-                                                                                               class="">
-                                                                                        <label
-                                                                                            for="checkboxOne{{$feature->id}}">
-                                                                                            {{$feature->name}}
-                                                                                        </label>
-                                                                                    </li>
-                                                                                @endforeach
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            @endif
-
-                                                            @if($features[10]->name == 'World')
-                                                                <div class="faq row">
-                                                                    <div class="col-sm-12">
-                                                                        <div
-                                                                            class="collapsible-header features_tAgs">
-                                                                            World
-                                                                        </div>
-                                                                        <div class="features-box">
-                                                                            <ul class="ks-cboxtags">
-                                                                                @foreach($features[10]->featureTags as $feature)
-                                                                                    <li>
-                                                                                        <input type="checkbox"
-                                                                                               id="checkboxOne{{$feature->id}}"
-                                                                                               name="tag[]"
-                                                                                               value="{{$feature->id}}"
-                                                                                               {{in_array($feature->id, $selected_feature) ? 'checked' : ''}}
-                                                                                               class="">
-                                                                                        <label
-                                                                                            for="checkboxOne{{$feature->id}}">
-                                                                                            {{$feature->name}}
-                                                                                        </label>
-                                                                                    </li>
-                                                                                @endforeach
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            @endif
-
-                                                            @if($features[11]->name == 'Moods')
-                                                                <div class="faq row">
-                                                                    <div class="col-sm-12">
-                                                                        <div
-                                                                            class="collapsible-header features_tAgs">
-                                                                            Moods
-                                                                        </div>
-                                                                        <div class="features-box">
-                                                                            <ul class="ks-cboxtags">
-                                                                                @foreach($features[11]->featureTags as $feature)
-                                                                                    <li>
-                                                                                        <input type="checkbox"
-                                                                                               id="checkboxOne{{$feature->id}}"
-                                                                                               name="tag[]"
-                                                                                               value="{{$feature->id}}"
-                                                                                               {{in_array($feature->id, $selected_feature) ? 'checked' : ''}}
-                                                                                               class="">
-                                                                                        <label
-                                                                                            for="checkboxOne{{$feature->id}}">
-                                                                                            {{$feature->name}}
-                                                                                        </label>
-                                                                                    </li>
-                                                                                @endforeach
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            @endif
-
-                                                            @if($features[12]->name == 'Evolution & Status')
-                                                                <div class="faq row">
-                                                                    <div class="col-sm-12">
-                                                                        <div
-                                                                            class="collapsible-header features_tAgs">
-                                                                            Evolution & Status
-                                                                        </div>
-                                                                        <div class="features-box">
-                                                                            <ul class="ks-cboxtags">
-                                                                                @foreach($features[12]->featureTags as $feature)
-                                                                                    <li>
-                                                                                        <input type="checkbox"
-                                                                                               id="checkboxOne{{$feature->id}}"
-                                                                                               name="tag[]"
-                                                                                               value="{{$feature->id}}"
-                                                                                               {{in_array($feature->id, $selected_feature) ? 'checked' : ''}}
-                                                                                               class="">
-                                                                                        <label
-                                                                                            for="checkboxOne{{$feature->id}}">
-                                                                                            {{$feature->name}}
-                                                                                        </label>
-                                                                                    </li>
-                                                                                @endforeach
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            @endif
-
-                                                            @if($features[13]->name == 'Hip-hop / Rap')
-                                                                <div class="faq row">
-                                                                    <div class="col-sm-12">
-                                                                        <div
-                                                                            class="collapsible-header features_tAgs">
-                                                                            Hip-hop / Rap
-                                                                        </div>
-                                                                        <div class="features-box">
-                                                                            <ul class="ks-cboxtags">
-                                                                                @foreach($features[13]->featureTags as $feature)
-                                                                                    <li>
-                                                                                        <input type="checkbox"
-                                                                                               id="checkboxOne{{$feature->id}}"
-                                                                                               name="tag[]"
-                                                                                               value="{{$feature->id}}"
-                                                                                               {{in_array($feature->id, $selected_feature) ? 'checked' : ''}}
-                                                                                               class="">
-                                                                                        <label
-                                                                                            for="checkboxOne{{$feature->id}}">
-                                                                                            {{$feature->name}}
-                                                                                        </label>
-                                                                                    </li>
-                                                                                @endforeach
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            @endif
-
-                                                        @endif
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endif
-                                        <div class="form-group row">
-                                            <input type="submit" value="Update"
-                                                   class="btn btn-sm rounded artist_update">
-                                        </div>
-
-                                    </form>
+                                    @include('pages.artists.artist-profile-panels.artist-edit-profile')
                                     {{--               Artist Update Profile                     --}}
                                 </div>
                             </div>
@@ -2396,7 +1449,7 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-            $('#file').change(function(e) {
+            $('#file').change(function (e) {
                 e.preventDefault();
                 var formData = new FormData();
                 formData.append('file', this.files[0]);
@@ -2406,26 +1459,26 @@
                 // return false;
                 showLoader();
                 $.ajax({
-                    type:'POST',
+                    type: 'POST',
                     url: "{{ url('/upload-artist-profile')}}",
                     data: formData,
                     // dataType: 'json',
-                    cache:false,
+                    cache: false,
                     contentType: false,
                     processData: false,
                     success: (data) => {
-                        if(data.success){
+                        if (data.success) {
                             loader();
                             var image = document.getElementById('upload_profile');
-                            var path = window.location.origin + '/uploads/profile/'+ data.profile_user;
-                            image.style.backgroundImage = "url('"+path+"')";
+                            var path = window.location.origin + '/uploads/profile/' + data.profile_user;
+                            image.style.backgroundImage = "url('" + path + "')";
                             $('#snackbar').html(data.success);
                             $('#snackbar').addClass("show");
                             setTimeout(function () {
                                 $('#snackbar').removeClass("show");
                             }, 5000);
                         }
-                        if(data.error){
+                        if (data.error) {
                             // loader();
                             $('#snackbarError').html(data.error);
                             $('#snackbarError').addClass("show");
@@ -2438,13 +1491,13 @@
                 });
             });
         });
-        $('#EditProfile').click(function (){
+        $('#EditProfile').click(function () {
             var display_btn = document.getElementById('profileBtnShow');
             display_btn.style.display = 'block';
         });
 
-        $('.RemoveUpload').click(function (){
-            var display_upload= document.getElementById('profileBtnShow');
+        $('.RemoveUpload').click(function () {
+            var display_upload = document.getElementById('profileBtnShow');
             display_upload.style.display = 'none';
         });
     </script>
