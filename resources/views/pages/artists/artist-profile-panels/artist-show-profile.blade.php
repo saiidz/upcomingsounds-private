@@ -2,7 +2,7 @@
     <h4 class="inline m-a-0 update_profile">Basic Info</h4>
 </div>
 <div class="form-group row">
-    <div class="col-sm-1 form-control-label">Name:</div>
+    <div class="col-sm-2 form-control-label">Name:</div>
     <div class="col-sm-9">
         <div
             class="col-sm-3 form-control-label text-muted">{{ isset($user_artist->name) ? $user_artist->name : ''  }}</div>
