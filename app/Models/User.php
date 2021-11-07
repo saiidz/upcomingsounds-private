@@ -69,4 +69,8 @@ class User extends Authenticatable implements MustVerifyEmail
     public function country(){
         return $this->belongsTo(Country::class);
     }
+    // User track
+    public function artistTrack(){
+        return $this->hasMany(ArtistTrack::class, 'user_id');
+    }
 }

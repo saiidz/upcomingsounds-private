@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ArtistTrack;
 use App\Models\Country;
 use App\Models\Feature;
+use App\Models\TrackCategory;
 use App\Models\User;
 use App\Models\UserTag;
 use Illuminate\Http\Request;
@@ -22,7 +24,9 @@ class ArtistController extends Controller
         $countries_flag = new Countries();
         $countries_flag = $countries_flag->all();
         $features = Feature::all();
-        return view('pages.artists.artist-profile',compact('user_artist','countries_flag','countries','features','selected_feature'));
+        $track_categories = TrackCategory::all();
+        $artist_tracks = ArtistTrack::orderBy('id','desc')->get();
+        return view('pages.artists.artist-profile',compact('user_artist','countries_flag','countries','features','selected_feature','track_categories','artist_tracks'));
     }
     // Artist Update Profile
     public function updateArtistProfile(Request $request)

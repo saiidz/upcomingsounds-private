@@ -1,0 +1,38 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class ArtistTrack extends Model
+{
+    use HasFactory, SoftDeletes;
+    protected $table = 'artist_tracks';
+
+    protected $fillable = [
+        'name',
+        'description',
+        'user_id',
+        'track_category_id',
+        'youtube_soundcloud_url',
+        'spotify_track_url',
+        'release_date',
+        'display_profile',
+        'track_thumbnail',
+        'favorite',
+        'add_queque',
+        'add_playlist',
+        'deleted_at',
+    ];
+    // track category belongs to artist track
+    public function trackCategory(){
+        return $this->belongsTo(TrackCategory::class);
+    }
+    // User
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+}
