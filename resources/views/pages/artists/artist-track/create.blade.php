@@ -11,7 +11,7 @@
     <div class="form-group row">
         <div class="col-sm-3 form-control-label text-muted">YouTube / SoundCloud link</div>
         <div class="col-sm-9">
-            <input type="url" name="youtube_soundcloud_url" id="trueUrl" onclick="removeStyle(this);"
+            <input type="text" name="youtube_soundcloud_url" id="trueUrl" onclick="removeStyle(this);"
                    class="form-control @error('youtube_soundcloud_url') is-invalid @enderror"
                    placeholder="https://www.youtube.com/watch?v=iLd8ugdjJgk" required>
             <div id="error_message_youtube_soundcloud" class="red-text" style="color:red; padding:4px;"></div>

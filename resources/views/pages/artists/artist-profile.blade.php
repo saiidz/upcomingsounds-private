@@ -956,7 +956,7 @@
                 }
             }
 
-            if(flag == true){
+            if(flag == true && (trackfrm.youtube_soundcloud_url.value != "")  && (trackfrm.spotify_track_url.value != "")){
                 document.getElementById('error_message_youtube_soundcloud').style.display = 'none';
                 document.getElementById('error_message_spotify_track').style.display = 'none';
                 trackfrm.submit();
