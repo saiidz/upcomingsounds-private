@@ -951,7 +951,7 @@
 
                 if(spotifyTrack.includes(spotifyUrl) == false ){
                     trackfrm.spotify_track_url.style.borderColor = "#DD0A0A";
-                    result = 'Please Enter Valid Track Url';
+                    result = 'Please Enter Valid Url';
                     flag = false;
                 }
             }
