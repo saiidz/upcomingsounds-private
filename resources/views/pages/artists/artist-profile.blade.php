@@ -1062,7 +1062,6 @@
                     url: "{{ url('/upload-artist-profile')}}",
                     data: formData,
                     // dataType: 'json',
-                    cache: false,
                     contentType: false,
                     processData: false,
                     success: (data) => {

@@ -107,10 +107,9 @@ class ArtistController extends Controller
 
         $profile_exist = auth()->user() ? auth()->user()->profile : '';
         $image = public_path('uploads/profile/' . $profile_exist);
-        if(file_exists($image)) {
+        if(is_file($image)) {
             unlink($image);
         }
-
         if ($request->hasfile('file')) {
             $file = $request->file('file');
             $name = $file->getClientOriginalName();
