@@ -980,22 +980,38 @@
         }
 
         document.getElementById('trueUrl').addEventListener('focusout', function (){
-            if(this.value.includes('https://www.youtube.com/') || this.value.includes('https://w.soundcloud.com/')){
-                var match = this.value.match(/youtube|soundcloud/g);
-                if(match[0].indexOf("youtube") !== -1){
+            if(this.value.includes('https://www.youtube.com/watch') || this.value.includes('https://www.youtube.com/embed/') || this.value.includes('https://w.soundcloud.com/')){
+                var match = this.value.match(/watch|embed|soundcloud/g);
+                if(match[0].indexOf("watch") !== -1){
+                    // alert('youtube');
+                    // document.querySelector('#preview').style.display = 'none';
                     var res = getId(this.value);
-                    document.querySelector('#iframe_track').src = "https://www.youtube.com/embed/" + res;
-                    document.querySelector('#iframe_track').style.display = 'block'
+                    // console.log(document.querySelector("#preview > iframe[src='']") == null);
+                    //     return false;
+                    document.querySelector('#preview').innerHTML = "";
+                    // document.querySelector('#iframe_track').src = "https://www.youtube.com/embed/" + res;
+                    document.querySelector('#preview').innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/'+ res +'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                    // document.querySelector('#iframe_track').style.display = 'block'
                 }else if(match[0].indexOf("soundcloud") !== -1){
-                    document.querySelector('#iframe_track').src = this.value;
-                    document.querySelector('#iframe_track').style.display = 'block'
+                    // alert('soundcloud');
+                    document.querySelector('#preview').innerHTML = "";
+                    document.querySelector('#preview').innerHTML = this.value;
+                    // document.querySelector('#iframe_track').src = this.value;
+                    // document.querySelector('#iframe_track').style.display = 'block'
+                }else if(match[0].indexOf("embed") !== -1){
+                    // alert('embed')
+                    document.querySelector('#preview').style.display = 'block';
+                    document.querySelector('#preview').innerHTML = "";
+                    document.querySelector('#preview').innerHTML = this.value;
+
                 }else{
-                    alert('aaaa');
+                    alert('error')
                 }
 
             } else {
-                document.querySelector('#iframe_track').src = ""
-                document.querySelector('#iframe_track').style.display = 'none'
+                // document.querySelector('#iframe_track').src = ""
+                document.querySelector('#preview').style.display = 'none';
+                document.querySelector('#iframe_track').style.display = 'none';
             }
         })
 

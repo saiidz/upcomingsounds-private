@@ -21,8 +21,7 @@
             </small>
             @enderror
             <div id="preview">
-                <img src="" id="thumbnail" width="560" height="315" style="display:none;">
-                <iframe id="iframe_track"  width="560" height="315" src="" style="display:none;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
             </div>
         </div>
     </div>
