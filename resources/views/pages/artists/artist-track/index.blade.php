@@ -44,7 +44,7 @@
                         </div>
 
                         <div class="item-action visible-list m-t-sm">
-                            <a href="#" class="btn btn-xs white">Edit</a>
+                            <a href="{{url('/edit-track',$track->id)}}" class="btn btn-xs white">Edit</a>
                             <a href="#" class="btn btn-xs white" data-toggle="modal"
                                data-target="#delete-modal">Delete</a>
                         </div>

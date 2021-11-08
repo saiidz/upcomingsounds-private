@@ -947,11 +947,11 @@
 
             if (trackfrm.spotify_track_url.value != ""){
                 const spotifyTrack = trackfrm.spotify_track_url.value;
-                const spotifyUrl = "https://open.spotify.com/";
+                const spotifyUrl = "https://open.spotify.com/track";
 
                 if(spotifyTrack.includes(spotifyUrl) == false ){
                     trackfrm.spotify_track_url.style.borderColor = "#DD0A0A";
-                    result = 'Please Enter Valid Url';
+                    result = 'Please Enter Valid Track Url';
                     flag = false;
                 }
             }

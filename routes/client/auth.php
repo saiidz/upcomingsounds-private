@@ -19,7 +19,7 @@ Route::post('upload-artist-profile', [ArtistController::class, 'uploadArtistProf
 Route::get('tracks', [ArtistTrackController::class, 'index']);
 Route::get('add-track', [ArtistTrackController::class, 'create']);
 Route::post('store-track', [ArtistTrackController::class, 'store']);
-Route::get('edit-track/{artist_track}}', [ArtistTrackController::class, 'edit']);
+Route::get('edit-track/{artist_track}', [ArtistTrackController::class, 'edit']);
 Route::post('update-track/{artist_track}',[ArtistTrackController::class,'update']);
 Route::delete('delete-track/{artist_track}',[ArtistTrackController::class,'destroy']);
 /***************************************************** Artist Routes *********************************************************/
