@@ -19,7 +19,7 @@ class CreateArtistTracksTable extends Migration
             $table->longText('description')->nullable();
             $table->unsignedBigInteger('track_category_id');
             $table->foreign('track_category_id')->references('id')->on('track_categories');
-            $table->string('youtube_soundcloud_url')->nullable();
+            $table->longText('youtube_soundcloud_url')->nullable();
             $table->string('spotify_track_url')->nullable();
             $table->date('release_date')->nullable();
             $table->boolean('display_profile')->default(false);

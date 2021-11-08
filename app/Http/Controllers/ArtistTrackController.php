@@ -37,7 +37,7 @@ class ArtistTrackController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'youtube_soundcloud_url' => 'required|string',
+            'youtube_soundcloud_url' => 'required',
             'spotify_track_url'      => 'required|url',
             'name'                   => 'required|string',
             'description'            => 'required|string',
@@ -51,6 +51,7 @@ class ArtistTrackController extends Controller
         }
         $input = $request->all();
         $input['user_id'] = auth()->user()->id;
+        $input['youtube_soundcloud_url'] = $request->get('youtube_soundcloud_url');
         $input['track_category_id'] = ($request->get('song_category')) ? $request->get('song_category') : null;
         $input['display_profile'] =  ($request->get('display_profile')) ? (int)$request->get('display_profile') : 0;
 
