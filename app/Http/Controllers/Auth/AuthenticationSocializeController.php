@@ -32,7 +32,7 @@ class AuthenticationSocializeController extends Controller
             $user = Socialite::driver($provider)->user();
             $user =  $this->findOrCreateUser($user, $provider);
             Auth::login($user, true);
-            return redirect(RouteServiceProvider::HOME);
+            return redirect('/artist-profile');
         } catch (Exception $e) {
             return $this->sendFailedResponse($e->getMessage());
         }

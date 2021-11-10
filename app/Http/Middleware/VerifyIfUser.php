@@ -22,6 +22,5 @@ class VerifyIfUser
         }else{
             return abort(403, "Restricted Access!");
         }
-        return $next($request);
     }
 }
