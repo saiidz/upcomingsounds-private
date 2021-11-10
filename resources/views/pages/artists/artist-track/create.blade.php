@@ -121,7 +121,7 @@
     </div>
 
     <div class="form-group row">
-        <button type="submit" class="btn btn-sm rounded add_track" onclick='return validateCatalogueForm("track_song")'>
+        <button type="submit" class="btn btn-sm rounded add_track" onclick='return validateAddTrackForm("track_song")'>
             Add Song</button>
     </div>
 </form>

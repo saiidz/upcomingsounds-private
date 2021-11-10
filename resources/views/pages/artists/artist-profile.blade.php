@@ -928,7 +928,8 @@
             objfield.style.borderColor = "";
             objfield.style.border = "";
         }
-        function validateCatalogueForm(track_frm){
+        // Add Track Validations
+        function validateAddTrackForm(track_frm){
             var trackfrm = document.getElementById(track_frm);
             result = "";
             flag = true;
@@ -961,8 +962,12 @@
                 document.getElementById('error_message_spotify_track').style.display = 'none';
                 trackfrm.submit();
             }else{
-                document.getElementById('error_message_youtube_soundcloud').innerHTML = result;
-                document.getElementById('error_message_spotify_track').innerHTML = result;
+                if(trackfrm.youtube_soundcloud_url.value != ""){
+                    document.getElementById('error_message_youtube_soundcloud').innerHTML = result;
+                }
+                if(trackfrm.spotify_track_url.value != ""){
+                    document.getElementById('error_message_spotify_track').innerHTML = result;
+                }
                 return false;
             }
         }
@@ -1015,6 +1020,131 @@
             }
         })
 
+        // Edit Track Validations
+        function validateEditTrackForm(track_frm){
+            var trackfrm = document.getElementById(track_frm);
+            result = "";
+            flag = true;
+
+            if(trackfrm.youtube_soundcloud_url.value == ""){
+                trackfrm.youtube_soundcloud_url.style.borderColor = "#DD0A0A";
+                result = 'Please Enter Url';
+                flag = false;
+            }
+
+            if (trackfrm.youtube_soundcloud_url.value != ""){
+                const string = trackfrm.youtube_soundcloud_url.value;
+                const substring = ["https://www.youtube.com", "https://w.soundcloud.com/"];
+                const song = substring.some(el => string.includes(el));
+
+                if(song == false){
+                    trackfrm.youtube_soundcloud_url.style.borderColor = "#DD0A0A";
+                    result = 'Please Enter Valid Url';
+                    flag = false;
+                }
+            }
+
+            if(trackfrm.spotify_track_url.value == ""){
+                trackfrm.spotify_track_url.style.borderColor = "#DD0A0A";
+                result = 'Please Enter Url';
+                flag = false;
+            }
+
+            if (trackfrm.spotify_track_url.value != ""){
+                const spotifyTrack = trackfrm.spotify_track_url.value;
+                const spotifyUrl = "https://open.spotify.com/track";
+
+                if(spotifyTrack.includes(spotifyUrl) == false ){
+                    trackfrm.spotify_track_url.style.borderColor = "#DD0A0A";
+                    result = 'Please Enter Valid Url';
+                    flag = false;
+                }
+            }
+
+            if(trackfrm.name.value == ""){
+                trackfrm.name.style.borderColor = "#DD0A0A";
+                result = 'Please Enter Name';
+                flag = false;
+            }
+
+            if(trackfrm.description.value == ""){
+                trackfrm.description.style.borderColor = "#DD0A0A";
+                result = 'Please Enter Description';
+                flag = false;
+            }
+
+            if(trackfrm.song_category.value == ""){
+                trackfrm.song_category.style.borderColor = "#DD0A0A";
+                result = 'Please Select Category';
+                flag = false;
+            }
+
+            if(flag == true && (trackfrm.youtube_soundcloud_url.value != "") && (trackfrm.spotify_track_url.value != "") && (trackfrm.name.value != "") && (trackfrm.song_category.value != "") && (trackfrm.description.value != "")){
+                document.getElementById('error_message_edit_youtube_soundcloud').style.display = 'none';
+                document.getElementById('error_message_edit_spotify_track').style.display = 'none';
+                document.getElementById('error_message_edit_name').style.display = 'none';
+                document.getElementById('error_message_edit_song_category').style.display = 'none';
+                document.getElementById('error_message_edit_description').style.display = 'none';
+
+                var edit_track_id = document.getElementById('track_edit_song').getAttribute('data-edit-track-id');
+                var url = '{{url('update-track')}}/' + edit_track_id;
+                document.getElementById('track_edit_song').setAttribute('action',url);
+                trackfrm.submit();
+            }else{
+                if(trackfrm.youtube_soundcloud_url.value != "" || trackfrm.youtube_soundcloud_url.value == ""){
+                    document.getElementById('error_message_edit_youtube_soundcloud').innerHTML = result;
+                }
+                if(trackfrm.spotify_track_url.value != "" || trackfrm.spotify_track_url.value == ""){
+                    document.getElementById('error_message_edit_spotify_track').innerHTML = result;
+                }
+                if(trackfrm.name.value == ""){
+                    document.getElementById('error_message_edit_name').innerHTML = result;
+                }
+                if(trackfrm.description.value == ""){
+                    document.getElementById('error_message_edit_description').innerHTML = result;
+                }
+                if(trackfrm.song_category.value == ""){
+                    document.getElementById('error_message_edit_song_category').innerHTML = result;
+                }
+                return false;
+            }
+        }
+        document.getElementById('trueUrlEdit').addEventListener('focusout', function (){
+            if(this.value.includes('https://www.youtube.com/watch') || this.value.includes('https://www.youtube.com/embed/') || this.value.includes('https://w.soundcloud.com/')){
+                var match = this.value.match(/watch|embed|soundcloud/g);
+                if(match[0].indexOf("watch") !== -1){
+                    // alert('youtube');
+                    // document.querySelector('#preview').style.display = 'none';
+                    var res = getId(this.value);
+                    // console.log(document.querySelector("#preview > iframe[src='']") == null);
+                    //     return false;
+                    document.querySelector('#previewEdit').innerHTML = "";
+                    // document.querySelector('#iframe_track').src = "https://www.youtube.com/embed/" + res;
+                    document.querySelector('#previewEdit').innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/'+ res +'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                    // document.querySelector('#iframe_track').style.display = 'block'
+                }else if(match[0].indexOf("soundcloud") !== -1){
+                    // alert('soundcloud');
+                    document.querySelector('#previewEdit').innerHTML = "";
+                    document.querySelector('#previewEdit').innerHTML = this.value;
+                    // document.querySelector('#iframe_track').src = this.value;
+                    // document.querySelector('#iframe_track').style.display = 'block'
+                }else if(match[0].indexOf("embed") !== -1){
+                    // alert('embed')
+                    document.querySelector('#previewEdit').style.display = 'block';
+                    document.querySelector('#previewEdit').innerHTML = "";
+                    document.querySelector('#previewEdit').innerHTML = this.value;
+
+                }else{
+                    alert('error')
+                }
+
+            } else {
+                // document.querySelector('#iframe_track').src = ""
+                document.querySelector('#previewEdit').style.display = 'none';
+                // document.querySelector('#iframe_track').style.display = 'none';
+            }
+        });
+
     </script>
     <script>
         // Image Track Song Preview
@@ -1033,10 +1163,31 @@
         $("#imageTrackUpload").change(function () {
             readURL(this);
         });
+
+        // Image Edit Track Preview
+        function readEditURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('imgEditTrackPreview').setAttribute('src', e.target.result );
+                    $('#imgEditTrackPreview').hide();
+                    $('#imgEditTrackPreview').fadeIn(650);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#imageEditTrackUpload").change(function () {
+            readEditURL(this);
+        });
     </script>
     <script src="{{asset('js/gijgo.min.js')}}"></script>
     <script>
         $('#datepicker').datepicker({
+            iconsLibrary: 'fontawesome',
+            format: "yyyy-mm-dd"
+        });
+        $('#dateEditpicker').datepicker({
             iconsLibrary: 'fontawesome',
             format: "yyyy-mm-dd"
         });
@@ -1097,6 +1248,65 @@
         $('.RemoveUpload').click(function () {
             var display_upload = document.getElementById('profileBtnShow');
             display_upload.style.display = 'none';
+        });
+    </script>
+    <script>
+        // Edit Track
+        function editTrack(track_id){
+            showLoader();
+            $.ajax({
+                type: "GET",
+                url: '{{url('/edit-track')}}/' + track_id,
+                dataType: 'JSON',
+                success:function (data){
+                    loader();
+                    $('#track_edit_song').trigger("reset");
+                    // $('#trueUrl').val(data.artist_track.youtube_soundcloud_url);
+                    // $('#spotifyTrackUrl').val(data.artist_track.spotify_track_url);
+                    $('#track_edit_song').attr('data-edit-track-id',data.artist_track.id);
+
+
+                    if(data.artist_track.youtube_soundcloud_url.includes('https://www.youtube.com/watch') || data.artist_track.youtube_soundcloud_url.includes('https://www.youtube.com/embed/') || data.artist_track.youtube_soundcloud_url.includes('https://w.soundcloud.com/')) {
+                        var match = data.artist_track.youtube_soundcloud_url.match(/watch|embed|soundcloud/g);
+                        if (match[0].indexOf("watch") !== -1) {
+                            var res = getId(data.artist_track.youtube_soundcloud_url);
+                            document.querySelector('#previewEdit').innerHTML = "";
+                            document.querySelector('#previewEdit').innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + res + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                        } else if (match[0].indexOf("soundcloud") !== -1) {
+                            document.querySelector('#previewEdit').innerHTML = "";
+                            document.querySelector('#previewEdit').innerHTML = data.artist_track.youtube_soundcloud_url;
+                        } else if (match[0].indexOf("embed") !== -1) {
+                            document.querySelector('#previewEdit').style.display = 'block';
+                            document.querySelector('#previewEdit').innerHTML = "";
+                            document.querySelector('#previewEdit').innerHTML = data.artist_track.youtube_soundcloud_url;
+
+                        }
+                    }
+                    else {
+                        document.querySelector('#previewEdit').style.display = 'none';
+                    }
+
+                    $('#spotifyTrackUrl').val(data.artist_track.spotify_track_url);
+                    $('#trackEditTitle').val(data.artist_track.name);
+                    $('#trackEditDescription').val(data.artist_track.description);
+
+                    $("#songEditCategory").append('<option value="" disabled selected>Choose Song Category</option>');
+                    $.each(data.track_categories, function (key, value) {
+                        let selected = (value.id == data.artist_track.track_category_id) ? 'selected' : '';
+                        $("#songEditCategory").append('<option value="' + value.id + '" '+selected+'>' + value.name + '</option>');
+                    });
+                    $('#dateEditpicker').val(data.artist_track.release_date);
+                    if(data.artist_track.display_profile == "1"){
+                        $('#displayEditProfile').attr( 'checked', true );
+                    }else{
+                        $('#displayEditProfile').attr( 'checked', false );
+                    }
+
+                }
+            });
+        }
+        document.getElementById('update_track_not').addEventListener('click', function (){
+            document.querySelector('#previewEdit').innerHTML = "";
         });
     </script>
     <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>

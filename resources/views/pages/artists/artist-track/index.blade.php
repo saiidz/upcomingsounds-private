@@ -44,19 +44,155 @@
                         </div>
 
                         <div class="item-action visible-list m-t-sm">
-                            <a href="{{url('/edit-track',$track->id)}}" class="btn btn-xs white">Edit</a>
+                            @if($track->is_locked == 0)
+                                <button class="btn btn-xs white" onclick="editTrack({{$track->id}})" data-toggle="modal" data-target="#edit-track">Edit</button>
+                            @endif
                             <a href="#" class="btn btn-xs white" data-toggle="modal"
                                data-target="#delete-modal">Delete</a>
                         </div>
                     </div>
                 </div>
             </div>
+
         @endforeach
     @else
         <div class="item-title text-ellipsis">
             <h3 class="white" style="text-align:center">Not Found</h3>
         </div>
     @endif
+
+
+
+    <!-- Edit Track Modal -->
+        <div id="edit-track" class="modal black-overlay" data-backdrop="false">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Track</h5>
+                    </div>
+                    <div class="modal-body p-lg">
+                        <form method="POST" action="" data-edit-track-id=""
+                              enctype="multipart/form-data" id="track_edit_song" name="track_edit_song">
+                            @csrf
+                            <div class="form-group">
+                                <label class="control-label form-control-label text-muted">YouTube / SoundCloud link</label>
+                                <div>
+                                    <input type="text" name="youtube_soundcloud_url" id="trueUrlEdit" onclick="removeStyle(this);"
+                                           class="form-control @error('youtube_soundcloud_url') is-invalid @enderror"
+                                           placeholder="https://www.youtube.com/watch?v=iLd8ugdjJgk" required>
+                                    <div id="error_message_edit_youtube_soundcloud" class="red-text" style="color:red; padding:4px;"></div>
+                                    @error('youtube_soundcloud_url')
+                                    <small id="error_message"class="red-text ml-10" role="alert">
+                                        {{ $message }}
+                                    </small>
+                                    @enderror
+                                    <div id="previewEdit">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label form-control-label text-muted">Spotify track link (optional)</label>
+                                <div>
+                                    <input type="url" name="spotify_track_url" id="spotifyTrackUrl" value="" onclick="removeStyle(this);"
+                                           class="form-control @error('spotify_track_url') is-invalid @enderror"
+                                           placeholder="https://open.spotify.com/artist/5eJu3FXEJJGVaQpAeQjdwg">
+                                    <div id="error_message_edit_spotify_track" class="red-text" style="color:red; padding:4px;"></div>
+                                    @error('spotify_track_url')
+                                    <small class="red-text ml-10" role="alert">
+                                        {{ $message }}
+                                    </small>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label form-control-label text-muted">Title</label>
+                                <div>
+                                    <input type="text" name="name" id="trackEditTitle"
+                                           class="form-control @error('name') is-invalid @enderror"
+                                           value=""
+                                           placeholder="Your Title" required>
+                                    <div id="error_message_edit_name" class="red-text" style="color:red; padding:4px;"></div>
+                                    @error('name')
+                                    <small class="red-text ml-10" role="alert">
+                                        {{ $message }}
+                                    </small>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label form-control-label text-muted">Description</label>
+                                <div>
+                                   <textarea name="description" value="" id="trackEditDescription"
+                                             placeholder="Your description..."
+                                             class="form-control @error('description') is-invalid @enderror" required></textarea>
+                                    <div id="error_message_edit_description" class="red-text" style="color:red; padding:4px;"></div>
+                                    @error('description')
+                                    <small class="red-text ml-10" role="alert">
+                                        {{ $message }}
+                                    </small>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label form-control-label text-muted">Song Thumbnail</label>
+                                <div>
+                                    <input type='file' class="form-control" id="imageEditTrackUpload" name="track_thumbnail"
+                                           accept=".png, .jpg, .jpeg" />
+                                    <label for="imageEditTrackUpload"></label>
+                                    <div class="imgEditTrackPreview">
+                                        <img src=""
+                                             id="imgEditTrackPreview" style="display:none;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label form-control-label text-muted">Song Category</label>
+                                <div>
+                                    <select class="form-control c-select" id="songEditCategory" name="song_category" required></select>
+                                    <div id="error_message_edit_song_category" class="red-text" style="color:red; padding:4px;"></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label form-control-label text-muted">Release Date (optional)</label>
+                                <div>
+                                    <input id="dateEditpicker" value="" name="release_date"
+                                           class="form-control release_date">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div>
+                                    <p class="mb-1">
+                                        <label>
+                                            <input type="checkbox" class="filled-in"
+                                                   name="display_profile"
+                                                   id="displayEditProfile"
+                                                   value="1"/>
+                                            <span class="text-muted">Display on my public profile </span>
+                                        </label>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group modal-footer">
+                                <button type="button" class="btn dark-white rounded update_track_not" id="update_track_not" data-dismiss="modal">No</button>
+                                {{--                                <button type="button" class="btn danger p-x-md" data-dismiss="modal">Yes</button>--}}
+                                <button type="submit" id="updateTrack" class="btn btn-sm rounded add_track" onclick='return validateEditTrackForm("track_edit_song")'>
+                                    Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div>
+        </div>
+        <!-- Edit Track Modal -->
+
+
 
     {{--    <div class="col-xs-12">--}}
     {{--        <div class="item r" data-id="item-9"--}}
@@ -548,3 +684,4 @@
     {{--    </div>--}}
 </div>
 {{--<a href="#" class="btn btn-sm white rounded">Show More</a>--}}
+
