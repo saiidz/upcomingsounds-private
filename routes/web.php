@@ -41,7 +41,7 @@ Route::group(['middleware' => ['try_catch']], function() {
     Route::prefix('admin')->group(base_path('routes/admin.php'));
 
     /***************************************************** Artist Routes *********************************************************/
-    Route::group(['middleware' => ['auth','verify_if_user', 'check_if_blocked','artist_signup','verified']], function() {
+    Route::group(['middleware' => ['auth','verify_if_user','artist_signup','verified']], function() {
         Route::prefix('')->group(base_path('routes/client/auth.php'));
     });
 
