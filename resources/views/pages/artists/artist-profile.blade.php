@@ -934,6 +934,12 @@
             result = "";
             flag = true;
 
+            if(trackfrm.youtube_soundcloud_url.value == ""){
+                trackfrm.youtube_soundcloud_url.style.borderColor = "#DD0A0A";
+                result = 'Please Enter Url';
+                flag = false;
+            }
+
             if (trackfrm.youtube_soundcloud_url.value != ""){
                 const string = trackfrm.youtube_soundcloud_url.value;
                 const substring = ["https://www.youtube.com", "https://w.soundcloud.com/"];
@@ -944,6 +950,12 @@
                     result = 'Please Enter Valid Url';
                     flag = false;
                 }
+            }
+
+            if(trackfrm.spotify_track_url.value == ""){
+                trackfrm.spotify_track_url.style.borderColor = "#DD0A0A";
+                result = 'Please Enter Url';
+                flag = false;
             }
 
             if (trackfrm.spotify_track_url.value != ""){
@@ -960,12 +972,12 @@
             if(flag == true && (trackfrm.youtube_soundcloud_url.value != "")  && (trackfrm.spotify_track_url.value != "")){
                 document.getElementById('error_message_youtube_soundcloud').style.display = 'none';
                 document.getElementById('error_message_spotify_track').style.display = 'none';
-                trackfrm.submit();
+                // trackfrm.submit();
             }else{
-                if(trackfrm.youtube_soundcloud_url.value != ""){
+                if(trackfrm.youtube_soundcloud_url.value != "" || trackfrm.youtube_soundcloud_url.value == ""){
                     document.getElementById('error_message_youtube_soundcloud').innerHTML = result;
                 }
-                if(trackfrm.spotify_track_url.value != ""){
+                if(trackfrm.spotify_track_url.value != "" || trackfrm.spotify_track_url.value == ""){
                     document.getElementById('error_message_spotify_track').innerHTML = result;
                 }
                 return false;
@@ -1265,7 +1277,7 @@
                     // $('#spotifyTrackUrl').val(data.artist_track.spotify_track_url);
                     $('#track_edit_song').attr('data-edit-track-id',data.artist_track.id);
 
-
+                    $('#trueUrlEdit').val(data.artist_track.youtube_soundcloud_url);
                     if(data.artist_track.youtube_soundcloud_url.includes('https://www.youtube.com/watch') || data.artist_track.youtube_soundcloud_url.includes('https://www.youtube.com/embed/') || data.artist_track.youtube_soundcloud_url.includes('https://w.soundcloud.com/')) {
                         var match = data.artist_track.youtube_soundcloud_url.match(/watch|embed|soundcloud/g);
                         if (match[0].indexOf("watch") !== -1) {

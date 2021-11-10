@@ -12,7 +12,7 @@
         <div class="col-sm-3 form-control-label text-muted">YouTube / SoundCloud link</div>
         <div class="col-sm-9">
             <input type="text" name="youtube_soundcloud_url" id="trueUrl" onclick="removeStyle(this);"
-                   class="form-control @error('youtube_soundcloud_url') is-invalid @enderror"
+                   class="form-control @error('youtube_soundcloud_url') is-invalid @enderror" value=""
                    placeholder="https://www.youtube.com/watch?v=iLd8ugdjJgk" required>
             <div id="error_message_youtube_soundcloud" class="red-text" style="color:red; padding:4px;"></div>
             @error('youtube_soundcloud_url')
@@ -31,8 +31,8 @@
         <div class="col-sm-9">
             <input type="url" name="spotify_track_url" onclick="removeStyle(this);"
                    class="form-control @error('spotify_track_url') is-invalid @enderror"
-                   value="{{old('spotify_track_url')}}"
-                   placeholder="https://open.spotify.com/artist/5eJu3FXEJJGVaQpAeQjdwg">
+                   value=""
+                   placeholder="https://open.spotify.com/artist/5eJu3FXEJJGVaQpAeQjdwg" required>
             <div id="error_message_spotify_track" class="red-text" style="color:red; padding:4px;"></div>
             @error('spotify_track_url')
             <small class="red-text ml-10" role="alert">
@@ -49,6 +49,7 @@
                    class="form-control @error('name') is-invalid @enderror"
                    value="{{old('name')}}"
                    placeholder="Your Title" required>
+            <div id="error_message_name" class="red-text" style="color:red; padding:4px;"></div>
             @error('name')
             <small class="red-text ml-10" role="alert">
                 {{ $message }}
@@ -63,6 +64,7 @@
             <textarea name="description"
                       placeholder="Your description..."
                       class="form-control @error('description') is-invalid @enderror" required></textarea>
+            <div id="error_message_description" class="red-text" style="color:red; padding:4px;"></div>
             @error('description')
             <small class="red-text ml-10" role="alert">
                 {{ $message }}
@@ -93,6 +95,7 @@
                     <option value="{{$song_cat->id}}">{{$song_cat->name}}</option>
                 @endforeach
             </select>
+            <div id="error_message_song_category" class="red-text" style="color:red; padding:4px;"></div>
         </div>
     </div>
 
