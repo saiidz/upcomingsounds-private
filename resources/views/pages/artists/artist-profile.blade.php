@@ -101,7 +101,7 @@
                                     <div class="block flag_style clearfix m-b">
 {{--                                        @foreach($countries_flag as $flag)--}}
 {{--                                            @if($flag['iso_a2'] == $user_artist->artistUser->country->iso2)--}}
-{{--                                                {!! $countries_flag !!}--}}
+{{--                                                {!! $flag->flag['flag-icon'] !!}--}}
 {{--                                            @endif--}}
 {{--                                        @endforeach--}}
                                         <span class="text-muted"
