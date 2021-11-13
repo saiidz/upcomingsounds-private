@@ -192,13 +192,13 @@
                         </div>
                     </div>
                     <div class="learnMore">
-                        <a href="{{url('/artists')}}" class="button transparent  tellMeMore">Learn more </a>
+                        <a href="{{url('/artists')}}" class="transparent  tellMeMore">Learn more </a>
                         @if(Auth::check())
-                            <a href="{{ route('logout') }}" class="button default tellMeMore"
+                            <a href="{{ route('logout') }}" class="default tellMeMore"
                             >SignOut</a>
 
                         @else
-                            <a href="{{url('register')}}" class="button default tellMeMore"
+                            <a href="{{url('register')}}" class="default tellMeMore"
                             >SignUp/ Login</a>
                         @endif
 

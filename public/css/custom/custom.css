@@ -56,6 +56,17 @@ h1,h2,h3,h4,h5{
     box-shadow: 0 10px 20px rgba(55, 206, 23, 0.72) !important;
 }
 
+.learn_more,
+.artist_login,
+.submitMyMusic,
+.auth_btn,
+.tellMeMore {
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    margin-right: 27px !important;
+    font: 500 12px "Montserrat", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 .textCOlor{
     color: white!important;
 }
@@ -539,6 +550,7 @@ img.center_icons {
     }
     .learn_more, .artist_login, .submitMyMusic, .auth_btn, .tellMeMore {
         padding: 10px 1rem 10px 1rem !important;
+        margin-right: 0px !important
         /*padding: 10px 2.5rem 10px 2.5rem !important;*/
     }
     img.center_icons {
