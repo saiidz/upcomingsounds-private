@@ -571,28 +571,6 @@
                 </div>
             </div>
 
-            <!-- .modal -->
-            <div id="delete-modal" class="modal fade animate black-overlay" data-backdrop="false">
-                <div class="row-col h-v">
-                    <div class="row-cell v-m">
-                        <div class="modal-dialog modal-sm">
-                            <div class="modal-content flip-y">
-                                <div class="modal-body text-center">
-                                    <p class="p-y m-t"><i class="fa fa-remove text-warning fa-3x"></i></p>
-                                    <p>Are you sure to delete this item?</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default p-x-md" data-dismiss="modal">No
-                                    </button>
-                                    <button type="button" class="btn red p-x-md" data-dismiss="modal">Yes</button>
-                                </div>
-                            </div><!-- /.modal-content -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- / .modal -->
-
             <!-- ############ PAGE END-->
 
         </div>
@@ -1005,12 +983,14 @@
                     var res = getId(this.value);
                     // console.log(document.querySelector("#preview > iframe[src='']") == null);
                     //     return false;
+                    document.querySelector('#preview').style.display = 'block';
                     document.querySelector('#preview').innerHTML = "";
                     // document.querySelector('#iframe_track').src = "https://www.youtube.com/embed/" + res;
                     document.querySelector('#preview').innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/'+ res +'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
                     // document.querySelector('#iframe_track').style.display = 'block'
                 }else if(match[0].indexOf("soundcloud") !== -1){
                     // alert('soundcloud');
+                    document.querySelector('#preview').style.display = 'block';
                     document.querySelector('#preview').innerHTML = "";
                     document.querySelector('#preview').innerHTML = this.value;
                     // document.querySelector('#iframe_track').src = this.value;
@@ -1028,7 +1008,7 @@
             } else {
                 // document.querySelector('#iframe_track').src = ""
                 document.querySelector('#preview').style.display = 'none';
-                document.querySelector('#iframe_track').style.display = 'none';
+                // document.querySelector('#iframe_track').style.display = 'none';
             }
         })
 
@@ -1130,12 +1110,14 @@
                     var res = getId(this.value);
                     // console.log(document.querySelector("#preview > iframe[src='']") == null);
                     //     return false;
+                    document.querySelector('#previewEdit').style.display = 'block';
                     document.querySelector('#previewEdit').innerHTML = "";
                     // document.querySelector('#iframe_track').src = "https://www.youtube.com/embed/" + res;
                     document.querySelector('#previewEdit').innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/'+ res +'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
                     // document.querySelector('#iframe_track').style.display = 'block'
                 }else if(match[0].indexOf("soundcloud") !== -1){
                     // alert('soundcloud');
+                    document.querySelector('#previewEdit').style.display = 'block';
                     document.querySelector('#previewEdit').innerHTML = "";
                     document.querySelector('#previewEdit').innerHTML = this.value;
                     // document.querySelector('#iframe_track').src = this.value;
@@ -1319,6 +1301,37 @@
         }
         document.getElementById('update_track_not').addEventListener('click', function (){
             document.querySelector('#previewEdit').innerHTML = "";
+        });
+    </script>
+    <script>
+        // Delete Track Model
+        function deleteTrack(track_id){
+            $('.deleteTrack').attr('data-track-id',track_id);
+        }
+        $('#delete_track').click(function (event) {
+            event.preventDefault();
+            var track_id = $('.deleteTrack').attr('data-track-id');
+            var url= "{{url('/delete-track')}}/"+track_id;
+            $.ajax({
+                type: "DELETE",
+                url: url,
+                data:{
+                    "_token": "{{ csrf_token() }}",
+                    "track_id": track_id,
+                },
+                success: function (data) {
+                    if(data.success){
+                        // $('#ShowVehicleMsg').html('<div class="card-alert card green lighten-5 remove_message"><div class="card-content green-text"><p>'+data.success+'</p></div><button type="button" class="close red-text" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button></div>')
+                        $('#remove_track-'+track_id).remove();
+                        $('#snackbar').html(data.success);
+                        $('#snackbar').addClass("show");
+                        setTimeout(function () {
+                            $('#snackbar').removeClass("show");
+
+                        }, 5000);
+                    }
+                }
+            });
         });
     </script>
     <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>

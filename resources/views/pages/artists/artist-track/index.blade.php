@@ -1,7 +1,7 @@
 <div class="row item-list item-list-by m-b">
     @if(count($artist_tracks) > 0)
         @foreach($artist_tracks as $track)
-            <div class="col-xs-12">
+            <div class="col-xs-12" id="remove_track-{{$track->id}}">
                 <div class="item r" data-id="item-{{$track->id}}"
                      data-src="http://api.soundcloud.com/tracks/237514750/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
                     <div class="item-media ">
@@ -47,8 +47,8 @@
                             @if($track->is_locked == 0)
                                 <button class="btn btn-xs white" onclick="editTrack({{$track->id}})" data-toggle="modal" data-target="#edit-track">Edit</button>
                             @endif
-                            <a href="#" class="btn btn-xs white" data-toggle="modal"
-                               data-target="#delete-modal">Delete</a>
+                            <a href="javascript:void(0)" onclick="deleteTrack({{$track->id}})" class="btn btn-xs white" data-toggle="modal"
+                               data-target="#delete-track-modal">Delete</a>
                         </div>
                     </div>
                 </div>
@@ -192,7 +192,29 @@
         </div>
         <!-- Edit Track Modal -->
 
-
+        <!-- Delete Track Modal -->
+        <div id="delete-track-modal" class="modal fade animate black-overlay" data-backdrop="false">
+            <div class="row-col h-v">
+                <div class="row-cell v-m">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content flip-y">
+                            <div class="modal-body text-center">
+                                <p class="p-y m-t"><i class="fa fa-remove text-warning fa-3x"></i></p>
+                                <p>Are you sure to delete this track?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a class="btn btn-default p-x-md" href="javascript:void(0)" data-dismiss="modal">No</a>
+                                <a class="btn red p-x-md deleteTrack" id="delete_track" data-track-id="" data-dismiss="modal" href="javascript:void(0)">Yes</a>
+{{--                                <button type="button" class="btn btn-default p-x-md" data-dismiss="modal">No--}}
+{{--                                </button>--}}
+{{--                                <button type="button" class="btn red p-x-md" data-dismiss="modal">Yes</button>--}}
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- / Delete Track Modal -->
 
     {{--    <div class="col-xs-12">--}}
     {{--        <div class="item r" data-id="item-9"--}}

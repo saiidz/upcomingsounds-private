@@ -149,8 +149,10 @@
                             <div class="vc_column-inner">
                                 <div class="wpb_wrapper">
                                     <div class="featured-block text-left  small-size default" id="homeArtist">
-                                        <div class="icon"><i class="icon-info-9"></i>
-                                        </div>
+                                        <img src="{{asset('images/price-tag.png')}}" class="center_icons">
+{{--                                        <div class="icon">--}}
+{{--                                            <i class="icon-info-9"></i>--}}
+{{--                                        </div>--}}
                                         <h6 class="title">Flex Pricing</h6>
                                         <div class="desc"><p>Whether you make pop music or are an instrumental
                                                 pianist, you only pay to reach the curators that will dig your
@@ -163,8 +165,11 @@
                             <div class="vc_column-inner">
                                 <div class="wpb_wrapper">
                                     <div class="featured-block text-left  small-size default" id="homeArtist">
-                                        <div class="icon"><i class="icon-info-6"></i>
-                                        </div>
+                                        <img src="{{asset('images/c.pn.png')}}" class="center_icons">
+{{--                                        <div class="icon">--}}
+{{--                                            <img src="{{asset('images/c.pn.png')}}">--}}
+{{--                                            <i class="icon-info-6"></i>--}}
+{{--                                        </div>--}}
                                         <h6 class="title">Getting picked up</h6>
                                         <div class="desc"><p>We send your music to a targeted group of playlist
                                                 curators, they review your song for playlist consideration</p></div>
@@ -175,8 +180,15 @@
                     </div>
                     <div class="learnMore">
                         <a href="{{url('/artists')}}" class="button transparent  tellMeMore">Learn more </a>
-                        <a href="{{url('register')}}" class="button default tellMeMore"
-                        >SignUp/ Login</a>
+                        @if(Auth::check())
+                            <a href="{{ route('logout') }}" class="button default tellMeMore"
+                            >SignOut</a>
+
+                        @else
+                            <a href="{{url('register')}}" class="button default tellMeMore"
+                            >SignUp/ Login</a>
+                        @endif
+
                     </div>
 
                 </div>

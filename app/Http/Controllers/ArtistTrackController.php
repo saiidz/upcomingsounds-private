@@ -130,8 +130,11 @@ class ArtistTrackController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, ArtistTrack $artist_track)
     {
-        //
+        $artist_track->delete();
+        return response()->json([
+            'success' => 'Track are deleted!',
+        ]);
     }
 }

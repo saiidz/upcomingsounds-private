@@ -363,6 +363,15 @@ input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default
     top:150px !important;
 }
 
+img.center_icons {
+    width: 30%!important;
+    display: block!important;
+    margin-left: 18px!important;
+    margin-right: auto!important;
+    /*margin-left: auto!important;*/
+}
+
+
 
 
 
@@ -440,6 +449,12 @@ input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default
     .sTep3 .tellMeMore {
         margin-bottom: 15px;
     }
+    img.center_icons {
+        width: 30%!important;
+        display: block!important;
+        margin-left: 18px!important;
+        margin-right: auto!important;
+    }
 }
 
 /*
@@ -455,7 +470,7 @@ input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default
     }
     #homeArtist{
         float: right!important;
-        margin-right: -39px!important;
+        /*margin-right: -39px!important;*/
     }
     .cardcontainer{
         margin-bottom:30px!important;
@@ -472,6 +487,12 @@ input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default
     .sTep3 .tellMeMore {
         margin-right: 15px;
         margin-bottom: 15px;
+    }
+    img.center_icons {
+        width: 30%!important;
+        display: block!important;
+        margin-left: auto!important;
+        margin-right: auto!important
     }
 }
 
@@ -519,5 +540,11 @@ input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default
     .learn_more, .artist_login, .submitMyMusic, .auth_btn, .tellMeMore {
         padding: 10px 1rem 10px 1rem !important;
         /*padding: 10px 2.5rem 10px 2.5rem !important;*/
+    }
+    img.center_icons {
+        width: 30%!important;
+        display: block!important;
+        margin-left: auto!important;
+        margin-right: auto!important
     }
 }
