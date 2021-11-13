@@ -29,6 +29,7 @@ class ArtistController extends Controller
 //                ->first()
 //                ->flag
 //                ->flag_icon;
+//        dd($countries_flag);
         $features = Feature::all();
         $track_categories = TrackCategory::all();
         $artist_tracks = ArtistTrack::where('user_id',$user_artist->id)->orderBy('id','desc')->get();

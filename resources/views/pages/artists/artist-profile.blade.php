@@ -97,6 +97,7 @@
                                         {{$user_artist->artistUser->artist_bio}}
                                     @endif
                                 </p>
+
                                 @if(!empty($user_artist->artistUser->country))
                                     <div class="block flag_style clearfix m-b">
 {{--                                        @foreach($countries_flag as $flag)--}}
