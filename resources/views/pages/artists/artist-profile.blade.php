@@ -98,15 +98,15 @@
                                     @endif
                                 </p>
 {{--                                @if(!empty($user_artist->artistUser->country))--}}
-{{--                                    <div class="block flag_style clearfix m-b">--}}
-{{--                                        @foreach($countries_flag as $flag)--}}
-{{--                                            @if($flag['iso_a2'] == $user_artist->artistUser->country->iso2)--}}
-{{--                                                {!! $flag->flag['flag-icon'] !!}--}}
-{{--                                            @endif--}}
-{{--                                        @endforeach--}}
-{{--                                        <span class="text-muted"--}}
-{{--                                              style="font-size:15px">{{($user_artist->artistUser->country) ? $user_artist->artistUser->country->name : ''}}</span>--}}
-{{--                                    </div>--}}
+                                    <div class="block flag_style clearfix m-b">
+                                        @foreach($countries_flag as $flag)
+                                            @if($flag['iso_a2'] == $user_artist->artistUser->country->iso2)
+                                                {!! $flag->flag['flag-icon'] !!}
+                                            @endif
+                                        @endforeach
+                                        <span class="text-muted"
+                                              style="font-size:15px">{{($user_artist->artistUser->country) ? $user_artist->artistUser->country->name : ''}}</span>
+                                    </div>
 {{--                                @endif--}}
                                 <form class="profile-pic" id="profileBtnShow" method="post"
                                       enctype="multipart/form-data" style="display:none;">
