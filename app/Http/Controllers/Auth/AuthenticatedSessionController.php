@@ -32,7 +32,7 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
-        return redirect('/dashboard');
+        return redirect('/artist-profile');
 //        if(Auth::user()->type == 'admin'){
 //            return redirect()->route('admin.dashboard');
 //        }else{
