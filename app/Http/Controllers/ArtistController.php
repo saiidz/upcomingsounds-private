@@ -20,13 +20,19 @@ class ArtistController extends Controller
     public function artistProfile(){
         $user_artist = Auth::user();
         $selected_feature = $user_artist->userTags->pluck('feature_tag_id')->toArray();
+        $selected_cs = $user_artist->artistUser->country;
         $countries = Country::all();
-//        $countries_flag = new Countries();
-//        $countries_flag = $countries_flag->all();
+        $countries_flag = new Countries();
+        $countries_flag = $countries_flag->all();
+        $countries_flag =
+            $countries_flag->where('iso_a2',$selected_cs['iso2'])
+                ->first()
+                ->flag
+                ->flag_icon;
         $features = Feature::all();
         $track_categories = TrackCategory::all();
         $artist_tracks = ArtistTrack::where('user_id',$user_artist->id)->orderBy('id','desc')->get();
-        return view('pages.artists.artist-profile',compact('user_artist','countries','features','selected_feature','track_categories','artist_tracks'));
+        return view('pages.artists.artist-profile',compact('user_artist','countries_flag','countries','features','selected_feature','track_categories','artist_tracks'));
     }
     // Artist Update Profile
     public function updateArtistProfile(Request $request)
