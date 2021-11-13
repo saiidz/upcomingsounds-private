@@ -82,14 +82,25 @@
     <meta name="generator" content="WordPress 5.2.5"/>
 
 
-    <style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1513981483432 {
-            background-image: url({{asset('images/artistbackgrounds.jpg')}}) !important;
-            background-position: center !important;
-            background-repeat: no-repeat !important;
-            background-size: cover !important;
-            padding-left: 185.5px !important;
-            padding-right: 185.5px!important;
+    <style type="text/css" data-type="vc_shortcodes-custom-css">
+        body {
+            background: url({{asset('images/artistbackgrounds.jpg')}}) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
         }
+        .vc_row[data-vc-full-width]{
+            padding-bottom: 10px;!important;
+        }
+        {{--.artist_home_bg {--}}
+        {{--    background-image: url({{asset('images/artistbackgrounds.jpg')}}) !important;--}}
+        {{--    background-position: center !important;--}}
+        {{--    background-repeat: no-repeat !important;--}}
+        {{--    background-size: cover !important;--}}
+        {{--    padding-left: 185.5px !important;--}}
+        {{--    padding-right: 185.5px!important;--}}
+        {{--}--}}
 
         .vc_custom_1513981502651 {
             background: #f4f9fc url(https://playlistpush.com/wp-content/uploads/2017/06/curators-photo-wide.jpg?id=2788) !important;
@@ -133,8 +144,10 @@
 
 <div class="container no-padd-md">
     <div id="for-artists" data-vc-full-width="true" data-vc-full-width-init="false"
-         class="vc_row wpb_row vc_row-fluid vc_custom_1513981483432 vc_row-has-fill padding-lg-150b padding-md-110b padding-sm-50b padding-xs-30b">
-        <div class="wpb_column vc_column_container arTiSts vc_col-sm-12 vc_col-lg-6 vc_col-md-6  padding-lg-140t padding-md-140t padding-sm-50t padding-xs-30t">
+         class="vc_row wpb_row vc_row-fluid vc_custom_1513981483432 artist_home_bg vc_row-has-fill">
+{{--         class="vc_row wpb_row vc_row-fluid vc_custom_1513981483432 artist_home_bg vc_row-has-fill padding-lg-150b padding-md-110b padding-sm-50b padding-xs-30b">--}}
+        <div class="wpb_column vc_column_container arTiSts vc_col-sm-12 vc_col-lg-6 vc_col-md-6">
+{{--        <div class="wpb_column vc_column_container arTiSts vc_col-sm-12 vc_col-lg-6 vc_col-md-6  padding-lg-140t padding-md-140t padding-sm-50t padding-xs-30t">--}}
             <div class="vc_column-inner ">
                 <div class="wpb_wrapper" id="homeArtist">
                     <div class="sanjose-text custom-mb text-left"><h2><i>for</i> Artists</h2>
