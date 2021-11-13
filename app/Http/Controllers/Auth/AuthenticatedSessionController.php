@@ -32,28 +32,28 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
-
-        if(Auth::user()->type == 'admin'){
-            return redirect()->route('admin.dashboard');
-        }else{
-            if(Auth::user()->status == 'block') {
-                Auth::logout();
-                $request->session()->invalidate();
-                $request->session()->regenerateToken();
-                session()->flash('failed', "Your account has been blocked permanently.");
-                return redirect()->back();
-            } elseif (Auth::user()->status == "suspend") {
-                Auth::logout();
-                $request->session()->invalidate();
-                $request->session()->regenerateToken();
-                $suspension_days = Config::where('key', 'suspension_days')->first();
-                session()->flash('failed', "Your account has been for suspended for {$suspension_days->value } days.");
-                return redirect()->back();
-
-            } else {
-                return redirect(RouteServiceProvider::HOME);
-            }
-        }
+        return redirect('/dashboard');
+//        if(Auth::user()->type == 'admin'){
+//            return redirect()->route('admin.dashboard');
+//        }else{
+//            if(Auth::user()->status == 'block') {
+//                Auth::logout();
+//                $request->session()->invalidate();
+//                $request->session()->regenerateToken();
+//                session()->flash('failed', "Your account has been blocked permanently.");
+//                return redirect()->back();
+//            } elseif (Auth::user()->status == "suspend") {
+//                Auth::logout();
+//                $request->session()->invalidate();
+//                $request->session()->regenerateToken();
+//                $suspension_days = Config::where('key', 'suspension_days')->first();
+//                session()->flash('failed', "Your account has been for suspended for {$suspension_days->value } days.");
+//                return redirect()->back();
+//
+//            } else {
+//                return redirect(RouteServiceProvider::HOME);
+//            }
+//        }
     }
 
     /**
