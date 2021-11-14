@@ -78,7 +78,7 @@
     <div class="form-group row">
         <div class="col-sm-3 form-control-label text-muted">Song Thumbnail</div>
         <div class="col-sm-9">
-            <input type='file' class="form-control" id="imageTrackUpload" name="track_photo"
+            <input type='file' class="form-control" id="imageTrackUpload" name="track_thumbnail"
                    accept=".png, .jpg, .jpeg" />
             <label for="imageTrackUpload"></label>
             <div class="imgTrackPreview">
