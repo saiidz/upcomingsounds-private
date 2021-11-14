@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ArtistTrack;
 use App\Models\TrackCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
 class ArtistTrackController extends Controller
@@ -56,12 +57,15 @@ class ArtistTrackController extends Controller
         $input['track_category_id'] = ($request->get('song_category')) ? $request->get('song_category') : null;
         $input['display_profile'] = ($request->get('display_profile')) ? (int)$request->get('display_profile') : 0;
 
+        $path = public_path().'/uploads/track_thumbnail';
+        if(!File::exists($path)) {
+            File::makeDirectory($path, 0775, true, true);
+        }
         // upload track song
         if ($request->hasfile('track_thumbnail')) {
             $file = $request->file('track_thumbnail');
             $name = $file->getClientOriginalName();
             $image_path = 'default_'.time().$name;
-            dd($image_path);
             $file->move(public_path() . '/uploads/track_thumbnail/', $image_path);
             //store image file into directory and db
             $input['track_thumbnail'] = $image_path;
