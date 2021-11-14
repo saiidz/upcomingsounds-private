@@ -579,7 +579,7 @@ img.center_icons {
     }
     .learn_more, .artist_login, .submitMyMusic, .auth_btn, .tellMeMore {
         padding: 10px 1rem 10px 1rem !important;
-        margin-right: 0px !important
+        margin-right: 0px !important;
         /*padding: 10px 2.5rem 10px 2.5rem !important;*/
     }
     img.center_icons {
