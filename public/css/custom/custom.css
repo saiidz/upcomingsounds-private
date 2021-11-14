@@ -553,7 +553,7 @@ img.center_icons {
         text-align:center!important;
     }
     .learnMore .tellMeMore {
-        margin-right: 0px !important;
+        margin-right: 1px !important;
     }
     a.button.transparent.learn_more.tellMeMore {
         font-size: 10px!important;
