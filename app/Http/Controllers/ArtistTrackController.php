@@ -62,7 +62,7 @@ class ArtistTrackController extends Controller
             File::makeDirectory($path, 0775, true, true);
         }
         // upload track song
-        dd($request->file('track_photo'));
+        dd($request->hasfile('track_photo'));
         if ($request->hasfile('track_thumbnail')) {
             $file = $request->file('track_thumbnail');
             $name = $file->getClientOriginalName();
