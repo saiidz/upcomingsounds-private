@@ -61,6 +61,7 @@ class ArtistTrackController extends Controller
             $file = $request->file('track_thumbnail');
             $name = $file->getClientOriginalName();
             $image_path = 'default_'.time().$name;
+            dd($image_path);
             $file->move(public_path() . '/uploads/track_thumbnail/', $image_path);
             //store image file into directory and db
             $input['track_thumbnail'] = $image_path;
