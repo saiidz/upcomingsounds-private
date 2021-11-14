@@ -72,7 +72,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{url('/artist-profile')}}" class="nav-link">
                                 <span class="nav-text">Web App</span>
                             </a>
                         </li>
