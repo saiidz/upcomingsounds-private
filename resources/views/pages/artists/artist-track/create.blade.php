@@ -20,8 +20,10 @@
                 {{ $message }}
             </small>
             @enderror
-            <div id="preview">
-
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="preview"></div>
+                </div>
             </div>
         </div>
     </div>

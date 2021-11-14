@@ -100,6 +100,7 @@
 
                                 @if(!empty($user_artist->artistUser->country))
                                     <div class="block flag_style clearfix m-b">
+                                        <img class="flag_icon" src="{{asset('images/flags')}}/{{$user_artist->artistUser->country->flag_icon}}.png" alt="{{$user_artist->artistUser->country->flag_icon}}">
 {{--                                        @foreach($countries_flag as $flag)--}}
 {{--                                            @if($flag['iso_a2'] == $user_artist->artistUser->country->iso2)--}}
 {{--                                                {!! $flag->flag['flag-icon'] !!}--}}
@@ -987,7 +988,7 @@
                     document.querySelector('#preview').style.display = 'block';
                     document.querySelector('#preview').innerHTML = "";
                     // document.querySelector('#iframe_track').src = "https://www.youtube.com/embed/" + res;
-                    document.querySelector('#preview').innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/'+ res +'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                    document.querySelector('#preview').innerHTML = '<iframe width="320" height="315" src="https://www.youtube.com/embed/'+ res +'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
                     // document.querySelector('#iframe_track').style.display = 'block'
                 }else if(match[0].indexOf("soundcloud") !== -1){
                     // alert('soundcloud');
@@ -1114,7 +1115,7 @@
                     document.querySelector('#previewEdit').style.display = 'block';
                     document.querySelector('#previewEdit').innerHTML = "";
                     // document.querySelector('#iframe_track').src = "https://www.youtube.com/embed/" + res;
-                    document.querySelector('#previewEdit').innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/'+ res +'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                    document.querySelector('#previewEdit').innerHTML = '<iframe width="320" height="315" src="https://www.youtube.com/embed/'+ res +'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
                     // document.querySelector('#iframe_track').style.display = 'block'
                 }else if(match[0].indexOf("soundcloud") !== -1){
                     // alert('soundcloud');
@@ -1266,7 +1267,7 @@
                         if (match[0].indexOf("watch") !== -1) {
                             var res = getId(data.artist_track.youtube_soundcloud_url);
                             document.querySelector('#previewEdit').innerHTML = "";
-                            document.querySelector('#previewEdit').innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + res + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                            document.querySelector('#previewEdit').innerHTML = '<iframe width="320" height="315" src="https://www.youtube.com/embed/' + res + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
                         } else if (match[0].indexOf("soundcloud") !== -1) {
                             document.querySelector('#previewEdit').innerHTML = "";
                             document.querySelector('#previewEdit').innerHTML = data.artist_track.youtube_soundcloud_url;

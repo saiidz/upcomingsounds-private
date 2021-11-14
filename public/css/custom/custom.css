@@ -61,9 +61,9 @@ h1,h2,h3,h4,h5{
 .submitMyMusic,
 .auth_btn,
 .tellMeMore {
-    border: 2px solid rgba(0, 0, 0, 0.3);
-    margin-right: 27px !important;
-    font: 500 12px "Montserrat", sans-serif;
+    /*border: 2px solid rgba(0, 0, 0, 0.3);*/
+    /*margin-right: 27px !important;*/
+    /*font: 500 12px "Montserrat", sans-serif;*/
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -404,6 +404,20 @@ img.center_icons {
   ##Screen = B/w 1025px to 1280px
 */
 
+@media (min-width: 915px) and (max-width: 1546px) {
+
+    /* CSS */
+.artist_login{
+    margin-right: 15px!important;
+}
+    .learnMore {
+        display: flex;
+    }
+    .sTep3 .tellMeMore {
+        margin-bottom: 15px;
+    }
+}
+
 @media (min-width: 1025px) and (max-width: 1280px) {
 
     /* CSS */
@@ -412,6 +426,9 @@ img.center_icons {
 }
     .learnMore {
         display: flex;
+    }
+    .sTep3 .tellMeMore {
+        margin-bottom: 15px;
     }
 }
 

@@ -20,7 +20,6 @@ class ArtistController extends Controller
     public function artistProfile(){
         $user_artist = Auth::user();
         $selected_feature = $user_artist->userTags->pluck('feature_tag_id')->toArray();
-//        $selected_cs = $user_artist->artistUser->country;
         $countries = Country::all();
 //        $countries_flag = new Countries();
 //        $countries_flag = $countries_flag->all();
