@@ -67,6 +67,9 @@ h1,h2,h3,h4,h5{
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+.learnMore .tellMeMore {
+    margin-right: 27px !important;
+}
 .textCOlor{
     color: white!important;
 }
@@ -500,6 +503,9 @@ img.center_icons {
         float: right!important;
         /*margin-right: -39px!important;*/
     }
+    .learnMore{
+        text-align:center!important;
+    }
     .cardcontainer{
         margin-bottom:30px!important;
     }
@@ -541,7 +547,10 @@ img.center_icons {
 
     #homeArtist{
         float: right!important;
-        margin-right: -39px!important;
+        /*margin-right: -39px!important;*/
+    }
+    .learnMore{
+        text-align:center!important;
     }
     a.button.transparent.learn_more.tellMeMore {
         font-size: 10px!important;
