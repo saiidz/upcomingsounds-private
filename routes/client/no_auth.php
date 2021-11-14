@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\Auth\ArtistSignupController;
+use App\Http\Controllers\Curator\CuratorController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,3 +20,14 @@ Route::get('term-of-service', [DashboardController::class,'termOfService']);
 
 
 /***************************************************** Artist Routes *********************************************************/
+
+
+/***************************************************** Curators Routes *********************************************************/
+
+// Curators Routes
+Route::get('curator-home', [CuratorController::class,'index']);
+
+// Curators Signup
+
+
+/***************************************************** Curators Routes *********************************************************/
