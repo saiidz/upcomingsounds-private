@@ -60,7 +60,7 @@ class ArtistTrackController extends Controller
         if ($request->hasfile('track_thumbnail')) {
             $file = $request->file('track_thumbnail');
             $name = $file->getClientOriginalName();
-            $image_path = 'default_' . time() . $name;
+            $image_path = 'default_'.time().$name;
             $file->move(public_path() . '/uploads/track_thumbnail/', $image_path);
             //store image file into directory and db
             $input['track_thumbnail'] = $image_path;
@@ -113,7 +113,7 @@ class ArtistTrackController extends Controller
         if ($request->hasfile('track_thumbnail')) {
             $file = $request->file('track_thumbnail');
             $name = $file->getClientOriginalName();
-            $image_path = 'default_' . time() . $name;
+            $image_path = 'default_'.time().$name;
             $file->move(public_path() . '/uploads/track_thumbnail/', $image_path);
             //store image file into directory and db
             $input['track_thumbnail'] = $image_path;

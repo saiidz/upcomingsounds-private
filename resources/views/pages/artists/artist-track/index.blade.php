@@ -5,9 +5,10 @@
                 <div class="item r" data-id="item-{{$track->id}}"
                      data-src="http://api.soundcloud.com/tracks/237514750/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
                     <div class="item-media ">
+{{--                        {{dd($track->track_thumbnail)}}--}}
                         @if(!empty($track->track_thumbnail))
                             <a href="#" class="item-media-content"
-                               style="background-image: url({{URL('/')}}/uploads/track_thumbnail/{{$track->track_thumbnail}});"></a>
+                               style="background-image: url({{asset('uploads/track_thumbnail')}}/{{$track->track_thumbnail}});"></a>
                         @else
                             <a href="#" class="item-media-content"
                                style="background-image: url({{asset('images/b9.jpg')}});"></a>
