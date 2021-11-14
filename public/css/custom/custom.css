@@ -68,7 +68,7 @@ h1,h2,h3,h4,h5{
     letter-spacing: 1px;
 }
 .learnMore .tellMeMore {
-    margin-right: 27px !important;
+    margin-right: 27px;
 }
 .textCOlor{
     color: white!important;
