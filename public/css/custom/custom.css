@@ -551,7 +551,9 @@ img.center_icons {
     }
     .learnMore{
         text-align:center!important;
-        display: flex!important;
+    }
+    .learnMore .tellMeMore {
+        margin-right: 0px !important;
     }
     a.button.transparent.learn_more.tellMeMore {
         font-size: 10px!important;
