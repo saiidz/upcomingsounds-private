@@ -207,3 +207,6 @@ Route::post('/artist-signup-representative-step-8', [ArtistSignupRepresentativeC
     ->middleware('auth')
     ->name('artist.signup.representative.step.8.post');
 // Artist Signup Representative
+
+
+/***************************************************** Artist Routes *********************************************************/
