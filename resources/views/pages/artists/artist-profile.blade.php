@@ -122,8 +122,11 @@
                                 </form>
 
                                 <div class="block clearfix m-b">
-                                    <span>9</span> <span class="text-muted">Albums</span>, <span>23</span> <span
+                                    <span>9</span> <span class="text-muted">Albums</span>,
+                                    @if($artist_track_count !== 0)
+                                    <span>{{ $artist_track_count  }}</span> <span
                                         class="text-muted">Tracks</span>
+                                    @endif
                                 </div>
                                 <div class="row-col m-b">
                                     <div class="col-xs">

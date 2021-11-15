@@ -2,9 +2,7 @@
 
 namespace App\Providers;
 
-use App\Models\Auction;
-use App\Models\AuctionVehicle;
-use App\Models\Bid;
+use App\Models\ArtistTrack;
 use Carbon\Carbon;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Artisan;
@@ -31,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        View::share('artist_track_count', ArtistTrack::count());
 //        Artisan::call('cache:clear');
 //        Artisan::call('config:clear');
 //        Artisan::call('route:clear');

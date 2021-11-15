@@ -27,7 +27,7 @@
                         <span class="text-xs text-muted">Main</span>
                     </li>
                     <li>
-                        <a href="player.html">
+                        <a href="javascript:void(0)">
                   <span class="nav-icon">
                     <i class="material-icons">
                       play_circle_outline
@@ -37,7 +37,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="browse.html">
+                        <a href="javascript:void(0)">
                   <span class="nav-icon">
                     <i class="material-icons">
                       sort
@@ -47,7 +47,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="chart.html">
+                        <a href="javascript:void(0)">
                   <span class="nav-icon">
                     <i class="material-icons">
                       trending_up
@@ -57,7 +57,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="artist.html">
+                        <a href="javascript:void(0)">
                   <span class="nav-icon">
                     <i class="material-icons">
                       portrait
@@ -83,9 +83,11 @@
                     </li>
                     <li>
                         <a href="{{url('/artist-profile')}}#tracks">
-                  <span class="nav-label">
-                    <b class="label">8</b>
-                  </span>
+                            @if($artist_track_count !== 0)
+                              <span class="nav-label">
+                                <b class="label">{{ $artist_track_count  }}</b>
+                              </span>
+                            @endif
                             <span class="nav-icon">
                     <i class="material-icons">
                       list
@@ -134,24 +136,24 @@
                 <img src="images/a3.jpg" alt="..." class="w-32 img-circle">
               </span>
                     <span class="clear hidden-folded p-x p-y-xs">
-                <span class="block _500 text-ellipsis">Rachel Platten</span>
+                <span class="block _500 text-ellipsis">{{($user_artist) ? $user_artist->name : ''}}</span>
               </span>
                 </a>
                 <div class="dropdown-menu w dropdown-menu-scale ">
-                    <a class="dropdown-item" href="profile.html#profile">
+                    <a class="dropdown-item" href="{{url('/artist-profile')}}#profile">
                         <span>Profile</span>
                     </a>
-                    <a class="dropdown-item" href="profile.html#tracks">
+                    <a class="dropdown-item" href="{{url('/artist-profile')}}#tracks">
                         <span>Tracks</span>
                     </a>
-                    <a class="dropdown-item" href="profile.html#playlists">
+                    <a class="dropdown-item" href="{{url('/artist-profile')}}#playlists">
                         <span>Playlists</span>
                     </a>
-                    <a class="dropdown-item" href="profile.html#likes">
+                    <a class="dropdown-item" href="{{url('/artist-profile')}}#likes">
                         <span>Likes</span>
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="docs.html">
+                    <a class="dropdown-item" href="#">
                         Need help?
                     </a>
                     <a class="dropdown-item" href="{{route('logout')}}">Sign out</a>
