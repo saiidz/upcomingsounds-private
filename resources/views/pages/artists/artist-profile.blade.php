@@ -130,7 +130,7 @@
                                         @if(!empty($user_artist->artistUser->instagram_url))
                                             <a href="{{$user_artist->artistUser->instagram_url}}" target="_blank"
                                                class="btn btn-icon btn-social rounded btn-social-colored light-blue-800"
-                                               style="background-color: #a93691 !important;" title="Instagram">
+                                               title="Instagram">
                                                 <i class="fa fa-instagram"></i>
                                                 <i class="fa fa-instagram"></i>
                                             </a>

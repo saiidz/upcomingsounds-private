@@ -16,7 +16,7 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     font-weight: bold!important;
 }
 h1,h2,h3,h4,h5{
-    color:gray !important;
+    color: #da4441 !important;
 }
 .toast{
     display: none;
@@ -246,7 +246,7 @@ h1,h2,h3,h4,h5{
     margin-top: 30px;
 }
 .saiidzeidan{
-    color:gray;;
+    color: #da4441 !important;
 }
 .features_tAgs{
     box-shadow: 0px 0px 3px 0px #00000017!important;
