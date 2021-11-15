@@ -83,7 +83,7 @@
                     </li>
                     <li>
                         <a href="{{url('/artist-profile')}}#tracks">
-                            @if($artist_track_count !== 0)
+                            @if(!empty($artist_track_count) && $artist_track_count !== 0)
                               <span class="nav-label">
                                 <b class="label">{{ $artist_track_count  }}</b>
                               </span>

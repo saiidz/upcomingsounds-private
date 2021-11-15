@@ -36,8 +36,12 @@ class ArtistSignupRepresentativeController extends Controller
      */
     public function artistSignupRepresentativeStep2(Request $request)
     {
-        $countries = Country::all();
-        return view('pages.artists.artist-signup-representative.artist-signup-step-2',compact('countries'));
+        if($request->get('signup') == 'representative'){
+            $countries = Country::all();
+            return view('pages.artists.artist-signup-representative.artist-signup-step-2',compact('countries'));
+        }else{
+            return redirect()->back();
+        }
     }
     /**
      * postArtistSignupRepresentativeStep2

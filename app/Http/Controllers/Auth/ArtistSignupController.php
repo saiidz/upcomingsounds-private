@@ -38,8 +38,13 @@ class ArtistSignupController extends Controller
      */
     public function artistSignupStep2(Request $request)
     {
-        $countries = Country::all();
-        return view('pages.artists.artist-signup.artist-signup-step-2',compact('countries'));
+        if($request->get('signup') == 'artist'){
+            $countries = Country::all();
+            return view('pages.artists.artist-signup.artist-signup-step-2',compact('countries'));
+        }else{
+            return redirect()->back();
+        }
+
     }
     /**
      * postArtistSignupStep2

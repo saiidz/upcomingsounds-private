@@ -29,7 +29,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::share('artist_track_count', ArtistTrack::count());
+        View::composer('*', function ($view) {
+            if (Auth::check()) {
+                $artist_track_count = ArtistTrack::where('user_id',Auth::id())->count();
+                View::share('artist_track_count', $artist_track_count);
+            }
+        });
+//        if (Auth::check()) {
+//            View::share('artist_track_count', ArtistTrack::where('user_id',Auth::id())->count());
+//        }
 //        Artisan::call('cache:clear');
 //        Artisan::call('config:clear');
 //        Artisan::call('route:clear');
