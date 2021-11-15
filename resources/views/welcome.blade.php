@@ -60,7 +60,7 @@
                             <div class="p-a-lg text-center">
                                 <h3 class="display-3 m-y-lg">Curators</h3>
                                 <p class="text-muted text-md m-b-lg">Get ready for Curators.</p>
-                                <a href="{{url('/curator-home')}}" class="btn circle white m-b-lg p-x-md">For Curators</a>
+                                <a href="{{url('/curator-home')}}" class="btn circle white m-b-lg p-x-md">For Tastemakers / Curators / Pros</a>
 {{--                                <h3 class="display-3 m-y-lg">Music</h3>--}}
 {{--                                <p class="text-muted text-md m-b-lg">Get ready for high sound quality.</p>--}}
 {{--                                <a href="#" class="btn circle white m-b-lg p-x-md">Try Free</a>--}}
