@@ -52,7 +52,7 @@
                             </small>
                             @enderror
                         </div>
-                        <div class="form-group">
+                        <div class="form-group createPassword">
                               <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required
                                 autocomplete="new-password" placeholder="Password">
                             @error('password')
@@ -60,6 +60,11 @@
                                 {{ $message }}
                             </small>
                             @enderror
+
+                            <span toggle="#password" class="show-pas toggle-password create_password">
+                            <img src="{{asset('images/toggle.svg')}}" alt="" class="password-toggle show" />
+							<img src="{{asset('images/show-pas_black.svg')}}" alt="" class="password-toggle hide" />
+									</span>
                         </div>
                         <div class="m-b-md text-sm">
                             <span class="text-muted">By clicking Sign Up, I agree to the</span>

@@ -41,8 +41,8 @@
                             </small>
                             @enderror
                         </div>
-                        <div class="form-group">
-                            <input id="password-field" type="password"
+                        <div class="form-group createPassword">
+                            <input id="password" type="password"
                                    class="form-control @error('password') is-invalid @enderror"
                                    name="password" placeholder="Password" required
                                    autocomplete="current-password">
@@ -52,6 +52,11 @@
                                 {{ $message }}
                             </small>
                             @enderror
+
+                            <span toggle="#password" class="show-pas toggle-password create_password">
+                            <img src="{{asset('images/toggle.svg')}}" alt="" class="password-toggle show" />
+							<img src="{{asset('images/show-pas_black.svg')}}" alt="" class="password-toggle hide" />
+									</span>
                         </div>
                         <div class="m-b-md">
                             <label class="md-check">
