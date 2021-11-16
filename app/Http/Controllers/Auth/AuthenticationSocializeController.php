@@ -57,7 +57,7 @@ class AuthenticationSocializeController extends Controller
         if ($user) {
             $user->update([
                 'name'              => $providerUser->name,
-                'email'             => $providerUser->email,
+                'email'             => !empty($user->email) ? $user->email : $providerUser->email,
                 'email_verified_at' => Carbon::now(),
                 'profile'           => $providerUser->avatar,
                 'provider'          => $provider,
