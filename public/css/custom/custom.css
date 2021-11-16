@@ -16,7 +16,8 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     font-weight: bold!important;
 }
 h1,h2,h3,h4,h5{
-    color: #da4441 !important;
+    color: #02b875 !important;
+    /*color: #da4441 !important;*/
 }
 .toast{
     display: none;
@@ -384,6 +385,16 @@ img.center_icons {
     margin-right: auto!important;
     /*margin-left: auto!important;*/
 }
+.createPassword{
+    position:relative;
+}
+
+.create_password {
+    position: absolute;
+    right: 7px;
+    top: 7px;
+}
+
 
 
 

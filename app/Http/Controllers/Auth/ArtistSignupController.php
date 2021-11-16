@@ -24,9 +24,9 @@ class ArtistSignupController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return $request->user()->artist_completed_signup
-        ? redirect()->intended(RouteServiceProvider::HOME)
-        : view('pages.artists.artist-signup-step-1');
+        return !$request->user()->artist_completed_signup
+        ? view('pages.artists.artist-signup-step-1')
+        : redirect()->intended(RouteServiceProvider::HOME);
 
     }
 

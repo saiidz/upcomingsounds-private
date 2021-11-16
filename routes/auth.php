@@ -96,6 +96,12 @@ Route::any('/logout', [AuthenticatedSessionController::class, 'destroy'])
 // Socialize Authenticated Controller
 Route::get('login/{provider}', [AuthenticationSocializeController::class, 'redirectToProvider']);
 Route::get('auth/callback/{provider}', [AuthenticationSocializeController::class, 'handleProviderCallback']);
+Route::get('/create-password', [AuthenticationSocializeController::class, 'createSocializePassword'])
+            ->middleware('auth')
+            ->name('artist.create.password');
+Route::post('/create-password', [AuthenticationSocializeController::class, 'storeSocializePassword'])
+            ->middleware('auth')
+            ->name('artist.create.password.post');
 
 
 

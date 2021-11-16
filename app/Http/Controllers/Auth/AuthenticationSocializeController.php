@@ -7,9 +7,12 @@ use App\Providers\RouteServiceProvider;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Exception;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rules;
 
 class AuthenticationSocializeController extends Controller
 {
@@ -73,6 +76,42 @@ class AuthenticationSocializeController extends Controller
             ]);
         }
         return $user;
+    }
+
+    /**
+     * createSocializePassword
+     */
+    public function createSocializePassword(Request $request)
+    {
+        $user = $request->user();
+        return !$request->user()->password && $request->user()->provider
+            ? view('pages.artists.artist-password.artist-create-password',compact('user','request'))
+            : redirect()->intended(RouteServiceProvider::HOME);
+    }
+
+    /**
+     * Show the manage create password view.
+     */
+    public function storeSocializePassword(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'email'    => 'required|string|email|max:255|unique:users,email,'. auth()->user()->id,
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $user = $request->user();
+
+        User::find($user->id)->update([
+            'email' => $request->get('email'),
+            'password' => Hash::make($request->get('password'))
+        ]);
+        return redirect('/artist-signup-step-1')->with('success', 'Password Created successfully.');
+
     }
 }
 

@@ -21,6 +21,7 @@
     </div>
     <div class="container">
         <div class="row">
+            <div id="snackbar"></div>
             <div class="col-md-6">
                 <div class="cardcontainer">
                     <div class="photo"> <img src="{{asset('images/Illu.svg')}}">

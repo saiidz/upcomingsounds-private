@@ -8,6 +8,13 @@
             class="col-sm-3 form-control-label text-muted">{{ isset($user_artist->name) ? $user_artist->name : ''  }}</div>
     </div>
 </div>
+<div class="form-group row">
+    <div class="col-sm-2 form-control-label">Email:</div>
+    <div class="col-sm-9">
+        <div
+            class="col-sm-3 form-control-label text-muted">{{ isset($user_artist->email) ? $user_artist->email : ''  }}</div>
+    </div>
+</div>
 @if(!empty($user_artist->artistUser))
     @if($user_artist->artistUser->artist_signup_from == 'artist')
         <input type="hidden" name="artist_signup_from"
