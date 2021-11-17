@@ -5,17 +5,17 @@
         <div class="navbar no-radius">
             <!-- brand -->
             <a href="{{url('/')}}" class="navbar-brand md">
-{{--                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32">--}}
-{{--                    <circle cx="24" cy="24" r="24" fill="rgba(255,255,255,0.2)"/>--}}
-{{--                    <circle cx="24" cy="24" r="22" fill="#1c202b" class="brand-color"/>--}}
-{{--                    <circle cx="24" cy="24" r="10" fill="#ffffff"/>--}}
-{{--                    <circle cx="13" cy="13" r="2"  fill="#ffffff" class="brand-animate"/>--}}
-{{--                    <path d="M 14 24 L 24 24 L 14 44 Z" fill="#FFFFFF" />--}}
-{{--                    <circle cx="24" cy="24" r="3" fill="#000000"/>--}}
-{{--                </svg>--}}
+                {{--                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32">--}}
+                {{--                    <circle cx="24" cy="24" r="24" fill="rgba(255,255,255,0.2)"/>--}}
+                {{--                    <circle cx="24" cy="24" r="22" fill="#1c202b" class="brand-color"/>--}}
+                {{--                    <circle cx="24" cy="24" r="10" fill="#ffffff"/>--}}
+                {{--                    <circle cx="13" cy="13" r="2"  fill="#ffffff" class="brand-animate"/>--}}
+                {{--                    <path d="M 14 24 L 24 24 L 14 44 Z" fill="#FFFFFF" />--}}
+                {{--                    <circle cx="24" cy="24" r="3" fill="#000000"/>--}}
+                {{--                </svg>--}}
 
                 <img src="{{asset('images/logo.png')}}" alt=".">
-{{--                <span class="hidden-folded inline">pulse</span>--}}
+                {{--                <span class="hidden-folded inline">pulse</span>--}}
             </a>
             <!-- / brand -->
         </div>
@@ -77,6 +77,44 @@
                         </a>
                     </li>
 
+                    <div data-flex-no-shrink>
+                        <div class="nav-fold dropup">
+                            <a data-toggle="dropdown">
+              <span class="pull-left">
+                <img src="{{asset('images/a3.jpg')}}" alt="..." class="w-32 img-circle">
+              </span>
+                                <span class="clear hidden-folded p-x p-y-xs">
+                <span class="block _500 text-ellipsis">{{($user_artist) ? $user_artist->name : ''}}</span>
+              </span>
+                            </a>
+                            <div class="dropdown-menu w dropdown-menu-scale ">
+                                <a class="dropdown-item" href="{{url('/artist-profile')}}#profile">
+                                    <span>Profile</span>
+                                </a>
+                                <a class="dropdown-item" href="{{url('/artist-profile')}}#tracks">
+                                    <span>Tracks</span>
+                                </a>
+                                <a class="dropdown-item" href="{{url('/artist-profile')}}#playlists">
+                                    <span>Playlists</span>
+                                </a>
+                                <a class="dropdown-item" href="{{url('/artist-profile')}}#likes">
+                                    <span>Likes</span>
+                                </a>
+                                <div class="dropdown-divider"></div>
+
+                                <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal"
+                                   data-target="#change-password">
+                                    Change Password
+                                </a>
+                                {{--                    <button class="btn btn-xs white" onclick="changePassword()" data-toggle="modal" data-target="#edit-track">Edit</button>--}}
+                                <a class="dropdown-item" href="#">
+                                    Need help?
+                                </a>
+                                <a class="dropdown-item" href="{{route('logout')}}">Sign out</a>
+                            </div>
+                        </div>
+                    </div>
+
 
                     <li class="nav-header hidden-folded m-t">
                         <span class="text-xs text-muted">Your collection</span>
@@ -84,7 +122,7 @@
                     <li>
                         <a href="{{url('/artist-profile')}}#tracks">
                             @if(!empty($artist_track_count) && $artist_track_count !== 0)
-                              <span class="nav-label">
+                                <span class="nav-label">
                                 <b class="label">{{ $artist_track_count  }}</b>
                               </span>
                             @endif
@@ -129,43 +167,44 @@
                 </ul>
             </nav>
         </div>
-        <div data-flex-no-shrink>
-            <div class="nav-fold dropup">
-                <a data-toggle="dropdown">
-              <span class="pull-left">
-                <img src="images/a3.jpg" alt="..." class="w-32 img-circle">
-              </span>
-                    <span class="clear hidden-folded p-x p-y-xs">
-                <span class="block _500 text-ellipsis">{{($user_artist) ? $user_artist->name : ''}}</span>
-              </span>
-                </a>
-                <div class="dropdown-menu w dropdown-menu-scale ">
-                    <a class="dropdown-item" href="{{url('/artist-profile')}}#profile">
-                        <span>Profile</span>
-                    </a>
-                    <a class="dropdown-item" href="{{url('/artist-profile')}}#tracks">
-                        <span>Tracks</span>
-                    </a>
-                    <a class="dropdown-item" href="{{url('/artist-profile')}}#playlists">
-                        <span>Playlists</span>
-                    </a>
-                    <a class="dropdown-item" href="{{url('/artist-profile')}}#likes">
-                        <span>Likes</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
 
-                    <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal" data-target="#change-password">
-                        Change Password
-                    </a>
-{{--                    <button class="btn btn-xs white" onclick="changePassword()" data-toggle="modal" data-target="#edit-track">Edit</button>--}}
-                    <a class="dropdown-item" href="#">
-                        Need help?
-                    </a>
-                    <a class="dropdown-item" href="{{route('logout')}}">Sign out</a>
-                </div>
-            </div>
+        {{--        <div data-flex-no-shrink>--}}
+        {{--            <div class="nav-fold dropup">--}}
+        {{--                <a data-toggle="dropdown">--}}
+        {{--              <span class="pull-left">--}}
+        {{--                <img src="{{asset('images/a3.jpg')}}" alt="..." class="w-32 img-circle">--}}
+        {{--              </span>--}}
+        {{--                    <span class="clear hidden-folded p-x p-y-xs">--}}
+        {{--                <span class="block _500 text-ellipsis">{{($user_artist) ? $user_artist->name : ''}}</span>--}}
+        {{--              </span>--}}
+        {{--                </a>--}}
+        {{--                <div class="dropdown-menu w dropdown-menu-scale ">--}}
+        {{--                    <a class="dropdown-item" href="{{url('/artist-profile')}}#profile">--}}
+        {{--                        <span>Profile</span>--}}
+        {{--                    </a>--}}
+        {{--                    <a class="dropdown-item" href="{{url('/artist-profile')}}#tracks">--}}
+        {{--                        <span>Tracks</span>--}}
+        {{--                    </a>--}}
+        {{--                    <a class="dropdown-item" href="{{url('/artist-profile')}}#playlists">--}}
+        {{--                        <span>Playlists</span>--}}
+        {{--                    </a>--}}
+        {{--                    <a class="dropdown-item" href="{{url('/artist-profile')}}#likes">--}}
+        {{--                        <span>Likes</span>--}}
+        {{--                    </a>--}}
+        {{--                    <div class="dropdown-divider"></div>--}}
 
-        </div>
+        {{--                    <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal" data-target="#change-password">--}}
+        {{--                        Change Password--}}
+        {{--                    </a>--}}
+        {{--                    <button class="btn btn-xs white" onclick="changePassword()" data-toggle="modal" data-target="#edit-track">Edit</button>--}}
+        {{--                    <a class="dropdown-item" href="#">--}}
+        {{--                        Need help?--}}
+        {{--                    </a>--}}
+        {{--                    <a class="dropdown-item" href="{{route('logout')}}">Sign out</a>--}}
+        {{--                </div>--}}
+        {{--            </div>--}}
+        {{--        </div>--}}
+
     </div>
 </div>
 <!-- / -->

@@ -50,6 +50,7 @@
                             @endif
                             <a href="javascript:void(0)" onclick="deleteTrack({{$track->id}})" class="btn btn-xs white" data-toggle="modal"
                                data-target="#delete-track-modal">Delete</a>
+                                <a href="javascript:void(0)" class="btn btn-xs white">Promote Your Track</a>
                         </div>
                     </div>
                 </div>

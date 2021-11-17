@@ -113,7 +113,7 @@
                                 <form class="profile-pic" id="profileBtnShow" method="post"
                                       enctype="multipart/form-data" style="display:none;">
                                     <div class="item-action m-b">
-                                        <label for="file" class="btn btn-sm rounded primary">Upload</label>
+                                        <label for="file" class="btn btn-sm rounded primary">Upload Profile</label>
                                         <input id="file" type="file" class="btn btn-sm rounded primary" name="file"
                                                accept="image/*"/>
                                         {{--                                        <a href="#" class="btn btn-sm rounded primary">Upload</a>--}}
