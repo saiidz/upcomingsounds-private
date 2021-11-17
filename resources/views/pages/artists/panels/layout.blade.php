@@ -16,6 +16,7 @@
 @yield('content')
 
 
+@include('pages.artists.panels.generic_modals')
 </div>
 
 <!-- BEGIN VENDOR JS-->

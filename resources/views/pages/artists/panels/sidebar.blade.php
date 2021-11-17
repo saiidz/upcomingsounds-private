@@ -153,6 +153,11 @@
                         <span>Likes</span>
                     </a>
                     <div class="dropdown-divider"></div>
+
+                    <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal" data-target="#change-password">
+                        Change Password
+                    </a>
+{{--                    <button class="btn btn-xs white" onclick="changePassword()" data-toggle="modal" data-target="#edit-track">Edit</button>--}}
                     <a class="dropdown-item" href="#">
                         Need help?
                     </a>

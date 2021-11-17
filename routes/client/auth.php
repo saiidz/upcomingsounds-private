@@ -15,6 +15,7 @@ Route::get('dashboard', [DashboardController::class,'index']);
 Route::get('/artist-profile', [ArtistController::class,'artistProfile']);
 Route::post('update-artist-profile', [ArtistController::class, 'updateArtistProfile']);
 Route::post('upload-artist-profile', [ArtistController::class, 'uploadArtistProfile']);
+Route::post('artist-change-password', [ArtistController::class, 'artistChangePassword']);
 // artist tracks routes
 Route::get('tracks', [ArtistTrackController::class, 'index']);
 Route::get('add-track', [ArtistTrackController::class, 'create']);

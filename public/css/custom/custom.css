@@ -1,14 +1,26 @@
-/*================================================================================
-	Item Name: Materialize - Material Design Admin Template
-	Version: 5.0
-	Author: PIXINVENT
-	Author URL: https://themeforest.net/user/pixinvent/portfolio
-================================================================================
+@font-face{
+    font-family:'Poppins';
+    src:url('../fonts/poppins/400.eot');
+    src:url('../fonts/poppins/400.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/poppins/400.woff2') format('woff2'),
+    url('../fonts/poppins/400.woff') format('woff'),
+    url('../fonts/poppins/400.ttf') format('truetype'),
+    url('../fonts/poppins/400.svg#embed-poppins') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
 
-NOTE:
-------
-PLACE HERE YOUR OWN CSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
-WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+@font-face{
+    font-family:'Poppins';
+    src:url('../fonts/poppins/700.eot');
+    src:url('../fonts/poppins/700.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/poppins/700.woff2') format('woff2'),
+    url('../fonts/poppins/700.woff') format('woff'),
+    url('../fonts/poppins/700.ttf') format('truetype'),
+    url('../fonts/poppins/700.svg#embed-poppins') format('svg');
+    font-weight: 700;
+    font-style: normal;
+}
 
 .navbar-brand, .display-1, .display-2, .display-3, .display-4, .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
     font-family: "Poppins", "Trebuchet MS", "PT Sans", "Helvetica Neue", "HelveticaNeue-Light", Helvetica, Arial, sans-serif!important;
@@ -19,6 +31,10 @@ h1,h2,h3,h4,h5{
     color: #02b875 !important;
     /*color: #da4441 !important;*/
 }
+body{
+    font-family: "Segoe UI", "Trebuchet MS", "PT Sans", "Helvetica Neue", "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
+}
+
 .toast{
     display: none;
 }

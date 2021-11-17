@@ -65,3 +65,15 @@
         }, 5000);
     </script>
 @endif
+
+<script>
+    $(".toggle-password").click(function () {
+        $(this).toggleClass("show-pas");
+        var input = $($(this).attr("toggle"));
+        if (input.attr("type") == "password") {
+            input.attr("type", "text");
+        } else {
+            input.attr("type", "password");
+        }
+    });
+</script>
