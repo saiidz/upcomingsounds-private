@@ -194,6 +194,13 @@
                                                 <i class="fa fa-bandcamp"></i>
                                             </a>
                                         @endif
+                                        @if(!empty($user_artist->artistUser->tiktok_url))
+                                            <a href="{{$user_artist->artistUser->tiktok_url}}" target="_blank"
+                                               class="btn btn-icon btn-social rounded btn-social-colored"
+                                               style="background-color:#333;" title="Tiktok">
+                                                <i class="iconify" data-icon="fa-brands:tiktok"></i>
+                                            </a>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
