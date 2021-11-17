@@ -24,6 +24,7 @@ class ArtistUser extends Model
         'website_url',
         'deezer_url',
         'bandcamp_url',
+        'tiktok_url',
         'released',
         'released_day',
         'come_upcoming',

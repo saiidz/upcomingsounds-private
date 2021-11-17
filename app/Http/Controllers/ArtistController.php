@@ -67,6 +67,7 @@ class ArtistController extends Controller
                 'website_url'                     => ($request->get('website_url')) ? $request->get('website_url') : null,
                 'deezer_url'                      => ($request->get('deezer_url')) ? $request->get('deezer_url') : null,
                 'bandcamp_url'                    => ($request->get('bandcamp_url')) ? $request->get('bandcamp_url') : null,
+                'tiktok_url'                      => ($request->get('tiktok_url')) ? $request->get('tiktok_url') : null,
                 'artist_bio'                      => ($request->get('artist_bio')) ? $request->get('artist_bio') : null,
                 'hot_news'                        => ($request->get('hot_news')) ? $request->get('hot_news') : null,
                 'artist_representative_record'    => ($request->get('artist_representative_record')) ? $request->get('artist_representative_record') : null,

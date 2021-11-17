@@ -290,6 +290,24 @@
             </div>
         </div>
 
+            <div class="form-group row">
+                <div class="col-sm-3 form-control-label text-muted">Tiktok
+                </div>
+                <div class="col-sm-9">
+                    <input id="tiktok_url"
+                           class="form-control @error('tiktok_url') is-invalid @enderror"
+                           placeholder="https://www.tiktok.com/"
+                           name="tiktok_url"
+                           value="{{isset($user_artist->artistUser) ? $user_artist->artistUser->tiktok_url : ''}}"
+                           type="text">
+                    @error('tiktok_url')
+                    <small class="red-text" role="alert">
+                        {{ $message }}
+                    </small>
+                    @enderror
+                </div>
+            </div>
+
         <div class="page-title m-b-2">
             <h4 class="inline m-a-0 update_profile">Your universe</h4>
         </div>
