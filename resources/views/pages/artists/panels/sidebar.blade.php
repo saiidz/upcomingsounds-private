@@ -155,7 +155,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('/artist-profile')}}#edit-profile">
+                        <a href="{{url('/artist-profile')}}#edit-profile" id="EditProfileTapHide">
                   <span class="nav-icon">
                     <i class="material-icons">
                       edit

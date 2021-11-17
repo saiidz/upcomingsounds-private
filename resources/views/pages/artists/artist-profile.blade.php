@@ -228,8 +228,8 @@
                                         <a class="nav-link RemoveUpload" href="#" data-toggle="tab"
                                            data-target="#profile">Profile</a>
                                     </li>
-                                    <li class="nav-item m-r inline">
-                                        <a class="nav-link" id="EditProfile" href="#" data-toggle="tab"
+                                    <li class="nav-item m-r inline" id="EditProfileTapShow" style="display:none;">
+                                        <a class="nav-link"  id="EditProfile" href="#" data-toggle="tab"
                                            data-target="#edit-profile">Edit Profile</a>
                                     </li>
                                     <li class="nav-item m-r inline">
@@ -1254,6 +1254,12 @@
         $('.RemoveUpload').click(function () {
             var display_upload = document.getElementById('profileBtnShow');
             display_upload.style.display = 'none';
+            $("#EditProfileTapShow").css({ display: "none" });
+        });
+        $('#EditProfileTapHide').click(function () {
+            $("#EditProfileTapShow").css({ display: "inline-block" });
+            // var display_upload = document.getElementById('EditProfileTapShow');
+            // display_upload.style.display = 'block';
         });
     </script>
     <script>
