@@ -44,7 +44,8 @@ class AuthenticationSocializeController extends Controller
     protected function sendFailedResponse($msg = null)
     {
         return redirect()->route('register')
-            ->with(['error' => $msg ?: 'Unable to login, try with another provider to login.']);
+            ->with(['error' => 'Unable to login and Email is already exists, try with another provider to login.']);
+//            ->with(['error' => $msg ?: 'Unable to login, try with another provider to login.']);
     }
     /**
      * If a user has registered before using social auth, return the user
