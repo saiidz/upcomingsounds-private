@@ -5,17 +5,7 @@
         <div class="navbar no-radius">
             <!-- brand -->
             <a href="{{url('/')}}" class="navbar-brand md">
-                {{--                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32">--}}
-                {{--                    <circle cx="24" cy="24" r="24" fill="rgba(255,255,255,0.2)"/>--}}
-                {{--                    <circle cx="24" cy="24" r="22" fill="#1c202b" class="brand-color"/>--}}
-                {{--                    <circle cx="24" cy="24" r="10" fill="#ffffff"/>--}}
-                {{--                    <circle cx="13" cy="13" r="2"  fill="#ffffff" class="brand-animate"/>--}}
-                {{--                    <path d="M 14 24 L 24 24 L 14 44 Z" fill="#FFFFFF" />--}}
-                {{--                    <circle cx="24" cy="24" r="3" fill="#000000"/>--}}
-                {{--                </svg>--}}
-
                 <img src="{{asset('images/logo.png')}}" alt=".">
-                {{--                <span class="hidden-folded inline">pulse</span>--}}
             </a>
             <!-- / brand -->
         </div>
@@ -27,13 +17,13 @@
                         <span class="text-xs text-muted">Main</span>
                     </li>
                     <li>
-                        <a href="javascript:void(0)">
+                        <a href="{{url('/promote-your-track')}}">
                   <span class="nav-icon">
                     <i class="material-icons">
                       play_circle_outline
                     </i>
                   </span>
-                            <span class="nav-text">Discover</span>
+                            <span class="nav-text">Promote Your Track</span>
                         </a>
                     </li>
                     <li>
