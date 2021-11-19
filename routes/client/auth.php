@@ -28,5 +28,6 @@ Route::delete('delete-track/{artist_track}',[ArtistTrackController::class,'destr
 
 // promote your track
 Route::get('promote-your-track', [PromoteYourTrackController::class, 'index']);
+Route::get('add-your-track', [PromoteYourTrackController::class, 'addYourTrack']);
 
 /***************************************************** Artist Routes *********************************************************/

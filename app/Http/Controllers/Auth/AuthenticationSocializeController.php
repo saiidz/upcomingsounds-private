@@ -60,7 +60,7 @@ class AuthenticationSocializeController extends Controller
                 'name'              => $providerUser->name,
                 'email'             => !empty($user->email) ? $user->email : $providerUser->email,
                 'email_verified_at' => Carbon::now(),
-                'profile'           => $providerUser->avatar,
+                'profile'           => !empty($user->profile) ? $user->profile : $providerUser->avatar,
                 'provider'          => $provider,
                 'provider_id'       => $providerUser->id,
                 'access_token'      => $providerUser->token

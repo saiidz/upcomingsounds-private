@@ -133,6 +133,30 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
     border-radius: 500px !important;
     margin-left: 10px!important;
 }
+
+.add_your_track{
+    border-color: #02b875 !important;
+    background-color: #1f1f25 !important;
+    color: white !important;
+    text-align: center !important;
+    padding: 10px 1.5rem 10px 1.5rem !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3) !important;
+    border-radius: 500px !important;
+    margin-left: 10px!important;
+}
+.add_your_track:hover, .add_your_track:focus {
+    color: rgba(255, 255, 255, 0.87) !important;
+    background-color: #02b875 !important;
+    box-shadow: 0 10px 20px rgba(55, 206, 23, 0.72) !important;
+}
+.add_your_track .btnTitle,
+.add_your_track .btnSubtitle{
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.25rem;
+}
 .btn-social-colored{
     border-color: #02b875 !important;
     background-color: #1f1f25 !important;

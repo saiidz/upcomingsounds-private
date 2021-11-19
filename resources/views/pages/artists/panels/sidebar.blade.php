@@ -16,7 +16,7 @@
                     <li class="nav-header hidden-folded">
                         <span class="text-xs text-muted">Main</span>
                     </li>
-                    <li>
+                    <li class="{{Request::segment(1) == 'promote-your-track' || Request::segment(1) == 'add-your-track' ? 'active' : ''}}">
                         <a href="{{url('/promote-your-track')}}">
                   <span class="nav-icon">
                     <i class="material-icons">
