@@ -13,17 +13,12 @@
     <div class="page-content">
 
         <div class="padding p-b-0">
-            {{--            <div class="page-title m-b">--}}
-            {{--                <h1 class="inline m-a-0">Add your track</h1>--}}
-            {{--            </div>--}}
-
             <div class="row row-sm item-masonry item-info-overlay">
                 <div class="col-sm-12 text-white m-b-sm">
                     <div class="form__container">
                         <div class="title__container">
                             <h1>Add your track</h1>
                             <div class="separator"></div>
-                            {{--                            <p>Follow the 4 simple steps to complete your mapping</p>--}}
                         </div>
                         <div class="body__container">
                             <div class="left__container">
@@ -44,10 +39,10 @@
                                         <h3>My recap</h3>
                                         <p>Step 4</p>
                                     </div>
-                                    <div class="title__name">
-                                        <h3>Complete</h3>
-                                        <p>Finaly press submit</p>
-                                    </div>
+{{--                                    <div class="title__name">--}}
+{{--                                        <h3>Complete</h3>--}}
+{{--                                        <p>Finaly press submit</p>--}}
+{{--                                    </div>--}}
                                 </div>
                                 <div class="progress__bar__container">
                                     <ul>
@@ -76,9 +71,51 @@
                                         <h2>Which track would you like to send?</h2>
                                         <p>Here we go, let's launch this campaign together! To help you select the best
                                             influencers for you, we first need information about the your track</p>
+                                        <a class="nxt__btn" href="{{url('/artist-profile')}}#add-track">
+                                            New track
+                                        </a>
                                     </div>
-                                    <div class="input__container"><label for="name">Enter your name</label> <input
-                                            type="text">
+
+                                    <div class="input__container">
+                                        <div class="row item-list item-list-md m-b">
+                                            @if(count($artist_tracks) > 0)
+                                                @foreach($artist_tracks as $track)
+                                                    <div class="col-sm-6">
+                                                        <div class="item r" data-id="item-5">
+                                                            <div class="item-media">
+                                                                @if(!empty($track->track_thumbnail))
+                                                                    <a href="javascript:void(0)" class="item-media-content" onclick="viewTrack({{$track->id}})" data-toggle="modal" data-target="#view-track"
+                                                                       style="background-image: url({{asset('uploads/track_thumbnail')}}/{{$track->track_thumbnail}});"></a>
+                                                                @else
+                                                                    <a href="javascript:void(0)" class="item-media-content" onclick="viewTrack({{$track->id}})" data-toggle="modal" data-target="#view-track"
+                                                                       style="background-image: url({{asset('images/b4.jpg')}});"></a>
+                                                                @endif
+                                                            </div>
+                                                            <div class="item-info">
+                                                                <div class="item-title bottom text-right">
+                                                                    <input type="checkbox" class="oneTrackSelected" value="{{$track->id}}" name="track_id" />
+                                                                </div>
+                                                                <div class="item-title text-ellipsis">
+                                                                    <div>{{$track->name}}</div>
+                                                                </div>
+                                                                <div class="item-author text-sm text-ellipsis ">
+                                                                    <div class="text-muted">{{($user_artist->name) ? $user_artist->name : ''}}</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            @else
+                                                <div class="col-sm-6">
+                                                    <div class="item r" data-id="item-5">
+                                                        Not Found
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        </div>
+{{--                                        <label for="name">Enter your name</label> --}}
+{{--                                        <input type="text">--}}
+
                                         <a class="nxt__btn" onclick="nextForm();"> Next</a>
                                     </div>
                                 </fieldset>
@@ -178,10 +215,73 @@
 
     </div>
 
+    @include('pages.artists.artist-promote-your-track.generic_model')
     <!-- ############ PAGE END-->
 @endsection
 
 @section('page-script')
+    <script>
+        // Edit Track
+        {{--function viewTrack(track_id){--}}
+        {{--    showLoader();--}}
+        {{--    $.ajax({--}}
+        {{--        type: "GET",--}}
+        {{--        url: '{{url('/view-track')}}/' + track_id,--}}
+        {{--        dataType: 'JSON',--}}
+        {{--        success:function (data){--}}
+        {{--            loader();--}}
+        {{--            $('#track_edit_song').trigger("reset");--}}
+        {{--            // $('#trueUrl').val(data.artist_track.youtube_soundcloud_url);--}}
+        {{--            // $('#spotifyTrackUrl').val(data.artist_track.spotify_track_url);--}}
+        {{--            $('#track_edit_song').attr('data-edit-track-id',data.artist_track.id);--}}
+
+        {{--            $('#trueUrlEdit').val(data.artist_track.youtube_soundcloud_url);--}}
+        {{--            if(data.artist_track.youtube_soundcloud_url.includes('https://www.youtube.com/watch') || data.artist_track.youtube_soundcloud_url.includes('https://www.youtube.com/embed/') || data.artist_track.youtube_soundcloud_url.includes('https://w.soundcloud.com/')) {--}}
+        {{--                var match = data.artist_track.youtube_soundcloud_url.match(/watch|embed|soundcloud/g);--}}
+        {{--                if (match[0].indexOf("watch") !== -1) {--}}
+        {{--                    var res = getId(data.artist_track.youtube_soundcloud_url);--}}
+        {{--                    document.querySelector('#previewEdit').innerHTML = "";--}}
+        {{--                    document.querySelector('#previewEdit').innerHTML = '<iframe width="320" height="315" src="https://www.youtube.com/embed/' + res + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';--}}
+        {{--                } else if (match[0].indexOf("soundcloud") !== -1) {--}}
+        {{--                    document.querySelector('#previewEdit').innerHTML = "";--}}
+        {{--                    document.querySelector('#previewEdit').innerHTML = data.artist_track.youtube_soundcloud_url;--}}
+        {{--                } else if (match[0].indexOf("embed") !== -1) {--}}
+        {{--                    document.querySelector('#previewEdit').style.display = 'block';--}}
+        {{--                    document.querySelector('#previewEdit').innerHTML = "";--}}
+        {{--                    document.querySelector('#previewEdit').innerHTML = data.artist_track.youtube_soundcloud_url;--}}
+
+        {{--                }--}}
+        {{--            }--}}
+        {{--            else {--}}
+        {{--                document.querySelector('#previewEdit').style.display = 'none';--}}
+        {{--            }--}}
+
+        {{--            $('#spotifyTrackUrl').val(data.artist_track.spotify_track_url);--}}
+        {{--            $('#trackEditTitle').val(data.artist_track.name);--}}
+        {{--            $('#trackEditDescription').val(data.artist_track.description);--}}
+
+        {{--            $("#songEditCategory").append('<option value="" disabled selected>Choose Song Category</option>');--}}
+        {{--            $.each(data.track_categories, function (key, value) {--}}
+        {{--                let selected = (value.id == data.artist_track.track_category_id) ? 'selected' : '';--}}
+        {{--                $("#songEditCategory").append('<option value="' + value.id + '" '+selected+'>' + value.name + '</option>');--}}
+        {{--            });--}}
+        {{--            $('#dateEditpicker').val(data.artist_track.release_date);--}}
+        {{--            if(data.artist_track.display_profile == "1"){--}}
+        {{--                $('#displayEditProfile').attr( 'checked', true );--}}
+        {{--            }else{--}}
+        {{--                $('#displayEditProfile').attr( 'checked', false );--}}
+        {{--            }--}}
+
+        {{--        }--}}
+        {{--    });--}}
+        {{--}--}}
+
+        $(document).ready(function(){
+            $('.oneTrackSelected').click(function() {
+                $('.oneTrackSelected').not(this).prop('checked', false);
+            });
+        });
+    </script>
     <script>
         const nxtBtn = document.querySelector('#submitBtn');
         const form1 = document.querySelector('#form1');

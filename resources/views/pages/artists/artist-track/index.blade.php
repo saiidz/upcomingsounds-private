@@ -7,10 +7,10 @@
                     <div class="item-media ">
 {{--                        {{dd($track->track_thumbnail)}}--}}
                         @if(!empty($track->track_thumbnail))
-                            <a href="#" class="item-media-content"
+                            <a href="javascript:void(0)" class="item-media-content"
                                style="background-image: url({{asset('uploads/track_thumbnail')}}/{{$track->track_thumbnail}});"></a>
                         @else
-                            <a href="#" class="item-media-content"
+                            <a href="javascript:void(0)" class="item-media-content"
                                style="background-image: url({{asset('images/b9.jpg')}});"></a>
                         @endif
                         <div class="item-overlay center">
@@ -19,21 +19,21 @@
                     </div>
                     <div class="item-info">
                         <div class="item-overlay bottom text-right">
-                            <a href="#" class="btn-favorite"><i
+                            <a href="javascript:void(0)" class="btn-favorite"><i
                                     class="fa fa-heart-o"></i></a>
-                            <a href="#" class="btn-more" data-toggle="dropdown"><i
+                            <a href="javascript:void(0)" class="btn-more" data-toggle="dropdown"><i
                                     class="fa fa-ellipsis-h"></i></a>
                             <div class="dropdown-menu pull-right black lt"></div>
                         </div>
                         <div class="item-title text-ellipsis">
-                            <a href="#">{{$track->name}}</a>
+                            <a href="javascript:void(0)">{{$track->name}}</a>
                         </div>
                         <div class="item-author text-sm text-ellipsis hide">
-                            <a href="#" class="text-muted">{{($track->user->name) ? $track->user->name : ''}}</a>
+                            <a href="javascript:void(0)" class="text-muted">{{($track->user->name) ? $track->user->name : ''}}</a>
                         </div>
                         <div class="item-meta text-sm text-muted">
                             <span class="item-meta-category">
-                                <a href="#" class="label">{{($track->trackCategory) ? ucfirst($track->trackCategory->name) : ''}}</a>
+                                <a href="javascript:void(0)" class="label">{{($track->trackCategory) ? ucfirst($track->trackCategory->name) : ''}}</a>
 {{--                                <a href="browse.html" class="label">{{($track->trackCategory) ? ucfirst($track->trackCategory->name) : ''}}</a>--}}
                             </span>
                             <span class="item-meta-date text-xs">{{\Carbon\Carbon::parse($track->release_date)->format('M d Y')}}</span>
