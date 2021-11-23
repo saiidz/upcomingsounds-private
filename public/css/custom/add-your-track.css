@@ -575,7 +575,7 @@ body{
 @media (min-width: 768px) and (max-width: 1024px) {
 
     /* CSS */
-    .nxt__btn {
+    .nxt__btn,.prev__btn {
         width: 25%;
     }
 }
@@ -588,7 +588,7 @@ body{
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
 
     /* CSS */
-    .nxt__btn {
+    .nxt__btn,.prev__btn {
         width: 25%;
     }
 }
@@ -601,6 +601,9 @@ body{
 @media (min-width: 481px) and (max-width: 767px) {
 
     /* CSS */
+    .nxt__btn,.prev__btn {
+        width: 29%;
+    }
 
 }
 
@@ -612,5 +615,7 @@ body{
 @media (min-width: 320px) and (max-width: 480px) {
 
     /* CSS */
-
+    .nxt__btn,.prev__btn {
+        width: 30%;
+    }
 }
