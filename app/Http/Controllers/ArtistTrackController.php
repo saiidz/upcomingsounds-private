@@ -81,9 +81,14 @@ class ArtistTrackController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(ArtistTrack $artist_track)
     {
-        //
+        $track_categories = TrackCategory::all();
+        return response()->json([
+            'artist_track' => $artist_track,
+            'track_categories' => $track_categories,
+            'success' => 'Artist Track Get Successfully',
+        ]);
     }
 
     /**
