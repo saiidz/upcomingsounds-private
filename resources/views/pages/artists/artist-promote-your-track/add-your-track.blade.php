@@ -129,10 +129,10 @@
                                                     <p>I'm looking for constructive feedback about my project and demos, allowing me to know what to improve : production, visual content..</p>
                                                 </div>
                                                 <div class="item-title bottom text-right form2CheckedBox">
-                                                    <input type="checkbox" id="received_details" name="received_details" />
+                                                    <input type="checkbox" name="received_details" />
                                                 </div>
                                             </div>
-                                            <div class="selection exitB">
+                                            <div class="selection exitB" id="getVisibility1">
                                                 <div class="imoji">
                                                     <img src="{{asset('images/objective_visibility.png')}}">
 {{--                                                    <ion-icon name="business"></ion-icon>--}}
@@ -145,7 +145,7 @@
                                                     <input type="checkbox"  name="get_visibility" />
                                                 </div>
                                             </div>
-                                            <div class="selection exitB">
+                                            <div class="selection exitB" id="buildProfessional1">
                                                 <div class="imoji">
                                                     <img src="{{asset('images/objective_partnerships.png')}}">
 {{--                                                    <ion-icon name="business"></ion-icon>--}}
@@ -297,11 +297,19 @@
             });
         });
 
+        $('#receivedDetails1').click(function ()
+        {
+            $(this).find('input[type=checkbox]').prop("checked", !$(this).find('input[type=checkbox]').prop("checked"));
+        });
+        $('#getVisibility1').click(function ()
+        {
+            $(this).find('input[type=checkbox]').prop("checked", !$(this).find('input[type=checkbox]').prop("checked"));
+        });
+        $('#buildProfessional1').click(function ()
+        {
+            $(this).find('input[type=checkbox]').prop("checked", !$(this).find('input[type=checkbox]').prop("checked"));
+        });
 
-        // document.getElementById('receivedDetails1').addEventListener('click', function (){
-        //     $(this).val();
-        //     $('#received_details').attr('checked',true);
-        // });
     </script>
     <script>
         // const nxtBtn = document.querySelector('#submitBtn');
