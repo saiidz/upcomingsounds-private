@@ -43,7 +43,7 @@
                                 <span
                                     class="text description tw-block tw-text-center tw-m-auto 600:tw-mx-0 600:tw-text-left tw-mb-6"
                                     data-v-016dc5dc data-v-6f53582b>
-          On Groover, the music curators and professionals listen to your track for real. They finally give you feedback and make every effort to give exposure to the artists they have a crush on!
+          On UPCOMING SOUNDS, the music curators and professionals listen to your track for real. They finally give you feedback and make every effort to give exposure to the artists they have a crush on!
         </span>
                                 <div class="Wrapper tw-m-auto 600:tw-m-0" data-v-6f53582b  style="display: flex;">
                                     <div id="upClick">
