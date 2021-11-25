@@ -93,121 +93,122 @@
 
 {{-- page content --}}
 @section('content')
-
-    <div class="b-t">
-        <div class="center-block text-center">
-            <div class="p-a-md">
-                <div>
-                    <h4><span class="saiidzeidan">Gary</span> from Upcoming Sounds</h4>
-                    <p class="text-muted m-y">
-                        The final touch, {{(auth()->user()) ? auth()->user()->name : 'test'}}... A picture of you to
-                        complete your profile?
-                    </p>
+    <div class="app-body">
+        <div class="b-t">
+            <div class="center-block text-center">
+                <div class="p-a-md">
+                    <div>
+                        <h4><span class="saiidzeidan">Gary</span> from Upcoming Sounds</h4>
+                        <p class="text-muted m-y">
+                            The final touch, {{(auth()->user()) ? auth()->user()->name : 'test'}}... A picture of you to
+                            complete your profile?
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- BEGIN: Page Main-->
-    <div id="main">
-        <div class="row">
-            <div class="col s9 sTep4">
-                <div class="container">
-                    <!-- Input Fields -->
-                    <div class="row">
-                        <div class="col s12">
-                            <div id="input-fields" class="card card-tabs cardsTep2">
-                                <div class="card-content">
-                                    <div id="view-input-fields">
-                                        <div class="row">
-                                            <div class="col s12 m6 l10">
-                                                <h4 class="card-title bold">Profile Picture</h4>
+        <!-- BEGIN: Page Main-->
+        <div id="main">
+            <div class="row">
+                <div class="col s9 sTep4">
+                    <div class="container">
+                        <!-- Input Fields -->
+                        <div class="row">
+                            <div class="col s12">
+                                <div id="input-fields" class="card card-tabs cardsTep2">
+                                    <div class="card-content">
+                                        <div id="view-input-fields">
+                                            <div class="row">
+                                                <div class="col s12 m6 l10">
+                                                    <h4 class="card-title bold">Profile Picture</h4>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="underline"></div>
-                                        <div class="row">
-                                            <div class="col s12">
-                                                <form method="POST" action="{{route('artist.signup.representative.step.6.post')}}"
-                                                      enctype="multipart/form-data">
-                                                    @csrf
-                                                    <div class="section" id="faq">
-                                                        <div class="avatar-upload">
-                                                            <div class="avatar-edit">
-                                                                <input type='file' id="imageUpload" name="profile"
-                                                                       accept=".png, .jpg, .jpeg"/>
-                                                                <label for="imageUpload"></label>
-                                                            </div>
-                                                            <div class="avatar-preview">
+                                            <div class="underline"></div>
+                                            <div class="row">
+                                                <div class="col s12">
+                                                    <form method="POST" action="{{route('artist.signup.representative.step.6.post')}}"
+                                                          enctype="multipart/form-data">
+                                                        @csrf
+                                                        <div class="section" id="faq">
+                                                            <div class="avatar-upload">
+                                                                <div class="avatar-edit">
+                                                                    <input type='file' id="imageUpload" name="profile"
+                                                                           accept=".png, .jpg, .jpeg"/>
+                                                                    <label for="imageUpload"></label>
+                                                                </div>
+                                                                <div class="avatar-preview">
 
-                                                                @php
-                                                                    $mystring = auth()->user()->profile;
-                                                                    $findhttps   = 'https';
-                                                                    $findhttp   = 'http';
-                                                                    $poshttps = strpos($mystring, $findhttps);
+                                                                    @php
+                                                                        $mystring = auth()->user()->profile;
+                                                                        $findhttps   = 'https';
+                                                                        $findhttp   = 'http';
+                                                                        $poshttps = strpos($mystring, $findhttps);
 
-                                                                    $poshttp = strpos($mystring, $findhttp);
-                                                                    if($poshttps != false){
-                                                                        $pos = $poshttps;
-                                                                    }else{
-                                                                        $pos = $poshttp;
-                                                                    }
+                                                                        $poshttp = strpos($mystring, $findhttp);
+                                                                        if($poshttps != false){
+                                                                            $pos = $poshttps;
+                                                                        }else{
+                                                                            $pos = $poshttp;
+                                                                        }
 
-                                                                @endphp
+                                                                    @endphp
 
-                                                                @if($pos === false)
-                                                                    @if(!empty(auth()->user()->profile))
-                                                                        <img src="{{URL('/')}}/uploads/profile/{{auth()->user()->profile}}"
+                                                                    @if($pos === false)
+                                                                        @if(!empty(auth()->user()->profile))
+                                                                            <img src="{{URL('/')}}/uploads/profile/{{auth()->user()->profile}}"
+                                                                                 id="imagePreview">
+                                                                        @else
+                                                                            <img src="{{asset('images/profile_images_icons.svg')}}"
+                                                                                 id="imagePreview">
+                                                                        @endif
+                                                                    @elseif($pos == 0)
+                                                                        <img src="{{auth()->user()->profile}}"
                                                                              id="imagePreview">
                                                                     @else
                                                                         <img src="{{asset('images/profile_images_icons.svg')}}"
                                                                              id="imagePreview">
                                                                     @endif
-                                                                @elseif($pos == 0)
-                                                                    <img src="{{auth()->user()->profile}}"
-                                                                         id="imagePreview">
-                                                                @else
-                                                                    <img src="{{asset('images/profile_images_icons.svg')}}"
-                                                                         id="imagePreview">
-                                                                @endif
 
-                                                                @error('profile')
-                                                                <small class="red-text" role="alert">
-                                                                    {{ $message }}
-                                                                </small>
-                                                                @enderror
-                                                            </div>
-                                                            <h4 class="profile-heading" style="text-align: center; font-size: 1.28rem;">{{(auth()->user()) ? auth()->user()->name : 'test'}}</h4>
-                                                        </div>
-                                                    </div>
-                                                    <div class="section" id="faq">
-                                                        <div class="faq row">
-                                                            <div class="col s12 m12 l12">
-                                                                <ul class="collapsible categories-collapsible">
-                                                                    <li class="active">
-                                                                        <div class="collapsible-header">Q: No cool photo
-                                                                            for {{(auth()->user()) ? auth()->user()->name : 'test'}}? <i class="material-icons">
-                                                                                keyboard_arrow_right </i></div>
-                                                                        <div class="collapsible-body">
-                                                                            <p>KDon't worry, you can always add one
-                                                                                later to your artist profile or replace
-                                                                                it!</p>
-                                                                        </div>
-                                                                    </li>
-                                                                    <li>
-                                                                </ul>
+                                                                    @error('profile')
+                                                                    <small class="red-text" role="alert">
+                                                                        {{ $message }}
+                                                                    </small>
+                                                                    @enderror
+                                                                </div>
+                                                                <h4 class="profile-heading" style="text-align: center; font-size: 1.28rem;">{{(auth()->user()) ? auth()->user()->name : 'test'}}</h4>
                                                             </div>
                                                         </div>
-                                                    </div>
-
-                                                    <div class="row">
-                                                        <div class="input-field col s12">
-                                                            <button class="tellMeMore left LeftSide" onclick="window.history.go(-1); return false;" style="border:none;">Previous</button>
-                                                            <button class="tellMeMore right RightSide" style="border:none;"
-                                                                    type="submit">Next
-                                                            </button>
+                                                        <div class="section" id="faq">
+                                                            <div class="faq row">
+                                                                <div class="col s12 m12 l12">
+                                                                    <ul class="collapsible categories-collapsible">
+                                                                        <li class="active">
+                                                                            <div class="collapsible-header">Q: No cool photo
+                                                                                for {{(auth()->user()) ? auth()->user()->name : 'test'}}? <i class="material-icons">
+                                                                                    keyboard_arrow_right </i></div>
+                                                                            <div class="collapsible-body">
+                                                                                <p>KDon't worry, you can always add one
+                                                                                    later to your artist profile or replace
+                                                                                    it!</p>
+                                                                            </div>
+                                                                        </li>
+                                                                        <li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </form>
+
+                                                        <div class="row">
+                                                            <div class="input-field col s12">
+                                                                <button class="tellMeMore left LeftSide" onclick="window.history.go(-1); return false;" style="border:none;">Previous</button>
+                                                                <button class="tellMeMore right RightSide" style="border:none;"
+                                                                        type="submit">Next
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -215,13 +216,12 @@
                             </div>
                         </div>
                     </div>
+                    <div class="content-overlay"></div>
                 </div>
-                <div class="content-overlay"></div>
             </div>
         </div>
+        <!-- END: Page Main-->
     </div>
-    <!-- END: Page Main-->
-
 
 
 

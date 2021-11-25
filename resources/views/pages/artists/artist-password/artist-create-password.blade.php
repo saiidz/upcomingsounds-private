@@ -11,7 +11,8 @@
 
 {{-- page content --}}
 @section('content')
-    <div class="b-t">
+    <div class="app-body">
+        <div class="b-t">
         <div class="center-block w-xxl w-auto-xs p-y-md text-center">
             <div class="p-a-md">
                 <div>
@@ -78,6 +79,8 @@
             </div>
         </div>
     </div>
+    </div>
+
 @endsection
 @section('page-script')
     <script>

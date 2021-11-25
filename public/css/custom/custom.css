@@ -34,6 +34,17 @@ h1,h2,h3,h4,h5{
 body{
     font-family: "Segoe UI", "Trebuchet MS", "PT Sans", "Helvetica Neue", "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
 }
+a {
+    color: #c9c7c7!important;
+    text-decoration: none!important;
+    cursor: pointer!important;
+    outline: 0;
+}
+
+a:hover,
+a:focus {
+    color: #c9c7c7!important;
+    text-decoration: none; }
 
 .toast{
     display: none;
@@ -411,7 +422,9 @@ img.center_icons {
     top: 7px;
 }
 
-
+.app-header ~ .app-body {
+    padding-bottom: 3.5rem !important;
+}
 
 
 
@@ -615,5 +628,8 @@ img.center_icons {
         display: block!important;
         margin-left: auto!important;
         margin-right: auto!important
+    }
+    .app-header ~ .app-body {
+        padding-bottom: 0.5rem !important;
     }
 }
