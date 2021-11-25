@@ -41,10 +41,6 @@ a {
     outline: 0;
 }
 
-a:hover,
-a:focus {
-    color: #c9c7c7!important;
-    text-decoration: none; }
 
 .toast{
     display: none;

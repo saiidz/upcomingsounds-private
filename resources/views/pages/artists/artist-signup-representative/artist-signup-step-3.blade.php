@@ -1,5 +1,5 @@
 {{-- layout --}}
-@extends('layouts.guest')
+@extends('layouts.artist-guest')
 
 {{-- page title --}}
 @section('title','Artist Signup ')
