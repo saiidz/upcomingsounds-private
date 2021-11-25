@@ -60,7 +60,7 @@
     bottom: 30px;
     height: 50px;
     font-size: 17px;
-    top: 25px;
+    top: 57px;
     /*top: unset;*/
 }
 #snackbarError {
@@ -78,7 +78,7 @@
     bottom: 30px;
     height: 50px;
     font-size: 17px;
-    top: 25px;
+    top: 57px;
 }
 #snackbar.show {
     visibility: visible;
