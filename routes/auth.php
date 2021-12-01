@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\ArtistSignupRepresentativeController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\AuthenticationSocializeController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
+use App\Http\Controllers\Auth\CuratorSignupController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\MobileAuthenticatedController;
@@ -93,15 +94,13 @@ Route::any('/logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->middleware('auth')
                 ->name('logout');
 
+Route::any('/curator-logout', [AuthenticatedSessionController::class, 'destroyCurator'])
+    ->name('curator.logout');
+
 // Socialize Authenticated Controller
 Route::get('login/{provider}', [AuthenticationSocializeController::class, 'redirectToProvider']);
 Route::get('auth/callback/{provider}', [AuthenticationSocializeController::class, 'handleProviderCallback']);
-Route::get('/create-password', [AuthenticationSocializeController::class, 'createSocializePassword'])
-            ->middleware('auth')
-            ->name('artist.create.password');
-Route::post('/create-password', [AuthenticationSocializeController::class, 'storeSocializePassword'])
-            ->middleware('auth')
-            ->name('artist.create.password.post');
+
 
 
 
@@ -214,5 +213,77 @@ Route::post('/artist-signup-representative-step-8', [ArtistSignupRepresentativeC
     ->name('artist.signup.representative.step.8.post');
 // Artist Signup Representative
 
+// Artist Create Password
+Route::get('/create-password', [AuthenticationSocializeController::class, 'createSocializePassword'])
+    ->middleware('auth')
+    ->name('artist.create.password');
+Route::post('/create-password', [AuthenticationSocializeController::class, 'storeSocializePassword'])
+    ->middleware('auth')
+    ->name('artist.create.password.post');
 
 /***************************************************** Artist Routes *********************************************************/
+
+
+
+
+
+
+
+
+
+/***************************************************** Curators Routes *********************************************************/
+// Curators Signup and login route
+Route::get('/taste-maker-register', [RegisteredUserController::class, 'createCurator'])
+    ->middleware('guest')
+    ->name('curator.register');
+
+Route::post('/taste-maker-register', [RegisteredUserController::class, 'storeCurator'])
+    ->middleware('guest');
+
+
+Route::get('/taste-maker-login', [AuthenticatedSessionController::class, 'createCurator'])
+    ->middleware('guest')
+    ->name('curator.login');
+
+Route::post('/taste-maker-login', [AuthenticatedSessionController::class, 'storeCurator'])
+    ->middleware('guest');
+
+
+// Curators Signup
+Route::get('/taste-maker-signup-step-1', [CuratorSignupController::class, '__invoke'])
+    ->middleware('auth')
+    ->name('curator.signup.notice');
+
+Route::get('/taste-maker-signup-step-2', [CuratorSignupController::class, 'curatorSignupStep2'])
+    ->middleware('auth')
+    ->name('curator.signup.step.2');
+Route::post('/taste-maker-signup-step-2', [CuratorSignupController::class, 'postCuratorSignupStep2'])
+    ->middleware('auth')
+    ->name('curator.signup.step.2.post');
+
+Route::get('/taste-maker-signup-step-3', [CuratorSignupController::class, 'curatorSignupStep3'])
+    ->middleware('auth')
+    ->name('curator.signup.step.3');
+Route::post('/taste-maker-signup-step-3', [CuratorSignupController::class, 'postCuratorSignupStep3'])
+    ->middleware('auth')
+    ->name('curator.signup.step.3.post');
+
+Route::get('/taste-maker-signup-step-4', [CuratorSignupController::class, 'curatorSignupStep4'])
+    ->middleware('auth')
+    ->name('curator.signup.step.4');
+Route::post('/taste-maker-signup-step-4', [CuratorSignupController::class, 'postCuratorSignupStep4'])
+    ->middleware('auth')
+    ->name('curator.signup.step.4.post');
+
+
+
+// Curator Create Password
+Route::get('/taste-maker-create-password', [AuthenticationSocializeController::class, 'createCuratorSocializePassword'])
+    ->middleware('auth')
+    ->name('curator.create.password');
+Route::post('/taste-maker-create-password', [AuthenticationSocializeController::class, 'storeCuratorSocializePassword'])
+    ->middleware('auth')
+    ->name('curator.create.password.post');
+
+
+/***************************************************** Curators Routes *********************************************************/

@@ -45,6 +45,11 @@ Route::group(['middleware' => ['try_catch']], function() {
         Route::prefix('')->group(base_path('routes/client/auth.php'));
     });
 
+    /***************************************************** Curators Routes *********************************************************/
+    Route::group(['middleware' => ['auth','verify_if_curator','create_curator_password','curator_signup','verified']], function() {
+        Route::prefix('')->group(base_path('routes/client/curator_auth.php'));
+    });
+
 
     Route::prefix('')->group(base_path('routes/client/no_auth.php'));
 });

@@ -2,9 +2,10 @@
 
 namespace App\Helpers;
 use Illuminate\Http\Request;
-use Config;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Str;
 use SendGrid\Mail\Mail;
+use Twilio\Rest\Client;
 
 class Helper
 {
@@ -15,7 +16,22 @@ class Helper
             return response()->view('errors.404');
         }
     }
+    public static function twilioOtp(String $phone_number, String $msg)
+    {
+        $account_sid = Config::get('services.twilio.twilio_sid');
+        $auth_token = Config::get('services.twilio.twilio_token');
+        $twilio_number = Config::get('services.twilio.twilio_from');
 
+//        $account_sid = env("TWILIO_SID");
+//        $auth_token = env("TWILIO_TOKEN");
+//        $twilio_number = env("TWILIO_FROM");
+
+        $client = new Client($account_sid, $auth_token);
+        $client->messages->create($phone_number, [
+            'from' => $twilio_number,
+            'body' => $msg
+        ]);
+    }
 //    public function sendEmailViaSendGrid($to, $subject, $htmlBody, $textBody = '')
 //    {
 //        $email = new Mail();

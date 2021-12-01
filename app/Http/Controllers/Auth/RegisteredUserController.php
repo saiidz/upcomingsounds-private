@@ -57,20 +57,20 @@ class RegisteredUserController extends Controller
     /**
      * Display the curators registration view.
      */
-    public function curatorsCreate()
+    public function createCurator()
     {
-        return view('auth.curators-register');
+        return view('auth.curator-register');
     }
 
     /**
-     * Handle an incoming registration request.
+     * Handle an incoming registration curators request.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function curatorsStore(Request $request)
+    public function storeCurator(Request $request)
     {
         $request->validate([
             'name'     => 'required|string|max:255',
@@ -85,13 +85,13 @@ class RegisteredUserController extends Controller
             'email'    => $request->email,
             'password' => Hash::make($request->password),
             'address'  => $request->address,
-            'type'     => 'artist',
+            'type'     => 'curator',
         ]);
 
         event(new Registered($user));
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect(RouteServiceProvider::CURATOR);
     }
 }

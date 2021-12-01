@@ -7,7 +7,8 @@
 
 <body>
 <div class="app dk" id="app">
-
+    <div id="snackbar"></div>
+    <div id="snackbarError"></div>
     <!-- ############ LAYOUT START-->
 
     <!-- content -->
@@ -46,6 +47,14 @@
                         </li>
                     @else
                         <li class="nav-item">
+                            <a href="{{ route('curator.register') }}" class="nav-link">
+                                <span class="btn btn-sm rounded primary _600">
+                                  For Tastemakers / Curators
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a href="{{ route('register') }}" class="nav-link">
                                 Signup
                             </a>
@@ -71,11 +80,26 @@
                                 <span class="nav-text">Site</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{url('/artist-profile')}}" class="nav-link">
-                                <span class="nav-text">Web App</span>
-                            </a>
-                        </li>
+                        @if(Auth::check() && Auth::user()->type == 'artist')
+                            <li class="nav-item">
+                                <a href="{{url('/artist-profile')}}" class="nav-link">
+                                    <span class="nav-text">Web App</span>
+                                </a>
+                            </li>
+                        @elseif(Auth::check() && Auth::user()->type == 'curator')
+                            <li class="nav-item">
+                                <a href="{{url('/taste-maker-profile')}}" class="nav-link">
+                                    <span class="nav-text">Web App</span>
+                                </a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a href="javascript:void(0)" class="nav-link">
+                                    <span class="nav-text">Web App</span>
+                                </a>
+                            </li>
+                        @endif
+
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <span class="nav-text">Rtl</span>

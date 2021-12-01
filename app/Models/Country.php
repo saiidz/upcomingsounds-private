@@ -21,8 +21,12 @@ class Country extends Model
     public function user(){
         return $this->hasMany(User::class);
     }
-    // User tags
+    // User artist
     public function artistUser(){
         return $this->hasOne(ArtistUser::class, 'country_id');
+    }
+    // User curator
+    public function curatorUser(){
+        return $this->hasOne(CuratorUser::class, 'country_id');
     }
 }

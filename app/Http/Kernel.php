@@ -62,11 +62,14 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'create_password' => \App\Http\Middleware\CheckCreatePassword::class,
+        'create_curator_password' => \App\Http\Middleware\CheckCuratorCreatePassword::class,
         'artist_signup' => \App\Http\Middleware\EnsureSignUpArtistIsCompleted::class,
+        'curator_signup' => \App\Http\Middleware\EnsureSignUpCuratorIsCompleted::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'try_catch' => \App\Http\Middleware\TryCatchMiddleware::class,
         'verify_if_admin' => \App\Http\Middleware\VerifyIfAdmin::class,
         'verify_if_user' => \App\Http\Middleware\VerifyIfUser::class,
+        'verify_if_curator' => \App\Http\Middleware\VerifyIfCurator::class,
         'check_if_blocked' => \App\Http\Middleware\CheckUserStatus::class,
     ];
 }

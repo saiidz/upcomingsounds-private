@@ -102,7 +102,7 @@ class ArtistSignupController extends Controller
             }
             return redirect()->route('artist.signup.step.4');
         }else{
-            return redirect()->back()->with('error_message', 'One field is required');
+            return redirect()->back()->with('error', 'One field is required');
         }
 //        $validator = Validator::make($request->all(), [
 //            'instagram_url'  => 'url',

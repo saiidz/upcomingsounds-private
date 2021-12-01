@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -53,14 +54,33 @@ class NewPasswordController extends Controller
                 event(new PasswordReset($user));
             }
         );
-
+//dd($status,$request->all());
         // If the password was successfully reset, we will redirect the user back to
         // the application's home authenticated view. If there is an error we can
         // redirect them back to where they came from with their error message.
-        return $status == Password::PASSWORD_RESET
-                    ? redirect()->route('login')->with('success', __($status))
-                    : back()->withInput($request->only('email'))
-                            ->withErrors(['email' => __($status)]);
+        $email_user = User::where('email',$request->get('email'))->first();
+
+        if(isset($email_user) && !empty($email_user->type == 'curator')){
+
+            return $status == Password::PASSWORD_RESET
+                ? redirect()->route('curator.login')->with('success', __($status))
+                : back()->withInput($request->only('email'))
+                    ->withErrors(['email' => __($status)]);
+
+        }elseif (isset($email_user) && !empty($email_user->type == 'artist')){
+
+            return $status == Password::PASSWORD_RESET
+                ? redirect()->route('login')->with('success', __($status))
+                : back()->withInput($request->only('email'))
+                    ->withErrors(['email' => __($status)]);
+
+        }else{
+            return $status == Password::PASSWORD_RESET
+                ? redirect()->route('login')->with('success', __($status))
+                : back()->withInput($request->only('email'))
+                    ->withErrors(['email' => __($status)]);
+        }
+
     }
 
     /**

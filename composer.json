@@ -16,7 +16,8 @@
         "laravel/tinker": "^2.5",
         "pragmarx/countries": "^0.7.2",
         "sendgrid/sendgrid": "^7.9",
-        "socialiteproviders/spotify": "^4.1"
+        "socialiteproviders/spotify": "^4.1",
+        "twilio/sdk": "^6.28"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

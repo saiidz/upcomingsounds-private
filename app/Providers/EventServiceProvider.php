@@ -20,8 +20,12 @@ class EventServiceProvider extends ServiceProvider
         ],
         \SocialiteProviders\Manager\SocialiteWasCalled::class => [
             // ... other providers
-            'SocialiteProviders\\Spotify\\SpotifyExtendSocialite@handle',
+            \SocialiteProviders\Spotify\SpotifyExtendSocialite::class.'@handle',
         ],
+//        \SocialiteProviders\Manager\SocialiteWasCalled::class => [
+//            // ... other providers
+//            'SocialiteProviders\\Spotify\\SpotifyExtendSocialite@handle',
+//        ],
     ];
 
     /**

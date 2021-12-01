@@ -23,8 +23,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'email_verified_at',
         'artist_completed_signup',
+        'curator_completed_signup',
         'password',
         'phone_number',
+        'otp',
+        'is_phone_verified',
         'address',
         'profile',
         'type',
@@ -55,6 +58,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
         'artist_completed_signup' => 'datetime',
+        'curator_completed_signup' => 'datetime',
     ];
 
     // User tags
@@ -64,6 +68,10 @@ class User extends Authenticatable implements MustVerifyEmail
     // artist user
     public function artistUser(){
         return $this->hasOne(ArtistUser::class,'user_id');
+    }
+    // curator user
+    public function curatorUser(){
+        return $this->hasOne(CuratorUser::class,'user_id');
     }
     // user belongs to country
     public function country(){

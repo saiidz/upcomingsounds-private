@@ -1,8 +1,8 @@
 {{-- layout --}}
-@extends('layouts.artist-guest')
+@extends('layouts.curator-guest')
 
 {{-- page title --}}
-@section('title','Artist Create Password')
+@section('title','Curator Create Password')
 
 {{-- page style --}}
 @section('page-style')
@@ -21,7 +21,7 @@
                 <div id="snackbar"></div>
                 <div id="snackbarError"></div>
 
-                <form class="login-form" method="POST" action="{{ route('artist.create.password.post') }}">
+                <form class="login-form" method="POST" action="{{ route('curator.create.password.post') }}">
                     @csrf
                     <input type="hidden" name="token" value="{{ $request->route('token') }}">
                     <div class="form-group">

@@ -20,8 +20,9 @@ class AuthenticationSocializeController extends Controller
      * Redirect the user to the Twitter authentication page.
      *
      */
-    public function redirectToProvider($provider)
+    public function redirectToProvider($provider, Request $request)
     {
+        session(['request_from' => $request->get('request_from')]);
         return Socialite::driver($provider)->redirect();
     }
 
@@ -33,9 +34,14 @@ class AuthenticationSocializeController extends Controller
     {
         try {
             $user = Socialite::driver($provider)->user();
-            $user =  $this->findOrCreateUser($user, $provider);
+            $request_from = session('request_from');
+            $user =  $this->findOrCreateUser($user, $provider,$request_from);
             Auth::login($user, true);
-            return redirect(RouteServiceProvider::HOME);
+            if($request_from == 'artist'){
+                return redirect(RouteServiceProvider::HOME);
+            }elseif($request_from == 'curator'){
+                return redirect(RouteServiceProvider::CURATOR);
+            }
         } catch (Exception $e) {
             return $this->sendFailedResponse($e->getMessage());
         }
@@ -43,7 +49,7 @@ class AuthenticationSocializeController extends Controller
     }
     protected function sendFailedResponse($msg = null)
     {
-        return redirect()->route('register')
+        return redirect('/')
             ->with(['error' => 'Unable to login and Email is already exists, try with another provider to login.']);
 //            ->with(['error' => $msg ?: 'Unable to login, try with another provider to login.']);
     }
@@ -52,30 +58,61 @@ class AuthenticationSocializeController extends Controller
      * else, create a new user object.
      * @return User|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function findOrCreateUser($providerUser, $provider)
+    public function findOrCreateUser($providerUser, $provider, $request_from)
     {
-        $user = User::where('provider_id', $providerUser->id)->first();
-        if ($user) {
-            $user->update([
-                'name'              => $providerUser->name,
-                'email'             => !empty($user->email) ? $user->email : $providerUser->email,
-                'email_verified_at' => Carbon::now(),
-                'profile'           => !empty($user->profile) ? $user->profile : $providerUser->avatar,
-                'provider'          => $provider,
-                'provider_id'       => $providerUser->id,
-                'access_token'      => $providerUser->token
-            ]);
-        }else{
-            $user = User::create([
-                'name'              => $providerUser->getName(),
-                'email'             => $providerUser->getEmail(),
-                'email_verified_at' => Carbon::now(),
-                'profile'           => $providerUser->getAvatar(),
-                'provider'          => $provider,
-                'provider_id'       => $providerUser->getId(),
-                'access_token'      => $providerUser->token,
-            ]);
+        if($request_from == 'artist'){
+            $user = User::where('provider_id', $providerUser->id)->where('type',$request_from)->first();
+            if ($user) {
+                $user->update([
+                    'name'              => $providerUser->name,
+                    'email'             => !empty($user->email) ? $user->email : $providerUser->email,
+                    'email_verified_at' => Carbon::now(),
+                    'profile'           => !empty($user->profile) ? $user->profile : $providerUser->avatar,
+                    'type'              => 'artist',
+                    'provider'          => $provider,
+                    'provider_id'       => $providerUser->id,
+                    'access_token'      => $providerUser->token
+                ]);
+            }else{
+                $user = User::create([
+                    'name'              => $providerUser->getName(),
+                    'email'             => $providerUser->getEmail(),
+                    'email_verified_at' => Carbon::now(),
+                    'profile'           => $providerUser->getAvatar(),
+                    'type'              => 'artist',
+                    'provider'          => $provider,
+                    'provider_id'       => $providerUser->getId(),
+                    'access_token'      => $providerUser->token,
+                ]);
+            }
+        }elseif ($request_from == 'curator'){
+            $user = User::where('provider_id', $providerUser->id)->where('type',$request_from)->first();
+            if ($user) {
+                $user->update([
+                    'name'              => $providerUser->name,
+                    'email'             => !empty($user->email) ? $user->email : $providerUser->email,
+                    'email_verified_at' => Carbon::now(),
+                    'profile'           => !empty($user->profile) ? $user->profile : $providerUser->avatar,
+                    'type'              => 'curator',
+                    'provider'          => $provider,
+                    'provider_id'       => $providerUser->id,
+                    'access_token'      => $providerUser->token
+                ]);
+            }else{
+                $user = User::create([
+                    'name'              => $providerUser->getName(),
+                    'email'             => $providerUser->getEmail(),
+                    'email_verified_at' => Carbon::now(),
+                    'profile'           => $providerUser->getAvatar(),
+                    'type'              => 'curator',
+                    'provider'          => $provider,
+                    'provider_id'       => $providerUser->getId(),
+                    'access_token'      => $providerUser->token,
+                ]);
+            }
         }
+
+
         return $user;
     }
 
@@ -112,6 +149,43 @@ class AuthenticationSocializeController extends Controller
             'password' => Hash::make($request->get('password'))
         ]);
         return redirect('/artist-signup-step-1')->with('success', 'Password Created successfully.');
+
+    }
+
+
+    /**
+     * createCuratorSocializePassword
+     */
+    public function createCuratorSocializePassword(Request $request)
+    {
+        $user = $request->user();
+        return !$request->user()->password && $request->user()->provider
+            ? view('pages.curators.curator-password.curator-create-password',compact('user','request'))
+            : redirect()->intended(RouteServiceProvider::CURATOR);
+    }
+
+    /**
+     * Show the manage create curator password view.
+     */
+    public function storeCuratorSocializePassword(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'email'    => 'required|string|email|max:255|unique:users,email,'. auth()->user()->id,
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $user = $request->user();
+
+        User::find($user->id)->update([
+            'email' => $request->get('email'),
+            'password' => Hash::make($request->get('password'))
+        ]);
+        return redirect('/taste-maker-signup-step-1')->with('success', 'Password Created successfully.');
 
     }
 }

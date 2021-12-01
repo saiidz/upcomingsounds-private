@@ -2,7 +2,7 @@
 @extends('layouts.guest')
 
 {{-- page title --}}
-@section('title','Signup')
+@section('title','Taste Maker Signup')
 
 {{-- page content --}}
 @section('content')
@@ -13,19 +13,19 @@
             <div class="center-block w-xxl w-auto-xs p-y-md text-center">
                 <div class="p-a-md">
                     <div>
-                        <a href="{{ url('/login/facebook/?request_from=artist') }}" class="btn btn-block indigo text-white m-b-sm">
+                        <a href="{{ url('/login/facebook/?request_from=taste-maker') }}" class="btn btn-block indigo text-white m-b-sm">
                             <i class="fa fa-facebook pull-left"></i>
                             Sign up with Facebook
                         </a>
-                        <a href="{{ url('/login/google/?request_from=artist') }}" class="btn btn-block red text-white">
+                        <a href="{{ url('/login/google/?request_from=curator') }}" class="btn btn-block red text-white">
                             <i class="fa fa-google-plus pull-left"></i>
                             Sign up with Google+
                         </a>
-                        <a href="{{ url('/login/twitter/?request_from=artist') }}" style="background-color: #1C9CEA;" class="btn btn-block text-white m-b-sm">
+                        <a href="{{ url('/login/twitter/?request_from=curator') }}" style="background-color: #1C9CEA;" class="btn btn-block text-white m-b-sm">
                             <i class="fa fa-twitter pull-left"></i>
                             Sign up with Twitter
                         </a>
-                        <a href="{{url('/login/spotify/?request_from=artist')}}" style="background-color: #1ed760;;" class="btn btn-block text-white m-b-sm">
+                        <a href="{{url('/login/spotify/?request_from=curator')}}" style="background-color: #1ed760;;" class="btn btn-block text-white m-b-sm">
                             <i class="fa fa-spotify pull-left"></i>
                             Sign up with Spotify
                         </a>
@@ -34,7 +34,7 @@
                         OR
                     </div>
 
-                    <form method="POST" action="{{ route('register') }}" autocomplete="off">
+                    <form method="POST" action="{{ route('curator.register') }}" autocomplete="off">
                         @csrf
                         <div class="form-group">
                             <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" placeholder="Username" required>
@@ -66,6 +66,14 @@
 							<img src="{{asset('images/show-pas_black.svg')}}" alt="" class="password-toggle hide" />
 									</span>
                         </div>
+                        <div class="form-group">
+                            <input type="text" name="address" class="form-control @error('address') is-invalid @enderror" value="{{ old('address') }}" placeholder="Address" required>
+                            @error('address')
+                            <small class="red-text ml-10" role="alert">
+                                {{ $message }}
+                            </small>
+                            @enderror
+                        </div>
                         <div class="m-b-md text-sm">
                             <span class="text-muted">By clicking Sign Up, I agree to the</span>
                             <a href="{{url('/term-of-service')}}">Terms of service</a>
@@ -79,7 +87,7 @@
                     </form>
 
                     <div class="p-y-lg text-center">
-                        <div>Already have an account? <a href="{{route('login')}}" class="text-primary _600">Sign in</a></div>
+                        <div>Already have an account? <a href="{{route('curator.login')}}" class="text-primary _600">Sign in</a></div>
                     </div>
                 </div>
             </div>
@@ -222,25 +230,5 @@
             input.attr("type", "password");
         }
     });
-    {{--$.ajaxSetup({--}}
-    {{--    headers: {--}}
-    {{--        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
-    {{--    }--}}
-    {{--});--}}
-    {{--function socialiteLogin(provider){--}}
-    {{--    alert('{{url('login')}}/'+provider);--}}
-    {{--    $.ajax({--}}
-    {{--        type:"GET",--}}
-    {{--        url:'{{url('login')}}/'+provider,--}}
-    {{--        data:{--}}
-    {{--            "_token": "{{ csrf_token() }}",--}}
-    {{--            "artist": 'artist',--}}
-    {{--        },--}}
-    {{--        dataType: 'JSON',--}}
-    {{--        success:function (data){--}}
-    {{--            console.log(data);--}}
-    {{--        },--}}
-    {{--    });--}}
-    {{--}--}}
 </script>
 @endsection

@@ -49,4 +49,9 @@ return [
         'client_secret' => env('SPOTIFY_CLIENT_SECRET'),
         'redirect' => env('SPOTIFY_REDIRECT_URI')
     ],
+    'twilio' => [
+        'twilio_sid' => env('TWILIO_SID'),
+        'twilio_token' => env('TWILIO_TOKEN'),
+        'twilio_from' => env('TWILIO_FROM')
+    ],
 ];

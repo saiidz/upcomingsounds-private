@@ -28,7 +28,7 @@
                 <ul class="nav navbar-nav pull-right">
                     @if(Auth::check())
                         <li class="nav-item">
-                            <a href="{{ route('logout') }}" class="nav-link">
+                            <a href="{{ route('curator.logout') }}" class="nav-link">
                                 Sign out
                             </a>
                         </li>
@@ -60,7 +60,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{url('/artist-profile')}}" class="nav-link">
+                            <a href="{{url('/taste-maker-profile')}}" class="nav-link">
                                 <span class="nav-text">Web App</span>
                             </a>
                         </li>

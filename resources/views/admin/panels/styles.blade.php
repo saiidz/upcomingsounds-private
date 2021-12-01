@@ -16,8 +16,8 @@
     @yield('vendor-style')
     <!-- END: VENDOR CSS-->
     <!-- BEGIN: Page Level CSS-->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/themes/vertical-modern-menu-template/materialize.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/themes/vertical-modern-menu-template/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/themes/vertical-modern-menu-template/admin-materialize.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/themes/vertical-modern-menu-template/admin-style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/themes/vertical-modern-menu-template/style.min.css')}}">
 
     <!-- END: Page Level CSS-->

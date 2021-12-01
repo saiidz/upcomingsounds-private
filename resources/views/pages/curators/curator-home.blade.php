@@ -82,6 +82,9 @@
 
 
     <style type="text/css" data-type="vc_shortcodes-custom-css">
+        .for_curators{
+            padding-top: 120px !important;
+        }
         body {
             background: url({{asset('images/curator-influencer-bg.jpg')}}) no-repeat center center fixed;
             -webkit-background-size: cover;
@@ -148,7 +151,7 @@
     <div id="for-artists" data-vc-full-width="true" data-vc-full-width-init="false"
          class="vc_row wpb_row vc_row-fluid vc_custom_1513981483432 artist_home_bg vc_row-has-fill">
         <div class="wpb_column vc_column_container arTiSts vc_col-sm-12 vc_col-lg-6 vc_col-md-6">
-            <div class="vc_column-inner ">
+            <div class="vc_column-inner for_curators">
                 <div class="wpb_wrapper" id="homeArtist">
                     <div class="sanjose-text custom-mb text-left"><h2><i>for</i> Curators</h2>
                         <div>
@@ -162,7 +165,7 @@
                             <div class="vc_column-inner">
                                 <div class="wpb_wrapper">
                                     <div class="featured-block text-left  small-size default" id="homeArtist">
-                                        <img src="{{asset('images/price-tag.png')}}" class="center_icons">
+                                        <img src="{{asset('images/curator-rewards--tag.png')}}" class="center_icons">
 {{--                                        <div class="icon">--}}
 {{--                                            <i class="icon-info-9"></i>--}}
 {{--                                        </div>--}}
@@ -178,7 +181,7 @@
                             <div class="vc_column-inner">
                                 <div class="wpb_wrapper">
                                     <div class="featured-block text-left  small-size default" id="homeArtist">
-                                        <img src="{{asset('images/c.pn.png')}}" class="center_icons">
+                                        <img src="{{asset('images/curator-discover--rewards--tag.png')}}" class="center_icons">
 {{--                                        <div class="icon">--}}
 {{--                                            <img src="{{asset('images/c.pn.png')}}">--}}
 {{--                                            <i class="icon-info-6"></i>--}}
@@ -198,7 +201,7 @@
                             >SignOut</a>
 
                         @else
-                            <a href="{{url('register')}}" class="default tellMeMore"
+                            <a href="{{url('/taste-maker-register')}}" class="default tellMeMore"
                             >SignUp/ Login</a>
                         @endif
 

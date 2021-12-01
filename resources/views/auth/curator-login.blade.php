@@ -2,7 +2,7 @@
 @extends('layouts.guest')
 
 {{-- page title --}}
-@section('title','Login')
+@section('title','Taste Maker Login')
 
 {{-- page content --}}
 @section('content')
@@ -11,19 +11,19 @@
             <div class="center-block w-xxl w-auto-xs p-y-md text-center">
                 <div class="p-a-md">
                     <div>
-                        <a href="{{ url('/login/facebook/?request_from=artist') }}" class="btn btn-block indigo text-white m-b-sm">
+                        <a href="{{ url('/login/facebook/?request_from=curator') }}" class="btn btn-block indigo text-white m-b-sm">
                             <i class="fa fa-facebook pull-left"></i>
                             Sign up with Facebook
                         </a>
-                        <a href="{{ url('/login/google/?request_from=artist') }}" class="btn btn-block red text-white">
+                        <a href="{{ url('/login/google/?request_from=curator') }}" class="btn btn-block red text-white">
                             <i class="fa fa-google-plus pull-left"></i>
                             Sign up with Google+
                         </a>
-                        <a href="{{ url('/login/twitter/?request_from=artist') }}" style="background-color: #1C9CEA;" class="btn btn-block text-white m-b-sm">
+                        <a href="{{ url('/login/twitter/?request_from=curator') }}" style="background-color: #1C9CEA;" class="btn btn-block text-white m-b-sm">
                             <i class="fa fa-twitter pull-left"></i>
                             Sign up with Twitter
                         </a>
-                        <a href="{{url('/login/spotify/?request_from=artist')}}" style="background-color: #1ed760;;" class="btn btn-block text-white m-b-sm">
+                        <a href="{{url('/login/spotify/?request_from=curator')}}" style="background-color: #1ed760;;" class="btn btn-block text-white m-b-sm">
                             <i class="fa fa-spotify pull-left"></i>
                             Sign up with Spotify
                         </a>
@@ -31,9 +31,9 @@
                     <div class="m-y text-sm">
                         OR
                     </div>
-                    <form method="POST" action="{{ route('login') }}" autocomplete="off">
+                    <form method="POST" action="{{ route('curator.login') }}" autocomplete="off">
                         @csrf
-                        <input type="hidden" name="user_check" value="artist">
+                        <input type="hidden" name="user_check" value="curator">
                         <div class="form-group">
                             <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="Email" required>
                             @error('email')
@@ -72,7 +72,7 @@
                     </div>
                     <div>
                         Do not have an account?
-                        <a href="{{ route('register') }}" class="text-primary _600">Sign up</a>
+                        <a href="{{ route('curator.register') }}" class="text-primary _600">Sign up</a>
                     </div>
                 </div>
             </div>
