@@ -744,4 +744,7 @@ input[type=number] {
     .cardcontainer {
         margin-left: auto!important;
     }
+    .tastemakers_signup{
+        font-size: 11px !important;
+    }
 }

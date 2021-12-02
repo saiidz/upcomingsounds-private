@@ -48,7 +48,7 @@
                     @else
                         <li class="nav-item">
                             <a href="{{ route('curator.register') }}" class="nav-link">
-                                <span class="btn btn-sm rounded primary _600">
+                                <span class="btn btn-sm rounded primary _600 tastemakers_signup">
                                   For Tastemakers / Curators
                                 </span>
                             </a>
@@ -61,7 +61,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('login') }}" class="nav-link">
-                    <span class="btn btn-sm rounded primary _600">
+                    <span class="btn btn-sm rounded primary _600 tastemakers_signup">
                       Signin
                     </span>
                             </a>
