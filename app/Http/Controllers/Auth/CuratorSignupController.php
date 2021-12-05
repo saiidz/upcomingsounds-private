@@ -272,4 +272,25 @@ class CuratorSignupController extends Controller
             return redirect()->back()->with('error', 'One field is required');
         }
     }
+
+    /**
+     * verifySendAgainOtpCode.
+     */
+    public function verifySendAgainOtpCode(Request $request)
+    {
+        $user = User::find($request->get('user_id'));
+        if($user->phone_number == $request->get('phone_number')){
+            $otp  = rand(100000,999999);
+            $user->update([
+                'otp' => $otp,
+            ]);
+            Helper::twilioOtp($user->phone_number,$otp.' is your verification code for signing into your tastemaker account.');
+
+            $success = 'OTP sent Successfully.';
+            return response()->json(['status'    => TRUE, 'success' => $success, 'otp' => $otp]);
+        }else{
+            $error = 'You have entered invalid phone number';
+            return response()->json([['error' => $error]]);
+        }
+    }
 }

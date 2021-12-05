@@ -286,4 +286,8 @@ Route::post('/taste-maker-create-password', [AuthenticationSocializeController::
     ->name('curator.create.password.post');
 
 
+// Send Again Otp Code
+Route::post('/send-again-otp-code', [CuratorSignupController::class, 'verifySendAgainOtpCode'])
+    ->middleware('auth');
+
 /***************************************************** Curators Routes *********************************************************/

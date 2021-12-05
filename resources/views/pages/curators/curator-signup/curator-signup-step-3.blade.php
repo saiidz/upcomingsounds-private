@@ -91,6 +91,14 @@
                                                             </div>
                                                         </div>
                                                         <div class="row">
+                                                            <div class="col s12 m6 l10">
+                                                                <p class="text-muted text-md m-b-lg">
+                                                                    Did not receive the code
+                                                                    <a href="javascript:void(0)" id="send_again" data-id="{{(Auth::user()) ? Auth::user()->id : ''}}" data-number="{{(Auth::user()) ? Auth::user()->phone_number : ''}}" onclick="sendAgain()">Send again</a> (<span id="count"></span>)
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
                                                             <div class="input-field col s12">
                                                                 <button class="tellMeMore left LeftSide" onclick="window.history.go(-1); return false;" style="border:none;">Previous</button>
                                                                 <button class="tellMeMore right RightSide" style="border:none;" type="submit">Next
@@ -146,5 +154,56 @@
                 }
             });
         });
+
+        // send code again
+        function sendAgain(){
+            document.getElementById('send_again').style.pointerEvents="none";
+            document.getElementById('send_again').style.cursor="default";
+            var count=59;
+
+            var counter=setInterval(timer, 1000); //1000 will  run it every 1 second
+
+            function timer()
+            {
+                count=count-1;
+                if (count <= -1)
+                {
+                    clearInterval(counter);
+                    //counter ended, do something here
+                    return;
+                }
+
+                //Do code for showing the number of seconds here
+                document.getElementById("count").innerHTML=count;
+
+                if(count <= 0){
+                    document.getElementById('send_again').style.pointerEvents="auto";
+                    document.getElementById('send_again').style.cursor="pointer";
+                    document.getElementById("count").remove();
+                }
+            }
+            var url = "{{url('/send-again-otp-code')}}";
+            var user_id = $('#send_again').attr("data-id");
+            var phone_number = $('#send_again').attr("data-number");
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: {
+                    user_id: user_id,
+                    phone_number: phone_number,
+                    _token: '{{ csrf_token() }}'
+                },
+                dataType: 'json',
+                success:function (data){
+
+                    $('#snackbar').html(data.success);
+                    $('#snackbar').addClass("show");
+                    setTimeout(function () {
+                        $('#snackbar').removeClass("show");
+                    }, 5000);
+                },
+            });
+        }
     </script>
 @endsection
