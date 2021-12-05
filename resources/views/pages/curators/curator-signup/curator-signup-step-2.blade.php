@@ -40,7 +40,7 @@
                                         <div id="view-input-fields">
                                             <div class="row">
                                                 <div class="col s12">
-                                                    <form method="POST" action="{{route('curator.signup.step.2.post')}}" onsubmit="process(event)" id="mobile-login-form" enctype="multipart/form-data">
+                                                    <form method="POST" action="{{route('curator.signup.step.2.post')}}" id="mobile-login-form" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="row">
                                                             <div class="col s12">
@@ -72,7 +72,14 @@
                                                                 <div class="input-field col s12">
                                                                     <h5 class="display-7">Your Phone Number</h5>
                                                                     <p class="text-muted text-md m-b-lg">We will send a verification code to this number.</p>
-                                                                    <input id="phone" type="tel" inputmode="tel" class="@error('phone_number') is-invalid @enderror" name="phone_number"  required/>
+                                                                    @if(!empty(Auth::user()->phone_number) && Auth::user()->is_phone_verified == 1)
+                                                                        <input id="phone" type="tel" inputmode="tel" value="{{Auth::user()->phone_number}}" class="phone" name="phone_pattern" required/>
+                                                                        <input id="already_phone_pattern" name="phone_number" hidden>
+                                                                    @else
+                                                                        <input id="phone" type="tel" inputmode="tel" class="@error('phone_pattern') is-invalid @enderror" name="phone_pattern"  required/>
+                                                                        <input name="phone_number" hidden>
+                                                                    @endif
+{{--                                                                    <input id="phone" type="tel" inputmode="tel" class="@error('phone_number') is-invalid @enderror" name="phone_number"  required/>--}}
                                                                     <small class="red-text ml-10 display-none" role="alert" id="errror-client-side">
                                                                     </small>
                                                                 </div>
@@ -81,7 +88,7 @@
                                                                     {{ $message }}
                                                                 </small>
                                                                 @enderror
-                                                                <input name="phone_pattern" hidden>
+
                                                             </div>
                                                         </div>
                                                         <div class="row">
@@ -118,6 +125,15 @@
     <script src="{{asset('js/intlTelInput.min.js')}}"></script>
 <script>
     // const phoneInputField = document.querySelector("#phone");
+
+    //Get
+    var phone_number_isset = {!! json_encode(Auth::user()->phone_number) !!};
+    var is_phone_verified_isset = {!! json_encode(Auth::user()->is_phone_verified) !!};
+    if(phone_number_isset && is_phone_verified_isset){
+        var bla = $('.phone').val();
+        document.getElementById("already_phone_pattern").value = bla;
+    }
+
 
     function getIp(callback) {
         fetch('https://ipinfo.io/json?token=db11cd33cacfad', { headers: { 'Accept': 'application/json' }})
@@ -161,7 +177,7 @@
                 utilsScript:
                     "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
             });
-            $('input[name="phone_number"]').on(
+            $('input[name="phone_pattern"]').on(
                 "focus click countrychange",
                 function (e, countryData) {
                     var pl = $(this).attr("placeholder") + "";
@@ -173,7 +189,7 @@
                 }
             );
 
-            $('input[name="phone_number"]').on(
+            $('input[name="phone_pattern"]').on(
                 "keyup",
                 function (e, countryData) {
                     var intlNumber = iti.getNumber();
@@ -181,7 +197,7 @@
                     localStorage.setItem('countryCode',intlCode.dialCode);
                     console.log(intlCode.dialCode);
 
-                    document.querySelector('[name="phone_pattern"]').value = intlNumber;
+                    document.querySelector('[name="phone_number"]').value = intlNumber;
                 }
             );
         }
@@ -190,7 +206,7 @@
     document.getElementById('mobile-login-form').addEventListener('submit', function(e) {
         //mobile-login-form
         e.preventDefault()
-        let phone_number = document.querySelector("input[name='phone_number']")
+        let phone_number = document.querySelector("input[name='phone_pattern']")
         let placeholder = phone_number.placeholder
         let value = phone_number.value.replace(/\D/g, "").length
 

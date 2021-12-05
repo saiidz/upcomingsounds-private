@@ -112,7 +112,7 @@ class CuratorSignupController extends Controller
         $validator = Validator::make($request->all(), [
             'tastemaker_name'  => 'required|string|min:2|max:50',
             'country_name' => 'required',
-            'phone_number' => 'required',
+            'phone_number' => 'unique:users,phone_number,'. Auth::user()->id,
 //            'phone_number' => ['required', 'unique:users'],
         ]);
 
@@ -122,13 +122,13 @@ class CuratorSignupController extends Controller
                 ->withInput();
         }
 
-        $user_phone_number_exists = User::where('phone_number',$request->phone_pattern)->first();
-
-        if(isset($user_phone_number_exists)){
-            if($user_phone_number_exists->phone_number == $request->phone_pattern){
-                return redirect()->back()->with('error', 'Phone Number is already exists');
-            }
-        }
+//        $user_phone_number_exists = User::where('phone_number',$request->phone_pattern)->first();
+//
+//        if(isset($user_phone_number_exists)){
+//            if($user_phone_number_exists->phone_number == $request->phone_pattern){
+//                return redirect()->back()->with('error', 'Phone Number is already exists');
+//            }
+//        }
 
         $request->session()->get('curator_signup');
         $request->session()->put('curator_data', $request->all());
@@ -137,13 +137,13 @@ class CuratorSignupController extends Controller
             // call to otp function
             $otp  = rand(100000,999999);
             try{
-                Helper::twilioOtp($request->get('phone_pattern'),$otp.' is your verification code for signing into your tastemaker account.');
+                Helper::twilioOtp($request->get('phone_number'),$otp.' is your verification code for signing into your tastemaker account.');
             }catch (\Exception   $e){
                 return redirect()->back()->with('error', $e->getMessage());
             }
 
             Auth::user()->update([
-                'phone_number' => ($request->get('phone_pattern')) ? $request->get('phone_pattern') : Auth::user()->phone_number,
+                'phone_number' => ($request->get('phone_number')) ? $request->get('phone_number') : Auth::user()->phone_number,
                 'otp' => $otp,
             ]);
         }
@@ -157,14 +157,19 @@ class CuratorSignupController extends Controller
      */
     public function curatorSignupStep3(Request $request)
     {
-        $curator_signup = $request->session()->get('curator_signup');
-        $curator_data = $request->session()->get('curator_data');
+        if(!empty(Auth::user()->phone_number)){
+            $curator_signup = $request->session()->get('curator_signup');
+            $curator_data = $request->session()->get('curator_data');
 
-        if(!empty($curator_data) && !empty($curator_signup)){
-            return view('pages.curators.curator-signup.curator-signup-step-3',compact('curator_data','curator_signup'));
+            if(!empty($curator_data) && !empty($curator_signup)){
+                return view('pages.curators.curator-signup.curator-signup-step-3',compact('curator_data','curator_signup'));
+            }else{
+                return redirect()->back();
+            }
         }else{
             return redirect()->back();
         }
+
     }
 
     /**
@@ -220,6 +225,10 @@ class CuratorSignupController extends Controller
     {
         $curator_signup = $request->session()->get('curator_signup');
         $curator_data = $request->session()->get('curator_data');
+
+//        if ($curator_signup == 'influencer'){
+//            return view('pages.curators.curator-influencer-signup.influencer-share-music',compact('curator_data','curator_signup'));
+//        }
 
         if(!empty($curator_data) && !empty($curator_signup)){
             return view('pages.curators.curator-signup.curator-signup-step-4',compact('curator_data','curator_signup'));
