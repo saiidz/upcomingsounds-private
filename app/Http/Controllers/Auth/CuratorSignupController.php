@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
-use Daaner\TikTok\Models\UserInfo;
 use Sovit\TikTok;
 
 class CuratorSignupController extends Controller
