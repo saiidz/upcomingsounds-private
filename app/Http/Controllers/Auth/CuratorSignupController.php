@@ -332,7 +332,7 @@ class CuratorSignupController extends Controller
                     return redirect()->back()->with('error', 'You have entered instagram invalid url. Please add correct url');
                 }
                 $response = Http::get("https://www.instagram.com/$username/?__a=1");
-                if($response->status() == 404){
+                if($response->status() == 404 || empty($response->collect())){
                     return redirect()->back()->with('error', 'You have entered invalid instagram url. Please add correct url');
                 }
                 $instagram_followers = $response->collect()['graphql']['user']['edge_followed_by']['count'];
