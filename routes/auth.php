@@ -13,6 +13,7 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\Auth\YoutubeCuratorSignupController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/register', [RegisteredUserController::class, 'create'])
@@ -271,9 +272,58 @@ Route::post('/taste-maker-signup-step-3', [CuratorSignupController::class, 'post
 Route::get('/taste-maker-signup-step-4', [CuratorSignupController::class, 'curatorSignupStep4'])
     ->middleware('auth')
     ->name('curator.signup.step.4');
-Route::post('/taste-maker-signup-step-4', [CuratorSignupController::class, 'postCuratorSignupStep4'])
+
+
+/***************************************************** Influencer Route *********************************************************/
+// influencer Route
+Route::post('/influencer-signup-step-4', [CuratorSignupController::class, 'postInfluencerSignupStep4'])
     ->middleware('auth')
-    ->name('curator.signup.step.4.post');
+    ->name('influencer.signup.step.4.post');
+
+Route::get('/influencer-signup-step-5', [CuratorSignupController::class, 'influencerSignupStep5'])
+    ->middleware('auth')
+    ->name('influencer.signup.step.5');
+Route::post('/influencer-signup-step-5', [CuratorSignupController::class, 'postInfluencerSignupStep5'])
+    ->middleware('auth')
+    ->name('influencer.signup.step.5.post');
+/***************************************************** Influencer Route *********************************************************/
+
+/***************************************************** Youtube Route *********************************************************/
+// influencer Route
+Route::post('/youtube-signup-step-4', [YoutubeCuratorSignupController::class, 'postYoutubeSignupStep4'])
+    ->middleware('auth')
+    ->name('youtube.signup.step.4.post');
+
+Route::get('/youtube-signup-step-5', [YoutubeCuratorSignupController::class, 'youtubeSignupStep5'])
+    ->middleware('auth')
+    ->name('youtube.signup.step.5');
+Route::post('/youtube-signup-step-5', [YoutubeCuratorSignupController::class, 'postYoutubeSignupStep5'])
+    ->middleware('auth')
+    ->name('youtube.signup.step.5.post');
+/***************************************************** Youtube Route *********************************************************/
+
+
+Route::get('/taste-maker-signup-step-6', [CuratorSignupController::class, 'curatorSignupStep6'])
+    ->middleware('auth')
+    ->name('curator.signup.step.6');
+
+Route::post('/taste-maker-signup-step-6', [CuratorSignupController::class, 'postCuratorSignupStep6'])
+    ->middleware('auth')
+    ->name('curator.signup.step.6.post');
+
+Route::get('/taste-maker-signup-step-7', [CuratorSignupController::class, 'curatorSignupStep7'])
+    ->middleware('auth')
+    ->name('curator.signup.step.7');
+Route::post('/taste-maker-signup-step-7', [CuratorSignupController::class, 'postCuratorSignupStep7'])
+    ->middleware('auth')
+    ->name('curator.signup.step.7.post');
+
+Route::get('/taste-maker-signup-step-8', [CuratorSignupController::class, 'curatorSignupStep8'])
+    ->middleware('auth')
+    ->name('curator.signup.step.8');
+Route::post('/taste-maker-signup-step-8', [CuratorSignupController::class, 'postCuratorSignupStep8'])
+    ->middleware('auth')
+    ->name('curator.signup.step.8.post');
 
 
 
@@ -288,6 +338,18 @@ Route::post('/taste-maker-create-password', [AuthenticationSocializeController::
 
 // Send Again Otp Code
 Route::post('/send-again-otp-code', [CuratorSignupController::class, 'verifySendAgainOtpCode'])
+    ->middleware('auth');
+
+// Instagram Profile Show
+Route::get('/instagram-profile-show', [CuratorSignupController::class, 'instagramProfileShow'])
+    ->middleware('auth');
+
+// Tiktok Profile Show
+Route::get('/tiktok-profile-show', [CuratorSignupController::class, 'tiktokProfileShow'])
+    ->middleware('auth');
+
+// Youtube Profile Show
+Route::get('/youtube-profile-show', [CuratorSignupController::class, 'youtubeSubscriberShow'])
     ->middleware('auth');
 
 /***************************************************** Curators Routes *********************************************************/

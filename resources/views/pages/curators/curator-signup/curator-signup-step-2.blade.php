@@ -8,7 +8,17 @@
 @section('page-style')
     <link rel="stylesheet" type="text/css" href="{{asset('css/themes/vertical-modern-menu-template/materialize.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/themes/vertical-modern-menu-template/style.css')}}">
-    <link rel="stylesheet" href="{{asset('css/intlTelInput.css')}}"
+    <link rel="stylesheet" href="{{asset('css/intlTelInput.css')}}">
+    <style>
+        ul:not(.browser-default) {
+            padding-left: 0;
+            list-style-type: none;
+        }
+
+        ul:not(.browser-default) > li {
+            list-style-type: none;
+        }
+    </style>
 @endsection
 
 {{-- page content --}}
@@ -73,7 +83,7 @@
                                                                     <h5 class="display-7">Your Phone Number</h5>
                                                                     <p class="text-muted text-md m-b-lg">We will send a verification code to this number.</p>
                                                                     @if(!empty(Auth::user()->phone_number) && Auth::user()->is_phone_verified == 1)
-                                                                        <input id="phone" type="tel" inputmode="tel" value="{{Auth::user()->phone_number}}" class="phone" name="phone_pattern" required/>
+                                                                        <input id="phone" type="tel" inputmode="tel" value="{{Auth::user()->phone_number}}" class="phone" name="phone_pattern" readonly required/>
                                                                         <input id="already_phone_pattern" name="phone_number" hidden>
                                                                     @else
                                                                         <input id="phone" type="tel" inputmode="tel" class="@error('phone_pattern') is-invalid @enderror" name="phone_pattern"  required/>

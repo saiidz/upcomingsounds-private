@@ -57,7 +57,9 @@ body{
     background-color: #1f1f25 !important;
     color: white!important;
     text-align: center!important;
-    padding: 8px 1.0rem 8px 1.0rem !important;
+    font-size:14px;
+    padding: 8px 8px 8px 8px !important;
+    /*padding: 8px 1.0rem 8px 1.0rem !important;*/
     /*padding: 10px 1.5rem 10px 1.5rem !important;*/
     white-space: nowrap!important;
     vertical-align: middle!important;
@@ -89,7 +91,7 @@ body{
     /*margin-right: 27px !important;*/
     /*font: 500 12px "Montserrat", sans-serif;*/
     text-transform: uppercase;
-    letter-spacing: 1px;
+    /*letter-spacing: 1px;*/
 }
 .learnMore .tellMeMore {
     margin-right: 27px !important;
@@ -469,7 +471,9 @@ input[type=number] {
     color: #02b875;
     border-bottom: 2px solid #02b875;
 }
-
+.instagram_details .text-muted{
+    font-size:15px;
+}
 
 
 
@@ -725,8 +729,10 @@ input[type=number] {
         padding:0px !important;
     }
     .learn_more, .artist_login, .submitMyMusic, .auth_btn, .tellMeMore {
-        padding: 10px 1rem 10px 1rem !important;
-        margin-right: 0px !important;
+        padding: 8px 8px 8px 8px !important;
+        margin-right: 6px !important;
+        /*padding: 10px 1rem 10px 1rem !important;*/
+        /*margin-right: 0px !important;*/
         /*padding: 10px 2.5rem 10px 2.5rem !important;*/
     }
     img.center_icons {

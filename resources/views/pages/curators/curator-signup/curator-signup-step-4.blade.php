@@ -47,7 +47,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col s12">
-                                                    <form method="POST" action="{{route('curator.signup.step.4.post')}}"
+                                                    <form method="POST" id="validateSocialMediaLink" action="{{route('curator.signup.step.6.post')}}"
                                                           enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="row">
@@ -90,6 +90,7 @@
                                                                 <div class="input-field col s12">
                                                                     <input id="instagram_url" class="@error('instagram_url') is-invalid @enderror" placeholder="https://www.instagram.com/username" name="instagram_url" value="{{old('instagram_url')}}" type="text">
                                                                     <label for="instagram_url" class="social_label">Instagram</label>
+                                                                    <div id="error_instagram_url" class="red-text" style="color:red; padding:4px;"></div>
                                                                     @error('instagram_url')
                                                                     <small class="red-text" role="alert">
                                                                         {{ $message }}
@@ -171,7 +172,7 @@
                                                             <div class="input-field col s12">
                                                                 <button class="tellMeMore left LeftSide" onclick="window.history.go(-1); return false;" style="border:none;">Previous</button>
                                                                 <button class="tellMeMore right RightSide" style="border:none;"
-                                                                        type="submit">Next
+                                                                        onclick='return validateSocialMediaLink("validateSocialMediaLink")' type="submit">Next
                                                                 </button>
                                                             </div>
                                                         </div>
@@ -199,4 +200,39 @@
 @section('page-script')
     <script src="{{asset('js/vendors.min.js')}}"></script>
     <script src="{{asset('js/plugins.js')}}"></script>
+    <script>
+        // validateSocialMediaLink
+        function validateSocialMediaLink(validateSocialMediaLink){
+            var social_media_link = document.getElementById(validateSocialMediaLink);
+            result = "";
+            flag = true;
+
+            if(social_media_link.instagram_url.value == ""){
+                social_media_link.instagram_url.style.borderColor = "#DD0A0A";
+                result = 'Please Enter Url';
+                flag = false;
+            }
+
+            if (social_media_link.instagram_url.value != ""){
+                const string = social_media_link.instagram_url.value;
+                const instagramUrl = "https://www.instagram.com/";
+
+                if(string.includes(instagramUrl) == false ){
+                    social_media_link.instagram_url.style.borderColor = "#DD0A0A";
+                    result = 'Please Enter Valid Url';
+                    flag = false;
+                }
+            }
+
+            if(flag == true && (social_media_link.instagram_url.value != "")){
+                document.getElementById('error_instagram_url').style.display = 'none';
+                // social_media_link.submit();
+            }else{
+                if(social_media_link.instagram_url.value != "" || social_media_link.instagram_url.value == ""){
+                    document.getElementById('error_instagram_url').innerHTML = result;
+                }
+                return false;
+            }
+        }
+    </script>
 @endsection

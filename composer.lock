@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7c627978fdf6d8338a5013909257f7f2",
+    "content-hash": "8e420d7d00b9b00baf0c04fbd299b7f1",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4705,6 +4705,52 @@
                 "source": "https://github.com/SocialiteProviders/Spotify/tree/4.1.0"
             },
             "time": "2020-12-01T23:10:59+00:00"
+        },
+        {
+            "name": "ssovit/tiktok-api",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ssovit/TikTok-API-PHP.git",
+                "reference": "bce0ed8b417ab3a09d3c41cc75c3a654ef90c6d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ssovit/TikTok-API-PHP/zipball/bce0ed8b417ab3a09d3c41cc75c3a654ef90c6d8",
+                "reference": "bce0ed8b417ab3a09d3c41cc75c3a654ef90c6d8",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sovit\\": "lib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sovit Tamrakar",
+                    "email": "sovit.tamrakar@gmail.com",
+                    "homepage": "https://github.com/ssovit/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Unofficial TikTok API for PHP",
+            "homepage": "https://github.com/ssovit/TikTok-API-PHP",
+            "keywords": [
+                "TikTok ",
+                "tiktok-api",
+                "tiktok-scraper"
+            ],
+            "support": {
+                "email": "sovit.tamrakar@gmail.com",
+                "issues": "https://github.com/ssovit/TikTok-API-PHP/issues",
+                "source": "https://github.com/ssovit/TikTok-API-PHP"
+            },
+            "time": "2021-05-28T15:32:11+00:00"
         },
         {
             "name": "starkbank/ecdsa",

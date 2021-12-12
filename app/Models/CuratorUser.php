@@ -16,13 +16,15 @@ class CuratorUser extends Model
         'curator_signup_from',
         'tastemaker_name',
         'country_id',
+        'share_music',
         'instagram_url',
+        'tiktok_url',
         'facebook_url',
         'spotify_url',
         'soundcloud_url',
         'youtube_url',
         'website_url',
-        'is_approved',
+        'come_upcoming',
         'deleted_at',
     ];
 

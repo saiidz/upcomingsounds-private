@@ -65,6 +65,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function userTags(){
         return $this->hasMany(UserTag::class, 'user_id');
     }
+    // CuratorUserTags
+    public function curatorUserTags(){
+        return $this->hasMany(CuratorUserTag::class, 'user_id');
+    }
     // artist user
     public function artistUser(){
         return $this->hasOne(ArtistUser::class,'user_id');

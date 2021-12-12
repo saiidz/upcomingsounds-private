@@ -1,24 +1,14 @@
 {{-- layout --}}
-@extends('layouts.artist-guest')
+@extends('layouts.curator-guest')
 
 {{-- page title --}}
-@section('title','Artist Signup ')
+@section('title','Taste Maker Signup ')
 
 {{-- page style --}}
 @section('page-style')
-{{--    <link rel="stylesheet" type="text/css" href="{{asset('vendors/vendors.min.css')}}">--}}
     <link rel="stylesheet" type="text/css" href="{{asset('css/themes/vertical-modern-menu-template/materialize.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/themes/vertical-modern-menu-template/style.css')}}">
-    <style>
-        ul:not(.browser-default) {
-            padding-left: 0;
-            list-style-type: none;
-        }
-
-        ul:not(.browser-default) > li {
-            list-style-type: none;
-        }
-    </style>
+    <link rel="stylesheet" href="{{asset('css/intlTelInput.css')}}"
 @endsection
 
 {{-- page content --}}
@@ -47,50 +37,50 @@
                             <div class="col s12">
                                 <div id="input-fields" class="card card-tabs cardsTep2">
                                     <div class="card-content">
+                                        <div class="card-title">
+                                            <div class="row">
+                                                <div class="col s12 m6 l10">
+                                                    <h4 class="card-title bold">I will mostly share music:</h4>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div id="view-input-fields">
                                             <div class="row">
                                                 <div class="col s12">
-                                                    <form method="POST" action="{{route('artist.signup.step.2.post')}}" enctype="multipart/form-data">
+                                                    <form method="POST" action="{{route('influencer.signup.step.4.post')}}" id="mobile-login-form" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="row">
                                                             <div class="col s12">
-                                                                <div class="input-field col s12">
-                                                                    <input id="artist_name" class="@error('artist_name') is-invalid @enderror" name="artist_name" value="{{old('artist_name')}}" type="text">
-                                                                    <label for="artist_name">Your Artist name</label>
-                                                                    @error('artist_name')
-                                                                    <small class="red-text" role="alert">
-                                                                        {{ $message }}
-                                                                    </small>
-                                                                    @enderror
+                                                                <div class="mb-1">
+                                                                    <label>
+                                                                        <input type="radio" class="oneTrackSelected" name="share_music"  value="influencer_instagram" checked/>
+                                                                        <span>On Instagram <i class="fa fa-instagram"></i>
+                                                                            <p class="text-muted">At least 15,000 followers.</p></span>
+                                                                    </label>
                                                                 </div>
-                                                                <div class="input-field col s12">
-                                                                    <select id="country_name" name="country_name">
-                                                                        <option value="" disabled selected>Choose Country</option>
-                                                                        @isset($countries)
-                                                                            @foreach($countries as $country)
-                                                                                <option value="{{$country->id}}"
-                                                                                        class="@error('country_name') is-invalid @enderror">{{$country->name}}</option>
-                                                                            @endforeach
-                                                                        @endisset
-                                                                    </select>
-                                                                    @error('country_name')
-                                                                    <small class="red-text" role="alert">
-                                                                        {{ $message }}
-                                                                    </small>
-                                                                    @enderror
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col s12">
+                                                                <div class="mb-1">
+                                                                    <label>
+                                                                        <input type="radio" class="oneTrackSelected" name="share_music"  value="influencer_tiktok" />
+                                                                        <span>On TikTok <i class="iconify" data-icon="fa-brands:tiktok"></i>
+                                                                            <p class="text-muted">At least 15,000 followers.</p></span>
+{{--                                                                            <p class="text-muted">At least 1,000 views per video on average.</p></span>--}}
+                                                                    </label>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="input-field col s12">
-    {{--                                                            <a class="tellMeMore left LeftSide" onclick="window.history.go(-1); return false;" href="javascript:void(0)">Previous--}}
-    {{--                                                            </a>--}}
                                                                 <button class="tellMeMore left LeftSide" onclick="window.history.go(-1); return false;" style="border:none;">Previous</button>
                                                                 <button class="tellMeMore right RightSide" style="border:none;" type="submit">Next
                                                                 </button>
                                                             </div>
                                                         </div>
                                                     </form>
+                                                    <div class="alert alert-info" style="display: none;"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -112,4 +102,14 @@
 @section('page-script')
     <script src="{{asset('js/vendors.min.js')}}"></script>
     <script src="{{asset('js/plugins.js')}}"></script>
+    <script src="{{asset('js/jquery.inputmask.bundle.min.js')}}"></script>
+    <script src="{{asset('js/intlTelInput.min.js')}}"></script>
+    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.oneTrackSelected').click(function() {
+                $('.oneTrackSelected').not(this).prop('checked', false);
+            });
+        });
+    </script>
 @endsection

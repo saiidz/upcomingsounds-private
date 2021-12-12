@@ -17,20 +17,13 @@ class UserSeeder extends Seeder
     {
         $users = [
             [
+                'id' => 1,
                 'name' => 'Admin',
                 'email' => 'admin@admin.com',
                 'password' => Hash::make('12345678'),
                 'phone_number' => '03061234567',
                 'type' => 'admin',
             ],
-            [
-                'name' => 'Farhan Akram',
-                'email' => 'farhan.a@yumyapps.com',
-                'password' => Hash::make('12345678'),
-                'phone_number' => '03067878708',
-                'type' => 'curator',
-            ],
-
         ];
 
         User::insert($users);
