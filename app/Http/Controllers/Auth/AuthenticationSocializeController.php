@@ -22,7 +22,7 @@ class AuthenticationSocializeController extends Controller
      */
     public function redirectToProvider($provider, Request $request)
     {
-//        session(['request_from' => $request->get('request_from')]);
+        // session(['request_from' => $request->get('request_from')]);
 //        return Socialite::driver($provider)->setScopes(['openid', 'email'])->redirect();
         session(['request_from' => $request->get('request_from')]);
         return Socialite::driver($provider)->redirect();
@@ -35,8 +35,7 @@ class AuthenticationSocializeController extends Controller
     public function handleProviderCallback($provider)
     {
         try {
-            $user = Socialite::driver($provider)->stateless()->user();
-
+            $user = Socialite::driver($provider)->user();
             $request_from = session('request_from');
             $user =  $this->findOrCreateUser($user, $provider,$request_from);
             Auth::login($user, true);
@@ -53,7 +52,7 @@ class AuthenticationSocializeController extends Controller
     protected function sendFailedResponse($msg = null)
     {
         return redirect('/')
-            ->with('error' , 'Unable to login and Email is already exists, try with another provider to login.');
+            ->with('error', 'Unable to login and Email is already exists, try with another provider to login.');
 //            ->with(['error' => $msg ?: 'Unable to login, try with another provider to login.']);
     }
     /**
