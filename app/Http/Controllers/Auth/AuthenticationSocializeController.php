@@ -50,7 +50,7 @@ class AuthenticationSocializeController extends Controller
     protected function sendFailedResponse($msg = null)
     {
         return redirect('/')
-            ->with(['error' => 'Unable to login and Email is already exists, try with another provider to login.']);
+            ->with('error' , 'Unable to login and Email is already exists, try with another provider to login.');
 //            ->with(['error' => $msg ?: 'Unable to login, try with another provider to login.']);
     }
     /**
