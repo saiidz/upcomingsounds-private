@@ -66,6 +66,7 @@ class Kernel extends HttpKernel
         'artist_signup' => \App\Http\Middleware\EnsureSignUpArtistIsCompleted::class,
         'curator_signup' => \App\Http\Middleware\EnsureSignUpCuratorIsCompleted::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'verified_phone_number_curator' => \App\Http\Middleware\VerifyPhoneNumberCurator::class,
         'try_catch' => \App\Http\Middleware\TryCatchMiddleware::class,
         'verify_if_admin' => \App\Http\Middleware\VerifyIfAdmin::class,
         'verify_if_user' => \App\Http\Middleware\VerifyIfUser::class,

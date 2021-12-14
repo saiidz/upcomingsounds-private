@@ -91,7 +91,7 @@ class AuthenticationSocializeController extends Controller
                 $user->update([
                     'name'              => $providerUser->name,
                     'email'             => !empty($user->email) ? $user->email : $providerUser->email,
-                    'email_verified_at' => Carbon::now(),
+                    'email_verified_at' => !empty($user->email) ? Carbon::now() : null,
                     'profile'           => !empty($user->profile) ? $user->profile : $providerUser->avatar,
                     'type'              => 'curator',
                     'provider'          => $provider,
@@ -102,7 +102,7 @@ class AuthenticationSocializeController extends Controller
                 $user = User::create([
                     'name'              => $providerUser->getName(),
                     'email'             => $providerUser->getEmail(),
-                    'email_verified_at' => Carbon::now(),
+                    'email_verified_at' => (!empty($providerUser->getEmail())) ? Carbon::now() : null,
                     'profile'           => $providerUser->getAvatar(),
                     'type'              => 'curator',
                     'provider'          => $provider,
@@ -185,8 +185,12 @@ class AuthenticationSocializeController extends Controller
             'email' => $request->get('email'),
             'password' => Hash::make($request->get('password'))
         ]);
-        return redirect('/taste-maker-signup-step-1')->with('success', 'Password Created successfully.');
 
+        $user =  User::find($user->id);
+        if(!empty($user->email_verified_at)){
+            return redirect('/taste-maker-phone-number')->with('success', 'Password Created successfully.');
+        }
+        return redirect('/verify-email')->with('success', 'Password Created successfully.');
     }
 }
 

@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\MobileAuthenticatedController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
+use App\Http\Controllers\Auth\PhoneNumberVerifiedController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\YoutubeCuratorSignupController;
@@ -265,65 +266,58 @@ Route::post('/taste-maker-signup-step-2', [CuratorSignupController::class, 'post
 Route::get('/taste-maker-signup-step-3', [CuratorSignupController::class, 'curatorSignupStep3'])
     ->middleware('auth')
     ->name('curator.signup.step.3');
-Route::post('/taste-maker-signup-step-3', [CuratorSignupController::class, 'postCuratorSignupStep3'])
-    ->middleware('auth')
-    ->name('curator.signup.step.3.post');
-
-Route::get('/taste-maker-signup-step-4', [CuratorSignupController::class, 'curatorSignupStep4'])
-    ->middleware('auth')
-    ->name('curator.signup.step.4');
 
 
 /***************************************************** Influencer Route *********************************************************/
 // influencer Route
+Route::post('/influencer-signup-step-3', [CuratorSignupController::class, 'postInfluencerSignupStep3'])
+    ->middleware('auth')
+    ->name('influencer.signup.step.3.post');
+
+Route::get('/influencer-signup-step-4', [CuratorSignupController::class, 'influencerSignupStep4'])
+    ->middleware('auth')
+    ->name('influencer.signup.step.4');
 Route::post('/influencer-signup-step-4', [CuratorSignupController::class, 'postInfluencerSignupStep4'])
     ->middleware('auth')
     ->name('influencer.signup.step.4.post');
-
-Route::get('/influencer-signup-step-5', [CuratorSignupController::class, 'influencerSignupStep5'])
-    ->middleware('auth')
-    ->name('influencer.signup.step.5');
-Route::post('/influencer-signup-step-5', [CuratorSignupController::class, 'postInfluencerSignupStep5'])
-    ->middleware('auth')
-    ->name('influencer.signup.step.5.post');
 /***************************************************** Influencer Route *********************************************************/
 
 /***************************************************** Youtube Route *********************************************************/
 // influencer Route
+Route::post('/youtube-signup-step-3', [YoutubeCuratorSignupController::class, 'postYoutubeSignupStep3'])
+    ->middleware('auth')
+    ->name('youtube.signup.step.3.post');
+
+Route::get('/youtube-signup-step-4', [YoutubeCuratorSignupController::class, 'youtubeSignupStep4'])
+    ->middleware('auth')
+    ->name('youtube.signup.step.4');
 Route::post('/youtube-signup-step-4', [YoutubeCuratorSignupController::class, 'postYoutubeSignupStep4'])
     ->middleware('auth')
     ->name('youtube.signup.step.4.post');
-
-Route::get('/youtube-signup-step-5', [YoutubeCuratorSignupController::class, 'youtubeSignupStep5'])
-    ->middleware('auth')
-    ->name('youtube.signup.step.5');
-Route::post('/youtube-signup-step-5', [YoutubeCuratorSignupController::class, 'postYoutubeSignupStep5'])
-    ->middleware('auth')
-    ->name('youtube.signup.step.5.post');
 /***************************************************** Youtube Route *********************************************************/
 
 
-Route::get('/taste-maker-signup-step-6', [CuratorSignupController::class, 'curatorSignupStep6'])
+Route::get('/taste-maker-signup-step-social-media', [CuratorSignupController::class, 'curatorSignupSocialMedia'])
     ->middleware('auth')
-    ->name('curator.signup.step.6');
+    ->name('curator.signup.step.social.media');
 
-Route::post('/taste-maker-signup-step-6', [CuratorSignupController::class, 'postCuratorSignupStep6'])
+Route::post('/taste-maker-signup-step-social.media', [CuratorSignupController::class, 'postCuratorSignupSocialMedia'])
     ->middleware('auth')
-    ->name('curator.signup.step.6.post');
+    ->name('curator.signup.step.social.media.post');
 
-Route::get('/taste-maker-signup-step-7', [CuratorSignupController::class, 'curatorSignupStep7'])
+Route::get('/taste-maker-signup-step-features', [CuratorSignupController::class, 'curatorSignupStepFeatures'])
     ->middleware('auth')
-    ->name('curator.signup.step.7');
-Route::post('/taste-maker-signup-step-7', [CuratorSignupController::class, 'postCuratorSignupStep7'])
+    ->name('curator.signup.step.features');
+Route::post('/taste-maker-signup-step-features', [CuratorSignupController::class, 'postCuratorSignupStepFeatures'])
     ->middleware('auth')
-    ->name('curator.signup.step.7.post');
+    ->name('curator.signup.step.features.post');
 
-Route::get('/taste-maker-signup-step-8', [CuratorSignupController::class, 'curatorSignupStep8'])
+Route::get('/taste-maker-signup-step-last', [CuratorSignupController::class, 'curatorSignupStepLast'])
     ->middleware('auth')
-    ->name('curator.signup.step.8');
-Route::post('/taste-maker-signup-step-8', [CuratorSignupController::class, 'postCuratorSignupStep8'])
+    ->name('curator.signup.step.last');
+Route::post('/taste-maker-signup-step-last', [CuratorSignupController::class, 'postCuratorSignupStepLast'])
     ->middleware('auth')
-    ->name('curator.signup.step.8.post');
+    ->name('curator.signup.step.last.post');
 
 
 
@@ -336,9 +330,26 @@ Route::post('/taste-maker-create-password', [AuthenticationSocializeController::
     ->name('curator.create.password.post');
 
 
+// Phone Verifying For Curators
+Route::get('/taste-maker-phone-number', [PhoneNumberVerifiedController::class, 'curatorPhoneNumber'])
+    ->middleware('auth')
+    ->name('curator.phone.number');
+Route::post('/taste-maker-phone-number', [PhoneNumberVerifiedController::class, 'storeCuratorPhoneNumber'])
+    ->middleware('auth')
+    ->name('curator.phone.number.post');
+
+// Verify Otp For Curators
+Route::get('/taste-maker-verify-otp', [PhoneNumberVerifiedController::class, 'curatorVerifyOtp'])
+    ->middleware('auth')
+    ->name('curator.verify.otp');
+Route::post('/taste-maker-verify-otp', [PhoneNumberVerifiedController::class, 'postCuratorVerifyOtp'])
+    ->middleware('auth')
+    ->name('curator.verify.otp.post');
+
 // Send Again Otp Code
-Route::post('/send-again-otp-code', [CuratorSignupController::class, 'verifySendAgainOtpCode'])
+Route::post('/send-again-otp-code', [PhoneNumberVerifiedController::class, 'verifySendAgainOtpCode'])
     ->middleware('auth');
+
 
 // Instagram Profile Show
 Route::get('/instagram-profile-show', [CuratorSignupController::class, 'instagramProfileShow'])

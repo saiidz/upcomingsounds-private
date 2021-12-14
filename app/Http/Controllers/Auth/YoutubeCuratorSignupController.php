@@ -8,31 +8,34 @@ use Illuminate\Http\Request;
 class YoutubeCuratorSignupController extends Controller
 {
     /**
-     * postYoutubeSignupStep4
+     * postYoutubeSignupStep3
      *
      * @param  \Illuminate\Http\Request  $request
      * @return mixed
      */
-    public function postYoutubeSignupStep4(Request $request)
+    public function postYoutubeSignupStep3(Request $request)
     {
+        // Forget a key...
+        $request->session()->forget('influencer_data');
+
         $request->session()->get('curator_signup');
         $request->session()->get('curator_data');
-        $request->session()->put('influencer_data', $request->all());
+        $request->session()->put('youtuber_data', $request->all());
 
-        return redirect()->route('youtube.signup.step.5');
+        return redirect()->route('youtube.signup.step.4');
     }
 
     /**
-     * youtubeSignupStep5
+     * youtubeSignupStep4
      */
-    public function youtubeSignupStep5(Request $request)
+    public function youtubeSignupStep4(Request $request)
     {
         $curator_signup = $request->session()->get('curator_signup');
         $curator_data = $request->session()->get('curator_data');
-        $influencer_data = $request->session()->get('influencer_data');
+        $youtuber_data = $request->session()->get('youtuber_data');
 
-        if(!empty($curator_data) && !empty($curator_signup) && !empty($influencer_data)){
-            if($influencer_data['share_music'] == 'youtube'){
+        if(!empty($curator_data) && !empty($curator_signup) && !empty($youtuber_data)){
+            if($youtuber_data['share_music'] == 'youtube'){
                 return view('pages.curators.curator-youtube-signup.youtube-details',compact('curator_data','curator_signup'));
             }
         }else{
@@ -41,16 +44,16 @@ class YoutubeCuratorSignupController extends Controller
     }
 
     /**
-     * postYoutubeSignupStep5
+     * postYoutubeSignupStep4
      */
-    public function postYoutubeSignupStep5(Request $request)
+    public function postYoutubeSignupStep4(Request $request)
     {
         $curator_signup = $request->session()->get('curator_signup');
         $curator_data = $request->session()->get('curator_data');
-        $influencer_data = $request->session()->get('influencer_data');
+        $youtuber_data = $request->session()->get('youtuber_data');
 
-        if(!empty($curator_data) && !empty($curator_signup) && !empty($influencer_data)){
-            return redirect()->route('curator.signup.step.6');
+        if(!empty($curator_data) && !empty($curator_signup) && !empty($youtuber_data)){
+            return redirect()->route('curator.signup.step.social.media');
         }else{
             return redirect()->back();
         }

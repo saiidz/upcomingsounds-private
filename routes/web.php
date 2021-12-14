@@ -16,13 +16,13 @@ use Twilio\Rest\Client;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/clear-cache', function(){
-    Artisan::call('cache:clear');
-    Artisan::call('config:clear');
-    Artisan::call('route:clear');
-    Artisan::call('view:clear');
-    return "Cache Clear";
-});
+//Route::get('/clear-cache', function(){
+//    Artisan::call('cache:clear');
+//    Artisan::call('config:clear');
+//    Artisan::call('route:clear');
+//    Artisan::call('view:clear');
+//    return "Cache Clear";
+//});
 
 Route::get('/', function () {
     return view('welcome');
@@ -46,7 +46,7 @@ Route::group(['middleware' => ['try_catch']], function() {
     });
 
     /***************************************************** Curators Routes *********************************************************/
-    Route::group(['middleware' => ['auth','verify_if_curator','create_curator_password','curator_signup','verified']], function() {
+    Route::group(['middleware' => ['auth','verify_if_curator','create_curator_password','verified','verified_phone_number_curator','curator_signup']], function() {
         Route::prefix('')->group(base_path('routes/client/curator_auth.php'));
     });
 

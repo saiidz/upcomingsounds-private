@@ -40,6 +40,19 @@
             : window.location.hash = "";
     }
 </script>
+{{--success_phone_number--}}
+@if(Session::get('success_phone_number'))
+    @php $message = (Session::get('success_phone_number')) @endphp
+    <script>
+        var x = document.getElementById("snackbar");
+        x.innerText = "{{$message}}"
+        x.className = "show";
+        setTimeout(function () {
+            x.className = x.className.replace("show", "");
+        }, 5000);
+    </script>
+    @php Session::forget('success_phone_number'); @endphp
+@endif
 
 @if (Session::get('success'))
     @php $message = (Session::get('success')) @endphp

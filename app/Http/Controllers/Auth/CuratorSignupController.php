@@ -115,8 +115,6 @@ class CuratorSignupController extends Controller
         $validator = Validator::make($request->all(), [
             'tastemaker_name'  => 'required|string|min:2|max:50',
             'country_name' => 'required',
-            'phone_number' => 'unique:users,phone_number,'. Auth::user()->id,
-//            'phone_number' => ['required', 'unique:users'],
         ]);
 
         if ($validator->fails()) {
@@ -125,33 +123,12 @@ class CuratorSignupController extends Controller
                 ->withInput();
         }
 
-//        $user_phone_number_exists = User::where('phone_number',$request->phone_pattern)->first();
-//
-//        if(isset($user_phone_number_exists)){
-//            if($user_phone_number_exists->phone_number == $request->phone_pattern){
-//                return redirect()->back()->with('error', 'Phone Number is already exists');
-//            }
-//        }
-
         $request->session()->get('curator_signup');
         $request->session()->put('curator_data', $request->all());
-        if(!empty(Auth::user()) && !empty($request->get('phone_number'))){
 
-            // call to otp function
-            $otp  = rand(100000,999999);
-            try{
-                Helper::twilioOtp($request->get('phone_number'),$otp.' is your verification code for signing into your tastemaker account.');
-            }catch (\Exception   $e){
-                return redirect()->back()->with('error', $e->getMessage());
-            }
-
-            Auth::user()->update([
-                'phone_number' => ($request->get('phone_number')) ? $request->get('phone_number') : Auth::user()->phone_number,
-                'otp' => $otp,
-            ]);
-        }
-        return redirect()->route('curator.signup.step.3')->with('success','OTP sent Successfully.');
+        return redirect()->route('curator.signup.step.3');
     }
+
     /**
      * curatorSignupStep3
      *
@@ -160,79 +137,29 @@ class CuratorSignupController extends Controller
      */
     public function curatorSignupStep3(Request $request)
     {
-        if(!empty(Auth::user()->phone_number)){
-            $curator_signup = $request->session()->get('curator_signup');
-            $curator_data = $request->session()->get('curator_data');
-
-            if(!empty($curator_data) && !empty($curator_signup)){
-                return view('pages.curators.curator-signup.curator-signup-step-3',compact('curator_data','curator_signup'));
-            }else{
-                return redirect()->back();
-            }
-        }else{
-            return redirect()->back();
-        }
-
-    }
-
-    /**
-     * postCuratorSignupStep3
-     *
-     * @return mixed
-     */
-    public function postCuratorSignupStep3(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'otp' => 'required',
-        ]);
-
-        if ($validator->fails()) {
-            return redirect()->route('curator.signup.step.3')
-                ->withErrors($validator)
-                ->withInput();
-        }
-
-        $otp = implode('',$request->otp);
-        $user = User::find($request->user_id);
-
-
-        if(isset($user)){
-            if($user->otp == (int) $otp){
-                $user->update([
-                    'is_phone_verified' => 1,
-                ]);
-                $success = 'Phone Number is verified';
-            }else{
-                $error = 'You have entered invalid code please verify it';
-                return Redirect::route('curator.signup.step.3')->with(['error' => $error]);
-            }
-        }else{
-            $error = 'User does not exist';
-            return Redirect::route('curator.signup.step.3')->with(['error' => $error]);
-        }
-
-        if(!empty($request->session()->get('curator_data')) && !empty($request->session()->get('curator_signup'))){
-            $request->session()->get('curator_data');
-            $request->session()->get('curator_signup');
-            return Redirect::route('curator.signup.step.4')->with(['success' => $success]);
-        }
-    }
-
-    /**
-     * curatorSignupStep4
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return mixed
-     */
-    public function curatorSignupStep4(Request $request)
-    {
         $curator_signup = $request->session()->get('curator_signup');
         $curator_data = $request->session()->get('curator_data');
 
         if ($curator_signup == 'influencer'){
             return view('pages.curators.curator-influencer-signup.influencer-share-music',compact('curator_data','curator_signup'));
+        }elseif ($curator_signup == 'playlist_curator'){
+            return view('pages.curators.curator-signup.social-media',compact('curator_data','curator_signup'));
         }elseif ($curator_signup == 'youtube_channel'){
             return view('pages.curators.curator-youtube-signup.youtube-share-music',compact('curator_data','curator_signup'));
+        }elseif ($curator_signup == 'radio_tv'){
+            return view('pages.curators.curator-signup.social-media',compact('curator_data','curator_signup'));
+        }elseif ($curator_signup == 'label_manager'){
+            return view('pages.curators.curator-signup.social-media',compact('curator_data','curator_signup'));
+        }elseif ($curator_signup == 'media'){
+            return view('pages.curators.curator-signup.social-media',compact('curator_data','curator_signup'));
+        }elseif ($curator_signup == 'monitor_publisher_synch'){
+            return view('pages.curators.curator-signup.social-media',compact('curator_data','curator_signup'));
+        }elseif ($curator_signup == 'journalist_media'){
+            return view('pages.curators.curator-signup.social-media',compact('curator_data','curator_signup'));
+        }elseif ($curator_signup == 'brooker_booking'){
+            return view('pages.curators.curator-signup.social-media',compact('curator_data','curator_signup'));
+        }elseif ($curator_signup == 'sound_expert_producer'){
+            return view('pages.curators.curator-signup.social-media',compact('curator_data','curator_signup'));
         }else{
             return redirect()->back();
         }
@@ -241,24 +168,27 @@ class CuratorSignupController extends Controller
     /***************************************************** Influencer Functions *********************************************************/
 
     /**
-     * postInfluencerSignupStep4
+     * postInfluencerSignupStep3
      *
      * @param  \Illuminate\Http\Request  $request
      * @return mixed
      */
-    public function postInfluencerSignupStep4(Request $request)
+    public function postInfluencerSignupStep3(Request $request)
     {
+        // Forget a key...
+        $request->session()->forget('youtuber_data');
+
         $request->session()->get('curator_signup');
         $request->session()->get('curator_data');
         $request->session()->put('influencer_data', $request->all());
 
-        return redirect()->route('influencer.signup.step.5');
+        return redirect()->route('influencer.signup.step.4');
     }
 
     /**
-     * influencerSignupStep5
+     * influencerSignupStep4
      */
-    public function influencerSignupStep5(Request $request)
+    public function influencerSignupStep4(Request $request)
     {
         $curator_signup = $request->session()->get('curator_signup');
         $curator_data = $request->session()->get('curator_data');
@@ -276,16 +206,16 @@ class CuratorSignupController extends Controller
     }
 
     /**
-     * postInfluencerSignupStep5
+     * postInfluencerSignupStep4
      */
-    public function postInfluencerSignupStep5(Request $request)
+    public function postInfluencerSignupStep4(Request $request)
     {
         $curator_signup = $request->session()->get('curator_signup');
         $curator_data = $request->session()->get('curator_data');
         $influencer_data = $request->session()->get('influencer_data');
 
         if(!empty($curator_data) && !empty($curator_signup) && !empty($influencer_data)){
-            return redirect()->route('curator.signup.step.6');
+            return redirect()->route('curator.signup.step.social.media');
         }else{
             return redirect()->back();
         }
@@ -295,30 +225,29 @@ class CuratorSignupController extends Controller
 
 
     /**
-     * curatorSignupStep6
+     * curatorSignupSocialMedia
      *
      * @param  \Illuminate\Http\Request  $request
      * @return mixed
      */
-    public function curatorSignupStep6(Request $request)
+    public function curatorSignupSocialMedia(Request $request)
     {
         $curator_signup = $request->session()->get('curator_signup');
         $curator_data = $request->session()->get('curator_data');
-        $influencer_data = $request->session()->get('influencer_data');
 
-        if(!empty($curator_data) && !empty($curator_signup) && !empty($influencer_data)){
-            return view('pages.curators.curator-signup.social-media',compact('curator_data','curator_signup','influencer_data'));
+        if(!empty($curator_data) && !empty($curator_signup)){
+            return view('pages.curators.curator-signup.social-media',compact('curator_data','curator_signup'));
         }else{
             return redirect()->back();
         }
     }
 
     /**
-     * postCuratorSignupStep6
+     * postCuratorSignupSocialMedia
      *
      * @return mixed
      */
-    public function postCuratorSignupStep6(Request $request)
+    public function postCuratorSignupSocialMedia(Request $request)
     {
         if(isset($request->instagram_url) || isset($request->tiktok_url) || isset($request->facebook_url) || isset($request->spotify_url) || isset($request->soundcloud_url) || isset($request->youtube_url) || isset($request->website_url))    {
 
@@ -332,7 +261,7 @@ class CuratorSignupController extends Controller
                     return redirect()->back()->with('error', 'You have entered instagram invalid url. Please add correct url');
                 }
                 $response = Http::get("https://www.instagram.com/$username/?__a=1");
-                if($response->status() == 404 || empty($response->collect()['graphql'])){
+                if($response->status() == 404){
                     return redirect()->back()->with('error', 'You have entered invalid instagram url. Please add correct url');
                 }
                 $instagram_followers = $response->collect()['graphql']['user']['edge_followed_by']['count'];
@@ -398,11 +327,10 @@ class CuratorSignupController extends Controller
 
             $curator_signup = $request->session()->get('curator_signup');
             $curator_data = $request->session()->get('curator_data');
-            $influencer_data = $request->session()->get('influencer_data');
-            $request->session()->put('influencer_social_data', $request->all());
+            $request->session()->put('social_media_data', $request->all());
 
-            if(!empty($curator_data) && !empty($curator_signup) && !empty($influencer_data)){
-                return redirect()->route('curator.signup.step.7');
+            if(!empty($curator_data) && !empty($curator_signup)){
+                return redirect()->route('curator.signup.step.features');
             }else{
                 return redirect()->back()->with('error', 'Please fill out data');
             }
@@ -412,32 +340,31 @@ class CuratorSignupController extends Controller
     }
 
     /**
-     * curatorSignupStep7
+     * curatorSignupStepFeatures
      *
      * @param  \Illuminate\Http\Request  $request
      * @return mixed
      */
-    public function curatorSignupStep7(Request $request)
+    public function curatorSignupStepFeatures(Request $request)
     {
         $curator_signup = $request->session()->get('curator_signup');
         $curator_data = $request->session()->get('curator_data');
-        $influencer_data = $request->session()->get('influencer_data');
-        $influencer_social_data = $request->session()->get('influencer_social_data');
+        $social_media_data = $request->session()->get('social_media_data');
 
-        if(!empty($curator_data) && !empty($curator_signup) && !empty($influencer_data) && !empty($influencer_social_data)){
+        if(!empty($curator_data) && !empty($curator_signup) && !empty($social_media_data)){
             $curator_features = CuratorFeature::all();
-            return view('pages.curators.curator-signup.curator-signup-step-5',compact('curator_data','curator_signup','influencer_data','influencer_social_data','curator_features'));
+            return view('pages.curators.curator-signup.curator-signup-step-3',compact('curator_data','curator_signup','social_media_data','curator_features'));
         }else{
             return redirect()->back();
         }
     }
 
     /**
-     * postInfluencerSignupStep7
+     * postCuratorSignupStepFeatures
      *
      * @return mixed
      */
-    public function postCuratorSignupStep7(Request $request)
+    public function postCuratorSignupStepFeatures(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'tag'  => 'required',
@@ -451,69 +378,89 @@ class CuratorSignupController extends Controller
 
         $curator_signup = $request->session()->get('curator_signup');
         $curator_data = $request->session()->get('curator_data');
-        $influencer_data = $request->session()->get('influencer_data');
-        $influencer_social_data = $request->session()->get('influencer_social_data');
+        $social_media_data = $request->session()->get('social_media_data');
         $request->session()->put('curator_tags', $request->all());
 
-        if(!empty($curator_data) && !empty($curator_signup) && !empty($influencer_data) && !empty($influencer_social_data)){
-            return redirect()->route('curator.signup.step.8');
+        if(!empty($curator_data) && !empty($curator_signup) && !empty($social_media_data)){
+            return redirect()->route('curator.signup.step.last');
         }else{
             return redirect()->back();
         }
     }
 
     /**
-     * curatorSignupStep8
+     * curatorSignupStepLast
      *
      * @param  \Illuminate\Http\Request  $request
      * @return mixed
      */
-    public function curatorSignupStep8(Request $request)
+    public function curatorSignupStepLast(Request $request)
     {
         $curator_signup = $request->session()->get('curator_signup');
         $curator_data = $request->session()->get('curator_data');
-        $influencer_data = $request->session()->get('influencer_data');
-        $influencer_social_data = $request->session()->get('influencer_social_data');
+        $social_media_data = $request->session()->get('social_media_data');
         $curator_tags = $request->session()->get('curator_tags');
 
-        if(!empty($curator_data) && !empty($curator_signup) && !empty($influencer_data) && !empty($influencer_social_data) && !empty($curator_tags)){
-            return view('pages.curators.curator-signup.curator-signup-step-6',compact('curator_data','curator_signup','influencer_data','influencer_social_data','curator_tags'));
+        if(!empty($curator_data) && !empty($curator_signup) && !empty($social_media_data) && !empty($curator_tags)){
+            return view('pages.curators.curator-signup.curator-signup-step-4',compact('curator_data','curator_signup','social_media_data','curator_tags'));
         }else{
             return redirect()->back();
         }
     }
 
     /**
-     * postCuratorSignupStep8
+     * postCuratorSignupStepLast
      *
      * @return mixed
      */
-    public function postCuratorSignupStep8(Request $request)
+    public function postCuratorSignupStepLast(Request $request)
     {
         $curator_signup = $request->session()->get('curator_signup');
+
+        if ($curator_signup == 'influencer'){
+            $taste_maker_data = $request->session()->get('influencer_data');
+        }elseif ($curator_signup == 'playlist_curator'){
+            $taste_maker_data = $request->session()->get('curator_signup');
+        }elseif ($curator_signup == 'youtube_channel'){
+            $taste_maker_data = $request->session()->get('youtuber_data');
+        }elseif ($curator_signup == 'radio_tv'){
+            $taste_maker_data = $request->session()->get('curator_signup');
+        }elseif ($curator_signup == 'label_manager'){
+            $taste_maker_data = $request->session()->get('curator_signup');
+        }elseif ($curator_signup == 'media'){
+            $taste_maker_data = $request->session()->get('curator_signup');
+        }elseif ($curator_signup == 'monitor_publisher_synch'){
+            $taste_maker_data = $request->session()->get('curator_signup');
+        }elseif ($curator_signup == 'journalist_media'){
+            $taste_maker_data = $request->session()->get('curator_signup');
+        }elseif ($curator_signup == 'brooker_booking'){
+            $taste_maker_data = $request->session()->get('curator_signup');
+        }elseif ($curator_signup == 'sound_expert_producer'){
+            $taste_maker_data = $request->session()->get('curator_signup');
+        }
+
         $curator_data = $request->session()->get('curator_data');
-        $influencer_data = $request->session()->get('influencer_data');
-        $influencer_social_data = $request->session()->get('influencer_social_data');
+        $social_media_data = $request->session()->get('social_media_data');
         $curator_tags = $request->session()->get('curator_tags');
 
         $auth_id = Auth::user()->id;
         $user = User::find($auth_id);
 
         if(isset($user)){
-            if(isset($curator_signup) || isset($curator_data) || isset($influencer_data) || isset($influencer_social_data) || isset($curator_tags)){
+            if(isset($curator_signup) || isset($curator_data) || isset($social_media_data) || isset($curator_tags)){
 
                 $input['user_id']                = $user->id;
                 $input['curator_signup_from']    = isset($curator_signup) ? $curator_signup : null;;
                 $input['tastemaker_name']        = isset($curator_data['tastemaker_name']) ? $curator_data['tastemaker_name'] : null;
                 $input['country_id']             = isset($curator_data['country_name']) ? (int) $curator_data['country_name'] : null;
-                $input['share_music']            = isset($influencer_data['share_music']) ? $influencer_data['share_music'] : null;
-                $input['instagram_url']          = isset($influencer_social_data['instagram_url']) ? $influencer_social_data['instagram_url'] : null;
-                $input['tiktok_url']             = isset($influencer_social_data['tiktok_url']) ? $influencer_social_data['tiktok_url'] : null;
-                $input['facebook_url']           = isset($influencer_social_data['facebook_url']) ? $influencer_social_data['facebook_url'] : null;
-                $input['spotify_url']            = isset($influencer_social_data['spotify_url']) ? $influencer_social_data['spotify_url'] : null;
-                $input['soundcloud_url']         = isset($influencer_social_data['soundcloud_url']) ? $influencer_social_data['soundcloud_url'] : null;
-                $input['youtube_url']            = isset($influencer_social_data['youtube_url']) ? $influencer_social_data['youtube_url'] : null;
-                $input['website_url']            = isset($influencer_social_data['website_url']) ? $influencer_social_data['website_url'] : null;
+                $input['share_music']            = isset($taste_maker_data['share_music']) ? $taste_maker_data['share_music'] : $taste_maker_data;
+                $input['instagram_url']          = isset($social_media_data['instagram_url']) ? $social_media_data['instagram_url'] : null;
+                $input['tiktok_url']             = isset($social_media_data['tiktok_url']) ? $social_media_data['tiktok_url'] : null;
+                $input['facebook_url']           = isset($social_media_data['facebook_url']) ? $social_media_data['facebook_url'] : null;
+                $input['spotify_url']            = isset($social_media_data['spotify_url']) ? $social_media_data['spotify_url'] : null;
+                $input['soundcloud_url']         = isset($social_media_data['soundcloud_url']) ? $social_media_data['soundcloud_url'] : null;
+                $input['youtube_url']            = isset($social_media_data['youtube_url']) ? $social_media_data['youtube_url'] : null;
+                $input['website_url']            = isset($social_media_data['website_url']) ? $social_media_data['website_url'] : null;
                 $input['come_upcoming']          = ($request->get('come_upcoming')) ? $request->get('come_upcoming') : null;
                 $user->curatorUser()->create($input);
 
@@ -535,30 +482,7 @@ class CuratorSignupController extends Controller
                 return redirect()->back()->with('error', 'Please fill out data');
             }
         }else{
-            return redirect()->route('login');
-        }
-    }
-
-
-
-    /**
-     * verifySendAgainOtpCode.
-     */
-    public function verifySendAgainOtpCode(Request $request)
-    {
-        $user = User::find($request->get('user_id'));
-        if($user->phone_number == $request->get('phone_number')){
-            $otp  = rand(100000,999999);
-            $user->update([
-                'otp' => $otp,
-            ]);
-            Helper::twilioOtp($user->phone_number,$otp.' is your verification code for signing into your tastemaker account.');
-
-            $success = 'OTP sent Successfully.';
-            return response()->json(['status'    => TRUE, 'success' => $success, 'otp' => $otp]);
-        }else{
-            $error = 'You have entered invalid phone number';
-            return response()->json([['error' => $error]]);
+            return redirect()->route('curator.login');
         }
     }
 

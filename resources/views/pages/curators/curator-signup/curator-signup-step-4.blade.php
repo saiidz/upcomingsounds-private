@@ -10,7 +10,6 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/themes/vertical-modern-menu-template/materialize.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/themes/vertical-modern-menu-template/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/pages/page-faq.css')}}">
-
 @endsection
 
 {{-- page content --}}
@@ -22,7 +21,7 @@
                     <div>
                         <h4><span class="saiidzeidan">Gary</span> from Upcoming Sounds</h4>
                         <p class="text-muted m-y">
-                            Got it, fa! Where can the Upcoming Sounds curators & pros find you online?
+                            Thank you for all this info! Before finalising your signup one last thing...
                         </p>
                     </div>
                 </div>
@@ -32,147 +31,106 @@
         <!-- BEGIN: Page Main-->
         <div id="main">
             <div class="row">
-                <div class="col s9 sTep3">
+                <div class="col s9 sTep4">
                     <div class="container">
                         <!-- Input Fields -->
                         <div class="row">
                             <div class="col s12">
+                                <div id="snackbarError"></div>
                                 <div id="input-fields" class="card card-tabs cardsTep2">
                                     <div class="card-content">
                                         <div id="view-input-fields">
                                             <div class="row">
                                                 <div class="col s12 m6 l10">
-                                                    <h4 class="card-title bold">Your social media links</h4>
+                                                    <h4 class="card-title bold">How did you learn about Upcoming Sounds for first time?</h4>
                                                 </div>
                                             </div>
+                                            <div class="underline"></div>
                                             <div class="row">
                                                 <div class="col s12">
-                                                    <form method="POST" id="validateSocialMediaLink" action="{{route('curator.signup.step.6.post')}}"
+                                                    <form method="POST" action="{{route('curator.signup.step.last.post')}}"
                                                           enctype="multipart/form-data">
                                                         @csrf
-                                                        <div class="row">
-                                                            <div class="col s12">
-                                                                <div class="input-field col s12">
-                                                                    <a class="tellMeMore left" href="javascript:void(0)">
-                                                                        <i class="fa fa-instagram social_link"></i>
-                                                                        <span>Instagram</span>
-                                                                    </a>
-                                                                    <a class="tellMeMore left" href="javascript:void(0)">
-                                                                        <i class="fa fa-facebook social_link"></i>
-                                                                        <span>Facebook</span>
-                                                                    </a>
-                                                                    <a class="tellMeMore left" href="javascript:void(0)">
-                                                                        <i class="fa fa-spotify social_link"></i>
-                                                                        <span>Spotify</span>
-                                                                    </a>
-                                                                    <a class="tellMeMore left" href="javascript:void(0)">
-                                                                        <i class="fa fa-soundcloud social_link"></i>
-                                                                        <span>Sound Cloud</span>
-                                                                    </a>
-                                                                    <a class="tellMeMore left" href="javascript:void(0)">
-                                                                        <i class="fa fa-youtube social_link"></i>
-                                                                        <span>Youtube</span>
-                                                                    </a>
-                                                                    <a class="tellMeMore left" href="javascript:void(0)">
-                                                                        <i class="fa fa-link social_link"></i>
-                                                                        <span>Add Website</span>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col s12">
-                                                                @if(Session::has('error_message'))
-                                                                    <small class="red-text" role="alert">
-                                                                        {{Session::get('error_message')}}
-                                                                    </small>
-                                                                @endif
-                                                                <div class="input-field col s12">
-                                                                    <input id="instagram_url" class="@error('instagram_url') is-invalid @enderror" placeholder="https://www.instagram.com/username" name="instagram_url" value="{{old('instagram_url')}}" type="text">
-                                                                    <label for="instagram_url" class="social_label">Instagram</label>
-                                                                    <div id="error_instagram_url" class="red-text" style="color:red; padding:4px;"></div>
-                                                                    @error('instagram_url')
-                                                                    <small class="red-text" role="alert">
-                                                                        {{ $message }}
-                                                                    </small>
-                                                                    @enderror
-                                                                </div>
-                                                                <div class="input-field col s12">
-                                                                    <input id="facebook_url" class="@error('facebook_url') is-invalid @enderror" placeholder="https://www.facebook.com/username" name="facebook_url" value="{{old('facebook_url')}}" type="text">
-                                                                    <label for="facebook_url" class="social_label">Facebook</label>
-                                                                    @error('facebook_url')
-                                                                    <small class="red-text" role="alert">
-                                                                        {{ $message }}
-                                                                    </small>
-                                                                    @enderror
-                                                                </div>
-                                                                <div class="input-field col s12">
-                                                                    <input id="spotify_url" class="@error('spotify_url') is-invalid @enderror" placeholder="https://www.spotify.com/username" name="spotify_url" value="{{old('spotify_url')}}" type="text">
-                                                                    <label for="spotify_url" class="social_label">Spotify</label>
-                                                                    @error('spotify_url')
-                                                                    <small class="red-text" role="alert">
-                                                                        {{ $message }}
-                                                                    </small>
-                                                                    @enderror
-                                                                </div>
-                                                                <div class="input-field col s12">
-                                                                    <input id="soundcloud_url" class="@error('soundcloud_url') is-invalid @enderror" placeholder="https://www.soundcloud.com/username" name="soundcloud_url" value="{{old('soundcloud_url')}}" type="text">
-                                                                    <label for="soundcloud_url" class="social_label">Sound Cloud</label>
-                                                                    @error('soundcloud_url')
-                                                                    <small class="red-text" role="alert">
-                                                                        {{ $message }}
-                                                                    </small>
-                                                                    @enderror
-                                                                </div>
-                                                                <div class="input-field col s12">
-                                                                    <input id="youtube_url" class="@error('youtube_url') is-invalid @enderror" placeholder="https://www.youtube.com/username" name="youtube_url" value="{{old('youtube_url')}}" type="text">
-                                                                    <label for="youtube_url" class="social_label">Youtube</label>
-                                                                    @error('youtube_url')
-                                                                    <small class="red-text" role="alert">
-                                                                        {{ $message }}
-                                                                    </small>
-                                                                    @enderror
-                                                                </div>
-                                                                <div class="input-field col s12">
-                                                                    <input id="website_url" class="@error('website_url') is-invalid @enderror" placeholder="https://www.website.com" name="website_url" value="{{old('website_url')}}" type="text">
-                                                                    <label for="website_url" class="social_label">Add Website</label>
-                                                                    @error('website_url')
-                                                                    <small class="red-text" role="alert">
-                                                                        {{ $message }}
-                                                                    </small>
-                                                                    @enderror
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="section" id="faq">
-                                                            <div class="faq row">
-                                                                <div class="col s12 m12 l12">
-                                                                    <ul class="collapsible categories-collapsible">
-                                                                        <li class="active">
-                                                                            <div class="collapsible-header">Q: Why share your social media links on Upcoming Sounds? <i class="material-icons">
-                                                                                    keyboard_arrow_right </i></div>
-                                                                            <div class="collapsible-body">
-                                                                                <p>The music curators & pros on Groover enjoy browsing the social media accounts of an artist which they have received a track from. Filling in your main social media profiles is a way for them to get to know your project better </p>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li>
-                                                                            <div class="collapsible-header">Q: You don't have an account on these platforms yet? <i class="material-icons">
-                                                                                    keyboard_arrow_right </i></div>
-                                                                            <div class="collapsible-body">
-                                                                                <p>You don't have an account on these platforms yet? </p>
-                                                                            </div>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
+                                                        <div class="section mt-2" id="faq">
+                                                            <p class="mb-1">
+                                                                <label>
+                                                                    <input type="radio" class="" name="come_upcoming"  value="1" />
+                                                                    <span>Social Networks (Facebook, Instagram)</span>
+                                                                </label>
+                                                            </p>
+                                                            <p class="mb-1">
+                                                                <label>
+                                                                    <input type="radio" class="" name="come_upcoming"  value="2" />
+                                                                    <span>YouTube</span>
+                                                                </label>
+                                                            </p>
+                                                            <p class="mb-1">
+                                                                <label>
+                                                                    <input type="radio" class="" name="come_upcoming"  value="3" />
+                                                                    <span>SEvent (conference, forum, concert)</span>
+                                                                </label>
+                                                            </p>
+                                                            <p class="mb-1">
+                                                                <label>
+                                                                    <input type="radio" class="" name="come_upcoming"  value="4" />
+                                                                    <span>A friend / artist told me about it</span>
+                                                                </label>
+                                                            </p>
+                                                            <p class="mb-1">
+                                                                <label>
+                                                                    <input type="radio" class="" name="come_upcoming"  value="5" />
+                                                                    <span>Through someone from the Upcoming Sounds Team</span>
+                                                                </label>
+                                                            </p>
+                                                            <p class="mb-1">
+                                                                <label>
+                                                                    <input type="radio" class="" name="come_upcoming"  value="6" />
+                                                                    <span>Google Search</span>
+                                                                </label>
+                                                            </p>
+                                                            <p class="mb-1">
+                                                                <label>
+                                                                    <input type="radio" class="" name="come_upcoming"  value="7" />
+                                                                    <span>Upcoming Sounds Blog</span>
+                                                                </label>
+                                                            </p>
+                                                            <p class="mb-1">
+                                                                <label>
+                                                                    <input type="radio" class="" name="come_upcoming"  value="8" />
+                                                                    <span>In a mail / newsletter</span>
+                                                                </label>
+                                                            </p>
+                                                            <p class="mb-1">
+                                                                <label>
+                                                                    <input type="radio" class="" name="come_upcoming"  value="9" />
+                                                                    <span>Through a media / radio / label using Upcoming Sounds</span>
+                                                                </label>
+                                                            </p>
+                                                            <p class="mb-1">
+                                                                <label>
+                                                                    <input type="radio" class="" name="come_upcoming"  value="10" />
+                                                                    <span>In a news article mentioning Upcoming Sounds</span>
+                                                                </label>
+                                                            </p>
+                                                            <p class="mb-1">
+                                                                <label>
+                                                                    <input type="radio" class="" name="come_upcoming"  value="11" />
+                                                                    <span>Through another plateform, a partner or a springboard</span>
+                                                                </label>
+                                                            </p>
+                                                            <p class="mb-1">
+                                                                <label>
+                                                                    <input type="radio" class="" name="come_upcoming"  value="12" />
+                                                                    <span>Through Soonvibes</span>
+                                                                </label>
+                                                            </p>
                                                         </div>
 
                                                         <div class="row">
                                                             <div class="input-field col s12">
                                                                 <button class="tellMeMore left LeftSide" onclick="window.history.go(-1); return false;" style="border:none;">Previous</button>
                                                                 <button class="tellMeMore right RightSide" style="border:none;"
-                                                                        onclick='return validateSocialMediaLink("validateSocialMediaLink")' type="submit">Next
+                                                                        type="submit">Next
                                                                 </button>
                                                             </div>
                                                         </div>
@@ -190,8 +148,11 @@
             </div>
         </div>
         <!-- END: Page Main-->
-
     </div>
+
+
+
+
 
 @endsection
 
@@ -201,37 +162,20 @@
     <script src="{{asset('js/vendors.min.js')}}"></script>
     <script src="{{asset('js/plugins.js')}}"></script>
     <script>
-        // validateSocialMediaLink
-        function validateSocialMediaLink(validateSocialMediaLink){
-            var social_media_link = document.getElementById(validateSocialMediaLink);
-            result = "";
-            flag = true;
+        $("#releasedSoon1").hide();
+        $("#releasedSoon2").hide();
 
-            if(social_media_link.instagram_url.value == ""){
-                social_media_link.instagram_url.style.borderColor = "#DD0A0A";
-                result = 'Please Enter Url';
-                flag = false;
+        function releasedSoonChanged(){
+            if($('.releasedSoon').is(":checked")){
+                $("#releasedSoon2").hide();
+                $("#releasedSoon1").show();
             }
+        }
 
-            if (social_media_link.instagram_url.value != ""){
-                const string = social_media_link.instagram_url.value;
-                const instagramUrl = "https://www.instagram.com/";
-
-                if(string.includes(instagramUrl) == false ){
-                    social_media_link.instagram_url.style.borderColor = "#DD0A0A";
-                    result = 'Please Enter Valid Url';
-                    flag = false;
-                }
-            }
-
-            if(flag == true && (social_media_link.instagram_url.value != "")){
-                document.getElementById('error_instagram_url').style.display = 'none';
-                // social_media_link.submit();
-            }else{
-                if(social_media_link.instagram_url.value != "" || social_media_link.instagram_url.value == ""){
-                    document.getElementById('error_instagram_url').innerHTML = result;
-                }
-                return false;
+        function alreadyReleasedChanged(){
+            if($('.alreadyReleased').is(":checked")){
+                $("#releasedSoon1").hide();
+                $("#releasedSoon2").show();
             }
         }
     </script>

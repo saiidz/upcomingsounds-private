@@ -81,7 +81,7 @@
                                         <div id="view-input-fields">
                                             <div class="row">
                                                 <div class="col s12">
-                                                    <form method="POST" action="{{route('youtube.signup.step.5.post')}}" id="mobile-login-form" enctype="multipart/form-data">
+                                                    <form method="POST" action="{{route('youtube.signup.step.4.post')}}" id="mobile-login-form" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="row">
                                                             <div class="input-field col s12">

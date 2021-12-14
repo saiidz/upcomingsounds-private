@@ -81,17 +81,21 @@
                                                                 </div>
                                                                 <div class="input-field col s12">
                                                                     <h5 class="display-7">Your Phone Number</h5>
-                                                                    <p class="text-muted text-md m-b-lg">We will send a verification code to this number.</p>
                                                                     @if(!empty(Auth::user()->phone_number) && Auth::user()->is_phone_verified == 1)
-                                                                        <input id="phone" type="tel" inputmode="tel" value="{{Auth::user()->phone_number}}" class="phone" name="phone_pattern" readonly required/>
-                                                                        <input id="already_phone_pattern" name="phone_number" hidden>
-                                                                    @else
-                                                                        <input id="phone" type="tel" inputmode="tel" class="@error('phone_pattern') is-invalid @enderror" name="phone_pattern"  required/>
-                                                                        <input name="phone_number" hidden>
+                                                                        <input id="phone" inputmode="tel" value="{{Auth::user()->phone_number}}" class="phone" name="phone_pattern" disabled required/>
+                                                                        <input id="already_phone_pattern" hidden>
                                                                     @endif
+{{--                                                                    <p class="text-muted text-md m-b-lg">We will send a verification code to this number.</p>--}}
+{{--                                                                    @if(!empty(Auth::user()->phone_number) && Auth::user()->is_phone_verified == 1)--}}
+{{--                                                                        <input id="phone" type="tel" inputmode="tel" value="{{Auth::user()->phone_number}}" class="phone" name="phone_pattern" readonly required/>--}}
+{{--                                                                        <input id="already_phone_pattern" name="phone_number" hidden>--}}
+{{--                                                                    @else--}}
+{{--                                                                        <input id="phone" type="tel" inputmode="tel" class="@error('phone_pattern') is-invalid @enderror" name="phone_pattern"  required/>--}}
+{{--                                                                        <input name="phone_number" hidden>--}}
+{{--                                                                    @endif--}}
 {{--                                                                    <input id="phone" type="tel" inputmode="tel" class="@error('phone_number') is-invalid @enderror" name="phone_number"  required/>--}}
-                                                                    <small class="red-text ml-10 display-none" role="alert" id="errror-client-side">
-                                                                    </small>
+{{--                                                                    <small class="red-text ml-10 display-none" role="alert" id="errror-client-side">--}}
+{{--                                                                    </small>--}}
                                                                 </div>
                                                                 @error('phone_number')
                                                                 <small class="red-text" role="alert">
