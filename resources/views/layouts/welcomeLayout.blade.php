@@ -8,7 +8,7 @@
 <body>
 <div class="app dk" id="app">
     <div id="snackbar"></div>
-    <div id="snackbarError" class="snackbarError"></div>
+    <div id="snackbarError"></div>
     <!-- ############ LAYOUT START-->
 
     <!-- content -->

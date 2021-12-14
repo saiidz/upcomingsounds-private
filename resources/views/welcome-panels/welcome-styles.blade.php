@@ -31,7 +31,13 @@
     <link rel="stylesheet" href="{{asset('libs/owl.carousel/dist/assets/owl.theme.css')}}" type="text/css" />
     <link rel="stylesheet" href="{{asset('libs/mediaelement/build/mediaelementplayer.min.css')}}" type="text/css" />
     <link rel="stylesheet" href="{{asset('libs/mediaelement/build/mep.css')}}" type="text/css" />
-
+<style>
+    @media (min-width: 320px) and (max-width: 480px) {
+        #snackbarError{
+            top:113px !important;
+        }
+    }
+</style>
     <!-- endbuild -->
     @yield('page-style')
 </head>
