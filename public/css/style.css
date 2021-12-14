@@ -2984,7 +2984,7 @@ ul.slick-dots {
     border-radius: 12px;
     padding: 16px;
     position: fixed;
-    z-index: 2;
+    z-index: 1;
     right: 20px;
     bottom: 30px;
     height: 50px;
