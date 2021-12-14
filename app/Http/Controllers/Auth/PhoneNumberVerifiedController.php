@@ -46,7 +46,7 @@ class PhoneNumberVerifiedController extends Controller
             // call to otp function
             $otp  = rand(100000,999999);
             try{
-//                Helper::twilioOtp($request->get('phone_number'),$otp.' is your verification code for signing into your tastemaker account.');
+                Helper::twilioOtp($request->get('phone_number'),$otp.' is your verification code for signing into your tastemaker account.');
             }catch (\Exception   $e){
                 return redirect()->back()->with('error', $e->getMessage());
             }
