@@ -40,12 +40,53 @@ class AuthenticationSocializeController extends Controller
     public function handleProviderCallback($provider)
     {
         try {
+            $request_from = session('request_from');
             if($provider == 'google'){
                 $user = Socialite::driver('google')->stateless()->user();
+
+                // check email already exists on both side curator and artist
+                $user_email_exist = User::where('email',$user->getEmail())->where('type','!=',$request_from)->first();
+
+                if(isset($user_email_exist)){
+                    return redirect('/')->with('error','Email is already exists, try with another provider to login');
+                }
+            }elseif($provider == 'facebook'){
+
+                $user = Socialite::driver('facebook')->user();
+
+                // check email already exists on both side curator and artist
+                $user_email_exist = User::where('email',$user->getEmail())->where('type','!=',$request_from)->first();
+
+                if(isset($user_email_exist)){
+                    return redirect('/')->with('error','Email is already exists, try with another provider to login');
+                }
+
+            }elseif($provider == 'spotify'){
+
+                $user = Socialite::driver('spotify')->user();
+
+                if(!empty($user->getEmail())){
+                    $user_email_exist = User::where('email','=',$user->getEmail())->first();
+                    if(isset($user_email_exist)){
+                        return redirect('/')->with('error','Email is already exists, try with another provider to login');
+                    }
+                }
+
+            }elseif($provider == 'twitter'){
+
+                $user = Socialite::driver('twitter')->user();
+
+                if(!empty($user->getEmail())){
+                    $user_email_exist = User::where('email','=',$user->getEmail())->first();
+                    if(isset($user_email_exist)){
+                        return redirect('/')->with('error','Email is already exists, try with another provider to login');
+                    }
+                }
+
             }else{
                 $user = Socialite::driver($provider)->user();
             }
-            $request_from = session('request_from');
+
             $user =  $this->findOrCreateUser($user, $provider,$request_from);
             Auth::login($user, true);
             if($request_from == 'artist'){
@@ -61,8 +102,8 @@ class AuthenticationSocializeController extends Controller
     protected function sendFailedResponse($msg = null)
     {
         return redirect('/')
-            ->with('error', 'Unable to login and Email is already exists, try with another provider to login.');
-//            ->with(['error' => $msg ?: 'Unable to login, try with another provider to login.']);
+//            ->with('error', 'Unable to login and Email is already exists, try with another provider to login.');
+            ->with(['error' => $msg ?: 'Unable to login, try with another provider to login.']);
     }
     /**
      * If a user has registered before using social auth, return the user
@@ -75,7 +116,7 @@ class AuthenticationSocializeController extends Controller
             $user = User::where('provider_id', $providerUser->id)->where('type',$request_from)->first();
             if ($user) {
                 $user->update([
-                    'name'              => $providerUser->name,
+                    'name'              => !empty($user->name) ? $user->name : $providerUser->name,
                     'email'             => !empty($user->email) ? $user->email : $providerUser->email,
                     'email_verified_at' => Carbon::now(),
                     'profile'           => !empty($user->profile) ? $user->profile : $providerUser->avatar,
@@ -100,7 +141,7 @@ class AuthenticationSocializeController extends Controller
             $user = User::where('provider_id', $providerUser->id)->where('type',$request_from)->first();
             if ($user) {
                 $user->update([
-                    'name'              => $providerUser->name,
+                    'name'              => !empty($user->name) ? $user->name : $providerUser->name,
                     'email'             => !empty($user->email) ? $user->email : $providerUser->email,
                     'email_verified_at' => !empty($user->email) ? Carbon::now() : null,
                     'profile'           => !empty($user->profile) ? $user->profile : $providerUser->avatar,
