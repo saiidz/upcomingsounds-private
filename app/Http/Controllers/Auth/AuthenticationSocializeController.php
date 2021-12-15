@@ -24,8 +24,13 @@ class AuthenticationSocializeController extends Controller
     {
         // session(['request_from' => $request->get('request_from')]);
 //        return Socialite::driver($provider)->setScopes(['openid', 'email'])->redirect();
-        session(['request_from' => $request->get('request_from')]);
-        return Socialite::driver($provider)->redirect();
+        if($provider == 'google'){
+            session(['request_from' => $request->get('request_from')]);
+            return Socialite::driver($provider)->setScopes(['openid', 'email'])->redirect();
+        }else{
+            session(['request_from' => $request->get('request_from')]);
+            return Socialite::driver($provider)->redirect();
+        }
     }
 
     /**
