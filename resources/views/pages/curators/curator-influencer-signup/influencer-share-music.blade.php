@@ -73,6 +73,18 @@
                                                             </div>
                                                         </div>
                                                         <div class="row">
+                                                            <div class="col s12">
+                                                                <div class="mb-1">
+                                                                    <label>
+                                                                        <input type="radio" class="oneTrackSelected" name="share_music" value="influencer_soundcloud" />
+                                                                        <span>On SoundCloud <i class="fa fa-spotify social_link"></i>
+                                                                            <p class="text-muted">At least 15,000 followers.</p></span>
+                                                                        {{--                                                                            <p class="text-muted">At least 1,000 views per video on average.</p></span>--}}
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
                                                             <div class="input-field col s12">
                                                                 <button class="tellMeMore left LeftSide" onclick="window.history.go(-1); return false;" style="border:none;">Previous</button>
                                                                 <button class="tellMeMore right RightSide" style="border:none;" type="submit">Next

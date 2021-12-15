@@ -321,6 +321,12 @@ Route::post('/taste-maker-signup-step-last', [CuratorSignupController::class, 'p
 
 
 
+// Curator Approval Admin Route
+Route::get('/taste-maker-approval', [CuratorSignupController::class, 'curatorApprovalAdmin'])
+    ->middleware('auth')
+    ->name('curator.approval');
+
+
 // Curator Create Password
 Route::get('/taste-maker-create-password', [AuthenticationSocializeController::class, 'createCuratorSocializePassword'])
     ->middleware('auth')

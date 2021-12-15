@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
+use App\Jobs\SendMailableJob;
+use App\Mail\CuratorSignupMailable;
 use App\Models\Country;
 use App\Models\CuratorFeature;
 use App\Models\User;
@@ -180,7 +182,7 @@ class CuratorSignupController extends Controller
 
         $request->session()->get('curator_signup');
         $request->session()->get('curator_data');
-        $request->session()->put('influencer_data', $request->all());
+        $request->session()->put('influencer_data', $request->get('share_music'));
 
         return redirect()->route('influencer.signup.step.4');
     }
@@ -195,10 +197,12 @@ class CuratorSignupController extends Controller
         $influencer_data = $request->session()->get('influencer_data');
 
         if(!empty($curator_data) && !empty($curator_signup) && !empty($influencer_data)){
-            if($influencer_data['share_music'] == 'influencer_instagram'){
+            if($influencer_data == 'influencer_instagram'){
                 return view('pages.curators.curator-influencer-signup.influencer-instgram-details',compact('curator_data','curator_signup'));
-            }elseif ($influencer_data['share_music'] == 'influencer_tiktok'){
+            }elseif ($influencer_data == 'influencer_tiktok'){
                 return view('pages.curators.curator-influencer-signup.influencer-tiltok-details',compact('curator_data','curator_signup'));
+            }elseif ($influencer_data == 'influencer_soundcloud'){
+                return view('pages.curators.curator-influencer-signup.influencer-soundcloud-details',compact('curator_data','curator_signup'));
             }
         }else{
             return redirect()->back();
@@ -235,8 +239,15 @@ class CuratorSignupController extends Controller
         $curator_signup = $request->session()->get('curator_signup');
         $curator_data = $request->session()->get('curator_data');
 
+        if ($curator_signup == 'influencer'){
+            $social_links_required = $request->session()->get('influencer_data');
+        }elseif ($curator_signup == 'youtube_channel'){
+            $social_links_required = $request->session()->get('youtuber_data');
+        }
+
+
         if(!empty($curator_data) && !empty($curator_signup)){
-            return view('pages.curators.curator-signup.social-media',compact('curator_data','curator_signup'));
+            return view('pages.curators.curator-signup.social-media',compact('curator_data','curator_signup','social_links_required'));
         }else{
             return redirect()->back();
         }
@@ -396,6 +407,15 @@ class CuratorSignupController extends Controller
      */
     public function curatorSignupStepLast(Request $request)
     {
+        $auth_id = Auth::user()->id;
+        $user = User::find($auth_id);
+
+        $curator_user_exists = $user->curatorUser()->exists();
+
+        if ($curator_user_exists == true){
+            return redirect('/taste-maker-approval')->with('success', 'You have already created taste maker profile. Please wait for admin approval');
+        }
+
         $curator_signup = $request->session()->get('curator_signup');
         $curator_data = $request->session()->get('curator_data');
         $social_media_data = $request->session()->get('social_media_data');
@@ -477,6 +497,9 @@ class CuratorSignupController extends Controller
                 // Curator Signup complete
                 $user->update(['curator_completed_signup' => Carbon::now()]);
 
+                // Send Mail For Curator Signup
+                $username = $user->name;
+                SendMailableJob::dispatch($user->email, (new CuratorSignupMailable($username)));
                 return redirect('/taste-maker-profile')->with('success','Tastemaker Profile is created successfully');
             }else{
                 return redirect()->back()->with('error', 'Please fill out data');
@@ -484,6 +507,16 @@ class CuratorSignupController extends Controller
         }else{
             return redirect()->route('curator.login');
         }
+    }
+
+    /**
+     * curatorApprovalAdmin
+     */
+    public function curatorApprovalAdmin(Request $request)
+    {
+        return ($request->user()->type == 'curator') && ($request->user()->is_approved == 0)
+            ? view('pages.curators.curator-approved-admin.curator-approved')
+            : redirect()->intended(RouteServiceProvider::CURATOR);
     }
 
     /**

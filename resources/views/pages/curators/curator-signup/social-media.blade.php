@@ -131,8 +131,9 @@
                                                                         {{Session::get('error_message')}}
                                                                     </small>
                                                                 @endif
+
                                                                 <div class="input-field col s12">
-                                                                    <input id="instagram_url" class="@error('instagram_url') is-invalid @enderror" @isset($influencer_data) @if($influencer_data['share_music'] == 'influencer_instagram') required @endif @endisset placeholder="https://www.instagram.com/username" name="instagram_url" value="{{old('instagram_url')}}" type="text">
+                                                                    <input id="instagram_url" class="@error('instagram_url') is-invalid @enderror" @isset($social_links_required) @if($social_links_required == 'influencer_instagram') required @endif @endisset placeholder="https://www.instagram.com/username" name="instagram_url" value="{{old('instagram_url')}}" type="text">
                                                                     <label for="instagram_url" class="social_label">Instagram</label>
                                                                     <div id="error_instagram_url" class="red-text" style="color:red; padding:4px;"></div>
                                                                     @error('instagram_url')
@@ -153,7 +154,7 @@
                                                                         </div>
                                                                     </div>
                                                                 <div class="input-field col s12">
-                                                                    <input id="tiktok_url" class="@error('tiktok_url') is-invalid @enderror" @isset($influencer_data) @if($influencer_data['share_music'] == 'influencer_tiktok') required @endif @endisset placeholder="https://www.tiktok.com/@" name="tiktok_url" value="{{old('tiktok_url')}}" type="text">
+                                                                    <input id="tiktok_url" class="@error('tiktok_url') is-invalid @enderror" @isset($social_links_required) @if($social_links_required == 'influencer_tiktok') required @endif @endisset placeholder="https://www.tiktok.com/@" name="tiktok_url" value="{{old('tiktok_url')}}" type="text">
                                                                     <label for="tiktok_url" class="social_label">Tiktok</label>
                                                                     <div id="error_tiktok_url" class="red-text" style="color:red; padding:4px;"></div>
                                                                     @error('tiktok_url')
@@ -194,7 +195,7 @@
                                                                     @enderror
                                                                 </div>
                                                                 <div class="input-field col s12">
-                                                                    <input id="soundcloud_url" class="@error('soundcloud_url') is-invalid @enderror" placeholder="https://www.soundcloud.com/" name="soundcloud_url" value="{{old('soundcloud_url')}}" type="text">
+                                                                    <input id="soundcloud_url" class="@error('soundcloud_url') is-invalid @enderror" @isset($social_links_required) @if($social_links_required == 'influencer_soundcloud') required @endif @endisset placeholder="https://www.soundcloud.com/" name="soundcloud_url" value="{{old('soundcloud_url')}}" type="text">
                                                                     <label for="soundcloud_url" class="social_label">Sound Cloud</label>
                                                                     <div id="error_soundcloud_url" class="red-text" style="color:red; padding:4px;"></div>
                                                                     @error('soundcloud_url')
@@ -204,7 +205,7 @@
                                                                     @enderror
                                                                 </div>
                                                                 <div class="input-field col s12">
-                                                                    <input id="youtube_url" class="@error('youtube_url') is-invalid @enderror" @isset($influencer_data) @if($influencer_data['share_music'] == 'youtube') required @endif @endisset placeholder="https://www.youtube.com/channel/" name="youtube_url" value="{{old('youtube_url')}}" type="text">
+                                                                    <input id="youtube_url" class="@error('youtube_url') is-invalid @enderror" @isset($social_links_required) @if($social_links_required == 'youtube') required @endif @endisset placeholder="https://www.youtube.com/channel/" name="youtube_url" value="{{old('youtube_url')}}" type="text">
                                                                     <label for="youtube_url" class="social_label">Youtube</label>
                                                                     <div id="error_youtube_url" class="red-text" style="color:red; padding:4px;"></div>
                                                                     @error('youtube_url')
