@@ -24,6 +24,32 @@
                 <form class="login-form" method="POST" action="{{ route('artist.create.password.post') }}">
                     @csrf
                     <input type="hidden" name="token" value="{{ $request->route('token') }}">
+
+                    <div class="form-group">
+
+                        @if(!empty($user->name))
+                            <input id="name" type="name"
+                                   class="form-control @error('name') is-invalid @enderror" name="name"
+                                   value="{{ $user->name }}"
+                                   readonly placeholder="Name" required
+                                   autocomplete="off"
+                                   autofocus>
+                        @else
+                            <input id="name" type="name"
+                                   class="form-control @error('name') is-invalid @enderror" name="name"
+                                   value="{{ old('name') }}"
+                                   placeholder="Name" required
+                                   autocomplete="off"
+                                   autofocus>
+                            @error('name')
+                            <small class="red-text ml-10" role="alert">
+                                {{ $message }}
+                            </small>
+                            @enderror
+                        @endif
+
+                    </div>
+
                     <div class="form-group">
 
                         @if(!empty($user->email))

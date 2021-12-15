@@ -35,7 +35,11 @@ class AuthenticationSocializeController extends Controller
     public function handleProviderCallback($provider)
     {
         try {
-            $user = Socialite::driver($provider)->user();
+            if($provider == 'google'){
+                $user = Socialite::driver('google')->stateless()->user();
+            }else{
+                $user = Socialite::driver($provider)->user();
+            }
             $request_from = session('request_from');
             $user =  $this->findOrCreateUser($user, $provider,$request_from);
             Auth::login($user, true);
@@ -135,6 +139,7 @@ class AuthenticationSocializeController extends Controller
     public function storeSocializePassword(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'name'     => 'required',
             'email'    => 'required|string|email|max:255|unique:users,email,'. auth()->user()->id,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
@@ -147,6 +152,7 @@ class AuthenticationSocializeController extends Controller
         $user = $request->user();
 
         User::find($user->id)->update([
+            'name' => $request->get('name'),
             'email' => $request->get('email'),
             'password' => Hash::make($request->get('password'))
         ]);
@@ -172,6 +178,7 @@ class AuthenticationSocializeController extends Controller
     public function storeCuratorSocializePassword(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'name'     => 'required',
             'email'    => 'required|string|email|max:255|unique:users,email,'. auth()->user()->id,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
@@ -184,6 +191,7 @@ class AuthenticationSocializeController extends Controller
         $user = $request->user();
 
         User::find($user->id)->update([
+            'name' => $request->get('name'),
             'email' => $request->get('email'),
             'password' => Hash::make($request->get('password'))
         ]);
