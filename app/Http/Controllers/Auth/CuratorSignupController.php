@@ -542,7 +542,7 @@ class CuratorSignupController extends Controller
                 $client = new GuzzleHttp\Client;
                 try {
                     $response = $client->get("https://www.instagram.com/$username/?__a=1");
-                    dd($response);
+                    dd($response->getBody(),$response->getBody()->getContents());
                 }
                 catch (GuzzleHttp\Exception\ClientException $e) {
                     $response = $e->getResponse();
