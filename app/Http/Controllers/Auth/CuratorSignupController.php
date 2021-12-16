@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Sovit\TikTok;
+use GuzzleHttp;
 
 class CuratorSignupController extends Controller
 {
@@ -538,17 +539,26 @@ class CuratorSignupController extends Controller
 
 
             if($username){
+                $client = new GuzzleHttp\Client;
+                try {
+                    $response= $client->get('https://www.instagram.com/sarma.sheikh5/?__a=1');
+                    dd($response);
+                }
+                catch (GuzzleHttp\Exception\ClientException $e) {
+                    $response = $e->getResponse();
+                    $responseBodyAsString = $response->getBody()->getContents();
+                }
 
 
-                $client = new \GuzzleHttp\Client;
-                $url = sprintf('https://www.instagram.com/%s/media', $username);
-                $response = $client->get($url);
-                $items = json_decode((string) $response->getBody(), true)['items'];
+//                $client = new \GuzzleHttp\Client;
+//                $url = sprintf('https://www.instagram.com/%s/media', $username);
+//                $response = $client->get($url);
+//                $items = json_decode((string) $response->getBody(), true)['items'];
 
 
             }
-            dd($items);
-            
+            dd('here');
+
             $response = Http::get("https://www.instagram.com/$username/?__a=1");
             if($response->status() == 404){
                 return response()->json(['error' => 'You have entered instagram invalid url. Please add correct url']);
