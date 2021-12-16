@@ -81,7 +81,7 @@
                                                                     <span class="splitter">&ndash;</span>
                                                                     <input type="number" id="digit-4" name="otp[]" data-next="digit-5" data-previous="digit-3" required />
                                                                     <input type="number" id="digit-5" name="otp[]" data-next="digit-6" data-previous="digit-4" required />
-                                                                    <input type="number" id="digit-6" name="otp[]" data-previous="digit-5" required />
+                                                                    <input type="number" id="digit-6" name="otp[]" data-next="digit-1" data-previous="digit-5" required />
                                                                 </div>
                                                                 @error('otp')
                                                                 <small class="red-text ml-10" role="alert">
