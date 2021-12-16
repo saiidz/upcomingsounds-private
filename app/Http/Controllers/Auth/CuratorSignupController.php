@@ -532,6 +532,23 @@ class CuratorSignupController extends Controller
             if(empty($username)){
                 return response()->json(['error' => 'You have entered instagram invalid url. Please add correct url']);
             }
+
+
+            $items = [];
+
+
+            if($username){
+
+
+                $client = new \GuzzleHttp\Client;
+                $url = sprintf('https://www.instagram.com/%s/media', $username);
+                $response = $client->get($url);
+                $items = json_decode((string) $response->getBody(), true)['items'];
+
+
+            }
+            dd($items);
+            
             $response = Http::get("https://www.instagram.com/$username/?__a=1");
             if($response->status() == 404){
                 return response()->json(['error' => 'You have entered instagram invalid url. Please add correct url']);
