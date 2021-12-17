@@ -156,7 +156,7 @@
                     <div class="sanjose-text custom-mb text-left"><h2><i>for</i> Curators</h2>
                         <div>
                             <p>
-                                <span style="font-weight: 400">Promote your music by submitting your songs to active playlist curators.</span>
+                                <span style="font-weight: 400">Discover, listen and review song submissions from independent artists and up-and-coming indie bands. Help them launch their careers! Be a part of one of the music industry's biggest success stories!.</span>
                             </p>
                         </div>
                     </div>
@@ -169,10 +169,8 @@
 {{--                                        <div class="icon">--}}
 {{--                                            <i class="icon-info-9"></i>--}}
 {{--                                        </div>--}}
-                                        <h6 class="title">Flex Pricing</h6>
-                                        <div class="desc"><p>Whether you make pop music or are an instrumental
-                                                pianist, you only pay to reach the curators that will dig your
-                                                music.</p></div>
+                                        <h6 class="title">REDEEM REWARDED</h6>
+                                        <div class="desc"><p>Get paid to listen & review thousands of songs. Discover the next big thing with unlimited music streaming and support up and coming artists!</p></div>
                                     </div>
                                 </div>
                             </div>
@@ -186,9 +184,8 @@
 {{--                                            <img src="{{asset('images/c.pn.png')}}">--}}
 {{--                                            <i class="icon-info-6"></i>--}}
 {{--                                        </div>--}}
-                                        <h6 class="title">Getting picked up</h6>
-                                        <div class="desc"><p>We send your music to a targeted group of playlist
-                                                curators, they review your song for playlist consideration</p></div>
+                                        <h6 class="title">DISCOVER NEW MUSIC</h6>
+                                        <div class="desc"><p> Music discovery is made simple with UPCOMING SOUNDS. Stay up to date on all your submissions in one location. New tracks added daily.</p></div>
                                     </div>
                                 </div>
                             </div>
