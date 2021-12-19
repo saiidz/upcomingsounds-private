@@ -55,6 +55,16 @@
                     </div>
                 </div>
                 <div class="row-col">
+                    <div class="col-sm-6 black lt">
+                        <div class="black cover cover-gd" style="background-image: url('images/b7.jpg');">
+                            <div class="p-a-lg text-center">
+                                <h3 class="display-3 m-y-lg">Artists</h3>
+                                <p class="text-muted text-md m-b-lg">Listen to your favorite Artists.</p>
+                                <a href="{{url('/artist-home')}}" class="btn circle white m-b-lg p-x-md">For Artists</a>
+                                {{--                                <a href="home.html" class="btn circle white m-b-lg p-x-md">View Artists</a>--}}
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-sm-6">
                         <div class="black cover cover-gd" style="background-image: url('images/b1.jpg');">
                             <div class="p-a-lg text-center">
@@ -64,16 +74,6 @@
 {{--                                <h3 class="display-3 m-y-lg">Music</h3>--}}
 {{--                                <p class="text-muted text-md m-b-lg">Get ready for high sound quality.</p>--}}
 {{--                                <a href="#" class="btn circle white m-b-lg p-x-md">Try Free</a>--}}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 black lt">
-                        <div class="black cover cover-gd" style="background-image: url('images/b7.jpg');">
-                            <div class="p-a-lg text-center">
-                                <h3 class="display-3 m-y-lg">Artists</h3>
-                                <p class="text-muted text-md m-b-lg">Listen to your favorite Artists.</p>
-                                <a href="{{url('/artist-home')}}" class="btn circle white m-b-lg p-x-md">For Artists</a>
-                                {{--                                <a href="home.html" class="btn circle white m-b-lg p-x-md">View Artists</a>--}}
                             </div>
                         </div>
                     </div>
