@@ -70,7 +70,6 @@ class Helper
 
         $output;
         $metaPos = strpos($result, "<meta content=");
-        dd($metaPos);
         if($metaPos != false)
         {
             $meta = substr($result ,$metaPos,70);
@@ -79,7 +78,7 @@ class Helper
             $followerPos = strpos($meta , "Followers");
             $followers = substr($meta , 15 , $followerPos-15);
             $output[0] = $followers;
-dd($output);
+
             //meghdare followings
             // $commaPos = strpos($meta , ',');
             $followingPos = strpos($meta, 'Following');
