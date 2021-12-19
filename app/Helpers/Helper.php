@@ -66,11 +66,11 @@ class Helper
         curl_setopt($ch, CURLOPT_REFERER, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         $result = curl_exec($ch);
-        dd($result);
         curl_close($ch);
 
         $output;
         $metaPos = strpos($result, "<meta content=");
+        dd($metaPos);
         if($metaPos != false)
         {
             $meta = substr($result ,$metaPos,70);
