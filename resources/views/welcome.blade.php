@@ -110,6 +110,50 @@
 {{--                    <div class="col-md-3"></div>--}}
 {{--                </div>--}}
 
+                <div class="owl-carousel black owl-theme owl-dots-bottom-center deep-purple-100" data-ui-jp="owlCarousel"
+                     data-ui-options="{
+             items: 1
+            ,loop: true
+            ,autoplay: true
+            ,nav: true
+          }">
+                    <div class="row-col">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-8 text-center">
+                            <div class="p-a-lg">
+                                <h2 class="display-4 m-y-lg">A simple, fast and responsive music template</h2>
+                                <h6 class="text-muted m-b-lg">HTML5 Music Template</h6>
+                                <a href="#" class="btn circle btn-outline b-primary m-b-lg p-x-md">Get it
+                                    now</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-2"></div>
+                    </div>
+                    <div class="row-col">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-8 text-center">
+                            <div class="p-a-lg">
+                                <h2 class="display-4 m-y-lg">Bootstrap 4 CSS framework</h2>
+                                <h6 class="text-muted m-b-lg">Responsive layout</h6>
+                                <a href="#" class="btn circle btn-outline b-primary m-b-lg p-x-md">View
+                                    App</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-2"></div>
+                    </div>
+                    <div class="row-col">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-8 text-center">
+                            <div class="p-a-lg">
+                                <h2 class="display-4 m-y-lg">Ajax powered page switch with great experience</h2>
+                                <h6 class="text-muted m-b-lg">No refresh page when switching pages</h6>
+                                <a href="#" class="btn circle btn-outline b-primary m-b-lg p-x-md">Get RTL</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-2"></div>
+                    </div>
+                </div>
+
                 <div class="black cover" data-stellar-background-ratio="0.5"
                      style="background-image: url('images/b10.jpg');">
                     <div class="row-col">
