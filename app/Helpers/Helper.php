@@ -59,6 +59,7 @@ class Helper
     public static function getDetails($pageUrl) {
         $url = $pageUrl;
         $ch = curl_init();
+        dd(curl_getinfo($ch));
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
