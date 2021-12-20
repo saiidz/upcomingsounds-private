@@ -3,7 +3,11 @@
 
 {{-- page title --}}
 @section('title','Welcome')
-
+@section('page-style')
+    <script>
+        document.getElementById('welcome_video').play();
+    </script>
+@endsection
 {{-- page content --}}
 @section('content')
             <div class="app-body">
@@ -11,10 +15,10 @@
                 <!-- ############ PAGE START-->
 
 
-                <div class="black owl-theme owl-dots-bottom-center">
+                <div class="black owl-theme">
                     <div class="row-col">
                         <div class="col-lg-12 welcome_video">
-                            <video autoplay loop muted="" controls>
+                            <video autoplay muted id="welcome_video">
                                 <source src="{{asset('videos/upcomingsounds_home.m4v')}}" type="video/mp4">
                                 <source src="{{asset('images/banner_1.jpg')}}" type="video/ogg">
                             </video>
@@ -161,4 +165,3 @@
             @include('welcome-panels.welcome-footer')
 
 @endsection
-
