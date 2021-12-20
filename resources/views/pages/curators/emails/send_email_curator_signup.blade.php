@@ -60,9 +60,9 @@
                             <td><table align="center" width="20%" border="0" cellspacing="0" cellpadding="0" style="text-align: center;padding: 25px 0 0 0;">
                                     <tbody>
                                     <tr style="">
-                                        <td style=""><div style="padding:0;"> <a href="#" target="_blank"><img src="{{ config('app.url').'/images/facebook-icon.png'}}" width="33" height="33" alt="Facebook" style="display:block;padding:0;border:0;margin: 0 5px;"> </a> </div></td>
-                                        <td><div style="padding:0;"> <a href="#" target="_blank"><img src="{{ config('app.url').'/images/instagram-icon.png'}}" width="33" height="33" alt="instagram" style="display:block;margin: 0 5px;padding:0;border:0;"> </a> </div></td>
-                                        <td style="text-align:center"><div style="padding:0;"> <a href="#" target="_blank"><img src="{{ config('app.url').'/images/youtube-icon.png'}}" width="33" height="33" alt="youtube" style="display:block;padding:0;border:0;margin:0 5px;"> </a> </div></td>
+                                        <td style=""><div style="padding:0;"> <a href="https://www.facebook.com/Upcomingsounds" target="_blank"><img src="{{ config('app.url').'/images/facebook-icon.png'}}" width="33" height="33" alt="Facebook" style="display:block;padding:0;border:0;margin: 0 5px;"> </a> </div></td>
+                                        <td><div style="padding:0;"> <a href="https://www.instagram.com/upcomingsounds_" target="_blank"><img src="{{ config('app.url').'/images/instagram-icon.png'}}" width="33" height="33" alt="instagram" style="display:block;margin: 0 5px;padding:0;border:0;"> </a> </div></td>
+                                        <td style="text-align:center"><div style="padding:0;"> <a href="https://www.youtube.com/channel/UC1HUg1XVehD3RAkdQDay32A" target="_blank"><img src="{{ config('app.url').'/images/youtube-icon.png'}}" width="33" height="33" alt="youtube" style="display:block;padding:0;border:0;margin:0 5px;"> </a> </div></td>
                                     </tr>
                                     </tbody>
                                 </table></td>

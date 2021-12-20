@@ -69,13 +69,13 @@
                     <div class="m-b-md">
                         <ul class="nav l-h-2x _600">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Facebook</a>
+                                <a class="nav-link" href="https://www.facebook.com/Upcomingsounds">Facebook</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Twitter</a>
+                                <a class="nav-link" href="https://twitter.com/Upcomingsounds_">Twitter</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Google+</a>
+                                <a class="nav-link" href="https://www.instagram.com/upcomingsounds_">Instagram+</a>
                             </li>
                         </ul>
                     </div>
