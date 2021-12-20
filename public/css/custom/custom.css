@@ -474,7 +474,9 @@ input[type=number] {
 .instagram_details .text-muted{
     font-size:15px;
 }
-
+.welcome_UpcomingSounds .text-muted{
+    text-align: justify;
+}
 
 
 
