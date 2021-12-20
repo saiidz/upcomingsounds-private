@@ -34,10 +34,10 @@
                         <div class="col-lg-2"></div>
                         <div class="col-lg-8 text-center">
                             <div class="p-a-lg">
-                                <h2 class="display-4 m-y-lg">Bootstrap 4 CSS framework</h2>
-                                <h6 class="text-muted m-b-lg">Responsive layout</h6>
-                                <a href="#" class="btn circle btn-outline b-primary m-b-lg p-x-md">View
-                                    App</a>
+                                <h2 class="display-4 m-y-lg">A simple, fast and responsive music template</h2>
+                                <h6 class="text-muted m-b-lg">HTML5 Music Template</h6>
+                                <a href="#" class="btn circle btn-outline b-primary m-b-lg p-x-md">Get it
+                                    now</a>
                             </div>
                         </div>
                         <div class="col-lg-2"></div>
