@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "03c455d0a50d4f624b95e8efcef66012",
+    "content-hash": "25b7e770b96dd5cb81661442f6a6c24a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -212,6 +212,53 @@
                 }
             ],
             "time": "2021-11-06T05:25:47+00:00"
+        },
+        {
+            "name": "czpechy/instagramprofilecrawler",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/czPechy/instagramProfileCrawler.git",
+                "reference": "a7cddc5730b56693a2fb8d28d5ee68498cd44f90"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/czPechy/instagramProfileCrawler/zipball/a7cddc5730b56693a2fb8d28d5ee68498cd44f90",
+                "reference": "a7cddc5730b56693a2fb8d28d5ee68498cd44f90",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ],
+                "files": [
+                    "src/exceptions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Martin Pecha",
+                    "email": "martin@pecha.pro"
+                }
+            ],
+            "description": "Way to get latest news from instagram profile",
+            "homepage": "https://github.com/czPechy/instagramProfileCrawler",
+            "support": {
+                "issues": "https://github.com/czPechy/instagramProfileCrawler/issues",
+                "source": "https://github.com/czPechy/instagramProfileCrawler/tree/master"
+            },
+            "time": "2018-08-05T18:54:26+00:00"
         },
         {
             "name": "defuse/php-encryption",
