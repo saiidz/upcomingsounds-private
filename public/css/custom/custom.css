@@ -478,9 +478,11 @@ input[type=number] {
     text-align: justify;
 }
 
-
-
-
+.welcome_video > video{
+    width:100% !important;
+    height:463px !important;
+    object-fit: cover;
+}
 
 
 
@@ -526,6 +528,7 @@ input[type=number] {
     .sTep3 .tellMeMore {
         margin-bottom: 15px;
     }
+
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
@@ -556,6 +559,9 @@ input[type=number] {
     }
     .curator_container .artist_footer .siGnup1 {
         padding: 10px 2.5rem 10px 2.5rem !important;
+    }
+    .welcome_video > video{
+        width:100% !important;
     }
 }
 
@@ -602,6 +608,9 @@ input[type=number] {
     .curator_container .artist_footer .siGnup1 {
         padding: 10px 2.5rem 10px 2.5rem !important;
     }
+    .welcome_video > video{
+        width:100% !important;
+    }
 }
 
 /*
@@ -629,6 +638,9 @@ input[type=number] {
     }
     .cardcontainer {
         margin-left: auto!important;
+    }
+    .welcome_video > video{
+        width:100% !important;
     }
 }
 
@@ -679,6 +691,9 @@ input[type=number] {
     }
     .cardcontainer {
          margin-left: auto!important;
+    }
+    .welcome_video > video{
+        width:100% !important;
     }
 }
 
@@ -762,5 +777,8 @@ input[type=number] {
     }
     .snackbarError{
         top:113px !important;
+    }
+    .welcome_video > video{
+        width:100% !important;
     }
 }

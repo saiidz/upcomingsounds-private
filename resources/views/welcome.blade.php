@@ -18,6 +18,15 @@
             ,autoplay: true
             ,nav: true
           }">
+                    <div class="row-col">
+                        <div class="col-lg-12 welcome_video">
+                            <video loop="true" autoplay="autoplay" controls muted>
+                                <source src="{{asset('videos/upcomingsounds_home.m4v')}}" type="video/mp4">
+                                <source src="{{asset('images/banner_1.jpg')}}" type="video/ogg">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
                     <div class="row-col" style="background-image: url({{asset('images/banner_1.jpg')}});">
                         <div class="col-lg-2"></div>
                         <div class="col-lg-8 text-center">
