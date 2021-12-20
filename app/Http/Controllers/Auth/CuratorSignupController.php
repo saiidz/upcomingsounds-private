@@ -11,6 +11,7 @@ use App\Models\CuratorFeature;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Carbon\Carbon;
+use czPechy\instagramProfileCrawler\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -532,20 +533,12 @@ class CuratorSignupController extends Controller
             if(empty($username)){
                 return response()->json(['error' => 'You have entered instagram invalid url. Please add correct url']);
             }
-            $url     = sprintf("https://www.instagram.com/$username");
-            $content = file_get_contents($url);
-            $content = explode("window._sharedData = ", $content)[1];
-            $content = explode(";</script>", $content)[0];
-            $data    = json_decode($content, true);
-            dd($data);
+            $client = new Client($username);
 
-//            $client = new \czPechy\instagramProfileCrawler\Client($username);
-//
-//            /** @var \czPechy\instagramProfileCrawler\Profile $profile */
-//            $profile = $client->getProfile();
-//dd($profile);
+            $profile = $client->getProfile();
+dd($profile);
             $response = Http::get("https://www.instagram.com/$username/channel/?__a=1");
-            dd($response->collect());
+            dd($response);
             if($response->status() == 404){
                 return response()->json(['error' => 'You have entered instagram invalid url. Please add correct url']);
             }
