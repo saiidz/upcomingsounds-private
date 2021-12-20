@@ -79,12 +79,12 @@
                                                                     </small>
                                                                     @enderror
                                                                 </div>
-                                                                <div class="input-field col s12">
-                                                                    <h5 class="display-7">Your Phone Number</h5>
-                                                                    @if(!empty(Auth::user()->phone_number) && Auth::user()->is_phone_verified == 1)
-                                                                        <input id="phone" inputmode="tel" value="{{Auth::user()->phone_number}}" class="phone" name="phone_pattern" disabled required/>
-                                                                        <input id="already_phone_pattern" hidden>
-                                                                    @endif
+{{--                                                                <div class="input-field col s12">--}}
+{{--                                                                    <h5 class="display-7">Your Phone Number</h5>--}}
+{{--                                                                    @if(!empty(Auth::user()->phone_number) && Auth::user()->is_phone_verified == 1)--}}
+{{--                                                                        <input id="phone" inputmode="tel" value="{{Auth::user()->phone_number}}" class="phone" name="phone_pattern" disabled required/>--}}
+{{--                                                                        <input id="already_phone_pattern" hidden>--}}
+{{--                                                                    @endif--}}
 {{--                                                                    <p class="text-muted text-md m-b-lg">We will send a verification code to this number.</p>--}}
 {{--                                                                    @if(!empty(Auth::user()->phone_number) && Auth::user()->is_phone_verified == 1)--}}
 {{--                                                                        <input id="phone" type="tel" inputmode="tel" value="{{Auth::user()->phone_number}}" class="phone" name="phone_pattern" readonly required/>--}}
@@ -96,12 +96,12 @@
 {{--                                                                    <input id="phone" type="tel" inputmode="tel" class="@error('phone_number') is-invalid @enderror" name="phone_number"  required/>--}}
 {{--                                                                    <small class="red-text ml-10 display-none" role="alert" id="errror-client-side">--}}
 {{--                                                                    </small>--}}
-                                                                </div>
-                                                                @error('phone_number')
-                                                                <small class="red-text" role="alert">
-                                                                    {{ $message }}
-                                                                </small>
-                                                                @enderror
+{{--                                                                </div>--}}
+{{--                                                                @error('phone_number')--}}
+{{--                                                                <small class="red-text" role="alert">--}}
+{{--                                                                    {{ $message }}--}}
+{{--                                                                </small>--}}
+{{--                                                                @enderror--}}
 
                                                             </div>
                                                         </div>
@@ -141,109 +141,109 @@
     // const phoneInputField = document.querySelector("#phone");
 
     //Get
-    var phone_number_isset = {!! json_encode(Auth::user()->phone_number) !!};
-    var is_phone_verified_isset = {!! json_encode(Auth::user()->is_phone_verified) !!};
-    if(phone_number_isset && is_phone_verified_isset){
-        var bla = $('.phone').val();
-        document.getElementById("already_phone_pattern").value = bla;
-    }
+    {{--var phone_number_isset = {!! json_encode(Auth::user()->phone_number) !!};--}}
+    {{--var is_phone_verified_isset = {!! json_encode(Auth::user()->is_phone_verified) !!};--}}
+    {{--if(phone_number_isset && is_phone_verified_isset){--}}
+    {{--    var bla = $('.phone').val();--}}
+    {{--    document.getElementById("already_phone_pattern").value = bla;--}}
+    {{--}--}}
 
 
-    function getIp(callback) {
-        fetch('https://ipinfo.io/json?token=db11cd33cacfad', { headers: { 'Accept': 'application/json' }})
-            .then((resp) => resp.json())
-            .catch(() => {
-                return {
-                    country: 'us',
-                };
-            })
-            .then((resp) => callback(resp.country));
-    }
+    {{--function getIp(callback) {--}}
+    {{--    fetch('https://ipinfo.io/json?token=db11cd33cacfad', { headers: { 'Accept': 'application/json' }})--}}
+    {{--        .then((resp) => resp.json())--}}
+    {{--        .catch(() => {--}}
+    {{--            return {--}}
+    {{--                country: 'us',--}}
+    {{--            };--}}
+    {{--        })--}}
+    {{--        .then((resp) => callback(resp.country));--}}
+    {{--}--}}
     // const phoneInput = window.intlTelInput(phoneInputField, {
     //     initialCountry: "auto",
     //     geoIpLookup: getIp,
     //     utilsScript:
     //         "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
     // });
-    $(function () {
-        var input = document.querySelectorAll("#phone");
-        var iti_el = $(".iti.iti--allow-dropdown.iti--separate-dial-code");
-        console.log(iti_el);
-        if (iti_el.length) {
-            iti.destroy();
-
-            // Get the current number in the given format
-        }
-        for (var i = 0; i < input.length; i++) {
-            iti = intlTelInput(input[i], {
-                autoHideDialCode: false,
-                autoPlaceholder: "aggressive",
-                initialCountry: "auto",
-                separateDialCode: true,
-                preferredCountries: ["ru", "th"],
-                customPlaceholder: function (
-                    selectedCountryPlaceholder,
-                    selectedCountryData
-                ) {
-                    return "" + selectedCountryPlaceholder.replace(/[0-9]/g, "_");
-                },
-                geoIpLookup: getIp,
-                utilsScript:
-                    "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-            });
-            $('input[name="phone_pattern"]').on(
-                "focus click countrychange",
-                function (e, countryData) {
-                    var pl = $(this).attr("placeholder") + "";
-                    var res = pl.replace(/_/g, "9");
-                    if (res != "undefined") {
-                        console.log(res);
-                        $(this).inputmask(res, {placeholder: "_", clearMaskOnLostFocus: true});
-                    }
-                }
-            );
-
-            $('input[name="phone_pattern"]').on(
-                "keyup",
-                function (e, countryData) {
-                    var intlNumber = iti.getNumber();
-                    var intlCode    =   iti.getSelectedCountryData();
-                    localStorage.setItem('countryCode',intlCode.dialCode);
-                    console.log(intlCode.dialCode);
-
-                    document.querySelector('[name="phone_number"]').value = intlNumber;
-                }
-            );
-        }
-    });
-
-    document.getElementById('mobile-login-form').addEventListener('submit', function(e) {
-        //mobile-login-form
-        e.preventDefault()
-        let phone_number = document.querySelector("input[name='phone_pattern']")
-        let placeholder = phone_number.placeholder
-        let value = phone_number.value.replace(/\D/g, "").length
-
-        if((placeholder.indexOf(' ') != -1) && (placeholder.indexOf('-') == -1)) {
-            if(value < placeholder.split(' ').join('').length) {
-                return validateInput(placeholder.split(' ').join('').length)
-            } else {
-                this.submit()
-            }
-        } else if ((placeholder.indexOf(' ') == -1) && (placeholder.indexOf('-') != -1)) {
-            if(value < placeholder.split('-').join('').length) {
-                return validateInput(placeholder.split('-').join('').length)
-            } else {
-                this.submit()
-            }
-        }
-    })
-
-    const validateInput = (length) => {
-        let elem = document.getElementById('errror-client-side')
-        elem.innerHTML = 'Phone number must be' + length + ' characters.'
-        elem.classList.remove('display-none')
-    }
+    // $(function () {
+    //     var input = document.querySelectorAll("#phone");
+    //     var iti_el = $(".iti.iti--allow-dropdown.iti--separate-dial-code");
+    //     console.log(iti_el);
+    //     if (iti_el.length) {
+    //         iti.destroy();
+    //
+    //         // Get the current number in the given format
+    //     }
+    //     for (var i = 0; i < input.length; i++) {
+    //         iti = intlTelInput(input[i], {
+    //             autoHideDialCode: false,
+    //             autoPlaceholder: "aggressive",
+    //             initialCountry: "auto",
+    //             separateDialCode: true,
+    //             preferredCountries: ["ru", "th"],
+    //             customPlaceholder: function (
+    //                 selectedCountryPlaceholder,
+    //                 selectedCountryData
+    //             ) {
+    //                 return "" + selectedCountryPlaceholder.replace(/[0-9]/g, "_");
+    //             },
+    //             geoIpLookup: getIp,
+    //             utilsScript:
+    //                 "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+    //         });
+    //         $('input[name="phone_pattern"]').on(
+    //             "focus click countrychange",
+    //             function (e, countryData) {
+    //                 var pl = $(this).attr("placeholder") + "";
+    //                 var res = pl.replace(/_/g, "9");
+    //                 if (res != "undefined") {
+    //                     console.log(res);
+    //                     $(this).inputmask(res, {placeholder: "_", clearMaskOnLostFocus: true});
+    //                 }
+    //             }
+    //         );
+    //
+    //         $('input[name="phone_pattern"]').on(
+    //             "keyup",
+    //             function (e, countryData) {
+    //                 var intlNumber = iti.getNumber();
+    //                 var intlCode    =   iti.getSelectedCountryData();
+    //                 localStorage.setItem('countryCode',intlCode.dialCode);
+    //                 console.log(intlCode.dialCode);
+    //
+    //                 document.querySelector('[name="phone_number"]').value = intlNumber;
+    //             }
+    //         );
+    //     }
+    // });
+    //
+    // document.getElementById('mobile-login-form').addEventListener('submit', function(e) {
+    //     //mobile-login-form
+    //     e.preventDefault()
+    //     let phone_number = document.querySelector("input[name='phone_pattern']")
+    //     let placeholder = phone_number.placeholder
+    //     let value = phone_number.value.replace(/\D/g, "").length
+    //
+    //     if((placeholder.indexOf(' ') != -1) && (placeholder.indexOf('-') == -1)) {
+    //         if(value < placeholder.split(' ').join('').length) {
+    //             return validateInput(placeholder.split(' ').join('').length)
+    //         } else {
+    //             this.submit()
+    //         }
+    //     } else if ((placeholder.indexOf(' ') == -1) && (placeholder.indexOf('-') != -1)) {
+    //         if(value < placeholder.split('-').join('').length) {
+    //             return validateInput(placeholder.split('-').join('').length)
+    //         } else {
+    //             this.submit()
+    //         }
+    //     }
+    // })
+    //
+    // const validateInput = (length) => {
+    //     let elem = document.getElementById('errror-client-side')
+    //     elem.innerHTML = 'Phone number must be' + length + ' characters.'
+    //     elem.classList.remove('display-none')
+    // }
 
     // const phoneInputField = document.querySelector("#phone");
     // const phoneInput = window.intlTelInput(phoneInputField, {
