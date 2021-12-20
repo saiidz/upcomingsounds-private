@@ -11,19 +11,12 @@
                 <!-- ############ PAGE START-->
 
 
-                <div class="owl-carousel black owl-theme owl-dots-bottom-center" data-ui-jp="owlCarousel"
-                     data-ui-options="{
-             items: 1
-            ,loop: true
-            ,autoplay: true
-            ,nav: true
-          }">
+                <div class="black owl-theme owl-dots-bottom-center">
                     <div class="row-col">
                         <div class="col-lg-12 welcome_video">
-                            <video id="welcome_video" controls muted autoplay loop>
+                            <video autoplay="" loop="" muted="" controls>
                                 <source src="{{asset('videos/upcomingsounds_home.m4v')}}" type="video/mp4">
                                 <source src="{{asset('images/banner_1.jpg')}}" type="video/ogg">
-                                Your browser does not support the video tag.
                             </video>
                         </div>
                     </div>
@@ -169,8 +162,3 @@
 
 @endsection
 
-@section('page-script')
-    <script>
-        document.getElementById('welcome_video').play();
-    </script>
-@endsection
