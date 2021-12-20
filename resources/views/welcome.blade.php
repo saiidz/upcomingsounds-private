@@ -20,7 +20,7 @@
           }">
                     <div class="row-col">
                         <div class="col-lg-12 welcome_video">
-                            <video loop="true" autoplay="autoplay" controls muted>
+                            <video loop="true" autoplay="autoplay" id="welcome_video" controls muted>
                                 <source src="{{asset('videos/upcomingsounds_home.m4v')}}" type="video/mp4">
                                 <source src="{{asset('images/banner_1.jpg')}}" type="video/ogg">
                                 Your browser does not support the video tag.
@@ -202,4 +202,10 @@
             </div>
             @include('welcome-panels.welcome-footer')
 
+@endsection
+
+@section('page-script')
+    <script>
+        document.getElementById('welcome_video').play();
+    </script>
 @endsection
