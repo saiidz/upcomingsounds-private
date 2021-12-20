@@ -168,7 +168,7 @@ body{
     height: 200px!important;
 }
 .curator_container .photo img {
-    height: 70%!important;
+    height: 85%!important;
 }
 .curator_container .content_artist {
     width: 70%!important;
@@ -480,7 +480,7 @@ input[type=number] {
 
 .welcome_video > video{
     width:100% !important;
-    height:463px !important;
+    /*height:463px !important;*/
     object-fit: cover;
 }
 
