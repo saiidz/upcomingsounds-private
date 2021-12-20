@@ -14,7 +14,7 @@
                 <div class="black owl-theme owl-dots-bottom-center">
                     <div class="row-col">
                         <div class="col-lg-12 welcome_video">
-                            <video autoplay="" loop="" muted="" controls>
+                            <video autoplay loop muted="" controls>
                                 <source src="{{asset('videos/upcomingsounds_home.m4v')}}" type="video/mp4">
                                 <source src="{{asset('images/banner_1.jpg')}}" type="video/ogg">
                             </video>
