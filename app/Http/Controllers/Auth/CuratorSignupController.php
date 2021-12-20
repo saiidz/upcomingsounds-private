@@ -532,6 +532,13 @@ class CuratorSignupController extends Controller
             if(empty($username)){
                 return response()->json(['error' => 'You have entered instagram invalid url. Please add correct url']);
             }
+            $url     = sprintf("https://www.instagram.com/$username");
+            $content = file_get_contents($url);
+            $content = explode("window._sharedData = ", $content)[1];
+            $content = explode(";</script>", $content)[0];
+            $data    = json_decode($content, true);
+            dd($data);
+
 //            $client = new \czPechy\instagramProfileCrawler\Client($username);
 //
 //            /** @var \czPechy\instagramProfileCrawler\Profile $profile */
