@@ -18,6 +18,10 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Sovit\TikTok;
 use GuzzleHttp\Client;
+use GuzzleHttp\Handler\MockHandler;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Exception\RequestException;
 
 class CuratorSignupController extends Controller
 {
@@ -533,17 +537,24 @@ class CuratorSignupController extends Controller
             if(empty($username)){
                 return response()->json(['error' => 'You have entered instagram invalid url. Please add correct url']);
             }
-//            $client = new Client();
-//            $res = $client->request('GET', 'https://www.instagram.com/'.$username.'/?__a=1', []);
-////            echo $res->getStatusCode();
-//            $response = Http::get("https://www.instagram.com/$username/?__a=1");
-//            $client = new Client(['base_uri' => 'https://www.instagram.com/']);
-            $client = new Client();
-            $request = new \GuzzleHttp\Psr7\Request('GET', 'https://www.instagram.com/farhanprince3306/?__a=1');
-            $promise = $client->sendAsync($request)->then(function ($response) {
-                echo 'I completed! ' . $response->getBody();
-            });
-            dd($promise->wait());
+
+            // Create a mock and queue two responses.
+            $mock = new MockHandler([
+                new Response(200, ['X-Foo' => 'Bar'], 'Hello, World'),
+                new Response(202, ['Content-Length' => 0]),
+                new RequestException('Error Communicating with Server', new \GuzzleHttp\Psr7\Request('GET', 'https://www.instagram.com/farhanprince3306/?__a=1'))
+            ]);
+
+            $handlerStack = HandlerStack::create($mock);
+            $client = new Client(['handler' => $handlerStack]);
+
+// The first request is intercepted with the first response.
+            $response = $client->request('GET', 'https://www.instagram.com/farhanprince3306/?__a=1');
+            dd($response->getBody()->getContents());
+//> 200
+            echo $response->getBody();
+
+            $response = Http::get("https://www.instagram.com/$username/?__a=1");
             if($response->status() == 404){
                 return response()->json(['error' => 'You have entered instagram invalid url. Please add correct url']);
             }
