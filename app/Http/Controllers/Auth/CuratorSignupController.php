@@ -532,7 +532,9 @@ class CuratorSignupController extends Controller
             if(empty($username)){
                 return response()->json(['error' => 'You have entered instagram invalid url. Please add correct url']);
             }
-            $response = Http::get("https://www.instagram.com/$username/?__a=1");
+
+            $response = Http::get("https://www.instagram.com/$username/?__a=1&access_token=IGQVJWTFlQS1lXbTJhTU9QMVJjOEtyLUcteC14cXlRWktYRHdVSTBVT0xRUjZAvMWpkMndFbHBvR2lBdTRLZA1lka3UtSmRQSkRoakhlZA2RCMGhNOW42aWY3NmdWbXdvcnNweHdmYkNfT09wVXNZAeGdqQgZDZD");
+            dd($response->collect());
             if($response->status() == 404){
                 return response()->json(['error' => 'You have entered instagram invalid url. Please add correct url']);
             }
