@@ -76,7 +76,7 @@
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 curator_col">
                     <div class="cardcontainer curator_container">
-                        <div class="photo"> <img src="{{asset('images/Illu1.svg')}}">
+                        <div class="photo"> <img src="{{asset('images/record_label.svg')}}">
                         </div>
                         <div class="content_artist">
                             <p class="Iam_artist">I'm an Record label / Manager</p>
