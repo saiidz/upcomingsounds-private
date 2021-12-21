@@ -533,8 +533,21 @@ class CuratorSignupController extends Controller
                 return response()->json(['error' => 'You have entered instagram invalid url. Please add correct url']);
             }
 
-            $response = Http::get("https://www.instagram.com/$username/?__a=1&access_token=IGQVJWTFlQS1lXbTJhTU9QMVJjOEtyLUcteC14cXlRWktYRHdVSTBVT0xRUjZAvMWpkMndFbHBvR2lBdTRLZA1lka3UtSmRQSkRoakhlZA2RCMGhNOW42aWY3NmdWbXdvcnNweHdmYkNfT09wVXNZAeGdqQgZDZD");
-            dd($response->collect());
+            $url = "https://www.instagram.com/$username/";
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_PROXY, 'http://1b2be5b12b8202c90da2c58a7ca1225d5303dddc:autoparse=true&js_render=true&premium_proxy=true@proxy.zenrows.com:8001');
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+            $response = curl_exec($ch);
+            dd($response);
+            echo $response . PHP_EOL;
+            curl_close($ch);
+
+            $response = Http::get("https://www.instagram.com/$username/?__a=1");
             if($response->status() == 404){
                 return response()->json(['error' => 'You have entered instagram invalid url. Please add correct url']);
             }
