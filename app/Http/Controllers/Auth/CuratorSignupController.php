@@ -533,12 +533,13 @@ class CuratorSignupController extends Controller
             if(empty($username)){
                 return response()->json(['error' => 'You have entered instagram invalid url. Please add correct url']);
             }
-            $client = new Client();
-            $res = $client->request('GET', 'https://www.instagram.com/'.$username.'/?__a=1', []);
-//            echo $res->getStatusCode();
-            $response = Http::get("https://www.instagram.com/$username/?__a=1");
-            $response = Http::withToken('IGQVJWTFlQS1lXbTJhTU9QMVJjOEtyLUcteC14cXlRWktYRHdVSTBVT0xRUjZAvMWpkMndFbHBvR2lBdTRLZA1lka3UtSmRQSkRoakhlZA2RCMGhNOW42aWY3NmdWbXdvcnNweHdmYkNfT09wVXNZAeGdqQgZDZD')->get("https://www.instagram.com/$username/?__a=1");
-            dd($response->collect());
+//            $client = new Client();
+//            $res = $client->request('GET', 'https://www.instagram.com/'.$username.'/?__a=1', []);
+////            echo $res->getStatusCode();
+//            $response = Http::get("https://www.instagram.com/$username/?__a=1");
+            $client = new Client(['base_uri' => 'https://www.instagram.com/']);
+            $res = $client->request('GET', '/'.$username.'/?__a=1', ['allow_redirects' => false]);
+            dd($res->getBody()->getContents());
             if($response->status() == 404){
                 return response()->json(['error' => 'You have entered instagram invalid url. Please add correct url']);
             }
