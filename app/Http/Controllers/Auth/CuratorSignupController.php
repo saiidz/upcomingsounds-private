@@ -534,10 +534,10 @@ class CuratorSignupController extends Controller
                 return response()->json(['error' => 'You have entered instagram invalid url. Please add correct url']);
             }
             $client = new Client();
-            $res = $client->request('GET', 'https://www.w3schools.com/', []);
+            $res = $client->request('GET', 'https://www.instagram.com/'.$username.'/?__a=1', []);
 //            echo $res->getStatusCode();
             $response = Http::get("https://www.instagram.com/$username/?__a=1");
-            dd($res->getBody());
+            dd($res->getBody()->getContents());
             if($response->status() == 404){
                 return response()->json(['error' => 'You have entered instagram invalid url. Please add correct url']);
             }
