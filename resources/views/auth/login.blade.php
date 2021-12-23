@@ -15,11 +15,11 @@
                             <i class="fa fa-facebook pull-left"></i>
                             Sign up with Facebook
                         </a>
-                        <a href="{{ url('/login/google/?request_from=artist') }}" class="btn btn-block red text-white">
-                            <i class="fa fa-google-plus pull-left"></i>
-                            Sign up with Google+
+                        <a href="{{ url('/login/google/?request_from=artist') }}" class="btn btn-block blue text-white">
+                            <i class="fa fa-google pull-left"></i>
+                            Sign up with Google
                         </a>
-                        <a href="{{ url('/login/twitter/?request_from=artist') }}" style="background-color: #1C9CEA;" class="btn btn-block text-white m-b-sm">
+                        <a href="{{ url('/login/twitter/?request_from=artist') }}" style="background-color: #1C9CEA;" class="btn btn-block light-blue text-white m-b-sm">
                             <i class="fa fa-twitter pull-left"></i>
                             Sign up with Twitter
                         </a>
