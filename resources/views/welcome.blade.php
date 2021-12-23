@@ -130,22 +130,21 @@
                     <div class="row-col">
                         <div class="col-md-4">
                             <div class="p-a-lg text-center">
-                                <h4 class="m-y-lg">One Css framework, Unlimited options &amp; variables</h4>
-                                <p class="text-muted text-md m-b-lg">Colors, layouts, components and widgets. we
-                                    pre-build them for you.</p>
+                                <h4 class="m-y-lg">Demo, Unreleased or a  mastered track already in stores.; </h4>
+                                <p class="text-muted text-md m-b-lg">You can send your masterpiece anytime 
+                                whether you need some advice, help or you're ready to share it globally.</p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="p-a-lg text-center">
-                                <h4 class="m-y-lg">Two layouts, Horizontal and side navigation</h4>
-                                <p class="text-muted text-md m-b-lg">With the flexiable layout options, you can build
-                                    responsive layouts.</p>
+                                <h4 class="m-y-lg">Professional Review  and Feedback</h4>
+                                <p class="text-muted text-md m-b-lg">Get constructive feedback from a music critic or maybe a good hint for a better-sounding product.</p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="p-a-lg text-center">
-                                <h4 class="m-y-lg">Three templates, Landing, App, Site templates</h4>
-                                <p class="text-muted text-md m-b-lg">Choose the suitable one for your needs.</p>
+                                <h4 class="m-y-lg"> All in one place </h4>
+                                <p class="text-muted text-md m-b-lg">Upcoming sounds save you hours of productive time wasted on sending emails or searching for contacts.</p>
                             </div>
                         </div>
                     </div>
