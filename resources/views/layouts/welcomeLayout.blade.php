@@ -75,11 +75,11 @@
                 <div class="collapse navbar-toggleable-sm l-h-0 text-center" id="navbar">
                     <!-- link and dropdown -->
                     <ul class="nav navbar-nav nav-md inline text-primary-hover">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <span class="nav-text">Site</span>
-                            </a>
-                        </li>
+{{--                        <li class="nav-item">--}}
+{{--                            <a href="#" class="nav-link">--}}
+{{--                                <span class="nav-text">Site</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                         @if(Auth::check() && Auth::user()->type == 'artist')
                             <li class="nav-item">
                                 <a href="{{url('/artist-profile')}}" class="nav-link">
@@ -100,11 +100,11 @@
                             </li>
                         @endif
 
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <span class="nav-text">Rtl</span>
-                            </a>
-                        </li>
+{{--                        <li class="nav-item">--}}
+{{--                            <a href="#" class="nav-link">--}}
+{{--                                <span class="nav-text">Rtl</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                     </ul>
                     <!-- / link and dropdown -->
                 </div>
