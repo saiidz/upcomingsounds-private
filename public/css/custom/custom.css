@@ -505,6 +505,14 @@ input[type=number] {
   ##Screen = 1281px to higher resolution desktops
 */
 
+@media (min-width: 1506px) {
+
+    /* CSS */
+    .artists_welcome{
+        padding-bottom: 27px !important;
+    }
+}
+
 @media (min-width: 1281px) {
 
     /* CSS */
@@ -528,7 +536,9 @@ input[type=number] {
     .sTep3 .tellMeMore {
         margin-bottom: 15px;
     }
-
+    /*.artists_welcome{*/
+    /*    padding-bottom: 27px !important;*/
+    /*}*/
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
@@ -611,6 +621,7 @@ input[type=number] {
     .welcome_video > video{
         width:100% !important;
     }
+
 }
 
 /*

@@ -18,7 +18,7 @@
                             {{--                            <i class="fa fa-google pull-left"></i>--}}
                             {{--                            Sign up with Google--}}
                         </a>
-                        
+
                         <a href="{{ url('/login/facebook/?request_from=artist') }}" class="btn btn-block indigo text-white m-b-sm">
                             <i class="fa fa-facebook pull-left"></i>
                             Sign up with Facebook

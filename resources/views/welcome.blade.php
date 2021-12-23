@@ -32,7 +32,7 @@
                 </div>
                 <div class="row-col">
                     <div class="col-sm-6 black lt">
-                        <div class="black cover cover-gd" style="background-image: url('images/b7.jpg');">
+                        <div class="black cover cover-gd artists_welcome" style="background-image: url({{asset('images/b7.jpg')}});">
                             <div class="p-a-lg text-center">
                                 <h5 class="display-4 m-y-lg text-white">Artists/ Label / Manager </h5>
                                 <p class="text-black text-md m-b-lg">Send your music to real curators and professionals that we have personally selected and tested their ability to impact the music that makes it out to the world.</p>
@@ -41,8 +41,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 black lt" style="background-color:#247279 !important;">
-                        <div class="black cover cover-gd" style="background-image: url('images/b1.jpg');">
+                    <div class="col-sm-6 black lt">
+                        <div class="black cover cover-gd curators_welcome" style="background-image: url({{asset('images/b7.jpg')}}); padding-bottom: 27px;">
                             <div class="p-a-lg text-center">
                                 <h5 class="display-4 m-y-lg text-white">Curators / Tastemakers / Pros </h5>
                                 <p class="text-black text-md m-b-lg">Discover new music, find upcoming talents, get paid to listen and review now or unreleased music.</p>
