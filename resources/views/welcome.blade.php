@@ -136,20 +136,20 @@
                         <div class="col-md-4">
                             <div class="p-a-lg text-center">
                                 <h4 class="m-y-lg text-white">Demo, Unreleased or a  mastered track already in stores.</h4>
-                                <p class="text-black text-md m-b-lg">You can send your masterpiece anytime
+                                <p class="text-black text-md m-b-lg" style="color:#02b875 !important">You can send your masterpiece anytime
                                 whether you need some advice, help or you're ready to share it globally.</p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="p-a-lg text-center">
                                 <h4 class="m-y-lg text-white">Professional Review  and Feedback</h4>
-                                <p class="text-black text-md m-b-lg">Get constructive feedback from a music critic or maybe a good hint for a better-sounding product.</p>
+                                <p class="text-black text-md m-b-lg" style="color:#02b875 !important">Get constructive feedback from a music critic or maybe a good hint for a better-sounding product.</p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="p-a-lg text-center">
                                 <h4 class="m-y-lg text-white"> All in one place </h4>
-                                <p class="text-black text-md m-b-lg">Upcoming sounds save you hours of productive time wasted on sending emails or searching for contacts.</p>
+                                <p class="text-black text-md m-b-lg" style="color:#02b875 !important">Upcoming sounds save you hours of productive time wasted on sending emails or searching for contacts.</p>
                             </div>
                         </div>
                     </div>
