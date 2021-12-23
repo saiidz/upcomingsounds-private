@@ -135,7 +135,11 @@
                     <div class="row-col">
                         <div class="col-md-4">
                             <div class="p-a-lg text-center">
+<<<<<<< Updated upstream
                                 <h4 class="m-y-lg">Demo, Unreleased or a  mastered track already in stores.</h4>
+=======
+                                <h4 class="m-y-lg">Demo, Unreleased or a  mastered track already in stores.; </h4>
+>>>>>>> Stashed changes
                                 <p class="text-muted text-md m-b-lg">You can send your masterpiece anytime
                                 whether you need some advice, help or you're ready to share it globally.</p>
                             </div>
