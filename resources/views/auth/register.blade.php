@@ -18,7 +18,7 @@
                             Sign up with Facebook
                         </a>
                         <a href="{{ url('/login/google/?request_from=curator') }}" class="btn-block" style="background-color:#3367d5 !important;">
-                            <img src="{{asset('images/google_img.jpeg')}}">
+                            <img src="{{asset('images/google.png')}}">
                             {{--                            <i class="fa fa-google pull-left"></i>--}}
                             {{--                            Sign up with Google--}}
                         </a>
