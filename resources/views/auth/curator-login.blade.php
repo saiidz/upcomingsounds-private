@@ -11,15 +11,17 @@
             <div class="center-block w-xxl w-auto-xs p-y-md text-center">
                 <div class="p-a-md">
                     <div>
-                        <a href="{{ url('/login/facebook/?request_from=curator') }}" class="btn btn-block indigo text-white m-b-sm">
-                            <i class="fa fa-facebook pull-left"></i>
-                            Sign up with Facebook
-                        </a>
                         <a href="{{ url('/login/google/?request_from=curator') }}" class="btn-block" style="background-color:#3367d5 !important;">
                             <img src="{{asset('images/google.png')}}">
                             {{--                            <i class="fa fa-google pull-left"></i>--}}
                             {{--                            Sign up with Google--}}
                         </a>
+
+                        <a href="{{ url('/login/facebook/?request_from=curator') }}" class="btn btn-block indigo text-white m-b-sm">
+                            <i class="fa fa-facebook pull-left"></i>
+                            Sign up with Facebook
+                        </a>
+
                         <a href="{{ url('/login/twitter/?request_from=curator') }}" style="background-color: #1C9CEA;" class="btn btn-block light-blue text-white m-b-sm">
                             <i class="fa fa-twitter pull-left"></i>
                             Sign up with Twitter
