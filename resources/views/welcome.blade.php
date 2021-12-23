@@ -29,7 +29,7 @@
                     <div class="col-sm-6 black lt">
                         <div class="black cover cover-gd" style="background-image: url('images/b7.jpg');">
                             <div class="p-a-lg text-center">
-                                <h4 class="display-3 m-y-lg">Artists/ Label/ Manager </h4>
+                                <h5 class="display-3 m-y-lg">Artists/ Label / Manager </h5>
                                 <p class="text-muted text-md m-b-lg">Send your music to real curators and professionals that we have personally selected and tested their ability to impact the music that makes it out to the world.</p>
                                 <a href="{{url('/artist-home')}}" class="btn circle white m-b-lg p-x-md">Artists</a>
                                 {{--                                <a href="home.html" class="btn circle white m-b-lg p-x-md">View Artists</a>--}}
@@ -39,8 +39,8 @@
                     <div class="col-sm-6">
                         <div class="black cover cover-gd" style="background-image: url('images/b1.jpg');">
                             <div class="p-a-lg text-center">
-                                <h4 class="display-3 m-y-lg">Curators / Tastemakers / Pros </h4>
-                                <p class="text-muted text-md m-b-lg">Dics.</p>
+                                <h5 class="display-3 m-y-lg">Curators / Tastemakers / Pros </h5>
+                                <p class="text-muted text-md m-b-lg">Discover new music, find upcoming talents, get paid to listen and review now or unreleased music.</p>
                                 <a href="{{url('/curator-home')}}" class="btn circle white m-b-lg p-x-md"> curators / Pros </a>
 {{--                                <h3 class="display-3 m-y-lg">Music</h3>--}}
 {{--                                <p class="text-muted text-md m-b-lg"> Discover new talents, Get paid to listen to music, create impact and change someones dream.</p>--}}
@@ -130,7 +130,7 @@
                     <div class="row-col">
                         <div class="col-md-4">
                             <div class="p-a-lg text-center">
-                                <h4 class="m-y-lg">Demo, Unreleased or a  mastered track already in stores.; </h4>
+                                <h4 class="m-y-lg">Demo, Unreleased or a  mastered track already in stores.</h4>
                                 <p class="text-muted text-md m-b-lg">You can send your masterpiece anytime 
                                 whether you need some advice, help or you're ready to share it globally.</p>
                             </div>
