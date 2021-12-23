@@ -73,8 +73,8 @@
                         <div class="col-lg-2"></div>
                         <div class="col-lg-8 text-center">
                             <div class="p-a-lg">
-                                <h2 class="display-4 m-y-lg">A simple, fast and responsive music template</h2>
-                                <h6 class="text-muted m-b-lg">HTML5 Music Template</h6>
+                                <h2 class="display-4 m-y-lg">Grow your audience </h2>
+                                <h6 class="text-muted m-b-lg">More impressions drive more success.   Reach more fans, listeners and professionals in the most effective way. </h6>
                                 <a href="#" class="btn circle btn-outline b-primary m-b-lg p-x-md">Get it
                                     now</a>
                             </div>
