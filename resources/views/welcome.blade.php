@@ -41,7 +41,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 black cover cover-gd">
+                    <div class="col-sm-6 black lt" style="background-color:#247279 !important;">
                         <div class="black cover cover-gd" style="background-image: url('images/b1.jpg');">
                             <div class="p-a-lg text-center">
                                 <h5 class="display-4 m-y-lg text-white">Curators / Tastemakers / Pros </h5>
