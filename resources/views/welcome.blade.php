@@ -29,9 +29,9 @@
                     <div class="col-sm-6 black lt">
                         <div class="black cover cover-gd" style="background-image: url('images/b7.jpg');">
                             <div class="p-a-lg text-center">
-                                <h3 class="display-3 m-y-lg">Artists</h3>
-                                <p class="text-muted text-md m-b-lg">Listen to your favorite Artists.</p>
-                                <a href="{{url('/artist-home')}}" class="btn circle white m-b-lg p-x-md">For Artists</a>
+                                <h4 class="display-3 m-y-lg">Artists/ Label/ Manager </h4>
+                                <p class="text-muted text-md m-b-lg">Send your music to real curators and professionals that we have personally selected and tested their ability to impact the music that makes it out to the world.</p>
+                                <a href="{{url('/artist-home')}}" class="btn circle white m-b-lg p-x-md">Artists</a>
                                 {{--                                <a href="home.html" class="btn circle white m-b-lg p-x-md">View Artists</a>--}}
                             </div>
                         </div>
@@ -39,11 +39,11 @@
                     <div class="col-sm-6">
                         <div class="black cover cover-gd" style="background-image: url('images/b1.jpg');">
                             <div class="p-a-lg text-center">
-                                <h3 class="display-3 m-y-lg">Curators</h3>
-                                <p class="text-muted text-md m-b-lg">Get ready for Curators.</p>
-                                <a href="{{url('/curator-home')}}" class="btn circle white m-b-lg p-x-md">For Tastemakers / Curators / Pros</a>
+                                <h4 class="display-3 m-y-lg">Curators / Tastemakers / Pros </h4>
+                                <p class="text-muted text-md m-b-lg">Dics.</p>
+                                <a href="{{url('/curator-home')}}" class="btn circle white m-b-lg p-x-md"> curators / Pros </a>
 {{--                                <h3 class="display-3 m-y-lg">Music</h3>--}}
-{{--                                <p class="text-muted text-md m-b-lg">Get ready for high sound quality.</p>--}}
+{{--                                <p class="text-muted text-md m-b-lg"> Discover new talents, Get paid to listen to music, create impact and change someones dream.</p>--}}
 {{--                                <a href="#" class="btn circle white m-b-lg p-x-md">Try Free</a>--}}
                             </div>
                         </div>
