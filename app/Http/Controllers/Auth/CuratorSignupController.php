@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Sovit\TikTok;
-use MetzWeb\Instagram\Instagram;
+//use MetzWeb\Instagram\Instagram;
 
 class CuratorSignupController extends Controller
 {
@@ -533,11 +533,11 @@ class CuratorSignupController extends Controller
             if(empty($username)){
                 return response()->json(['error' => 'You have entered instagram invalid url. Please add correct url']);
             }
-            $instagram = new Instagram(array(
-                'apiKey'      => '403018831604030',
-                'apiSecret'   => 'e537c2cc0d93af5d8a262b6501200fa8',
-                'apiCallback' => 'YOUR_APP_CALLBACK'
-            ));
+//            $instagram = new Instagram(array(
+//                'apiKey'      => '403018831604030',
+//                'apiSecret'   => 'e537c2cc0d93af5d8a262b6501200fa8',
+//                'apiCallback' => 'YOUR_APP_CALLBACK'
+//            ));
             $html = file_get_contents('http://www.instagram.com/'.$username.'/?__a=1');
 dd($html);
             $response = Http::get("https://www.instagram.com/$username/?__a=1");
