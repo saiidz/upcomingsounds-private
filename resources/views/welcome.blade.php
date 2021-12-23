@@ -131,29 +131,25 @@
 {{--                </div>--}}
 
                 <div class="black cover" data-stellar-background-ratio="0.5"
-                     style="background-image: url('images/b10.jpg');">
+                     style="background-image: url({{asset('images/b10.jpg')}});">
                     <div class="row-col">
                         <div class="col-md-4">
                             <div class="p-a-lg text-center">
-<<<<<<< Updated upstream
-                                <h4 class="m-y-lg">Demo, Unreleased or a  mastered track already in stores.</h4>
-=======
-                                <h4 class="m-y-lg">Demo, Unreleased or a  mastered track already in stores.; </h4>
->>>>>>> Stashed changes
-                                <p class="text-muted text-md m-b-lg">You can send your masterpiece anytime
+                                <h4 class="m-y-lg text-white">Demo, Unreleased or a  mastered track already in stores.</h4>
+                                <p class="text-black text-md m-b-lg">You can send your masterpiece anytime
                                 whether you need some advice, help or you're ready to share it globally.</p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="p-a-lg text-center">
-                                <h4 class="m-y-lg">Professional Review  and Feedback</h4>
-                                <p class="text-muted text-md m-b-lg">Get constructive feedback from a music critic or maybe a good hint for a better-sounding product.</p>
+                                <h4 class="m-y-lg text-white">Professional Review  and Feedback</h4>
+                                <p class="text-black text-md m-b-lg">Get constructive feedback from a music critic or maybe a good hint for a better-sounding product.</p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="p-a-lg text-center">
-                                <h4 class="m-y-lg"> All in one place </h4>
-                                <p class="text-muted text-md m-b-lg">Upcoming sounds save you hours of productive time wasted on sending emails or searching for contacts.</p>
+                                <h4 class="m-y-lg text-white"> All in one place </h4>
+                                <p class="text-black text-md m-b-lg">Upcoming sounds save you hours of productive time wasted on sending emails or searching for contacts.</p>
                             </div>
                         </div>
                     </div>
