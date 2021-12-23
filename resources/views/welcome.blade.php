@@ -74,7 +74,7 @@
                         <div class="col-lg-8 text-center">
                             <div class="p-a-lg">
                                 <h2 class="display-4 m-y-lg"> visibility and Exposure that you deserve </h2>
-                                <h4 class="text-muted m-b-lg">Media coverage can increase the public's awareness of your business and help you to select the ideal media partner for your company.</h4>
+                                <h4 class="text-muted m-b-lg">Media coverage can increase the public's awareness of your music. </h4>
                                 <a href="#" class="btn circle btn-outline b-primary m-b-lg p-x-md">Get it
                                     now</a>
                             </div>
