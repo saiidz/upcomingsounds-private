@@ -73,8 +73,8 @@
                         <div class="col-lg-2"></div>
                         <div class="col-lg-8 text-center">
                             <div class="p-a-lg">
-                                <h2 class="display-4 m-y-lg"> Easy and direct contact</h2>
-                                <h5 class="text-muted m-b-lg">It takes more than a great product to stand out in the crowded music industry. Insightful planning and smart execution are necessary to take your music where you want it to go.</h5>
+                                <h2 class="display-4 m-y-lg"> visibility and Exposure that you deserve </h2>
+                                <h4 class="text-muted m-b-lg">Media coverage can increase the public's awareness of your business and help you to select the ideal media partner for your company.</h4>
                                 <a href="#" class="btn circle btn-outline b-primary m-b-lg p-x-md">Get it
                                     now</a>
                             </div>
@@ -85,8 +85,8 @@
                         <div class="col-lg-2"></div>
                         <div class="col-lg-8 text-center">
                             <div class="p-a-lg">
-                                <h2 class="display-4 m-y-lg">Ajax powered page switch with great experience</h2>
-                                <h6 class="text-muted m-b-lg">No refresh page when switching pages</h6>
+                                <h2 class="display-4 m-y-lg">Easy and direct contact </h2>
+                                <h6 class="text-muted m-b-lg">It takes more than a great product to stand out in the crowded music industry. Insightful planning and smart execution are necessary to take your music where you want it to go.</h6>
                                 <a href="#" class="btn circle btn-outline b-primary m-b-lg p-x-md">Get RTL</a>
                             </div>
                         </div>
