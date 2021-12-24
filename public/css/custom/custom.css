@@ -168,7 +168,7 @@ body{
     height: 200px!important;
 }
 .curator_container .photo img {
-    height: 85%!important;
+    height: 90%!important;
 }
 .curator_container .content_artist {
     width: 70%!important;
@@ -216,7 +216,7 @@ body{
     margin-left: auto;
     margin-right: auto;
     position: relative;
-    top: -33px
+    top: -20px
 }
 
 .photos {
@@ -555,7 +555,7 @@ input[type=number] {
     }
     .content_artist {
         width: 80%!important;
-        top: -51px!important;
+        top: -14px!important;
     }
     .Iam_artist {
         font-size: 16px!important;
@@ -603,7 +603,7 @@ input[type=number] {
     }
     .content_artist {
         width: 80%!important;
-        top: -51px!important;
+        top: -14px!important;
     }
     .Iam_artist {
         font-size: 16px!important;
