@@ -27,7 +27,7 @@
                         <div class="photo"> <img src="{{asset('images/influencer.svg')}}">
                         </div>
                         <div class="content_artist">
-                            <p class="Iam_artist">I'm an Influencer</p>
+                            <p class="Iam_artist"> Influencer</p>
                             <p class="Iam_artist_detail">Share music to your TikTok, Instagram or even repost on SoundCloud and start the next trend.  </p>
                         </div>
                         <div class="artist_footer">
@@ -40,7 +40,7 @@
                         <div class="photo"> <img src="{{asset('images/curator_playlist.svg')}}">
                         </div>
                         <div class="content_artist">
-                            <p class="Iam_artist">I'm an Playlist Curator</p>
+                            <p class="Iam_artist">Playlist Curator</p>
                             <p class="Iam_artist_detail"> Get fresh daily new music to your Spotify, Deezer, or apple music playlists.  </p>
                         </div>
                         <div class="artist_footer">
@@ -53,7 +53,7 @@
                         <div class="photo"> <img src="{{asset('images/youtube.svg')}}">
                         </div>
                         <div class="content_artist">
-                            <p class="Iam_artist">I'm a Youtube Channel</p>
+                            <p class="Iam_artist">Youtube Channel</p>
                             <p class="Iam_artist_detail"> Make an impact, upload videos to your youtube channel share them with the world.</p>
                         </div>
                         <div class="artist_footer">
@@ -66,7 +66,7 @@
                         <div class="photo"> <img src="{{asset('images/radio.svg')}}">
                         </div>
                         <div class="content_artist">
-                            <p class="Iam_artist">I'm an Radio / TV</p>
+                            <p class="Iam_artist">Radio / TV</p>
                             <p class="Iam_artist_detail">Sponsor or promote music on your programs or daily live shows. </p>
                         </div>
                         <div class="artist_footer">
@@ -79,7 +79,7 @@
                         <div class="photo"> <img src="{{asset('images/record_label.svg')}}">
                         </div>
                         <div class="content_artist">
-                            <p class="Iam_artist">I'm an Record label / Manager</p>
+                            <p class="Iam_artist">Record label / Manager</p>
                             <p class="Iam_artist_detail">Discover new talents, make record deals connect with bands and indie artists. </p>
                         </div>
                         <div class="artist_footer">
@@ -94,7 +94,7 @@
                         <div class="photo"> <img src="{{asset('images/blog.svg')}}">
                         </div>
                         <div class="content_artist">
-                            <p class="Iam_artist">I'm an Blog</p>
+                            <p class="Iam_artist">Blog</p>
                             <p class="Iam_artist_detail"> Get daily content for your blog, create reviews and share new hits with some extra income. </p>
                         </div>
                         <div class="artist_footer">
@@ -107,7 +107,7 @@
                         <div class="photo"> <img src="{{asset('images/Illu1.svg')}}">
                         </div>
                         <div class="content_artist">
-                            <p class="Iam_artist">I'm an Monitor / Publisher / sync</p>
+                            <p class="Iam_artist">Monitor / Publisher / sync</p>
                             <p class="Iam_artist_detail">work with the new talents, guide them to start their career, or help them sync or publish their art</p>
                         </div>
                         <div class="artist_footer">
@@ -120,7 +120,7 @@
                         <div class="photo"> <img src="{{asset('images/journalist_media.svg')}}">
                         </div>
                         <div class="content_artist">
-                            <p class="Iam_artist">I'm an Journalist / Media </p>
+                            <p class="Iam_artist">Journalist / Media </p>
                             <p class="Iam_artist_detail">Generate press releases for the new stars, write about the upcoming sounds, make the article to share with the news. </p>
                         </div>
                         <div class="artist_footer">
@@ -133,7 +133,7 @@
                         <div class="photo"> <img src="{{asset('images/Illu1.svg')}}">
                         </div>
                         <div class="content_artist">
-                            <p class="Iam_artist">I'm an Brooker / Booking agent</p>
+                            <p class="Iam_artist">Brooker / Booking agent</p>
                             <p class="Iam_artist_detail">Book your favorite indie artist or band for your upcoming gig/event. </p>
                         </div>
                         <div class="artist_footer">
@@ -146,7 +146,7 @@
                         <div class="photo"> <img src="{{asset('images/sound_expert.svg')}}">
                         </div>
                         <div class="content_artist">
-                            <p class="Iam_artist">I'm an Sound expert / Producer</p>
+                            <p class="Iam_artist">Sound expert / Producer</p>
                             <p class="Iam_artist_detail">Offer your professional advice, help indie artists or bands to improve their sound quality, or even master their tracks.</p>
                         </div>
                         <div class="artist_footer">
