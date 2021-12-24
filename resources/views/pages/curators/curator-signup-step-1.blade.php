@@ -28,7 +28,7 @@
                         </div>
                         <div class="content_artist">
                             <p class="Iam_artist">I'm an Influencer</p>
-                            <p class="Iam_artist_detail">Fill in your artist profile and send your music to the curators and pros available on Upcoming Sounds</p>
+                            <p class="Iam_artist_detail">Share music to your TikTok, Instagram or even repost on SoundCloud and start the next trend.  </p>
                         </div>
                         <div class="artist_footer">
                             <a class="button transparent  tellMeMore siGnup1" href="{{route('curator.signup.step.2')}}?signup=influencer">Start</a>
@@ -41,7 +41,7 @@
                         </div>
                         <div class="content_artist">
                             <p class="Iam_artist">I'm an Playlist Curator</p>
-                            <p class="Iam_artist_detail">Set up a profile for each one of your artists and send their tracks to the music curators & pros available on Upcoming Sounds</p>
+                            <p class="Iam_artist_detail"> Get fresh daily new music to your Spotify, Deezer, or apple music playlists.  </p>
                         </div>
                         <div class="artist_footer">
                             <a class="button transparent  tellMeMore siGnup1" href="{{route('curator.signup.step.2')}}?signup=playlist_curator">Start</a>
@@ -53,8 +53,8 @@
                         <div class="photo"> <img src="{{asset('images/youtube.svg')}}">
                         </div>
                         <div class="content_artist">
-                            <p class="Iam_artist">I'm an Youtube Channel</p>
-                            <p class="Iam_artist_detail">Set up a profile for each one of your artists and send their tracks to the music curators & pros available on Upcoming Sounds</p>
+                            <p class="Iam_artist">I'm a Youtube Channel</p>
+                            <p class="Iam_artist_detail"> Make an impact, upload videos to your youtube channel share them with the world.</p>
                         </div>
                         <div class="artist_footer">
                             <a class="button transparent  tellMeMore siGnup1" href="{{route('curator.signup.step.2')}}?signup=youtube_channel">Start</a>
@@ -67,7 +67,7 @@
                         </div>
                         <div class="content_artist">
                             <p class="Iam_artist">I'm an Radio / TV</p>
-                            <p class="Iam_artist_detail">Set up a profile for each one of your artists and send their tracks to the music curators & pros available on Upcoming Sounds</p>
+                            <p class="Iam_artist_detail">Sponsor or promote music on your programs or daily live shows. </p>
                         </div>
                         <div class="artist_footer">
                             <a class="button transparent  tellMeMore siGnup1" href="{{route('curator.signup.step.2')}}?signup=radio_tv">Start</a>
@@ -80,7 +80,7 @@
                         </div>
                         <div class="content_artist">
                             <p class="Iam_artist">I'm an Record label / Manager</p>
-                            <p class="Iam_artist_detail">Set up a profile for each one of your artists and send their tracks to the music curators & pros available on Upcoming Sounds</p>
+                            <p class="Iam_artist_detail">Discover new talents, make record deals connect with bands and indie artists. </p>
                         </div>
                         <div class="artist_footer">
                             <a class="button transparent  tellMeMore siGnup1" href="{{route('curator.signup.step.2')}}?signup=label_manager">Start</a>
@@ -94,8 +94,8 @@
                         <div class="photo"> <img src="{{asset('images/Illu1.svg')}}">
                         </div>
                         <div class="content_artist">
-                            <p class="Iam_artist">I'm an Media</p>
-                            <p class="Iam_artist_detail">Set up a profile for each one of your artists and send their tracks to the music curators & pros available on Upcoming Sounds</p>
+                            <p class="Iam_artist">I'm an Blog</p>
+                            <p class="Iam_artist_detail"> Get daily content for your blog, create reviews and share new hits with some extra income. </p>
                         </div>
                         <div class="artist_footer">
                             <a class="button transparent  tellMeMore siGnup1" href="{{route('curator.signup.step.2')}}?signup=media">Start</a>
@@ -107,8 +107,8 @@
                         <div class="photo"> <img src="{{asset('images/Illu1.svg')}}">
                         </div>
                         <div class="content_artist">
-                            <p class="Iam_artist">I'm an Monitor / Publisher / synch</p>
-                            <p class="Iam_artist_detail">Set up a profile for each one of your artists and send their tracks to the music curators & pros available on Upcoming Sounds</p>
+                            <p class="Iam_artist">I'm an Monitor / Publisher / sync</p>
+                            <p class="Iam_artist_detail">work with the new talents, guide them to start their career, or help them sync or publish their art</p>
                         </div>
                         <div class="artist_footer">
                             <a class="button transparent  tellMeMore siGnup1" href="{{route('curator.signup.step.2')}}?signup=monitor_publisher_synch">Start</a>
@@ -120,8 +120,8 @@
                         <div class="photo"> <img src="{{asset('images/journalist_media.svg')}}">
                         </div>
                         <div class="content_artist">
-                            <p class="Iam_artist">I'm an Journalist / Media</p>
-                            <p class="Iam_artist_detail">Set up a profile for each one of your artists and send their tracks to the music curators & pros available on Upcoming Sounds</p>
+                            <p class="Iam_artist">I'm an Journalist / Media </p>
+                            <p class="Iam_artist_detail">Generate press releases for the new stars, write about the upcoming sounds, make the article to share with the news. </p>
                         </div>
                         <div class="artist_footer">
                             <a class="button transparent  tellMeMore siGnup1" href="{{route('curator.signup.step.2')}}?signup=journalist_media">Start</a>
@@ -134,7 +134,7 @@
                         </div>
                         <div class="content_artist">
                             <p class="Iam_artist">I'm an Brooker / Booking agent</p>
-                            <p class="Iam_artist_detail">Set up a profile for each one of your artists and send their tracks to the music curators & pros available on Upcoming Sounds</p>
+                            <p class="Iam_artist_detail">Book your favorite indie artist or band for your upcoming gig/event. </p>
                         </div>
                         <div class="artist_footer">
                             <a class="button transparent  tellMeMore siGnup1" href="{{route('curator.signup.step.2')}}?signup=brooker_booking">Start</a>
@@ -147,7 +147,7 @@
                         </div>
                         <div class="content_artist">
                             <p class="Iam_artist">I'm an Sound expert / Producer</p>
-                            <p class="Iam_artist_detail">Set up a profile for each one of your artists and send their tracks to the music curators & pros available on Upcoming Sounds</p>
+                            <p class="Iam_artist_detail">Offer your professional advice, help indie artists or bands to improve their sound quality, or even master their tracks.</p>
                         </div>
                         <div class="artist_footer">
                             <a class="button transparent  tellMeMore siGnup1" href="{{route('curator.signup.step.2')}}?signup=sound_expert_producer">Start</a>
