@@ -61,7 +61,7 @@
 {{--                        </li>--}}
                         <li class="nav-item">
                             <a href="{{url('/artist-profile')}}" class="nav-link">
-                                <span class="nav-text">Web App</span>
+                                <span class="nav-text">Dashboard</span>
                             </a>
                         </li>
 {{--                        <li class="nav-item">--}}

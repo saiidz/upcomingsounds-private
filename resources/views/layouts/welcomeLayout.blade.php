@@ -83,21 +83,21 @@
                         @if(Auth::check() && Auth::user()->type == 'artist')
                             <li class="nav-item">
                                 <a href="{{url('/artist-profile')}}" class="nav-link">
-                                    <span class="nav-text">Web App</span>
+                                    <span class="nav-text">Dashboard</span>
                                 </a>
                             </li>
                         @elseif(Auth::check() && Auth::user()->type == 'curator')
                             <li class="nav-item">
                                 <a href="{{url('/taste-maker-profile')}}" class="nav-link">
-                                    <span class="nav-text">Web App</span>
+                                    <span class="nav-text">Dashboard</span>
                                 </a>
                             </li>
                         @else
-                            <li class="nav-item">
-                                <a href="javascript:void(0)" class="nav-link">
-                                    <span class="nav-text">Web App</span>
-                                </a>
-                            </li>
+{{--                            <li class="nav-item">--}}
+{{--                                <a href="javascript:void(0)" class="nav-link">--}}
+{{--                                    <span class="nav-text">Web App</span>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
                         @endif
 
 {{--                        <li class="nav-item">--}}

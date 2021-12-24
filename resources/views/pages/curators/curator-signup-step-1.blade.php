@@ -24,7 +24,7 @@
                 <div id="snackbar"></div>
                 <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 curator_col">
                     <div class="cardcontainer curator_container">
-                        <div class="photo"> <img src="{{asset('images/Illu.svg')}}">
+                        <div class="photo"> <img src="{{asset('images/influencer.svg')}}">
                         </div>
                         <div class="content_artist">
                             <p class="Iam_artist">I'm an Influencer</p>
@@ -91,7 +91,7 @@
             <div class="row">
                 <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 curator_col">
                     <div class="cardcontainer curator_container">
-                        <div class="photo"> <img src="{{asset('images/Illu1.svg')}}">
+                        <div class="photo"> <img src="{{asset('images/blog.svg')}}">
                         </div>
                         <div class="content_artist">
                             <p class="Iam_artist">I'm an Blog</p>
@@ -143,7 +143,7 @@
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 curator_col">
                     <div class="cardcontainer curator_container">
-                        <div class="photo"> <img src="{{asset('images/Illu1.svg')}}">
+                        <div class="photo"> <img src="{{asset('images/sound_expert.svg')}}">
                         </div>
                         <div class="content_artist">
                             <p class="Iam_artist">I'm an Sound expert / Producer</p>
