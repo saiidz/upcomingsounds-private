@@ -49,23 +49,24 @@
                         <li class="nav-item">
                             <a href="{{ route('curator.register') }}" class="nav-link">
                                 <span class="btn btn-sm rounded primary _600 tastemakers_signup">
-                                  For Tastemakers / Curators
+                                  Apply as Tastemaker / Pro
                                 </span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{ route('register') }}" class="nav-link">
-                                Signup
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('login') }}" class="nav-link">
-                    <span class="btn btn-sm rounded primary _600 tastemakers_signup">
-                      Signin
-                    </span>
+                                Login
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('register') }}" class="nav-link">
+                                <span class="btn btn-sm rounded primary _600 tastemakers_signup">
+                                  Signup
+                                </span>
+                            </a>
+                        </li>
+
+
                     @endif
 
                 </ul>
