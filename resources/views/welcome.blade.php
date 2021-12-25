@@ -34,7 +34,7 @@
                     <div class="col-sm-6 black lt">
                         <div class="black cover cover-gd artists_welcome" style="background-image: url({{asset('images/b7.jpg')}});">
                             <div class="p-a-lg text-center">
-                                <h5 class="display-4 m-y-lg text-white">Artists/ Label / Manager </h5>
+                                <h5 class="display-4 m-y-lg text-white">Artists / Label / Manager </h5>
                                 <p class="text-black text-md m-b-lg">Send your music to real curators and professionals that we have personally selected and tested their ability to impact the music that makes it out to the world.</p>
                                 <a href="{{url('/artist-home')}}" class="btn circle white m-b-lg p-x-md">Artists</a>
                                 {{--                                <a href="home.html" class="btn circle white m-b-lg p-x-md">View Artists</a>--}}
@@ -103,7 +103,7 @@
                     <div class="row-col">
                         <div class="col-md-4">
                             <div class="p-a-lg text-center welcome_UpcomingSounds">
-                                <p class="text-muted text-md m-b-lg">UpcomingSounds.com is a unique place where musicians can gain attention, promotion and greater prospects in the world of entertainment. It doesn't matter if you are just starting out and sending demos or if your work is already established and ready to be shown, we are here to help. you can expect your submission decision within 72 hours of receiving it. We will connect you with curators, blogs, journalists and other professionals that can get you the exposure you need in the industry. We can guarantee that you will get feedback from each and every track you submit. Sometimes the feedback you receive when your song is declined will be useful.</p>
+                                <p class="text-muted text-md m-b-lg">UpcomingSounds.com is a unique place where musicians can gain attention, promotion and greater prospects in the world of entertainment. It doesn't matter if you are just starting out and sending demos or if your work is already established and ready to be shown, we are here to help. you can expect your submission decision within 96 hours of receiving it. We will connect you with curators, blogs, journalists and other professionals that can get you the exposure you need in the industry. We can guarantee that you will get feedback from each and every track you submit. Sometimes the feedback you receive when your song is declined will be useful.</p>
                             </div>
                         </div>
                         <div class="col-md-4">
