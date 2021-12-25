@@ -146,19 +146,11 @@
                             <div class="no-padd-right wpb_column vc_column_container vc_col-sm-4  padding-lg-35t">
                                 <div class="vc_column-inner ">
                                     <div class="wpb_wrapper">
-                                        <div class="sanjose-text custom-size text-left submit_music"><h2>Submit
-                                                <i>your</i> music</h2>
-                                            <div><p>The playlist is the most powerful medium in music. Streaming music
-                                                    companies
-                                                    spend
-                                                    millions developing algorithms and hiring teams of curators to
-                                                    create them,
-                                                    millions of
-                                                    people tap play on them each day.</p>
-                                                <p>We get your music heard by independent music curators that manage
-                                                    playlists on
-                                                    multiple streaming services like Spotify, Youtube, Apple music and
-                                                    others.</p>
+                                        <div class="sanjose-text custom-size text-left submit_music"><h2>How
+                                                <i>It</i> Works</h2>
+                                            <div><p>UpcomingSounds is the easiest way for musicians to get music heard by bloggers, radio stations, & record labels.  
+UpcomingSounds allows you to easily send your music to curators using USC Coins' "credits." Each curator requests between 2 and 50 credits depending on the curator/tastemaker/pro level. </p>
+                                                <p> You can expect a decision within 96 hours. Curators and Pros will need to listen to at least 30 seconds of your song and provide a review or feedback, Some of them will give a piece of technical advice or and if they don't like it, they'll need to explain why.</p>
                                             </div>
                                             {{--                                            <a href="#" class=" transparent learn_more tellMeMore" data-color="">Apply for Campaign</a>--}}
                                             <div class="btnWrapper btnWrapTopSpacing bottomSpacing" data-v-69b657ff
