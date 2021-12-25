@@ -63,11 +63,11 @@
                                     <fieldset id="form1">
                                         <div class="sub__title__container ">
                                             <p>Step 1/4</p>
-                                            <h2>Which track would you like to send?</h2>
-                                            <p class="m-b-md">Here we go, let's launch this campaign together! To help you select the best
-                                                influencers for you, we first need information about the your track</p>
+                                            <h2>Start by adding your track or select one if you have already!</h2>
+                                            <p class="m-b-md">you're one step closer to spreading your art to the world,
+                                            continue by adding a new track and filling in the required info.</p>
                                             <a class="m-b-md rounded addTrack" href="{{url('/artist-profile')}}#add-track">
-                                                New track
+                                               Add New track
                                             </a>
                                         </div>
 
