@@ -27,13 +27,13 @@
                     <div class="m-b-md">
                         <ul class="nav l-h-2x _600">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">About us</a>
+                                <a class="nav-link" href="{{url('/about-us')}}">About us</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Mobile apps</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Blog</a>
+                                <a class="nav-link" href="{{url('/blog')}}">Blog</a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{url('/term-of-service')}}" class="nav-link">Term of Service</a>
@@ -59,7 +59,7 @@
                                 <a class="nav-link" href="{{url('/taste-maker-register')}}">Apply as Tastemaker / Pro</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{url('/about')}}">Contact us</a>
+                                <a class="nav-link" href="{{url('/contact-us')}}">Contact us</a>
                             </li>
                         </ul>
                     </div>

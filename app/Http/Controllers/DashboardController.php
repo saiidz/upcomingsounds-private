@@ -43,4 +43,25 @@ class DashboardController extends Controller
     {
         return view('term-of-service');
     }
+    /**
+     * aboutUs
+     */
+    public function aboutUs(Request $request)
+    {
+        return view('about-us');
+    }
+    /**
+     * contactUs
+     */
+    public function contactUs(Request $request)
+    {
+        return view('contact-us');
+    }
+    /**
+     * blog
+     */
+    public function blog(Request $request)
+    {
+        return view('blog');
+    }
 }
