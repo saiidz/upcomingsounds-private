@@ -11,7 +11,7 @@
     <link rel="shortcut icon" sizes="196x196" href="{{asset('images/favicon.png')}}">
     <!-- This site is optimized with the Yoast SEO plugin v12.2 - https://yoast.com/wordpress/plugins/seo/ -->
     <meta name="description"
-          content="Our mission is to help independent artist and small record labels to get their music heard by Spotify playlist curators and Youtube influencers."/>
+          content=" upcoming sounds : Our mission is to help independent artist and small record labels to get their music heard by Spotify playlist curators and Youtube influencers."/>
     <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
 
     <style type="text/css">
@@ -153,7 +153,7 @@
                     <div class="sanjose-text custom-mb text-left"><h2><i>for</i> Artists</h2>
                         <div>
                             <p>
-                                <span style="font-weight: 400">Promote your music by submitting your songs to active playlist curators.</span>
+                                <span style="font-weight: 400">Send your music to real curators and professionals that we have personally selected and tested their ability to impact the music that makes it out to the world.</span>
                             </p>
                         </div>
                     </div>
@@ -166,10 +166,9 @@
 {{--                                        <div class="icon">--}}
 {{--                                            <i class="icon-info-9"></i>--}}
 {{--                                        </div>--}}
-                                        <h6 class="title">Flex Pricing</h6>
-                                        <div class="desc"><p>Whether you make pop music or are an instrumental
-                                                pianist, you only pay to reach the curators that will dig your
-                                                music.</p></div>
+                                        <h6 class="title"> Direct And Simple </h6>
+                                        <div class="desc"><p>Our pricing is direct (no hidden fees).
+                                        It starts with only 2 UCS = £ 2 to send your track to 1 Tastemaker / Pro. </p></div>
                                     </div>
                                 </div>
                             </div>
@@ -183,9 +182,8 @@
 {{--                                            <img src="{{asset('images/c.pn.png')}}">--}}
 {{--                                            <i class="icon-info-6"></i>--}}
 {{--                                        </div>--}}
-                                        <h6 class="title">Getting picked up</h6>
-                                        <div class="desc"><p>We send your music to a targeted group of playlist
-                                                curators, they review your song for playlist consideration</p></div>
+                                        <h6 class="title">Build Your Brand </h6>
+                                        <div class="desc"><p>Get you the maximum exposure to the right people. Gain more listeners and fans, create a community of raving fans, and ultimately grow your band or artist profile.</p></div>
                                     </div>
                                 </div>
                             </div>
