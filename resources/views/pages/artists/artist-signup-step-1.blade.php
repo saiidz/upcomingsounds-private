@@ -24,7 +24,7 @@
                 <div id="snackbar"></div>
                 <div class="col-md-6">
                     <div class="cardcontainer">
-                        <div class="photo"> <img src="{{asset('images/Illu.svg')}}">
+                        <div class="photo"> <img src="{{asset('images/artist.svg')}}">
                         </div>
                         <div class="content_artist">
                             <p class="Iam_artist">I'm an artist</p>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="cardcontainer">
-                        <div class="photo"> <img src="{{asset('images/Illu1.svg')}}">
+                        <div class="photo"> <img src="{{asset('images/artist_representative.svg')}}">
                         </div>
                         <div class="content_artist">
                             <p class="Iam_artist">I'm an artist representative</p>

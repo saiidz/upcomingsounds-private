@@ -17,6 +17,7 @@ Route::get('privacy-policy', [DashboardController::class,'privacyPolicy']);
 Route::get('term-of-service', [DashboardController::class,'termOfService']);
 Route::get('about-us', [DashboardController::class,'aboutUs']);
 Route::get('contact-us', [DashboardController::class,'contactUs']);
+Route::post('contact-us',[DashboardController::class,'contactUsPost']);
 Route::get('blog', [DashboardController::class,'blog']);
 
 // Artist Signup

@@ -14,6 +14,9 @@
             <div class="row-cell v-m">
                 <div class="text-center col-sm-6 offset-sm-3 p-y-lg">
                     <h1 class="display-3 m-y-lg">Blog</h1>
+                                        <p class="m-y text-muted h4">
+                                           Coming Soon
+                                        </p>
                 </div>
             </div>
         </div>

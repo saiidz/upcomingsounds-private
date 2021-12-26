@@ -539,6 +539,7 @@ input[type=number] {
     /*.artists_welcome{*/
     /*    padding-bottom: 27px !important;*/
     /*}*/
+    .tasteMakerReg{ word-break: break-all;}
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
@@ -757,7 +758,8 @@ input[type=number] {
         padding:0px !important;
     }
     .learn_more, .artist_login, .submitMyMusic, .auth_btn, .tellMeMore {
-        padding: 8px 8px 8px 8px !important;
+        padding: 10px 3.5rem 12px 3.5rem !important;
+        /*padding: 8px 8px 8px 8px !important;*/
         margin-right: 6px !important;
         /*padding: 10px 1rem 10px 1rem !important;*/
         /*margin-right: 0px !important;*/
