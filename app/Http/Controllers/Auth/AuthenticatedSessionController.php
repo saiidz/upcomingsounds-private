@@ -35,7 +35,7 @@ class AuthenticatedSessionController extends Controller
         if(isset($user_type)){
             if($request->has('user_check') && ($user_type->type != 'artist')){
 //                return redirect()->back()->with('error',"Please Sign in from tastemaker side.");
-                return redirect()->route('curator.login')->with('error',"Please Sign in from tastemaker side.");
+                return redirect()->route('curator.login')->with('error',"You are singing in as curator.");
             }
         }
 
@@ -132,7 +132,7 @@ class AuthenticatedSessionController extends Controller
         if(isset($user_type)){
             if($request->has('user_check') && ($user_type->type != 'curator')){
 //                return redirect()->back()->with('error',"Please Sign in from artist side.");
-                return redirect()->route('login')->with('error',"Please Sign in from artist side.");
+                return redirect()->route('login')->with('error',"You are singing in as artist.");
             }
         }
 
