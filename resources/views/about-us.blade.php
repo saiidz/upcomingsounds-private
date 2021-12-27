@@ -22,7 +22,7 @@
             flex-flow: row wrap
         }
         .probootstrap-section-half.probootstrap-no-hover .probootstrap-image, .probootstrap-section-half.probootstrap-no-hover .probootstrap-text {
-            width: 50% !important
+            width: 50%;
         }
         .probootstrap-section-half .probootstrap-image {
             background-position: center center;
@@ -82,6 +82,27 @@
         }
         .app-header ~ .app-body {
             padding-bottom: 0rem !important;
+        }
+
+        @media (min-width: 481px) and (max-width: 767px) {
+
+            /* CSS */
+            .probootstrap-section-half.probootstrap-no-hover .probootstrap-image, .probootstrap-section-half.probootstrap-no-hover .probootstrap-text {
+                width: 100% !important;
+            }
+        }
+
+        /*
+          ##Device = Most of the Smartphones Mobiles (Portrait)
+          ##Screen = B/w 320px to 479px
+        */
+
+        @media (min-width: 320px) and (max-width: 480px) {
+
+            /* CSS */
+            .probootstrap-section-half.probootstrap-no-hover .probootstrap-image, .probootstrap-section-half.probootstrap-no-hover .probootstrap-text {
+                width: 100% !important;
+            }
         }
     </style>
 @endsection
