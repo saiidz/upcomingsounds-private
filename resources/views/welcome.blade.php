@@ -65,7 +65,7 @@
             ,autoplay: true
             ,nav: true
           }">
-                    <div class="row-col" style="background-image: url({{asset('images/banner_1.jpg')}});">
+                    <div class="row-col" style="background-image: url({{asset('images/Banner__1.jpg')}});">
                         <div class="col-lg-2"></div>
                         <div class="col-lg-8 text-center">
                             <div class="p-a-lg">
@@ -79,7 +79,7 @@
                     </div>
 
 
-                    <div class="row-col" style="background-image: url({{asset('images/banner_2.jpg')}});">
+                    <div class="row-col" style="background-image: url({{asset('images/banner__2.jpg')}});">
                         <div class="col-lg-2"></div>
                         <div class="col-lg-8 text-center">
                             <div class="p-a-lg">
@@ -104,7 +104,7 @@
 {{--                        </div>--}}
 {{--                        <div class="col-lg-2"></div>--}}
 {{--                    </div>--}}
-                    <div class="row-col" style="background-image: url({{asset('images/banner_3.jpg')}});">
+                    <div class="row-col" style="background-image: url({{asset('images/banner__3.jpg')}});">
                         <div class="col-lg-2"></div>
                         <div class="col-lg-8 text-center">
                             <div class="p-a-lg">
