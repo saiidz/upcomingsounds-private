@@ -16,6 +16,7 @@ use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\Console\Input\Input;
@@ -56,6 +57,34 @@ class DashboardController extends Controller
     public function contactUs(Request $request)
     {
         return view('contact-us');
+    }
+    /**
+     * contactUsPost
+     */
+    public function contactUsPost(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'message' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'subject' => 'required|string|max:255',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $contact_details = [
+            'message' => $request->get('message'),
+            'name' => $request->get('name'),
+            'email' => $request->get('email'),
+            'subject' => $request->get('subject'),
+        ];
+
+        Mail::to('info@upcomingsounds.com')->send($contact_details);
+
+        return redirect('/contact-us')->with('success', 'Mail sent successfully.');
     }
     /**
      * blog

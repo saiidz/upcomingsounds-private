@@ -95,7 +95,7 @@
         <div class="probootstrap-main">
             <section class="probootstrap-section-half probootstrap-no-hover">
                 <div class="probootstrap-image"
-                     style="background-image: url(https://uicookies.com/demo/theme/connect/img/image_2.jpg)"></div>
+                     style="background-image: url({{asset('images/upcoming-aboutus.jpg')}})"></div>
                 <div class="probootstrap-text">
                     <div class="probootstrap-inner probootstrap-animate">
                         <h1 class="heading">About Us</h1>
@@ -151,8 +151,8 @@
                         <div class="col-md-4 probootstrap-animate mb50">
                             <div class="probootstrap-card probootstrap-person text-center">
                                 <div class="probootstrap-card-media">
-                                    <img src="https://uicookies.com/demo/theme/connect/img/person_1.jpg" class="img-responsive"
-                                         alt="Free HTML5 Template by uicookies.com">
+                                    <img src="{{asset('images/artistbackgrounds.jpg')}}" class="img-responsive"
+                                         alt="{{asset('images/artistbackgrounds.jpg')}}">
                                 </div>
                                 <div class="probootstrap-card-text">
                                     <div class="display-inline">
@@ -167,14 +167,13 @@
                         <div class="col-md-4 probootstrap-animate mb50">
                             <div class="probootstrap-card probootstrap-person text-center">
                                 <div class="probootstrap-card-media">
-                                    <img src="{{asset('images/curator-influencer-bg.jpg')}}" class="img-responsive"
-                                         alt="{{asset('images/curator-influencer-bg.jpg')}}">
+                                    <img src="{{asset('images/artistbackgrounds.jpg')}}" class="img-responsive"
+                                         alt="{{asset('images/artistbackgrounds.jpg')}}">
                                 </div>
                                 <div class="probootstrap-card-text">
                                     <div class="display-inline">
-                                        <p class="m-y text-muted">UpcomingSounds.com was launched in response to the demand for a fair but rewarding way to get noticed by those who are in search of talent. where new and known artists can share their work and find artist mentors to help them reach a higher level. It’s important to keep in mind that most curators are doing this as a hobby only verified users with an orange tick will provide professional feedback and impactful results, sometimes it's hard to find the perfect words for why they don't like a song. It's never been easier to share your music with the world.</p>
+                                        <p class="m-y text-muted">UpcomingSounds.com was launched in response to the demand for a fair but rewarding way to get noticed by those who are in search of talent. where new and known artists can share their work and where new and known artists can share their work and find artist mentors to help them reach a higher level. It’s important to keep in mind that most curators are doing this as a hobby only verified users with an orange tick will provide professional feedback and impactful results, sometimes it's hard to find the perfect words for why they don't like a song. It's never been easier to share your music with the world.</p>
                                     </div>
-                                    <br>
                                     <div class="form-group tasteMakerReg">
                                         <a href="{{url('/taste-maker-register')}}" class="btn circle btn-outline b-primary p-x-md auth_btn Rigister">Apply as tastemaker pro</a>
                                     </div>
