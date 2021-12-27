@@ -65,7 +65,7 @@ class DashboardController extends Controller
     public function contactUsPost(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'message' => 'required|string|max:255',
+            'message' => 'required|string',
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
             'subject' => 'required|string|max:255',
