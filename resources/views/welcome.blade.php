@@ -65,7 +65,7 @@
             ,autoplay: true
             ,nav: true
           }">
-                    <div class="row-col" style="background-image: url({{asset('images/Banner__1.jpg')}});">
+                    <div class="row-col" style="background-image: url({{asset('images/banner_1.jpg')}});">
                         <div class="col-lg-2"></div>
                         <div class="col-lg-8 text-center">
                             <div class="p-a-lg">
@@ -77,34 +77,19 @@
                         </div>
                         <div class="col-lg-2"></div>
                     </div>
-
-
-                    <div class="row-col" style="background-image: url({{asset('images/banner__2.jpg')}});">
+                    <div class="row-col" style="background-image: url({{asset('images/banner_2.jpg')}});">
                         <div class="col-lg-2"></div>
                         <div class="col-lg-8 text-center">
                             <div class="p-a-lg">
                                 <h2 class="display-4 m-y-lg"> Visibility and Exposure that you deserve </h2>
-                                <h5 class="text-muted m-b-lg">Media coverage can increase the public's awareness of your music.</h5>
+                                <h4 class="text-muted m-b-lg">Media coverage can increase the public's awareness of your music. </h4>
                                 <a href="#" class="btn circle btn-outline b-primary m-b-lg p-x-md">Get it
                                     now</a>
                             </div>
                         </div>
                         <div class="col-lg-2"></div>
                     </div>
-
-{{--                    <div class="row-col" style="background-image: url({{asset('images/banner_2.jpg')}});">--}}
-{{--                        <div class="col-lg-2"></div>--}}
-{{--                        <div class="col-lg-8 text-center">--}}
-{{--                            <div class="p-a-lg">--}}
-{{--                                <h2 class="display-4 m-y-lg"> visibility and Exposure that you deserve </h2>--}}
-{{--                                <h4 class="text-muted m-b-lg">Media coverage can increase the public's awareness of your music. </h4>--}}
-{{--                                <a href="#" class="btn circle btn-outline b-primary m-b-lg p-x-md">Get it--}}
-{{--                                    now</a>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-lg-2"></div>--}}
-{{--                    </div>--}}
-                    <div class="row-col" style="background-image: url({{asset('images/banner__3.jpg')}});">
+                    <div class="row-col" style="background-image: url({{asset('images/banner_3.jpg')}});">
                         <div class="col-lg-2"></div>
                         <div class="col-lg-8 text-center">
                             <div class="p-a-lg">
