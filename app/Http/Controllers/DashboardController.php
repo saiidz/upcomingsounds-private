@@ -6,6 +6,7 @@ use App\Http\Resources\Bid;
 use App\Http\Resources\myBids;
 use App\Http\Resources\SearchVehicleResource;
 use App\Http\Resources\Vehicle as VehicleResource;
+use App\Mail\ContactUpcomingMailable;
 use App\Models\Auction;
 use App\Models\AuctionVehicle;
 use App\Models\Category;
@@ -82,7 +83,7 @@ class DashboardController extends Controller
             'subject' => $request->get('subject'),
         ];
 
-        Mail::to('info@upcomingsounds.com')->send($contact_details);
+        Mail::to($request->get('email'))->send(new ContactUpcomingMailable($contact_details));
 
         return redirect('/contact-us')->with('success', 'Mail sent successfully.');
     }
