@@ -484,7 +484,9 @@ input[type=number] {
     object-fit: cover;
 }
 
-
+.artists_welcome,.curators_welcome{
+    height: 491px;
+}
 
 
 
