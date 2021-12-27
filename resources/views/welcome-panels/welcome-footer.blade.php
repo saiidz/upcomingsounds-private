@@ -29,9 +29,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{url('/about-us')}}">About us</a>
                             </li>
-                            <li class="nav-item">
+                            {{--<li class="nav-item">
                                 <a class="nav-link" href="#">Mobile apps</a>
-                            </li>
+                            </li>--}}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{url('/blog')}}">Blog</a>
                             </li>
