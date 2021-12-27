@@ -15,6 +15,36 @@
     <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
 
     <style type="text/css">
+        @font-face{
+            font-family:'Poppins';
+            src:url({{asset('fonts/poppins/400.eot')}});
+            src:url({{asset('fonts/poppins/400.eot?#iefix')}}) format('embedded-opentype'),
+            url({{asset('fonts/poppins/400.woff2')}}) format('woff2'),
+            url({{asset('fonts/poppins/400.woff')}}) format('woff'),
+            url({{asset('fonts/poppins/400.ttf')}}) format('truetype'),
+            url({{asset('fonts/poppins/400.svg#embed-poppins')}}) format('svg');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face{
+            font-family:'Poppins';
+            src:url({{asset('fonts/poppins/400.eot?#iefix')}});
+            src:url({{asset('fonts/poppins/400.eot?#iefix')}}) format('embedded-opentype'),
+            url({{asset('fonts/poppins/400.eot?#iefix')}}) format('woff2'),
+            url({{asset('fonts/poppins/400.eot?#iefix')}}) format('woff'),
+            url({{asset('fonts/poppins/400.eot?#iefix')}}) format('truetype'),
+            url({{asset('fonts/poppins/400.eot?#iefix')}}) format('svg');
+            font-weight: 700;
+            font-style: normal;
+        }
+        body{
+            font-family: "Segoe UI", "Trebuchet MS", "PT Sans", "Helvetica Neue", "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
+        }
+        h1,h2,h3,h4,h5{
+            color: #02b875 !important;
+            /*color: #da4441 !important;*/
+        }
         img.wp-smiley,
         img.emoji {
             display: inline !important;
@@ -153,7 +183,7 @@
                     <div class="sanjose-text custom-mb text-left"><h2><i>for</i> Artists</h2>
                         <div>
                             <p>
-                                <span style="font-weight: 400">Send your music to real curators and professionals that we have personally selected and tested their ability to impact the music that makes it out to the world.</span>
+                                <span style="font-weight: 400; font-size: 15px;">Send your music to real curators and professionals that we have personally selected and tested their ability to impact the music that makes it out to the world.</span>
                             </p>
                         </div>
                     </div>

@@ -76,14 +76,14 @@
 
 /*-------------------------------------------------------------------------------------------------------------------------------*/
 
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
+/*html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*  border: 0;*/
+/*  font-size: 100%;*/
+/*  font: inherit;*/
+/*  vertical-align: baseline;*/
+/*}*/
 /* HTML5 display-role reset for older browsers */
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -149,35 +149,35 @@ li, dl, dd {
   font-size: 14px;
   line-height: 24px;
 }
-h1, h2, h3, h4, h5, h6, p {
-  margin-bottom: 15px;
-  font-weight: 400;
-  font-family: "Montserrat", sans-serif;
-  color: #273140;
-}
-h1 {
-  font-size: 36px;
-}
-h2 {
-  font-size: 32px;
-}
-h3 {
-  font-size: 28px;
-}
-h4 {
-  font-size: 24px;
-}
-h5 {
-  font-size: 20px;
-}
-h6 {
-  font-size: 16px;
-}
-p, .wp-caption-text, .pingback, #wp-calendar, address, figcaption {
-  font: 300 16px "Montserrat", sans-serif;
-  color: #000;
-  line-height: 28px;
-}
+/*h1, h2, h3, h4, h5, h6, p {*/
+/*  margin-bottom: 15px;*/
+/*  font-weight: 400;*/
+/*  font-family: "Montserrat", sans-serif;*/
+/*  color: #273140;*/
+/*}*/
+/*h1 {*/
+/*  font-size: 36px;*/
+/*}*/
+/*h2 {*/
+/*  font-size: 32px;*/
+/*}*/
+/*h3 {*/
+/*  font-size: 28px;*/
+/*}*/
+/*h4 {*/
+/*  font-size: 24px;*/
+/*}*/
+/*h5 {*/
+/*  font-size: 20px;*/
+/*}*/
+/*h6 {*/
+/*  font-size: 16px;*/
+/*}*/
+/*p, .wp-caption-text, .pingback, #wp-calendar, address, figcaption {*/
+/*  font: 300 16px "Montserrat", sans-serif;*/
+/*  color: #000;*/
+/*  line-height: 28px;*/
+/*}*/
 .pingback {
   margin-bottom: 15px;
 }
@@ -188,14 +188,14 @@ blockquote {
   border-left: 3px solid #f42267;
 }
 blockquote p {
-  font-family: "Droid Serif", serif;
+  /*font-family: "Droid Serif", serif;*/
   font-size: 18px;
   font-weight: 700;
   color: #3a3d4b;
   line-height: 28px;
 }
 pre {
-  font-family: "Droid Serif", serif;
+  /*font-family: "Droid Serif", serif;*/
   font-size: 16px;
   color: #273140;
   line-height: 31px;
@@ -265,13 +265,13 @@ div[id*='wpadminba'] {
   background-image: url("../images/right-banner-product.png");
 }
 .no-menu {
-  font-family: "Montserrat", sans-serif;
+  /*font-family: "Montserrat", sans-serif;*/
   color: #fff;
   float: left;
   line-height: 42px;
 }
 .no-menu a {
-  font-family: "Montserrat", sans-serif;
+  /*font-family: "Montserrat", sans-serif;*/
   color: #f42267;
   margin-left: 10px;
 }
@@ -487,7 +487,7 @@ div[id*='wpadminba'] {
   height: 300px;
 }
 .default-blog .post-item .read-more {
-  font-family: "Montserrat", sans-serif !important;
+  /*font-family: "Montserrat", sans-serif !important;*/
   font-size: 14px;
 }
 .post-detail .post-password-form input[type="password"] {
@@ -495,7 +495,7 @@ div[id*='wpadminba'] {
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
   border-radius: 25px;
-  font-family: "Montserrat", sans-serif;
+  /*font-family: "Montserrat", sans-serif;*/
   font-size: 16px;
   font-weight: 400;
   color: #273140;
@@ -585,7 +585,7 @@ a:active, a:hover, a:focus, button {
   line-height: 42px;
 }
 .main-header .logo a {
-  font: 700 24px "Montserrat", sans-serif;
+  /*font: 700 24px "Montserrat", sans-serif;*/
   color: #fff;
 }
 .main-header .logo a span {
@@ -608,7 +608,7 @@ a:active, a:hover, a:focus, button {
   position: relative;
 }
 .main-header .navigation ul li a {
-  font: 300 16px "Montserrat", sans-serif;
+  /*font: 300 16px "Montserrat", sans-serif;*/
   color: rgba(255, 255, 255, 0.5);
   -webkit-transition: color .3s ease-out;
   -o-transition: color .3s ease-out;
@@ -680,7 +680,7 @@ a:active, a:hover, a:focus, button {
   margin-top: 10px;
 }
 .main-header .navigation .other-links a {
-  font: 400 11px "Montserrat", sans-serif;
+  /*font: 400 11px "Montserrat", sans-serif;*/
   color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
   -webkit-transition: all .3s ease-out;
