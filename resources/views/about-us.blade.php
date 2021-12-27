@@ -135,8 +135,8 @@
                         <div class="col-md-4 probootstrap-animate mb50">
                             <div class="probootstrap-card probootstrap-person text-center">
                                 <div class="probootstrap-card-media">
-                                    <img src="https://uicookies.com/demo/theme/connect/img/person_1.jpg" class="img-responsive"
-                                         alt="Free HTML5 Template by uicookies.com">
+                                    <img src="{{asset('images/artistbackgrounds.jpg')}}" class="img-responsive"
+                                         alt="{{asset('images/artistbackgrounds.jpg')}}">
                                 </div>
                                 <div class="probootstrap-card-text">
                                     <div class="display-inline">
@@ -167,8 +167,8 @@
                         <div class="col-md-4 probootstrap-animate mb50">
                             <div class="probootstrap-card probootstrap-person text-center">
                                 <div class="probootstrap-card-media">
-                                    <img src="https://uicookies.com/demo/theme/connect/img/person_1.jpg" class="img-responsive"
-                                         alt="Free HTML5 Template by uicookies.com">
+                                    <img src="{{asset('images/curator-influencer-bg.jpg')}}" class="img-responsive"
+                                         alt="{{asset('images/curator-influencer-bg.jpg')}}">
                                 </div>
                                 <div class="probootstrap-card-text">
                                     <div class="display-inline">
