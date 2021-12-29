@@ -51,7 +51,7 @@
             margin-bottom: 0;
         }
         .slider-text h1 {
-            font-size: 7vw;
+            font-size: 3vw;
             line-height: 1.2;
         }
         .slider-text .text {
@@ -241,8 +241,11 @@
                 height:346px !important;
                 background-position: center center !important;
             }
+            .slider-text h1 {
+                font-size: 5vw!important;
+            }
             .no-gutters{
-                padding-top: 55px!important;
+                padding-top: 90px!important;
             }
             .mouse {
                 position: initial !important;;
