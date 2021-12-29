@@ -799,4 +799,10 @@ input[type=number] {
     .welcome_video > video{
         width:100% !important;
     }
+    #CuHome{
+        background-position: left !important;
+    }
+    #ArHome{
+        background-position: right !important;
+    }
 }

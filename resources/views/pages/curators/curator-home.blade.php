@@ -85,6 +85,9 @@
         .for_curators{
             padding-top: 120px !important;
         }
+        html {
+            font-size: inherit;
+        }
         body {
             background: url({{asset('images/curator-influencer-bg.jpg')}}) no-repeat center center fixed;
             -webkit-background-size: cover;
@@ -145,7 +148,7 @@
 </head>
 
 
-<body>
+<body id="CuHome">
 
 <div class="container no-padd-md">
     <div id="for-artists" data-vc-full-width="true" data-vc-full-width-init="false"

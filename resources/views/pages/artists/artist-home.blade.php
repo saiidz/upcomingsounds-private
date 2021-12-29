@@ -113,6 +113,9 @@
 
 
     <style type="text/css" data-type="vc_shortcodes-custom-css">
+        html {
+            font-size: inherit;
+        }
         body {
             background: url({{asset('images/artistbackgrounds.jpg')}}) no-repeat center center fixed;
             -webkit-background-size: cover;
@@ -170,7 +173,7 @@
 </head>
 
 
-<body>
+<body id="ArHome">
 
 <div class="container no-padd-md">
     <div id="for-artists" data-vc-full-width="true" data-vc-full-width-init="false"
