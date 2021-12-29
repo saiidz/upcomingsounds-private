@@ -264,7 +264,7 @@
                 <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" style="height: 433px;padding-top: 190px;"
                      data-scrollax-parent="true">
                     <div class="col-md-12 ftco-animate">
-                        <h1 class="mb-4 mb-md-0">Readit blog</h1>
+                        <h1 class="mb-4 mb-md-0">UpcomingSounds blog</h1>
                         <div class="row">
                             <div class="col-md-7">
                                 <div class="text">
