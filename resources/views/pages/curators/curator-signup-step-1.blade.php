@@ -104,7 +104,7 @@
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 curator_col">
                     <div class="cardcontainer curator_container">
-                        <div class="photo"> <img src="{{asset('images/Illu1.svg')}}">
+                        <div class="photo"> <img src="{{asset('images/Monitor.svg')}}">
                         </div>
                         <div class="content_artist">
                             <p class="Iam_artist">Monitor / Publisher / sync</p>
@@ -130,7 +130,7 @@
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 curator_col">
                     <div class="cardcontainer curator_container">
-                        <div class="photo"> <img src="{{asset('images/Illu1.svg')}}">
+                        <div class="photo"> <img src="{{asset('images/brooker.svg')}}">
                         </div>
                         <div class="content_artist">
                             <p class="Iam_artist">Brooker / Booking agent</p>
