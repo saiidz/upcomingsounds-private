@@ -159,7 +159,7 @@
                     <div class="sanjose-text custom-mb text-left"><h2><i>for</i> Curators</h2>
                         <div>
                             <p>
-                                <span style="font-weight: 400">Discover, listen and review song submissions from independent artists, producers and upcoming indie bands. Help them launch their careers! Be a part of the music industry's biggest success stories!.</span>
+                                <span style="font-weight: 400">Discover, listen and review song submissions from independent artists, producers, and upcoming indie bands. Help them launch their careers! Be a part of the music industry's biggest success stories.</span>
                             </p>
                         </div>
                     </div>
@@ -188,7 +188,7 @@
 {{--                                            <i class="icon-info-6"></i>--}}
 {{--                                        </div>--}}
                                         <h6 class="title">DISCOVER NEW MUSIC</h6>
-                                        <div class="desc"><p> Music discovery is made simple with Upcoming sounds. Stay up to date on all your submissions in one location. New tracks added daily.</p></div>
+                                        <div class="desc"><p> Music discovery is made simple with UpcomingSounds. Stay up to date on all your submissions in one location. New tracks get added daily.</p></div>
                                     </div>
                                 </div>
                             </div>

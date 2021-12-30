@@ -201,7 +201,7 @@
 {{--                                        </div>--}}
                                         <h6 class="title"> Direct And Simple </h6>
                                         <div class="desc"><p>Our pricing is direct (no hidden fees).
-                                        It starts with only 2 UCS = £ 2 to send your track to 1 Tastemaker / Pro. </p></div>
+                                        It starts with only 2USC = £2 to send your track to 1 Tastemaker / Pro. </p></div>
                                     </div>
                                 </div>
                             </div>
