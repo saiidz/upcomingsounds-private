@@ -114,8 +114,10 @@
                                     <fieldset class="active__form" id="form2">
                                         <div class="sub__title__container">
                                             <p>Step 2/4</p>
-                                            <h2>Before we start... What are you looking for at this moment?</h2>
-                                            <p>We can direct you to the media outlets and music pros that match your needs best. Quick reminder: on Groover, we guarantee you that they're going to listen to your track and give feedback. If your music catches their attention, they will be able to share it or get in touch with you!</p>
+                                            <h2>Right now... What are you looking for?</h2>
+                                            <p>By selecting any of these options, We can guide you to the media outlets, curators, and music pros that match your needs best. 
+Quick reminder: 
+At UpcomingSounds, we guarantee you that they're going to listen to your track and give feedback. If your music catches their attention, they will be able to share it or get in touch with you!</p>
                                             <span class="text-muted">Your answer is private and will not be shared to influencers.</span>
                                         </div>
                                         <div class="input__container">
@@ -126,7 +128,7 @@
                                                 </div>
                                                 <div class="descriptionTitle">
                                                     <h3>Receive Detailed Advice</h3>
-                                                    <p>I'm looking for constructive feedback about my project and demos, allowing me to know what to improve : production, visual content..</p>
+                                                    <p>I'm looking for professional feedback for my project and demos, allowing me to know what to improve: arrangement, mixing, production, visual content.</p>
                                                 </div>
                                                 <div class="item-title bottom text-right form2CheckedBox">
                                                     <input type="checkbox" name="received_details" />
