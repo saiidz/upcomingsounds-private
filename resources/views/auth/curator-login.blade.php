@@ -11,8 +11,8 @@
             <div class="center-block w-xxl w-auto-xs p-y-md text-center">
                 <div class="p-a-md">
                     <div>
-                        <a href="{{ url('/login/google/?request_from=curator') }}" class="btn-block" style="background-color:#3367d5 !important;">
-                            <img src="{{asset('images/google.png')}}">
+                        <a href="{{ url('/login/google/?request_from=curator') }}" class="btn-block">
+                            <img src="{{asset('images/google.jpg')}}">
                             {{--                            <i class="fa fa-google pull-left"></i>--}}
                             {{--                            Sign up with Google--}}
                         </a>

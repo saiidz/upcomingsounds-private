@@ -12,7 +12,7 @@
                 <div class="p-a-md">
                     <div>
                         <a href="{{ url('/login/google/?request_from=artist') }}" class="btn-block" style="background-color:#3367d5 !important;">
-                            <img src="{{asset('images/google.png')}}">
+                            <img src="{{asset('images/google.jpg')}}">
                             {{--                            <i class="fa fa-google pull-left"></i>--}}
                             {{--                            Sign up with Google--}}
                         </a>
