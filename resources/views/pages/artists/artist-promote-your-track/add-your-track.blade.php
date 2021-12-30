@@ -140,8 +140,8 @@ At UpcomingSounds, we guarantee you that they're going to listen to your track a
 {{--                                                    <ion-icon name="business"></ion-icon>--}}
                                                 </div>
                                                 <div class="descriptionTitle">
-                                                    <h3>Get Visibility and Media Coverage</h3>
-                                                    <p>I'm looking for playlist adds, radio broadcasts, social media shares or reviews from media outlets</p>
+                                                    <h3>Get Media Coverage and Social Exposure </h3>
+                                                    <p>I'm looking for  youtube upload, playlists placement, radio broadcasts, social media posts /stories, shares, or reviews from media outlets</p>
                                                 </div>
                                                 <div class="item-title bottom text-right form2CheckedBox">
                                                     <input type="checkbox"  name="get_visibility" />
@@ -153,8 +153,8 @@ At UpcomingSounds, we guarantee you that they're going to listen to your track a
 {{--                                                    <ion-icon name="business"></ion-icon>--}}
                                                 </div>
                                                 <div class="descriptionTitle">
-                                                    <h3>Build my Professional Entourage</h3>
-                                                    <p>I'm looking for collaborations with labels, bookers, publishers and supervisors (in charge of placing music in movies or TV commercials)</p>
+                                                    <h3>Establish my Professorial Music Career</h3>
+                                                    <p>I'm looking for record deals with labels, booking agents, publishers, and music supervisors (in charge of placing music in movies or TV commercials).</p>
                                                 </div>
                                                 <div class="item-title bottom text-right form2CheckedBox">
                                                     <input type="checkbox"  name="get_visibility" />
