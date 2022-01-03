@@ -11,6 +11,33 @@
         .owl-item{
             height: 412px !important;
         }
+        .mouse {
+            position: absolute;
+            left: 0;
+            bottom: -100px;
+            z-index: 2;
+        }
+        .mouse-icon {
+            height: 80px;
+            border: 1px solid transparent;
+            background: transparent;
+            cursor: pointer;
+            position: relative;
+            text-align: center;
+            margin: 0 auto;
+            display: block;
+        }
+        .mouse-wheel {
+            height: 80px;
+            margin: 0 auto 0;
+            display: block;
+            width: 30px;
+            background: transparent;
+            border-radius: 50%;
+            animation: 1.6s ease infinite wheel-up-down;
+            font-size: 50px;
+            line-height: 1;
+        }
     </style>
     <script>
         document.getElementById('welcome_video').play();
@@ -23,7 +50,7 @@
                 <!-- ############ PAGE START-->
 
 
-                <div class="black owl-theme">
+                <div class="black owl-theme videoWlcome">
                     <div class="row-col">
                         <div class="col-lg-12 welcome_video">
                             <video autoplay muted id="welcome_video">
@@ -36,20 +63,28 @@
                 <div class="row-col">
                     <div class="col-md-12 col-lg-12 black lt">
                         <div class="black cover cover-gd artists_welcome" style="background-image: url({{asset('images/b7.jpg')}});">
-                            <div class="p-a-lg text-center">
+                            <div class="p-a-lg text-center p-t-lg">
                                 <h5 class="display-4 m-y-lg text-white">Artists / Label / Manager </h5>
-                                <p class="text-black text-md m-b-lg">Send your music to real curators and professionals that we have personally selected and tested their ability to impact the music that makes it out to the world.</p>
-                                <a href="{{url('/artist-home')}}" class="btn circle white m-b-lg p-x-md">Artists</a>
+                                <div class="block">
+                                    <p class="text-black text-md m-y-lg">Send your music to real curators and professionals that we have personally selected and tested their ability to impact the music that makes it out to the world.</p>
+                                </div>
+                                <div class="block">
+                                    <a href="{{url('/artist-home')}}" class="btn circle white m-b-lg p-x-md">Artists</a>
+                                </div>
                                 {{--                                <a href="home.html" class="btn circle white m-b-lg p-x-md">View Artists</a>--}}
                             </div>
                         </div>
                     </div>
                     <div class="col-md-12 col-lg-12 black lt">
                         <div class="black cover cover-gd curators_welcome" style="background-image: url({{asset('images/b7.jpg')}});">
-                            <div class="p-a-lg text-center">
+                            <div class="p-a-lg text-center p-t-lg">
                                 <h5 class="display-4 m-y-lg text-white">Curators / Tastemakers / Pros </h5>
-                                <p class="text-black text-md m-b-lg">Discover new music, find upcoming talents, get paid to listen and review now or unreleased music.</p>
-                                <a href="{{url('/curator-home')}}" class="btn circle white m-b-lg p-x-md"> curators / Pros </a>
+                                <div class="block">
+                                    <p class="text-black text-md m-y-lg">Discover new music, find upcoming talents, get paid to listen and review now or unreleased music.</p>
+                                </div>
+                                <div class="block">
+                                    <a href="{{url('/curator-home')}}" class="btn circle white m-b-lg p-x-md"> curators / Pros </a>
+                                </div>
 {{--                                <h3 class="display-3 m-y-lg">Music</h3>--}}
 {{--                                <p class="text-muted text-md m-b-lg"> Discover new talents, Get paid to listen to music, create impact and change someones dream.</p>--}}
 {{--                                <a href="#" class="btn circle white m-b-lg p-x-md">Try Free</a>--}}

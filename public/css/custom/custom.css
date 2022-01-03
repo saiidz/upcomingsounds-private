@@ -712,6 +712,18 @@ input[type=number] {
     #socialMedia{
         display: inline-grid!important;
     }
+    .app-header ~ .app-body {
+        padding-top: 3.5rem;
+    }
+    .videoWlcome {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 100%;
+        /*min-height: 100vh;*/
+        overflow: hidden;
+    }
 }
 
 /*
@@ -782,7 +794,18 @@ input[type=number] {
     .app-header ~ .app-body {
         padding-bottom: 0.5rem !important;
     }
-
+    .app-header ~ .app-body {
+        padding-top: 7rem;
+    }
+    .videoWlcome {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 100%;
+        /*min-height: 100vh;*/
+        overflow: hidden;
+    }
     element.style {
     }
     #snackbarError {
