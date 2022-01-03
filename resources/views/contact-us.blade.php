@@ -160,21 +160,21 @@
                         <div class="media contact-info">
                             <span class="contact-info__icon"><i class="fa fa-home"></i></span>
                             <div class="media-body">
-                                <h3>Buttonwood, California.</h3>
-                                <p>Rosemead, CA 91770</p>
+                                <h3>Liverpool, England.</h3>
+                                <p>29-31 Parliament Street, L8 5RN</p>
                             </div>
                         </div>
                         <div class="media contact-info">
                             <span class="contact-info__icon"><i class="fa fa-tablet"></i></span>
                             <div class="media-body">
-                                <h3>+1 253 565 2365</h3>
+                                <h3></h3>
                                 <p>Mon to Fri 9am to 6pm</p>
                             </div>
                         </div>
                         <div class="media contact-info">
                             <span class="contact-info__icon"><i class="fa fa-envelope"></i></span>
                             <div class="media-body">
-                                <h3><a href="mailto:admin@upcomingsounds.com" class="__cf_email__">admin@upcomingsounds.com</a>
+                                <h3><a href="mailto:info@upcomingsounds.com" class="__cf_email__">info@upcomingsounds.com</a>
                                 </h3>
                                 <p>Send us your query anytime!</p>
                             </div>
