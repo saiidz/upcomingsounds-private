@@ -120,9 +120,7 @@
                 <div class="probootstrap-text">
                     <div class="probootstrap-inner probootstrap-animate">
                         <h1 class="heading">About Us</h1>
-                        <p class="m-y text-muted">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
-                            the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large
-                            language ocean.</p>
+                        <p class="m-y text-muted">Whether you're a composer, band member, producer or sound designer, Upcoming Sounds is the platform you have been waiting for. The site provides promotional opportunities to artists worldwide that might not have been otherwise available to them.</p>
                     </div>
                 </div>
             </section>
@@ -132,19 +130,15 @@
                     <div class="row mb70 probootstrap-animate" data-animate-effect="fadeIn">
                         <div class="col-md-6">
                             <h2>How We Started</h2>
-                            <p class="m-y text-muted">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-                                live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
-                                a large language ocean.</p>
-                            <p class="m-y text-muted">A small river named Duden flows by their place and supplies it with the necessary regelialia. It
-                                is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                            <p class="m-y text-muted">UpcomingSounds.com was launched in response to the demand for a fair but rewarding way to get noticed by those who are in search of talent.
+                            where new and known artists can share their work and where new and known artists can share their work and find artist mentors to help them reach a higher level.</p>
+                            <p class="m-y text-muted">It’s important to keep in mind that most curators are doing this as a hobby only verified users with an orange tick will provide professional feedback and impactful results, sometimes it's hard to find the perfect words for why they don't like a song. It's never been easier to share your music with the world.</p>
                         </div>
                         <div class="col-md-6">
                             <h2>Our Philosophy</h2>
-                            <p class="m-y text-muted">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-                                live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
-                                a large language ocean.</p>
-                            <p class="m-y text-muted">A small river named Duden flows by their place and supplies it with the necessary regelialia. It
-                                is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                            <p class="m-y text-muted">Our philosophy has always been to make music promotion simple and effective for artists of all genres. 
+                            </p>
+                            <p class="m-y text-muted">With an intuitive user interface and seamless experience, we can connect curators directly with the artist community. No middleman, no contracts, just pure curation.</p>
                         </div>
                     </div>
                     <div class="row">
