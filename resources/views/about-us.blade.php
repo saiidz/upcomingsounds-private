@@ -120,7 +120,8 @@
                 <div class="probootstrap-text">
                     <div class="probootstrap-inner probootstrap-animate">
                         <h1 class="heading">About Us</h1>
-                        <p class="m-y text-muted">Whether you're a composer, band member, producer or sound designer, Upcoming Sounds is the platform you have been waiting for. The site provides promotional opportunities to artists worldwide that might not have been otherwise available to them.</p>
+                        <p class="m-y text-muted">Headquarters
+ 29-31 Parliament Street, Liverpool, England, L8 5RN</p>
                     </div>
                 </div>
             </section>
