@@ -190,7 +190,7 @@
                                         <p class="m-y text-muted">UpcomingSounds.com was launched in response to the demand for a fair but rewarding way to get noticed by those who are in search of talent. where new and known artists can share their work and where new and known artists can share their work and find artist mentors to help them reach a higher level. It’s important to keep in mind that most curators are doing this as a hobby only verified users with an orange tick will provide professional feedback and impactful results, sometimes it's hard to find the perfect words for why they don't like a song. It's never been easier to share your music with the world.</p>
                                     </div>
                                     <div class="form-group tasteMakerReg">
-                                        <a href="{{url('/taste-maker-register')}}" class="btn circle btn-outline b-primary p-x-md auth_btn Rigister">Apply as tastemaker pro</a>
+                                        <a href="{{url('/taste-maker-register')}}" class="btn circle btn-outline b-primary p-x-md auth_btn Rigister">Apply as tastemaker / pro</a>
                                     </div>
                                 </div>
                             </div>
