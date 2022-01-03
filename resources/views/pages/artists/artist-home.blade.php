@@ -116,6 +116,9 @@
         html {
             font-size: inherit;
         }
+        .for_artists{
+            padding-top: 120px !important;
+        }
         body {
             background: url({{asset('images/artistbackgrounds.jpg')}}) no-repeat center center fixed;
             -webkit-background-size: cover;
@@ -181,7 +184,7 @@
 {{--         class="vc_row wpb_row vc_row-fluid vc_custom_1513981483432 artist_home_bg vc_row-has-fill padding-lg-150b padding-md-110b padding-sm-50b padding-xs-30b">--}}
         <div class="wpb_column vc_column_container arTiSts vc_col-sm-12 vc_col-lg-6 vc_col-md-6">
 {{--        <div class="wpb_column vc_column_container arTiSts vc_col-sm-12 vc_col-lg-6 vc_col-md-6  padding-lg-140t padding-md-140t padding-sm-50t padding-xs-30t">--}}
-            <div class="vc_column-inner ">
+            <div class="vc_column-inner for_artists">
                 <div class="wpb_wrapper" id="homeArtist">
                     <div class="sanjose-text custom-mb text-left"><h2><i>for</i> Artists</h2>
                         <div>

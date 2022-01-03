@@ -430,10 +430,10 @@ input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default
 }
 
 img.center_icons {
-    width: 30%!important;
+    width: 54%!important;
     display: block!important;
-    margin-left: 18px!important;
-    margin-right: auto!important;
+    /*margin-left: 18px!important;*/
+    /*margin-right: auto!important;*/
     /*margin-left: auto!important;*/
 }
 .createPassword{

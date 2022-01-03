@@ -168,7 +168,10 @@
                             <div class="vc_column-inner">
                                 <div class="wpb_wrapper">
                                     <div class="featured-block text-left  small-size default" id="homeArtist">
-                                        <img src="{{asset('images/curator-rewards--tag.png')}}" class="center_icons">
+                                        <div class="float-left">
+                                            <img src="{{asset('images/curator-rewards--tag.png')}}" class="center_icons">
+                                        </div>
+
 {{--                                        <div class="icon">--}}
 {{--                                            <i class="icon-info-9"></i>--}}
 {{--                                        </div>--}}
