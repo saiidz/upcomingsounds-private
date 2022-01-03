@@ -26,7 +26,6 @@
             border-radius: 5px;
             background: #02b875;
         }
-
         .socialLinks .boxYoutube {
             padding: 15px 15px 15px 15px;
             line-height: 20px;
@@ -142,17 +141,17 @@
                                                                     </small>
                                                                     @enderror
                                                                 </div>
-                                                                    <div class="col s12" id="loadedSocials" style="display:none;">
-                                                                        <div class="box loaded-socials">
-                                                                            <img src="" id="instagram_profile">
-                                                                            <a class="black-text" id="instagram_profile_url" href="" target="_blank">
-                                                                                <b id="instagram_username"></b>
-                                                                            </a>
-                                                                            <div style="color:white">
-                                                                                Followers: <span id="instagram_follower_count"></span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+{{--                                                                <div class="col s12" id="loadedSocials" style="display:none;">--}}
+{{--                                                                    <div class="box loaded-socials">--}}
+{{--                                                                        <img src="" id="instagram_profile">--}}
+{{--                                                                        <a class="black-text" id="instagram_profile_url" href="" target="_blank">--}}
+{{--                                                                            <b id="instagram_username"></b>--}}
+{{--                                                                        </a>--}}
+{{--                                                                        <div style="color:white">--}}
+{{--                                                                            Followers: <span id="instagram_follower_count"></span>--}}
+{{--                                                                        </div>--}}
+{{--                                                                    </div>--}}
+{{--                                                                </div>--}}
                                                                 <div class="input-field col s12">
                                                                     <input id="tiktok_url" class="@error('tiktok_url') is-invalid @enderror" @isset($social_links_required) @if($social_links_required == 'influencer_tiktok') required @endif @endisset placeholder="https://www.tiktok.com/@" name="tiktok_url" value="{{old('tiktok_url')}}" type="text">
                                                                     <label for="tiktok_url" class="social_label">Tiktok</label>
@@ -163,17 +162,17 @@
                                                                     </small>
                                                                     @enderror
                                                                 </div>
-                                                                    <div class="col s12" id="loadedSocialsTiktok" style="display:none;">
-                                                                        <div class="box loaded-socials">
-                                                                            <img src="" id="tiktok_profile">
-                                                                            <a class="black-text" id="tiktok_profile_url" href="" target="_blank">
-                                                                                <b id="tiktok_username"></b>
-                                                                            </a>
-                                                                            <div style="color:white">
-                                                                                Followers: <span id="tiktok_follower_count"></span>
-                                                                            </div>
+                                                                <div class="col s12" id="loadedSocialsTiktok" style="display:none;">
+                                                                    <div class="box loaded-socials">
+                                                                        <img src="" id="tiktok_profile">
+                                                                        <a class="black-text" id="tiktok_profile_url" href="" target="_blank">
+                                                                            <b id="tiktok_username"></b>
+                                                                        </a>
+                                                                        <div style="color:white">
+                                                                            Followers: <span id="tiktok_follower_count"></span>
                                                                         </div>
                                                                     </div>
+                                                                </div>
                                                                 <div class="input-field col s12">
                                                                     <input id="facebook_url" class="@error('facebook_url') is-invalid @enderror" placeholder="https://www.facebook.com/" name="facebook_url" value="{{old('facebook_url')}}" type="text">
                                                                     <label for="facebook_url" class="social_label">Facebook</label>
@@ -185,7 +184,7 @@
                                                                     @enderror
                                                                 </div>
                                                                 <div class="input-field col s12">
-                                                                    <input id="spotify_url" class="@error('spotify_url') is-invalid @enderror" placeholder="https://www.spotify.com/" name="spotify_url" value="{{old('spotify_url')}}" type="text">
+                                                                    <input id="spotify_url" class="@error('spotify_url') is-invalid @enderror" placeholder="https://open.spotify.com/" name="spotify_url" value="{{old('spotify_url')}}" type="text">
                                                                     <label for="spotify_url" class="social_label">Spotify</label>
                                                                     <div id="error_spotify_url" class="red-text" style="color:red; padding:4px;"></div>
                                                                     @error('spotify_url')
@@ -214,13 +213,13 @@
                                                                     </small>
                                                                     @enderror
                                                                 </div>
-                                                                    <div class="col s12" id="loadedSocialsYoutube" style="display:none;">
-                                                                        <div class="boxYoutube loaded-socials">
-                                                                            <a class="black-text" id="youtube_profile_url" href="" target="_blank">
-                                                                                <b>Followers: <span id="youtube_follower_count"></span></b>
-                                                                            </a>
-                                                                        </div>
+                                                                <div class="col s12" id="loadedSocialsYoutube" style="display:none;">
+                                                                    <div class="boxYoutube loaded-socials">
+                                                                        <a class="black-text" id="youtube_profile_url" href="" target="_blank">
+                                                                            <b>Followers: <span id="youtube_follower_count"></span></b>
+                                                                        </a>
                                                                     </div>
+                                                                </div>
                                                                 <div class="input-field col s12">
                                                                     <input id="website_url" class="@error('website_url') is-invalid @enderror" placeholder="https://www.website.com" name="website_url" value="{{old('website_url')}}" type="text">
                                                                     <label for="website_url" class="social_label">Add Website</label>
@@ -296,91 +295,76 @@
             result = "";
             flag = true;
             {{--var influencer_data = {!! json_encode($influencer_data) !!};--}}
-
             // Instagram url check
             // if(social_media_link.instagram_url.value == ""){
             //     social_media_link.instagram_url.style.borderColor = "#DD0A0A";
             //     result = 'Please Enter Url';
             //     flag = false;
             // }
-
             if (social_media_link.instagram_url.value != ""){
                 const string = social_media_link.instagram_url.value;
                 const instagramUrl = "https://www.instagram.com/";
-
                 if(string.includes(instagramUrl) == false ){
                     social_media_link.instagram_url.style.borderColor = "#DD0A0A";
                     result = 'Please Enter Valid Url';
                     flag = false;
                 }
             }
-
             // Tiktok url check
             // if(social_media_link.tiktok_url.value == ""){
             //     social_media_link.tiktok_url.style.borderColor = "#DD0A0A";
             //     result = 'Please Enter Url';
             //     flag = false;
             // }
-
             if (social_media_link.tiktok_url.value != ""){
                 const stringTiktok = social_media_link.tiktok_url.value;
                 const tiktokUrl = "https://www.tiktok.com/@";
-
                 if(stringTiktok.includes(tiktokUrl) == false ){
                     social_media_link.tiktok_url.style.borderColor = "#DD0A0A";
                     result = 'Please Enter Valid Url';
                     flag = false;
                 }
             }
-
             // facebook url check
             if (social_media_link.facebook_url.value != ""){
                 const stringFacebook = social_media_link.facebook_url.value;
                 const facebookUrl = "https://www.facebook.com";
-
                 if(stringFacebook.includes(facebookUrl) == false ){
                     social_media_link.facebook_url.style.borderColor = "#DD0A0A";
                     result = 'Please Enter Valid Url';
                     flag = false;
                 }
             }
-
             // spotify url check
             if (social_media_link.spotify_url.value != ""){
                 const stringSpotify = social_media_link.spotify_url.value;
-                const spotifyUrl = "https://www.spotify.com";
-
+                const spotifyUrl = "https://open.spotify.com/";
                 if(stringSpotify.includes(spotifyUrl) == false ){
                     social_media_link.spotify_url.style.borderColor = "#DD0A0A";
                     result = 'Please Enter Valid Url';
                     flag = false;
                 }
             }
-
             // soundcloud url check
             if (social_media_link.soundcloud_url.value != ""){
                 const stringSoundcloud = social_media_link.soundcloud_url.value;
                 const soundcloudUrl = "https://www.soundcloud.com";
-
                 if(stringSoundcloud.includes(soundcloudUrl) == false ){
                     social_media_link.soundcloud_url.style.borderColor = "#DD0A0A";
                     result = 'Please Enter Valid Url';
                     flag = false;
                 }
             }
-
             // youtube url check
             if (social_media_link.youtube_url.value != ""){
                 const stringYoutube = social_media_link.youtube_url.value;
                 const youtubeUrl = "https://www.youtube.com/channel/";
-
                 if(stringYoutube.includes(youtubeUrl) == false ){
                     social_media_link.youtube_url.style.borderColor = "#DD0A0A";
                     result = 'Please Enter Valid Url';
                     flag = false;
                 }
             }
-
             // if(flag == true && (social_media_link.instagram_url.value != "")){
             if(flag == true){
                 document.getElementById('error_instagram_url').style.display = 'none';
@@ -391,50 +375,42 @@
                 document.getElementById('error_tiktok_url').style.display = 'none';
                 // social_media_link.submit();
             }else{
-
                 const string = social_media_link.instagram_url.value;
                 const instagramUrl = "https://www.instagram.com/";
                 if(social_media_link.instagram_url.value != "" && string.includes(instagramUrl) == false){
                     document.getElementById('error_instagram_url').style.display = 'block';
                     document.getElementById('error_instagram_url').innerHTML = result;
                 }
-
                 const stringTiktok = social_media_link.tiktok_url.value;
                 const tiktokUrl = "https://www.tiktok.com/@";
                 if(social_media_link.tiktok_url.value != "" && stringTiktok.includes(tiktokUrl) == false){
                     document.getElementById('error_tiktok_url').style.display = 'block';
                     document.getElementById('error_tiktok_url').innerHTML = result;
                 }
-
                 const stringFacebook = social_media_link.facebook_url.value;
                 const facebookUrl = "https://www.facebook.com";
                 if(social_media_link.facebook_url.value != "" && stringFacebook.includes(facebookUrl) == false){
                     document.getElementById('error_facebook_url').style.display = 'block';
                     document.getElementById('error_facebook_url').innerHTML = result;
                 }
-
                 const stringSpotify = social_media_link.spotify_url.value;
-                const spotifyUrl = "https://www.spotify.com";
-
+                const spotifyUrl = "https://open.spotify.com/";
                 if(social_media_link.spotify_url.value != "" && stringSpotify.includes(spotifyUrl) == false){
                     document.getElementById('error_spotify_url').style.display = 'block';
                     document.getElementById('error_spotify_url').innerHTML = result;
                 }
-
                 const stringSoundcloud = social_media_link.soundcloud_url.value;
                 const soundcloudUrl = "https://www.soundcloud.com";
                 if(social_media_link.soundcloud_url.value != "" && stringSoundcloud.includes(soundcloudUrl) == false){
                     document.getElementById('error_soundcloud_url').style.display = 'block';
                     document.getElementById('error_soundcloud_url').innerHTML = result;
                 }
-
                 const stringYoutube = social_media_link.youtube_url.value;
                 const youtubeUrl = "https://www.youtube.com/channel/";
                 if(social_media_link.youtube_url.value != "" && stringYoutube.includes(youtubeUrl) == false){
                     document.getElementById('error_youtube_url').style.display = 'block';
                     document.getElementById('error_youtube_url').innerHTML = result;
                 }
-
                 setTimeout(function(){
                     document.getElementById('error_instagram_url').style.display = 'none';
                     document.getElementById('error_tiktok_url').style.display = 'none';
@@ -442,7 +418,6 @@
                     document.getElementById('error_spotify_url').style.display = 'none';
                     document.getElementById('error_soundcloud_url').style.display = 'none';
                     document.getElementById('error_youtube_url').style.display = 'none';
-
                 }, 4000);
                 return false;
             }
@@ -450,54 +425,44 @@
     </script>
     <script>
         // Instagram Profile Show
-        document.getElementById('instagram_url').addEventListener('focusout', function (){
-            var url = "{{url('/instagram-profile-show')}}";
-            var instagram_url = this.value;
-
-            $.ajax({
-                type: "GET",
-                url: url,
-                data: {
-                    instagram_url: instagram_url,
-                    _token: '{{ csrf_token() }}'
-                },
-                dataType: 'json',
-                success:function (data){
-                    document.getElementById('instagram_profile').src = "#";
-                    document.getElementById("instagram_username").value = "";
-                    document.getElementById("instagram_profile_url").href = "";
-                    document.getElementById("instagram_follower_count").value = "";
-
-                    if(data.success){
-                        document.getElementById('loadedSocials').style.display = 'inline-block';
-
-                        document.getElementById('instagram_profile').src = data.instagram_profile;
-
-                        document.getElementById('instagram_username').innerHTML = data.instagram_user.username;
-                        document.getElementById("instagram_profile_url").href="https://www.instagram.com/"+data.instagram_user.username;
-                        document.getElementById('instagram_follower_count').innerHTML = new Intl.NumberFormat().format(Math.abs(data.instagram_user.edge_followed_by.count));
-
-                    }
-
-                    if(data.error){
-                        document.getElementById('loadedSocials').style.display = 'none';
-                        $('#snackbarError').html(data.error);
-                        $('#snackbarError').addClass("show");
-                        setTimeout(function () {
-                            $('#snackbarError').removeClass("show");
-                        }, 5000);
-                    }
-
-                },
-            });
-        });
-
-
+        {{--document.getElementById('instagram_url').addEventListener('focusout', function (){--}}
+        {{--    var url = "{{url('/instagram-profile-show')}}";--}}
+        {{--    var instagram_url = this.value;--}}
+        {{--    $.ajax({--}}
+        {{--        type: "GET",--}}
+        {{--        url: url,--}}
+        {{--        data: {--}}
+        {{--            instagram_url: instagram_url,--}}
+        {{--            _token: '{{ csrf_token() }}'--}}
+        {{--        },--}}
+        {{--        dataType: 'json',--}}
+        {{--        success:function (data){--}}
+        {{--            document.getElementById('instagram_profile').src = "#";--}}
+        {{--            document.getElementById("instagram_username").value = "";--}}
+        {{--            document.getElementById("instagram_profile_url").href = "";--}}
+        {{--            document.getElementById("instagram_follower_count").value = "";--}}
+        {{--            if(data.success){--}}
+        {{--                document.getElementById('loadedSocials').style.display = 'inline-block';--}}
+        {{--                document.getElementById('instagram_profile').src = data.instagram_profile;--}}
+        {{--                document.getElementById('instagram_username').innerHTML = data.instagram_user.username;--}}
+        {{--                document.getElementById("instagram_profile_url").href="https://www.instagram.com/"+data.instagram_user.username;--}}
+        {{--                document.getElementById('instagram_follower_count').innerHTML = new Intl.NumberFormat().format(Math.abs(data.instagram_user.edge_followed_by.count));--}}
+        {{--            }--}}
+        {{--            if(data.error){--}}
+        {{--                document.getElementById('loadedSocials').style.display = 'none';--}}
+        {{--                $('#snackbarError').html(data.error);--}}
+        {{--                $('#snackbarError').addClass("show");--}}
+        {{--                setTimeout(function () {--}}
+        {{--                    $('#snackbarError').removeClass("show");--}}
+        {{--                }, 5000);--}}
+        {{--            }--}}
+        {{--        },--}}
+        {{--    });--}}
+        {{--});--}}
         // Tiktok Profile Show
         document.getElementById('tiktok_url').addEventListener('focusout', function (){
             var url = "{{url('/tiktok-profile-show')}}";
             var tiktok_url = this.value;
-
             $.ajax({
                 type: "GET",
                 url: url,
@@ -511,18 +476,13 @@
                     document.getElementById("tiktok_username").value = "";
                     document.getElementById("tiktok_profile_url").href = "";
                     document.getElementById("tiktok_follower_count").value = "";
-
                     if(data.success){
                         document.getElementById('loadedSocialsTiktok').style.display = 'inline-block';
-
                         document.getElementById('tiktok_profile').src = data.tiktok_profile;
-
                         document.getElementById('tiktok_username').innerHTML = data.tiktok_user.uniqueId;
                         document.getElementById("tiktok_profile_url").href="https://www.tiktok.com/@"+data.tiktok_user.uniqueId;
                         document.getElementById('tiktok_follower_count').innerHTML = new Intl.NumberFormat().format(Math.abs(data.tiktok_followers));
-
                     }
-
                     if(data.error){
                         document.getElementById('loadedSocialsTiktok').style.display = 'none';
                         $('#snackbarError').html(data.error);
@@ -531,17 +491,13 @@
                             $('#snackbarError').removeClass("show");
                         }, 5000);
                     }
-
                 },
             });
         });
-
-
         // Youtube Subscriber Show
         document.getElementById('youtube_url').addEventListener('focusout', function (){
             var url = "{{url('/youtube-profile-show')}}";
             var youtube_url = this.value;
-
             $.ajax({
                 type: "GET",
                 url: url,
@@ -553,15 +509,11 @@
                 success:function (data){
                     document.getElementById("youtube_profile_url").href = "";
                     document.getElementById("youtube_follower_count").value = "";
-
                     if(data.success){
                         document.getElementById('loadedSocialsYoutube').style.display = 'inline-block';
-
                         document.getElementById("youtube_profile_url").href="https://www.youtube.com/channel/"+data.youtube_channel_id;
                         document.getElementById('youtube_follower_count').innerHTML = new Intl.NumberFormat().format(Math.abs(data.youtube_followers));
-
                     }
-
                     if(data.error){
                         document.getElementById('loadedSocialsYoutube').style.display = 'none';
                         $('#snackbarError').html(data.error);
@@ -570,7 +522,6 @@
                             $('#snackbarError').removeClass("show");
                         }, 5000);
                     }
-
                 },
             });
         })

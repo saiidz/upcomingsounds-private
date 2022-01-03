@@ -21,6 +21,8 @@ class CuratorUser extends Model
         'tiktok_url',
         'facebook_url',
         'spotify_url',
+        'deezer_url',
+        'apple_url',
         'soundcloud_url',
         'youtube_url',
         'website_url',

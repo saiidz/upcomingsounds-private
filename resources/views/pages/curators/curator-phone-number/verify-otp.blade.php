@@ -20,7 +20,7 @@
             text-align: center!important;
             font-size: 24px!important;
             color: white!important;
-            margin: 0 2px!important;
+            /*margin: 0 2px!important;*/
         }
 
         .splitter {

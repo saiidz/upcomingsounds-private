@@ -18,7 +18,7 @@
 "><a href="#" rel="noreferrer" target="_blank" style="
     text-align: center;
     display: inline-block;
-"> <img width="70" height="" border="0" src="{{ config('app.url').'/images/logo.png' }}" alt="MiAuto" style="width: 50%;height: auto;text-align:center;"></a></td>
+"> <img width="70" height="" border="0" src="{{ config('app.url').'/images/logo.png' }}" alt="UpcomingSounds" style="width: 50%;height: auto;text-align:center;"></a></td>
             </tr>
             <tr>
                 <td width="650" style="border-radius:16px;background-color: #fff;"><table border="0" cellspacing="0" cellpadding="0" width="100%" style="

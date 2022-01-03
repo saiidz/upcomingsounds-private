@@ -12,6 +12,7 @@ use App\Http\Controllers\Auth\MobileAuthenticatedController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\PhoneNumberVerifiedController;
+use App\Http\Controllers\Auth\PlaylistCuratorSignupController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\YoutubeCuratorSignupController;
@@ -283,7 +284,7 @@ Route::post('/influencer-signup-step-4', [CuratorSignupController::class, 'postI
 /***************************************************** Influencer Route *********************************************************/
 
 /***************************************************** Youtube Route *********************************************************/
-// influencer Route
+// Youtube Route
 Route::post('/youtube-signup-step-3', [YoutubeCuratorSignupController::class, 'postYoutubeSignupStep3'])
     ->middleware('auth')
     ->name('youtube.signup.step.3.post');
@@ -296,6 +297,19 @@ Route::post('/youtube-signup-step-4', [YoutubeCuratorSignupController::class, 'p
     ->name('youtube.signup.step.4.post');
 /***************************************************** Youtube Route *********************************************************/
 
+/***************************************************** Playlist Route *********************************************************/
+// Playlist Route
+Route::post('/playlist-signup-step-3', [PlaylistCuratorSignupController::class, 'postPlaylistSignupStep3'])
+    ->middleware('auth')
+    ->name('playlist.signup.step.3.post');
+
+Route::get('/playlist-signup-step-4', [PlaylistCuratorSignupController::class, 'playlistSignupStep4'])
+    ->middleware('auth')
+    ->name('playlist.signup.step.4');
+Route::post('/playlist-signup-step-4', [PlaylistCuratorSignupController::class, 'postPlaylistSignupStep4'])
+    ->middleware('auth')
+    ->name('playlist.signup.step.4.post');
+/***************************************************** Playlist Route *********************************************************/
 
 Route::get('/taste-maker-signup-step-social-media', [CuratorSignupController::class, 'curatorSignupSocialMedia'])
     ->middleware('auth')

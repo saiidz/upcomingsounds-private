@@ -145,7 +145,7 @@ class CuratorSignupController extends Controller
         if ($curator_signup == 'influencer'){
             return view('pages.curators.curator-influencer-signup.influencer-share-music',compact('curator_data','curator_signup'));
         }elseif ($curator_signup == 'playlist_curator'){
-            return view('pages.curators.curator-signup.social-media',compact('curator_data','curator_signup'));
+            return view('pages.curators.curator-playlist-signup.playlist-share-music',compact('curator_data','curator_signup'));
         }elseif ($curator_signup == 'youtube_channel'){
             return view('pages.curators.curator-youtube-signup.youtube-share-music',compact('curator_data','curator_signup'));
         }elseif ($curator_signup == 'radio_tv'){
@@ -179,6 +179,7 @@ class CuratorSignupController extends Controller
     {
         // Forget a key...
         $request->session()->forget('youtuber_data');
+        $request->session()->forget('playlist_data');
 
         $request->session()->get('curator_signup');
         $request->session()->get('curator_data');
@@ -239,15 +240,19 @@ class CuratorSignupController extends Controller
         $curator_signup = $request->session()->get('curator_signup');
         $curator_data = $request->session()->get('curator_data');
 
-        if ($curator_signup == 'influencer'){
-            $social_links_required = $request->session()->get('influencer_data');
-        }elseif ($curator_signup == 'youtube_channel'){
-            $social_links_required = $request->session()->get('youtuber_data');
-        }
-
-
         if(!empty($curator_data) && !empty($curator_signup)){
-            return view('pages.curators.curator-signup.social-media',compact('curator_data','curator_signup','social_links_required'));
+            if ($curator_signup == 'influencer'){
+                $social_links_required = $request->session()->get('influencer_data');
+                return view('pages.curators.curator-signup.social-media',compact('curator_data','curator_signup','social_links_required'));
+            }elseif ($curator_signup == 'youtube_channel'){
+                $social_links_required = $request->session()->get('youtuber_data');
+                return view('pages.curators.curator-signup.social-media',compact('curator_data','curator_signup','social_links_required'));
+            }elseif ($curator_signup == 'playlist_curator'){
+                $social_links_required = $request->session()->get('playlist_data');
+                return view('pages.curators.curator-playlist-signup.social-media',compact('curator_data','curator_signup','social_links_required'));
+            }else{
+                return view('pages.curators.curator-signup.social-media',compact('curator_data','curator_signup','social_links_required'));
+            }
         }else{
             return redirect()->back();
         }
@@ -260,27 +265,27 @@ class CuratorSignupController extends Controller
      */
     public function postCuratorSignupSocialMedia(Request $request)
     {
-        if(isset($request->instagram_url) || isset($request->tiktok_url) || isset($request->facebook_url) || isset($request->spotify_url) || isset($request->soundcloud_url) || isset($request->youtube_url) || isset($request->website_url))    {
+        if(isset($request->instagram_url) || isset($request->tiktok_url) || isset($request->facebook_url) || isset($request->spotify_url) || isset($request->deezer_url) || isset($request->apple_url) || isset($request->soundcloud_url) || isset($request->youtube_url) || isset($request->website_url))    {
 
             // instagram api use for followers user count
-            if(!empty($request->instagram_url)){
-                $str = $request->instagram_url;
-                $values = parse_url($str);
-                $host = explode('/',$values['path']);
-                $username = (isset($host[1])) ? $host[1] : '';
-                if(empty($username)){
-                    return redirect()->back()->with('error', 'You have entered instagram invalid url. Please add correct url');
-                }
-                $response = Http::get("https://www.instagram.com/$username/?__a=1");
-                if($response->status() == 404){
-                    return redirect()->back()->with('error', 'You have entered invalid instagram url. Please add correct url');
-                }
-                $instagram_followers = $response->collect()['graphql']['user']['edge_followed_by']['count'];
-                $need_instagram_followers = 15000;
-                if($need_instagram_followers >= $instagram_followers){
-                    return redirect()->back()->with('error', 'Your instagram followers is '.$instagram_followers.'. You need at least 15,000 Instagram followers to apply as an Influencer');
-                }
-            }
+//            if(!empty($request->instagram_url)){
+//                $str = $request->instagram_url;
+//                $values = parse_url($str);
+//                $host = explode('/',$values['path']);
+//                $username = (isset($host[1])) ? $host[1] : '';
+//                if(empty($username)){
+//                    return redirect()->back()->with('error', 'You have entered instagram invalid url. Please add correct url');
+//                }
+//                $response = Http::get("https://www.instagram.com/$username/?__a=1");
+//                if($response->status() == 404){
+//                    return redirect()->back()->with('error', 'You have entered invalid instagram url. Please add correct url');
+//                }
+//                $instagram_followers = $response->collect()['graphql']['user']['edge_followed_by']['count'];
+//                $need_instagram_followers = 15000;
+//                if($need_instagram_followers >= $instagram_followers){
+//                    return redirect()->back()->with('error', 'Your instagram followers is '.$instagram_followers.'. You need at least 15,000 Instagram followers to apply as an Influencer');
+//                }
+//            }
 
             // tiktok api use for followers user count
             if(!empty($request->tiktok_url)){
@@ -440,7 +445,7 @@ class CuratorSignupController extends Controller
         if ($curator_signup == 'influencer'){
             $taste_maker_data = $request->session()->get('influencer_data');
         }elseif ($curator_signup == 'playlist_curator'){
-            $taste_maker_data = $request->session()->get('curator_signup');
+            $taste_maker_data = $request->session()->get('playlist_data');
         }elseif ($curator_signup == 'youtube_channel'){
             $taste_maker_data = $request->session()->get('youtuber_data');
         }elseif ($curator_signup == 'radio_tv'){
@@ -478,6 +483,8 @@ class CuratorSignupController extends Controller
                 $input['tiktok_url']             = isset($social_media_data['tiktok_url']) ? $social_media_data['tiktok_url'] : null;
                 $input['facebook_url']           = isset($social_media_data['facebook_url']) ? $social_media_data['facebook_url'] : null;
                 $input['spotify_url']            = isset($social_media_data['spotify_url']) ? $social_media_data['spotify_url'] : null;
+                $input['deezer_url']             = isset($social_media_data['deezer_url']) ? $social_media_data['deezer_url'] : null;
+                $input['apple_url']              = isset($social_media_data['apple_url']) ? $social_media_data['apple_url'] : null;
                 $input['soundcloud_url']         = isset($social_media_data['soundcloud_url']) ? $social_media_data['soundcloud_url'] : null;
                 $input['youtube_url']            = isset($social_media_data['youtube_url']) ? $social_media_data['youtube_url'] : null;
                 $input['website_url']            = isset($social_media_data['website_url']) ? $social_media_data['website_url'] : null;

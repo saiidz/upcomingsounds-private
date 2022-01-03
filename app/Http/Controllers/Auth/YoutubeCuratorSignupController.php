@@ -17,6 +17,7 @@ class YoutubeCuratorSignupController extends Controller
     {
         // Forget a key...
         $request->session()->forget('influencer_data');
+        $request->session()->forget('playlist_data');
 
         $request->session()->get('curator_signup');
         $request->session()->get('curator_data');

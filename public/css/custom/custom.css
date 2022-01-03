@@ -709,6 +709,9 @@ input[type=number] {
     .welcome_video > video{
         width:100% !important;
     }
+    #socialMedia{
+        display: inline-grid!important;
+    }
 }
 
 /*
@@ -804,5 +807,8 @@ input[type=number] {
     }
     #ArHome{
         background-position: right !important;
+    }
+    #socialMedia{
+        display: inline-grid!important;
     }
 }
