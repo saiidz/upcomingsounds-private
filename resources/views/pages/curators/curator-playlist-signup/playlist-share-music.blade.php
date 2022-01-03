@@ -55,7 +55,7 @@
                                                                     <label>
                                                                         <input type="radio" class="oneTrackSelected" name="share_music"  value="playlist_spotify" checked/>
                                                                         <span>On Spotify <i class="fa fa-spotify"></i>
-                                                                            <p class="text-muted"> must have at least 1,000 organic, engaged followers on at least one playlist. No payola or bought followers.</p></span>
+                                                                            <p class="text-muted"> must have at least 5,000 organic, engaged followers on at least one playlist. No payola or bought followers.</p></span>
                                                                     </label>
                                                                 </div>
                                                             </div>
@@ -66,7 +66,7 @@
                                                                     <label>
                                                                         <input type="radio" class="oneTrackSelected" name="share_music"  value="playlist_deezer" />
                                                                         <span>On Deezer <i class="iconify" data-icon="fa-brands:deezer"></i>
-                                                                            <p class="text-muted"></p></span>
+                                                                            <p class="text-muted"> must have at least 5,000 organic, engaged followers on at least one playlist. No payola or bought followers.</p></span>
                                                                     </label>
                                                                 </div>
                                                             </div>
@@ -77,7 +77,7 @@
                                                                     <label>
                                                                         <input type="radio" class="oneTrackSelected" name="share_music" value="playlist_apple" />
                                                                         <span>On Apple Music <i class="iconify" data-icon="fa-brands:apple"></i>
-                                                                            <p class="text-muted"></p></span>
+                                                                            <p class="text-muted"> must have at least 5,000 organic, engaged followers on at least one playlist. No payola or bought followers.</p></span>
                                                                         {{--                                                                            <p class="text-muted">At least 1,000 views per video on average.</p></span>--}}
                                                                     </label>
                                                                 </div>
