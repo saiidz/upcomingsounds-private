@@ -49,15 +49,19 @@
                     <h6 class="text-u-c m-b text-muted">Links</h6>
                     <div class="m-b-md">
                         <ul class="nav l-h-2x _600">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{url('/register')}}">Sign up</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{url('/login')}}"">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{url('/taste-maker-register')}}">Apply as Tastemaker / Pro</a>
-                            </li>
+                            @if(Auth::check())
+
+                            @else
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{url('/register')}}">Sign up</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{url('/login')}}">Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{url('/taste-maker-register')}}">Apply as Tastemaker / Pro</a>
+                                </li>
+                            @endif
                             <li class="nav-item">
                                 <a class="nav-link" href="{{url('/contact-us')}}">Contact us</a>
                             </li>
