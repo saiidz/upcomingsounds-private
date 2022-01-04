@@ -38,6 +38,18 @@
         }
     }
 </style>
+{!! htmlScriptTagJsApi([
+        'action' => 'homepage',
+        'callback_then' => 'callbackThen',
+        'callback_catch' => 'callbackCatch'
+    ]) !!}
+
+<!-- OR! -->
+
+{!! htmlScriptTagJsApi([
+    'action' => 'homepage',
+    'custom_validation' => 'myCustomValidation'
+]) !!}
     <!-- endbuild -->
     @yield('page-style')
 </head>
