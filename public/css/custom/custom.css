@@ -542,6 +542,9 @@ input[type=number] {
     /*    padding-bottom: 27px !important;*/
     /*}*/
     .tasteMakerReg{ word-break: break-all;}
+    .mouse{
+        display:none;
+    }
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
@@ -575,6 +578,9 @@ input[type=number] {
     }
     .welcome_video > video{
         width:100% !important;
+    }
+    .mouse{
+        display:none;
     }
 }
 
@@ -624,7 +630,9 @@ input[type=number] {
     .welcome_video > video{
         width:100% !important;
     }
-
+    .mouse{
+        display:none;
+    }
 }
 
 /*
@@ -723,6 +731,9 @@ input[type=number] {
         width: 100%;
         /*min-height: 100vh;*/
         overflow: hidden;
+    }
+    .mouse {
+        display: block !important;
     }
 }
 
@@ -826,12 +837,15 @@ input[type=number] {
         width:100% !important;
     }
     #CuHome{
-        background-position: left !important;
+        background-position: inherit !important;
     }
     #ArHome{
-        background-position: right !important;
+        background-position: 100% !important;
     }
     #socialMedia{
         display: inline-grid!important;
+    }
+    .mouse {
+        display: block !important;
     }
 }

@@ -489,6 +489,9 @@ class CuratorSignupController extends Controller
                 $input['youtube_url']            = isset($social_media_data['youtube_url']) ? $social_media_data['youtube_url'] : null;
                 $input['website_url']            = isset($social_media_data['website_url']) ? $social_media_data['website_url'] : null;
                 $input['come_upcoming']          = ($request->get('come_upcoming')) ? $request->get('come_upcoming') : null;
+                $input['playlist_spotify_url']   = isset($taste_maker_data['playlist_spotify_url']) ? $taste_maker_data['playlist_spotify_url'] : null;
+                $input['playlist_deezer_url']    = isset($taste_maker_data['playlist_deezer_url']) ? $taste_maker_data['playlist_deezer_url'] : null;
+                $input['playlist_apple_url']     = isset($taste_maker_data['playlist_apple_url']) ? $taste_maker_data['playlist_apple_url'] : null;
                 $user->curatorUser()->create($input);
 
                 // user tags store

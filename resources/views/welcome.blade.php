@@ -11,11 +11,15 @@
         .owl-item{
             height: 412px !important;
         }
+        .mouse{
+            display:none;
+        }
         .mouse {
             position: absolute;
-            left: 0;
-            bottom: -100px;
+            bottom: -0.375rem;
             z-index: 2;
+            width: 100%;
+            text-align: center;
         }
         .mouse-icon {
             height: 80px;
@@ -57,6 +61,11 @@
                                 <source src="{{asset('videos/upcomingsounds_home.m4v')}}" type="video/mp4">
                                 <source src="{{asset('images/banner_1.jpg')}}" type="video/ogg">
                             </video>
+                            <div class="mouse">
+                                <a href="javascript:void(0)" class="mouse-icon" id="upClick">
+                                    <div class="mouse-wheel"><i class="fa fa-arrow-down"></i></div>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -213,6 +222,11 @@
         $('video').on('ended', function () {
             this.load();
             this.play();
+        });
+        $("#upClick").click(function() {
+            $('html, body').animate({
+                scrollTop: $(".owl-carousel").offset().top
+            }, 1500);
         });
     </script>
 @endsection

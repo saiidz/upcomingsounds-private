@@ -21,7 +21,7 @@ class PlaylistCuratorSignupController extends Controller
 
         $request->session()->get('curator_signup');
         $request->session()->get('curator_data');
-        $request->session()->put('playlist_data', $request->get('share_music'));
+        $request->session()->put('playlist_data', $request->all());
 
         return redirect()->route('playlist.signup.step.4');
     }
@@ -35,11 +35,11 @@ class PlaylistCuratorSignupController extends Controller
         $playlist_data = $request->session()->get('playlist_data');
 
         if(!empty($curator_data) && !empty($curator_signup) && !empty($playlist_data)){
-            if($playlist_data == 'playlist_spotify'){
+            if($playlist_data['share_music'] == 'playlist_spotify'){
                 return view('pages.curators.curator-playlist-signup.playlist-spotify-details',compact('curator_data','curator_signup'));
-            }elseif ($playlist_data == 'playlist_deezer'){
+            }elseif ($playlist_data['share_music'] == 'playlist_deezer'){
                 return view('pages.curators.curator-playlist-signup.playlist-deezer-details',compact('curator_data','curator_signup'));
-            }elseif ($playlist_data == 'playlist_apple'){
+            }elseif ($playlist_data['share_music'] == 'playlist_apple'){
                 return view('pages.curators.curator-playlist-signup.playlist-apple-details',compact('curator_data','curator_signup'));
             }
         }else{

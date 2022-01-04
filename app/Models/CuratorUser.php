@@ -27,6 +27,9 @@ class CuratorUser extends Model
         'youtube_url',
         'website_url',
         'come_upcoming',
+        'playlist_spotify_url',
+        'playlist_deezer_url',
+        'playlist_apple_url',
         'deleted_at',
     ];
 
