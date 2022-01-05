@@ -10,6 +10,16 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/themes/vertical-modern-menu-template/materialize.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/themes/vertical-modern-menu-template/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/pages/page-faq.css')}}">
+    <style>
+        ul:not(.browser-default) {
+            padding-left: 0;
+            list-style-type: none;
+        }
+
+        ul:not(.browser-default) > li {
+            list-style-type: none;
+        }
+    </style>
 @endsection
 
 {{-- page content --}}

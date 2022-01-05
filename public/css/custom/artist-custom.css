@@ -340,6 +340,8 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
     #snackbar,
     #snackbarError {
         z-index: 11 !important;
+        font-size: 13px!important;
         top: 59px !important;
+        right: 28px!important;
     }
 }

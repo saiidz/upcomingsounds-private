@@ -240,7 +240,7 @@
                                                                             <div class="collapsible-header">Q: Why share your social media links on Upcoming Sounds? <i class="material-icons">
                                                                                     keyboard_arrow_right </i></div>
                                                                             <div class="collapsible-body">
-                                                                                <p>The music curators & pros on Groover enjoy browsing the social media accounts of an artist which they have received a track from. Filling in your main social media profiles is a way for them to get to know your project better </p>
+                                                                                <p>The music curators & pros on Upcoming Sounds enjoy browsing the social media accounts of an artist which they have received a track from. Filling in your main social media profiles is a way for them to get to know your project better </p>
                                                                             </div>
                                                                         </li>
                                                                         <li>

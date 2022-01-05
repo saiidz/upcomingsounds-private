@@ -5,32 +5,31 @@
 @section('title','Welcome')
 @section('page-style')
     <style>
-        .display-4{
-            font-size: 2.5rem !important;
-        }
-        .owl-item{
-            height: 412px !important;
-        }
-        .mouse{
-            display:none;
-        }
-        .mouse {
-            position: absolute;
-            bottom: -0.375rem;
-            z-index: 2;
-            width: 100%;
-            text-align: center;
-        }
-        .mouse-icon {
-            height: 80px;
-            border: 1px solid transparent;
-            background: transparent;
-            cursor: pointer;
-            position: relative;
-            text-align: center;
-            margin: 0 auto;
-            display: block;
-        }
+        /*.display-4{*/
+        /*    font-size: 2.5rem !important;*/
+        /*}*/
+
+        /*.mouse{*/
+        /*    display:none;*/
+        /*}*/
+        /*.mouse {*/
+        /*    position: absolute;*/
+        /*    !*bottom: -0.375rem;*!*/
+        /*    top: 827px;*/
+        /*    z-index: 2;*/
+        /*    width: 100%;*/
+        /*    text-align: center;*/
+        /*}*/
+        /*.mouse-icon {*/
+        /*    height: 80px;*/
+        /*    border: 1px solid transparent;*/
+        /*    background: transparent;*/
+        /*    cursor: pointer;*/
+        /*    position: relative;*/
+        /*    text-align: center;*/
+        /*    margin: 0 auto;*/
+        /*    display: block;*/
+        /*}*/
         .mouse-wheel {
             height: 80px;
             margin: 0 auto 0;
@@ -49,7 +48,7 @@
 @endsection
 {{-- page content --}}
 @section('content')
-            <div class="app-body">
+            <div class="{{Auth::check() ? 'app-bodynew' : 'app-body'}}">
 
                 <!-- ############ PAGE START-->
 
@@ -74,12 +73,8 @@
                         <div class="black cover cover-gd artists_welcome" style="background-image: url({{asset('images/b7.jpg')}});">
                             <div class="p-a-lg text-center p-t-lg">
                                 <h5 class="display-4 m-y-lg text-white">Artists / Label / Manager </h5>
-                                <div class="block">
-                                    <p class="text-black text-md m-y-lg">Send your music to real curators and professionals that we have personally selected and tested their ability to impact the music that makes it out to the world.</p>
-                                </div>
-                                <div class="block">
-                                    <a href="{{url('/artist-home')}}" class="btn circle white m-b-lg p-x-md">Artists</a>
-                                </div>
+                                <p class="text-black text-md m-y-lg">Send your music to real curators and professionals that we have personally selected and tested their ability to impact the music that makes it out to the world.</p>
+                                <a href="{{url('/artist-home')}}" class="btn circle white m-b-lg p-x-md">Artists</a>
                                 {{--                                <a href="home.html" class="btn circle white m-b-lg p-x-md">View Artists</a>--}}
                             </div>
                         </div>
@@ -88,12 +83,8 @@
                         <div class="black cover cover-gd curators_welcome" style="background-image: url({{asset('images/b7.jpg')}});">
                             <div class="p-a-lg text-center p-t-lg">
                                 <h5 class="display-4 m-y-lg text-white">Curators / Tastemakers / Pros </h5>
-                                <div class="block">
-                                    <p class="text-black text-md m-y-lg">Discover new music, find upcoming talents, get paid to listen and review now or unreleased music.</p>
-                                </div>
-                                <div class="block">
-                                    <a href="{{url('/curator-home')}}" class="btn circle white m-b-lg p-x-md"> curators / Pros </a>
-                                </div>
+                                <p class="text-black text-md m-y-lg">Discover new music, find upcoming talents, get paid to listen and review now or unreleased music.</p>
+                                <a href="{{url('/curator-home')}}" class="btn circle white m-b-lg p-x-md"> curators / Pros </a>
 {{--                                <h3 class="display-3 m-y-lg">Music</h3>--}}
 {{--                                <p class="text-muted text-md m-b-lg"> Discover new talents, Get paid to listen to music, create impact and change someones dream.</p>--}}
 {{--                                <a href="#" class="btn circle white m-b-lg p-x-md">Try Free</a>--}}

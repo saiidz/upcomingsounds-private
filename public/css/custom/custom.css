@@ -449,6 +449,9 @@ img.center_icons {
 .app-header ~ .app-body {
     padding-bottom: 3.5rem !important;
 }
+.app-header ~ .app-bodynew {
+    padding-top: 3.5rem;
+}
 
 #phone{
     /*border:none !important;*/
@@ -488,10 +491,35 @@ input[type=number] {
     height: 491px;
 }
 
+.display-4{
+    font-size: 2.5rem !important;
+}
+.mouse {
+    position: relative;
+    bottom: 5.625rem;
+    /*top: 827px;*/
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+}
+.mouse-icon {
+    height: 80px;
+    border: 1px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+    margin: 0 auto;
+    display: initial;
+}
+ul:not(.browser-default) {
+    padding-left: 0;
+    list-style-type: none;
+}
 
-
-
-
+ul:not(.browser-default) > li {
+    list-style-type: none;
+}
 
 
 
@@ -542,8 +570,16 @@ input[type=number] {
     /*    padding-bottom: 27px !important;*/
     /*}*/
     .tasteMakerReg{ word-break: break-all;}
-    .mouse{
-        display:none;
+    .mouse {
+        position: relative;
+        bottom: 5.625rem;
+        z-index: 2;
+        width: 100%;
+        text-align: center;
+    }
+    .mouse-icon {
+        position: absolute;
+        display: initial;
     }
 }
 
@@ -579,8 +615,16 @@ input[type=number] {
     .welcome_video > video{
         width:100% !important;
     }
-    .mouse{
-        display:none;
+    .mouse {
+        position: relative;
+        bottom: 5.625rem;
+        z-index: 2;
+        width: 100%;
+        text-align: center;
+    }
+    .mouse-icon {
+        position: absolute;
+        display: initial;
     }
 }
 
@@ -630,8 +674,16 @@ input[type=number] {
     .welcome_video > video{
         width:100% !important;
     }
-    .mouse{
-        display:none;
+    .mouse {
+        position: relative;
+        bottom: 5.625rem;
+        z-index: 2;
+        width: 100%;
+        text-align: center;
+    }
+    .mouse-icon {
+        position: absolute;
+        display: initial;
     }
 }
 
@@ -663,6 +715,17 @@ input[type=number] {
     }
     .welcome_video > video{
         width:100% !important;
+    }
+    .mouse {
+        position: relative;
+        bottom: 5.625rem;
+        z-index: 2;
+        width: 100%;
+        text-align: center;
+    }
+    .mouse-icon {
+        position: absolute;
+        display: initial;
     }
 }
 
@@ -723,6 +786,9 @@ input[type=number] {
     .app-header ~ .app-body {
         padding-top: 3.5rem;
     }
+    .app-header ~ .app-bodynew {
+        padding-top: 3.5rem;
+    }
     .videoWlcome {
         position: relative;
         display: flex;
@@ -734,6 +800,9 @@ input[type=number] {
     }
     .mouse {
         display: block !important;
+    }
+    .mouse-wheel{
+        font-size:30px !important;
     }
 }
 
@@ -808,6 +877,9 @@ input[type=number] {
     .app-header ~ .app-body {
         padding-top: 7rem;
     }
+    .app-header ~ .app-bodynew {
+        padding-top: 3.5rem;
+    }
     .videoWlcome {
         position: relative;
         display: flex;
@@ -828,7 +900,10 @@ input[type=number] {
         margin-left: auto!important;
     }
     .tastemakers_signup{
-        font-size: 11px !important;
+        font-size: 10px !important;
+    }
+    #Login{
+        font-size: 10px !important;
     }
     .snackbarError{
         top:113px !important;
@@ -847,5 +922,22 @@ input[type=number] {
     }
     .mouse {
         display: block !important;
+    }
+    .display-4 {
+        font-size: 1.5rem !important;
+    }
+    .mouse-wheel{
+        font-size:30px !important;
+    }
+    .mouse {
+        position: relative;
+        bottom: 5.625rem;
+        z-index: 2;
+        width: 100%;
+        text-align: center;
+    }
+    .mouse-icon {
+        position: absolute;
+        display: initial;
     }
 }

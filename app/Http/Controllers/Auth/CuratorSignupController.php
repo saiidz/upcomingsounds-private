@@ -482,16 +482,13 @@ class CuratorSignupController extends Controller
                 $input['instagram_url']          = isset($social_media_data['instagram_url']) ? $social_media_data['instagram_url'] : null;
                 $input['tiktok_url']             = isset($social_media_data['tiktok_url']) ? $social_media_data['tiktok_url'] : null;
                 $input['facebook_url']           = isset($social_media_data['facebook_url']) ? $social_media_data['facebook_url'] : null;
-                $input['spotify_url']            = isset($social_media_data['spotify_url']) ? $social_media_data['spotify_url'] : null;
-                $input['deezer_url']             = isset($social_media_data['deezer_url']) ? $social_media_data['deezer_url'] : null;
-                $input['apple_url']              = isset($social_media_data['apple_url']) ? $social_media_data['apple_url'] : null;
+                $input['spotify_url']            = isset($social_media_data['spotify_url']) ? $social_media_data['spotify_url'] : $taste_maker_data['spotify_url'];
+                $input['deezer_url']             = isset($social_media_data['deezer_url']) ? $social_media_data['deezer_url'] : $taste_maker_data['deezer_url'];
+                $input['apple_url']              = isset($social_media_data['apple_url']) ? $social_media_data['apple_url'] : $taste_maker_data['apple_url'];
                 $input['soundcloud_url']         = isset($social_media_data['soundcloud_url']) ? $social_media_data['soundcloud_url'] : null;
                 $input['youtube_url']            = isset($social_media_data['youtube_url']) ? $social_media_data['youtube_url'] : null;
                 $input['website_url']            = isset($social_media_data['website_url']) ? $social_media_data['website_url'] : null;
                 $input['come_upcoming']          = ($request->get('come_upcoming')) ? $request->get('come_upcoming') : null;
-                $input['playlist_spotify_url']   = isset($taste_maker_data['playlist_spotify_url']) ? $taste_maker_data['playlist_spotify_url'] : null;
-                $input['playlist_deezer_url']    = isset($taste_maker_data['playlist_deezer_url']) ? $taste_maker_data['playlist_deezer_url'] : null;
-                $input['playlist_apple_url']     = isset($taste_maker_data['playlist_apple_url']) ? $taste_maker_data['playlist_apple_url'] : null;
                 $user->curatorUser()->create($input);
 
                 // user tags store

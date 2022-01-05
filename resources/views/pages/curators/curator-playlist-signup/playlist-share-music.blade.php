@@ -60,14 +60,14 @@
                                                                     {{-- Spotify url--}}
                                                                     <div class="input-field col s12" id="spotifyUrl">
                                                                         <input id="spotify_url"
-                                                                               class="@error('playlist_spotify_url') is-invalid @enderror"
+                                                                               class="@error('spotify_url') is-invalid @enderror"
                                                                                placeholder="https://open.spotify.com/"
-                                                                               name="playlist_spotify_url"
-                                                                               value="{{old('playlist_spotify_url')}}" type="text">
-                                                                        <label for="playlist_spotify_url" class="social_label">Spotify</label>
+                                                                               name="spotify_url"
+                                                                               value="{{old('spotify_url')}}" type="text">
+                                                                        <label for="spotify_url" class="social_label">Spotify</label>
                                                                         <div id="error_spotify_url" class="red-text"
                                                                              style="color:red; padding:4px;"></div>
-                                                                        @error('playlist_spotify_url')
+                                                                        @error('spotify_url')
                                                                         <small class="red-text" role="alert">
                                                                             {{ $message }}
                                                                         </small>
@@ -89,16 +89,16 @@
                                                                     {{-- Deezer url--}}
                                                                     <div class="input-field col s12" id="deezerUrl" style="display:none;">
                                                                         <input id="deezer_url"
-                                                                               class="@error('playlist_deezer_url') is-invalid @enderror"
+                                                                               class="@error('deezer_url') is-invalid @enderror"
                                                                                placeholder="https://www.deezer.com/en/"
-                                                                               name="playlist_deezer_url"
-                                                                               value="{{old('playlist_deezer_url')}}"
+                                                                               name="deezer_url"
+                                                                               value="{{old('deezer_url')}}"
                                                                                type="text">
-                                                                        <label for="playlist_deezer_url"
+                                                                        <label for="deezer_url"
                                                                                class="social_label">Deezer</label>
                                                                         <div id="error_deezer_url" class="red-text"
                                                                              style="color:red; padding:4px;"></div>
-                                                                        @error('playlist_deezer_url')
+                                                                        @error('deezer_url')
                                                                         <small class="red-text" role="alert">
                                                                             {{ $message }}
                                                                         </small>
@@ -119,15 +119,15 @@
                                                                     {{-- Apple Music url--}}
                                                                     <div class="input-field col s12" id="appleUrl" style="display:none;">
                                                                         <input id="apple_url"
-                                                                               class="@error('playlist_apple_url') is-invalid @enderror"
+                                                                               class="@error('apple_url') is-invalid @enderror"
                                                                                placeholder="https://music.apple.com/us/"
-                                                                               name="playlist_apple_url"
-                                                                               value="{{old('playlist_apple_url')}}" type="text">
-                                                                        <label for="playlist_apple_url" class="social_label">Apple
+                                                                               name="apple_url"
+                                                                               value="{{old('apple_url')}}" type="text">
+                                                                        <label for="apple_url" class="social_label">Apple
                                                                             Music</label>
                                                                         <div id="error_apple_url" class="red-text"
                                                                              style="color:red; padding:4px;"></div>
-                                                                        @error('playlist_apple_url')
+                                                                        @error('apple_url')
                                                                         <small class="red-text" role="alert">
                                                                             {{ $message }}
                                                                         </small>
