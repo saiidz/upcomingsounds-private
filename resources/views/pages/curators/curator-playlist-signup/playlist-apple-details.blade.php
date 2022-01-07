@@ -17,7 +17,7 @@
             <div class="center-block text-center">
                 <div class="p-a-md">
                     <div>
-                        <h4><span class="saiidzeidan">Gary</span> from Upcoming Sounds</h4>
+                        <h4><span class="saiidzeidan">Gary</span> from UpcomingSounds</h4>
                         <p class="text-muted m-y">
                             Great! Now tell us a bit more about you :)
                         </p>
@@ -50,7 +50,7 @@
                                                 <div class="col s12">
                                                     <h2 class="card-title bold" style="font-size: 20px;">Guaranteed Feedback</h2>
                                                     <ul class="instagram_details">
-                                                        <li class="text-muted">YYou are required to share each submission that you receive to get paid via UpcomingSounds.</li>
+                                                        <li class="text-muted">You are required to listen to each submission that you receive at least 30 seconds to get paid and provide feedback.</li>
                                                         <li class="text-muted">If you decide not to share their song, you will not get paid. A refund will be issued to the artists.</li>
                                                         <li class="text-muted">If you are not a verified influencer, you will receive the standard fee of 1 USC coin = 1 GBP</li>
                                                     </ul>
@@ -60,8 +60,8 @@
                                                 <div class="col s12">
                                                     <h2 class="card-title bold" style="font-size: 20px;">Sharing songs</h2>
                                                     <ul class="instagram_details">
-                                                        <li class="text-muted">Attach their song to your Apple Story as a Sticker or use it as the background in an Apple Reel</li>
-                                                        <li class="text-muted">If your shares are high quality, artists will want to send you more songs to promote and you will make more money</li>
+                                                        <li class="text-muted">Add their song to your Apple Playlist(s) for at least five days in a raw  (top spots recommended.</li>
+                                                        <li class="text-muted">If your placements are high quality with impactful results, artists will want to send you more songs to promote & you will make more money.</li>
                                                         <li class="text-muted">If someone complains we might have to refund them, so make it a good share!</li>
                                                     </ul>
                                                 </div>
