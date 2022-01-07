@@ -82,7 +82,7 @@
                     <div class="col-md-12 col-lg-12 black lt">
                         <div class="black cover cover-gd curators_welcome" style="background-image: url({{asset('images/b7.jpg')}});">
                             <div class="p-a-lg text-center p-t-lg">
-                                <h5 class="display-4 m-y-lg text-white">Curators / Tastemakers / Pros </h5>
+                                <h6 class="display-4 m-y-lg text-white">Curators / Tastemakers / Pros </h6>
                                 <p class="text-black text-md m-y-lg">Discover new music, find upcoming talents, get paid to listen and review now or unreleased music.</p>
                                 <a href="{{url('/curator-home')}}" class="btn circle white m-b-lg p-x-md"> curators / Pros </a>
 {{--                                <h3 class="display-3 m-y-lg">Music</h3>--}}
@@ -106,8 +106,7 @@
                             <div class="p-a-lg">
                                 <h2 class="display-4 m-y-lg"> Grow your audience </h2>
                                 <h5 class="text-muted m-b-lg">More impressions drive more success. Reach more fans, listeners and professionals in the most effective way. </h5>
-                                <a href="#" class="btn circle btn-outline b-primary m-b-lg p-x-md">Get it
-                                    now</a>
+                                <a href="{{url('/register')}}" class="btn circle btn-outline b-primary m-b-lg p-x-md"> Sign Up Now</a>
                             </div>
                         </div>
                         <div class="col-lg-2"></div>
@@ -118,8 +117,7 @@
                             <div class="p-a-lg">
                                 <h2 class="display-4 m-y-lg"> Visibility and Exposure that you deserve </h2>
                                 <h4 class="text-muted m-b-lg">Media coverage can increase the public's awareness of your music. </h4>
-                                <a href="#" class="btn circle btn-outline b-primary m-b-lg p-x-md">Get it
-                                    now</a>
+                                <a href="{{url('/artist-home')}}" class="btn circle btn-outline b-primary m-b-lg p-x-md"> Learn More</a>
                             </div>
                         </div>
                         <div class="col-lg-2"></div>
@@ -130,7 +128,7 @@
                             <div class="p-a-lg">
                                 <h2 class="display-4 m-y-lg">Easy and direct contact </h2>
                                 <h6 class="text-muted m-b-lg">It takes more than a great product to stand out in the crowded music industry. Insightful planning and smart execution are necessary to take your music where you want it to go.</h6>
-                                <a href="#" class="btn circle btn-outline b-primary m-b-lg p-x-md">Get RTL</a>
+                                <a href="{{url('/contact-us')}}" class="btn circle btn-outline b-primary m-b-lg p-x-md">Get In Touch</a>
                             </div>
                         </div>
                         <div class="col-lg-2"></div>

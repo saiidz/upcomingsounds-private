@@ -40,7 +40,7 @@
                                         <div class="card-title">
                                             <div class="row">
                                                 <div class="col s12 m6 l10">
-                                                    <h4 class="card-title bold">I will mostly share music:</h4>
+                                                    <h4 class="card-title bold">I will mostly add music to my active playlists:</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -61,7 +61,7 @@
                                                                     <div class="input-field col s12" id="spotifyUrl">
                                                                         <input id="spotify_url"
                                                                                class="@error('spotify_url') is-invalid @enderror"
-                                                                               placeholder="https://open.spotify.com/"
+                                                                               placeholder="https://open.spotify.com/playlist/5I1HuoANpdqD9iAvomvYhq"
                                                                                name="spotify_url"
                                                                                value="{{old('spotify_url')}}" type="text">
                                                                         <label for="spotify_url" class="social_label">Spotify</label>
@@ -90,7 +90,7 @@
                                                                     <div class="input-field col s12" id="deezerUrl" style="display:none;">
                                                                         <input id="deezer_url"
                                                                                class="@error('deezer_url') is-invalid @enderror"
-                                                                               placeholder="https://www.deezer.com/en/"
+                                                                               placeholder="https://www.deezer.com/en/playlist/1947984342"
                                                                                name="deezer_url"
                                                                                value="{{old('deezer_url')}}"
                                                                                type="text">
@@ -120,7 +120,7 @@
                                                                     <div class="input-field col s12" id="appleUrl" style="display:none;">
                                                                         <input id="apple_url"
                                                                                class="@error('apple_url') is-invalid @enderror"
-                                                                               placeholder="https://music.apple.com/us/"
+                                                                               placeholder="https://music.apple.com/us/playlist/rap-life/pl.abe8ba42278f4ef490e3a9fc5ec8e8c5"
                                                                                name="apple_url"
                                                                                value="{{old('apple_url')}}" type="text">
                                                                         <label for="apple_url" class="social_label">Apple

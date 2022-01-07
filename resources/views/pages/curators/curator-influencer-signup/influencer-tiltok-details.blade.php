@@ -39,10 +39,10 @@
                                         <div class="card-title">
                                             <div class="row">
                                                 <div class="col s12">
-                                                    <h2 class="card-title bold" style="font-size: 20px;">How Upcoming Sounds works</h2>
+                                                    <h2 class="card-title bold" style="font-size: 20px;">How UpcomingSounds works</h2>
                                                     <ul class="instagram_details">
-                                                        <li class="text-muted">Musicians send you music</li>
-                                                        <li class="text-muted">You listen and decide to share it (or not)</li>
+                                                        <li class="text-muted">Musicians /artists will send you music.</li>
+                                                        <li class="text-muted">You will need to listen and decide if you like their music and share it (or not).</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -50,9 +50,9 @@
                                                 <div class="col s12">
                                                     <h2 class="card-title bold" style="font-size: 20px;">Guaranteed shares</h2>
                                                     <ul class="instagram_details">
-                                                        <li class="text-muted">The amount you are paid is based on audience engagement and the quality of content you share via Upcoming Sounds</li>
-                                                        <li class="text-muted">If you say "no" they will get their money back</li>
-                                                        <li class="text-muted">These submissions pay between $1 and $120, depending on your engagement</li>
+                                                        <li class="text-muted">You are required to share each submission that you receive to get paid via UpcomingSounds.</li>
+                                                        <li class="text-muted">If you decide not to share their song, you will not get paid. A refund will be issued to the artists.</li>
+                                                        <li class="text-muted">If you are not a verified influencer, you will receive the standard fee of 1 USC coin = 1 GBP. For verified influencers, submissions pay between $1 and $120, depending on your engagement and followers. (you can apply for verification in your dashboard.</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -60,7 +60,7 @@
                                                 <div class="col s12">
                                                     <h2 class="card-title bold" style="font-size: 20px;">Sharing songs</h2>
                                                     <ul class="instagram_details">
-                                                        <li class="text-muted">Use their song as background music in your TikTok videos</li>
+                                                        <li class="text-muted">Use their song as background music in your TikTok videos or upload a video to say what you like about their music</li>
                                                         <li class="text-muted">If your shares are high quality, artists will want to send you more songs to promote and you will make more money</li>
                                                         <li class="text-muted">If someone complains we might have to refund them, so make it a good share!</li>
                                                     </ul>
