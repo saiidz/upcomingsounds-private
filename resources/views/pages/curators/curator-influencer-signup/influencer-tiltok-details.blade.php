@@ -52,7 +52,7 @@
                                                     <ul class="instagram_details">
                                                         <li class="text-muted">You are required to share each submission that you receive to get paid via UpcomingSounds.</li>
                                                         <li class="text-muted">If you decide not to share their song, you will not get paid. A refund will be issued to the artists.</li>
-                                                        <li class="text-muted">TIf you are not a verified influencer, you will receive the standard fee of 1 USC coin = 1 GBP. For verified influencers, submissions pay between $1 and $120, depending on your engagement and followers. (you can apply for verification in your dashboard.</li>
+                                                        <li class="text-muted">If you are not a verified influencer, you will receive the standard fee of 1 USC coin = 1 GBP. For verified influencers, submissions pay between $1 and $120, depending on your engagement and followers. (you can apply for verification in your dashboard.</li>
                                                     </ul>
                                                 </div>
                                             </div>
