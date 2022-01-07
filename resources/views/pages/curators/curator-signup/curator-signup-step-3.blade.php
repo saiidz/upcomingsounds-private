@@ -36,7 +36,7 @@
             <div class="center-block text-center">
                 <div class="p-a-md">
                     <div>
-                        <h4><span class="saiidzeidan">Gary</span> from Upcoming Sounds</h4>
+                        <h4><span class="Gary">Gary</span> from Upcoming Sounds</h4>
                         <p class="text-muted m-y">
                             And now, {{(auth()->user()) ? auth()->user()->name : 'test'}}, how would you describe your
                             musical universe?

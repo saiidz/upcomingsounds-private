@@ -19,7 +19,7 @@
             <div class="center-block text-center">
                 <div class="p-a-md">
                     <div>
-                        <h4><span class="saiidzeidan">Gary</span> from Upcoming Sounds</h4>
+                        <h4><span class="Gary">Gary</span> from Upcoming Sounds</h4>
                         <p class="text-muted m-y">
                             Thank you for all this info! Before finalising your signup one last thing...
                         </p>

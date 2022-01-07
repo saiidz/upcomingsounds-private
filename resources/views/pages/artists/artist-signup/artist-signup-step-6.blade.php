@@ -29,7 +29,7 @@
             <div class="center-block text-center">
                 <div class="p-a-md">
                     <div>
-                        <h4><span class="saiidzeidan">Gary</span> from Upcoming Sounds</h4>
+                        <h4><span class="Gary">Gary</span> from Upcoming Sounds</h4>
                         <p class="text-muted m-y">
                             Finally, can you tell us more about your timing with the track which you wish to send to curators and professionals on Upcoming Sounds?
                         </p>
