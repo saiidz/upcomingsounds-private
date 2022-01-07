@@ -61,7 +61,7 @@ For verified influencers, submissions pay between $1 and $120, depending on your
                                                 <div class="col s12">
                                                     <h2 class="card-title bold" style="font-size: 20px;">Sharing songs</h2>
                                                     <ul class="instagram_details">
-                                                        <li class="text-muted">Use their song as background music in your SoundCloud videos</li>
+                                                        <li class="text-muted"> Repost and share their music on your profile, share them with your community and social media.</li>
                                                         <li class="text-muted">If your shares are high quality, artists will want to send you more songs to promote and you will make more money</li>
                                                         <li class="text-muted">If someone complains we might have to refund them, so make it a good share!</li>
                                                     </ul>
