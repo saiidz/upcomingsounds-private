@@ -52,7 +52,7 @@
                                                     <ul class="instagram_details">
                                                         <li class="text-muted">You are required to listen to each submission that you receive at least 30 seconds to get paid and provide feedback within 96 hours.</li>
                                                         <li class="text-muted">If you decide not to share their song, you will not get paid. A refund will be issued to the artists.</li>
-                                                        <li class="text-muted">If you are not a verified influencer, you will receive the standard fee of 1 USC coin = 1 GBP</li>
+                                                        <li class="text-muted">If you are not a verified  Playlist Curator, you will receive the standard fee of 1 USC coin = 1 GBP</li>
                                                     </ul>
                                                 </div>
                                             </div>
