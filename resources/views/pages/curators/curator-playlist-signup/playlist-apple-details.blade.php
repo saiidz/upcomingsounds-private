@@ -60,7 +60,7 @@
                                                 <div class="col s12">
                                                     <h2 class="card-title bold" style="font-size: 20px;">Sharing songs</h2>
                                                     <ul class="instagram_details">
-                                                        <li class="text-muted">Add their song to your Apple Playlist(s) for at least five days in a raw  (top spots recommended.</li>
+                                                        <li class="text-muted">Add their song to your Apple Playlist(s) for at least five days in a raw  (top spots recommended).</li>
                                                         <li class="text-muted">If your placements are high quality with impactful results, artists will want to send you more songs to promote & you will make more money.</li>
                                                         <li class="text-muted">If someone complains we might have to refund them, so make it a good share!</li>
                                                     </ul>
