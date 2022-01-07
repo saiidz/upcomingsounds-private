@@ -62,7 +62,7 @@
                                                                         <input id="spotify_url"
                                                                                class="@error('spotify_url') is-invalid @enderror"
                                                                                placeholder="https://open.spotify.com/playlist/5I1HuoANpdqD9iAvomvYhq"
-                                                                               name="spotify_url"
+                                                                               name="spotify_url" required
                                                                                value="{{old('spotify_url')}}" type="text">
                                                                         <label for="spotify_url" class="social_label">Spotify</label>
                                                                         <div id="error_spotify_url" class="red-text"
@@ -187,6 +187,10 @@
                 $('#spotifyUrl').show();
                 document.getElementById('deezer_url').value = '';
                 document.getElementById('apple_url').value = '';
+
+                document.getElementById("deezer_url").required = false;
+                document.getElementById("apple_url").required = false;
+                document.getElementById("spotify_url").required = true;
             }
         }
 
@@ -197,6 +201,10 @@
                 $('#deezerUrl').show();
                 document.getElementById('spotify_url').value = '';
                 document.getElementById('apple_url').value = '';
+
+                document.getElementById("spotify_url").required = false;
+                document.getElementById("apple_url").required = false;
+                document.getElementById("deezer_url").required = true;
             }
         }
 
@@ -207,6 +215,10 @@
                 $('#appleUrl').show();
                 document.getElementById('spotify_url').value = '';
                 document.getElementById('deezer_url').value = '';
+
+                document.getElementById("spotify_url").required = false;
+                document.getElementById("deezer_url").required = false;
+                document.getElementById("apple_url").required = true;
             }
         }
     </script>

@@ -183,7 +183,7 @@ class CuratorSignupController extends Controller
 
         $request->session()->get('curator_signup');
         $request->session()->get('curator_data');
-        $request->session()->put('influencer_data', $request->get('share_music'));
+        $request->session()->put('influencer_data', $request->all());
 
         return redirect()->route('influencer.signup.step.4');
     }
@@ -198,11 +198,11 @@ class CuratorSignupController extends Controller
         $influencer_data = $request->session()->get('influencer_data');
 
         if(!empty($curator_data) && !empty($curator_signup) && !empty($influencer_data)){
-            if($influencer_data == 'influencer_instagram'){
+            if($influencer_data['share_music'] == 'influencer_instagram'){
                 return view('pages.curators.curator-influencer-signup.influencer-instgram-details',compact('curator_data','curator_signup'));
-            }elseif ($influencer_data == 'influencer_tiktok'){
+            }elseif ($influencer_data['share_music'] == 'influencer_tiktok'){
                 return view('pages.curators.curator-influencer-signup.influencer-tiltok-details',compact('curator_data','curator_signup'));
-            }elseif ($influencer_data == 'influencer_soundcloud'){
+            }elseif ($influencer_data['share_music'] == 'influencer_soundcloud'){
                 return view('pages.curators.curator-influencer-signup.influencer-soundcloud-details',compact('curator_data','curator_signup'));
             }
         }else{
@@ -243,7 +243,7 @@ class CuratorSignupController extends Controller
         if(!empty($curator_data) && !empty($curator_signup)){
             if ($curator_signup == 'influencer'){
                 $social_links_required = $request->session()->get('influencer_data');
-                return view('pages.curators.curator-signup.social-media',compact('curator_data','curator_signup','social_links_required'));
+                return view('pages.curators.curator-influencer-signup.social-media',compact('curator_data','curator_signup','social_links_required'));
             }elseif ($curator_signup == 'youtube_channel'){
                 $social_links_required = $request->session()->get('youtuber_data');
                 return view('pages.curators.curator-signup.social-media',compact('curator_data','curator_signup','social_links_required'));
@@ -479,13 +479,13 @@ class CuratorSignupController extends Controller
                 $input['tastemaker_name']        = isset($curator_data['tastemaker_name']) ? $curator_data['tastemaker_name'] : null;
                 $input['country_id']             = isset($curator_data['country_name']) ? (int) $curator_data['country_name'] : null;
                 $input['share_music']            = isset($taste_maker_data['share_music']) ? $taste_maker_data['share_music'] : $taste_maker_data;
-                $input['instagram_url']          = isset($social_media_data['instagram_url']) ? $social_media_data['instagram_url'] : null;
-                $input['tiktok_url']             = isset($social_media_data['tiktok_url']) ? $social_media_data['tiktok_url'] : null;
+                $input['instagram_url']          = isset($social_media_data['instagram_url']) ? $social_media_data['instagram_url'] : (isset($taste_maker_data['instagram_url']) ? $taste_maker_data['instagram_url'] : null);
+                $input['tiktok_url']             = isset($social_media_data['tiktok_url']) ? $social_media_data['tiktok_url'] : (isset($taste_maker_data['tiktok_url']) ? $taste_maker_data['tiktok_url'] : null);
                 $input['facebook_url']           = isset($social_media_data['facebook_url']) ? $social_media_data['facebook_url'] : null;
-                $input['spotify_url']            = isset($social_media_data['spotify_url']) ? $social_media_data['spotify_url'] : $taste_maker_data['spotify_url'];
-                $input['deezer_url']             = isset($social_media_data['deezer_url']) ? $social_media_data['deezer_url'] : $taste_maker_data['deezer_url'];
-                $input['apple_url']              = isset($social_media_data['apple_url']) ? $social_media_data['apple_url'] : $taste_maker_data['apple_url'];
-                $input['soundcloud_url']         = isset($social_media_data['soundcloud_url']) ? $social_media_data['soundcloud_url'] : null;
+                $input['spotify_url']            = isset($social_media_data['spotify_url']) ? $social_media_data['spotify_url'] : (isset($taste_maker_data['spotify_url']) ? $taste_maker_data['spotify_url'] : null);
+                $input['deezer_url']             = isset($social_media_data['deezer_url']) ? $social_media_data['deezer_url'] : (isset($taste_maker_data['deezer_url']) ? $taste_maker_data['deezer_url'] : null);
+                $input['apple_url']              = isset($social_media_data['apple_url']) ? $social_media_data['apple_url'] : (isset($taste_maker_data['apple_url']) ? $taste_maker_data['apple_url'] : null);
+                $input['soundcloud_url']         = isset($social_media_data['soundcloud_url']) ? $social_media_data['soundcloud_url'] : (isset($taste_maker_data['soundcloud_url']) ? $taste_maker_data['soundcloud_url'] : null);
                 $input['youtube_url']            = isset($social_media_data['youtube_url']) ? $social_media_data['youtube_url'] : null;
                 $input['website_url']            = isset($social_media_data['website_url']) ? $social_media_data['website_url'] : null;
                 $input['come_upcoming']          = ($request->get('come_upcoming')) ? $request->get('come_upcoming') : null;
