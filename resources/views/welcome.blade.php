@@ -41,6 +41,9 @@
             font-size: 50px;
             line-height: 1;
         }
+        .fa {
+            font-size: 3.5rem;
+        }
     </style>
 @endsection
 {{-- page content --}}
@@ -59,7 +62,7 @@
                             </video>
                             <div class="mouse">
                                 <a href="javascript:void(0)" class="mouse-icon" id="upClick">
-                                    <div class="mouse-wheel"><i class="fa fa-arrow-down"></i></div>
+                                    <div class="mouse-wheel"><i class="fa fa-angle-down"></i></div>
                                 </a>
                             </div>
                         </div>
