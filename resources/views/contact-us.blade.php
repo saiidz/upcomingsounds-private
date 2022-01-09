@@ -72,6 +72,9 @@
     .__cf_email__:hover{
         color:#02b875 !important;
     }
+    .app-header ~ .app-body {
+        padding-top: 3rem;
+    }
 </style>
 @endsection
 
