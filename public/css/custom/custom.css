@@ -526,7 +526,10 @@ ul:not(.browser-default) > li {
     list-style-type: none;
 }
 
-
+.UScarousel{
+    background-repeat: no-repeat;
+    min-height: 412px;
+}
 
 
 
