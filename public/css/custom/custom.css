@@ -812,6 +812,9 @@ ul:not(.browser-default) > li {
     .mouse-wheel{
         font-size:30px !important;
     }
+    .flex, .probootstrap-section-half, .probootstrap-section-half .probootstrap-text {
+        display: -webkit-box!important;
+    }
 }
 
 /*

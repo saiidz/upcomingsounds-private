@@ -27,12 +27,16 @@
         .probootstrap-section-half .probootstrap-image {
             background-position: center center;
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: 100%;
         }
         .probootstrap-section-half .probootstrap-image, .probootstrap-section-half .probootstrap-text {
-            height: 100vh;
+            /*height: 100vh;*/
+            /*height: 500px;*/
             -webkit-transition: .3s all ease;
             transition: .3s all ease;
+        }
+        .probootstrap-image{
+            height: 500px;
         }
         .probootstrap-section-half .probootstrap-text {
             border-bottom: 1px solid #f2f2f2;
@@ -83,12 +87,17 @@
         .app-header ~ .app-body {
             padding-bottom: 0rem !important;
         }
-
+        .display-inline {
+            min-height: 280px;
+        }
         @media (min-width: 481px) and (max-width: 767px) {
 
             /* CSS */
             .probootstrap-section-half.probootstrap-no-hover .probootstrap-image, .probootstrap-section-half.probootstrap-no-hover .probootstrap-text {
                 width: 100% !important;
+            }
+            .display-inline {
+                min-height: 1px!important;
             }
         }
 
@@ -102,6 +111,9 @@
             /* CSS */
             .probootstrap-section-half.probootstrap-no-hover .probootstrap-image, .probootstrap-section-half.probootstrap-no-hover .probootstrap-text {
                 width: 100% !important;
+            }
+            .display-inline {
+                min-height: 1px!important;
             }
         }
     </style>

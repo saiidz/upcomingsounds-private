@@ -42,9 +42,6 @@
             line-height: 1;
         }
     </style>
-    <script>
-        document.getElementById('welcome_video').play();
-    </script>
 @endsection
 {{-- page content --}}
 @section('content')
