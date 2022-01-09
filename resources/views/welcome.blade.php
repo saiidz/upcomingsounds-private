@@ -108,7 +108,7 @@
                         </div>
                         <div class="col-lg-2"></div>
                     </div>
-                    <div class="row-col UScarousel" style="background-image: url({{asset('images/Banner_UCSWEB3.jpg')}});">
+                    <div class="row-col UScarousel" style="background-image: url({{asset('images/Banner_UCSWEB2.jpg')}});">
                         <div class="col-lg-2"></div>
                         <div class="col-lg-8 text-center">
                             <div class="">
