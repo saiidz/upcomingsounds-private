@@ -19,6 +19,7 @@
         "pragmarx/countries": "^0.7.2",
         "sendgrid/sendgrid": "^7.9",
         "socialiteproviders/spotify": "^4.1",
+        "spatie/laravel-cookie-consent": "^3.1",
         "ssovit/tiktok-api": "^2.0",
         "twilio/sdk": "^6.28"
     },

@@ -97,7 +97,7 @@
             <div class="b b-b m-b m-t-lg"></div>
             <div class="row">
                 <div class="col-sm-8">
-                    <a href="javascript:void(0)" class="text-muted text-sm">Cookies</a>
+{{--                    <a href="javascript:void(0)" class="text-muted text-sm">Cookies</a>--}}
                 </div>
                 <div class="col-sm-4">
                     <div class="text-sm-right text-xs-left">
