@@ -22,4 +22,9 @@ class CuratorController extends Controller
         $user_curator = Auth::user();
         return view('pages.curators.curator-profile',compact('user_curator'));
     }
+
+    // forCurators
+    public function forCurators(){
+        return view('pages.curators.curator-details');
+    }
 }

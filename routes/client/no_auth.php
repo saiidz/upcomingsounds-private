@@ -30,6 +30,7 @@ Route::get('blog', [DashboardController::class,'blog']);
 
 // Curators Routes
 Route::get('curator-home', [CuratorController::class,'index']);
+Route::get('for-curators', [CuratorController::class,'forCurators']);
 
 // Curators Signup
 

@@ -198,7 +198,7 @@
                         </div>
                     </div>
                     <div class="learnMore">
-                        <a href="javascript:void(0)" class="transparent  tellMeMore">Learn more </a>
+                        <a href="{{url('/for-curators')}}" class="transparent  tellMeMore">Learn more </a>
                         @if(Auth::check())
                             <a href="{{ route('logout') }}" class="default tellMeMore"
                             >SignOut</a>
