@@ -2,7 +2,7 @@
 @extends('layouts.welcomeLayout')
 
 {{-- page title --}}
-@section('title','For Curators')
+@section('title','For Artists')
 
 {{-- page style --}}
 @section('page-style')
@@ -19,8 +19,8 @@
                 <main class="col-lg-12 no-padding" id="main-content">
                     <div id="landing-page">
                         <div id="landing-header" class="full-landing">
-                            <img src="{{asset('images/curator-header.jpg')}}"><h1 class="full-landing-text container">
-                                <span>For curators</span>
+                            <img src="{{asset('images/artist-header.jpg')}}"><h1 class="full-landing-text container">
+                                <span>For artists</span>
                             </h1>
                         </div>
                     </div>
@@ -34,12 +34,12 @@
                                 <p class="text-muted text-md">Our platform enables tastemakers, curators, and professionals from around the world to discover new music, connect, share their favorite tunes and find out about cool events. We are looking forward to receiving your application :)</p>
                             </span>
                         </div>
-                        @if(Auth::check() && Auth::user()->type == 'curator')
-                            <a href="{{url('/taste-maker-profile')}}" class="transparent  tellMeMore">
+                        @if(Auth::check() && Auth::user()->type == 'artist')
+                            <a href="{{url('/artist-profile')}}" class="transparent  tellMeMore">
                                 <span>Dashboard</span>
                             </a>
                         @else
-                            <a href="{{url('/taste-maker-register')}}" class="transparent  tellMeMore">
+                            <a href="{{url('/login')}}" class="transparent  tellMeMore">
                                 <span>Apply to join</span>
                             </a>
 

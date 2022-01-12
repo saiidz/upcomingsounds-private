@@ -179,4 +179,8 @@ class ArtistController extends Controller
             }
         }
     }
+    // forArtists
+    public function forArtists(){
+        return view('pages.artists.artist-details');
+    }
 }

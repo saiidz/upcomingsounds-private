@@ -226,7 +226,8 @@
                         </div>
                     </div>
                     <div class="learnMore">
-                        <a href="{{url('/artists')}}" class="transparent  tellMeMore">Learn more </a>
+                        <a href="{{url('/for-artists')}}" class="transparent  tellMeMore">Learn more </a>
+{{--                        <a href="{{url('/artists')}}" class="transparent  tellMeMore">Learn more </a>--}}
                         @if(Auth::check())
                             <a href="{{ route('logout') }}" class="default tellMeMore"
                             >SignOut</a>
