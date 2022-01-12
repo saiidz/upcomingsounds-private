@@ -103,8 +103,7 @@ You will receive more than 99 Genres that fit your musical taste to pick. Each m
                                 <span>Copyright permissions</span>
                             </h5>
                             <p class="text-muted text-md">
-                                <span>Radio stations and YouTube channels know how important it is to secure copyright permission to upload and share an artist's music. 
-YouTube Channels, Radios, TV channels, and media needs copyright permission to upload music and share to their platforms. UpcomingSounds has Created a copyright sign-off system that makes your life easier.</span>
+                                <span>YouTube Channels, Radios, TV channels, and media needs copyright permission to upload music and share to their platforms. UpcomingSounds has Created a copyright sign-off system that makes your life easier.</span>
                             </p>
                         </div>
                         <div class="col-xs-12 col-sm-12 m5 bullets offset-m1">
