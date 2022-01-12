@@ -11,7 +11,7 @@
             <div class="center-block text-center">
                 <div class="p-a-md">
                     <div>
-                        <h4><span class="Gary">Gary</span> from Upcoming Sounds</h4>
+                        <h4><span class="Gary">Gary</span> from UpcomingSounds</h4>
                         <p class="text-muted m-y">
                             Hey! Could you tell us more about you?
                         </p>
@@ -79,7 +79,7 @@
                         <div class="photo"> <img src="{{asset('images/record_label.svg')}}">
                         </div>
                         <div class="content_artist">
-                            <p class="Iam_artist">Record label / Manager</p>
+                            <p class="Iam_artist">Record label / Manager / Music supervisor </p>
                             <p class="Iam_artist_detail">Discover new talents, make record deals connect with bands and indie artists. </p>
                         </div>
                         <div class="artist_footer">
