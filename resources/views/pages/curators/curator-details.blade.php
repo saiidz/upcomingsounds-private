@@ -64,10 +64,11 @@
                                 <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"></path>
                             </svg>
                             <h5>
-                                <span>Music you want</span>
+                                <span>Your own Music</span>
                             </h5>
                             <p class="text-muted text-md">
-                                <span>With more than 100 genres to choose from, you can make sure that the songs you're sent match the type of music you share. It's not a perfect science, but you'll find that most of your submissions end up being targeted to your taste.</span>
+                                <span>Our matching service help artists to pick the best match for their need. 
+You will receive more than 99 Genres that fit your musical taste to pick. Each month, we select from the most active and impactful Influencers / Curators to add to our editorial submissions lists. It's perfect for helping you discover new music while you increase your rewards.</span>
                             </p>
                         </div>
                         <div class="clearfix"></div>
