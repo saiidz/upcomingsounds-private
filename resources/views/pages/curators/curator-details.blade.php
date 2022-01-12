@@ -26,12 +26,12 @@
                     </div>
                     <div class="container landing-headline">
                         <h2>
-                            <span>All your submissions in one place</span>
+                            <span>UpcomingSounds One tool for all</span>
                         </h2>
                         <div class="mrg-bottom-30">
                             <span>
-                                <p class="text-muted text-md">For a lot of curators, staying on top of your submissions is nearly impossible. That's why Upcoming Sounds exists.</p>
-                                <p class="text-muted text-md">Upcoming Sounds provides a complete set of features that make music discovery easy again. Whether you're a blogger, playlister, Record Label, or somewhere in between, you'll find the functionality you need. We've listed some highlights below, so if they sound like something you could use, we look forward to receiving your application :)</p>
+                                <p class="text-muted text-md">UpcomingSounds is your one source for New Music. </p>
+                                <p class="text-muted text-md">Our platform enables tastemakers, curators, and professionals from around the world to discover new music, connect, share their favorite tunes and find out about cool events. We are looking forward to receiving your application :)</p>
                             </span>
                         </div>
                         @if(Auth::check() && Auth::user()->type == 'curator')
