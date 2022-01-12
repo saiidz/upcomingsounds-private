@@ -88,7 +88,7 @@ You will receive more than 99 Genres that fit your musical taste to pick. Each m
                                 <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"></path>
                             </svg>
                             <h5>
-                                <span>REDEEM REWARDED</span>
+                                <span>Redeem Rewards</span>
                             </h5>
                             <p class="text-muted text-md">
                                 <span>Artists when submitting their music, they're asking for your feedback about their song. If you respond on time, you will receive a standard Fee of 1 USC coin = 1 GBP standard fee for "Non-verified" Tastemakers / Curators / Professionals. You can always submit your platform to our editors to increase your submissions Fee. Payments are made via PayPal or directly to your bank account.</span>
@@ -103,7 +103,8 @@ You will receive more than 99 Genres that fit your musical taste to pick. Each m
                                 <span>Copyright permissions</span>
                             </h5>
                             <p class="text-muted text-md">
-                                <span>Radio stations and YouTube channels know how important it is to secure copyright permission to upload and share an artist's music. Upcoming Sounds  has a built-in copyright sign-off system that makes the process super easy for you.</span>
+                                <span>Radio stations and YouTube channels know how important it is to secure copyright permission to upload and share an artist's music. 
+YouTube Channels, Radios, TV channels, and media needs copyright permission to upload music and share to their platforms. UpcomingSounds has Created a copyright sign-off system that makes your life easier.</span>
                             </p>
                         </div>
                         <div class="col-xs-12 col-sm-12 m5 bullets offset-m1">
