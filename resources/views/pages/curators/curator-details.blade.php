@@ -80,7 +80,7 @@ You will receive more than 99 Genres that fit your musical taste to pick. Each m
                                 <span>Ditch the emails</span>
                             </h5>
                             <p class="text-muted text-md">
-                                <span>Overflowing inbox? We know how that feels. That's why we built a chatting system that allows you to connect with artists in real-time. You'll be able to manage everything from Upcoming Sounds - no emailing required.</span>
+                                <span>No emailing is required. Our Dashboard grants you direct communication with artists. You'll be able to manage everything from UpcomingSounds.</span>
                             </p>
                         </div>
                         <div class="col-xs-12 col-sm-12 m5 bullets offset-m1">
