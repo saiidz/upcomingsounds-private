@@ -530,7 +530,10 @@ ul:not(.browser-default) > li {
     background-repeat: no-repeat;
     min-height: 412px;
 }
-
+.artists_welcome .text-md,
+.curators_welcome .text-md{
+    padding: 0 30px 0 30px;
+}
 
 
 
@@ -735,6 +738,10 @@ ul:not(.browser-default) > li {
         position: absolute;
         display: initial;
     }
+    .artists_welcome .text-md,
+    .curators_welcome .text-md{
+        padding: 0;
+    }
 }
 
 /*
@@ -814,6 +821,10 @@ ul:not(.browser-default) > li {
     }
     .flex, .probootstrap-section-half, .probootstrap-section-half .probootstrap-text {
         display: -webkit-box!important;
+    }
+    .artists_welcome .text-md,
+    .curators_welcome .text-md{
+        padding: 0;
     }
 }
 
@@ -950,5 +961,10 @@ ul:not(.browser-default) > li {
     .mouse-icon {
         position: absolute;
         display: initial;
+    }
+    .artists_welcome .text-md,
+    .curators_welcome .text-md
+    {
+        padding: 0;
     }
 }

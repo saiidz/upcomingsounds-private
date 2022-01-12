@@ -12,7 +12,7 @@
                 <div class="p-a-md">
                     <div>
                         <a href="{{ url('/login/google/?request_from=curator') }}" class="btn-block">
-                            <img src="{{asset('images/google.jpg')}}">
+                            <img src="{{asset('images/google_new.png')}}" style="width: 278px;height: 62px;">
                             {{--                            <i class="fa fa-google pull-left"></i>--}}
                             {{--                            Sign up with Google--}}
                         </a>
