@@ -53,10 +53,10 @@
                                 <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"></path>
                             </svg>
                             <h5>
-                                <span>A simple feed</span>
+                                <span>Friendly UI Dashboard</span>
                             </h5>
                             <p class="text-muted text-md">
-                                <span>Submissions are presented in an easy-to-navigate list that allows you to easily listen and make a decision about whether you want to share a song. Each song includes links to artwork, additional streaming sources, and information about that song.</span>
+                                <span>UpcomingSounds is an Easy Access Tool that allows you to listen and make the decision faster, whether you want to share a song or give feedback. Each submission includes links to the song link, Artwork, Artist social media profiles, additional streaming sources, and information about that song.</span>
                             </p>
                         </div>
                         <div class="col-xs-12 col-sm-12 m5 bullets offset-m1">
