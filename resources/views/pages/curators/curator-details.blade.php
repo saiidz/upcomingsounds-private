@@ -30,7 +30,7 @@
                         </h3>
                         <div class="mrg-bottom-30">
                             <span>
-                                <p class="text-muted text-md">UpcomingSounds is your one source for New Music. </p>
+                                <p class="text-muted text-md">We've combined all of your submissions into one easy-to-use Dashboard, UpcomingSounds is your one source for New Music.</p>
                                 <p class="text-muted text-md">Our platform enables tastemakers, curators, and professionals from around the world to discover new music, connect, share their favorite tunes and find out about cool events. We are looking forward to receiving your application :)</p>
                             </span>
                         </div>
