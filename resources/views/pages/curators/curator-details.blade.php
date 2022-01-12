@@ -25,9 +25,9 @@
                         </div>
                     </div>
                     <div class="container landing-headline">
-                        <h2>
+                        <h3>
                             <span>UpcomingSounds One tool for all</span>
-                        </h2>
+                        </h3>
                         <div class="mrg-bottom-30">
                             <span>
                                 <p class="text-muted text-md">UpcomingSounds is your one source for New Music. </p>
