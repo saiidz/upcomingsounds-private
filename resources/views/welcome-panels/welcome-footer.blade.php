@@ -36,7 +36,7 @@
                             <i class="fa fa-instagram"></i>
                             <i class="fa fa-instagram"></i>
                         </a>
-                        <a href="#" target="_blank"
+                        <a href="https://open.spotify.com/user/0ksxb1tbymq3tx778ybi7659r" target="_blank"
                            class="btn btn-icon btn-social btn-social-colored social_color"
                            title="Spotify">
                             <i class="fa fa-spotify"></i>
@@ -48,7 +48,7 @@
                             <i class="fa fa-twitter"></i>
                             <i class="fa fa-twitter"></i>
                         </a>
-                        <a href="#" target="_blank"
+                        <a href="https://www.youtube.com/channel/UC1HUg1XVehD3RAkdQDay32A" target="_blank"
                            class="btn btn-icon btn-social btn-social-colored social_color"
                            title="Youtube">
                             <i class="fa fa-youtube"></i>
