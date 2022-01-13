@@ -23,33 +23,33 @@
                     </div>
 
 
-                    <div class="m-b">
+                    <div class="m-b m-l-md">
                         <a href="https://www.facebook.com/Upcomingsounds" target="_blank"
-                           class="btn btn-icon btn-social rounded btn-social-colored indigo"
+                           class="btn btn-icon btn-social btn-social-colored social_color "
                            title="Facebook">
                             <i class="fa fa-facebook"></i>
                             <i class="fa fa-facebook"></i>
                         </a>
                         <a href="https://www.instagram.com/upcomingsounds_" target="_blank"
-                           class="btn btn-icon btn-social rounded btn-social-colored light-blue-800"
+                           class="btn btn-icon btn-social btn-social-colored social_color"
                            title="Instagram">
                             <i class="fa fa-instagram"></i>
                             <i class="fa fa-instagram"></i>
                         </a>
                         <a href="#" target="_blank"
-                           class="btn btn-icon btn-social rounded btn-social-colored light-green-500"
+                           class="btn btn-icon btn-social btn-social-colored social_color"
                            title="Spotify">
                             <i class="fa fa-spotify"></i>
                             <i class="fa fa-spotify"></i>
                         </a>
                         <a href="https://twitter.com/Upcomingsounds_" target="_blank"
-                           class="btn btn-icon btn-social rounded btn-social-colored light-blue"
+                           class="btn btn-icon btn-social btn-social-colored social_color"
                            title="Twitter">
                             <i class="fa fa-twitter"></i>
                             <i class="fa fa-twitter"></i>
                         </a>
                         <a href="#" target="_blank"
-                           class="btn btn-icon btn-social rounded btn-social-colored red-600"
+                           class="btn btn-icon btn-social btn-social-colored social_color"
                            title="Youtube">
                             <i class="fa fa-youtube"></i>
                             <i class="fa fa-youtube"></i>
