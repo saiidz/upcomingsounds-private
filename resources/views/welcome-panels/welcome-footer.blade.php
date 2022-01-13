@@ -24,13 +24,13 @@
 
 
                     <div class="m-b">
-                        <a href="#" target="_blank"
+                        <a href="https://www.facebook.com/Upcomingsounds" target="_blank"
                            class="btn btn-icon btn-social rounded btn-social-colored indigo"
                            title="Facebook">
                             <i class="fa fa-facebook"></i>
                             <i class="fa fa-facebook"></i>
                         </a>
-                        <a href="#" target="_blank"
+                        <a href="https://www.instagram.com/upcomingsounds_" target="_blank"
                            class="btn btn-icon btn-social rounded btn-social-colored light-blue-800"
                            title="Instagram">
                             <i class="fa fa-instagram"></i>
@@ -42,11 +42,11 @@
                             <i class="fa fa-spotify"></i>
                             <i class="fa fa-spotify"></i>
                         </a>
-                        <a href="#" target="_blank"
-                           class="btn btn-icon btn-social rounded btn-social-colored orange-700"
-                           title="SoundCloud">
-                            <i class="fa fa-soundcloud"></i>
-                            <i class="fa fa-soundcloud"></i>
+                        <a href="https://twitter.com/Upcomingsounds_" target="_blank"
+                           class="btn btn-icon btn-social rounded btn-social-colored light-blue"
+                           title="Twitter">
+                            <i class="fa fa-twitter"></i>
+                            <i class="fa fa-twitter"></i>
                         </a>
                         <a href="#" target="_blank"
                            class="btn btn-icon btn-social rounded btn-social-colored red-600"
