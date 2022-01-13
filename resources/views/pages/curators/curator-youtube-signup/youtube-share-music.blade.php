@@ -47,7 +47,7 @@
                                         <div id="view-input-fields">
                                             <div class="row">
                                                 <div class="col s12">
-                                                    <form method="POST" action="{{route('youtube.signup.step.3.post')}}" id="mobile-login-form" enctype="multipart/form-data">
+                                                    <form method="POST" id="validateSocialMediaLink" action="{{route('youtube.signup.step.3.post')}}" id="mobile-login-form" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="row">
                                                             <div class="col s12">
@@ -57,13 +57,25 @@
                                                                         <span>As a <i class="fa fa-youtube"></i> YouTube video upload
                                                                             <p class="text-muted">Must have at least 15,000 Subscribed.</p></span>
                                                                     </label>
+                                                                    {{-- Youtube url--}}
+                                                                    <div class="input-field col s12" id="youtubeUrl">
+                                                                        <input id="youtube_url" class="@error('youtube_url') is-invalid @enderror" required placeholder="https://www.youtube.com/channel/" name="youtube_url" value="{{old('youtube_url')}}" type="text">
+                                                                        <label for="youtube_url" class="social_label">Youtube</label>
+                                                                        <div id="error_youtube_url" class="red-text" style="color:red; padding:4px;"></div>
+                                                                        @error('youtube_url')
+                                                                        <small class="red-text" role="alert">
+                                                                            {{ $message }}
+                                                                        </small>
+                                                                        @enderror
+                                                                    </div>
+                                                                    {{-- Youtube url--}}
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="input-field col s12">
                                                                 <button class="tellMeMore left LeftSide" onclick="window.history.go(-1); return false;" style="border:none;">Previous</button>
-                                                                <button class="tellMeMore right RightSide" style="border:none;" type="submit">Next
+                                                                <button class="tellMeMore right RightSide" onclick='return validateSocialMediaLink("validateSocialMediaLink")' style="border:none;" type="submit">Next
                                                                 </button>
                                                             </div>
                                                         </div>
@@ -99,5 +111,40 @@
                 $('.oneTrackSelected').not(this).prop('checked', false);
             });
         });
+    </script>
+    <script>
+        // validateSocialMediaLink
+        function validateSocialMediaLink(validateSocialMediaLink){
+            var social_media_link = document.getElementById(validateSocialMediaLink);
+            result = "";
+            flag = true;
+
+            // youtube url check
+            if (social_media_link.youtube_url.value != ""){
+                const stringYoutube = social_media_link.youtube_url.value;
+                const youtubeUrl = "https://www.youtube.com/channel/";
+                if(stringYoutube.includes(youtubeUrl) == false ){
+                    social_media_link.youtube_url.style.borderColor = "#DD0A0A";
+                    result = 'Please Enter Valid Url';
+                    flag = false;
+                }
+            }
+            // if(flag == true && (social_media_link.instagram_url.value != "")){
+            if(flag == true){
+                document.getElementById('error_youtube_url').style.display = 'none';
+                // social_media_link.submit();
+            }else{
+                const stringYoutube = social_media_link.youtube_url.value;
+                const youtubeUrl = "https://www.youtube.com/channel/";
+                if(social_media_link.youtube_url.value != "" && stringYoutube.includes(youtubeUrl) == false){
+                    document.getElementById('error_youtube_url').style.display = 'block';
+                    document.getElementById('error_youtube_url').innerHTML = result;
+                }
+                setTimeout(function(){
+                    document.getElementById('error_youtube_url').style.display = 'none';
+                }, 4000);
+                return false;
+            }
+        }
     </script>
 @endsection

@@ -21,7 +21,7 @@ class YoutubeCuratorSignupController extends Controller
 
         $request->session()->get('curator_signup');
         $request->session()->get('curator_data');
-        $request->session()->put('youtuber_data', $request->get('share_music'));
+        $request->session()->put('youtuber_data', $request->all());
 
         return redirect()->route('youtube.signup.step.4');
     }
@@ -36,7 +36,7 @@ class YoutubeCuratorSignupController extends Controller
         $youtuber_data = $request->session()->get('youtuber_data');
 
         if(!empty($curator_data) && !empty($curator_signup) && !empty($youtuber_data)){
-            if($youtuber_data == 'youtube'){
+            if($youtuber_data['share_music'] == 'youtube'){
                 return view('pages.curators.curator-youtube-signup.youtube-details',compact('curator_data','curator_signup'));
             }
         }else{

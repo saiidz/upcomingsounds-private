@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\ArtistSignupRepresentativeController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\AuthenticationSocializeController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
+use App\Http\Controllers\Auth\CuratorDetailsSignupController;
 use App\Http\Controllers\Auth\CuratorSignupController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
@@ -310,6 +311,15 @@ Route::post('/playlist-signup-step-4', [PlaylistCuratorSignupController::class, 
     ->middleware('auth')
     ->name('playlist.signup.step.4.post');
 /***************************************************** Playlist Route *********************************************************/
+
+/***************************************************** Radio Route *********************************************************/
+// Radio Route
+
+Route::post('/taste-maker-signup-step-4', [CuratorDetailsSignupController::class, 'postCuratorsSignupStep4'])
+    ->middleware('auth')
+    ->name('curators.signup.step.4.post');
+/***************************************************** Radio Route *********************************************************/
+
 
 Route::get('/taste-maker-signup-step-social-media', [CuratorSignupController::class, 'curatorSignupSocialMedia'])
     ->middleware('auth')
