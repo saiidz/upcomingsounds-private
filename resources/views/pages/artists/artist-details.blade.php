@@ -40,7 +40,7 @@
                             </a>
                         @else
                             <a href="{{url('/login')}}" class="transparent  tellMeMore">
-                                <span>Apply to join</span>
+                                <span>Start Now</span>
                             </a>
 
                         @endif
@@ -53,7 +53,7 @@
                                 <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"></path>
                             </svg>
                             <h5>
-                                <span>Friendly UI Dashboard</span>
+                                <span>Verified Pros / Curators </span>
                             </h5>
                             <p class="text-muted text-md">
                                 <span>UpcomingSounds is an Easy Access Tool that allows you to listen and make the decision faster, whether you want to share a song or give feedback. Each submission includes links to the song link, Artwork, Artist social media profiles, additional streaming sources, and information about that song.</span>
