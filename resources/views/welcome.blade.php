@@ -41,7 +41,7 @@
             font-size: 50px;
             line-height: 1;
         }
-        .fa {
+        .fa-angle-down {
             font-size: 3.5rem;
         }
     </style>

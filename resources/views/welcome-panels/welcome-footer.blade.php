@@ -3,7 +3,7 @@
         <div class="footer p-y-md text-primary-hover">
             <div class="row">
                 <div class="col-md-3">
-                    <div class="clearfix m-b-lg">
+                    <div class="clearfix m-b-sm">
                         <!-- brand -->
                         <a href="{{url('/')}}" class="navbar-brand md">
                             {{--                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32">--}}
@@ -21,6 +21,42 @@
                         </a>
                         <!-- / brand -->
                     </div>
+
+
+                    <div class="m-b">
+                        <a href="#" target="_blank"
+                           class="btn btn-icon btn-social rounded btn-social-colored indigo"
+                           title="Facebook">
+                            <i class="fa fa-facebook"></i>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="#" target="_blank"
+                           class="btn btn-icon btn-social rounded btn-social-colored light-blue-800"
+                           title="Instagram">
+                            <i class="fa fa-instagram"></i>
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                        <a href="#" target="_blank"
+                           class="btn btn-icon btn-social rounded btn-social-colored light-green-500"
+                           title="Spotify">
+                            <i class="fa fa-spotify"></i>
+                            <i class="fa fa-spotify"></i>
+                        </a>
+                        <a href="#" target="_blank"
+                           class="btn btn-icon btn-social rounded btn-social-colored orange-700"
+                           title="SoundCloud">
+                            <i class="fa fa-soundcloud"></i>
+                            <i class="fa fa-soundcloud"></i>
+                        </a>
+                        <a href="#" target="_blank"
+                           class="btn btn-icon btn-social rounded btn-social-colored red-600"
+                           title="Youtube">
+                            <i class="fa fa-youtube"></i>
+                            <i class="fa fa-youtube"></i>
+                        </a>
+                    </div>
+
+
                 </div>
                 <div class="col-sm-2 col-xs-6">
                     <h6 class="text-u-c m-b text-muted">About</h6>
