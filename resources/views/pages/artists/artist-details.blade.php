@@ -38,7 +38,7 @@
                     <div class="container landing-headline">
                         <h3>
                             <span>How it Works</span>
-                             <div>
+                     
                         </h5>
                         <div class="mrg-bottom-30">
                         <h5>
