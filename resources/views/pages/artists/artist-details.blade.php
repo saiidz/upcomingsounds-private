@@ -34,10 +34,11 @@
                                 <p class="text-muted text-md">Our platform enables tastemakers, curators, and professionals from around the world to discover new music. Our Tastemakers and influencers are music professionals and music lovers. They give you feedback and make every effort to give you the exposure you need.</p>
                             </span>
                         </div>
-                        </div>
+                       
                     <div class="container landing-headline">
                         <h3>
                             <span>How it Works</span>
+                             </div>
                         </h5>
                         <div class="mrg-bottom-30">
                         <h5>
