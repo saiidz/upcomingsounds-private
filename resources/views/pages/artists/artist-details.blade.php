@@ -34,6 +34,17 @@
                                 <p class="text-muted text-md">Our platform enables tastemakers, curators, and professionals from around the world to discover new music. Our Tastemakers and influencers are music professionals and music lovers. They give you feedback and make every effort to give you the exposure you need.</p>
                             </span>
                         </div>
+                        </div>
+                    <div class="container landing-headline">
+                        <h3>
+                            <span>UpcomingSounds One tool for all</span>
+                        </h3>
+                        <div class="mrg-bottom-30">
+                            <span>
+                                <p class="text-muted text-md">We've combined all of your submissions into one easy-to-use Dashboard, UpcomingSounds is the easiest way for musicians to get music heard by bloggers, radio stations, & record labels.</p>
+                                <p class="text-muted text-md">Our platform enables tastemakers, curators, and professionals from around the world to discover new music. Our Tastemakers and influencers are music professionals and music lovers. They give you feedback and make every effort to give you the exposure you need.</p>
+                            </span>
+                        </div>
                         @if(Auth::check() && Auth::user()->type == 'artist')
                             <a href="{{url('/artist-profile')}}" class="transparent  tellMeMore">
                                 <span>Dashboard</span>
