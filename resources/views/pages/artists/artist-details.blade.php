@@ -40,7 +40,7 @@
                             <span>How it Works</span>
                         </h5>
                         <div class="mrg-bottom-30">
-                        <h6>
+                        <h5>
                             <span>      1 - Signup | 2 - uplouad your song | 3 - send your song </span>
                         </h5>
                             <span>
