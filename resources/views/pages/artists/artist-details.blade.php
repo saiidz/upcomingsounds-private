@@ -37,7 +37,7 @@
                         </div>
                     <div class="container landing-headline">
                         <h3>
-                            <span>UpcomingSounds One tool for all</span>
+                            <span>How it Works</span>
                         </h3>
                         <div class="mrg-bottom-30">
                             <span>
