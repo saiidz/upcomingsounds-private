@@ -41,7 +41,7 @@
                         </h5>
                         <div class="mrg-bottom-30">
                         <h5>
-                            <span>      1 - Signup | 2 - uplouad your song | 3 - send your song </span>
+                            <span> 1- Signup   2- uplouad your song   3- select curators and send your song </span>
                         </h5>
                             <span>
                                 <p class="text-muted text-md">UpcomingSounds allows you to easily send your music to curators using USC Coins' "credits." Each curator requests the standard fee of 2 USC coins, Verified curators, tastemakers, and pors require 4 to  50 credits depending on their level.</p>
