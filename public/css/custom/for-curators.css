@@ -107,7 +107,11 @@ img {
 }
 .landing-headline {
     padding-right: 15%;
-    margin: 100px auto;
+    margin: 41px auto;
+}
+.landing-headline-works {
+    padding-right: 15%;
+    margin: 41px auto;
 }
 
 .mrg-bottom-30 {
