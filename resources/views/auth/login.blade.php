@@ -15,6 +15,12 @@
             font-size: 20px;
             padding-top: 17px;
         }
+        .artist_sides{
+            width: 296px;
+            height: 68px;
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
     </style>
 @endsection
 
@@ -25,8 +31,8 @@
             <div class="center-block w-xxl w-auto-xs p-y-md text-center">
                 <div class="p-a-md">
                     <div>
-                        <a href="{{ url('/login/google/?request_from=artist') }}" class="btn-block" style="background-color:#3367d5 !important;">
-                            <img src="{{asset('images/google_new.png')}}" style="width: 278px;height: 62px;">
+                        <a href="{{ url('/login/google/?request_from=artist') }}" class="btn-block artist_sides" style="background-image:url({{asset('images/google_new.png')}})">
+{{--                            <img src="{{asset('images/google_new.png')}}" style="width: 278px;height: 62px;">--}}
                             {{--                            <i class="fa fa-google pull-left"></i>--}}
                             {{--                            Sign up with Google--}}
                         </a>
