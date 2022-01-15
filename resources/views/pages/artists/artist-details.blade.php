@@ -6,7 +6,7 @@
 
 {{-- page style --}}
 @section('page-style')
-        <link rel="stylesheet" type="text/css" href="{{asset('css/custom/for-curators.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/custom/for-curators.css')}}">
 @endsection
 
 {{-- page content --}}
@@ -30,37 +30,21 @@
                         </h3>
                         <div class="mrg-bottom-30">
                             <span>
-                                <p class="text-muted text-md">We've combined all of your submissions into one easy-to-use Dashboard, UpcomingSounds is the easiest way for musicians to get music heard by bloggers, radio stations, & record labels.</p>
-                                <p class="text-muted text-md">Our platform enables tastemakers, curators, and professionals from around the world to discover new music. Our Tastemakers and influencers are music professionals and music lovers. They give you feedback and make every effort to give you the exposure you need.</p>
+                                <p class="text-muted text-md">We've combined all of your submissions into one easy-to-use Dashboard, UpcomingSounds is your one source for New Music.</p>
+                                <p class="text-muted text-md">Our platform enables tastemakers, curators, and professionals from around the world to discover new music, connect, share their favorite tunes and find out about cool events. We are looking forward to receiving your application :)</p>
                             </span>
                         </div>
-                       
-                    <div class="container landing-headline">
-                        <h3>
-                            <span>How it Works</span>
-                     
-                        </h5>
-                        <div class="mrg-bottom-30">
-                        <h5>
-                            <span>1- Signup   >>>   2-uploud your song  >>>    3- select curators and send your song. </span>
-                        </h5>
-                       
-                            <span>
-                                <p class="text-muted text-md">UpcomingSounds allows you to easily send your music to curators using USC Coins' "credits." Each curator requests the standard fee of 2 USC coins, Verified curators, tastemakers, and pors require 4 to  50 credits depending on their level.</p>
-                                <p class="text-muted text-md">It doesn't matter if you are just starting and sending demos or if your work is already established and ready to be shown, we are here to help. you can expect your submission decision within 96 hours of receiving it. We will connect you with curators, blogs, journalists and other professionals that can get you the exposure you need in the industry. We can guarantee that you will get feedback from every track you submit. Sometimes the feedback you receive when your song is declined will be useful.</p>
-                            </span>
-                        </div>
-{{--                        @if(Auth::check() && Auth::user()->type == 'artist')--}}
-{{--                            <a href="{{url('/artist-profile')}}" class="transparent  tellMeMore">--}}
-{{--                                <span>Dashboard</span>--}}
-{{--                            </a>--}}
-{{--                        @else--}}
-{{--                            <a href="{{url('/login')}}" class="transparent  tellMeMore">--}}
-{{--                                <span>Start Now</span>--}}
-{{--                            </a>--}}
+                        {{--                        @if(Auth::check() && Auth::user()->type == 'artist')--}}
+                        {{--                            <a href="{{url('/artist-profile')}}" class="transparent  tellMeMore">--}}
+                        {{--                                <span>Dashboard</span>--}}
+                        {{--                            </a>--}}
+                        {{--                        @else--}}
+                        {{--                            <a href="{{url('/login')}}" class="transparent  tellMeMore">--}}
+                        {{--                                <span>Start Now</span>--}}
+                        {{--                            </a>--}}
 
-{{--                        @endif--}}
-{{--                        <div class="clearfix"></div>--}}
+                        {{--                        @endif--}}
+                        {{--                        <div class="clearfix"></div>--}}
                     </div>
 
                     <div class="container landing-headline-works">
@@ -92,9 +76,9 @@
                     <div class="container landing-bullets">
                         <div class="col-xs-12 col-sm-12 m5 bullets">
                             <img src="{{asset('images/verified_pros_curators.svg')}}">
-{{--                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">--}}
-{{--                                <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"></path>--}}
-{{--                            </svg>--}}
+                            {{--                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">--}}
+                            {{--                                <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"></path>--}}
+                            {{--                            </svg>--}}
                             <h5>
                                 <span>Verified Pros / Curators </span>
                             </h5>
@@ -180,5 +164,3 @@ You will receive more than 99 Genres that fit your musical taste to pick. Each m
     </div>
     @include('welcome-panels.welcome-footer')
 @endsection
-
-
