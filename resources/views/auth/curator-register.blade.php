@@ -3,7 +3,19 @@
 
 {{-- page title --}}
 @section('title','Taste Maker Signup')
-
+@section('page-style')
+    <style>
+        .btn > i.pull-left, .btn > i.pull-right {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+        .btn-block+.btn-block {
+            height: 62px;
+            font-size: 20px;
+            padding-top: 17px;
+        }
+    </style>
+@endsection
 {{-- page content --}}
 @section('content')
 

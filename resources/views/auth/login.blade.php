@@ -4,6 +4,20 @@
 {{-- page title --}}
 @section('title','Login')
 
+@section('page-style')
+    <style>
+        .btn > i.pull-left, .btn > i.pull-right {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+        .btn-block+.btn-block {
+            height: 62px;
+            font-size: 20px;
+            padding-top: 17px;
+        }
+    </style>
+@endsection
+
 {{-- page content --}}
 @section('content')
 
@@ -11,7 +25,7 @@
             <div class="center-block w-xxl w-auto-xs p-y-md text-center">
                 <div class="p-a-md">
                     <div>
-                        <a href="{{ url('/login/google/?request_from=artist') }}" class="btn-block">
+                        <a href="{{ url('/login/google/?request_from=artist') }}" class="btn-block" style="background-color:#3367d5 !important;">
                             <img src="{{asset('images/google_new.png')}}" style="width: 278px;height: 62px;">
                             {{--                            <i class="fa fa-google pull-left"></i>--}}
                             {{--                            Sign up with Google--}}
