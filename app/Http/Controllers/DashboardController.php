@@ -69,6 +69,7 @@ class DashboardController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
             'subject' => 'required|string|max:255',
+            'g-recaptcha-response' => 'required|captcha',
         ]);
         if ($validator->fails()) {
             return redirect()->back()

@@ -155,6 +155,16 @@
                                 </div>
                             </div>
                             <div class="form-group mt-3">
+                                {!! NoCaptcha::renderJs() !!}
+                                {!! NoCaptcha::display() !!}
+                                @error('g-recaptcha-response')
+                                <small class="red-text ml-10" role="alert">
+                                    {{ $message }}
+                                </small>
+                                @enderror
+                            </div>
+
+                            <div class="form-group mt-3">
                                 <button type="submit" class="btn circle btn-outline b-primary p-x-md auth_btn Rigister">Send</button>
                             </div>
                         </form>
