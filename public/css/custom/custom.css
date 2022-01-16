@@ -513,7 +513,7 @@ input[type=number] {
     background: transparent;
     cursor: pointer;
     position: absolute;
-    top: 250px;
+    top: 300px;
     text-align: center;
     margin: 0 auto;
     display: initial;
@@ -599,7 +599,7 @@ ul:not(.browser-default) > li {
         display: initial;
     }
     .mouse-icon {
-        top: 200px !important;
+        top: 300px !important;
     }
 }
 
@@ -647,7 +647,7 @@ ul:not(.browser-default) > li {
         display: initial;
     }
     .mouse-icon {
-        top: 200px !important;
+        top: 300px !important;
     }
 }
 
@@ -709,7 +709,7 @@ ul:not(.browser-default) > li {
         display: initial;
     }
     .mouse-icon {
-        top: 200px !important;
+        top: 300px !important;
     }
 }
 
@@ -758,7 +758,7 @@ ul:not(.browser-default) > li {
         padding: 0;
     }
     .mouse-icon {
-        top: 200px !important;
+        top: 300px !important;
     }
 }
 
@@ -845,7 +845,7 @@ ul:not(.browser-default) > li {
         padding: 0;
     }
     .mouse-icon {
-        top: 200px !important;
+        top: 300px !important;
     }
 }
 
@@ -992,6 +992,6 @@ ul:not(.browser-default) > li {
         left: 600px !important;
     }
     .mouse-icon {
-        top: 180px !important;
+        top: 280px !important;
     }
 }
