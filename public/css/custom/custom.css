@@ -513,7 +513,7 @@ input[type=number] {
     background: transparent;
     cursor: pointer;
     position: absolute;
-    top: 180px;
+    top: 250px;
     text-align: center;
     margin: 0 auto;
     display: initial;
@@ -564,7 +564,9 @@ ul:not(.browser-default) > li {
 @media (min-width: 1281px) {
 
     /* CSS */
-
+    .mouse-icon {
+        top: 200px !important;
+    }
 }
 
 /*
@@ -598,6 +600,9 @@ ul:not(.browser-default) > li {
     .mouse-icon {
         position: absolute;
         display: initial;
+    }
+    .mouse-icon {
+        top: 200px !important;
     }
 }
 
@@ -643,6 +648,9 @@ ul:not(.browser-default) > li {
     .mouse-icon {
         position: absolute;
         display: initial;
+    }
+    .mouse-icon {
+        top: 200px !important;
     }
 }
 
@@ -703,6 +711,9 @@ ul:not(.browser-default) > li {
         position: absolute;
         display: initial;
     }
+    .mouse-icon {
+        top: 200px !important;
+    }
 }
 
 /*
@@ -748,6 +759,9 @@ ul:not(.browser-default) > li {
     .artists_welcome .text-md,
     .curators_welcome .text-md{
         padding: 0;
+    }
+    .mouse-icon {
+        top: 200px !important;
     }
 }
 
@@ -832,6 +846,9 @@ ul:not(.browser-default) > li {
     .artists_welcome .text-md,
     .curators_welcome .text-md{
         padding: 0;
+    }
+    .mouse-icon {
+        top: 200px !important;
     }
 }
 
@@ -976,5 +993,8 @@ ul:not(.browser-default) > li {
     }
     .welcome_video > video {
         left: 600px !important;
+    }
+    .mouse-icon {
+        top: 180px !important;
     }
 }
