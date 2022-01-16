@@ -564,9 +564,6 @@ ul:not(.browser-default) > li {
 @media (min-width: 1281px) {
 
     /* CSS */
-    .mouse-icon {
-        top: 200px !important;
-    }
 }
 
 /*
