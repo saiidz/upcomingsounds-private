@@ -481,11 +481,11 @@ input[type=number] {
     text-align: justify;
 }
 
-.welcome_video > video{
-    width:100% !important;
-    /*height:463px !important;*/
-    object-fit: cover;
-}
+/*.welcome_video > video{*/
+/*    width:100% !important;*/
+/*    !*height:463px !important;*!*/
+/*    object-fit: cover;*/
+/*}*/
 
 .artists_welcome,.curators_welcome{
     height: 491px;
@@ -513,6 +513,7 @@ input[type=number] {
     background: transparent;
     cursor: pointer;
     position: absolute;
+    top: 180px;
     text-align: center;
     margin: 0 auto;
     display: initial;
@@ -629,9 +630,9 @@ ul:not(.browser-default) > li {
     .curator_container .artist_footer .siGnup1 {
         padding: 10px 2.5rem 10px 2.5rem !important;
     }
-    .welcome_video > video{
-        width:100% !important;
-    }
+    /*.welcome_video > video{*/
+    /*    width:100% !important;*/
+    /*}*/
     .mouse {
         position: relative;
         bottom: 5.625rem;
@@ -688,9 +689,9 @@ ul:not(.browser-default) > li {
     .curator_container .artist_footer .siGnup1 {
         padding: 10px 2.5rem 10px 2.5rem !important;
     }
-    .welcome_video > video{
-        width:100% !important;
-    }
+    /*.welcome_video > video{*/
+    /*    width:100% !important;*/
+    /*}*/
     .mouse {
         position: relative;
         bottom: 5.625rem;
@@ -730,9 +731,9 @@ ul:not(.browser-default) > li {
     .cardcontainer {
         margin-left: auto!important;
     }
-    .welcome_video > video{
-        width:100% !important;
-    }
+    /*.welcome_video > video{*/
+    /*    width:100% !important;*/
+    /*}*/
     .mouse {
         position: relative;
         bottom: 5.625rem;
@@ -798,9 +799,9 @@ ul:not(.browser-default) > li {
     .cardcontainer {
          margin-left: auto!important;
     }
-    .welcome_video > video{
-        width:100% !important;
-    }
+    /*.welcome_video > video{*/
+    /*    width:100% !important;*/
+    /*}*/
     #socialMedia{
         display: inline-grid!important;
     }
@@ -937,7 +938,7 @@ ul:not(.browser-default) > li {
         top:113px !important;
     }
     .welcome_video > video{
-        width:100% !important;
+        /*width:100% !important;*/
     }
     /*#CuHome{*/
     /*    background-position: inherit !important;*/

@@ -5,6 +5,27 @@
 @section('title','Welcome')
 @section('page-style')
     <style>
+        .videoWlcome{
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            width: 100%;
+            min-height: 100vh;
+            overflow: hidden;
+            background-color: #000;
+        }
+        .welcome_video > video{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 0;
+            width: auto;
+            min-width: 100%;
+            height: auto;
+            min-height: 100%;
+            transform: translateX(-50%) translateY(-50%);
+        }
         /*.display-4{*/
         /*    font-size: 2.5rem !important;*/
         /*}*/
