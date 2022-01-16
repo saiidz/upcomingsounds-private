@@ -5,21 +5,21 @@
 @section('title','Taste Maker Signup')
 @section('page-style')
     <style>
-        .btn > i.pull-left, .btn > i.pull-right {
-            font-size: 20px;
-            line-height: 1.5;
-        }
-        .btn-block+.btn-block {
+        /*.btn > i.pull-left, .btn > i.pull-right {*/
+        /*    font-size: 20px;*/
+        /*    line-height: 1.5;*/
+        /*}*/
+        .curator_sides {
             height: 62px;
             font-size: 20px;
             padding-top: 17px;
         }
-        .curator_sides{
-            width: 296px;
-            height: 68px;
-            background-repeat: no-repeat;
-            background-size: 100%;
-        }
+        /*.curator_sides{*/
+        /*    width: 296px;*/
+        /*    height: 68px;*/
+        /*    background-repeat: no-repeat;*/
+        /*    background-size: 100%;*/
+        /*}*/
     </style>
 @endsection
 {{-- page content --}}
@@ -31,22 +31,24 @@
             <div class="center-block w-xxl w-auto-xs p-y-md text-center">
                 <div class="p-a-md">
                     <div>
-                        <a href="{{ url('/login/google/?request_from=curator') }}" class="btn-block curator_sides" style="background-image:url({{asset('images/google_new.png')}})">
-{{--                            <img src="{{asset('images/google_new.png')}}" style="width: 278px;height: 62px;">--}}
+                        <a href="{{ url('/login/google/?request_from=curator') }}" class="btn-block">
+                            <img src="{{asset('images/google_new.png')}}" style="width: 100%;">
                             {{--                            <i class="fa fa-google pull-left"></i>--}}
                             {{--                            Sign up with Google--}}
                         </a>
 
-                        <a href="{{ url('/login/facebook/?request_from=taste-maker') }}" class="btn btn-block indigo text-white m-b-sm">
-                            <i class="fa fa-facebook pull-left"></i>
-                            Sign up with Facebook
+                        <a href="{{ url('/login/facebook/?request_from=taste-maker') }}" class="btn-block">
+                            <img src="{{asset('images/facebook.png')}}"  style="width: 100%;">
+{{--                            <i class="fa fa-facebook pull-left"></i>--}}
+{{--                            Sign up with Facebook--}}
                         </a>
 
-                        <a href="{{ url('/login/twitter/?request_from=curator') }}" style="background-color: #1C9CEA;" class="btn btn-block light-blue text-white m-b-sm">
-                            <i class="fa fa-twitter pull-left"></i>
-                            Sign up with Twitter
+                        <a href="{{ url('/login/twitter/?request_from=curator') }}" class="btn-block">
+                            <img src="{{asset('images/twitter.png')}}" style="width: 100%;">
+{{--                            <i class="fa fa-twitter pull-left"></i>--}}
+{{--                            Sign up with Twitter--}}
                         </a>
-                        <a href="{{url('/login/spotify/?request_from=curator')}}" style="background-color: #1ed760;;" class="btn btn-block text-white m-b-sm">
+                        <a href="{{url('/login/spotify/?request_from=curator')}}" style="background-color: #1ed760;;" class="btn btn-block curator_sides text-white m-b-sm">
                             <i class="fa fa-spotify pull-left"></i>
                             Sign up with Spotify
                         </a>
