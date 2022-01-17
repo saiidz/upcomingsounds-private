@@ -82,7 +82,7 @@
                             <h5>
                                 <span>Verified Pro's / Curators </span>
                             </h5>
-                            <p class="text-muted text-md">
+                            <p class="text-muted text-md m-t-2">
                                 <span>UpcomingSounds is an Easy Access Tool that allows you to listen and make the decision faster, whether you want to share a song or give feedback. Each submission includes links to the song link, Artwork, Artist social media profiles, additional streaming sources, and information about that song.</span>
                             </p>
                         </div>
@@ -91,7 +91,7 @@
                             <h5>
                                 <span>Accurate Targeting </span>
                             </h5>
-                            <p class="text-muted text-md">
+                            <p class="text-muted text-md m-t-2">
                                 <span>With our data-driven insights, You’ll know who to submit your music to based on your genre, budget, and more. We even provide you with an “Accuracy Score” so you can be confident that your music has been sent to the right curators.</span>
                             </p>
                         </div>
@@ -101,7 +101,7 @@
                             <h5>
                                 <span>Flexible Schedule</span>
                             </h5>
-                            <p class="text-muted text-md">
+                            <p class="text-muted text-md m-t-2">
                                 <span>Post-launch? you can easily manage your releases on UpcomingSounds. Schedule them in advance, submit your Demo, Unreleased, or a mastered track already in stores. You can send your masterpiece anytime whether you need some advice, help or you're ready to share it globally. Our curators are used to keeping your song secret until it's ready to be shared with the world.</span>
                             </p>
                         </div>
@@ -110,7 +110,7 @@
                             <h5>
                                 <span>No hidden fees</span>
                             </h5>
-                            <p class="text-muted text-md">
+                            <p class="text-muted text-md m-t-2">
                                 <span>You have full control over your spending budget. You decide how much to spend on each campaign. There's even an option for free submissions. They're sharing your song because they are passionate about music, not because you're paying them.</span>
                             </p>
                         </div>
@@ -120,7 +120,7 @@
                             <h5>
                                 <span>Direct Contact</span>
                             </h5>
-                            <p class="text-muted text-md">
+                            <p class="text-muted text-md m-t-2">
                                 <span>No emailing is required. Our Dashboard grants you direct communication with curators and professionals. You'll be able to send them your songs and read their reviews on your UpcomingSounds Dashboard.</span>
                             </p>
                         </div>
@@ -129,7 +129,7 @@
                             <h5>
                                 <span>Fast customer support</span>
                             </h5>
-                            <p class="text-muted text-md">
+                            <p class="text-muted text-md m-t-2">
                                 <span>We are a small start-up that knows how important customer service is. We're quick when it comes to answering questions, You will be able to receive your answer within 24 hours if you are stuck somewhere.</span>
                             </p>
                         </div>
@@ -139,7 +139,7 @@
                             <h5>
                                 <span>For Artist reprasentitve / Managers / Lebales</span>
                             </h5>
-                            <p class="text-muted text-md">
+                            <p class="text-muted text-md m-t-2">
                                 <span>We have created a multi-artist managing profile to help you easily access the dashboard for multiple artists with no extra fees.</span>
                             </p>
                         </div>
