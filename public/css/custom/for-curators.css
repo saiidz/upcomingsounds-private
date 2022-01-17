@@ -145,7 +145,8 @@ svg {
     color: #02b875 !important;
 }
 .landing-bullets h5 {
-    margin: 0 0 1vw;
+    /*margin: 0 0 1vw;*/
+    margin: 15px 45px 1vw;
     font-weight: 700;
 }
 .m5 {
@@ -160,16 +161,18 @@ svg {
      padding-bottom: 1px !important;
 }
 .bullets img{
+    width: 50px !important;
+}
+.bullets img{
     top: 0;
-    left: 0;
+    left: 25px;
     position: absolute;
-    max-width: none;
-    width: 1.64rem;
-    height: 1.64rem;
+    /*max-width: none;*/
+    /*width: 1.64rem;*/
+    /*height: 1.64rem;*/
     vertical-align: middle;
     overflow: hidden;
 }
-
 
 
 
@@ -236,6 +239,7 @@ svg {
     }
     .m5 {
         text-align: unset;
+        width: auto;
     }
 }
 
@@ -251,7 +255,8 @@ svg {
     /*    padding-top: 3.5rem!important;*/
     /*}*/
     .m5 {
-        width: 80.666667% !important;
+        /*width: 80.666667% !important;*/
+        width: auto;
         text-align: unset;
     }
     #landing-page #landing-header.full-landing .full-landing-text {
