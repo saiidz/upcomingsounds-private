@@ -32,26 +32,26 @@
                 <div class="p-a-md">
                     <div>
                         <a href="{{ url('/login/google/?request_from=curator') }}" class="btn-block">
-                            <img src="{{asset('images/google_new.png')}}" style="width: 100%;">
+                            <img src="{{asset('images/google_new.png')}}" style="width: 80%;">
                             {{--                            <i class="fa fa-google pull-left"></i>--}}
                             {{--                            Sign up with Google--}}
                         </a>
 
                         <a href="{{ url('/login/facebook/?request_from=taste-maker') }}" class="btn-block">
-                            <img src="{{asset('images/facebook.png')}}"  style="width: 100%;">
+                            <img src="{{asset('images/facebook.png')}}"  style="width: 80%;">
 {{--                            <i class="fa fa-facebook pull-left"></i>--}}
 {{--                            Sign up with Facebook--}}
                         </a>
 
                         <a href="{{ url('/login/twitter/?request_from=curator') }}" class="btn-block">
-                            <img src="{{asset('images/twitter.png')}}" style="width: 100%;">
+                            <img src="{{asset('images/twitter.png')}}" style="width: 80%;">
 {{--                            <i class="fa fa-twitter pull-left"></i>--}}
 {{--                            Sign up with Twitter--}}
                         </a>
-                        <a href="{{url('/login/spotify/?request_from=curator')}}" style="background-color: #1ed760;;" class="btn btn-block curator_sides text-white m-b-sm">
-                            <i class="fa fa-spotify pull-left"></i>
-                            Sign up with Spotify
-                        </a>
+{{--                        <a href="{{url('/login/spotify/?request_from=curator')}}" style="background-color: #1ed760;;" class="btn btn-block curator_sides text-white m-b-sm">--}}
+{{--                            <i class="fa fa-spotify pull-left"></i>--}}
+{{--                            Sign up with Spotify--}}
+{{--                        </a>--}}
                     </div>
                     <div class="m-y text-sm">
                         OR
