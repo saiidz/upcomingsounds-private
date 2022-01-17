@@ -71,7 +71,7 @@ You will receive more than 99 Genres that fit your musical taste to pick. Each m
                         <div class="col-xs-12 col-sm-12 m5 bullets">
                             <img src="{{asset('images/ditch_the_emails.svg')}}">
                             <h5>
-                                <span>Ditch the emails</span>
+                                <span>No More Emails</span>
                             </h5>
                             <p class="text-muted text-md">
                                 <span>No emailing is required. Our Dashboard grants you direct communication with artists. You'll be able to manage everything from UpcomingSounds.</span>
