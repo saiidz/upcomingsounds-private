@@ -49,7 +49,7 @@
 
                     <div class="container landing-headline-works">
                         <h3>
-                            <span>How it Works</span>
+                            <span>How It Works</span>
                         </h3>
                         <div class="mrg-bottom-30">
                             <h5>
@@ -80,7 +80,7 @@
                             {{--                                <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"></path>--}}
                             {{--                            </svg>--}}
                             <h5>
-                                <span>Verified Pros / Curators </span>
+                                <span>Verified Pro's / Curators </span>
                             </h5>
                             <p class="text-muted text-md">
                                 <span>UpcomingSounds is an Easy Access Tool that allows you to listen and make the decision faster, whether you want to share a song or give feedback. Each submission includes links to the song link, Artwork, Artist social media profiles, additional streaming sources, and information about that song.</span>
@@ -114,10 +114,10 @@
                                 <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"></path>
                             </svg>
                             <h5>
-                                <span>Redeem Rewards</span>
+                                <span>No hidden fees</span>
                             </h5>
                             <p class="text-muted text-md">
-                                <span>Artists when submitting their music, they're asking for your feedback about their song. If you respond on time, you will receive a standard Fee of 1 USC coin = 1 GBP standard fee for "Non-verified" Tastemakers / Curators / Professionals. You can always submit your platform to our editors to increase your submissions Fee. Payments are made via PayPal or directly to your bank account.</span>
+                                <span>You have full control over your spending budget. You decide how much to spend on each campaign. There's even an option for free submissions. They're sharing your song because they are passionate about music, not because you're paying them.</span>
                             </p>
                         </div>
                         <div class="clearfix"></div>
