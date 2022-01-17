@@ -53,7 +53,7 @@
                         </h3>
                         <div class="mrg-bottom-30">
                             <h5>
-                                <span>1- Signup   >>>   2-uploud your song  >>>    3- select curators and send your song. </span>
+                                <span>1- Signup   >>>   2-Uploud your song  >>>    3- Select curators and send your song. </span>
                             </h5>
                             <span>
                                 <p class="text-muted text-md">UpcomingSounds allows you to easily send your music to curators using USC Coins' "credits." Each curator requests the standard fee of 2 USC coins, Verified curators, tastemakers, and pors require 4 to  50 credits depending on their level.</p>
@@ -138,10 +138,10 @@ You will receive more than 99 Genres that fit your musical taste to pick. Each m
                                 <path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h4v1h-7v2h6c1.66 0 3-1.34 3-3V10c0-4.97-4.03-9-9-9z"></path>
                             </svg>
                             <h5>
-                                <span>Quick customer support</span>
+                                <span>Fast customer support</span>
                             </h5>
                             <p class="text-muted text-md">
-                                <span>The team behind Upcoming Sounds is small, but we're quick when it comes to answering questions. If you're stuck or need help with something, you'll pretty much always get a response that day.</span>
+                                <span>We are a small start-up that knows how important customer service is. We're quick when it comes to answering questions, You will be able to receive your answer within 24 hours if you are stuck somewhere.</span>
                             </p>
                         </div>
                         <div class="clearfix"></div>
