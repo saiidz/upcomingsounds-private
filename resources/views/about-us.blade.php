@@ -162,8 +162,8 @@
                         <div class="col-md-4 probootstrap-animate mb50">
                             <div class="probootstrap-card probootstrap-person text-center">
                                 <div class="probootstrap-card-media">
-                                    <img src="{{asset('images/artistbackgrounds.jpg')}}" class="img-responsive"
-                                         alt="{{asset('images/artistbackgrounds.jpg')}}">
+                                    <img src="{{asset('images/Banner_UCSWEB1.jpg')}}" class="img-responsive"
+                                         alt="{{asset('images/Banner_UCSWEB1.jpg')}}">
                                 </div>
                                 <div class="probootstrap-card-text">
                                     <div class="display-inline">
@@ -178,8 +178,8 @@
                         <div class="col-md-4 probootstrap-animate mb50">
                             <div class="probootstrap-card probootstrap-person text-center">
                                 <div class="probootstrap-card-media">
-                                    <img src="{{asset('images/artistbackgrounds.jpg')}}" class="img-responsive"
-                                         alt="{{asset('images/artistbackgrounds.jpg')}}">
+                                    <img src="{{asset('images/Banner_UCSWEB2.jpg')}}" class="img-responsive"
+                                         alt="{{asset('images/Banner_UCSWEB2.jpg')}}">
                                 </div>
                                 <div class="probootstrap-card-text">
                                     <div class="display-inline">
@@ -194,8 +194,8 @@
                         <div class="col-md-4 probootstrap-animate mb50">
                             <div class="probootstrap-card probootstrap-person text-center">
                                 <div class="probootstrap-card-media">
-                                    <img src="{{asset('images/artistbackgrounds.jpg')}}" class="img-responsive"
-                                         alt="{{asset('images/artistbackgrounds.jpg')}}">
+                                    <img src="{{asset('images/Banner_UCSWEB3.jpg')}}" class="img-responsive"
+                                         alt="{{asset('images/Banner_UCSWEB3.jpg')}}">
                                 </div>
                                 <div class="probootstrap-card-text">
                                     <div class="display-inline">

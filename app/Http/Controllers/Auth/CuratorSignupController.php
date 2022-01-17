@@ -14,6 +14,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Sovit\TikTok;
@@ -505,8 +506,19 @@ class CuratorSignupController extends Controller
                 $user->update(['curator_completed_signup' => Carbon::now()]);
 
                 // Send Mail For Curator Signup
-                $username = $user->name;
-                SendMailableJob::dispatch($user->email, (new CuratorSignupMailable($username)));
+//                $username = $user->name;
+//                SendMailableJob::dispatch($user->email, (new CuratorSignupMailable($username)));
+
+                $data['email'] = $user->email;
+                $data['username'] = $user->name;
+                $data["title"] = "Curator Upcoming Sounds";
+
+                Mail::send('pages.curators.emails.send_email_curator_signup', $data, function($message)use($data) {
+                    $message->from('curator@upcomingsounds.com');
+                    $message->to($data["email"], $data["email"])
+                        ->subject($data["title"]);
+                });
+
                 return redirect('/taste-maker-profile')->with('success','Tastemaker Profile is created successfully');
             }else{
                 return redirect()->back()->with('error', 'Please fill out data');

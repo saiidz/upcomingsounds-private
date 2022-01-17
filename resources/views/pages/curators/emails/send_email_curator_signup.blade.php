@@ -49,7 +49,7 @@
                             <td align="center" style="color: #f41a2d;font-size: 18px;line-height:17px;margin:0;padding: 40px 80px 0 80px;text-align:center;word-break:normal;direction:ltr;" dir="ltr">Upcoming Sounds</td>
                         </tr>
                         <tr>
-                            <td align="center" dir="ltr"><p style="color: #383760;font-size: 18px;line-height:17px;margin:0;padding: 15px 80px 15px 80px;text-align:center;word-break:normal;direction:ltr;">523-1 Sanmai Chou Kanagawa-ku Yokohama-shi lebanon</p>
+                            <td align="center" dir="ltr"><p style="color: #383760;font-size: 18px;line-height:17px;margin:0;padding: 15px 80px 15px 80px;text-align:center;word-break:normal;direction:ltr;">Headquarters 29-31 Parliament Street, Liverpool, England, L8 5RN</p>
                                 <p style="color: #383760;font-size: 18px;line-height:17px;margin:0;padding: 0 80px 0 80px;text-align:center;word-break:normal;direction:ltr;">+961 70 486 667</p></td>
                         </tr>
                         <tr>
