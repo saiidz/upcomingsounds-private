@@ -137,7 +137,7 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="text-sm-right text-xs-left">
-                        <small class="text-muted">&copy; Copyright. All rights reserved.</small>
+                        <small class="text-muted">&copy; @php echo date('Y'); @endphp  <a href="https://upcomingsounds.com/" target="_blank">UpcomingSounds.com</a> All rights reserved.</small>
                     </div>
                 </div>
             </div>
