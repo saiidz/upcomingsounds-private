@@ -91,11 +91,10 @@
                                 <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"></path>
                             </svg>
                             <h5>
-                                <span>Your own Music</span>
+                                <span>Accurate Targeting </span>
                             </h5>
                             <p class="text-muted text-md">
-                                <span>Our matching service help artists to pick the best match for their need.
-You will receive more than 99 Genres that fit your musical taste to pick. Each month, we select from the most active and impactful Influencers / Curators to add to our editorial submissions lists. It's perfect for helping you discover new music while you increase your rewards.</span>
+                                <span>With our data-driven insights, You’ll know who to submit your music to based on your genre, budget, and more. We even provide you with an “Accuracy Score” so you can be confident that your music has been sent to the right curators.</span>
                             </p>
                         </div>
                         <div class="clearfix"></div>
