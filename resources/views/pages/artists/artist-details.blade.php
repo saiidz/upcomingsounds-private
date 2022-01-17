@@ -103,10 +103,10 @@
                                 <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"></path>
                             </svg>
                             <h5>
-                                <span>Ditch the emails</span>
+                                <span>Flexible Schedule</span>
                             </h5>
                             <p class="text-muted text-md">
-                                <span>No emailing is required. Our Dashboard grants you direct communication with artists. You'll be able to manage everything from UpcomingSounds.</span>
+                                <span>Post-launch? you can easily manage your releases on UpcomingSounds. Schedule them in advance, submit your Demo, Unreleased, or a mastered track already in stores. You can send your masterpiece anytime whether you need some advice, help or you're ready to share it globally. Our curators are used to keeping your song secret until it's ready to be shared with the world.</span>
                             </p>
                         </div>
                         <div class="col-xs-12 col-sm-12 m5 bullets offset-m1">
