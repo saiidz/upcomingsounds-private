@@ -129,7 +129,7 @@
                                 <span>Direct Contact</span>
                             </h5>
                             <p class="text-muted text-md">
-                                <span>YNo emailing is required. Our Dashboard grants you direct communication with artists. You'll be able to manage everything from UpcomingSounds.</span>
+                                <span>No emailing is required. Our Dashboard grants you direct communication with artists. You'll be able to manage everything from UpcomingSounds.</span>
                             </p>
                         </div>
                         <div class="col-xs-12 col-sm-12 m5 bullets offset-m1">
