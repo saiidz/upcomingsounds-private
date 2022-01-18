@@ -95,4 +95,12 @@ class DashboardController extends Controller
     {
         return view('blog');
     }
+
+    /**
+     * faq
+     */
+    public function faq()
+    {
+        return view('faq');
+    }
 }

@@ -69,7 +69,7 @@
         .mouse {
             position: absolute;
             left: 0;
-            bottom: -100px;
+            /*bottom: -100px;*/
             z-index: 2;
         }
         .mouse-icon {
@@ -78,13 +78,14 @@
             background: transparent;
             cursor: pointer;
             position: relative;
+            top: 190px !important;
             text-align: center;
             margin: 0 auto;
             display: block;
         }
         .mouse-wheel {
             height: 80px;
-            margin: 0 auto 0;
+            /*margin: 0 auto 0;*/
             display: block;
             width: 30px;
             background: transparent;
@@ -250,6 +251,11 @@
             .mouse {
                 position: initial !important;;
 
+            }
+        }
+        @media (min-width: 320px) and (max-width: 480px){
+            .mouse-icon {
+                top: 1px !important;
             }
         }
     </style>

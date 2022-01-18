@@ -117,6 +117,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="https://www.instagram.com/upcomingsounds_">Help</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('/faq')}}">Faq</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
