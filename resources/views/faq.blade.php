@@ -13,7 +13,7 @@
 
 {{-- page content --}}
 @section('content')
-    <div class="app-body">
+    <div class="{{Auth::check() ? 'app-bodynew' : 'app-body'}}">
 
         <!-- ############ PAGE START-->
 

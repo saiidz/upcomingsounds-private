@@ -263,7 +263,7 @@
 
 {{-- page content --}}
 @section('content')
-    <div class="app-body">
+    <div class="{{Auth::check() ? 'app-bodynew' : 'app-body'}}">
 
         <!-- ############ PAGE START-->
         <div class="hero-wrap js-fullheight" style="background-image:url({{asset('images/blog-bg.jpg')}}); height: 700px;background-position: 50% 0px;"
