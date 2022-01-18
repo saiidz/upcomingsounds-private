@@ -19,7 +19,8 @@ Route::get('about-us', [DashboardController::class,'aboutUs']);
 Route::get('contact-us', [DashboardController::class,'contactUs']);
 Route::post('contact-us',[DashboardController::class,'contactUsPost']);
 Route::get('blog', [DashboardController::class,'blog']);
-Route::get('faq', [DashboardController::class,'faq']);
+Route::get('help', [DashboardController::class,'help']);
+//Route::get('faq', [DashboardController::class,'faq']);
 
 // Artist Signup
 

@@ -2,7 +2,7 @@
 @extends('layouts.welcomeLayout')
 
 {{-- page title --}}
-@section('title','Faq')
+@section('title','Help')
 
 @section('page-style')
     <link rel="stylesheet" type="text/css" href="{{asset('css/custom/faqs.css')}}">
@@ -20,7 +20,7 @@
         <div class="row-col amber h-v">
             <div class="row-cell v-m">
                 <div class="text-center col-sm-6 offset-sm-3 p-y-lg">
-                    <h1 class="display-3 m-y-lg">Faq</h1>
+                    <h1 class="display-3 m-y-lg">Help</h1>
                 </div>
             </div>
         </div>
