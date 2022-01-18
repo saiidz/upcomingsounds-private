@@ -3254,7 +3254,7 @@ li:last-child .cd-faq__category {
 .cd-faq__items {
     position: fixed;
     z-index: 1;
-    height: 100%;
+    height: 90%;
     width: 90%;
     top: 55px;
     right: 0;
