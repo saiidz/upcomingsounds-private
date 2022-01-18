@@ -126,7 +126,7 @@
                         <div class="col-lg-8 text-center">
                             <div class="">
                                 <h2 class="display-4 m-y-lg"> Grow your audience </h2>
-                                <h6 class="text-muted m-b-lg">More impressions drive more success. Reach more fans, listeners and professionals in the most effective way. </h6>
+                                <h6 class="text-muted m-b-lg SliderP">More impressions drive more success. Reach more fans, listeners and professionals in the most effective way. </h6>
                                 <a href="{{url('/register')}}" class="btn circle btn-outline b-primary m-b-lg p-x-md"> Sign Up Now</a>
                             </div>
                         </div>
@@ -137,7 +137,7 @@
                         <div class="col-lg-8 text-center">
                             <div class="">
                                 <h2 class="display-4 m-y-lg"> Visibility and Exposure that you deserve </h2>
-                                <h6 class="text-muted m-b-lg">Media coverage can increase the public's awareness of your music. </h6>
+                                <h6 class="text-muted m-b-lg SliderP">Media coverage can increase the public's awareness of your music. </h6>
                                 <a href="{{url('/artist-home')}}" class="btn circle btn-outline b-primary m-b-lg p-x-md"> Learn More</a>
                             </div>
                         </div>
@@ -148,7 +148,7 @@
                         <div class="col-lg-8 text-center">
                             <div class="">
                                 <h2 class="display-4 m-y-lg">Easy and direct contact </h2>
-                                <h6 class="text-muted m-b-lg">It takes more than a great product to stand out in the crowded music industry. Insightful planning and smart execution are necessary to take your music where you want it to go.</h6>
+                                <h6 class="text-muted m-b-lg SliderP">It takes more than a great product to stand out in the crowded music industry. Insightful planning and smart execution are necessary to take your music where you want it to go.</h6>
                                 <a href="{{url('/contact-us')}}" class="btn circle btn-outline b-primary m-b-lg p-x-md">Get In Touch</a>
                             </div>
                         </div>

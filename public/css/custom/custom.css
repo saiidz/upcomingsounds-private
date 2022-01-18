@@ -542,7 +542,10 @@ ul:not(.browser-default) > li {
     height: 1.2rem;
     line-height: 1.2rem;
 }
-
+.SliderP{
+    color:white !important;
+    text-shadow: 1px 1px #ffffff;
+}
 
 
 
