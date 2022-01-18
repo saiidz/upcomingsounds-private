@@ -101,6 +101,6 @@ class DashboardController extends Controller
      */
     public function help()
     {
-        return view('faq');
+        return view('help');
     }
 }
