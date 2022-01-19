@@ -195,7 +195,7 @@
                 <ul id="payments" class="cd-faq__group">
                     <li class="cd-faq__title"><h2>Payments</h2></li>
                     <li class="cd-faq__item">
-                        <a class="cd-faq__trigger" href="#0"><span>Is upcomingSounds a safe and secure website for payment?</span></a>
+                        <a class="cd-faq__trigger" href="#0"><span>Is UpcomingSounds a safe and secure website for payment?</span></a>
                         <div class="cd-faq__content">
                             <div class="text-component">
                                 <p class="text-muted">Yes, UpcomingSounds is a safe and secure website, We have partnered with stripe for sucre payments and privacy protection.
