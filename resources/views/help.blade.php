@@ -198,7 +198,7 @@
                         <a class="cd-faq__trigger" href="#0"><span>Is upcomingSounds is a safe and secure website for payment?</span></a>
                         <div class="cd-faq__content">
                             <div class="text-component">
-                                <p class="text-muted">We have partnered with stripe for sucre payments and privacy protection.
+                                <p class="text-muted">Yes, UpcomingSounds is a safe and secure website, We have partnered with stripe for sucre payments and privacy protection.
 for more detailed info you can visit: https://stripe.com/gb/privacy-center/legal .</p>
                             </div>
                         </div>
