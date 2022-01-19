@@ -195,35 +195,19 @@
                 <ul id="payments" class="cd-faq__group">
                     <li class="cd-faq__title"><h2>Payments</h2></li>
                     <li class="cd-faq__item">
-                        <a class="cd-faq__trigger" href="#0"><span>Can I have an invoice for my subscription?</span></a>
+                        <a class="cd-faq__trigger" href="#0"><span>Is upcomingSounds is a safe and secure website for payment?</span></a>
                         <div class="cd-faq__content">
                             <div class="text-component">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit quidem delectus rerum
-                                    eligendi mollitia, repudiandae quae beatae. Et repellat quam atque corrupti iusto architecto
-                                    impedit explicabo repudiandae qui similique aut iure ipsum quis inventore nulla error
-                                    aliquid alias quia dolorem dolore, odio excepturi veniam odit veritatis. Quo iure magnam, et
-                                    cum. Laudantium, eaque non? Tempore nihil corporis cumque dolor ipsum accusamus sapiente
-                                    aliquid quis ea assumenda deserunt praesentium voluptatibus, accusantium a mollitia
-                                    necessitatibus nostrum voluptatem numquam modi ab, sint rem.</p>
+                                <p class="text-muted">We have partnered with stripe for sucre payments and privacy protection.
+for more detailed info you can visit: https://stripe.com/gb/privacy-center/legal .</p>
                             </div>
                         </div>
                     </li>
                     <li class="cd-faq__item">
-                        <a class="cd-faq__trigger" href="#0"><span>Why did my credit card or PayPal payment fail?</span></a>
+                        <a class="cd-faq__trigger" href="#0"><span>Can I use  PayPal for payment?</span></a>
                         <div class="cd-faq__content">
                             <div class="text-component">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur accusantium dolorem vel,
-                                    ad, nostrum natus eos, nemo placeat quos nisi architecto rem dolorum amet consectetur
-                                    molestiae reprehenderit cum harum commodi beatae necessitatibus. Mollitia a nostrum enim
-                                    earum minima doloribus illum autem, provident vero et, aspernatur quae sunt illo dolorem.
-                                    Corporis blanditiis, unde, neque, adipisci debitis quas ullam accusantium repudiandae eum
-                                    nostrum quis! Velit esse harum qui, modi ratione debitis alias laboriosam minus eaque, quod,
-                                    itaque labore illo totam aut quia fuga nemo. Perferendis ipsa laborum atque assumenda
-                                    tempore aspernatur a eos harum non id commodi excepturi quaerat ullam, explicabo, incidunt
-                                    ipsam, accusantium quo magni ut! Ratione, magnam. Delectus nesciunt impedit praesentium sed,
-                                    aliquam architecto dolores quae, distinctio consectetur obcaecati esse, consequuntur vel sit
-                                    quis blanditiis possimus dolorum. Eaque architecto doloremque aliquid quae cumque, vitae
-                                    perferendis enim, iure fugiat, soluta aut!</p>
+                                <p class="text-muted">Unfortunately, we can't accept PayPal payments Yet! due to the small country coverage but you can your PayPal card to pay on Upcomingsounds.</p>
                             </div>
                         </div>
                     </li>
@@ -231,7 +215,7 @@
                         <a class="cd-faq__trigger" href="#0"><span>How can I pay?</span></a>
                         <div class="cd-faq__content">
                             <div class="text-component">
-                                <p class="text-muted">We have partnered with stripe for sucre payments and privacy protection. You can use APPLE PAY  or GOOGLE PAY. We also accept Visa, Mastercard, American Express, and China UnionPay payments from customers worldwide.</p>
+                                <p class="text-muted">You can use APPLE PAY  or GOOGLE PAY. We also accept Visa, Mastercard, American Express, and China UnionPay payments from customers worldwide.</p>
                             </div>
                         </div>
                     </li>
