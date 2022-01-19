@@ -228,12 +228,10 @@
                         </div>
                     </li>
                     <li class="cd-faq__item">
-                        <a class="cd-faq__trigger" href="#0"><span>Why does my bank statement show multiple charges for one upgrade?</span></a>
+                        <a class="cd-faq__trigger" href="#0"><span>How can I pay?</span></a>
                         <div class="cd-faq__content">
                             <div class="text-component">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis provident officiis,
-                                    reprehenderit numquam. Praesentium veritatis eos tenetur magni debitis inventore fugit,
-                                    magnam, reiciendis, saepe obcaecati ex vero quaerat distinctio velit.</p>
+                                <p class="text-muted">We have partnered with stripe for sucre payments and privacy protection. You can use APPLE PAY  or GOOGLE PAY. We also accept Visa, Mastercard, American Express, and China UnionPay payments from customers worldwide.</p>
                             </div>
                         </div>
                     </li>
