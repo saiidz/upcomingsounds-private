@@ -115,7 +115,7 @@
                     </li>
                 </ul>
                 <ul id="account" class="cd-faq__group">
-                    <li class="cd-faq__title"><h2>Account</h2></li>
+                    <li class="cd-faq__title"><h2>Joining UpcomingSoundns for Curators, Influencers, tastemakers, and Labels</h2></li>
                     <li class="cd-faq__item">
                         <a class="cd-faq__trigger" href="#0"><span>How do I change my password?</span></a>
                         <div class="cd-faq__content">
