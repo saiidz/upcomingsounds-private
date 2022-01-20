@@ -144,16 +144,11 @@ is illegal. We ask that you follow our rules and guidelines. (note that calling 
                         </div>
                     </li>
                     <li class="cd-faq__item">
-                        <a class="cd-faq__trigger" href="#0"><span>I forgot my password. How do I reset it?</span></a>
+                        <a class="cd-faq__trigger" href="#0"><span>What kind of curator or influencer can apply on UpcomingSounds?</span></a>
                         <div class="cd-faq__content">
                             <div class="text-component">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum at aspernatur iure facere ab
-                                    a corporis mollitia molestiae quod omnis minima, est labore quidem nobis accusantium ad
-                                    totam sunt doloremque laudantium impedit similique iste quasi cum! Libero fugit at
-                                    praesentium vero. Maiores non consequuntur rerum, nemo a qui repellat quibusdam architecto
-                                    voluptatem? Sequi, possimus, cupiditate autem soluta ipsa rerum officiis cum libero delectus
-                                    explicabo facilis, odit ullam aperiam reprehenderit! Vero ad non harum veritatis tempore
-                                    beatae possimus, ex odio quo.</p>
+                                <p class="text-muted">What kind of curator or influencer can apply on UpcomingSounds? 
+We accept all the following categories: Influencers (Instagram- TikTok- Soundcloud), PlaylistCurators (Apple-Deezer- Spotify), Channels (youtube), Radio or TV channel, Records Labels, Managers, Music supervisors, Blogs, Mentors, Publishers, Sync Administrative, Journalist, Media, Booking Agents, Sounds Experts (engineers), Producers (music, video).</p>
                             </div>
                         </div>
                     </li>
