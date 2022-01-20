@@ -125,16 +125,11 @@
                         </div>
                     </li>
                     <li class="cd-faq__item">
-                        <a class="cd-faq__trigger" href="#0"><span>How do I delete my account?</span></a>
+                        <a class="cd-faq__trigger" href="#0"><span>Can I ask for money or charge for coverage on my platform?</span></a>
                         <div class="cd-faq__content">
                             <div class="text-component">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo tempore soluta, minus magnam
-                                    non blanditiis dolore, in nam voluptas nobis minima deserunt deleniti id animi amet,
-                                    suscipit consequuntur corporis nihil laborum facere temporibus. Qui inventore, doloribus
-                                    facilis, provident soluta voluptas excepturi perspiciatis fugiat odit vero! Optio assumenda
-                                    animi at! Assumenda doloremque nemo est sequi eaque, ipsum id, labore rem nisi, amet
-                                    similique vel autem dolore totam facilis deserunt. Mollitia non ut libero unde accusamus
-                                    praesentium sint maiores, illo, nemo aliquid?</p>
+                                <p class="text-muted">We have a strict policy toward blogs, channels, and labels asking for payment from artists in return for guaranteed coverage. Payola 
+is illegal. We ask that you follow our rules and guidelines. (note that calling it a "donation" will still fall afoul of our policy) Otherwise, actions will be taken to terminate any accounts will violation reports. </p>
                             </div>
                         </div>
                     </li>
