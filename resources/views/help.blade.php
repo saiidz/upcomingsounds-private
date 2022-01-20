@@ -115,7 +115,7 @@ You can even send it to other accounts via an email address registered on our da
                         <a class="cd-faq__trigger" href="#0"><span>Can I ask for money or charge for coverage on my platform?</span></a>
                         <div class="cd-faq__content">
                             <div class="text-component">
-                                <p class="text-muted">We have a strict policy toward blogs, channels, and labels asking for payment from artists in return for guaranteed coverage. Payola 
+                                <p class="text-muted">We have a strict policy toward blogs, channels, and labels asking for payment from artists in return for guaranteed coverage. Payola
 is illegal. We ask that you follow our rules and guidelines. (note that calling it a "donation" will still fall afoul of our policy) Otherwise, actions will be taken to terminate any accounts will violation reports. </p>
                             </div>
                         </div>
@@ -134,7 +134,7 @@ Our platform enables tastemakers, curators, and professionals from around the wo
                         <a class="cd-faq__trigger" href="#0"><span>What kind of curator or influencer can apply on UpcomingSounds?</span></a>
                         <div class="cd-faq__content">
                             <div class="text-component">
-                                <p class="text-muted">What kind of curator or influencer can apply on UpcomingSounds? 
+                                <p class="text-muted">What kind of curator or influencer can apply on UpcomingSounds?
 We accept all the following categories: Influencers (Instagram- TikTok- Soundcloud), PlaylistCurators (Apple-Deezer- Spotify), Channels (youtube), Radio or TV channel, Records Labels, Managers, Music supervisors, Blogs, Mentors, Publishers, Sync Administrative, Journalist, Media, Booking Agents, Sounds Experts (engineers), Producers (music, video).</p>
                             </div>
                         </div>
@@ -330,7 +330,11 @@ for more detailed info you can visit: https://stripe.com/gb/privacy-center/legal
             <div class="cd-faq__overlay" aria-hidden="true"></div>
         </section>
     <!-- ############ PAGE END-->
-
+        <div class="text-center">
+            <a href="{{url('help/ticket')}}"  class="btn btn-sm rounded primary _600 ticket_help">I still need help
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="mrg-left-0" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path></svg>
+            </a>
+        </div>
     </div>
     @include('welcome-panels.welcome-footer')
 @endsection
