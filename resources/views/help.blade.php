@@ -27,8 +27,8 @@
         <section class="cd-faq js-cd-faq container max-width-md margin-top-lg margin-bottom-lg">
             <ul class="cd-faq__categories">
                 <li><a class="cd-faq__category cd-faq__category-selected truncate" href="#basics">Account</a></li>
-                <li><a class="cd-faq__category truncate" href="#mobile">Curators / Pro's</a></li>
-                <li><a class="cd-faq__category truncate" href="#account"> My Account</a></li>
+                <li><a class="cd-faq__category truncate" href="#mobile"> ---</a></li>
+                <li><a class="cd-faq__category truncate" href="#account"> Curators / Pro's</a></li>
                 <li><a class="cd-faq__category truncate" href="#payments">Payments</a></li>
                 <li><a class="cd-faq__category truncate" href="#privacy">Privacy</a></li>
                 <li><a class="cd-faq__category truncate" href="#delivery">Delivery</a></li>
