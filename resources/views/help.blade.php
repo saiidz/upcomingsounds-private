@@ -120,7 +120,7 @@
                         <a class="cd-faq__trigger" href="#0"><span>How do I sign up as a curator, influencer, or label?</span></a>
                         <div class="cd-faq__content">
                             <div class="text-component">
-                                <p class="text-muted">Follow this link for more to apply  . <a  " href="https://upcomingsounds.com/forgot-password ">Upcomingsounds/apply.</p>
+                                <p class="text-muted">Follow this link for more to apply : <a  " href="https://upcomingsounds.com/forgot-password ">Upcomingsounds/apply.</p>
                             </div>
                         </div>
                     </li>
