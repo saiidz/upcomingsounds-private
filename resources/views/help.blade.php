@@ -28,26 +28,19 @@
             <ul class="cd-faq__categories">
                 <li><a class="cd-faq__category cd-faq__category-selected truncate" href="#basics">Basics</a></li>
                 <li><a class="cd-faq__category truncate" href="#mobile">Mobile</a></li>
-                <li><a class="cd-faq__category truncate" href="#account">Account</a></li>
+                <li><a class="cd-faq__category truncate" href="#account"> My Account</a></li>
                 <li><a class="cd-faq__category truncate" href="#payments">Payments</a></li>
                 <li><a class="cd-faq__category truncate" href="#privacy">Privacy</a></li>
                 <li><a class="cd-faq__category truncate" href="#delivery">Delivery</a></li>
             </ul>
             <div class="cd-faq__items">
                 <ul id="basics" class="cd-faq__group">
-                    <li class="cd-faq__title"><h2>Basics</h2></li>
+                    <li class="cd-faq__title"><h2>Manage My  Account</h2></li>
                     <li class="cd-faq__item">
                         <a class="cd-faq__trigger" href="#0"><span>How do I change my password?</span></a>
                         <div class="cd-faq__content">
                             <div class="text-component">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae quidem blanditiis delectus
-                                    corporis, possimus officia sint sequi ex tenetur id impedit est pariatur iure animi non a
-                                    ratione reiciendis nihil sed consequatur atque repellendus fugit perspiciatis rerum et.
-                                    Dolorum consequuntur fugit deleniti, soluta fuga nobis. Ducimus blanditiis velit sit iste
-                                    delectus obcaecati debitis omnis, assumenda accusamus cumque perferendis eos aut quidem!
-                                    Aut, totam rerum, cupiditate quae aperiam voluptas rem inventore quas, ex maxime culpa nam
-                                    soluta labore at amet nihil laborum? Explicabo numquam, sit fugit, voluptatem autem atque
-                                    quis quam voluptate fugiat earum rem hic, reprehenderit quaerat tempore at. Aperiam.</p>
+                                <p class="text-muted">Try using the password reset option in the log-in via this link https://upcomingsounds.com/forgot-password . If that doesn't work,  you might have signed up through Google, Twitter, or Facebook?.</p>
                             </div>
                         </div>
                     </li>
