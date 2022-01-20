@@ -45,27 +45,18 @@
                         </div>
                     </li>
                     <li class="cd-faq__item">
-                        <a class="cd-faq__trigger" href="#0"><span>How do I sign up?</span></a>
+                        <a class="cd-faq__trigger" href="#0"><span> Can I edit or replace my profile photo after signing up? </span></a>
                         <div class="cd-faq__content">
                             <div class="text-component">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi cupiditate et laudantium esse
-                                    adipisci consequatur modi possimus accusantium vero atque excepturi nobis in doloremque
-                                    repudiandae soluta non minus dolore voluptatem enim reiciendis officia voluptates, fuga
-                                    ullam? Voluptas reiciendis cumque molestiae unde numquam similique quas doloremque non,
-                                    perferendis doloribus necessitatibus itaque dolorem quam officia atque perspiciatis dolore
-                                    laudantium dolor voluptatem eligendi? Aliquam nulla unde voluptatum molestiae, eos fugit
-                                    ullam, consequuntur, saepe voluptas quaerat deleniti. Repellendus magni sint temporibus,
-                                    accusantium rem commodi?</p>
+                                <p class="text-muted">After you finish signing up you will have full access to Dashboard to change any info on your profile. You can edit and replace your profile photo, country, bio, and even genres.</p>
                             </div>
                         </div>
                     </li>
                     <li class="cd-faq__item">
-                        <a class="cd-faq__trigger" href="#0"><span>Can I remove a post?</span></a>
+                        <a class="cd-faq__trigger" href="#0"><span>I do not receive a verification code when signing up as a Curator / Tastemaker. What should I do?</span></a>
                         <div class="cd-faq__content">
                             <div class="text-component">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis provident officiis,
-                                    reprehenderit numquam. Praesentium veritatis eos tenetur magni debitis inventore fugit,
-                                    magnam, reiciendis, saepe obcaecati ex vero quaerat distinctio velit.</p>
+                                <p class="text-muted">Some countries aren't available due to some legal requirements.  If you are not sure about your country! you can contact our support for more info.</p>
                             </div>
                         </div>
                     </li>
