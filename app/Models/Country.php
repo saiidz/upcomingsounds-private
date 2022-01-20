@@ -29,4 +29,9 @@ class Country extends Model
     public function curatorUser(){
         return $this->hasOne(CuratorUser::class, 'country_id');
     }
+
+    // ticketHelp
+    public function ticketHelp(){
+        return $this->hasOne(TicketHelp::class, 'country_id');
+    }
 }

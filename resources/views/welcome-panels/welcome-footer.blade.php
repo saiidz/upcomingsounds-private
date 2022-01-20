@@ -126,11 +126,23 @@
                 <div class="col-md-3 col-xs-6">
                     <h6 class="text-u-c m-b text-muted">Subscribe</h6>
                     <p>Do not want to miss our newsletter?</p>
-                    <form class="m-b-lg">
-                        <input type="text" class="form-control" placeholder="Your email">
+                    <form class="m-b-1" method="POST" action="{{url('/newsletter')}}">
+                        @csrf
+                        <div class="form-group">
+                            <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Your Subscriber email" required>
+                            @error('email')
+                                <small class="red-text" role="alert">
+                                    {{ $message }}
+                                </small>
+                            @enderror
+                        </div>
                         <button type="submit" class="btn btn-sm btn-outline b-dark rounded m-t">Subscribe
                         </button>
                     </form>
+                    <div class="text-left">
+                        <div>If you want to unsubscribed? <a href="javascript:void(0)" data-toggle="modal"
+                                                             data-target="#unsubscribed" class="text-primary _600">Unsubscribed</a></div>
+                    </div>
                 </div>
             </div>
             <div class="b b-b m-b m-t-lg"></div>
@@ -147,3 +159,4 @@
         </div>
     </div>
 </div>
+@include('welcome-panels.generic-model')

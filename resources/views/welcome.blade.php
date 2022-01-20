@@ -223,6 +223,7 @@
                 <!-- ############ PAGE END-->
 
             </div>
+
             @include('welcome-panels.welcome-footer')
 
 @endsection

@@ -6,9 +6,6 @@
 
 @section('page-style')
     <link rel="stylesheet" type="text/css" href="{{asset('css/custom/faqs.css')}}">
-    <style>
-
-    </style>
 @endsection
 
 {{-- page content --}}
@@ -23,6 +20,9 @@
                     <h1 class="display-3 m-y-lg">Help</h1>
                 </div>
             </div>
+        </div>
+        <div class="text-center m-t-1">
+            <h2 style="font-size:3rem"><span>Hello. How can we help you?</span></h2>
         </div>
         <section class="cd-faq js-cd-faq container max-width-md margin-top-lg margin-bottom-lg">
             <ul class="cd-faq__categories">
@@ -343,7 +343,11 @@ for more detailed info you can visit: https://stripe.com/gb/privacy-center/legal
             <div class="cd-faq__overlay" aria-hidden="true"></div>
         </section>
     <!-- ############ PAGE END-->
-
+        <div class="text-center">
+            <a href="{{url('help/ticket')}}" class="btn btn-sm rounded primary _600 ticket_help">I still need help
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="mrg-left-0" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path></svg>
+            </a>
+        </div>
     </div>
     @include('welcome-panels.welcome-footer')
 @endsection
