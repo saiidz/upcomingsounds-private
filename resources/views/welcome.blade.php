@@ -165,7 +165,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="p-a-lg text-center welcome_UpcomingSounds">
-                                <p class="text-muted text-md m-b-lg">Whether you're a composer, band member, producer or sound designer, Upcoming Sounds is the platform you have been waiting for. The site provides promotional opportunities to artists worldwide that might not have been otherwise available to them. UpcomingSounds is a platform that connects the creative community honestly and authentically.No middleman, no contracts, just pure curation.</p>
+                                <p class="text-muted text-md m-b-lg">Whether you're a composer, band member, producer or sound designer, UpcomingSounds is the platform you have been waiting for. The site provides promotional opportunities to artists worldwide that might not have been otherwise available to them. UpcomingSounds is a platform that connects the creative community...</p>
                             </div>
                         </div>
                         <div class="col-md-4">
