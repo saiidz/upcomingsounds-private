@@ -70,12 +70,10 @@
                         </div>
                     </li>
                     <li class="cd-faq__item">
-                        <a class="cd-faq__trigger" href="#0"><span>How do reviews work?</span></a>
+                        <a class="cd-faq__trigger" href="#0"><span>How do I deactivate my account?</span></a>
                         <div class="cd-faq__content">
                             <div class="text-component">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis provident officiis,
-                                    reprehenderit numquam. Praesentium veritatis eos tenetur magni debitis inventore fugit,
-                                    magnam, reiciendis, saepe obcaecati ex vero quaerat distinctio velit.</p>
+                                <p class="text-muted">You will be able to deactivate your account settings from your Dashboard. You can find it on the bottom of the left panel. </p>
                             </div>
                         </div>
                     </li>
