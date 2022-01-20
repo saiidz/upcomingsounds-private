@@ -40,7 +40,7 @@
                         <a class="cd-faq__trigger" href="#0"><span>How do I change my password?</span></a>
                         <div class="cd-faq__content">
                             <div class="text-component">
-                                <p class="text-muted">Try using the password reset option in the log-in via this link <a https://upcomingsounds.com/forgot-password href="https://upcomingsounds.com/forgot-password "> If that doesn't work,  you might have signed up through Google, Twitter, or Facebook?. </p>
+                                <p class="text-muted">Try using the password reset option in the log-in via this link : https://upcomingsounds.com/forgot-password <a  href="https://upcomingsounds.com/forgot-password "> If that doesn't work,  you might have signed up through Google, Twitter, or Facebook?. </p>
                             </div>
                         </div>
                     </li>
