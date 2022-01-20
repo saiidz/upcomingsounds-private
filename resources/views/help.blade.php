@@ -134,12 +134,12 @@ is illegal. We ask that you follow our rules and guidelines. (note that calling 
                         </div>
                     </li>
                     <li class="cd-faq__item">
-                        <a class="cd-faq__trigger" href="#0"><span>How do I change my account settings?</span></a>
+                        <a class="cd-faq__trigger" href="#0"><span>Why use UpcomingSounds?</span></a>
                         <div class="cd-faq__content">
                             <div class="text-component">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis provident officiis,
-                                    reprehenderit numquam. Praesentium veritatis eos tenetur magni debitis inventore fugit,
-                                    magnam, reiciendis, saepe obcaecati ex vero quaerat distinctio velit.</p>
+                                <p class="text-muted"> One tool for all, We've combined all of your submissions into one easy-to-use Dashboard, UpcomingSounds is your one source for New Music.
+
+Our platform enables tastemakers, curators, and professionals from around the world to discover new music, connect, share their favorite tunes and find out about cool events. Follow this link for more:  <a  " href="https://upcomingsounds.com/for-curators ">https://upcomingsounds.com/for-curators. </p>
                             </div>
                         </div>
                     </li>
