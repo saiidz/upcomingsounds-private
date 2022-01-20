@@ -117,21 +117,10 @@
                 <ul id="account" class="cd-faq__group">
                     <li class="cd-faq__title"><h2>Joining UpcomingSoundns for Curators, Influencers, tastemakers, and Labels</h2></li>
                     <li class="cd-faq__item">
-                        <a class="cd-faq__trigger" href="#0"><span>How do I change my password?</span></a>
+                        <a class="cd-faq__trigger" href="#0"><span>How do I sign up as a curator, influencer, or label?</span></a>
                         <div class="cd-faq__content">
                             <div class="text-component">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis earum autem consectetur
-                                    labore eius tenetur esse, in temporibus sequi cum voluptatem vitae repellat nostrum odio
-                                    perspiciatis dolores recusandae necessitatibus, unde, deserunt voluptas possimus veniam
-                                    magni soluta deleniti! Architecto, quidem, totam. Fugit minus odit unde ea cupiditate ab
-                                    aperiam sed dolore facere nihil laboriosam dolorum repellat deleniti aliquam fugiat
-                                    laudantium delectus sint iure odio, necessitatibus rem quisquam! Ipsum praesentium quam nisi
-                                    sint, impedit sapiente facilis laudantium mollitia quae fugiat similique. Dolor maiores
-                                    aliquid incidunt commodi doloremque rem! Quaerat, debitis voluptatem vero qui enim, sunt
-                                    reiciendis tempore inventore maxime quasi fugiat accusamus beatae modi voluptates iste
-                                    officia esse soluta tempora labore quisquam fuga, cum. Sint nemo iste nulla accusamus quam
-                                    qui quos, vero, minus id. Eius mollitia consequatur fugit nam consequuntur nesciunt illo id
-                                    quis reprehenderit obcaecati voluptates corrupti, minus! Possimus, perspiciatis!</p>
+                                <p class="text-muted">Follow this link for more to apply  . <a  " href="https://upcomingsounds.com/forgot-password ">Upcomingsounds/apply.</p>
                             </div>
                         </div>
                     </li>
