@@ -86,8 +86,7 @@ You can even send it to other accounts via an email address registered on our da
                         <a class="cd-faq__trigger" href="#0"><span>What is the actual value for USC?</span></a>
                         <div class="cd-faq__content">
                             <div class="text-component">
-                                <p class="text-muted">What is the actual value for USC? 
-Each UCS is equal to £1. You need at least 2 UCS for the standard fee for "Non-verified" Tastemakers / Curators / Professionals.</p>
+                                <p class="text-muted">Each UCS is equal to £1. You need at least 2 UCS for the standard fee for "Non-verified" Tastemakers / Curators / Professionals.</p>
                             </div>
                         </div>
                     </li>
