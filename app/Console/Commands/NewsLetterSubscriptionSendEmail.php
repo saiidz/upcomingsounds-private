@@ -21,7 +21,7 @@ class NewsLetterSubscriptionSendEmail extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Newsletter Subscription Upcoming Sounds';
 
     /**
      * Create a new command instance.
@@ -44,7 +44,7 @@ class NewsLetterSubscriptionSendEmail extends Command
             $newsletters = NewsLetterSubscription::where('status',1)->get();
             if(isset($newsletters)){
                 foreach ($newsletters as $newsletter){
-                    Log::info('Processed NewsletterID: '.$newsletter->id);
+                    $this->info('Processed NewsletterID: '.$newsletter->id);
                     $email = new \SendGrid\Mail\Mail();
                     $email->setFrom( "info@upcomingsounds.com", "News Letter Upcoming Sounds" );
                     $email->addTo($newsletter->email, "News Letter" );
@@ -57,12 +57,12 @@ class NewsLetterSubscriptionSendEmail extends Command
                         'variable1'     => 'Some stuff',
                         'templatesRock' => 'They sure do!'
                     ] );
-
                     $sendgrid_key = Config::get('services.Sendgrid.SENDGRID_API_KEY');
-                    $sendgrid = new \SendGrid( $sendgrid_key );
+//                    $sendgrid = new \SendGrid( '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' );
+                    $sendgrid = new \SendGrid($sendgrid_key);
 
                     $response = $sendgrid->send( $email );
-                    Log::info('Processed Response: '.$response->statusCode());
+                    $this->info('Processed Response: '.$response->statusCode());
                 }
             }
         }catch (\Exception $exception){
