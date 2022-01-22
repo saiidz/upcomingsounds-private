@@ -136,13 +136,13 @@
                                 </small>
                             @enderror
                         </div>
-                        <button type="submit" class="btn btn-sm btn-outline b-dark rounded m-t">Subscribe
+                        <button type="submit" class="btn btn-sm btn-outline b-dark rounded">Subscribe
                         </button>
                     </form>
-                    <div class="text-left">
-                        <div>If you want to unsubscribed? <a href="javascript:void(0)" data-toggle="modal"
-                                                             data-target="#unsubscribed" class="text-primary _600">Unsubscribed</a></div>
-                    </div>
+{{--                    <div class="text-left">--}}
+{{--                        <div>If you want to unsubscribed? <a href="javascript:void(0)" data-toggle="modal"--}}
+{{--                                                             data-target="#unsubscribed" class="text-primary _600">Unsubscribed</a></div>--}}
+{{--                    </div>--}}
                 </div>
             </div>
             <div class="b b-b m-b m-t-lg"></div>
