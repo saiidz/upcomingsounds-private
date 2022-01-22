@@ -54,4 +54,8 @@ return [
         'twilio_token' => env('TWILIO_TOKEN'),
         'twilio_from' => env('TWILIO_FROM')
     ],
+    'Sendgrid' => [
+        'SENDGRID_API_KEY' => env('MAIL_PASSWORD'),
+    ],
+
 ];
