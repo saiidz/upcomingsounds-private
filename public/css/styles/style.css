@@ -90,3 +90,16 @@
     /* -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, fadeout 0.5s 2.5s; */
 }
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+    #snackbar {
+        top: 115px!important;
+    }
+    .snackbarError{
+        top:115px !important;
+    }
+}
