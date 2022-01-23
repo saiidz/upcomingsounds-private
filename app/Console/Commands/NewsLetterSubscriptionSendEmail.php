@@ -58,7 +58,6 @@ class NewsLetterSubscriptionSendEmail extends Command
                         'templatesRock' => 'They sure do!'
                     ] );
                     $sendgrid_key = Config::get('services.Sendgrid.SENDGRID_API_KEY');
-//                    $sendgrid = new \SendGrid( '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' );
                     $sendgrid = new \SendGrid($sendgrid_key);
 
                     $response = $sendgrid->send( $email );
