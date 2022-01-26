@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\ArtistTrackController;
+use App\Http\Controllers\ArtistWalletController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PromoteYourTrackController;
 use Illuminate\Http\Request;
@@ -31,4 +32,6 @@ Route::delete('delete-track/{artist_track}',[ArtistTrackController::class,'destr
 Route::get('promote-your-track', [PromoteYourTrackController::class, 'index']);
 Route::get('add-your-track', [PromoteYourTrackController::class, 'addYourTrack']);
 
+// Wallet Shop Route
+Route::get('/shop',[ArtistWalletController::class,'shop']);
 /***************************************************** Artist Routes *********************************************************/

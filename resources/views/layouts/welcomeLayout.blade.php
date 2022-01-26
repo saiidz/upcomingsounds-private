@@ -87,6 +87,11 @@
                                     <span class="nav-text">Dashboard</span>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{url('/shop')}}" class="nav-link">
+                                    <span class="nav-text">Wallet</span>
+                                </a>
+                            </li>
                         @elseif(Auth::check() && Auth::user()->type == 'curator')
                             <li class="nav-item">
                                 <a href="{{url('/taste-maker-profile')}}" class="nav-link">
