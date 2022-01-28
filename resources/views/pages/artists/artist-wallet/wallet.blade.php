@@ -44,7 +44,7 @@
                         <div class="tab-content m-b-md">
                             <div class="tab-pane animated fadeIn text-muted active" id="buyUS">
                                 <div class="purchasedUCS">
-                                    <span class="buyUCS">Buy UpcomingSounds</span>
+                                    <span class="buyUCS">Buy USC (Credits)</span>
                                     <div class="dropdownCurrency">
                                         <select id="selectCurrency" onchange="selectCurrency(this.value)">
                                             <option value="EUR">€ EUR</option>
