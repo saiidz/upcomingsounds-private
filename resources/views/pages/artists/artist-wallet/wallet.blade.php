@@ -31,7 +31,7 @@
                                         <span class="text">
                                             <div class="tw-relative">
                                                 <div class="tw-flex tw-items-center">
-                                                    <span class="amount">0</span>
+                                                    <span class="amount">0 UCS</span>
                                                     <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
                                                 </div>
                                             </div>
