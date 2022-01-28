@@ -9,8 +9,8 @@ class ArtistWalletController extends Controller
     /**
      * shop
      */
-    public function shop()
+    public function wallet()
     {
-        return view('pages.artists.artist-wallet.shop');
+        return view('pages.artists.artist-wallet.wallet');
     }
 }

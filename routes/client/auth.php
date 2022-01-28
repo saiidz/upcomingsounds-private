@@ -33,5 +33,5 @@ Route::get('promote-your-track', [PromoteYourTrackController::class, 'index']);
 Route::get('add-your-track', [PromoteYourTrackController::class, 'addYourTrack']);
 
 // Wallet Shop Route
-Route::get('/shop',[ArtistWalletController::class,'shop']);
+Route::get('/wallet',[ArtistWalletController::class,'wallet']);
 /***************************************************** Artist Routes *********************************************************/

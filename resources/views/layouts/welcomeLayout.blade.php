@@ -88,7 +88,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{url('/shop')}}" class="nav-link">
+                                <a href="{{url('/wallet')}}" class="nav-link">
                                     <span class="nav-text">Wallet</span>
                                 </a>
                             </li>
