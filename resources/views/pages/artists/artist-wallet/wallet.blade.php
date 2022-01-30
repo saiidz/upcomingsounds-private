@@ -47,18 +47,18 @@
                                     <span class="buyUCS">Buy USC (Credits)</span>
                                     <div class="dropdownCurrency">
                                         <select id="selectCurrency" onchange="selectCurrency(this.value)">
-                                            <option value="EUR">€ EUR</option>
-                                            <option value="CAD">$ CAD</option>
-                                            <option value="AUD">$ AUD</option>
-                                            <option value="USD">$ USD</option>
-                                            <option value="GBP">£ GBP</option>
+                                            <option value="eur">€ EUR</option>
+                                            <option value="cad">$ CAD</option>
+                                            <option value="aud">$ AUD</option>
+                                            <option value="usd">$ USD</option>
+                                            <option value="gbp">£ GBP</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="grid-1-5">
-                                    <h2>Basic</h2>
-                                    <h3><span class="uppercase">Free</span></h3>
+                                    <h2>Platinum</h2>
+                                    <h3><span class="uppercase">29% discount</span></h3>
                                     <p>10,000 monthly visits</p>
                                     <ul>
                                         <li>Limited Email Support</li>
@@ -68,8 +68,9 @@
                                     <a href="" class="button">Buy now</a>
                                 </div>
                                 <div class="grid-1-5">
-                                    <h2>Startup</h2>
-                                    <h3><sup>$</sup>79<span class="small">/mo</span></h3>
+                                    <h2>Premium</h2>
+                                    <h3><span class="uppercase">25% discount</span></h3>
+{{--                                    <h3><sup>$</sup>79<span class="small">/mo</span></h3>--}}
                                     <p>25,000 monthly visits</p>
                                     <ul>
                                         <li>Limited Email Support</li>
@@ -79,8 +80,9 @@
                                     <a href="" class="button">Buy now</a>
                                 </div>
                                 <div class="grid-1-5">
-                                    <h2>Growth</h2>
-                                    <h3><sup>$</sup>179<span class="small">/mo</span></h3>
+                                    <h2>Most Popular</h2>
+                                    <h3><span class="uppercase">20% discount</span></h3>
+{{--                                    <h3><sup>$</sup>179<span class="small">/mo</span></h3>--}}
                                     <p>75,000 monthly visits</p>
                                     <ul>
                                         <li>Email Support</li>
@@ -90,8 +92,9 @@
                                     <a href="" class="button">Buy now</a>
                                 </div>
                                 <div class="grid-1-5">
-                                    <h2>Premium</h2>
-                                    <h3><sup>$</sup>499<span class="small">/mo</span></h3>
+                                    <h2>Plus</h2>
+                                    <h3><span class="uppercase">17% discount</span></h3>
+{{--                                    <h3><sup>$</sup>499<span class="small">/mo</span></h3>--}}
                                     <p>225,000 monthly visits</p>
                                     <ul>
                                         <li>Email Support</li>
@@ -101,8 +104,8 @@
                                     <a href="" class="button">Buy now</a>
                                 </div>
                                 <div class="grid-1-5">
-                                    <h2>Enterprise</h2>
-                                    <h3><span class="uppercase">Let's Talk</span></h3>
+                                    <h2>Standard</h2>
+                                    <h3><span class="uppercase">5% discount</span></h3>
                                     <p>1M+ monthly visits</p>
                                     <ul>
                                         <li>Email Support</li>

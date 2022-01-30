@@ -57,5 +57,9 @@ return [
     'Sendgrid' => [
         'SENDGRID_API_KEY' => env('SENDGRID_API_KEY'),
     ],
+    'stripe' => [
+        'key' => env('STRIPE_KEY'),
+        'secret' => env('STRIPE_SECRET'),
+    ],
 
 ];
