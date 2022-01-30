@@ -194,3 +194,26 @@ br.br {
 .startCampaign:hover{
     color: #fff;
 }
+.priceCurrency{
+    display: inline;
+    color: #02b875;
+}
+.currencyWrap{
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+.currencySymbolWrapper {
+    text-decoration-line: inherit;
+    display: inline-block;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+.BG_product{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.BG_product h2,h3,.priceCurrency{
+    color:white !important;
+}

@@ -56,65 +56,79 @@
                                     </div>
                                 </div>
 
-                                <div class="grid-1-5">
+                                <div class="grid-1-5 BG_product" style="background-image:url({{asset('images/Standard_w_BG.jpg')}})">
                                     <h2>Standard</h2>
                                     <h3><span class="uppercase">5% discount</span></h3>
-
-                                    <p>10,000 monthly visits</p>
-                                    <ul>
-                                        <li>Limited Email Support</li>
-                                        <li>Unlimited Data Transfer</li>
-                                        <li>10GB Local Storage</li>
-                                    </ul>
+                                    <div class="priceCurrency">
+                                        <span class="currencyWrap"><span>45</span></span>
+                                        <span class="currencySymbolWrapper">€</span>
+                                    </div>
+{{--                                    <ul>--}}
+{{--                                        <li>Limited Email Support</li>--}}
+{{--                                        <li>Unlimited Data Transfer</li>--}}
+{{--                                        <li>10GB Local Storage</li>--}}
+{{--                                    </ul>--}}
                                     <a href="" class="button">Buy now</a>
                                 </div>
-                                <div class="grid-1-5">
+                                <div class="grid-1-5 BG_product">
                                     <h2>Plus</h2>
                                     <h3><span class="uppercase">17% discount</span></h3>
 
 {{--                                    <h3><sup>$</sup>79<span class="small">/mo</span></h3>--}}
-                                    <p>25,000 monthly visits</p>
-                                    <ul>
-                                        <li>Limited Email Support</li>
-                                        <li>Unlimited Data Transfer</li>
-                                        <li>20GB Local Storage</li>
-                                    </ul>
+                                    <div class="priceCurrency">
+                                        <span class="currencyWrap"><span>45</span></span>
+                                        <span class="currencySymbolWrapper">€</span>
+                                    </div>
+{{--                                    <ul>--}}
+{{--                                        <li>Limited Email Support</li>--}}
+{{--                                        <li>Unlimited Data Transfer</li>--}}
+{{--                                        <li>20GB Local Storage</li>--}}
+{{--                                    </ul>--}}
                                     <a href="" class="button">Buy now</a>
                                 </div>
-                                <div class="grid-1-5">
-                                    <h2>Most Popular</h2>
+                                <div class="grid-1-5 BG_product">
+                                    <h2 style="font-size: 29px;">Most Popular</h2>
                                     <h3><span class="uppercase">20% discount</span></h3>
 {{--                                    <h3><sup>$</sup>179<span class="small">/mo</span></h3>--}}
-                                    <p>75,000 monthly visits</p>
-                                    <ul>
-                                        <li>Email Support</li>
-                                        <li>Unlimited Data Transfer</li>
-                                        <li>30GB Local Storage</li>
-                                    </ul>
+                                    <div class="priceCurrency">
+                                        <span class="currencyWrap"><span>45</span></span>
+                                        <span class="currencySymbolWrapper">€</span>
+                                    </div>
+{{--                                    <ul>--}}
+{{--                                        <li>Email Support</li>--}}
+{{--                                        <li>Unlimited Data Transfer</li>--}}
+{{--                                        <li>30GB Local Storage</li>--}}
+{{--                                    </ul>--}}
                                     <a href="" class="button">Buy now</a>
                                 </div>
-                                <div class="grid-1-5">
+                                <div class="grid-1-5 BG_product">
                                     <h2>Premium</h2>
                                     <h3><span class="uppercase">25% discount</span></h3>
 {{--                                    <h3><sup>$</sup>499<span class="small">/mo</span></h3>--}}
-                                    <p>225,000 monthly visits</p>
-                                    <ul>
-                                        <li>Email Support</li>
-                                        <li>Phone Support</li>
-                                        <li>Unlimited Data Transfer</li>
-                                    </ul>
+                                    <div class="priceCurrency">
+                                        <span class="currencyWrap"><span>45</span></span>
+                                        <span class="currencySymbolWrapper">€</span>
+                                    </div>
+{{--                                    <ul>--}}
+{{--                                        <li>Email Support</li>--}}
+{{--                                        <li>Phone Support</li>--}}
+{{--                                        <li>Unlimited Data Transfer</li>--}}
+{{--                                    </ul>--}}
                                     <a href="" class="button">Buy now</a>
                                 </div>
-                                <div class="grid-1-5">
+                                <div class="grid-1-5 BG_product">
                                     <h2>Platinum</h2>
                                     <h3><span class="uppercase">29% discount</span></h3>
-                                    <p>1M+ monthly visits</p>
-                                    <ul>
-                                        <li>Email Support</li>
-                                        <li>Phone Support</li>
-                                        <li>Dedicated Environment</li>
-                                        <li>Customized Plan</li>
-                                    </ul>
+                                    <div class="priceCurrency">
+                                        <span class="currencyWrap"><span>45</span></span>
+                                        <span class="currencySymbolWrapper">€</span>
+                                    </div>
+{{--                                    <ul>--}}
+{{--                                        <li>Email Support</li>--}}
+{{--                                        <li>Phone Support</li>--}}
+{{--                                        <li>Dedicated Environment</li>--}}
+{{--                                        <li>Customized Plan</li>--}}
+{{--                                    </ul>--}}
                                     <a href="" class="button">Buy now</a>
                                 </div>
                             </div>
