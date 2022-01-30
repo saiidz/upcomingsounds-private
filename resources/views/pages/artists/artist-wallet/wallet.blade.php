@@ -57,8 +57,9 @@
                                 </div>
 
                                 <div class="grid-1-5">
-                                    <h2>Platinum</h2>
-                                    <h3><span class="uppercase">29% discount</span></h3>
+                                    <h2>Standard</h2>
+                                    <h3><span class="uppercase">5% discount</span></h3>
+
                                     <p>10,000 monthly visits</p>
                                     <ul>
                                         <li>Limited Email Support</li>
@@ -68,8 +69,9 @@
                                     <a href="" class="button">Buy now</a>
                                 </div>
                                 <div class="grid-1-5">
-                                    <h2>Premium</h2>
-                                    <h3><span class="uppercase">25% discount</span></h3>
+                                    <h2>Plus</h2>
+                                    <h3><span class="uppercase">17% discount</span></h3>
+
 {{--                                    <h3><sup>$</sup>79<span class="small">/mo</span></h3>--}}
                                     <p>25,000 monthly visits</p>
                                     <ul>
@@ -92,8 +94,8 @@
                                     <a href="" class="button">Buy now</a>
                                 </div>
                                 <div class="grid-1-5">
-                                    <h2>Plus</h2>
-                                    <h3><span class="uppercase">17% discount</span></h3>
+                                    <h2>Premium</h2>
+                                    <h3><span class="uppercase">25% discount</span></h3>
 {{--                                    <h3><sup>$</sup>499<span class="small">/mo</span></h3>--}}
                                     <p>225,000 monthly visits</p>
                                     <ul>
@@ -104,8 +106,8 @@
                                     <a href="" class="button">Buy now</a>
                                 </div>
                                 <div class="grid-1-5">
-                                    <h2>Standard</h2>
-                                    <h3><span class="uppercase">5% discount</span></h3>
+                                    <h2>Platinum</h2>
+                                    <h3><span class="uppercase">29% discount</span></h3>
                                     <p>1M+ monthly visits</p>
                                     <ul>
                                         <li>Email Support</li>
