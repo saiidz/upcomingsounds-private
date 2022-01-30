@@ -86,7 +86,7 @@
 {{--                                    </ul>--}}
                                     <a href="" class="button">Buy now</a>
                                 </div>
-                                <div class="grid-1-5 BG_product">
+                                <div class="grid-1-5 BG_product" style="background-image:url({{asset('images/Most_popular-_w_BG.jpg')}})">
                                     <h2 style="font-size: 29px;">Most Popular</h2>
                                     <h3><span class="uppercase">20% discount</span></h3>
 {{--                                    <h3><sup>$</sup>179<span class="small">/mo</span></h3>--}}
