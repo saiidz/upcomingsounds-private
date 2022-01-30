@@ -116,7 +116,7 @@
 {{--                                    </ul>--}}
                                     <a href="" class="button">Buy now</a>
                                 </div>
-                                <div class="grid-1-5 BG_product">
+                                <div class="grid-1-5 BG_product" style="background-image:url({{asset('images/Platinum_w_BG.jpg')}})">
                                     <h2>Platinum</h2>
                                     <h3><span class="uppercase">29% discount</span></h3>
                                     <div class="priceCurrency">
