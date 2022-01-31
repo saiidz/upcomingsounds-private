@@ -78,7 +78,7 @@
                     <div class="row-col">
                         <div class="col-lg-12 welcome_video">
                             <video autoplay muted id="welcome_video">
-                                <source src="{{asset('videos/upcomingsounds_home.m4v')}}" type="video/mp4">
+                                <source src="{{asset('video/upcomingsounds_home.m4v')}}" type="video/mp4">
                                 <source src="{{asset('images/banner_1.jpg')}}" type="video/ogg">
                             </video>
                             <div class="mouse">
