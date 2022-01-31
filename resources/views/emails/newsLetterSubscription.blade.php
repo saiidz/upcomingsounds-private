@@ -49,7 +49,7 @@
                         </tr>
                         <tr>
                             <td align="center" dir="ltr"><p style="color: #383760;font-size: 18px;line-height:17px;margin:0;padding: 15px 80px 15px 80px;text-align:center;word-break:normal;direction:ltr;">Headquarters 29-31 Parliament Street, Liverpool, England, L8 5RN</p>
-                                <p style="color: #383760;font-size: 18px;line-height:17px;margin:0;padding: 0 80px 0 80px;text-align:center;word-break:normal;direction:ltr;">+961 70 486 667</p></td>
+{{--                                <p style="color: #383760;font-size: 18px;line-height:17px;margin:0;padding: 0 80px 0 80px;text-align:center;word-break:normal;direction:ltr;">+961 70 486 667</p></td>--}}
                         </tr>
                         <tr>
                             <td valign="middle" align="center"><a href="https://upcomingsounds.com" target="_blank" style="color: #383760;font-size: 18px;line-height:14px;margin:0;padding: 15px 80px 0 80px;text-align:center; display: block;

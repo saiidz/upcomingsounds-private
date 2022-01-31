@@ -31,6 +31,7 @@
 <script src="{{asset('scripts/site.js')}}"></script>
 <script src="{{asset('scripts/ajax.js')}}"></script>
 <script src="{{asset('js/swiper-bundle.min.js')}}"></script>
+<script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
 @yield('page-script')
 
 <script type="text/javascript">

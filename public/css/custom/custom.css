@@ -548,7 +548,9 @@ ul:not(.browser-default) > li {
     text-shadow: 1px 1px #ffffff;
 }
 
-
+.tiktok_footer > svg{
+    color: #fff !important;
+}
 
 
 
