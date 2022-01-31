@@ -446,7 +446,8 @@ img.center_icons {
     top: 7px;
 }
 
-.app-header ~ .app-body {
+.app-header ~ .app-body,
+.app-header ~ .app-bodynew{
     padding-bottom: 3.5rem !important;
 }
 .app-header ~ .app-bodynew {
@@ -917,7 +918,8 @@ ul:not(.browser-default) > li {
         margin-left: auto!important;
         margin-right: auto!important
     }
-    .app-header ~ .app-body {
+    .app-header ~ .app-body,
+    .app-header ~ .app-bodynew{
         padding-bottom: 0.5rem !important;
     }
     .app-header ~ .app-body {
