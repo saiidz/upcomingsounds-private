@@ -38,7 +38,7 @@
                                 <p style="color: #8d8ca4;font-size: 18px;font-weight: 400;line-height:24px;margin:0;padding: 20px 0 0;text-align: left;word-break:normal;direction:ltr;"><b>Ticket Issue: </b>{{ $ticket_issue }}</p>
                                 <p style="color: #8d8ca4;font-size: 18px;font-weight: 400;line-height:24px;margin:0;padding: 20px 0 0;text-align: left;word-break:normal;direction:ltr;"><b>Country Name: </b>{{ $country_name }}</p>
                                 <p style="color: #8d8ca4;font-size: 18px;font-weight: 400;line-height:24px;margin:0;padding: 20px 0 0;text-align: left;word-break:normal;direction:ltr;"><b>Description: </b>{{ $description }}</p>
-                                <img width="70" height="" src="{{config('app.url').'/uploads/tickets/'}}{{$image}}" alt="UpcomingSounds" style="width: 50%;height: auto;text-align:center;">
+                                <img src="{{config('app.url').'/uploads/tickets/'}}{{$image}}" alt="UpcomingSounds" style="width: 332px;border-radius: 15px;margin: 0;display: block;">
                                 <p style="color: #8d8ca4;font-size: 18px;font-weight: 400;line-height:24px;margin:0;padding: 25px 0 0;text-align: left;word-break:normal;direction:ltr;">Thank you. </p></td>
                         </tr>
                         </tbody>
