@@ -342,7 +342,7 @@ for more detailed info you can visit: https://stripe.com/gb/privacy-center/legal
     </div>
     @include('welcome-panels.welcome-footer')
 @endsection
-
+ 
 @section('page-script')
     <script>document.getElementsByTagName("html")[0].className += " js";</script>
     <script src="{{asset('js/faq/util.js')}}"></script>
