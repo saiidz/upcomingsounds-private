@@ -10,7 +10,7 @@
 
     </style>
 @endsection
-
+ 
 {{-- page content --}}
 @section('content')
     <div class="{{Auth::check() ? 'app-bodynew' : 'app-body'}}">
