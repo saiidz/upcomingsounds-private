@@ -70,7 +70,7 @@
                     </li>
                 </ul>
                 <ul id="mobile" class="cd-faq__group">
-                    <li class="cd-faq__title"><h2> UpcomingSounds Coin USC </h2></li>
+                    <li class="cd-faq__title"><h2> UpcomingSounds Coin "USC" </h2></li>
                     <li class="cd-faq__item">
                         <a class="cd-faq__trigger" href="#0"><span>What is USC,  how does it works?</span></a>
                         <div class="cd-faq__content">
@@ -132,6 +132,19 @@ Our platform enables tastemakers, curators, and professionals from around the wo
                     </li>
                     <li class="cd-faq__item">
                         <a class="cd-faq__trigger" href="#0"><span>What kind of curator or influencer can apply on UpcomingSounds?</span></a>
+                        <div class="cd-faq__content">
+                            <div class="text-component">
+                                <p class="text-muted">What kind of curator or influencer can apply on UpcomingSounds?
+We accept all the following categories: Influencers (Instagram- TikTok- Soundcloud), PlaylistCurators (Apple-Deezer- Spotify), Channels (youtube), Radio or TV channel, Records Labels, Managers, Music supervisors, Blogs, Mentors, Publishers, Sync Administrative, Journalist, Media, Booking Agents, Sounds Experts (engineers), Producers (music, video).</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                   </div>
+                        </div>
+                    </li>
+                    <li class="cd-faq__item">
+                        <a class="cd-faq__trigger" href="#0"><span> How do i earn money </span></a>
                         <div class="cd-faq__content">
                             <div class="text-component">
                                 <p class="text-muted">What kind of curator or influencer can apply on UpcomingSounds?
