@@ -47,11 +47,11 @@
                                     <span class="buyUCS">Buy USC (Credits)</span>
                                     <div class="dropdownCurrency">
                                         <select id="selectCurrency" onchange="selectCurrency(this.value)">
-                                            <option value="eur">€ EUR</option>
+                                            <option value="gbp">£ GBP</option>
                                             <option value="cad">$ CAD</option>
                                             <option value="aud">$ AUD</option>
                                             <option value="usd">$ USD</option>
-                                            <option value="gbp">£ GBP</option>
+                                            <option value="eur">€ EUR</option>
                                         </select>
                                     </div>
                                 </div>
@@ -60,14 +60,13 @@
                                     <h2>Standard</h2>
                                     <h3><span class="uppercase">5% discount</span></h3>
                                     <div class="priceCurrency">
-                                        <span class="currencyWrap"><span>45</span></span>
-                                        <span class="currencySymbolWrapper">€</span>
+                                        <span class="currencyWrap"><span>49</span></span>
+                                        <span class="currencySymbolWrapper">£</span>
                                     </div>
-{{--                                    <ul>--}}
-{{--                                        <li>Limited Email Support</li>--}}
-{{--                                        <li>Unlimited Data Transfer</li>--}}
-{{--                                        <li>10GB Local Storage</li>--}}
-{{--                                    </ul>--}}
+                                    <ul>
+                                        <li class="price_bold">52 <img class="icon_UP" src="{{asset('images/coin_bg.png')}}"></li>
+                                        <li class="price_bold">(= 26 contacts)</li>
+                                    </ul>
                                     <a href="" class="button">Buy now</a>
                                 </div>
                                 <div class="grid-1-5 BG_product" style="background-image:url({{asset('images/plus_w_BG.jpg')}})">
@@ -76,29 +75,26 @@
 
 {{--                                    <h3><sup>$</sup>79<span class="small">/mo</span></h3>--}}
                                     <div class="priceCurrency">
-                                        <span class="currencyWrap"><span>45</span></span>
-                                        <span class="currencySymbolWrapper">€</span>
+                                        <span class="currencyWrap"><span>99</span></span>
+                                        <span class="currencySymbolWrapper">£</span>
                                     </div>
-{{--                                    <ul>--}}
-{{--                                        <li>Limited Email Support</li>--}}
-{{--                                        <li>Unlimited Data Transfer</li>--}}
-{{--                                        <li>20GB Local Storage</li>--}}
-{{--                                    </ul>--}}
+                                    <ul>
+                                        <li class="price_bold">120 <img class="icon_UP" src="{{asset('images/coin_bg.png')}}"></li>
+                                        <li class="price_bold">(= 60 contacts)</li>
+                                    </ul>
                                     <a href="" class="button">Buy now</a>
                                 </div>
                                 <div class="grid-1-5 BG_product" style="background-image:url({{asset('images/Most_popular-_w_BG.jpg')}})">
                                     <h2 style="font-size: 29px;">Most Popular</h2>
                                     <h3><span class="uppercase">20% discount</span></h3>
-{{--                                    <h3><sup>$</sup>179<span class="small">/mo</span></h3>--}}
                                     <div class="priceCurrency">
-                                        <span class="currencyWrap"><span>45</span></span>
-                                        <span class="currencySymbolWrapper">€</span>
+                                        <span class="currencyWrap"><span>199</span></span>
+                                        <span class="currencySymbolWrapper">£</span>
                                     </div>
-{{--                                    <ul>--}}
-{{--                                        <li>Email Support</li>--}}
-{{--                                        <li>Unlimited Data Transfer</li>--}}
-{{--                                        <li>30GB Local Storage</li>--}}
-{{--                                    </ul>--}}
+                                    <ul>
+                                        <li class="price_bold">250 <img class="icon_UP" src="{{asset('images/coin_bg.png')}}"></li>
+                                        <li class="price_bold">(= 125 contacts)</li>
+                                    </ul>
                                     <a href="" class="button">Buy now</a>
                                 </div>
                                 <div class="grid-1-5 BG_product" style="background-image:url({{asset('images/Premium_w_BG.jpg')}})">
@@ -106,29 +102,26 @@
                                     <h3><span class="uppercase">25% discount</span></h3>
 {{--                                    <h3><sup>$</sup>499<span class="small">/mo</span></h3>--}}
                                     <div class="priceCurrency">
-                                        <span class="currencyWrap"><span>45</span></span>
-                                        <span class="currencySymbolWrapper">€</span>
+                                        <span class="currencyWrap"><span>390</span></span>
+                                        <span class="currencySymbolWrapper">£</span>
                                     </div>
-{{--                                    <ul>--}}
-{{--                                        <li>Email Support</li>--}}
-{{--                                        <li>Phone Support</li>--}}
-{{--                                        <li>Unlimited Data Transfer</li>--}}
-{{--                                    </ul>--}}
+                                    <ul>
+                                        <li class="price_bold">520 <img class="icon_UP" src="{{asset('images/coin_bg.png')}}"></li>
+                                        <li class="price_bold">(= 260 contacts) </li>
+                                    </ul>
                                     <a href="" class="button">Buy now</a>
                                 </div>
                                 <div class="grid-1-5 BG_product" style="background-image:url({{asset('images/Platinum_w_BG.jpg')}})">
                                     <h2>Platinum</h2>
                                     <h3><span class="uppercase">29% discount</span></h3>
                                     <div class="priceCurrency">
-                                        <span class="currencyWrap"><span>45</span></span>
-                                        <span class="currencySymbolWrapper">€</span>
+                                        <span class="currencyWrap"><span>780</span></span>
+                                        <span class="currencySymbolWrapper">£</span>
                                     </div>
-{{--                                    <ul>--}}
-{{--                                        <li>Email Support</li>--}}
-{{--                                        <li>Phone Support</li>--}}
-{{--                                        <li>Dedicated Environment</li>--}}
-{{--                                        <li>Customized Plan</li>--}}
-{{--                                    </ul>--}}
+                                    <ul>
+                                        <li class="price_bold">1,100 <img class="icon_UP" src="{{asset('images/coin_bg.png')}}"></li>
+                                        <li class="price_bold">(= 550 contacts)</li>
+                                    </ul>
                                     <a href="" class="button">Buy now</a>
                                 </div>
                             </div>

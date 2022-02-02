@@ -223,3 +223,6 @@ br.br {
 .BG_product h2,h3,.priceCurrency{
     color:white !important;
 }
+.price_bold{
+    font-weight: bolder;
+}
