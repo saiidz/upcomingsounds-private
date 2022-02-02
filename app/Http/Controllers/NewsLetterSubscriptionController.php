@@ -32,7 +32,7 @@ class NewsLetterSubscriptionController extends Controller
         $data["title"] = "Newsletter Subscribe Upcoming Sounds";
 
         Mail::send('emails.newsLetterSubscription', $data, function($message)use($data) {
-            $message->from('info@upcomingsounds.com');
+            $message->from('info@upcomingsounds.com','Upcoming Sounds');
             $message->to($data["email"], $data["email"])
                 ->subject($data["title"]);
         });

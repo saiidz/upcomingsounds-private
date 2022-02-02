@@ -10,7 +10,7 @@
 
     </style>
 @endsection
- 
+
 {{-- page content --}}
 @section('content')
     <div class="{{Auth::check() ? 'app-bodynew' : 'app-body'}}">
@@ -70,15 +70,15 @@
                     </li>
                 </ul>
                 <ul id="mobile" class="cd-faq__group">
-                    <li class="cd-faq__title"><h2> UpcomingSounds Coin "USC" </h2></li>
+                    <li class="cd-faq__title"><h2> UpcomingSounds Coin USC </h2></li>
                     <li class="cd-faq__item">
                         <a class="cd-faq__trigger" href="#0"><span>What is USC,  how does it works?</span></a>
                         <div class="cd-faq__content">
                             <div class="text-component">
-                                <p class="text-muted">What is USC,  how does it works? 
+                                <p class="text-muted">What is USC,  how does it works?
 
-USC is the official coin for UpcomingSounds. It's for all the submissions, campaigns, and in-house transactions. 
-You can even send it to other accounts via an email address registered on our database.</p>
+                                    USC is the official coin for UpcomingSounds. It's for all the submissions, campaigns, and in-house transactions.
+                                    You can even send it to other accounts via an email address registered on our database.</p>
                             </div>
                         </div>
                     </li>
@@ -116,19 +116,17 @@ You can even send it to other accounts via an email address registered on our da
                         <div class="cd-faq__content">
                             <div class="text-component">
                                 <p class="text-muted">We have a strict policy toward blogs, channels, and labels asking for payment from artists in return for guaranteed coverage. Payola
-is illegal. We ask that you follow our rules and guidelines. (note that calling it a "donation" will still fall afoul of our policy) Otherwise, actions will be taken to terminate any accounts will violation reports. </p>
+                                    is illegal. We ask that you follow our rules and guidelines. (note that calling it a "donation" will still fall afoul of our policy) Otherwise, actions will be taken to terminate any accounts will violation reports. </p>
                             </div>
                         </div>
                     </li>
-                    </div>
-                 
                     <li class="cd-faq__item">
                         <a class="cd-faq__trigger" href="#0"><span>Why use UpcomingSounds?</span></a>
                         <div class="cd-faq__content">
                             <div class="text-component">
                                 <p class="text-muted"> One tool for all, We've combined all of your submissions into one easy-to-use Dashboard, UpcomingSounds is your one source for New Music.
 
-Our platform enables tastemakers, curators, and professionals from around the world to discover new music, connect, share their favorite tunes and find out about cool events. Follow this link for more:  <a  " href="https://upcomingsounds.com/for-curators ">https://upcomingsounds.com/for-curators. </p>
+                                    Our platform enables tastemakers, curators, and professionals from around the world to discover new music, connect, share their favorite tunes and find out about cool events. Follow this link for more:  <a  " href="https://upcomingsounds.com/for-curators ">https://upcomingsounds.com/for-curators. </p>
                             </div>
                         </div>
                     </li>
@@ -137,12 +135,10 @@ Our platform enables tastemakers, curators, and professionals from around the wo
                         <div class="cd-faq__content">
                             <div class="text-component">
                                 <p class="text-muted">What kind of curator or influencer can apply on UpcomingSounds?
-We accept all the following categories: Influencers (Instagram- TikTok- Soundcloud), PlaylistCurators (Apple-Deezer- Spotify), Channels (youtube), Radio or TV channel, Records Labels, Managers, Music supervisors, Blogs, Mentors, Publishers, Sync Administrative, Journalist, Media, Booking Agents, Sounds Experts (engineers), Producers (music, video).</p>
+                                    We accept all the following categories: Influencers (Instagram- TikTok- Soundcloud), PlaylistCurators (Apple-Deezer- Spotify), Channels (youtube), Radio or TV channel, Records Labels, Managers, Music supervisors, Blogs, Mentors, Publishers, Sync Administrative, Journalist, Media, Booking Agents, Sounds Experts (engineers), Producers (music, video).</p>
                             </div>
                         </div>
                     </li>
-                </ul>
- 
                 </ul>
                 <ul id="payments" class="cd-faq__group">
                     <li class="cd-faq__title"><h2>Payments</h2></li>
@@ -151,7 +147,7 @@ We accept all the following categories: Influencers (Instagram- TikTok- Soundclo
                         <div class="cd-faq__content">
                             <div class="text-component">
                                 <p class="text-muted">Yes, UpcomingSounds is a safe and secure website, We have partnered with stripe for sucre payments and privacy protection.
-for more detailed info you can visit: https://stripe.com/gb/privacy-center/legal .</p>
+                                    for more detailed info you can visit: https://stripe.com/gb/privacy-center/legal .</p>
                             </div>
                         </div>
                     </li>
@@ -333,7 +329,7 @@ for more detailed info you can visit: https://stripe.com/gb/privacy-center/legal
             <a href="#0" class="cd-faq__close-panel text-replace">Close</a>
             <div class="cd-faq__overlay" aria-hidden="true"></div>
         </section>
-    <!-- ############ PAGE END-->
+        <!-- ############ PAGE END-->
         <div class="text-center">
             <a href="{{url('help/ticket')}}"  class="btn btn-sm rounded primary _600 ticket_help">I still need help
                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="mrg-left-0" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path></svg>
@@ -342,7 +338,7 @@ for more detailed info you can visit: https://stripe.com/gb/privacy-center/legal
     </div>
     @include('welcome-panels.welcome-footer')
 @endsection
- 
+
 @section('page-script')
     <script>document.getElementsByTagName("html")[0].className += " js";</script>
     <script src="{{asset('js/faq/util.js')}}"></script>
