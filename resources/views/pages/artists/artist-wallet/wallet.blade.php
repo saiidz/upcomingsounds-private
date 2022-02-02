@@ -60,8 +60,8 @@
                                     <h2>Standard</h2>
                                     <h3><span class="uppercase">5% discount</span></h3>
                                     <div class="priceCurrency">
-                                        <span class="currencyWrap"><span>49</span></span>
                                         <span class="currencySymbolWrapper">£</span>
+                                        <span class="currencyWrap"><span>49</span></span>
                                     </div>
                                     <ul>
                                         <li class="price_bold">52 <img class="icon_UP" src="{{asset('images/coin_bg.png')}}"></li>
@@ -75,8 +75,8 @@
 
 {{--                                    <h3><sup>$</sup>79<span class="small">/mo</span></h3>--}}
                                     <div class="priceCurrency">
-                                        <span class="currencyWrap"><span>99</span></span>
                                         <span class="currencySymbolWrapper">£</span>
+                                        <span class="currencyWrap"><span>99</span></span>
                                     </div>
                                     <ul>
                                         <li class="price_bold">120 <img class="icon_UP" src="{{asset('images/coin_bg.png')}}"></li>
@@ -88,8 +88,8 @@
                                     <h2 style="font-size: 29px;">Most Popular</h2>
                                     <h3><span class="uppercase">20% discount</span></h3>
                                     <div class="priceCurrency">
-                                        <span class="currencyWrap"><span>199</span></span>
                                         <span class="currencySymbolWrapper">£</span>
+                                        <span class="currencyWrap"><span>199</span></span>
                                     </div>
                                     <ul>
                                         <li class="price_bold">250 <img class="icon_UP" src="{{asset('images/coin_bg.png')}}"></li>
@@ -100,10 +100,9 @@
                                 <div class="grid-1-5 BG_product" style="background-image:url({{asset('images/Premium_w_BG.jpg')}})">
                                     <h2>Premium</h2>
                                     <h3><span class="uppercase">25% discount</span></h3>
-{{--                                    <h3><sup>$</sup>499<span class="small">/mo</span></h3>--}}
                                     <div class="priceCurrency">
-                                        <span class="currencyWrap"><span>390</span></span>
                                         <span class="currencySymbolWrapper">£</span>
+                                        <span class="currencyWrap"><span>390</span></span>
                                     </div>
                                     <ul>
                                         <li class="price_bold">520 <img class="icon_UP" src="{{asset('images/coin_bg.png')}}"></li>
@@ -115,8 +114,8 @@
                                     <h2>Platinum</h2>
                                     <h3><span class="uppercase">29% discount</span></h3>
                                     <div class="priceCurrency">
-                                        <span class="currencyWrap"><span>780</span></span>
                                         <span class="currencySymbolWrapper">£</span>
+                                        <span class="currencyWrap"><span>780</span></span>
                                     </div>
                                     <ul>
                                         <li class="price_bold">1,100 <img class="icon_UP" src="{{asset('images/coin_bg.png')}}"></li>
