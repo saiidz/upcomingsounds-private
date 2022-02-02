@@ -143,6 +143,12 @@ option {
     .buyUCS{
         padding-bottom:18px !important;
     }
+    .tw-flex{
+        display: inline-block;
+    }
+    .tw-relative {
+        left: 17px;
+    }
 }
 @media (min-width: 600px){
     .wantUP {
