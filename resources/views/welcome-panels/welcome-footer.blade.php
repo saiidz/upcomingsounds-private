@@ -54,7 +54,7 @@
                             <i class="fa fa-youtube"></i>
                             <i class="fa fa-youtube"></i>
                         </a>
-                        <a href="#" target="_blank"
+                        <a href="https://www.tiktok.com/@upcomingsounds_" target="_blank"
                            class="btn btn-icon btn-social btn-social-colored social_color tiktok_footer"
                            title="Tiktok">
                             <i class="iconify" data-icon="fa-brands:tiktok"></i>
