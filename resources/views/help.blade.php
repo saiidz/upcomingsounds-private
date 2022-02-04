@@ -223,54 +223,41 @@
                     </li>
                 </ul>
                 <ul id="delivery" class="cd-faq__group">
-                    <li class="cd-faq__title"><h2>Delivery</h2></li>
+                    <li class="cd-faq__title"><h2>JOINING UPCOMINGSOUNDNS FOR CURATORS, INFLUENCERS, TASTEMAKERS AND LABELS</h2></li>
                     <li class="cd-faq__item">
                         <a class="cd-faq__trigger"
-                           href="#0"><span>What should I do if my order hasn't been delivered yet?</span></a>
+                           href="#0"><span>How do I sign up as a curator, influencer, or label?</span></a>
                         <div class="cd-faq__content">
                             <div class="text-component">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit quidem delectus rerum
-                                    eligendi mollitia, repudiandae quae beatae. Et repellat quam atque corrupti iusto architecto
-                                    impedit explicabo repudiandae qui similique aut iure ipsum quis inventore nulla error
-                                    aliquid alias quia dolorem dolore, odio excepturi veniam odit veritatis. Quo iure magnam, et
-                                    cum. Laudantium, eaque non? Tempore nihil corporis cumque dolor ipsum accusamus sapiente
-                                    aliquid quis ea assumenda deserunt praesentium voluptatibus, accusantium a mollitia
-                                    necessitatibus nostrum voluptatem numquam modi ab, sint rem.</p>
+                                <p class="text-muted">Follow this link for more to apply : <a  " href="https://upcomingsounds.com/forgot-password ">Upcomingsounds/apply.</p>
                             </div>
                         </div>
                     </li>
                     <li class="cd-faq__item">
                         <a class="cd-faq__trigger"
-                           href="#0"><span>How can I find your international delivery information?</span></a>
+                           href="#0"><span>Can I ask for money or charge for coverage on my platform?</span></a>
                         <div class="cd-faq__content">
                             <div class="text-component">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis provident officiis,
-                                    reprehenderit numquam. Praesentium veritatis eos tenetur magni debitis inventore fugit,
-                                    magnam, reiciendis, saepe obcaecati ex vero quaerat distinctio velit.</p>
+                                <p class="text-muted">We have a strict policy toward blogs, channels, and labels asking for payment from artists in return for guaranteed coverage. Payola
+                                    is illegal. We ask that you follow our rules and guidelines. (note that calling it a "donation" will still fall afoul of our policy) Otherwise, actions will be taken to terminate any accounts will violation reports.</p>
                             </div>
                         </div>
                     </li>
                     <li class="cd-faq__item">
-                        <a class="cd-faq__trigger" href="#0"><span>Who takes care of shipping?</span></a>
+                        <a class="cd-faq__trigger" href="#0"><span>Why use UpcomingSounds?</span></a>
                         <div class="cd-faq__content">
                             <div class="text-component">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis provident officiis,
-                                    reprehenderit numquam. Praesentium veritatis eos tenetur magni debitis inventore fugit,
-                                    magnam, reiciendis, saepe obcaecati ex vero quaerat distinctio velit.</p>
+                                <p class="text-muted">One tool for all, We've combined all of your submissions into one easy-to-use Dashboard, UpcomingSounds is your one source for New Music.
+
+                                    Our platform enables tastemakers, curators, and professionals from around the world to discover new music, connect, share their favorite tunes and find out about cool events. Follow this link for more:  <a  " href="https://upcomingsounds.com/for-curators ">https://upcomingsounds.com/for-curators. </p>
                             </div>
                         </div>
                     </li>
                     <li class="cd-faq__item">
-                        <a class="cd-faq__trigger" href="#0"><span>How do returns or refunds work?</span></a>
+                        <a class="cd-faq__trigger" href="#0"><span>What kind of curator or influencer can apply on UpcomingSounds?</span></a>
                         <div class="cd-faq__content">
                             <div class="text-component">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit quidem delectus rerum
-                                    eligendi mollitia, repudiandae quae beatae. Et repellat quam atque corrupti iusto architecto
-                                    impedit explicabo repudiandae qui similique aut iure ipsum quis inventore nulla error
-                                    aliquid alias quia dolorem dolore, odio excepturi veniam odit veritatis. Quo iure magnam, et
-                                    cum. Laudantium, eaque non? Tempore nihil corporis cumque dolor ipsum accusamus sapiente
-                                    aliquid quis ea assumenda deserunt praesentium voluptatibus, accusantium a mollitia
-                                    necessitatibus nostrum voluptatem numquam modi ab, sint rem.</p>
+                                <p class="text-muted">We accept all the following categories: Influencers (Instagram- TikTok- Soundcloud), PlaylistCurators (Apple-Deezer- Spotify), Channels (youtube), Radio or TV channel, Records Labels, Managers, Music supervisors, Blogs, Mentors, Publishers, Sync Administrative, Journalist, Media, Booking Agents, Sounds Experts (engineers), Producers (music, video)</p>
                             </div>
                         </div>
                     </li>
