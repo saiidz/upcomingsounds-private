@@ -1001,7 +1001,8 @@ ul:not(.browser-default) > li {
         padding: 0;
     }
     .welcome_video > video {
-        left: 440px !important;
+        left: 350px !important;
+        /*left: 440px !important;*/
         /*left: 600px !important;*/
     }
     .mouse-icon {
