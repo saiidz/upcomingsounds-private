@@ -91,4 +91,8 @@ class User extends Authenticatable implements MustVerifyEmail
     public function artistTrack(){
         return $this->hasMany(ArtistTrack::class, 'user_id');
     }
+    // User can have many transactions
+    public function transactionHistory(){
+        return $this->hasMany(TransactionHistory::class, 'user_id');
+    }
 }

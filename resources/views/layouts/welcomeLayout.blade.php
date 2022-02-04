@@ -7,6 +7,7 @@
 
 <body>
 <div class="app dk" id="app">
+    <div id="loadings" style="display:none;"></div>
     <div id="snackbar"></div>
     <div id="snackbarError"></div>
     <!-- ############ LAYOUT START-->

@@ -18,7 +18,7 @@
     clear: both;
 }
 .grid-1-5 {
-    border: 2px solid #02b875;
+    border: 2px solid #000;
     min-height: 400px;
     padding: 1.25em;
     position: relative;
@@ -225,4 +225,56 @@ br.br {
 }
 .price_bold{
     font-weight: bolder;
+}
+.StripeElement {
+    box-sizing: border-box;
+    height: 40px;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+}
+.StripeElement--focus {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+}
+.StripeElement--invalid {
+    border-color: #fa755a;
+}
+.StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+}
+.update_stripe_not {
+    border-color: #02b875 !important;
+    background-color: #1f1f25 !important;
+    color: white !important;
+    text-align: center !important;
+    padding: 10px 1.5rem 10px 1.5rem !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+    box-shadow: inset 0 0 1px rgb(0 0 0 / 30%) !important;
+    border-radius: 500px !important;
+}
+.stripePayment {
+    float: right;
+    border-color: #02b875 !important;
+    background-color: #1f1f25 !important;
+    color: white !important;
+    text-align: center !important;
+    padding: 10px 1.5rem 10px 1.5rem !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+    box-shadow: inset 0 0 1px rgb(0 0 0 / 30%) !important;
+    border-radius: 500px !important;
+    margin-left: 10px!important;
+}
+.stripePayment:hover, .stripePayment:focus{
+    color: rgba(255, 255, 255, 0.87) !important;
+    background-color: #02b875 !important;
+    box-shadow: 0 10px 20px rgb(55 206 23 / 72%) !important;
+}
+#card-errors{
+    color:red;
 }

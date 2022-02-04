@@ -35,6 +35,14 @@
 @yield('page-script')
 
 <script type="text/javascript">
+    var preload = document.getElementById("loadings");
+    function loader(){
+        preload.style.display='none';
+    }
+    function showLoader(){
+        preload.style.display='block';
+    }
+
     if (window.location.hash === "#_=_"){
         history.replaceState
             ? history.replaceState(null, null, window.location.href.split("#")[0])
