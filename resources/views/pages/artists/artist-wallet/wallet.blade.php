@@ -95,7 +95,7 @@
                                     </ul>
                                     <a href="javascript:void(0)" class="button buyPlusNow" onclick="buyPlusNow()" data-plus-package="Plus" data-plus-contacts="60" data-plus-currency="gbp" data-plus-price="@isset($plus_products){{number_format($plus_products['data'][4]['unit_amount'] / 100, 2)}} @endisset">Buy now</a>
                                 </div>
-                                <div class="grid-1-5 BG_product" style="background-image:url({{asset('images/Most_popular-_w_BG.jpg')}})">
+                                <div class="grid-1-5 BG_product" style="background-image:url({{asset('images/Standard_w_BG.jpg')}})">
                                     <h2 style="font-size: 29px;">Most Popular</h2>
                                     <h3><span class="uppercase">20% discount</span></h3>
                                     <div class="priceCurrency" id="priceCurrencyMostPopular">
