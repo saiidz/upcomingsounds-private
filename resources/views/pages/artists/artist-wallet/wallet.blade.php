@@ -80,7 +80,7 @@
                                     </ul>
                                     <a href="javascript:void(0)" class="button buyStandardNow" onclick="buyStandardNow()" data-standard-package="Standard" data-standard-contacts="26" data-standard-currency="gbp" data-standard-price="@isset($standard_products){{number_format($standard_products['data'][4]['unit_amount'] / 100, 2)}} @endisset">Buy now</a>
                                 </div>
-                                <div class="grid-1-5 BG_product" style="background-image:url({{asset('images/plus_w_BG.jpg')}})">
+                                <div class="grid-1-5 BG_product" style="background-image:url({{asset('images/Standard_w_BG.jpg')}})">
                                     <h2>Plus</h2>
                                     <h3><span class="uppercase">17% discount</span></h3>
 
@@ -108,7 +108,7 @@
                                     </ul>
                                     <a href="javascript:void(0)" class="button buyMostNow" onclick="buyMostNow()" data-most-package="Most Popular" data-most-contacts="125" data-most-currency="gbp" data-most-price="@isset($most_popular_products){{number_format($most_popular_products['data'][4]['unit_amount'] / 100, 2)}} @endisset">Buy now</a>
                                 </div>
-                                <div class="grid-1-5 BG_product" style="background-image:url({{asset('images/Premium_w_BG.jpg')}})">
+                                <div class="grid-1-5 BG_product" style="background-image:url({{asset('images/Standard_w_BG.jpg')}})">
                                     <h2>Premium</h2>
                                     <h3><span class="uppercase">25% discount</span></h3>
                                     <div class="priceCurrency" id="priceCurrencyPremium">
@@ -121,7 +121,7 @@
                                     </ul>
                                     <a href="javascript:void(0)" class="button buyPremiumNow" onclick="buyPremiumNow()" data-premium-package="Premium" data-premium-contacts="260" data-premium-currency="gbp" data-premium-price="@isset($premium_products){{number_format($premium_products['data'][4]['unit_amount'] / 100, 2)}} @endisset">Buy now</a>
                                 </div>
-                                <div class="grid-1-5 BG_product" style="background-image:url({{asset('images/Platinum_w_BG.jpg')}})">
+                                <div class="grid-1-5 BG_product" style="background-image:url({{asset('images/Standard_w_BG.jpg')}})">
                                     <h2>Platinum</h2>
                                     <h3><span class="uppercase">29% discount</span></h3>
                                     <div class="priceCurrency" id="priceCurrencyPlatinum">
