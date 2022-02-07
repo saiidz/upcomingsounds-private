@@ -51,7 +51,6 @@ class ArtistWalletController extends Controller
     public function handlePost(Request $request)
     {
         $stripe = new StripeClient(Config('services.stripe.secret'));
-
         $user = $request->user();
         if(empty($user->stripe_id)){
             // create stripe customer

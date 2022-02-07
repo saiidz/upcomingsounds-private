@@ -77,10 +77,15 @@
                 <div class="black owl-theme videoWlcome">
                     <div class="row-col">
                         <div class="col-lg-12 welcome_video">
-                            <video autoplay muted id="welcome_video">
+                            <video id="welcome_video" autoplay="true" loop="true" muted="true" playsinline="true">
                                 <source src="{{asset('video/upcomingsounds_home.mp4')}}" type="video/mp4">
-                                <source src="{{asset('images/banner_1.jpg')}}" type="video/ogg">
                             </video>
+
+{{--                            <video autoplay muted id="welcome_video">--}}
+{{--                                <source src="video1.webm" type="video/webm">--}}
+{{--                                <source src="{{asset('video/upcomingsounds_home.mp4')}}" type="video/mp4">--}}
+{{--                                <source src="{{asset('images/banner_1.jpg')}}" type="video/ogg">--}}
+{{--                            </video>--}}
                             <div class="mouse">
                                 <a href="javascript:void(0)" class="mouse-icon" id="upClick">
                                     <div class="mouse-wheel"><i class="fa fa-angle-down"></i></div>
