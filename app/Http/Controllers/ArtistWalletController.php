@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Country;
 use App\Models\TransactionHistory;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -45,6 +46,16 @@ class ArtistWalletController extends Controller
 
         return view('pages.artists.artist-wallet.wallet', get_defined_vars());
     }
+
+    /**
+     * checkout
+     */
+    public function checkout(Request $request)
+    {
+        $countries = Country::all();
+        return view('pages.artists.artist-wallet.checkout', get_defined_vars());
+    }
+
     /**
      * handling payment with POST
      */
