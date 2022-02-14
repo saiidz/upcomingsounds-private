@@ -16,7 +16,7 @@
        <section class="m-t-lg">
            <div class="container">
                <div class="py-5 text-center">
-                   <h2>Checkout form</h2>
+                   <h2>UpcomingSounds Checkout form</h2>
                    <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
                </div>
                <div class="row">
@@ -51,7 +51,7 @@
                                    <div class="row m-t-sm">
                                        <div class="col-md-5 mb-3">
                                            <label for="country">Country</label>
-                                           <select class="custom-select d-block w-100" id="country" required>
+                                           <select class="custom-select d-block w-100" id="country_name" required>
                                                <option value="" disabled selected>Choose Country</option>
                                                @isset($countries)
                                                    @foreach($countries as $country)
@@ -68,14 +68,12 @@
                                        </div>
                                        <div class="col-md-4 mb-3">
                                            <label for="city">City</label>
-                                           <select class="custom-select d-block w-100" id="city" required>
-                                               <option value="">Choose...</option>
-                                               <option>California</option>
-                                               <option>California</option>
-                                               <option>California</option>
-                                               <option>California</option>
-                                               <option>California</option>
-                                           </select>
+                                           <select class="custom-select d-block w-100" id="city_name" name="city_name" required><sup>*</sup></select>
+                                           @error('city_name')
+                                               <small class="red-text" role="alert">
+                                                   {{ $message }}
+                                               </small>
+                                           @enderror
                                        </div>
                                        <div class="col-md-3 mb-3">
                                            <label for="postal_code">Postal Code</label>
@@ -231,4 +229,38 @@
 
 @section('page-script')
     <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        });
+        $('#country_name').change(function () {
+            var cid = $(this).val();
+            if (cid) {
+                var url = '/get-cites/'+cid;
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    dataType: 'json',
+                    success: function (res) {
+                        if (res) {
+                            $("#city_name").empty();
+                            $("#city").html('');
+                            $("#city_name").append('<option value="">Select City</option>');
+                            $.each(res.data.cities, function (key, value) {
+                                $("#city_name").append('<option value="' + value.id + '">' + value.name + '</option>');
+                            });
+                            $('#city_name').formSelect();
+                        } else {
+                            $("#city_name").empty();
+                        }
+                    }
+
+                });
+            } else {
+                $("#city_name").empty();
+            }
+        });
+    </script>
 @endsection

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\ArtistTrackController;
 use App\Http\Controllers\ArtistWalletController;
@@ -38,4 +39,7 @@ Route::get('/checkout',[ArtistWalletController::class,'checkout']);
 
 // Stripe Route
 Route::post('/stripe-payment', [ArtistWalletController::class, 'handlePost']);
+
+// get cites
+Route::get('get-cites/{id}', [AjaxController::class,'getCities']);
 /***************************************************** Artist Routes *********************************************************/

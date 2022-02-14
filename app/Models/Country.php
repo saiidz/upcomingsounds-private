@@ -34,4 +34,9 @@ class Country extends Model
     public function ticketHelp(){
         return $this->hasOne(TicketHelp::class, 'country_id');
     }
+
+    // City can have many auction
+    public function city(){
+        return $this->hasMany(City::class);
+    }
 }
