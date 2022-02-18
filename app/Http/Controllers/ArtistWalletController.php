@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Country;
 use App\Models\TransactionHistory;
+use App\Models\TransactionUserInfo;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Validator;
 use Stripe\SetupIntent;
 use Stripe\Stripe;
 use Stripe\StripeClient;
@@ -52,10 +55,84 @@ class ArtistWalletController extends Controller
      */
     public function checkout(Request $request)
     {
+        $price = $request->get('price');
+        $currency = $request->get('currency');
+        $contacts = $request->get('contacts');
+        $package = $request->get('package');
+
+        $request->session()->put('purchase_data', $request->all());
+
+        return response()->json([
+            'status'    => TRUE,
+            'price'     => $price,
+            'currency'  => $currency,
+            'contacts'  => $contacts,
+            'package'   => $package,
+        ]);
+    }
+    /**
+     * artistCheckout
+     */
+    public function artistCheckout(Request $request)
+    {
         $countries = Country::all();
+        $purchase_data = $request->session()->get('purchase_data');
+
+        Stripe::setApiKey(Config::get('services.stripe.secret'));
+
+        $intent = SetupIntent::create([
+            'usage' => 'on_session',  // The default usage is off_session
+        ]);
+
+        // get billing info if exists
+        $artist_billing_info = TransactionUserInfo::where('user_id',Auth::id())->latest()->first();
+        $artist_billing_info = isset($artist_billing_info) ? $artist_billing_info : null;
         return view('pages.artists.artist-wallet.checkout', get_defined_vars());
     }
 
+    /**
+     * artistBillingInfo
+     */
+    public function artistBillingInfo(Request $request)
+    {
+//        dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'first_name'           => 'required|string',
+            'last_name'            => 'required|string',
+            'phone_number'         => 'required|numeric',
+            'address'              => 'required',
+            'country_name'         => 'required',
+            'city_name'            => 'required',
+            'postal_code'          => 'required|numeric',
+            'g-recaptcha-response' => 'required|captcha',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $input = $request->all();
+
+        // check record is already exists
+        $artist_billing_info_exist = TransactionUserInfo::where('id',$request->get('transaction_user_infos_id'))
+                                                        ->where('user_id',Auth::id())->first();
+        if(isset($artist_billing_info_exist)){
+
+            $input['city_id'] = $request->get('city_name');
+            $artist_billing_info_exist->update($input);
+
+            return redirect()->back()->with('success', 'Billing Info updated successfully.');
+        }
+
+        $input['user_id'] = Auth::id();
+        $input['city_id'] = $request->get('city_name');
+
+        TransactionUserInfo::create($input);
+
+        return redirect()->back()->with('success', 'Billing Info created successfully.');
+    }
     /**
      * handling payment with POST
      */
@@ -98,6 +175,7 @@ class ArtistWalletController extends Controller
         TransactionHistory::create([
             'user_id'                => $user->id,
             'user_type'              => $user->type,
+            'transaction_user_id'    => $request->transaction_user_id,
             'package_name'           => $request->package_name,
             'amount'                 => ($charges->amount) ? $charges->amount/100 : null,
             'contacts'               => $request->contacts,

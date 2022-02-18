@@ -299,3 +299,7 @@ br.br {
 .Payment{
     padding: 12px 16px;
 }
+
+.no-click {
+    pointer-events: none;
+}

@@ -21,4 +21,14 @@ class TransactionUserInfo extends Model
         'postal_code',
         'deleted_at',
     ];
+
+    // Auction Belongs to city
+    public function city(){
+        return $this->belongsTo(City::class);
+    }
+
+    // User has many TransactionHistory
+    public function transactionHistory(){
+        return $this->hasMany(TransactionHistory::class, 'transaction_user_id');
+    }
 }

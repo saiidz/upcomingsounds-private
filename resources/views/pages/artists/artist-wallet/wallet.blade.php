@@ -154,7 +154,7 @@
             </div>
         </div>
     <!-- ############ PAGE END-->
-        @include('pages.artists.artist-wallet.stripe-model')
+{{--        @include('pages.artists.artist-wallet.stripe-model')--}}
     </div>
     @include('welcome-panels.welcome-footer')
 @endsection
@@ -509,92 +509,115 @@
     </script>
     <script>
         // stripe javascript
-        var stripe = Stripe("{{ \Config::get('services.stripe.key') }}");
-        // Create an instance of Elements.
-        var elements = stripe.elements();
-        // Custom styling can be passed to options when creating an Element.
-        // (Note that this demo uses a wider set of styles than the guide below.)
-        var style = {
-            base: {
-                color: '#32325d',
-                fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-                fontSmoothing: 'antialiased',
-                fontSize: '16px',
-                '::placeholder': {
-                    color: '#aab7c4'
-                }
-            },
-            invalid: {
-                color: '#fa755a',
-                iconColor: '#fa755a'
+        {{--var stripe = Stripe("{{ \Config::get('services.stripe.key') }}");--}}
+        {{--// Create an instance of Elements.--}}
+        {{--var elements = stripe.elements();--}}
+        {{--// Custom styling can be passed to options when creating an Element.--}}
+        {{--// (Note that this demo uses a wider set of styles than the guide below.)--}}
+        {{--var style = {--}}
+        {{--    base: {--}}
+        {{--        color: '#32325d',--}}
+        {{--        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',--}}
+        {{--        fontSmoothing: 'antialiased',--}}
+        {{--        fontSize: '16px',--}}
+        {{--        '::placeholder': {--}}
+        {{--            color: '#aab7c4'--}}
+        {{--        }--}}
+        {{--    },--}}
+        {{--    invalid: {--}}
+        {{--        color: '#fa755a',--}}
+        {{--        iconColor: '#fa755a'--}}
+        {{--    }--}}
+        {{--};--}}
+        {{--// Create an instance of the card Element.--}}
+        {{--var card = elements.create('card', {--}}
+        {{--    hidePostalCode: true,--}}
+        {{--    style: style--}}
+        {{--});--}}
+        {{--// Add an instance of the card Element into the `card-element` <div>.--}}
+        {{--card.mount('#card-element');--}}
+        {{--// Handle real-time validation errors from the card Element.--}}
+        {{--card.on('change', function (event) {--}}
+        {{--    var displayError = document.getElementById('card-errors');--}}
+        {{--    if (event.error) {--}}
+        {{--        displayError.textContent = event.error.message;--}}
+        {{--    } else {--}}
+        {{--        displayError.textContent = '';--}}
+        {{--    }--}}
+        {{--});--}}
+        {{--// Handle form submission.--}}
+        {{--var form = document.getElementById('stripe-form');--}}
+        {{--document.getElementById('submit-stripe').addEventListener('click', function () {--}}
+        {{--    // console.log(form);--}}
+        {{--    const cardButton = document.getElementById('client_secret');--}}
+        {{--    const clientSecret = cardButton.getAttribute('value');--}}
+        {{--    console.log(clientSecret);--}}
+        {{--    stripe.createToken(card).then(function(result) {--}}
+        {{--        var form = document.getElementById('stripe-form');--}}
+        {{--        var hiddenCardInput = document.createElement('input');--}}
+        {{--        hiddenCardInput.setAttribute('type', 'hidden');--}}
+        {{--        hiddenCardInput.setAttribute('name', 'cardMethod');--}}
+        {{--        hiddenCardInput.setAttribute('value', result.token.id);--}}
+        {{--        form.appendChild(hiddenCardInput);--}}
+        {{--    });--}}
+        {{--    stripe.handleCardSetup(clientSecret, card, {--}}
+        {{--        payment_method_data: {--}}
+        {{--        }--}}
+        {{--    })--}}
+        {{--        .then(function(result) {--}}
+        {{--            if (result.error) {--}}
+        {{--                // Inform the user if there was an error.--}}
+        {{--                var errorElement = document.getElementById('card-errors');--}}
+        {{--                errorElement.textContent = result.error.message;--}}
+        {{--            } else {--}}
+        {{--                // Send the token to your server.--}}
+        {{--                stripeTokenHandler(result.setupIntent.payment_method);--}}
+        {{--                // $('#confirmMsg').modal('show');--}}
+        {{--            }--}}
+        {{--        });--}}
+        {{--});--}}
+        {{--// Submit the form with the token ID.--}}
+        {{--function stripeTokenHandler(paymentMethod) {--}}
+        {{--    // Insert the token ID into the form so it gets submitted to the server--}}
+        {{--    var form = document.getElementById('stripe-form');--}}
+        {{--    var hiddenInput = document.createElement('input');--}}
+        {{--    hiddenInput.setAttribute('type', 'hidden');--}}
+        {{--    hiddenInput.setAttribute('name', 'paymentMethod');--}}
+        {{--    hiddenInput.setAttribute('value', paymentMethod);--}}
+        {{--    form.appendChild(hiddenInput);--}}
+        {{--    // Submit the form--}}
+        {{--    form.submit();--}}
+        {{--}--}}
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
-        };
-        // Create an instance of the card Element.
-        var card = elements.create('card', {
-            hidePostalCode: true,
-            style: style
         });
-        // Add an instance of the card Element into the `card-element` <div>.
-        card.mount('#card-element');
-        // Handle real-time validation errors from the card Element.
-        card.on('change', function (event) {
-            var displayError = document.getElementById('card-errors');
-            if (event.error) {
-                displayError.textContent = event.error.message;
-            } else {
-                displayError.textContent = '';
-            }
-        });
-        // Handle form submission.
-        var form = document.getElementById('stripe-form');
-        document.getElementById('submit-stripe').addEventListener('click', function () {
-            // console.log(form);
-            const cardButton = document.getElementById('client_secret');
-            const clientSecret = cardButton.getAttribute('value');
-            console.log(clientSecret);
-            stripe.createToken(card).then(function(result) {
-                var form = document.getElementById('stripe-form');
-                var hiddenCardInput = document.createElement('input');
-                hiddenCardInput.setAttribute('type', 'hidden');
-                hiddenCardInput.setAttribute('name', 'cardMethod');
-                hiddenCardInput.setAttribute('value', result.token.id);
-                form.appendChild(hiddenCardInput);
-            });
-            stripe.handleCardSetup(clientSecret, card, {
-                payment_method_data: {
-                }
-            })
-                .then(function(result) {
-                    if (result.error) {
-                        // Inform the user if there was an error.
-                        var errorElement = document.getElementById('card-errors');
-                        errorElement.textContent = result.error.message;
-                    } else {
-                        // Send the token to your server.
-                        stripeTokenHandler(result.setupIntent.payment_method);
-                        // $('#confirmMsg').modal('show');
-                    }
-                });
-        });
-        // Submit the form with the token ID.
-        function stripeTokenHandler(paymentMethod) {
-            // Insert the token ID into the form so it gets submitted to the server
-            var form = document.getElementById('stripe-form');
-            var hiddenInput = document.createElement('input');
-            hiddenInput.setAttribute('type', 'hidden');
-            hiddenInput.setAttribute('name', 'paymentMethod');
-            hiddenInput.setAttribute('value', paymentMethod);
-            form.appendChild(hiddenInput);
-            // Submit the form
-            form.submit();
-        }
 
         function buyStandardNow(){
-            $('#model_stripe').modal('show');
+            $('.buyStandardNow').prop('disabled', true);
+            // $('#model_stripe').modal('show');
             var standard_price = $('.buyStandardNow').attr('data-standard-price');
             var standard_currency = $('.buyStandardNow').attr('data-standard-currency');
             var standard_contacts = $('.buyStandardNow').attr('data-standard-contacts');
             var standard_package = $('.buyStandardNow').attr('data-standard-package');
+
+            $.ajax({
+                type: 'POST',
+                url: '{{url('checkout')}}',
+                data: {
+                    price: standard_price,
+                    currency: standard_currency,
+                    contacts: standard_contacts,
+                    package: standard_package,
+                },
+                success:function (data){
+                    $('.buyStandardNow').prop('disabled', false);
+                    window.location.href = "/artist-checkout";
+                    // window.location.href = "/artist-checkout?price="+ data.price + "&currency="+ data.currency + "&contacts="+ data.contacts + "&package="+ data.package;
+                },
+            });
 
             //set value on stripe form
             document.getElementById('total_amount_stripe').value = Math.abs(standard_price);
@@ -604,11 +627,28 @@
         }
 
         function buyPlusNow(){
-            $('#model_stripe').modal('show');
+            $('.buyPlusNow').prop('disabled', true);
+            // $('#model_stripe').modal('show');
             var plus_price = $('.buyPlusNow').attr('data-plus-price');
             var plus_currency = $('.buyPlusNow').attr('data-plus-currency');
             var plus_contacts = $('.buyPlusNow').attr('data-plus-contacts');
             var plus_package = $('.buyPlusNow').attr('data-plus-package');
+
+            $.ajax({
+                type: 'POST',
+                url: '{{url('checkout')}}',
+                data: {
+                    price: plus_price,
+                    currency: plus_currency,
+                    contacts: plus_contacts,
+                    package: plus_package,
+                },
+                success:function (data){
+                    $('.buyPlusNow').prop('disabled', false);
+                    window.location.href = "/artist-checkout";
+                    // window.location.href = "/artist-checkout?price="+ data.price + "&currency="+ data.currency + "&contacts="+ data.contacts + "&package="+ data.package;
+                },
+            });
 
             //set value on stripe form
             document.getElementById('total_amount_stripe').value = Math.abs(plus_price);
@@ -618,11 +658,28 @@
         }
 
         function buyMostNow(){
-            $('#model_stripe').modal('show');
+            $('.buyMostNow').prop('disabled', true);
+            // $('#model_stripe').modal('show');
             var most_price = $('.buyMostNow').attr('data-most-price');
             var most_currency = $('.buyMostNow').attr('data-most-currency');
             var most_contacts = $('.buyMostNow').attr('data-most-contacts');
             var most_package = $('.buyMostNow').attr('data-most-package');
+
+            $.ajax({
+                type: 'POST',
+                url: '{{url('checkout')}}',
+                data: {
+                    price: most_price,
+                    currency: most_currency,
+                    contacts: most_contacts,
+                    package: most_package,
+                },
+                success:function (data){
+                    $('.buyMostNow').prop('disabled', false);
+                    window.location.href = "/artist-checkout";
+                    // window.location.href = "/artist-checkout?price="+ data.price + "&currency="+ data.currency + "&contacts="+ data.contacts + "&package="+ data.package;
+                },
+            });
 
             //set value on stripe form
             document.getElementById('total_amount_stripe').value = Math.abs(most_price);
@@ -632,11 +689,28 @@
         }
 
         function buyPremiumNow(){
-            $('#model_stripe').modal('show');
+            $('.buyPremiumNow').prop('disabled', true);
+            // $('#model_stripe').modal('show');
             var premium_price = $('.buyPremiumNow').attr('data-premium-price');
             var premium_currency = $('.buyPremiumNow').attr('data-premium-currency');
             var premium_contacts = $('.buyPremiumNow').attr('data-premium-contacts');
             var premium_package = $('.buyPremiumNow').attr('data-premium-package');
+
+            $.ajax({
+                type: 'POST',
+                url: '{{url('checkout')}}',
+                data: {
+                    price: premium_price,
+                    currency: premium_currency,
+                    contacts: premium_contacts,
+                    package: premium_package,
+                },
+                success:function (data){
+                    $('.buyPremiumNow').prop('disabled', false);
+                    window.location.href = "/artist-checkout";
+                    // window.location.href = "/artist-checkout?price="+ data.price + "&currency="+ data.currency + "&contacts="+ data.contacts + "&package="+ data.package;
+                },
+            });
 
             //set value on stripe form
             document.getElementById('total_amount_stripe').value = Math.abs(premium_price);
@@ -646,11 +720,28 @@
         }
 
         function buyPlantinumNow(){
-            $('#model_stripe').modal('show');
+            $('.buyPlantinumNow').prop('disabled', true);
+            // $('#model_stripe').modal('show');
             var plantinum_price = $('.buyPlantinumNow').attr('data-plantinum-price');
             var plantinum_currency = $('.buyPlantinumNow').attr('data-plantinum-currency');
             var plantinum_contacts = $('.buyPlantinumNow').attr('data-plantinum-contacts');
             var plantinum_package = $('.buyPlantinumNow').attr('data-plantinum-package');
+
+            $.ajax({
+                type: 'POST',
+                url: '{{url('checkout')}}',
+                data: {
+                    price: plantinum_price,
+                    currency: plantinum_currency,
+                    contacts: plantinum_contacts,
+                    package: plantinum_package,
+                },
+                success:function (data){
+                    $('.buyPlantinumNow').prop('disabled', false);
+                    window.location.href = "/artist-checkout";
+                    // window.location.href = "/artist-checkout?price="+ data.price + "&currency="+ data.currency + "&contacts="+ data.contacts + "&package="+ data.package;
+                },
+            });
 
             //set value on stripe form
             // let nf = new Intl.NumberFormat('en-US');
@@ -662,8 +753,8 @@
         }
 
 
-        document.getElementById('closeStripe').addEventListener('click', function (){
-            card.clear();
-        });
+        // document.getElementById('closeStripe').addEventListener('click', function (){
+        //     card.clear();
+        // });
     </script>
 @endsection

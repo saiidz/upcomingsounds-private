@@ -35,7 +35,9 @@ Route::get('add-your-track', [PromoteYourTrackController::class, 'addYourTrack']
 
 // Wallet Shop Route
 Route::get('/wallet',[ArtistWalletController::class,'wallet']);
-Route::get('/checkout',[ArtistWalletController::class,'checkout']);
+Route::post('/checkout',[ArtistWalletController::class,'checkout']);
+Route::get('/artist-checkout',[ArtistWalletController::class,'artistCheckout']);
+Route::post('/artist-billing-info',[ArtistWalletController::class,'artistBillingInfo']);
 
 // Stripe Route
 Route::post('/stripe-payment', [ArtistWalletController::class, 'handlePost']);

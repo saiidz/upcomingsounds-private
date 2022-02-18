@@ -31,4 +31,9 @@ class TransactionHistory extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    // User belongto TransactionUserInfo
+    public function transactionUserInfo(){
+        return $this->belongsTo(TransactionUserInfo::class);
+    }
 }
