@@ -278,6 +278,7 @@
     <script>
 
         $('#submit-stripe').click(function (){
+            $('#submit-stripe').prop('disabled', true);
             $('#submit-stripe').addClass('no-click');
         });
 
