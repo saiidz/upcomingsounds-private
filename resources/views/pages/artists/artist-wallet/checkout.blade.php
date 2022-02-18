@@ -151,11 +151,13 @@
                                    </div>
                                </div>
 
-                               {{--  Stripe Form --}}
-                               @include('pages.artists.artist-wallet.stripe-payment')
+                               @if(isset($artist_billing_info))
+                                   {{--  Stripe Form --}}
+                                   @include('pages.artists.artist-wallet.stripe-payment')
 
-                               {{--  Paypal Form --}}
-                               @include('pages.artists.artist-wallet.paypal-payment')
+                                   {{--  Paypal Form --}}
+                                   @include('pages.artists.artist-wallet.paypal-payment')
+                               @endif
                            </div>
                        </div>
                    </div>
