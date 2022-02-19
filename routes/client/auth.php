@@ -5,6 +5,7 @@ use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\ArtistTrackController;
 use App\Http\Controllers\ArtistWalletController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\PromoteYourTrackController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +42,13 @@ Route::post('/artist-billing-info',[ArtistWalletController::class,'artistBilling
 
 // Stripe Route
 Route::post('/stripe-payment', [ArtistWalletController::class, 'handlePost']);
+
+// Paypal Route
+Route::post('process-transaction', [PayPalController::class, 'processTransaction']);
+Route::get('success-transaction', [PayPalController::class, 'successTransaction']);
+Route::get('cancel-transaction', [PayPalController::class, 'cancelTransaction']);
+
+
 
 // get cites
 Route::get('get-cites/{id}', [AjaxController::class,'getCities']);

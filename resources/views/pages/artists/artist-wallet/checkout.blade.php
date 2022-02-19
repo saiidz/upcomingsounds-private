@@ -277,9 +277,10 @@
 
     <script>
 
-        $('#submit-stripe').click(function (){
-            $('#submit-stripe').prop('disabled', true);
-            $('#submit-stripe').addClass('no-click');
+        $('#submit-paypal').click(function (){
+            $('#submit-paypal').prop('disabled', true);
+            $('#submit-paypal').addClass('no-click');
+            $("#paypal-form").submit();
         });
 
         // stripe javascript
@@ -346,6 +347,8 @@
                     } else {
                         // Send the token to your server.
                         stripeTokenHandler(result.setupIntent.payment_method);
+                        $('#submit-stripe').prop('disabled', true);
+                        $('#submit-stripe').addClass('no-click');
                         // $('#confirmMsg').modal('show');
                     }
                 });
@@ -380,4 +383,5 @@
             }
         }
     </script>
+    <script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_SANDBOX_CLIENT_ID') }}"></script>
 @endsection

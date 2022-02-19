@@ -167,6 +167,7 @@ return [
          */
         Biscolab\ReCaptcha\ReCaptchaServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+        Srmklive\PayPal\Providers\PayPalServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -232,6 +233,7 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'ReCaptcha' => Biscolab\ReCaptcha\Facades\ReCaptcha::class,
         'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
+        'PayPal' => Srmklive\PayPal\Facades\PayPal::class,
 
     ],
 

@@ -95,4 +95,8 @@ class User extends Authenticatable implements MustVerifyEmail
     public function transactionHistory(){
         return $this->hasMany(TransactionHistory::class, 'user_id');
     }
+    // curator user
+    public function transactionUserInfo(){
+        return $this->hasOne(TransactionUserInfo::class,'user_id');
+    }
 }

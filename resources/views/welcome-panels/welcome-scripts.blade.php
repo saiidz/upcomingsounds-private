@@ -73,3 +73,8 @@
         }, 5000);
     </script>
 @endif
+<script>
+    $(window).load(function() {
+        $('#loading').hide();
+    });
+</script>

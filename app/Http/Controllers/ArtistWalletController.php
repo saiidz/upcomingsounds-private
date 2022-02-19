@@ -21,6 +21,7 @@ class ArtistWalletController extends Controller
      */
     public function wallet()
     {
+//        dd(Auth::user()->transactionUserInfo->transactionHistory);
         $stripe = new StripeClient(Config('services.stripe.secret'));
 
         // Standard package
