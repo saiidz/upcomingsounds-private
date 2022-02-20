@@ -8,7 +8,7 @@
         <input type="hidden" id="contacts" name="contacts" value="{{!empty($purchase_data['contacts']) ? $purchase_data['contacts'] : ''}}">
         <input type="hidden" id="package_name" name="package_name" value="{{!empty($purchase_data['package']) ? $purchase_data['package'] : ''}}">
         <div class="form-group modal-footer">
-            <button class="btn btn-dark paypalPayment {{empty($artist_billing_info) ? 'disabled no-click' : ''}}" type="button" data-secret="" id="submit-paypal">Paypal {{!empty($purchase_data['price']) ? $purchase_data['price'] : ''}}</button>
+            <button class="btn btn-dark paypalPayment {{empty($artist_billing_info) ? 'disabled no-click' : ''}}" type="button" data-secret="" id="submit-paypal">Pay {{!empty($purchase_data['price']) ? $purchase_data['price'] : ''}}</button>
         </div>
     </form>
 </div>
