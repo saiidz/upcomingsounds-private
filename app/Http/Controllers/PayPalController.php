@@ -101,7 +101,7 @@ class PayPalController extends Controller
                 'transaction_user_id'    => $transaction_user_id,
                 'package_name'           => $package_name,
                 'amount'                 => isset($response['purchase_units']) ? $response['purchase_units'][0]['payments']['captures'][0]['amount']['value'] : null,
-                'contacts'               => $contacts,
+                'credits'                => $contacts,
                 'payment_status'         => 'completed',
                 'payment_method'         => 'paypal',
                 'payment_response'       => $payment_response,

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
 
 class TransactionHistory extends Model
 {
@@ -17,7 +18,7 @@ class TransactionHistory extends Model
         'transaction_user_id',
         'package_name',
         'amount',
-        'contacts',
+        'credits',
         'payment_status',
         'payment_method',
         'payment_response',

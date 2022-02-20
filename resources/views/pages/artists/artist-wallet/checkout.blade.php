@@ -129,7 +129,7 @@
                                        </div>
                                    </div>
                                    <hr class="mb-4">
-                                   <button class="btn circle btn-outline b-primary p-x-md auth_btn Rigister" type="submit">{{isset($artist_billing_info) ? 'Edit Information' : 'Save Information'}}</button>
+                                   <button class="btn circle btn-outline b-primary p-x-md auth_btn Rigister billingInfo" type="submit">{{isset($artist_billing_info) ? 'Edit Information' : 'Save Information'}}</button>
                                </form>
                            </div>
                        </div>
@@ -188,14 +188,14 @@
                                <span class="credit_right">
                                     <div class="tw-relative">
                                         <div class="tw-flex tw-items-center">
-                                            <span class="amount">0 UCS</span>
+                                            <span class="amount">{{!empty(Auth::user()->TransactionUserInfo) ? number_format(Auth::user()->TransactionUserInfo->transactionHistory->sum('credits')) : 0}} UCS</span>
                                             <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
                                         </div>
                                     </div>
                                 </span>
                            </li>
                            <li class="list-group-item d-flex justify-content-between lh-condensed">
-                               <span class="available_credit">Get Contacts</span>
+                               <span class="available_credit">Get Credits</span>
                                <span class="credit_right">
                                     <div class="tw-relative">
                                         <div class="tw-flex tw-items-center">
@@ -280,6 +280,10 @@
         $('#submit-paypal').click(function (){
             $('#submit-paypal').prop('disabled', true);
             $('#submit-paypal').addClass('no-click');
+
+            $('.billingInfo').prop('disabled', true);
+            $('.billingInfo').addClass('no-click');
+            
             $("#paypal-form").submit();
         });
 
@@ -349,6 +353,9 @@
                         stripeTokenHandler(result.setupIntent.payment_method);
                         $('#submit-stripe').prop('disabled', true);
                         $('#submit-stripe').addClass('no-click');
+
+                        $('.billingInfo').prop('disabled', true);
+                        $('.billingInfo').addClass('no-click');
                         // $('#confirmMsg').modal('show');
                     }
                 });

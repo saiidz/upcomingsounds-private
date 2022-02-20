@@ -21,7 +21,8 @@ class ArtistWalletController extends Controller
      */
     public function wallet()
     {
-//        dd(Auth::user()->transactionUserInfo->transactionHistory);
+//        dd(Auth::user()->transactionHistory->sum('credits'));
+
         $stripe = new StripeClient(Config('services.stripe.secret'));
 
         // Standard package
@@ -179,7 +180,7 @@ class ArtistWalletController extends Controller
             'transaction_user_id'    => $request->transaction_user_id,
             'package_name'           => $request->package_name,
             'amount'                 => ($charges->amount) ? $charges->amount/100 : null,
-            'contacts'               => $request->contacts,
+            'credits'                => $request->contacts,
             'payment_status'         => 'completed',
             'payment_method'         => 'stripe',
             'payment_response'       => $payment_response,
