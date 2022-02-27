@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Curator Home | {{ config('app.name', 'Upcoming Sound') }}</title>
+    <title>Curator Home | Make money with your  Spotify, Apple Music, Deezer playlists, or if you are a youtube channel, Instagram, TikTok or Soundcloud influencer and blogger, or music professional.{{ config('app.name', 'Upcoming Sound') }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" sizes="196x196" href="{{asset('images/favicon.png')}}">
     <meta name="description"
