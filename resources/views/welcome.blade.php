@@ -112,7 +112,7 @@
                         <div class="black cover cover-gd curators_welcome">
 {{--                        <div class="black cover cover-gd curators_welcome" style="background-image: url({{asset('images/b7.jpg')}});">--}}
                             <div class="p-a-lg text-center p-t-lg">
-                                <h6 class="display-4 m-y-lg text-white">Curators / Tastemakers / Pros </h6>
+                                <h6 class="display-4 m-y-lg text-white">Curators / Tastemakers / Pro's </h6>
                                 <p class="text-black text-md m-y-lg">Discover new music, find upcoming talents, get paid to listen and review new or unreleased music.</p>
                                 <a href="{{url('/curator-home')}}" class="btn circle white m-b-lg p-x-md">For Curators / Pro's </a>
 {{--                                <h3 class="display-3 m-y-lg">Music</h3>--}}
