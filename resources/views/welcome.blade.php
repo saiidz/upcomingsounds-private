@@ -2,7 +2,7 @@
 @extends('layouts.welcomeLayout')
 
 {{-- page title --}}
-@section('title','Welcome')
+@section('title','Welcome to the newest platform for music promotion with effective results. Submit your music now!')
 @section('page-style')
     <style>
         .videoWlcome{
