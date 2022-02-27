@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Artist Home | {{ config('app.name', 'Upcoming Sound') }}</title>
+    <title>Artist Home | Submit your music to real Spotify, Apple Music, Deezer and curators, youtube channels, Instagram, TikTok or Soundcloud influencers and bloggers, and music professionals.{{ config('app.name', 'Upcoming Sound') }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" sizes="196x196" href="{{asset('images/favicon.png')}}">
  
