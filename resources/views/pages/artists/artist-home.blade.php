@@ -9,9 +9,9 @@
     <title>Artist Home | {{ config('app.name', 'Upcoming Sound') }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" sizes="196x196" href="{{asset('images/favicon.png')}}">
-    <!-- This site is optimized with the Yoast SEO plugin v12.2 - https://yoast.com/wordpress/plugins/seo/ -->
+ 
     <meta name="description"
-          content=" upcoming sounds : Our mission is to help independent artist and small record labels to get their music heard by Spotify playlist curators and Youtube influencers."/>
+          content=" upcomingsounds : Our mission is to help independent artist and small record labels to get their music heard by Spotify playlist curators and Youtube influencers."/>
     <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
 
     <style type="text/css">
