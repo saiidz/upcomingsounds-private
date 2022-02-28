@@ -283,7 +283,7 @@
 
             $('.billingInfo').prop('disabled', true);
             $('.billingInfo').addClass('no-click');
-            
+
             $("#paypal-form").submit();
         });
 

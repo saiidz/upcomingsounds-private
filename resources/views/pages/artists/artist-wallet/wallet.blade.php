@@ -332,9 +332,13 @@
                 $('.buyPremiumNow').attr('data-premium-currency',value);
 
                 //Platinum package
-                $('#priceCurrencyPlatinum').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+platinum_cad+'<span></span></span>');
-                $('.buyPlantinumNow').attr('data-plantinum-price',platinum_cad);
-                $('.buyPlantinumNow').attr('data-plantinum-currency',value);
+                $('#priceCurrencyPlatinum').append('<span class="currencySymbolWrapper">£</span><span class="currencyWrap">'+platinum_gbp+'<span></span></span>');
+                $('.buyPlantinumNow').attr('data-plantinum-price',platinum_gbp);
+                $('.buyPlantinumNow').attr('data-plantinum-currency','gbp');
+
+                // $('#priceCurrencyPlatinum').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+platinum_cad+'<span></span></span>');
+                // $('.buyPlantinumNow').attr('data-plantinum-price',platinum_cad);
+                // $('.buyPlantinumNow').attr('data-plantinum-currency',value);
 
             }else if(value == 'aud'){
                 //Standard package
@@ -388,9 +392,13 @@
                 $('.buyPremiumNow').attr('data-premium-currency',value);
 
                 //Platinum package
-                $('#priceCurrencyPlatinum').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+platinum_aud+'<span></span></span>');
-                $('.buyPlantinumNow').attr('data-plantinum-price',platinum_aud);
-                $('.buyPlantinumNow').attr('data-plantinum-currency',value);
+                $('#priceCurrencyPlatinum').append('<span class="currencySymbolWrapper">£</span><span class="currencyWrap">'+platinum_gbp+'<span></span></span>');
+                $('.buyPlantinumNow').attr('data-plantinum-price',platinum_gbp);
+                $('.buyPlantinumNow').attr('data-plantinum-currency','gbp');
+
+                // $('#priceCurrencyPlatinum').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+platinum_aud+'<span></span></span>');
+                // $('.buyPlantinumNow').attr('data-plantinum-price',platinum_aud);
+                // $('.buyPlantinumNow').attr('data-plantinum-currency',value);
 
             }else if(value == 'usd'){
                 //Standard package
@@ -444,9 +452,13 @@
                 $('.buyPremiumNow').attr('data-premium-currency',value);
 
                 //Platinum package
-                $('#priceCurrencyPlatinum').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+platinum_usd+'<span></span></span>');
-                $('.buyPlantinumNow').attr('data-plantinum-price',platinum_usd);
-                $('.buyPlantinumNow').attr('data-plantinum-currency',value);
+                $('#priceCurrencyPlatinum').append('<span class="currencySymbolWrapper">£</span><span class="currencyWrap">'+platinum_gbp+'<span></span></span>');
+                $('.buyPlantinumNow').attr('data-plantinum-price',platinum_gbp);
+                $('.buyPlantinumNow').attr('data-plantinum-currency','gbp');
+
+                // $('#priceCurrencyPlatinum').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+platinum_usd+'<span></span></span>');
+                // $('.buyPlantinumNow').attr('data-plantinum-price',platinum_usd);
+                // $('.buyPlantinumNow').attr('data-plantinum-currency',value);
 
             }else if(value == 'gbp'){
                 //Standard package

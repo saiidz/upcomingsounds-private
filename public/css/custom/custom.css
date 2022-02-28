@@ -513,11 +513,14 @@ input[type=number] {
     border: 1px solid transparent;
     background: transparent;
     cursor: pointer;
-    position: absolute;
+    position: relative;
+    /*position: absolute;*/
     top: 300px;
-    text-align: center;
-    margin: 0 auto;
-    display: initial;
+    justify-content: center;
+    /*text-align: center;*/
+    /*margin: 0 auto;*/
+    display: flex;
+    /*display: initial;*/
 }
 ul:not(.browser-default) {
     padding-left: 0;
