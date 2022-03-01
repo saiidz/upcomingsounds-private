@@ -40,6 +40,9 @@
         input.has-value {
             color: white !important;
         }
+        .dataTables_wrapper .dataTables_filter input {
+            color: white !important;
+        }
     </style>
 @endsection
 
