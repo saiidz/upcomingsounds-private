@@ -682,8 +682,8 @@ ul:not(.browser-default) > li {
         text-align: center;
     }
     .mouse-icon {
-        position: absolute;
-        display: initial;
+        /*position: absolute;*/
+        /*display: initial;*/
     }
     .mouse-icon {
         top: 300px !important;
@@ -744,8 +744,8 @@ ul:not(.browser-default) > li {
         text-align: center;
     }
     .mouse-icon {
-        position: absolute;
-        display: initial;
+        /*position: absolute;*/
+        /*display: initial;*/
     }
     .mouse-icon {
         top: 300px !important;
@@ -789,8 +789,8 @@ ul:not(.browser-default) > li {
         text-align: center;
     }
     .mouse-icon {
-        position: absolute;
-        display: initial;
+        /*position: absolute;*/
+        /*display: initial;*/
     }
     .artists_welcome .text-md,
     .curators_welcome .text-md{
@@ -1020,8 +1020,8 @@ ul:not(.browser-default) > li {
         text-align: center;
     }
     .mouse-icon {
-        position: absolute;
-        display: initial;
+        /*position: absolute;*/
+        /*display: initial;*/
     }
     .artists_welcome .text-md,
     .curators_welcome .text-md
