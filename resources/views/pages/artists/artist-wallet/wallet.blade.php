@@ -6,6 +6,7 @@
 
 @section('page-style')
     <link rel="stylesheet" type="text/css" href="{{asset('css/custom/wallet.css')}}">
+    <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <style>
         #loadings {
             position: absolute;
@@ -15,6 +16,29 @@
             width: 100%;
             z-index: 9999999;
             background: rgba(255, 255, 255, .4) url({{asset('images/USW_GIF.gif')}}) no-repeat center center !important;
+        }
+        #myHistory .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+            color: white !important;
+        }
+        #myHistory a.paginate_button {
+            color: white!important;
+        }
+        #myHistory.dataTables_wrapper .dataTables_paginate .paginate_button:active {
+            background-color: #2b2b2b!important;
+            background: linear-gradient(to bottom, #2b2b2b 0%, #0c0c0c 100%)!important;
+            box-shadow: inset 0 0 3px #111!important;
+        }
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+            background-color: #2b2b2b!important;
+            background: linear-gradient(to bottom, #2b2b2b 0%, #0c0c0c 100%)!important;
+            box-shadow: inset 0 0 3px #111!important;
+        }
+        #myHistory tr.odd,
+        #myHistory tr.even {
+            color: black;
+        }
+        input.has-value {
+            color: white !important;
         }
     </style>
 @endsection
@@ -35,7 +59,7 @@
                                     <a class="nav-link active" href="#" data-toggle="tab" data-target="#buyUS">Buy UpcomingSounds</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#" data-toggle="tab" data-target="#myHT">My history</a>
+                                    <a class="nav-link" href="#" data-toggle="tab" data-target="#myHistory">My History</a>
                                 </li>
                                 <li>
                                     <div class="tw-w-full tw-flex tw-justify-end">
@@ -136,9 +160,8 @@
 {{--                                    <a href="" class="button">Buy now</a>--}}
                                 </div>
                             </div>
-                            <div class="tab-pane animated fadeIn text-muted" id="myHT">
-                                Empty
-                            </div>
+                            {{--  History  Wallet --}}
+                            @include('pages.artists.artist-wallet.history')
                         </div>
                     </div>
                 </div>
@@ -162,6 +185,7 @@
 @section('page-script')
 {{--    <script src="{{asset('js/jquery.min.js')}}"></script>--}}
     <script src="https://js.stripe.com/v3/"></script>
+
     <script>
         //eur currency
         //Standard package
@@ -769,4 +793,26 @@
         //     card.clear();
         // });
     </script>
+<script>
+    $(document).ready(function() {
+        //Only needed for the filename of export files.
+        //Normally set in the title tag of your page.
+        document.title='Simple DataTable';
+        // DataTable initialisation
+        $('#historyWallet').DataTable(
+            {
+                "paging": true,
+                "buttons": [
+                    'colvis',
+                    'copyHtml5',
+                    'csvHtml5',
+                    'excelHtml5',
+                    'pdfHtml5',
+                    'print'
+                ]
+            }
+        );
+    });
+</script>
+<script src="http://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 @endsection

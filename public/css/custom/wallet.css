@@ -305,3 +305,22 @@ br.br {
 .no-click {
     pointer-events: none;
 }
+#myHistory #historyWallet_length,
+#myHistory #historyWallet_length select,
+#myHistory #historyWallet_info,
+#myHistory .previous,
+#myHistory .next,
+#myHistory #historyWallet_filter{
+    color: white;
+}
+#myHistory #historyWallet_wrapper{
+    margin-top:15px;
+}
+#myHistory .table-responsive{
+    display: inline-table !important;
+}
+@media (min-width: 320px) and (max-width: 600px) {
+    #myHistory .table-responsive{
+        display: block !important;
+    }
+}

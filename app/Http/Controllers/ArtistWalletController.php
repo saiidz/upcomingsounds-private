@@ -47,6 +47,8 @@ class ArtistWalletController extends Controller
             'usage' => 'on_session',  // The default usage is off_session
         ]);
 
+        $artist_transaction_user = TransactionUserInfo::where('user_id',Auth::id())->first();
+
 //        $numberss = number_format($number / 100, 2);
 
         return view('pages.artists.artist-wallet.wallet', get_defined_vars());
