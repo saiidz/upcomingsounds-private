@@ -6,7 +6,7 @@
 
 @section('page-style')
     <link rel="stylesheet" type="text/css" href="{{asset('css/custom/wallet.css')}}">
-    <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <style>
         #loadings {
             position: absolute;
@@ -814,5 +814,5 @@
         );
     });
 </script>
-<script src="http://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 @endsection
