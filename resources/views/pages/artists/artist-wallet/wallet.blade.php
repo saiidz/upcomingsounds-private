@@ -176,7 +176,7 @@
                 <span class="wantBUCS">Want to buy Upcoming Sounds<br class="br"> by unit?</span>
                 <span class="text-black possibleUCS">It's possible! All you have to do is start a campaign.<br class="tw-block"> When you send your campaign, you will be able to buy the exact number of Upcoming Sounds required to send your campaign</span>
                 <span class="text-muted pleaseNoteUCS">Please note that by buying credits individually, you do not benefit from the discounts offered by the packs.</span>
-                <a href="" class="startCampaign">Start a campaign</a>
+                <a href="{{url('promote-your-track')}}" class="startCampaign">Start a campaign</a>
             </div>
         </div>
     <!-- ############ PAGE END-->
