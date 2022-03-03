@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Curator\CuratorController;
+use App\Http\Controllers\Curator\CuratorWalletController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -11,5 +12,7 @@ use Illuminate\Support\Facades\Route;
 /***************************************************** Curator Routes *********************************************************/
 
 Route::get('/taste-maker-profile', [CuratorController::class,'curatorProfile']);
+// Wallet Shop Route
+Route::get('/taste-maker-wallet',[CuratorWalletController::class,'wallet']);
 
 /***************************************************** Curator Routes *********************************************************/
