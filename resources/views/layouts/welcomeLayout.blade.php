@@ -102,6 +102,11 @@
                                     <span class="nav-text">Dashboard</span>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{url('/taste-maker-wallet')}}" class="nav-link">
+                                    <span class="nav-text">Wallet</span>
+                                </a>
+                            </li>
                         @else
 {{--                            <li class="nav-item">--}}
 {{--                                <a href="javascript:void(0)" class="nav-link">--}}

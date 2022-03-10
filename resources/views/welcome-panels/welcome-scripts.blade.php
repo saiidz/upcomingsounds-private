@@ -32,6 +32,7 @@
 <script src="{{asset('scripts/ajax.js')}}"></script>
 <script src="{{asset('js/swiper-bundle.min.js')}}"></script>
 <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
 @yield('page-script')
 
 <script type="text/javascript">
