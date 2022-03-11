@@ -184,7 +184,7 @@
                                 <p>Mon to Fri 9am to 6pm</p>
                             </div>
                         </div>
-                        <div class="media contact-info">
+                        <div class="contact-info">
                             <span class="contact-info__icon"><i class="fa fa-envelope"></i></span>
                             <div class="media-body">
                                 <h3><a href="mailto:info@upcomingsounds.com" class="__cf_email__">info@upcomingsounds.com</a>
