@@ -187,7 +187,7 @@
                         <div class="media contact-info">
                             <span class="contact-info__icon"><i class="fa fa-envelope"></i></span>
                             <div class="media-body">
-                                <h3><a href="mailto:info@upcomingsounds.com" class="__cf_email__">info@upcomingsounds.com</a>
+                                <h3><a href="mailto:info@upcomingsounds.com" class="__cf_email__"> info@upcomingsounds.com </a>
                                 </h3>
                                 <p>Send us your query anytime!</p>
                             </div>
