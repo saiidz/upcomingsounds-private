@@ -176,7 +176,8 @@
 {{--                                            <i class="icon-info-9"></i>--}}
 {{--                                        </div>--}}
                                         <h6 class="title">REDEEM REWARDED</h6>
-                                        <div class="desc"><p>Get paid to listen & review thousands of songs. Discover the next big thing with unlimited music streaming and support up and coming artists!</p></div>
+                                        <div class="desc"><p>Get paid up to  £20  or equivalent in $ per track to listen & review
+unlimited songs. Discover the next big hit with our user-friendly dashboard. Signup now and support the upcoming artists and sounds!!</p></div>
                                     </div>
                                 </div>
                             </div>
