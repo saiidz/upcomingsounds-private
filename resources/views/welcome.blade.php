@@ -215,7 +215,7 @@
                         <div class="col-md-4">
                             <div class="p-a-lg text-center">
                                 <h4 class="m-y-lg text-white"> All in one place </h4>
-                                <p class="text-white text-md m-b-lg">Upcoming sounds save you hours of productive time wasted on sending emails or searching for contacts.</p>
+                                <p class="text-white text-md m-b-lg">UpcomingSounds  save you hours of productive time wasted on sending emails or searching for contacts.</p>
                             </div>
                         </div>
                     </div>
