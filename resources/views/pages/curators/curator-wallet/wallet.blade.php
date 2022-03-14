@@ -46,6 +46,9 @@
         #Amount-error,#email-error{
             color: red;
         }
+        input.has-value {
+            color: black !important;
+        }
     </style>
 @endsection
 
@@ -217,5 +220,12 @@
                 // alert('account_add');
             }
         });
+    </script>
+
+{{--    transfer script--}}
+    <script>
+        $('#AmountTransfer').keyup(function (){
+            $('.amount_transfer_display').html(this.value+' UCS');
+        })
     </script>
 @endsection

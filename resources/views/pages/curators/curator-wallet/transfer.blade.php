@@ -12,7 +12,7 @@
                             <h5 class="card-title">Recipient</h5>
                             <p class="card-text text-black">Add a new recipient</p>
                             <form class="form-contact"
-                                  method="POST" action="" autocomplete="off"
+                                  method="POST" action="{{route('curator.transfer')}}" autocomplete="off"
                                   id="transferCuratorForm" novalidate>
                                 @csrf
                                 <div class="row m-t-sm">
@@ -32,8 +32,8 @@
                                 <div class="row m-t-sm">
                                     <div class="col-md-12 mb-3">
                                         <label for="Amount" class="text-black">Amount:</label>
-                                        <input id="Amount" type="number"
-                                               class="form-control @error('amount') is-invalid @enderror" name="amount" maxlength="6" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                        <input id="AmountTransfer" type="number"
+                                               class="form-control @error('amount') is-invalid @enderror" name="amount" maxlength="6" min="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                                value="{{ old('amount') }}" placeholder="Enter Your Amount" required autocomplete="off"
                                                autofocus>
                                         @error('amount')
@@ -78,7 +78,7 @@
                             <span class="credit_right">
                                 <div class="tw-relative">
                                     <div class="tw-flex tw-items-center">
-                                        <span class="amount text-black">11 UCS</span>
+                                        <span class="amount text-black">0 UCS</span>
                                         <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
                                     </div>
                                 </div>
@@ -89,7 +89,7 @@
                             <span class="credit_right">
                                 <div class="tw-relative">
                                     <div class="tw-flex tw-items-center">
-                                        <span class="amount text-black">11 UCS</span>
+                                        <span class="amount_transfer_display text-black">0 UCS</span>
                                         <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
                                     </div>
                                 </div>
@@ -100,7 +100,7 @@
                             <span class="credit_right">
                                 <div class="tw-relative">
                                     <div class="tw-flex tw-items-center">
-                                        <span class="amount text-black">11 UCS</span>
+                                        <span class="amount text-black">0 UCS</span>
                                         <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
                                     </div>
                                 </div>

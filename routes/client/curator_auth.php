@@ -16,6 +16,10 @@ Route::get('/taste-maker-profile', [CuratorController::class,'curatorProfile']);
 // Wallet Shop Route
 Route::get('/taste-maker-wallet',[CuratorWalletController::class,'wallet']);
 
+// Wallet Transfer Route
+Route::post('curator-transfer',[CuratorWalletController::class,'curatorTransfer'])->name('curator.transfer');
+
+
 // get cites
 Route::get('get-cites/{id}', [AjaxController::class,'getCities']);
 /***************************************************** Curator Routes *********************************************************/

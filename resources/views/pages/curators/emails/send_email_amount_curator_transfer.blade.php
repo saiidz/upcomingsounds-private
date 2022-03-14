@@ -33,7 +33,7 @@
     font-weight: 500;
     margin: 0;
 ">Hello {{ $username }},</h2>
-                                <p style="color: #8d8ca4;font-size: 18px;font-weight: 400;line-height:24px;margin:0;padding: 20px 0 0;text-align: left;word-break:normal;direction:ltr;">Thank You for applying on upcoming sounds. So we can evaluate your application. We will contact you soon.</p>
+                                <p style="color: #8d8ca4;font-size: 18px;font-weight: 400;line-height:24px;margin:0;padding: 20px 0 0;text-align: left;word-break:normal;direction:ltr;">My name is {{$auth_username}}. I have send you {{$amount}} UCS credit. Please check your available credit.</p>
                                 <p style="color: #8d8ca4;font-size: 18px;font-weight: 400;line-height:24px;margin:0;padding: 25px 0 0;text-align: left;word-break:normal;direction:ltr;">Please contact us if you face any problems. </p>
                                 <p style="color: #8d8ca4;font-size: 18px;font-weight: 400;line-height:24px;margin:0;padding: 25px 0 0;text-align: left;word-break:normal;direction:ltr;">Thank you. </p></td>
                         </tr>
