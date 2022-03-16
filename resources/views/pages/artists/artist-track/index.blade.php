@@ -76,37 +76,6 @@
                         <form method="POST" action="" data-edit-track-id=""
                               enctype="multipart/form-data" id="track_edit_song" name="track_edit_song">
                             @csrf
-                            <div class="form-group">
-                                <label class="control-label form-control-label text-muted">YouTube / SoundCloud link</label>
-                                <div>
-                                    <input type="text" name="youtube_soundcloud_url" id="trueUrlEdit" onclick="removeStyle(this);"
-                                           class="form-control @error('youtube_soundcloud_url') is-invalid @enderror"
-                                           placeholder="https://www.youtube.com/watch?v=iLd8ugdjJgk" required>
-                                    <div id="error_message_edit_youtube_soundcloud" class="red-text" style="color:red; padding:4px;"></div>
-                                    @error('youtube_soundcloud_url')
-                                    <small id="error_message"class="red-text ml-10" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
-                                    <div id="previewEdit">
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label form-control-label text-muted">Spotify track link (optional)</label>
-                                <div>
-                                    <input type="url" name="spotify_track_url" id="spotifyTrackUrl" value="" onclick="removeStyle(this);"
-                                           class="form-control @error('spotify_track_url') is-invalid @enderror"
-                                           placeholder="https://open.spotify.com/artist/5eJu3FXEJJGVaQpAeQjdwg">
-                                    <div id="error_message_edit_spotify_track" class="red-text" style="color:red; padding:4px;"></div>
-                                    @error('spotify_track_url')
-                                    <small class="red-text ml-10" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
-                                </div>
-                            </div>
 
                             <div class="form-group">
                                 <label class="control-label form-control-label text-muted">Title</label>
@@ -140,15 +109,10 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="control-label form-control-label text-muted">Song Thumbnail</label>
+                                <label class="control-label form-control-label text-muted">Release Date (optional)</label>
                                 <div>
-                                    <input type='file' class="form-control" id="imageEditTrackUpload" name="track_thumbnail"
-                                           accept=".png, .jpg, .jpeg" />
-                                    <label for="imageEditTrackUpload"></label>
-                                    <div class="imgEditTrackPreview">
-                                        <img src=""
-                                             id="imgEditTrackPreview" style="display:none;">
-                                    </div>
+                                    <input id="dateEditpicker" value="" name="release_date"
+                                           class="form-control release_date">
                                 </div>
                             </div>
 
@@ -161,10 +125,47 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="control-label form-control-label text-muted">Release Date (optional)</label>
+                                <label class="control-label form-control-label text-muted">YouTube / SoundCloud link</label>
                                 <div>
-                                    <input id="dateEditpicker" value="" name="release_date"
-                                           class="form-control release_date">
+                                    <input type="text" name="youtube_soundcloud_url" id="trueUrlEdit" onclick="removeStyle(this);"
+                                           class="form-control @error('youtube_soundcloud_url') is-invalid @enderror"
+                                           placeholder="https://www.youtube.com/watch?v=iLd8ugdjJgk" required>
+                                    <div id="error_message_edit_youtube_soundcloud" class="red-text" style="color:red; padding:4px;"></div>
+                                    @error('youtube_soundcloud_url')
+                                    <small id="error_message"class="red-text ml-10" role="alert">
+                                        {{ $message }}
+                                    </small>
+                                    @enderror
+                                    <div id="previewEdit">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label form-control-label text-muted">Spotify track link (optional)</label>
+                                <div>
+                                    <input type="url" name="spotify_track_url" id="spotifyTrackUrl" value="" onclick="removeStyle(this);"
+                                           class="form-control @error('spotify_track_url') is-invalid @enderror"
+                                           placeholder="https://open.spotify.com/artist/5eJu3FXEJJGVaQpAeQjdwg">
+                                    <div id="error_message_edit_spotify_track" class="red-text" style="color:red; padding:4px;"></div>
+                                    @error('spotify_track_url')
+                                    <small class="red-text ml-10" role="alert">
+                                        {{ $message }}
+                                    </small>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label form-control-label text-muted">Song Thumbnail</label>
+                                <div>
+                                    <input type='file' class="form-control" id="imageEditTrackUpload" name="track_thumbnail"
+                                           accept=".png, .jpg, .jpeg" />
+                                    <label for="imageEditTrackUpload"></label>
+                                    <div class="imgEditTrackPreview">
+                                        <img src=""
+                                             id="imgEditTrackPreview" style="display:none;">
+                                    </div>
                                 </div>
                             </div>
 
@@ -182,7 +183,7 @@
                                 </div>
                             </div>
                             <div class="form-group modal-footer">
-                                <button type="button" class="btn dark-white rounded update_track_not" id="update_track_not" data-dismiss="modal">No</button>
+                                <button type="button" class="btn dark-white rounded update_track_not" id="update_track_not" data-dismiss="modal">Cancle</button>
                                 {{--                                <button type="button" class="btn danger p-x-md" data-dismiss="modal">Yes</button>--}}
                                 <button type="submit" id="updateTrack" class="btn btn-sm rounded add_track" onclick='return validateEditTrackForm("track_edit_song")'>
                                     Update</button>

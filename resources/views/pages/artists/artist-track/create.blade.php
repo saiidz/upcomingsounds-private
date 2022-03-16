@@ -9,6 +9,58 @@
     </div>
 
     <div class="form-group row">
+        <div class="col-sm-3 form-control-label text-muted">Title</div>
+        <div class="col-sm-9">
+            <input type="text" name="name"
+                   class="form-control @error('name') is-invalid @enderror"
+                   value="{{old('name')}}"
+                   placeholder="Your Title" required>
+            <div id="error_message_name" class="red-text" style="color:red; padding:4px;"></div>
+            @error('name')
+            <small class="red-text ml-10" role="alert">
+                {{ $message }}
+            </small>
+            @enderror
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-3 form-control-label text-muted">Description</div>
+        <div class="col-sm-9">
+            <textarea name="description"
+                      placeholder="Your description..."
+                      class="form-control @error('description') is-invalid @enderror" required></textarea>
+            <div id="error_message_description" class="red-text" style="color:red; padding:4px;"></div>
+            @error('description')
+            <small class="red-text ml-10" role="alert">
+                {{ $message }}
+            </small>
+            @enderror
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-3 form-control-label text-muted">Release Date (optional)</div>
+        <div class="col-sm-9" id="releaseDateTrack">
+            <input id="datepicker" name="release_date"
+                   class="form-control release_date">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-3 form-control-label text-muted">Song Category</div>
+        <div class="col-sm-9">
+            <select class="form-control c-select" name="song_category" required>
+                <option value="" disabled selected>Choose Song Category</option>
+                @foreach($track_categories as $song_cat)
+                    <option value="{{$song_cat->id}}">{{$song_cat->name}}</option>
+                @endforeach
+            </select>
+            <div id="error_message_song_category" class="red-text" style="color:red; padding:4px;"></div>
+        </div>
+    </div>
+
+    <div class="form-group row">
         <div class="col-sm-3 form-control-label text-muted">YouTube / SoundCloud link</div>
         <div class="col-sm-9">
             <input type="text" name="youtube_soundcloud_url" id="trueUrl" onclick="removeStyle(this);"
@@ -45,37 +97,6 @@
     </div>
 
     <div class="form-group row">
-        <div class="col-sm-3 form-control-label text-muted">Title</div>
-        <div class="col-sm-9">
-            <input type="text" name="name"
-                   class="form-control @error('name') is-invalid @enderror"
-                   value="{{old('name')}}"
-                   placeholder="Your Title" required>
-            <div id="error_message_name" class="red-text" style="color:red; padding:4px;"></div>
-            @error('name')
-            <small class="red-text ml-10" role="alert">
-                {{ $message }}
-            </small>
-            @enderror
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <div class="col-sm-3 form-control-label text-muted">Description</div>
-        <div class="col-sm-9">
-            <textarea name="description"
-                      placeholder="Your description..."
-                      class="form-control @error('description') is-invalid @enderror" required></textarea>
-            <div id="error_message_description" class="red-text" style="color:red; padding:4px;"></div>
-            @error('description')
-            <small class="red-text ml-10" role="alert">
-                {{ $message }}
-            </small>
-            @enderror
-        </div>
-    </div>
-
-    <div class="form-group row">
         <div class="col-sm-3 form-control-label text-muted">Song Thumbnail</div>
         <div class="col-sm-9">
             <input type='file' class="form-control" id="imageTrackUpload" name="track_thumbnail"
@@ -88,26 +109,7 @@
         </div>
     </div>
 
-    <div class="form-group row">
-        <div class="col-sm-3 form-control-label text-muted">Song Category</div>
-        <div class="col-sm-9">
-            <select class="form-control c-select" name="song_category" required>
-                <option value="" disabled selected>Choose Song Category</option>
-                @foreach($track_categories as $song_cat)
-                    <option value="{{$song_cat->id}}">{{$song_cat->name}}</option>
-                @endforeach
-            </select>
-            <div id="error_message_song_category" class="red-text" style="color:red; padding:4px;"></div>
-        </div>
-    </div>
 
-    <div class="form-group row">
-        <div class="col-sm-3 form-control-label text-muted">Release Date (optional)</div>
-        <div class="col-sm-9">
-            <input id="datepicker" name="release_date"
-                   class="form-control release_date">
-        </div>
-    </div>
 
     <div class="form-group row">
         <div class="col-sm-3 form-control-label text-muted"></div>

@@ -274,6 +274,16 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
     right: 7px;
     top: 7px;
 }
+#releaseDateTrack .gj-datepicker-md [role=right-icon] {
+    left: 0 !important;
+}
+#releaseDateTrack .gj-textbox-md {
+    padding: 7px 25px!important;
+}
+
+
+
+
 
 
 
