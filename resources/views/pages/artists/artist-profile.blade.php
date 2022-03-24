@@ -11,6 +11,12 @@
         #loadings {
             background: rgba(255, 255, 255, .4) url({{asset('images/loader.gif')}}) no-repeat center center !important;
         }
+        ul.ks-cboxtags li{
+            display: inline-table !important;
+        }
+        ul.ks-cboxtags li input[type="checkbox"] {
+             opacity: 1 !important;
+        }
         .red-text{
             color:red !important;
         }

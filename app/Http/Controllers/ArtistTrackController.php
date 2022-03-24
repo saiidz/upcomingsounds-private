@@ -314,7 +314,7 @@ class ArtistTrackController extends Controller
                 $track->artistTrackTags()->create($input);
             }
         }
-        
+
         return redirect()->back()->with('success', 'Song Track created successfully.');
     }
 
