@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ArtistTrack;
 use App\Models\Country;
+use App\Models\CuratorFeature;
 use App\Models\Feature;
 use App\Models\TrackCategory;
 use App\Models\User;
@@ -32,8 +33,10 @@ class ArtistController extends Controller
 //        dd($countries_flag);
         $features = Feature::all();
         $track_categories = TrackCategory::all();
+        $curator_features = CuratorFeature::all();
         $artist_tracks = ArtistTrack::where('user_id',$user_artist->id)->orderBy('id','desc')->get();
-        return view('pages.artists.artist-profile',compact('user_artist','countries','features','selected_feature','track_categories','artist_tracks'));
+        return view('pages.artists.artist-profile', get_defined_vars());
+//        return view('pages.artists.artist-profile',compact('user_artist','countries','features','selected_feature','track_categories','artist_tracks'));
     }
     // Artist Update Profile
     public function updateArtistProfile(Request $request)

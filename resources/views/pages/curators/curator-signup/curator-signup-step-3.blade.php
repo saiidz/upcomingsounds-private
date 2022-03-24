@@ -59,7 +59,7 @@
                                         <div id="view-input-fields">
                                             <div class="row">
                                                 <div class="col s12 m6 l10">
-                                                    <h4 class="card-title bold"><span class="text tw-mr-2">1.</span> INTERESTS</h4>
+                                                    <h4 class="card-title bold"><span class="text tw-mr-2">1.</span> I would love to recieve....</h4>
                                                 </div>
                                             </div>
                                             <div class="underline"></div>
@@ -86,7 +86,7 @@
                                                                     <div class="faq row">
                                                                         <div class="col s12 m9 l12">
                                                                             <div class="collapsible-header features_tAgs">
-                                                                                Interest
+                                                                                I would love to recieve....
                                                                             </div>
                                                                             <div class="features-box">
                                                                                 <ul class="ks-cboxtags">
@@ -451,7 +451,7 @@
                                                                     </div>
                                                                 @endif
 
-                                                                @if($curator_features[13]->name == 'Punk / Ska')
+                                                                @if($curator_features[14]->name == 'Punk / Ska')
                                                                     <div class="faq row">
                                                                         <div class="col s12 m9 l12">
                                                                             <div class="collapsible-header features_tAgs">
@@ -459,7 +459,7 @@
                                                                             </div>
                                                                             <div class="features-box">
                                                                                 <ul class="ks-cboxtags">
-                                                                                    @foreach($curator_features[13]->curatorFeatureTag as $feature)
+                                                                                    @foreach($curator_features[14]->curatorFeatureTag as $feature)
                                                                                         <li>
                                                                                             <input type="checkbox"
                                                                                                    id="checkboxOne{{$feature->id}}"
@@ -477,7 +477,7 @@
                                                                     </div>
                                                                 @endif
 
-                                                                @if($curator_features[13]->name == 'RnB / Funk / Soul')
+                                                                @if($curator_features[15]->name == 'RnB / Funk / Soul')
                                                                     <div class="faq row">
                                                                         <div class="col s12 m9 l12">
                                                                             <div class="collapsible-header features_tAgs">
@@ -485,7 +485,7 @@
                                                                             </div>
                                                                             <div class="features-box">
                                                                                 <ul class="ks-cboxtags">
-                                                                                    @foreach($curator_features[13]->curatorFeatureTag as $feature)
+                                                                                    @foreach($curator_features[15]->curatorFeatureTag as $feature)
                                                                                         <li>
                                                                                             <input type="checkbox"
                                                                                                    id="checkboxOne{{$feature->id}}"
@@ -503,7 +503,7 @@
                                                                     </div>
                                                                 @endif
 
-                                                                @if($curator_features[13]->name == 'World Music')
+                                                                @if($curator_features[16]->name == 'World Music')
                                                                     <div class="faq row">
                                                                         <div class="col s12 m9 l12">
                                                                             <div class="collapsible-header features_tAgs">
@@ -511,7 +511,40 @@
                                                                             </div>
                                                                             <div class="features-box">
                                                                                 <ul class="ks-cboxtags">
-                                                                                    @foreach($curator_features[13]->curatorFeatureTag as $feature)
+                                                                                    @foreach($curator_features[16]->curatorFeatureTag as $feature)
+                                                                                        <li>
+                                                                                            <input type="checkbox"
+                                                                                                   id="checkboxOne{{$feature->id}}"
+                                                                                                   name="tag[]" value="{{$feature->id}}"
+                                                                                                   class="">
+                                                                                            <label
+                                                                                                for="checkboxOne{{$feature->id}}">
+                                                                                                {{$feature->name}}
+                                                                                            </label>
+                                                                                        </li>
+                                                                                    @endforeach
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                @endif
+                                                                <div class="row">
+                                                                    <div class="col s12 m6 l10">
+                                                                        <h4 class="card-title bold"><span class="text tw-mr-2">3.</span> Please don't send me any...</h4>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="underline"></div>
+                                                                <div class="row music"></div>
+
+                                                                @if($curator_features[17]->name == 'Classic / Instrumental')
+                                                                    <div class="faq row">
+                                                                        <div class="col s12 m9 l12">
+                                                                            <div class="collapsible-header features_tAgs">
+                                                                                Classic / Instrumental
+                                                                            </div>
+                                                                            <div class="features-box">
+                                                                                <ul class="ks-cboxtags">
+                                                                                    @foreach($curator_features[17]->curatorFeatureTag as $feature)
                                                                                         <li>
                                                                                             <input type="checkbox"
                                                                                                    id="checkboxOne{{$feature->id}}"
@@ -529,6 +562,188 @@
                                                                     </div>
                                                                 @endif
 
+                                                                @if($curator_features[18]->name == 'Electronic')
+                                                                    <div class="faq row">
+                                                                        <div class="col s12 m9 l12">
+                                                                            <div class="collapsible-header features_tAgs">
+                                                                                Electronic
+                                                                            </div>
+                                                                            <div class="features-box">
+                                                                                <ul class="ks-cboxtags">
+                                                                                    @foreach($curator_features[18]->curatorFeatureTag as $feature)
+                                                                                        <li>
+                                                                                            <input type="checkbox"
+                                                                                                   id="checkboxOne{{$feature->id}}"
+                                                                                                   name="tag[]" value="{{$feature->id}}"
+                                                                                                   class="">
+                                                                                            <label
+                                                                                                for="checkboxOne{{$feature->id}}">
+                                                                                                {{$feature->name}}
+                                                                                            </label>
+                                                                                        </li>
+                                                                                    @endforeach
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                @endif
+
+                                                                @if($curator_features[19]->name == 'Folk / Acoustic')
+                                                                    <div class="faq row">
+                                                                        <div class="col s12 m9 l12">
+                                                                            <div class="collapsible-header features_tAgs">
+                                                                                Folk / Acoustic
+                                                                            </div>
+                                                                            <div class="features-box">
+                                                                                <ul class="ks-cboxtags">
+                                                                                    @foreach($curator_features[19]->curatorFeatureTag as $feature)
+                                                                                        <li>
+                                                                                            <input type="checkbox"
+                                                                                                   id="checkboxOne{{$feature->id}}"
+                                                                                                   name="tag[]" value="{{$feature->id}}"
+                                                                                                   class="">
+                                                                                            <label
+                                                                                                for="checkboxOne{{$feature->id}}">
+                                                                                                {{$feature->name}}
+                                                                                            </label>
+                                                                                        </li>
+                                                                                    @endforeach
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                @endif
+
+
+                                                                @if($curator_features[20]->name == 'Hip-hop / Rap')
+                                                                    <div class="faq row">
+                                                                        <div class="col s12 m9 l12">
+                                                                            <div class="collapsible-header features_tAgs">
+                                                                                Hip-hop / Rap
+                                                                            </div>
+                                                                            <div class="features-box">
+                                                                                <ul class="ks-cboxtags">
+                                                                                    @foreach($curator_features[20]->curatorFeatureTag as $feature)
+                                                                                        <li>
+                                                                                            <input type="checkbox"
+                                                                                                   id="checkboxOne{{$feature->id}}"
+                                                                                                   name="tag[]" value="{{$feature->id}}"
+                                                                                                   class="">
+                                                                                            <label
+                                                                                                for="checkboxOne{{$feature->id}}">
+                                                                                                {{$feature->name}}
+                                                                                            </label>
+                                                                                        </li>
+                                                                                    @endforeach
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                @endif
+
+                                                                @if($curator_features[21]->name == 'Jazz')
+                                                                    <div class="faq row">
+                                                                        <div class="col s12 m9 l12">
+                                                                            <div class="collapsible-header features_tAgs">
+                                                                                Jazz
+                                                                            </div>
+                                                                            <div class="features-box">
+                                                                                <ul class="ks-cboxtags">
+                                                                                    @foreach($curator_features[21]->curatorFeatureTag as $feature)
+                                                                                        <li>
+                                                                                            <input type="checkbox"
+                                                                                                   id="checkboxOne{{$feature->id}}"
+                                                                                                   name="tag[]" value="{{$feature->id}}"
+                                                                                                   class="">
+                                                                                            <label
+                                                                                                for="checkboxOne{{$feature->id}}">
+                                                                                                {{$feature->name}}
+                                                                                            </label>
+                                                                                        </li>
+                                                                                    @endforeach
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                @endif
+
+                                                                @if($curator_features[22]->name == 'Metal')
+                                                                    <div class="faq row">
+                                                                        <div class="col s12 m9 l12">
+                                                                            <div class="collapsible-header features_tAgs">
+                                                                                Metal
+                                                                            </div>
+                                                                            <div class="features-box">
+                                                                                <ul class="ks-cboxtags">
+                                                                                    @foreach($curator_features[22]->curatorFeatureTag as $feature)
+                                                                                        <li>
+                                                                                            <input type="checkbox"
+                                                                                                   id="checkboxOne{{$feature->id}}"
+                                                                                                   name="tag[]" value="{{$feature->id}}"
+                                                                                                   class="">
+                                                                                            <label
+                                                                                                for="checkboxOne{{$feature->id}}">
+                                                                                                {{$feature->name}}
+                                                                                            </label>
+                                                                                        </li>
+                                                                                    @endforeach
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                @endif
+
+                                                                @if($curator_features[23]->name == 'Pop')
+                                                                    <div class="faq row">
+                                                                        <div class="col s12 m9 l12">
+                                                                            <div class="collapsible-header features_tAgs">
+                                                                                Pop
+                                                                            </div>
+                                                                            <div class="features-box">
+                                                                                <ul class="ks-cboxtags">
+                                                                                    @foreach($curator_features[23]->curatorFeatureTag as $feature)
+                                                                                        <li>
+                                                                                            <input type="checkbox"
+                                                                                                   id="checkboxOne{{$feature->id}}"
+                                                                                                   name="tag[]" value="{{$feature->id}}"
+                                                                                                   class="">
+                                                                                            <label
+                                                                                                for="checkboxOne{{$feature->id}}">
+                                                                                                {{$feature->name}}
+                                                                                            </label>
+                                                                                        </li>
+                                                                                    @endforeach
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                @endif
+
+                                                                @if($curator_features[24]->name == 'Popular Music')
+                                                                    <div class="faq row">
+                                                                        <div class="col s12 m9 l12">
+                                                                            <div class="collapsible-header features_tAgs">
+                                                                                Popular Music
+                                                                            </div>
+                                                                            <div class="features-box">
+                                                                                <ul class="ks-cboxtags">
+                                                                                    @foreach($curator_features[24]->curatorFeatureTag as $feature)
+                                                                                        <li>
+                                                                                            <input type="checkbox"
+                                                                                                   id="checkboxOne{{$feature->id}}"
+                                                                                                   name="tag[]" value="{{$feature->id}}"
+                                                                                                   class="">
+                                                                                            <label
+                                                                                                for="checkboxOne{{$feature->id}}">
+                                                                                                {{$feature->name}}
+                                                                                            </label>
+                                                                                        </li>
+                                                                                    @endforeach
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                @endif
                                                             @endif
 
                                                         </div>

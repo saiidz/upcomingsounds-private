@@ -6,9 +6,13 @@
 @section('page-style')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{asset('css/gijgo.min.css')}}" type="text/css" />
+{{--    <link rel="stylesheet" href="{{asset('css/custom/custom.css')}}" type="text/css" />--}}
     <style>
         #loadings {
             background: rgba(255, 255, 255, .4) url({{asset('images/loader.gif')}}) no-repeat center center !important;
+        }
+        .red-text{
+            color:red !important;
         }
     </style>
 @endsection

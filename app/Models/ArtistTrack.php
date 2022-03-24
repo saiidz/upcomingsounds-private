@@ -35,4 +35,8 @@ class ArtistTrack extends Model
         return $this->belongsTo(User::class);
     }
 
+    // track has many track tag
+    public function artistTrackTags(){
+        return $this->hasMany(ArtistTrackTag::class,'artist_track_id');
+    }
 }

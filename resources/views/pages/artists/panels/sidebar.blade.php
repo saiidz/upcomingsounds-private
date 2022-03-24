@@ -67,43 +67,43 @@
                         </a>
                     </li>
 
-                    <div data-flex-no-shrink>
-                        <div class="nav-fold dropup">
-                            <a data-toggle="dropdown">
-              <span class="pull-left">
-                <img src="{{asset('images/a3.jpg')}}" alt="..." class="w-32 img-circle">
-              </span>
-                                <span class="clear hidden-folded p-x p-y-xs">
-                <span class="block _500 text-ellipsis">{{($user_artist) ? $user_artist->name : ''}}</span>
-              </span>
-                            </a>
-                            <div class="dropdown-menu w dropdown-menu-scale ">
-                                <a class="dropdown-item" href="{{url('/artist-profile')}}#profile">
-                                    <span>Profile</span>
-                                </a>
-                                <a class="dropdown-item" href="{{url('/artist-profile')}}#tracks">
-                                    <span>Tracks</span>
-                                </a>
-                                <a class="dropdown-item" href="{{url('/artist-profile')}}#playlists">
-                                    <span>Playlists</span>
-                                </a>
-                                <a class="dropdown-item" href="{{url('/artist-profile')}}#likes">
-                                    <span>Likes</span>
-                                </a>
-                                <div class="dropdown-divider"></div>
+{{--                    <div data-flex-no-shrink>--}}
+{{--                        <div class="nav-fold dropup">--}}
+{{--                            <a data-toggle="dropdown">--}}
+{{--              <span class="pull-left">--}}
+{{--                <img src="{{asset('images/a3.jpg')}}" alt="..." class="w-32 img-circle">--}}
+{{--              </span>--}}
+{{--                                <span class="clear hidden-folded p-x p-y-xs">--}}
+{{--                <span class="block _500 text-ellipsis">{{($user_artist) ? $user_artist->name : ''}}</span>--}}
+{{--              </span>--}}
+{{--                            </a>--}}
+{{--                            <div class="dropdown-menu w dropdown-menu-scale ">--}}
+{{--                                <a class="dropdown-item" href="{{url('/artist-profile')}}#profile">--}}
+{{--                                    <span>Profile</span>--}}
+{{--                                </a>--}}
+{{--                                <a class="dropdown-item" href="{{url('/artist-profile')}}#tracks">--}}
+{{--                                    <span>Tracks</span>--}}
+{{--                                </a>--}}
+{{--                                <a class="dropdown-item" href="{{url('/artist-profile')}}#playlists">--}}
+{{--                                    <span>Playlists</span>--}}
+{{--                                </a>--}}
+{{--                                <a class="dropdown-item" href="{{url('/artist-profile')}}#likes">--}}
+{{--                                    <span>Likes</span>--}}
+{{--                                </a>--}}
+{{--                                <div class="dropdown-divider"></div>--}}
 
-                                <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal"
-                                   data-target="#change-password">
-                                    Change Password
-                                </a>
-                                {{--                    <button class="btn btn-xs white" onclick="changePassword()" data-toggle="modal" data-target="#edit-track">Edit</button>--}}
-                                <a class="dropdown-item" href="#">
-                                    Need help?
-                                </a>
-                                <a class="dropdown-item" href="{{route('logout')}}">Sign out</a>
-                            </div>
-                        </div>
-                    </div>
+{{--                                <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal"--}}
+{{--                                   data-target="#change-password">--}}
+{{--                                    Change Password--}}
+{{--                                </a>--}}
+{{--                                --}}{{--                    <button class="btn btn-xs white" onclick="changePassword()" data-toggle="modal" data-target="#edit-track">Edit</button>--}}
+{{--                                <a class="dropdown-item" href="#">--}}
+{{--                                    Need help?--}}
+{{--                                </a>--}}
+{{--                                <a class="dropdown-item" href="{{route('logout')}}">Sign out</a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
 
                     <li class="nav-header hidden-folded m-t">
@@ -144,6 +144,16 @@
                             <span class="nav-text">Saved</span>
                         </a>
                     </li>
+
+                    <li>
+                        <a href="{{url('/artist-profile')}}#profile">
+                  <span class="nav-icon">
+                   <i class="fa fa-user"></i>
+                  </span>
+                            <span class="nav-text">Profile</span>
+                        </a>
+                    </li>
+
                     <li>
                         <a href="{{url('/artist-profile')}}#edit-profile" id="EditProfileTapHide">
                   <span class="nav-icon">
@@ -154,46 +164,76 @@
                             <span class="nav-text">Edit Profile</span>
                         </a>
                     </li>
+
+                    <li>
+                        <a href="javascript:void(0)" data-toggle="modal"
+                           data-target="#change-password">
+                  <span class="nav-icon">
+                    <i class="fa fa-lock"></i>
+                  </span>
+                            <span class="nav-text">Change Password</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:void(0)">
+                          <span class="nav-icon">
+                            <i class="fa fa-question-circle"></i>
+                          </span>
+                            <span class="nav-text">Need help?</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{route('logout')}}">
+                  <span class="nav-icon">
+                    <i class="fa fa-sign-out"></i>
+                  </span>
+                            <span class="nav-text">Sign out</span>
+                        </a>
+                    </li>
+
                 </ul>
             </nav>
         </div>
 
-        {{--        <div data-flex-no-shrink>--}}
-        {{--            <div class="nav-fold dropup">--}}
-        {{--                <a data-toggle="dropdown">--}}
-        {{--              <span class="pull-left">--}}
-        {{--                <img src="{{asset('images/a3.jpg')}}" alt="..." class="w-32 img-circle">--}}
-        {{--              </span>--}}
-        {{--                    <span class="clear hidden-folded p-x p-y-xs">--}}
-        {{--                <span class="block _500 text-ellipsis">{{($user_artist) ? $user_artist->name : ''}}</span>--}}
-        {{--              </span>--}}
-        {{--                </a>--}}
-        {{--                <div class="dropdown-menu w dropdown-menu-scale ">--}}
-        {{--                    <a class="dropdown-item" href="{{url('/artist-profile')}}#profile">--}}
-        {{--                        <span>Profile</span>--}}
-        {{--                    </a>--}}
-        {{--                    <a class="dropdown-item" href="{{url('/artist-profile')}}#tracks">--}}
-        {{--                        <span>Tracks</span>--}}
-        {{--                    </a>--}}
-        {{--                    <a class="dropdown-item" href="{{url('/artist-profile')}}#playlists">--}}
-        {{--                        <span>Playlists</span>--}}
-        {{--                    </a>--}}
-        {{--                    <a class="dropdown-item" href="{{url('/artist-profile')}}#likes">--}}
-        {{--                        <span>Likes</span>--}}
-        {{--                    </a>--}}
-        {{--                    <div class="dropdown-divider"></div>--}}
+                <div data-flex-no-shrink>
+                    <div class="nav-fold dropup">
+                        <a data-toggle="dropdown">
+                      <span class="pull-left">
+                        <img src="{{asset('images/a3.jpg')}}" alt="..." class="w-32 img-circle">
+                      </span>
+                            <span class="clear hidden-folded p-x p-y-xs">
+                        <span class="block _500 text-ellipsis">{{($user_artist) ? $user_artist->name : ''}}</span>
+                                <span class="text-xs text-muted">{{($user_artist) ? $user_artist->email : ''}}</span>
+                      </span>
+                        </a>
+{{--                        <div class="dropdown-menu w dropdown-menu-scale ">--}}
+{{--                            <a class="dropdown-item" href="{{url('/artist-profile')}}#profile">--}}
+{{--                                <span>Profile</span>--}}
+{{--                            </a>--}}
+{{--                            <a class="dropdown-item" href="{{url('/artist-profile')}}#tracks">--}}
+{{--                                <span>Tracks</span>--}}
+{{--                            </a>--}}
+{{--                            <a class="dropdown-item" href="{{url('/artist-profile')}}#playlists">--}}
+{{--                                <span>Playlists</span>--}}
+{{--                            </a>--}}
+{{--                            <a class="dropdown-item" href="{{url('/artist-profile')}}#likes">--}}
+{{--                                <span>Likes</span>--}}
+{{--                            </a>--}}
+{{--                            <div class="dropdown-divider"></div>--}}
 
-        {{--                    <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal" data-target="#change-password">--}}
-        {{--                        Change Password--}}
-        {{--                    </a>--}}
-        {{--                    <button class="btn btn-xs white" onclick="changePassword()" data-toggle="modal" data-target="#edit-track">Edit</button>--}}
-        {{--                    <a class="dropdown-item" href="#">--}}
-        {{--                        Need help?--}}
-        {{--                    </a>--}}
-        {{--                    <a class="dropdown-item" href="{{route('logout')}}">Sign out</a>--}}
-        {{--                </div>--}}
-        {{--            </div>--}}
-        {{--        </div>--}}
+{{--                            <a class="dropdown-item" href="javascript:void(0)" data-toggle="modal" data-target="#change-password">--}}
+{{--                                Change Password--}}
+{{--                            </a>--}}
+{{--                            <button class="btn btn-xs white" onclick="changePassword()" data-toggle="modal" data-target="#edit-track">Edit</button>--}}
+{{--                            <a class="dropdown-item" href="#">--}}
+{{--                                Need help?--}}
+{{--                            </a>--}}
+{{--                            <a class="dropdown-item" href="{{route('logout')}}">Sign out</a>--}}
+{{--                        </div>--}}
+                    </div>
+                </div>
 
     </div>
 </div>

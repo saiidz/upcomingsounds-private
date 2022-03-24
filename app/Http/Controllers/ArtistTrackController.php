@@ -44,13 +44,38 @@ class ArtistTrackController extends Controller
             'name' => 'required|string',
             'description' => 'required|string',
             'song_category' => 'required',
+            'tag_would_love'  => 'min:3|max:3',
+            'tag_alternative'  => 'min:3|max:3',
+            'tag_blogwave'  => 'min:3|max:3',
+            'tag_classic'  => 'min:3|max:3',
+            'tag_classical_jazz'  => 'min:3|max:3',
+            'tag_EDM'  => 'min:3|max:3',
+            'tag_electronica'  => 'min:3|max:3',
+            'tag_folk'  => 'min:3|max:3',
+            'tag_hip_hop'  => 'min:3|max:3',
+            'tag_house'  => 'min:3|max:3',
+            'tag_idm'  => 'min:3|max:3',
+            'tag_metal_hard_Rock'  => 'min:3|max:3',
+            'tag_other'  => 'min:3|max:3',
+            'tag_pop'  => 'min:3|max:3',
+            'tag_punk'  => 'min:3|max:3',
+            'tag_rnb'  => 'min:3|max:3',
+            'tag_world_music'  => 'min:3|max:3',
+            'tag_classic_instrumental'  => 'min:3|max:3',
+            'tag_electronic'  => 'min:3|max:3',
+            'tag_folk_acoustic'  => 'min:3|max:3',
+            'tag_jazz'  => 'min:3|max:3',
+            'tag_metal'  => 'min:3|max:3',
+            'tag_pop_new'  => 'min:3|max:3',
+            'tag_popular_music'  => 'min:3|max:3',
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
+            return redirect('/artist-profile#add-track')->withErrors($validator)
                 ->withInput();
         }
+//dd($request->all());
+
         $input = $request->all();
         $input['user_id'] = auth()->user()->id;
         $input['youtube_soundcloud_url'] = $request->get('youtube_soundcloud_url');
@@ -71,7 +96,225 @@ class ArtistTrackController extends Controller
             //store image file into directory and db
             $input['track_thumbnail'] = $image_path;
         }
-        ArtistTrack::create($input);
+        $track = ArtistTrack::create($input);
+
+        // track tags store
+        if(!empty($request->tag_would_love)){
+            foreach($request->tag_would_love as $tag)
+            {
+                $input['user_id']                = auth()->user()->id;
+                $input['curator_feature_tag_id'] = (int) $tag;
+                $track->artistTrackTags()->create($input);
+            }
+        }
+
+        if(!empty($request->tag_alternative)){
+            foreach($request->tag_alternative as $tag)
+            {
+                $input['user_id']                = auth()->user()->id;
+                $input['curator_feature_tag_id'] = (int) $tag;
+                $track->artistTrackTags()->create($input);
+            }
+        }
+
+        if(!empty($request->tag_blogwave)){
+            foreach($request->tag_blogwave as $tag)
+            {
+                $input['user_id']                = auth()->user()->id;
+                $input['curator_feature_tag_id'] = (int) $tag;
+                $track->artistTrackTags()->create($input);
+            }
+        }
+
+        if(!empty($request->tag_classic)){
+            foreach($request->tag_classic as $tag)
+            {
+                $input['user_id']                = auth()->user()->id;
+                $input['curator_feature_tag_id'] = (int) $tag;
+                $track->artistTrackTags()->create($input);
+            }
+        }
+
+        if(!empty($request->tag_classical_jazz)){
+            foreach($request->tag_classical_jazz as $tag)
+            {
+                $input['user_id']                = auth()->user()->id;
+                $input['curator_feature_tag_id'] = (int) $tag;
+                $track->artistTrackTags()->create($input);
+            }
+        }
+
+        if(!empty($request->tag_EDM)){
+            foreach($request->tag_EDM as $tag)
+            {
+                $input['user_id']                = auth()->user()->id;
+                $input['curator_feature_tag_id'] = (int) $tag;
+                $track->artistTrackTags()->create($input);
+            }
+        }
+
+        if(!empty($request->tag_electronica)){
+            foreach($request->tag_electronica as $tag)
+            {
+                $input['user_id']                = auth()->user()->id;
+                $input['curator_feature_tag_id'] = (int) $tag;
+                $track->artistTrackTags()->create($input);
+            }
+        }
+
+        if(!empty($request->tag_folk)){
+            foreach($request->tag_folk as $tag)
+            {
+                $input['user_id']                = auth()->user()->id;
+                $input['curator_feature_tag_id'] = (int) $tag;
+                $track->artistTrackTags()->create($input);
+            }
+        }
+
+        if(!empty($request->tag_hip_hop)){
+            foreach($request->tag_hip_hop as $tag)
+            {
+                $input['user_id']                = auth()->user()->id;
+                $input['curator_feature_tag_id'] = (int) $tag;
+                $track->artistTrackTags()->create($input);
+            }
+        }
+
+        if(!empty($request->tag_house)){
+            foreach($request->tag_house as $tag)
+            {
+                $input['user_id']                = auth()->user()->id;
+                $input['curator_feature_tag_id'] = (int) $tag;
+                $track->artistTrackTags()->create($input);
+            }
+        }
+
+        if(!empty($request->tag_idm)){
+            foreach($request->tag_idm as $tag)
+            {
+                $input['user_id']                = auth()->user()->id;
+                $input['curator_feature_tag_id'] = (int) $tag;
+                $track->artistTrackTags()->create($input);
+            }
+        }
+
+        if(!empty($request->tag_metal_hard_Rock)){
+            foreach($request->tag_metal_hard_Rock as $tag)
+            {
+                $input['user_id']                = auth()->user()->id;
+                $input['curator_feature_tag_id'] = (int) $tag;
+                $track->artistTrackTags()->create($input);
+            }
+        }
+
+        if(!empty($request->tag_other)){
+            foreach($request->tag_other as $tag)
+            {
+                $input['user_id']                = auth()->user()->id;
+                $input['curator_feature_tag_id'] = (int) $tag;
+                $track->artistTrackTags()->create($input);
+            }
+        }
+
+        if(!empty($request->tag_pop)){
+            foreach($request->tag_pop as $tag)
+            {
+                $input['user_id']                = auth()->user()->id;
+                $input['curator_feature_tag_id'] = (int) $tag;
+                $track->artistTrackTags()->create($input);
+            }
+        }
+
+        if(!empty($request->tag_punk)){
+            foreach($request->tag_punk as $tag)
+            {
+                $input['user_id']                = auth()->user()->id;
+                $input['curator_feature_tag_id'] = (int) $tag;
+                $track->artistTrackTags()->create($input);
+            }
+        }
+
+        if(!empty($request->tag_rnb)){
+            foreach($request->tag_rnb as $tag)
+            {
+                $input['user_id']                = auth()->user()->id;
+                $input['curator_feature_tag_id'] = (int) $tag;
+                $track->artistTrackTags()->create($input);
+            }
+        }
+
+        if(!empty($request->tag_world_music)){
+            foreach($request->tag_world_music as $tag)
+            {
+                $input['user_id']                = auth()->user()->id;
+                $input['curator_feature_tag_id'] = (int) $tag;
+                $track->artistTrackTags()->create($input);
+            }
+        }
+
+        if(!empty($request->tag_classic_instrumental)){
+            foreach($request->tag_classic_instrumental as $tag)
+            {
+                $input['user_id']                = auth()->user()->id;
+                $input['curator_feature_tag_id'] = (int) $tag;
+                $track->artistTrackTags()->create($input);
+            }
+        }
+
+        if(!empty($request->tag_electronic)){
+            foreach($request->tag_electronic as $tag)
+            {
+                $input['user_id']                = auth()->user()->id;
+                $input['curator_feature_tag_id'] = (int) $tag;
+                $track->artistTrackTags()->create($input);
+            }
+        }
+
+        if(!empty($request->tag_folk_acoustic)){
+            foreach($request->tag_folk_acoustic as $tag)
+            {
+                $input['user_id']                = auth()->user()->id;
+                $input['curator_feature_tag_id'] = (int) $tag;
+                $track->artistTrackTags()->create($input);
+            }
+        }
+
+        if(!empty($request->tag_jazz)){
+            foreach($request->tag_jazz as $tag)
+            {
+                $input['user_id']                = auth()->user()->id;
+                $input['curator_feature_tag_id'] = (int) $tag;
+                $track->artistTrackTags()->create($input);
+            }
+        }
+
+        if(!empty($request->tag_metal)){
+            foreach($request->tag_metal as $tag)
+            {
+                $input['user_id']                = auth()->user()->id;
+                $input['curator_feature_tag_id'] = (int) $tag;
+                $track->artistTrackTags()->create($input);
+            }
+        }
+
+        if(!empty($request->tag_pop_new)){
+            foreach($request->tag_pop_new as $tag)
+            {
+                $input['user_id']                = auth()->user()->id;
+                $input['curator_feature_tag_id'] = (int) $tag;
+                $track->artistTrackTags()->create($input);
+            }
+        }
+
+        if(!empty($request->tag_popular_music)){
+            foreach($request->tag_popular_music as $tag)
+            {
+                $input['user_id']                = auth()->user()->id;
+                $input['curator_feature_tag_id'] = (int) $tag;
+                $track->artistTrackTags()->create($input);
+            }
+        }
+        
         return redirect()->back()->with('success', 'Song Track created successfully.');
     }
 

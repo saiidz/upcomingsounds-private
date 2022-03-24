@@ -938,6 +938,335 @@ class CuratorFeatureTagsSeeder extends Seeder
                 'curator_feature_id' => 17,
                 'name' => 'World Music (South Asian)',
             ],
+            [
+                'curator_feature_id' => 18,
+                'name' => 'Classical Music',
+            ],
+            [
+                'curator_feature_id' => 18,
+                'name' => 'Film Music',
+            ],
+            [
+                'curator_feature_id' => 18,
+                'name' => 'Instrumental',
+            ],
+            [
+                'curator_feature_id' => 18,
+                'name' => 'Neoclassical',
+            ],
+
+            [
+                'curator_feature_id' => 19,
+                'name' => 'Afrobeat',
+            ],
+            [
+                'curator_feature_id' => 19,
+                'name' => 'Ambient',
+            ],
+            [
+                'curator_feature_id' => 19,
+                'name' => 'Bass Music',
+            ],
+            [
+                'curator_feature_id' => 19,
+                'name' => 'Beats',
+            ],
+            [
+                'curator_feature_id' => 19,
+                'name' => 'Disco',
+            ],
+            [
+                'curator_feature_id' => 19,
+                'name' => 'Dubstep',
+            ],
+            [
+                'curator_feature_id' => 19,
+                'name' => 'Electro Swing',
+            ],
+            [
+                'curator_feature_id' => 19,
+                'name' => 'Experimental Electronic',
+            ],
+            [
+                'curator_feature_id' => 19,
+                'name' => 'French House',
+            ],
+            [
+                'curator_feature_id' => 19,
+                'name' => 'Hardstyle / Hardcore',
+            ],
+            [
+                'curator_feature_id' => 19,
+                'name' => 'Minimal',
+            ],
+            [
+                'curator_feature_id' => 19,
+                'name' => 'Nu-Disco',
+            ],
+            [
+                'curator_feature_id' => 19,
+                'name' => 'Synthwave',
+            ],
+            [
+                'curator_feature_id' => 19,
+                'name' => 'Trance',
+            ],
+            [
+                'curator_feature_id' => 19,
+                'name' => 'Trip Hop',
+            ],
+            [
+                'curator_feature_id' => 20,
+                'name' => 'Country Americana',
+            ],
+            [
+                'curator_feature_id' => 20,
+                'name' => 'Indie Folk',
+            ],
+            [
+                'curator_feature_id' => 20,
+                'name' => 'Singer Songwriter',
+            ],
+            [
+                'curator_feature_id' => 21,
+                'name' => 'Drill',
+            ],
+            [
+                'curator_feature_id' => 21,
+                'name' => 'French Rap',
+            ],
+            [
+                'curator_feature_id' => 21,
+                'name' => 'Hip-hop',
+            ],
+            [
+                'curator_feature_id' => 21,
+                'name' => 'instrumental hip-hop',
+            ],
+            [
+                'curator_feature_id' => 21,
+                'name' => 'international rap',
+            ],
+            [
+                'curator_feature_id' => 21,
+                'name' => 'trap',
+            ],
+            [
+                'curator_feature_id' => 22,
+                'name' => 'experimental jazz',
+            ],
+            [
+                'curator_feature_id' => 22,
+                'name' => 'jazz fusion',
+            ],
+            [
+                'curator_feature_id' => 22,
+                'name' => 'modern jazz',
+            ],
+            [
+                'curator_feature_id' => 23,
+                'name' => 'death / thrash',
+            ],
+            [
+                'curator_feature_id' => 23,
+                'name' => 'hardcore',
+            ],
+            [
+                'curator_feature_id' => 23,
+                'name' => 'heavy metal',
+            ],
+            [
+                'curator_feature_id' => 23,
+                'name' => 'melodic metal',
+            ],
+            [
+                'curator_feature_id' => 23,
+                'name' => 'metal',
+            ],
+            [
+                'curator_feature_id' => 23,
+                'name' => 'noise',
+            ],
+            [
+                'curator_feature_id' => 24,
+                'name' => 'dream pop',
+            ],
+            [
+                'curator_feature_id' => 24,
+                'name' => 'indie pop',
+            ],
+            [
+                'curator_feature_id' => 24,
+                'name' => 'pop rock',
+            ],
+            [
+                'curator_feature_id' => 24,
+                'name' => 'pop soul',
+            ],
+            [
+                'curator_feature_id' => 24,
+                'name' => 'progressive pop',
+            ],
+            [
+                'curator_feature_id' => 24,
+                'name' => 'psychedelic pop',
+            ],
+            [
+                'curator_feature_id' => 24,
+                'name' => 'synthpop',
+            ],
+            [
+                'curator_feature_id' => 25,
+                'name' => 'canzone italiana',
+            ],
+            [
+                'curator_feature_id' => 25,
+                'name' => 'french variety',
+            ],
+            [
+                'curator_feature_id' => 25,
+                'name' => 'german song',
+            ],
+            [
+                'curator_feature_id' => 25,
+                'name' => 'holiday music',
+            ],
+            [
+                'curator_feature_id' => 25,
+                'name' => 'nouvelle scene',
+            ],
+            [
+                'curator_feature_id' => 26,
+                'name' => 'funk',
+            ],
+            [
+                'curator_feature_id' => 26,
+                'name' => 'soul',
+            ],
+            [
+                'curator_feature_id' => 26,
+                'name' => 'urban pop',
+            ],
+            [
+                'curator_feature_id' => 27,
+                'name' => 'dub',
+            ],
+            [
+                'curator_feature_id' => 27,
+                'name' => 'reggae',
+            ],
+            [
+                'curator_feature_id' => 28,
+                'name' => 'alternative rock',
+            ],
+            [
+                'curator_feature_id' => 28,
+                'name' => 'blues',
+            ],
+            [
+                'curator_feature_id' => 28,
+                'name' => 'coldwave',
+            ],
+            [
+                'curator_feature_id' => 28,
+                'name' => 'electronic rock',
+            ],
+            [
+                'curator_feature_id' => 28,
+                'name' => 'experimental rock',
+            ],
+            [
+                'curator_feature_id' => 28,
+                'name' => 'garage rock',
+            ],
+            [
+                'curator_feature_id' => 28,
+                'name' => 'indie rock',
+            ],
+            [
+                'curator_feature_id' => 28,
+                'name' => 'new wave',
+            ],
+            [
+                'curator_feature_id' => 28,
+                'name' => 'pop punk',
+            ],
+            [
+                'curator_feature_id' => 28,
+                'name' => 'post punk',
+            ],
+            [
+                'curator_feature_id' => 28,
+                'name' => 'post rock',
+            ],
+            [
+                'curator_feature_id' => 28,
+                'name' => 'progressive rock',
+            ],
+            [
+                'curator_feature_id' => 28,
+                'name' => 'psychedelic rock',
+            ],
+            [
+                'curator_feature_id' => 28,
+                'name' => 'punk rock',
+            ],
+            [
+                'curator_feature_id' => 28,
+                'name' => 'rock & roll',
+            ],
+            [
+                'curator_feature_id' => 28,
+                'name' => 'shoegaze',
+            ],
+            [
+                'curator_feature_id' => 28,
+                'name' => 'surf rock',
+            ],
+            [
+                'curator_feature_id' => 29,
+                'name' => 'african music',
+            ],
+            [
+                'curator_feature_id' => 29,
+                'name' => 'asian music',
+            ],
+            [
+                'curator_feature_id' => 29,
+                'name' => 'bossa nova',
+            ],
+            [
+                'curator_feature_id' => 29,
+                'name' => 'brazilian music',
+            ],
+            [
+                'curator_feature_id' => 29,
+                'name' => 'christian music',
+            ],
+            [
+                'curator_feature_id' => 29,
+                'name' => 'dancehall / reggaeton',
+            ],
+            [
+                'curator_feature_id' => 29,
+                'name' => 'latin music',
+            ],
+            [
+                'curator_feature_id' => 29,
+                'name' => 'traditional music',
+            ],
+            [
+                'curator_feature_id' => 30,
+                'name' => 'weird',
+            ],
+            [
+                'curator_feature_id' => 31,
+                'name' => 'bad sound quality',
+            ],
+            [
+                'curator_feature_id' => 31,
+                'name' => 'strings',
+            ],
         ];
 
         CuratorFeatureTag::insert($featureCuratorTags);

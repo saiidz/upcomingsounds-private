@@ -68,6 +68,48 @@ class CuratorFeatureSeeder extends Seeder
             [
                 'name' => 'World Music',
             ],
+            [
+                'name' => 'Classic / Instrumental',
+            ],
+            [
+                'name' => 'Electronic',
+            ],
+            [
+                'name' => 'Folk / Acoustic',
+            ],
+            [
+                'name' => 'Hip-hop / Rap',
+            ],
+            [
+                'name' => 'Jazz',
+            ],
+            [
+                'name' => 'Metal',
+            ],
+            [
+                'name' => 'Pop',
+            ],
+            [
+                'name' => 'Popular Music',
+            ],
+            [
+                'name' => 'R&B / Soul',
+            ],
+            [
+                'name' => 'Reggae',
+            ],
+            [
+                'name' => 'Rock / Punk',
+            ],
+            [
+                'name' => 'World',
+            ],
+            [
+                'name' => 'Moods',
+            ],
+            [
+                'name' => 'Formats',
+            ],
 
         ];
 
