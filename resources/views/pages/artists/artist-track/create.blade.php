@@ -28,7 +28,7 @@
         <div class="col-sm-3 form-control-label text-muted">Description</div>
         <div class="col-sm-9">
             <textarea name="description"
-                      placeholder="Your description..."
+                      placeholder="Tell us more about your artwork... "
                       class="form-control @error('description') is-invalid @enderror" required></textarea>
             <div id="error_message_description" class="red-text" style="color:red; padding:4px;"></div>
             @error('description')
@@ -61,18 +61,18 @@
     </div>
 
     <div class="form-group row">
-        <div class="col-sm-3 form-control-label text-muted">Select Genre (You can select only 3 features per genre)</div>
+        <div class="col-sm-3 form-control-label text-muted">Select Genre </div>
         <div class="col-sm-9" id="trackAddFeatures">
             <div class="section" id="faq">
                 @if(isset($curator_features) && !empty($curator_features))
                     <div class="row">
                         <div class="col s12 m6 l10">
-                            <h4 class="card-title bold"><span class="text tw-mr-2">1.</span> I would love to recieve....</h4>
+                            <h4 class="card-title bold"><span class="text tw-mr-2">1.</span> Interests/Genres:  </h4>
                         </div>
                     </div>
                     <div class="underline"></div>
                     <div class="row music"></div>
-                    @if($curator_features[0]->name == 'I would love to recieve')
+                    @if($curator_features[0]->name == ' Please select the Genre/Interest that matches your song.')
                         @error('tag')
                             <small class="red-text" role="alert">
                                 {{ $message }}
