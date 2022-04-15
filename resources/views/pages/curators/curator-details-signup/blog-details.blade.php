@@ -2,7 +2,7 @@
 @extends('layouts.curator-guest')
 
 {{-- page title --}}
-@section('title','Taste Maker Signup ')
+@section('title','Blogger Signup ')
 
 {{-- page style --}}
 @section('page-style')
@@ -41,7 +41,7 @@
                                                 <div class="col s12">
                                                     <h2 class="card-title bold" style="font-size: 20px;">How UpcomingSounds works</h2>
                                                     <ul class="instagram_details">
-                                                        <li class="text-muted">Blog Musicians / Artists will send you music.</li>
+                                                        <li class="text-muted"> Musicians / Artists will send you music.</li>
                                                         <li class="text-muted">You will need to listen and decide if you like their music and share it (or not).</li>
                                                     </ul>
                                                 </div>
@@ -51,8 +51,8 @@
                                                     <h2 class="card-title bold" style="font-size: 20px;">Guaranteed shares</h2>
                                                     <ul class="instagram_details">
                                                         <li class="text-muted">You are required to listen to each submission that you receive at least 30 seconds to get paid and provide feedback within 96 hours.</li>
-                                                        <li class="text-muted">If you decide not to share their song, you will not get paid. A refund will be issued to the artists.</li>
-                                                        <li class="text-muted">If you are not a verified  Playlist Curator, you will receive the standard fee of 1 USC coin = 1 GBP</li>
+                                                        <li class="text-muted">If you decide not to share their song or write feedback on your blog, you must provide a rejection reason to get paid. If you do not provide a rejection reason, the artists will get a refund.</li>
+                                                        <li class="text-muted">Unless you are a verified Blog, you will receive the standard fee of 1 USC coin = 1 GBP per submission</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -60,9 +60,9 @@
                                                 <div class="col s12">
                                                     <h2 class="card-title bold" style="font-size: 20px;">Sharing songs</h2>
                                                     <ul class="instagram_details">
-                                                        <li class="text-muted">Add their song to your Deezer Playlist(s) for at least five days in a raw (top spots recommended).</li>
-                                                        <li class="text-muted">If your placements are high quality with impactful results, artists will want to send you more songs to promote & you will make more money.</li>
-                                                        <li class="text-muted">If someone complains we might have to refund them, so make it a good share!</li>
+                                                        <li class="text-muted">Share the song on your platform, add the song to your website or Spotify, Apple Music, Deezer playlists, etc. Add the song for at least five days (top spots recommended).</li>
+                                                        <li class="text-muted">Artists will want to send you more songs to promote if your placements are high quality and have impactful results, so you will make more money.</li>
+                                                        <li class="text-muted">We might have to refund someone if they complain, so make it a good one!</li>
 
                                                     </ul>
                                                 </div>
