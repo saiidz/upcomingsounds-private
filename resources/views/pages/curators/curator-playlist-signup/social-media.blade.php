@@ -59,9 +59,9 @@
             <div class="center-block text-center">
                 <div class="p-a-md">
                     <div>
-                        <h4><span class="Gary">Gary</span> from Upcoming Sounds</h4>
+                        <h4><span class="Gary">Gary</span> from UpcomingSounds</h4>
                         <p class="text-muted m-y">
-                            Got it, fa! Where can the Upcoming Sounds curators & pros find you online?
+                            Awesome! Now, Where can the UpcomingSounds artists and musicians find you online? 
                         </p>
                     </div>
                 </div>
@@ -225,17 +225,17 @@
                                                                 <div class="col s12 m12 l12">
                                                                     <ul class="collapsible categories-collapsible">
                                                                         <li class="active">
-                                                                            <div class="collapsible-header">Q: Why share your social media links on Upcoming Sounds? <i class="material-icons">
+                                                                            <div class="collapsible-header">Q: Why share your social media links on UpcomingSounds? <i class="material-icons">
                                                                                     keyboard_arrow_right </i></div>
                                                                             <div class="collapsible-body">
-                                                                                <p>The music curators & pros on Upcoming Sounds enjoy browsing the social media accounts of an artist which they have received a track from. Filling in your main social media profiles is a way for them to get to know your project better </p>
+                                                                                <p>The artists and musicians on UpcomingSounds enjoy browsing social media accounts and making long-lasting connections with the curators and pros with whom they have submitted their music. Filling out your social media profiles will help them better understand your project</p>
                                                                             </div>
                                                                         </li>
                                                                         <li>
-                                                                            <div class="collapsible-header">Q: You don't have an account on these platforms yet? <i class="material-icons">
+                                                                            <div class="collapsible-header">Q: How can I get verified on upcomingsounds ?  <i class="material-icons">
                                                                                     keyboard_arrow_right </i></div>
                                                                             <div class="collapsible-body">
-                                                                                <p>You don't have an account on these platforms yet? </p>
+                                                                                <p>Upon completing the submission form, you will be able to apply for verification on your dashboard.</p>
                                                                             </div>
                                                                         </li>
                                                                     </ul>
