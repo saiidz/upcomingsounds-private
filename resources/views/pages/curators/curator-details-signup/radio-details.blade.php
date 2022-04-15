@@ -41,7 +41,7 @@
                                                 <div class="col s12">
                                                     <h2 class="card-title bold" style="font-size: 20px;">How UpcomingSounds works</h2>
                                                     <ul class="instagram_details">
-                                                        <li class="text-muted">Radio Musicians / Artists will send you music.</li>
+                                                        <li class="text-muted">Musicians / Artists will send you music.</li>
                                                         <li class="text-muted">You will need to listen and decide if you like their music and share it (or not).</li>
                                                     </ul>
                                                 </div>
@@ -51,7 +51,7 @@
                                                     <h2 class="card-title bold" style="font-size: 20px;">Guaranteed shares</h2>
                                                     <ul class="instagram_details">
                                                         <li class="text-muted">You are required to listen to each submission that you receive at least 30 seconds to get paid and provide feedback within 96 hours.</li>
-                                                        <li class="text-muted">If you decide not to share their song, you will not get paid. A refund will be issued to the artists.</li>
+                                                        <li class="text-muted">If you decide not to share their song, you will get paid (you must provide a reason why you did not share the song).</li>
                                                         <li class="text-muted">If you are not a verified  Playlist Curator, you will receive the standard fee of 1 USC coin = 1 GBP</li>
                                                     </ul>
                                                 </div>
@@ -60,7 +60,7 @@
                                                 <div class="col s12">
                                                     <h2 class="card-title bold" style="font-size: 20px;">Sharing songs</h2>
                                                     <ul class="instagram_details">
-                                                        <li class="text-muted">Add their song to your Deezer Playlist(s) for at least five days in a raw (top spots recommended).</li>
+                                                        <li class="text-muted">Share the song on your platform, add their song to your website or Spotify, Appple Music,  Deezer Playlist(s) etc...  for at least five days in a raw (top spots recommended).</li>
                                                         <li class="text-muted">If your placements are high quality with impactful results, artists will want to send you more songs to promote & you will make more money.</li>
                                                         <li class="text-muted">If someone complains we might have to refund them, so make it a good share!</li>
 
