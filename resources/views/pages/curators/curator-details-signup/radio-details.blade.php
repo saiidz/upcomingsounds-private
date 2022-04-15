@@ -51,7 +51,7 @@
                                                     <h2 class="card-title bold" style="font-size: 20px;">Guaranteed shares</h2>
                                                     <ul class="instagram_details">
                                                         <li class="text-muted">You are required to listen to each submission that you receive at least 30 seconds to get paid and provide feedback within 96 hours.</li>
-                                                        <li class="text-muted">If you decide not to share their song or write feedback on your Radio / TV, you must provide a rejection reason to get paid. If you do not provide a rejection reason, the artists will get a refund..</li>
+                                                        <li class="text-muted">If you decide not to share their song or write feedback on your Radio / TV, you must provide a rejection reason to get paid. If you do not provide a rejection reason, the artists will get a refund.</li>
                                                         <li class="text-muted">Unless you are a verified Blog, you will receive the standard fee of 1 USC coin = 1 GBP per submission</li>
                                                     </ul>
                                                 </div>
