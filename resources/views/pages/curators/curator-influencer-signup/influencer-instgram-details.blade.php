@@ -2,7 +2,7 @@
 @extends('layouts.curator-guest')
 
 {{-- page title --}}
-@section('title','Taste Maker Signup ')
+@section('title',' Influencer  Signup ')
 
 {{-- page style --}}
 @section('page-style')
@@ -50,9 +50,9 @@
                                                 <div class="col s12">
                                                     <h2 class="card-title bold" style="font-size: 20px;">Guaranteed shares</h2>
                                                     <ul class="instagram_details">
-                                                        <li class="text-muted">You are required to share each submission that you receive to get paid via UpcomingSounds.</li>
-                                                        <li class="text-muted">If you decide not to share their song, you will not get paid. A refund will be issued to the artists.</li>
-                                                        <li class="text-muted">If you are not a verified influencer, you will receive the standard fee of 1 USC coin = 1 GBP. For verified influencers, submissions pay between $1 and $120, depending on your engagement and followers. (you can apply for verification in your dashboard.</li>
+                                                        <li class="text-muted">UpcomingSounds requires you to share each submission you receive in order to get paid.</li>
+                                                        <li class="text-muted">If you decide not to share their song or write feedback on your social  media accounts, you must provide a rejection reason to get paid. If you do not provide a rejection reason, the artists will get a refund.</li>
+                                                        <li class="text-muted">Unless you are a verified influnencer, you will receive the standard fee of 1 USC coin = 1 GBP per submission  influencers, (payouts range from $1 to $120, Depending on engagement and followers.) </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -60,9 +60,9 @@
                                                 <div class="col s12">
                                                     <h2 class="card-title bold" style="font-size: 20px;">Sharing songs</h2>
                                                     <ul class="instagram_details">
-                                                        <li class="text-muted">Attach their song to your Instagram Story as a Sticker or use it as the background in an Instagram Reel</li>
-                                                        <li class="text-muted">If your shares are high quality, artists will want to send you more songs to promote and you will make more money</li>
-                                                        <li class="text-muted">If someone complains we might have to refund them, so make it a good share!</li>
+                                                        <li class="text-muted">Add their song as a sticker to your Instagram Story or use it as a background for an Instagram reel</li>
+                                                        <li class="text-muted">Artists will want to send you more songs to promote if your placements are high quality and have impactful results, so you will make more money.</li>
+                                                        <li class="text-muted">We might have to refund someone if they complain, so make it a good one!</li>
                                                     </ul>
                                                 </div>
                                             </div>
