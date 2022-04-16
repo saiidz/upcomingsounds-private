@@ -2,7 +2,7 @@
 @extends('layouts.curator-guest')
 
 {{-- page title --}}
-@section('title','Approval Taste Maker Signup ')
+@section('title','Application submission   ')
 
 {{-- page style --}}
 @section('page-style')
@@ -39,8 +39,8 @@
                                         <div id="view-input-fields">
                                             <div class="row">
                                                 <div class="col s12">
-                                                    <h2 class="card-title bold" style="font-size: 20px; text-align:center;">Welcome To Upcoming Sounds</h2>
-                                                    <p class="m-b-md" style="text-align:center;">Thanks For Submit Request For Taste Maker. Your profile will be review from admin. You will received approval and disapproval email from admin. </p>
+                                                    <h2 class="card-title bold" style="font-size: 20px; text-align:center;"> Upcomingsounds - Tastemakers / Curators / pros  </h2>
+                                                    <p class="m-b-md" style="text-align:center;">Thank you for your submission request. Your application will be reviewed by our administrators. In a few days you will hear about our decision. If you haven't heard from us after 2 weeks, check your spam inbox. </p>
                                                 </div>
                                             </div>
                                         </div>
