@@ -52,7 +52,7 @@
                                                     <ul class="instagram_details">
                                                         <li class="text-muted">UpcomingSounds requires you to share each submission you receive in order to get paid.</li>
                                                         <li class="text-muted">If you decide not to share their song or write feedback on your social  media accounts, you must provide a rejection reason to get paid. If you do not provide a rejection reason, the artists will get a refund.</li>
-                                                        <li class="text-muted">Unless you are a verified influnencer, you will receive the standard fee of 1 USC coin = 1 GBP per submission  influencers, (payouts range from $1 to $120, Depending on engagement and followers.) </li>
+                                                        <li class="text-muted">Unless you are a verified influnencer, you will receive the standard fee of 1 USC coin = 1 GBP per submission  influencers, (payouts range from 1 to 60 USC , Depending on engagement and followers.) </li>
                                                     </ul>
                                                 </div>
                                             </div>
