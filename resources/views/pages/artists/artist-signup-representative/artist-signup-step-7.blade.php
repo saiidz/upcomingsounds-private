@@ -119,10 +119,10 @@
                                                                 <div class="col s12 m12 l12">
                                                                     <ul class="collapsible categories-collapsible">
                                                                         <li class="active">
-                                                                            <div class="collapsible-header">Q: Why share this information? <i class="material-icons">
+                                                                            <div class="collapsible-header">Q: What are the reasons for sharing this information?<i class="material-icons">
                                                                                     keyboard_arrow_right </i></div>
                                                                             <div class="collapsible-body">
-                                                                                <p>Only the Groover team has access to your answer, it will help us guide you towards the curators & pros at the right time. And don't worry, you'll be able to change this indicative release date whenever you want :)</p>
+                                                                                <p>UpcomingSounds will only have access to your answer, so we can direct you to the curators and pros at the right time. No worries, you are free to change this indicative release date at any time :)</p>
                                                                             </div>
                                                                         </li>
                                                                         <li>
