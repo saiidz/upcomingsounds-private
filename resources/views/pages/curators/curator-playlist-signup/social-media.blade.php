@@ -81,7 +81,7 @@
                                         <div id="view-input-fields">
                                             <div class="row">
                                                 <div class="col s12 m6 l10">
-                                                    <h4 class="card-title bold">Your social media links</h4>
+                                                    <h4 class="card-title bold">Add your social media profiles</h4>
                                                 </div>
                                             </div>
                                             <div class="row">
