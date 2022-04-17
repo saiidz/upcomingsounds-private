@@ -39,7 +39,7 @@
                                         <div class="card-title">
                                             <div class="row">
                                                 <div class="col s12">
-                                                    <h2 class="card-title bold" style="font-size: 20px;">How UpcomingSounds works</h2>
+                                                    <h2 class="card-title bold" style="font-size: 20px;">Here's how UpcomingSounds works</h2>
                                                     <ul class="instagram_details">
                                                         <li class="text-muted"> Musicians / Artists will send you music.</li>
                                                         <li class="text-muted">You will need to listen and decide if you like their music and share it (or not).</li>
