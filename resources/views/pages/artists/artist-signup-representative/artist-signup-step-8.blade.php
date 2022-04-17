@@ -21,7 +21,7 @@
                     <div>
                         <h4><span class="Gary">Gary</span> from UpcomingSounds</h4>
                         <p class="text-muted m-y">
-                            Thank you for all this info! Before finalising your signup one last thing...
+                            Thank you for sharing all this information! One last thing before we complete your registration...
                         </p>
                     </div>
                 </div>
