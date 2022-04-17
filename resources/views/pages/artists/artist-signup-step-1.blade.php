@@ -11,7 +11,7 @@
             <div class="center-block text-center">
                 <div class="p-a-md">
                     <div>
-                        <h4><span class="Gary">Gary</span> from Upcoming Sounds</h4>
+                        <h4><span class="Gary">Gary</span> from UpcomingSounds</h4>
                         <p class="text-muted m-y">
                             Hey! Could you tell us more about you?
                         </p>
@@ -28,7 +28,7 @@
                         </div>
                         <div class="content_artist">
                             <p class="Iam_artist">I'm an artist</p>
-                            <p class="Iam_artist_detail">Fill in your artist profile and send your music to the curators and pros available on Upcoming Sounds</p>
+                            <p class="Iam_artist_detail">Fill in your artist profile and send your music to the curators and pros available on UpcomingSounds</p>
                         </div>
                         <div class="artist_footer">
                             <a class="button transparent  tellMeMore siGnup1" href="{{route('artist.signup.step.2')}}?signup=artist">Start</a>
@@ -41,7 +41,7 @@
                         </div>
                         <div class="content_artist">
                             <p class="Iam_artist">I'm an artist representative</p>
-                            <p class="Iam_artist_detail">Set up a profile for each one of your artists and send their tracks to the music curators & pros available on Upcoming Sounds</p>
+                            <p class="Iam_artist_detail">Set up a profile for each one of your artists and send their tracks to the music curators & pros available on UpcomingSounds</p>
                         </div>
                         <div class="artist_footer">
                             <a class="button transparent  tellMeMore siGnup1" href="{{route('artist.signup.representative.step.2')}}?signup=representative">Start</a>
