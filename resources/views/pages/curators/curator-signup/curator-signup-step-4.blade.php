@@ -19,7 +19,7 @@
             <div class="center-block text-center">
                 <div class="p-a-md">
                     <div>
-                        <h4><span class="Gary">Gary</span> from Upcoming Sounds</h4>
+                        <h4><span class="Gary">Gary</span> from UpcomingSounds</h4>
                         <p class="text-muted m-y">
                             Thank you for all this info! Before finalising your signup one last thing...
                         </p>
@@ -42,7 +42,7 @@
                                         <div id="view-input-fields">
                                             <div class="row">
                                                 <div class="col s12 m6 l10">
-                                                    <h4 class="card-title bold">How did you learn about Upcoming Sounds for first time?</h4>
+                                                    <h4 class="card-title bold">How did you learn about UpcomingSounds for first time?</h4>
                                                 </div>
                                             </div>
                                             <div class="underline"></div>
