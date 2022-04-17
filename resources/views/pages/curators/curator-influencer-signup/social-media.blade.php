@@ -59,7 +59,7 @@
             <div class="center-block text-center">
                 <div class="p-a-md">
                     <div>
-                        <h4><span class="Gary">Gary</span> from Upcoming Sounds</h4>
+                        <h4><span class="Gary">Gary</span> from UpcomingSounds</h4>
                         <p class="text-muted m-y">
                             Awesome! Now, Where can the UpcomingSounds artists and musicians find you online?
                         </p>
