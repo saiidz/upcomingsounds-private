@@ -88,7 +88,7 @@
                                                                     <span>The track is currently in the creation / finalization phase</span>
                                                             <div class="input-field col s8" id="releasedSoon2">
                                                                 <select name="released_current">
-                                                                    <option value="" disabled selected>Choose your option</option>
+                                                                    <option value="" disabled selected>Please choose your option</option>
                                                                     <optgroup label="Days">
                                                                         <option value="today">today</option>
                                                                         <option value="tomorrow">tomorrow</option>
