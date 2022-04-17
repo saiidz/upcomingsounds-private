@@ -19,9 +19,9 @@
             <div class="center-block text-center">
                 <div class="p-a-md">
                     <div>
-                        <h4><span class="Gary">Gary</span> from Upcoming Sounds</h4>
+                        <h4><span class="Gary">Gary</span> from UpcomingSounds</h4>
                         <p class="text-muted m-y">
-                            Finally, can you tell us more about your timing with the track by {{(auth()->user()) ? auth()->user()->name : 'test'}} which you wish to send to curators and professionals on Upcoming Sounds?
+                            Last but not least, can you tell us about your timing with the track {{(auth()->user()) ? auth()->user()->name : 'test'}} Which track would you like to send to curators and professionals on UpcomingSounds?
                         </p>
                     </div>
                 </div>
