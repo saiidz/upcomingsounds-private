@@ -193,17 +193,17 @@
                                                                 <div class="col s12 m12 l12">
                                                                     <ul class="collapsible categories-collapsible">
                                                                         <li class="active">
-                                                                            <div class="collapsible-header">Q: Why share your social media links on Upcoming Sounds? <i class="material-icons">
+                                                                            <div class="collapsible-header">Q: Why share your social media links on UpcomingSounds? <i class="material-icons">
                                                                                     keyboard_arrow_right </i></div>
                                                                             <div class="collapsible-body">
-                                                                                <p>The music curators & pros on Upcoming Sounds enjoy browsing the social media accounts of an artist which they have received a track from. Filling in your main social media profiles is a way for them to get to know your project better </p>
+                                                                                <p>TThe artists and musicians on UpcomingSounds enjoy browsing social media accounts and making long-lasting connections with the curators and pros with whom they have submitted their music. Filling out your social media profiles will help them better understand your project. </p>
                                                                             </div>
                                                                         </li>
                                                                         <li>
-                                                                            <div class="collapsible-header">Q: You don't have an account on these platforms yet? <i class="material-icons">
+                                                                            <div class="collapsible-header">Q: How can I get verified on upcomingsounds? <i class="material-icons">
                                                                                     keyboard_arrow_right </i></div>
                                                                             <div class="collapsible-body">
-                                                                                <p>You don't have an account on these platforms yet? </p>
+                                                                                <p>YUpon completing the submission form, you will be able to apply for verification on your dashboard.</p>
                                                                             </div>
                                                                         </li>
                                                                     </ul>
