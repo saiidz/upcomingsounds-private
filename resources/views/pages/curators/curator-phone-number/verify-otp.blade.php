@@ -62,7 +62,7 @@
                                             <div class="row">
                                                 <div class="col s12 m6 l10">
                                                     <h4 class="card-title bold">OTP Code Verification</h4>
-                                                    <p class="text-muted text-md m-b-lg">Enter the OTP code. we sent you on.</p>
+                                                    <p class="text-muted text-md m-b-lg">Enter the OTP code you received.</p>
                                                 </div>
                                             </div>
                                         </div>
