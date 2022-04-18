@@ -60,9 +60,9 @@
                                                 <div class="col s12">
                                                     <h2 class="card-title bold" style="font-size: 20px;">Sharing songs</h2>
                                                     <ul class="instagram_details">
-                                                        <li class="text-muted">Use their song as background music in your TikTok videos or upload a video to say what you like about their music</li>
-                                                        <li class="text-muted">If your shares are high quality, artists will want to send you more songs to promote and you will make more money</li>
-                                                        <li class="text-muted">If someone complains we might have to refund them, so make it a good share!</li>
+                                                        <li class="text-muted">Add their song to your TikTok videos or upload a video telling what you love about their music and add it to your website or Spotify, Apple Music, Deezer playlists, etc.</li>
+                                                        <li class="text-muted">Artists will want to send you more songs to promote if your placements are high quality and have impactful results, so you will make more money.</li>
+                                                        <li class="text-muted">We might have to refund someone if they complain, so make it a good one!</li>
                                                     </ul>
                                                 </div>
                                             </div>
