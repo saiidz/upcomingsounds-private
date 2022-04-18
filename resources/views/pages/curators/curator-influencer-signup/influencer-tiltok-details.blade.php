@@ -39,7 +39,7 @@
                                         <div class="card-title">
                                             <div class="row">
                                                 <div class="col s12">
-                                                    <h2 class="card-title bold" style="font-size: 20px;">How UpcomingSounds works</h2>
+                                                    <h2 class="card-title bold" style="font-size: 20px;">Here's how UpcomingSounds works</h2>
                                                     <ul class="instagram_details">
                                                         <li class="text-muted">Musicians /artists will send you music.</li>
                                                         <li class="text-muted">You will need to listen and decide if you like their music and share it (or not).</li>
@@ -50,9 +50,9 @@
                                                 <div class="col s12">
                                                     <h2 class="card-title bold" style="font-size: 20px;">Guaranteed shares</h2>
                                                     <ul class="instagram_details">
-                                                        <li class="text-muted">You are required to share each submission that you receive to get paid via UpcomingSounds.</li>
-                                                        <li class="text-muted">If you decide not to share their song, you will not get paid. A refund will be issued to the artists.</li>
-                                                        <li class="text-muted">If you are not a verified influencer, you will receive the standard fee of 1 USC coin = 1 GBP. For verified influencers, submissions pay between $1 and $120, depending on your engagement and followers. (you can apply for verification in your dashboard.</li>
+                                                        <li class="text-muted">You are required to listen to each submission that you receive at least 30 seconds to get paid and provide feedback within 96 hours.</li>
+                                                        <li class="text-muted">If you decide not to share their song or write feedback on your TikTok Profile, you must provide a rejection reason to get paid. If you do not provide a rejection reason, the artists will get a refund.</li>
+                                                        <li class="text-muted">Unless you are a verified Tiktok Influencer, you will receive the standard fee of 1 USC coin = 1 GBP per submission. (payouts range from 1 to 60 USC , Depending on engagement and followers.)</li>
                                                     </ul>
                                                 </div>
                                             </div>
