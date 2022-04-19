@@ -60,8 +60,8 @@
                                                 <div class="col s12">
                                                     <h2 class="card-title bold" style="font-size: 20px;">feedbacks </h2>
                                                     <ul class="instagram_details">
-                                                        <li class="text-muted">Add their song to your Deezer Playlist(s) for at least five days in a raw (top spots recommended).</li>
-                                                        <li class="text-muted">If your placements are high quality with impactful results, artists will want to send you more songs to promote & you will make more money.</li>
+                                                        <li class="text-muted">Provide detailed evaluation, assistance, or even sond design to improve the quality of the work</li>
+                                                        <li class="text-muted">If your feedbacks are high quality with impactful results, artists will want to send you more songs to promote & you will make more money.</li>
                                                         <li class="text-muted">If someone complains we might have to refund them, so make it a good share!</li>
 
                                                     </ul>
