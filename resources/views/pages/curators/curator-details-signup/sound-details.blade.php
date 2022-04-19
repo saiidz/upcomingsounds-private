@@ -41,24 +41,24 @@
                                                 <div class="col s12">
                                                     <h2 class="card-title bold" style="font-size: 20px;">Here's how UpcomingSounds works</h2>
                                                     <ul class="instagram_details">
-                                                        <li class="text-muted">Sound Musicians / Artists will send you music.</li>
+                                                        <li class="text-muted">Musicians / Artists will send you music.</li>
                                                         <li class="text-muted">You will need to listen and decide if you like their music and share it (or not).</li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col s12">
-                                                    <h2 class="card-title bold" style="font-size: 20px;">Guaranteed shares</h2>
+                                                    <h2 class="card-title bold" style="font-size: 20px;">Prived feedback </h2>
                                                     <ul class="instagram_details">
                                                         <li class="text-muted">You are required to listen to each submission that you receive at least 30 seconds to get paid and provide feedback within 96 hours.</li>
-                                                        <li class="text-muted">If you decide not to share their song, you will not get paid. A refund will be issued to the artists.</li>
-                                                        <li class="text-muted">If you are not a verified  Playlist Curator, you will receive the standard fee of 1 USC coin = 1 GBP</li>
+                                                        <li class="text-muted">If you decide not to write feedback and you accept to assist the artist with mixing, mastering, or recording advice, To get paid, you must provide a reason for rejection, otherwise, the artists will receive a refund.</li>
+                                                        <li class="text-muted">Unless you are a verified  Mixing or Mastering technician or Sound engineer, studio, you will receive the standard fee of 1 USC coin = 1 GBP per submission.</li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col s12">
-                                                    <h2 class="card-title bold" style="font-size: 20px;">Sharing songs</h2>
+                                                    <h2 class="card-title bold" style="font-size: 20px;">feedbacks </h2>
                                                     <ul class="instagram_details">
                                                         <li class="text-muted">Add their song to your Deezer Playlist(s) for at least five days in a raw (top spots recommended).</li>
                                                         <li class="text-muted">If your placements are high quality with impactful results, artists will want to send you more songs to promote & you will make more money.</li>
