@@ -2,7 +2,7 @@
 @extends('layouts.curator-guest')
 
 {{-- page title --}}
-@section('title','Taste Maker Signup ')
+@section('title','Monitor / Publisher / Sync Signup ')
 
 {{-- page style --}}
 @section('page-style')
