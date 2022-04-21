@@ -60,7 +60,7 @@
                                                 <div class="col s12">
                                                     <h2 class="card-title bold" style="font-size: 20px;">Sharing songs</h2>
                                                     <ul class="instagram_details">
-                                                        <li class="text-muted">Add their song to your Deezer Playlist(s) for at least five days in a raw (top spots recommended).</li>
+                                                        <li class="text-muted">Provide detailed evaluation, assistance, booking etc.. to improve the quality of the work</li>
                                                         <li class="text-muted">Artists will want to send you more songs to promote if your placements are high quality and have impactful results, so you will make more money..</li>
                                                         <li class="text-muted">We might have to refund someone if they complain, so make it a good one!</li>
 
