@@ -48,7 +48,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col s12">
-                                                    <h2 class="card-title bold" style="font-size: 20px;">Guaranteed shares</h2>
+                                                    <h2 class="card-title bold" style="font-size: 20px;">Provide feedback or advice</h2>
                                                     <ul class="instagram_details">
                                                         <li class="text-muted">You are required to listen to each submission that you receive at least 30 seconds to get paid and provide feedback within 96 hours.</li>
                                                         <li class="text-muted">If you do not write feedback and agree to assist the artist with a future project, marketing, or recording advice, To get paid, you must provide a reason for rejection, otherwise, the artists will receive a refund.</li>
@@ -58,7 +58,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col s12">
-                                                    <h2 class="card-title bold" style="font-size: 20px;">Sharing songs</h2>
+                                                    <h2 class="card-title bold" style="font-size: 20px;">Feedback</h2>
                                                     <ul class="instagram_details">
                                                         <li class="text-muted">Provide detailed evaluation, assistance, sync advice, publishing or even copyright advice to improve the quality of the work</li>
                                                         <li class="text-muted">Artists will want to send you more songs to promote if your placements are high quality and have impactful results, so you will make more money.</li>
