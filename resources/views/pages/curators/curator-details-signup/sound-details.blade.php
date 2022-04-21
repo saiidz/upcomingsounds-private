@@ -48,7 +48,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col s12">
-                                                    <h2 class="card-title bold" style="font-size: 20px;">Prived feedback </h2>
+                                                    <h2 class="card-title bold" style="font-size: 20px;"> Provide feedback or advice</h2>
                                                     <ul class="instagram_details">
                                                         <li class="text-muted">You are required to listen to each submission that you receive at least 30 seconds to get paid and provide feedback within 96 hours.</li>
                                                         <li class="text-muted">If you decide not to write feedback and you accept to assist the artist with mixing, mastering, or recording advice, To get paid, you must provide a reason for rejection, otherwise, the artists will receive a refund.</li>
@@ -58,7 +58,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col s12">
-                                                    <h2 class="card-title bold" style="font-size: 20px;">feedbacks </h2>
+                                                    <h2 class="card-title bold" style="font-size: 20px;">Feedback</h2>
                                                     <ul class="instagram_details">
                                                         <li class="text-muted">Provide detailed evaluation, assistance, or even sond design to improve the quality of the work</li>
                                                         <li class="text-muted">If your feedbacks are high quality with impactful results, artists will want to send you more songs to promote & you will make more money.</li>
