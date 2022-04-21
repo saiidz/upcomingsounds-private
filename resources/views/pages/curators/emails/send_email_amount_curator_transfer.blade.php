@@ -33,8 +33,8 @@
     font-weight: 500;
     margin: 0;
 ">Hello {{ $username }},</h2>
-                                <p style="color: #8d8ca4;font-size: 18px;font-weight: 400;line-height:24px;margin:0;padding: 20px 0 0;text-align: left;word-break:normal;direction:ltr;">My name is {{$auth_username}}. I have send you {{$amount}} UCS credit. Please check your available credit.</p>
-                                <p style="color: #8d8ca4;font-size: 18px;font-weight: 400;line-height:24px;margin:0;padding: 25px 0 0;text-align: left;word-break:normal;direction:ltr;">Please contact us if you face any problems. </p>
+                                <p style="color: #8d8ca4;font-size: 18px;font-weight: 400;line-height:24px;margin:0;padding: 20px 0 0;text-align: left;word-break:normal;direction:ltr;">My name is {{$auth_username}}. I have sent you {{$amount}} USC crdits. Please check your credit balance.</p>
+                                <p style="color: #8d8ca4;font-size: 18px;font-weight: 400;line-height:24px;margin:0;padding: 25px 0 0;text-align: left;word-break:normal;direction:ltr;">We would be glad to assist you if you encounter any problems. </p>
                                 <p style="color: #8d8ca4;font-size: 18px;font-weight: 400;line-height:24px;margin:0;padding: 25px 0 0;text-align: left;word-break:normal;direction:ltr;">Thank you. </p></td>
                         </tr>
                         </tbody>
@@ -46,7 +46,7 @@
                 <td><table border="0" cellspacing="0" cellpadding="0" align="center" width="100%">
                         <tbody>
                         <tr>
-                            <td align="center" style="color: #f41a2d;font-size: 18px;line-height:17px;margin:0;padding: 40px 80px 0 80px;text-align:center;word-break:normal;direction:ltr;" dir="ltr">Upcoming Sounds</td>
+                            <td align="center" style="color: #f41a2d;font-size: 18px;line-height:17px;margin:0;padding: 40px 80px 0 80px;text-align:center;word-break:normal;direction:ltr;" dir="ltr">UpcomingSounds</td>
                         </tr>
                         <tr>
                             <td align="center" dir="ltr"><p style="color: #383760;font-size: 18px;line-height:17px;margin:0;padding: 15px 80px 15px 80px;text-align:center;word-break:normal;direction:ltr;">Headquarters 29-31 Parliament Street, Liverpool, England, L8 5RN</p>
