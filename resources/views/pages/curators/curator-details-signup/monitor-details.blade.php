@@ -51,8 +51,8 @@
                                                     <h2 class="card-title bold" style="font-size: 20px;">Guaranteed shares</h2>
                                                     <ul class="instagram_details">
                                                         <li class="text-muted">You are required to listen to each submission that you receive at least 30 seconds to get paid and provide feedback within 96 hours.</li>
-                                                        <li class="text-muted">If you decide not to share their song, you will not get paid. A refund will be issued to the artists.</li>
-                                                        <li class="text-muted">If you are not a verified  Playlist Curator, you will receive the standard fee of 1 USC coin = 1 GBP</li>
+                                                        <li class="text-muted">If you do not write feedback and agree to assist the artist with a future project, marketing, or recording advice, To get paid, you must provide a reason for rejection, otherwise, the artists will receive a refund.</li>
+                                                        <li class="text-muted">Unless you are a verified  professional, Artist manager,  studio, you will receive the standard fee of 1 USC coin = 1 GBP per submission.</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -60,9 +60,9 @@
                                                 <div class="col s12">
                                                     <h2 class="card-title bold" style="font-size: 20px;">Sharing songs</h2>
                                                     <ul class="instagram_details">
-                                                        <li class="text-muted">Add their song to your Deezer Playlist(s) for at least five days in a raw (top spots recommended).</li>
-                                                        <li class="text-muted">If your placements are high quality with impactful results, artists will want to send you more songs to promote & you will make more money.</li>
-                                                        <li class="text-muted">If someone complains we might have to refund them, so make it a good share!</li>
+                                                        <li class="text-muted">Provide detailed evaluation, assistance, or even sond design to improve the quality of the work</li>
+                                                        <li class="text-muted">Artists will want to send you more songs to promote if your placements are high quality and have impactful results, so you will make more money.</li>
+                                                        <li class="text-muted">We might have to refund someone if they complain, so make it a good one!</li>
 
                                                     </ul>
                                                 </div>
