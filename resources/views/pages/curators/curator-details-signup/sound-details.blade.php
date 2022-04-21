@@ -2,7 +2,7 @@
 @extends('layouts.curator-guest')
 
 {{-- page title --}}
-@section('title','Monitor / Publisher / Sync Signup ')
+@section('title',' Sound Expert  / Engineer Signup   ')
 
 {{-- page style --}}
 @section('page-style')
