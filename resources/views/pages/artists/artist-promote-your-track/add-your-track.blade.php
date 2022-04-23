@@ -115,10 +115,8 @@
                                         <div class="sub__title__container">
                                             <p>Step 2/4</p>
                                             <h2>Right now... What are you looking for?</h2>
-                                            <p>By selecting any of these options, We can guide you to the media outlets, curators, and music pros that match your needs best.
-Quick reminder:
-At UpcomingSounds, we guarantee you that they're going to listen to your track and give feedback. If your music catches their attention, they will be able to share it or get in touch with you!</p>
-                                            <span class="text-muted">Your answer is private and will not be shared to influencers.</span>
+                                            <p>Choosing any of these options will let us guide you to the media outlets, curators, and music professionals who best meet your needs. At UpcomingSounds, we guarantee that they'll listen to your track and give you feedback. If your music catches their attention, they are likely to share it or contact you!!</p>
+                                            <span class="text-muted">Your answer is private and will not be shared with influencers.</span>
                                         </div>
                                         <div class="input__container">
                                             <div class="selection newB" id="receivedDetails1">
