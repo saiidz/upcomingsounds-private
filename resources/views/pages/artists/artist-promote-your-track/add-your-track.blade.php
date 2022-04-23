@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                             <div class="right__container">
-                                <form method="POST" action="" enctype="multipart/form-data">
+                                <form method="POST" action="{{url('store/track/campaign')}}" enctype="multipart/form-data">
                                     @csrf
                                     <fieldset id="form1">
                                         <div class="sub__title__container ">
@@ -115,8 +115,8 @@
                                         <div class="sub__title__container">
                                             <p>Step 2/4</p>
                                             <h2>Right now... What are you looking for?</h2>
-                                            <p>By selecting any of these options, We can guide you to the media outlets, curators, and music pros that match your needs best. 
-Quick reminder: 
+                                            <p>By selecting any of these options, We can guide you to the media outlets, curators, and music pros that match your needs best.
+Quick reminder:
 At UpcomingSounds, we guarantee you that they're going to listen to your track and give feedback. If your music catches their attention, they will be able to share it or get in touch with you!</p>
                                             <span class="text-muted">Your answer is private and will not be shared to influencers.</span>
                                         </div>

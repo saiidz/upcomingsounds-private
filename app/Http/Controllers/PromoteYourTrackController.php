@@ -16,7 +16,7 @@ class PromoteYourTrackController extends Controller
     {
         $user_artist = Auth::user();
         $page = 'promote-your-track';
-        return view('pages.artists.artist-promote-your-track.promote-your-track',compact('user_artist','page'));
+        return view('pages.artists.artist-promote-your-track.promote-your-track',get_defined_vars());
     }
     /**
      * PromoteYourTrack index
@@ -27,6 +27,19 @@ class PromoteYourTrackController extends Controller
         $user_artist = Auth::user();
         $artist_tracks = ArtistTrack::where('user_id',$user_artist->id)->orderBy('id','desc')->get();
 
-        return view('pages.artists.artist-promote-your-track.add-your-track',compact('user_artist','page','artist_tracks'));
+        return view('pages.artists.artist-promote-your-track.add-your-track',get_defined_vars());
+    }
+
+    /**
+     * storeTrackCampaign
+     */
+    public function storeTrackCampaign(Request $request)
+    {
+        dd($request->all());
+        $page = 'add-your-track';
+        $user_artist = Auth::user();
+        $artist_tracks = ArtistTrack::where('user_id',$user_artist->id)->orderBy('id','desc')->get();
+
+        return view('pages.artists.artist-promote-your-track.add-your-track',get_defined_vars());
     }
 }

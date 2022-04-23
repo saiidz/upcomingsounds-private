@@ -33,6 +33,7 @@ Route::delete('delete-track/{artist_track}',[ArtistTrackController::class,'destr
 // promote your track
 Route::get('promote-your-track', [PromoteYourTrackController::class, 'index']);
 Route::get('add-your-track', [PromoteYourTrackController::class, 'addYourTrack']);
+Route::post('store/track/campaign', [PromoteYourTrackController::class, 'storeTrackCampaign']);
 
 // Wallet Shop Route
 Route::get('/wallet',[ArtistWalletController::class,'wallet']);

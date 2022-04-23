@@ -587,6 +587,18 @@ ul:not(.browser-default) > li {
 
 
 
+svg.svg-inline--fa {
+    color: white;
+    font-size: 15px;
+}
+
+
+
+
+
+
+
+
 /*
   ##Device = Desktops
   ##Screen = 1281px to higher resolution desktops

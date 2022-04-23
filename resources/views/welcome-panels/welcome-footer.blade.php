@@ -27,38 +27,49 @@
                         <a href="https://www.facebook.com/Upcomingsounds" target="_blank"
                            class="btn btn-icon btn-social btn-social-colored social_color "
                            title="Facebook">
-                            <i class="fa fa-facebook"></i>
-                            <i class="fa fa-facebook"></i>
+                            <i class="fab fa-facebook"></i>
+{{--                            <i class="fa fa-facebook"></i>--}}
+{{--                            <i class="fa fa-facebook"></i>--}}
                         </a>
                         <a href="https://www.instagram.com/upcomingsounds_" target="_blank"
                            class="btn btn-icon btn-social btn-social-colored social_color"
                            title="Instagram">
-                            <i class="fa fa-instagram"></i>
-                            <i class="fa fa-instagram"></i>
+                            <i class="fab fa-instagram"></i>
+{{--                            <i class="fa fa-instagram"></i>--}}
+{{--                            <i class="fa fa-instagram"></i>--}}
                         </a>
                         <a href="https://open.spotify.com/user/0ksxb1tbymq3tx778ybi7659r" target="_blank"
                            class="btn btn-icon btn-social btn-social-colored social_color"
                            title="Spotify">
-                            <i class="fa fa-spotify"></i>
-                            <i class="fa fa-spotify"></i>
+                            <i class="fab fa-spotify"></i>
+{{--                            <i class="fa fa-spotify"></i>--}}
+{{--                            <i class="fa fa-spotify"></i>--}}
                         </a>
                         <a href="https://twitter.com/Upcomingsounds_" target="_blank"
                            class="btn btn-icon btn-social btn-social-colored social_color"
                            title="Twitter">
-                            <i class="fa fa-twitter"></i>
-                            <i class="fa fa-twitter"></i>
+                            <i class="fab fa-twitter"></i>
+{{--                            <i class="fa fa-twitter"></i>--}}
+{{--                            <i class="fa fa-twitter"></i>--}}
                         </a>
                         <a href="https://www.youtube.com/channel/UC1HUg1XVehD3RAkdQDay32A" target="_blank"
                            class="btn btn-icon btn-social btn-social-colored social_color"
                            title="Youtube">
-                            <i class="fa fa-youtube"></i>
-                            <i class="fa fa-youtube"></i>
+                            <i class="fab fa-youtube"></i>
+{{--                            <i class="fa fa-youtube"></i>--}}
+{{--                            <i class="fa fa-youtube"></i>--}}
                         </a>
                         <a href="https://www.tiktok.com/@upcomingsounds_" target="_blank"
-                           class="btn btn-icon btn-social btn-social-colored social_color tiktok_footer"
+                           class="btn btn-icon btn-social btn-social-colored social_color"
                            title="Tiktok">
-                            <i class="iconify" data-icon="fa-brands:tiktok"></i>
+                            <i class="fa-brands fa-tiktok"></i>
+{{--                            <i class="fa-brands fa-tiktok"></i>--}}
                         </a>
+{{--                        <a href="https://www.tiktok.com/@upcomingsounds_" target="_blank"--}}
+{{--                           class="btn btn-icon btn-social btn-social-colored social_color tiktok_footer"--}}
+{{--                           title="Tiktok">--}}
+{{--                            <i class="iconify" data-icon="fa-brands:tiktok"></i>--}}
+{{--                        </a>--}}
                     </div>
 
 
