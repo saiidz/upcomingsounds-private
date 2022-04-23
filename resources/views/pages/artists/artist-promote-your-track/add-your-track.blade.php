@@ -125,7 +125,7 @@
 {{--                                                    <ion-icon name="happy"></ion-icon>--}}
                                                 </div>
                                                 <div class="descriptionTitle">
-                                                    <h3>Receive Detailed Advice</h3>
+                                                    <h3>Get Detailed Advice</h3>
                                                     <p>I'm looking for professional feedback for my project and demos, allowing me to know what to improve: arrangement, mixing, production, visual content.</p>
                                                 </div>
                                                 <div class="item-title bottom text-right form2CheckedBox">
@@ -138,7 +138,7 @@
 {{--                                                    <ion-icon name="business"></ion-icon>--}}
                                                 </div>
                                                 <div class="descriptionTitle">
-                                                    <h3>Get Media Coverage and Social Exposure </h3>
+                                                    <h3>Obtain media coverage and social media exposure</h3>
                                                     <p>I'm looking for  youtube upload, playlists placement, radio broadcasts, social media posts /stories, shares, or reviews from media outlets</p>
                                                 </div>
                                                 <div class="item-title bottom text-right form2CheckedBox">
