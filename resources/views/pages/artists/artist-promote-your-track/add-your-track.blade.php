@@ -126,7 +126,7 @@
                                                 </div>
                                                 <div class="descriptionTitle">
                                                     <h3>Get Detailed Advice</h3>
-                                                    <p>I'm looking for professional feedback for my project and demos, allowing me to know what to improve: arrangement, mixing, production, visual content.</p>
+                                                    <p>I'm looking for professional feedback for my project and demos in order to know what to improve: arrangement, mixing, production, visual content.</p>
                                                 </div>
                                                 <div class="item-title bottom text-right form2CheckedBox">
                                                     <input type="checkbox" name="received_details" />
@@ -139,7 +139,7 @@
                                                 </div>
                                                 <div class="descriptionTitle">
                                                     <h3>Obtain media coverage and social media exposure</h3>
-                                                    <p>I'm looking for  youtube upload, playlists placement, radio broadcasts, social media posts /stories, shares, or reviews from media outlets</p>
+                                                    <p>Specifically, I am looking for YouTube uploads, playlist placements, radio broadcasts, social media posts, or reviews from media outlets.</p>
                                                 </div>
                                                 <div class="item-title bottom text-right form2CheckedBox">
                                                     <input type="checkbox"  name="get_visibility" />
@@ -152,7 +152,7 @@
                                                 </div>
                                                 <div class="descriptionTitle">
                                                     <h3>Establish my Professorial Music Career</h3>
-                                                    <p>I'm looking for record deals with labels, booking agents, publishers, and music supervisors (in charge of placing music in movies or TV commercials).</p>
+                                                    <p>It is my goal to secure record deals with labels, booking agents, publishers, and music supervisors (those who place music in movies or TV commercials).</p>
                                                 </div>
                                                 <div class="item-title bottom text-right form2CheckedBox">
                                                     <input type="checkbox"  name="get_visibility" />
