@@ -64,8 +64,7 @@
                                         <div class="sub__title__container ">
                                             <p>Step 1/4</p>
                                             <h2>Start by adding your track or select one if you have already!</h2>
-                                            <p class="m-b-md">you're one step closer to spreading your art to the world,
-                                            continue by adding a new track and filling in the required info.</p>
+                                            <p class="m-b-md">You are one step closer to spreading your art to the world, now add a new track and fill out the required information.</p>
                                             <a class="m-b-md rounded addTrack" href="{{url('/artist-profile')}}#add-track">
                                                Add New track
                                             </a>
