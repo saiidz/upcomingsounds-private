@@ -19,7 +19,7 @@
                     <div>
                         <h4><span class="Gary">Gary</span> from Upcoming Sounds</h4>
                         <p class="text-muted m-y">
-                            Great! Now tell us a bit more about you :)
+                            Finally, you're done! You'll receive your application response shortly :D
                         </p>
                     </div>
                 </div>
