@@ -113,10 +113,10 @@
     </div>
 
     <div class="form-group row">
-        <div class="col-sm-3 form-control-label text-muted">Song Upload(mpeg,mpga,mp3,mp4,wav,aac)</div>
+        <div class="col-sm-3 form-control-label text-muted">Song Upload(mp3,mp4,wav,aac)</div>
         <div class="col-sm-9">
             <input type='file' class="form-control" name="audio" id="audioTrackUpload"
-                   accept=".mpeg, .mpga, .mp3, .mp4, .wav, .aac" required />
+                   accept=".mp3, .mp4, .wav, .aac" required />
             <label for="imageTrackUpload"></label>
             <div class="audioTrackPreview">
                 <audio controls="" src="" type="audio/mp3" controlslist="nodownload" id="audioTrackPreview" style="display:none;"></audio>
