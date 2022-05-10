@@ -29,7 +29,7 @@
         <div class="col-sm-9">
             <textarea name="description"
                       placeholder="Tell us more about your artwork... "
-                      class="form-control @error('description') is-invalid @enderror" required></textarea>
+                      class="form-control @error('description') is-invalid @enderror" required>{{old('description')}}</textarea>
             <div id="error_message_description" class="red-text" style="color:red; padding:4px;"></div>
             @error('description')
             <small class="red-text ml-10" role="alert">
@@ -42,23 +42,109 @@
     <div class="form-group row">
         <div class="col-sm-3 form-control-label text-muted">Release Date (optional)</div>
         <div class="col-sm-9" id="releaseDateTrack">
-            <input id="datepicker" name="release_date"
+            <input id="datepicker" name="release_date" value="{{old('release_date')}}"
                    class="form-control release_date">
         </div>
     </div>
 
+
     <div class="form-group row">
-        <div class="col-sm-3 form-control-label text-muted">Song Category</div>
+        <div class="col-sm-3 form-control-label text-muted">YouTube link</div>
         <div class="col-sm-9">
-            <select class="form-control c-select" name="song_category" required>
-                <option value="" disabled selected>Choose Song Category</option>
-                @foreach($track_categories as $song_cat)
-                    <option value="{{$song_cat->id}}">{{$song_cat->name}}</option>
-                @endforeach
-            </select>
-            <div id="error_message_song_category" class="red-text" style="color:red; padding:4px;"></div>
+            <input type="text" name="youtube_soundcloud_url" id="trueUrl" onclick="removeStyle(this);"
+                   class="form-control @error('youtube_soundcloud_url') is-invalid @enderror" value="{{old('youtube_soundcloud_url')}}"
+                   placeholder="https://www.youtube.com/watch?v=iLd8ugdjJgk" required>
+            <div id="error_message_youtube_soundcloud" class="red-text" style="color:red; padding:4px;"></div>
+            @error('youtube_soundcloud_url')
+            <small id="error_message"class="red-text ml-10" role="alert">
+                {{ $message }}
+            </small>
+            @enderror
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="preview"></div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <div class="form-group row">
+        <div class="col-sm-3 form-control-label text-muted">SoundCloud link</div>
+        <div class="col-sm-9">
+            <input type="text" name="soundcloudUrl" onclick="removeStyle(this);"
+                   class="form-control @error('soundcloudUrl') is-invalid @enderror" value="{{old('soundcloudUrl')}}"
+                   placeholder="https://soundcloud.com">
+            <div id="error_message_soundcloud" class="red-text" style="color:red; padding:4px;"></div>
+            @error('soundcloudUrl')
+            <small class="red-text ml-10" role="alert">
+                {{ $message }}
+            </small>
+            @enderror
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-3 form-control-label text-muted">Spotify track link (optional)</div>
+        <div class="col-sm-9">
+            <input type="url" name="spotify_track_url" onclick="removeStyle(this);"
+                   class="form-control @error('spotify_track_url') is-invalid @enderror"
+                   value="{{old('spotify_track_url')}}"
+                   placeholder="https://open.spotify.com/artist/5eJu3FXEJJGVaQpAeQjdwg">
+            <div id="error_message_spotify_track" class="red-text" style="color:red; padding:4px;"></div>
+            @error('spotify_track_url')
+            <small class="red-text ml-10" role="alert">
+                {{ $message }}
+            </small>
+            @enderror
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-3 form-control-label text-muted">Song Thumbnail</div>
+        <div class="col-sm-9">
+            <input type='file' class="form-control" id="imageTrackUpload" name="track_thumbnail"
+                   accept=".png, .jpg, .jpeg" required />
+            <label for="imageTrackUpload"></label>
+            <div class="imgTrackPreview">
+                <img src=""
+                     id="imgTrackPreview" style="display:none;">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-3 form-control-label text-muted">Song Upload(mpeg,mpga,mp3,mp4,wav,aac)</div>
+        <div class="col-sm-9">
+            <input type='file' class="form-control" name="audio" id="audioTrackUpload"
+                   accept=".mpeg, .mpga, .mp3, .mp4, .wav, .aac" required />
+            <label for="imageTrackUpload"></label>
+            <div class="audioTrackPreview">
+                <audio controls="" src="" type="audio/mp3" controlslist="nodownload" id="audioTrackPreview" style="display:none;"></audio>
+            </div>
+            @error('audio')
+                <small class="red-text ml-10" role="alert">
+                    {{ $message }}
+                </small>
+            @enderror
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-3 form-control-label text-muted"></div>
+        <div class="col-sm-9">
+            <div class="col s12">
+                <p class="mb-1">
+                    <label>
+                        <input type="checkbox" class="filled-in"
+                               name="display_profile"
+                               value="1"/>
+                        <span class="text-muted">Display on my public profile </span>
+                    </label>
+                </p>
+            </div>
+        </div>
+    </div>
+
 
     <div class="form-group row">
         <div class="col-sm-3 form-control-label text-muted">Select Genre </div>
@@ -72,7 +158,7 @@
                     </div>
                     <div class="underline"></div>
                     <div class="row music"></div>
-                    @if($curator_features[0]->name == ' Please select the Genre/Interest that matches your song.')
+                    @if($curator_features[0]->name == 'I would love to recieve')
                         @error('tag')
                             <small class="red-text" role="alert">
                                 {{ $message }}
@@ -88,21 +174,17 @@
                                         @foreach($curator_features[0]->curatorFeatureTag as $feature)
                                             <li>
                                                 <input type="checkbox"
-                                                       id="checkboxOne{{$feature->id}}"
-                                                       name="tag_would_love[]" value="{{$feature->id}}"
-                                                       class="@error('tag_would_love') is-invalid @enderror">
+                                                       id="checkboxOneCat{{$feature->id}}"
+                                                       name="tag[]" value="{{$feature->id}}"
+                                                       class="@error('tag') is-invalid @enderror">
                                                 <label
-                                                    for="checkboxOne{{$feature->id}}">
+                                                    for="checkboxOneCat{{$feature->id}}">
                                                     {{$feature->name}}
                                                 </label>
                                             </li>
                                         @endforeach
                                     </ul>
-                                    @error('tag_would_love')
-                                    <small class="red-text" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
+
                                 </div>
                             </div>
                         </div>
@@ -125,21 +207,17 @@
                                         @foreach($curator_features[1]->curatorFeatureTag as $feature)
                                             <li>
                                                 <input type="checkbox"
-                                                       id="checkboxOne{{$feature->id}}"
-                                                       name="tag_alternative[]" value="{{$feature->id}}"
+                                                       id="checkboxOneCat{{$feature->id}}"
+                                                       name="tag[]" value="{{$feature->id}}"
                                                        class="">
                                                 <label
-                                                    for="checkboxOne{{$feature->id}}">
+                                                    for="checkboxOneCat{{$feature->id}}">
                                                     {{$feature->name}}
                                                 </label>
                                             </li>
                                         @endforeach
                                     </ul>
-                                    @error('tag_alternative')
-                                    <small class="red-text" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
+
                                 </div>
                             </div>
                         </div>
@@ -156,21 +234,17 @@
                                         @foreach($curator_features[2]->curatorFeatureTag as $feature)
                                             <li>
                                                 <input type="checkbox"
-                                                       id="checkboxOne{{$feature->id}}"
-                                                       name="tag_blogwave[]" value="{{$feature->id}}"
+                                                       id="checkboxOneCat{{$feature->id}}"
+                                                       name="tag[]" value="{{$feature->id}}"
                                                        class="">
                                                 <label
-                                                    for="checkboxOne{{$feature->id}}">
+                                                    for="checkboxOneCat{{$feature->id}}">
                                                     {{$feature->name}}
                                                 </label>
                                             </li>
                                         @endforeach
                                     </ul>
-                                    @error('tag_blogwave')
-                                    <small class="red-text" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
+
                                 </div>
                             </div>
                         </div>
@@ -186,21 +260,17 @@
                                         @foreach($curator_features[3]->curatorFeatureTag as $feature)
                                             <li>
                                                 <input type="checkbox"
-                                                       id="checkboxOne{{$feature->id}}"
-                                                       name="tag_classic[]" value="{{$feature->id}}"
+                                                       id="checkboxOneCat{{$feature->id}}"
+                                                       name="tag[]" value="{{$feature->id}}"
                                                        class="">
                                                 <label
-                                                    for="checkboxOne{{$feature->id}}">
+                                                    for="checkboxOneCat{{$feature->id}}">
                                                     {{$feature->name}}
                                                 </label>
                                             </li>
                                         @endforeach
                                     </ul>
-                                    @error('tag_classic')
-                                    <small class="red-text" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
+
                                 </div>
                             </div>
                         </div>
@@ -217,21 +287,17 @@
                                         @foreach($curator_features[4]->curatorFeatureTag as $feature)
                                             <li>
                                                 <input type="checkbox"
-                                                       id="checkboxOne{{$feature->id}}"
-                                                       name="tag_classical_jazz[]" value="{{$feature->id}}"
+                                                       id="checkboxOneCat{{$feature->id}}"
+                                                       name="tag[]" value="{{$feature->id}}"
                                                        class="">
                                                 <label
-                                                    for="checkboxOne{{$feature->id}}">
+                                                    for="checkboxOneCat{{$feature->id}}">
                                                     {{$feature->name}}
                                                 </label>
                                             </li>
                                         @endforeach
                                     </ul>
-                                    @error('tag_classical_jazz')
-                                    <small class="red-text" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
+
                                 </div>
                             </div>
                         </div>
@@ -248,21 +314,16 @@
                                         @foreach($curator_features[5]->curatorFeatureTag as $feature)
                                             <li>
                                                 <input type="checkbox"
-                                                       id="checkboxOne{{$feature->id}}"
-                                                       name="tag_EDM[]" value="{{$feature->id}}"
+                                                       id="checkboxOneCat{{$feature->id}}"
+                                                       name="tag[]" value="{{$feature->id}}"
                                                        class="">
                                                 <label
-                                                    for="checkboxOne{{$feature->id}}">
+                                                    for="checkboxOneCat{{$feature->id}}">
                                                     {{$feature->name}}
                                                 </label>
                                             </li>
                                         @endforeach
                                     </ul>
-                                    @error('tag_EDM')
-                                    <small class="red-text" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -279,21 +340,17 @@
                                         @foreach($curator_features[6]->curatorFeatureTag as $feature)
                                             <li>
                                                 <input type="checkbox"
-                                                       id="checkboxOne{{$feature->id}}"
-                                                       name="tag_electronica[]" value="{{$feature->id}}"
+                                                       id="checkboxOneCat{{$feature->id}}"
+                                                       name="tag[]" value="{{$feature->id}}"
                                                        class="">
                                                 <label
-                                                    for="checkboxOne{{$feature->id}}">
+                                                    for="checkboxOneCat{{$feature->id}}">
                                                     {{$feature->name}}
                                                 </label>
                                             </li>
                                         @endforeach
                                     </ul>
-                                    @error('tag_electronica')
-                                    <small class="red-text" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
+
                                 </div>
                             </div>
                         </div>
@@ -310,21 +367,17 @@
                                         @foreach($curator_features[7]->curatorFeatureTag as $feature)
                                             <li>
                                                 <input type="checkbox"
-                                                       id="checkboxOne{{$feature->id}}"
-                                                       name="tag_folk[]" value="{{$feature->id}}"
+                                                       id="checkboxOneCat{{$feature->id}}"
+                                                       name="tag[]" value="{{$feature->id}}"
                                                        class="">
                                                 <label
-                                                    for="checkboxOne{{$feature->id}}">
+                                                    for="checkboxOneCat{{$feature->id}}">
                                                     {{$feature->name}}
                                                 </label>
                                             </li>
                                         @endforeach
                                     </ul>
-                                    @error('tag_folk')
-                                    <small class="red-text" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
+
                                 </div>
                             </div>
                         </div>
@@ -341,21 +394,17 @@
                                         @foreach($curator_features[8]->curatorFeatureTag as $feature)
                                             <li>
                                                 <input type="checkbox"
-                                                       id="checkboxOne{{$feature->id}}"
-                                                       name="tag_hip_hop[]" value="{{$feature->id}}"
+                                                       id="checkboxOneCat{{$feature->id}}"
+                                                       name="tag[]" value="{{$feature->id}}"
                                                        class="">
                                                 <label
-                                                    for="checkboxOne{{$feature->id}}">
+                                                    for="checkboxOneCat{{$feature->id}}">
                                                     {{$feature->name}}
                                                 </label>
                                             </li>
                                         @endforeach
                                     </ul>
-                                    @error('tag_hip_hop')
-                                    <small class="red-text" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
+
                                 </div>
                             </div>
                         </div>
@@ -372,21 +421,17 @@
                                         @foreach($curator_features[9]->curatorFeatureTag as $feature)
                                             <li>
                                                 <input type="checkbox"
-                                                       id="checkboxOne{{$feature->id}}"
-                                                       name="tag_house[]" value="{{$feature->id}}"
+                                                       id="checkboxOneCat{{$feature->id}}"
+                                                       name="tag[]" value="{{$feature->id}}"
                                                        class="">
                                                 <label
-                                                    for="checkboxOne{{$feature->id}}">
+                                                    for="checkboxOneCat{{$feature->id}}">
                                                     {{$feature->name}}
                                                 </label>
                                             </li>
                                         @endforeach
                                     </ul>
-                                    @error('tag_house')
-                                    <small class="red-text" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
+
                                 </div>
                             </div>
                         </div>
@@ -403,21 +448,17 @@
                                         @foreach($curator_features[10]->curatorFeatureTag as $feature)
                                             <li>
                                                 <input type="checkbox"
-                                                       id="checkboxOne{{$feature->id}}"
-                                                       name="tag_idm[]" value="{{$feature->id}}"
+                                                       id="checkboxOneCat{{$feature->id}}"
+                                                       name="tag[]" value="{{$feature->id}}"
                                                        class="">
                                                 <label
-                                                    for="checkboxOne{{$feature->id}}">
+                                                    for="checkboxOneCat{{$feature->id}}">
                                                     {{$feature->name}}
                                                 </label>
                                             </li>
                                         @endforeach
                                     </ul>
-                                    @error('tag_idm')
-                                    <small class="red-text" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
+
                                 </div>
                             </div>
                         </div>
@@ -434,21 +475,17 @@
                                         @foreach($curator_features[11]->curatorFeatureTag as $feature)
                                             <li>
                                                 <input type="checkbox"
-                                                       id="checkboxOne{{$feature->id}}"
-                                                       name="tag_metal_hard_Rock[]" value="{{$feature->id}}"
+                                                       id="checkboxOneCat{{$feature->id}}"
+                                                       name="tag[]" value="{{$feature->id}}"
                                                        class="">
                                                 <label
-                                                    for="checkboxOne{{$feature->id}}">
+                                                    for="checkboxOneCat{{$feature->id}}">
                                                     {{$feature->name}}
                                                 </label>
                                             </li>
                                         @endforeach
                                     </ul>
-                                    @error('tag_metal_hard_Rock')
-                                    <small class="red-text" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
+
                                 </div>
                             </div>
                         </div>
@@ -465,21 +502,17 @@
                                         @foreach($curator_features[12]->curatorFeatureTag as $feature)
                                             <li>
                                                 <input type="checkbox"
-                                                       id="checkboxOne{{$feature->id}}"
-                                                       name="tag_other[]" value="{{$feature->id}}"
+                                                       id="checkboxOneCat{{$feature->id}}"
+                                                       name="tag[]" value="{{$feature->id}}"
                                                        class="">
                                                 <label
-                                                    for="checkboxOne{{$feature->id}}">
+                                                    for="checkboxOneCat{{$feature->id}}">
                                                     {{$feature->name}}
                                                 </label>
                                             </li>
                                         @endforeach
                                     </ul>
-                                    @error('tag_other')
-                                    <small class="red-text" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
+
                                 </div>
                             </div>
                         </div>
@@ -496,21 +529,17 @@
                                         @foreach($curator_features[13]->curatorFeatureTag as $feature)
                                             <li>
                                                 <input type="checkbox"
-                                                       id="checkboxOne{{$feature->id}}"
-                                                       name="tag_pop[]" value="{{$feature->id}}"
+                                                       id="checkboxOneCat{{$feature->id}}"
+                                                       name="tag[]" value="{{$feature->id}}"
                                                        class="">
                                                 <label
-                                                    for="checkboxOne{{$feature->id}}">
+                                                    for="checkboxOneCat{{$feature->id}}">
                                                     {{$feature->name}}
                                                 </label>
                                             </li>
                                         @endforeach
                                     </ul>
-                                    @error('tag_pop')
-                                    <small class="red-text" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
+
                                 </div>
                             </div>
                         </div>
@@ -527,21 +556,17 @@
                                         @foreach($curator_features[14]->curatorFeatureTag as $feature)
                                             <li>
                                                 <input type="checkbox"
-                                                       id="checkboxOne{{$feature->id}}"
-                                                       name="tag_punk[]" value="{{$feature->id}}"
+                                                       id="checkboxOneCat{{$feature->id}}"
+                                                       name="tag[]" value="{{$feature->id}}"
                                                        class="">
                                                 <label
-                                                    for="checkboxOne{{$feature->id}}">
+                                                    for="checkboxOneCat{{$feature->id}}">
                                                     {{$feature->name}}
                                                 </label>
                                             </li>
                                         @endforeach
                                     </ul>
-                                    @error('tag_punk')
-                                    <small class="red-text" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
+
                                 </div>
                             </div>
                         </div>
@@ -558,21 +583,17 @@
                                         @foreach($curator_features[15]->curatorFeatureTag as $feature)
                                             <li>
                                                 <input type="checkbox"
-                                                       id="checkboxOne{{$feature->id}}"
-                                                       name="tag_rnb[]" value="{{$feature->id}}"
+                                                       id="checkboxOneCat{{$feature->id}}"
+                                                       name="tag[]" value="{{$feature->id}}"
                                                        class="">
                                                 <label
-                                                    for="checkboxOne{{$feature->id}}">
+                                                    for="checkboxOneCat{{$feature->id}}">
                                                     {{$feature->name}}
                                                 </label>
                                             </li>
                                         @endforeach
                                     </ul>
-                                    @error('tag_rnb')
-                                    <small class="red-text" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
+
                                 </div>
                             </div>
                         </div>
@@ -589,21 +610,17 @@
                                         @foreach($curator_features[16]->curatorFeatureTag as $feature)
                                             <li>
                                                 <input type="checkbox"
-                                                       id="checkboxOne{{$feature->id}}"
-                                                       name="tag_world_music[]" value="{{$feature->id}}"
+                                                       id="checkboxOneCat{{$feature->id}}"
+                                                       name="tag[]" value="{{$feature->id}}"
                                                        class="">
                                                 <label
-                                                    for="checkboxOne{{$feature->id}}">
+                                                    for="checkboxOneCat{{$feature->id}}">
                                                     {{$feature->name}}
                                                 </label>
                                             </li>
                                         @endforeach
                                     </ul>
-                                    @error('tag_world_music')
-                                    <small class="red-text" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
+
                                 </div>
                             </div>
                         </div>
@@ -627,21 +644,17 @@
                                         @foreach($curator_features[17]->curatorFeatureTag as $feature)
                                             <li>
                                                 <input type="checkbox"
-                                                       id="checkboxOne{{$feature->id}}"
-                                                       name="tag_classic_instrumental[]" value="{{$feature->id}}"
+                                                       id="checkboxOneCat{{$feature->id}}"
+                                                       name="tag[]" value="{{$feature->id}}"
                                                        class="">
                                                 <label
-                                                    for="checkboxOne{{$feature->id}}">
+                                                    for="checkboxOneCat{{$feature->id}}">
                                                     {{$feature->name}}
                                                 </label>
                                             </li>
                                         @endforeach
                                     </ul>
-                                    @error('tag_classic_instrumental')
-                                    <small class="red-text" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
+
                                 </div>
                             </div>
                         </div>
@@ -658,21 +671,17 @@
                                         @foreach($curator_features[18]->curatorFeatureTag as $feature)
                                             <li>
                                                 <input type="checkbox"
-                                                       id="checkboxOne{{$feature->id}}"
-                                                       name="tag_electronic[]" value="{{$feature->id}}"
+                                                       id="checkboxOneCat{{$feature->id}}"
+                                                       name="tag[]" value="{{$feature->id}}"
                                                        class="">
                                                 <label
-                                                    for="checkboxOne{{$feature->id}}">
+                                                    for="checkboxOneCat{{$feature->id}}">
                                                     {{$feature->name}}
                                                 </label>
                                             </li>
                                         @endforeach
                                     </ul>
-                                    @error('tag_electronic')
-                                    <small class="red-text" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
+
                                 </div>
                             </div>
                         </div>
@@ -689,57 +698,53 @@
                                         @foreach($curator_features[19]->curatorFeatureTag as $feature)
                                             <li>
                                                 <input type="checkbox"
-                                                       id="checkboxOne{{$feature->id}}"
-                                                       name="tag_folk_acoustic[]" value="{{$feature->id}}"
+                                                       id="checkboxOneCat{{$feature->id}}"
+                                                       name="tag[]" value="{{$feature->id}}"
                                                        class="">
                                                 <label
-                                                    for="checkboxOne{{$feature->id}}">
+                                                    for="checkboxOneCat{{$feature->id}}">
                                                     {{$feature->name}}
                                                 </label>
                                             </li>
                                         @endforeach
                                     </ul>
-                                    @error('tag_folk_acoustic')
-                                    <small class="red-text" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
+
                                 </div>
                             </div>
                         </div>
                     @endif
 
 
-{{--                    @if($curator_features[20]->name == 'Hip-hop / Rap')--}}
-{{--                        <div class="faq row">--}}
-{{--                            <div class="col s12 m9 l12">--}}
-{{--                                <div class="collapsible-header features_tAgs">--}}
-{{--                                    Hip-hop / Rap--}}
-{{--                                </div>--}}
-{{--                                <div class="features-box">--}}
-{{--                                    <ul class="ks-cboxtags">--}}
-{{--                                        @foreach($curator_features[20]->curatorFeatureTag as $feature)--}}
-{{--                                            <li>--}}
-{{--                                                <input type="checkbox"--}}
-{{--                                                       id="checkboxOne{{$feature->id}}"--}}
-{{--                                                       name="tag[]" value="{{$feature->id}}"--}}
-{{--                                                       class="">--}}
-{{--                                                <label--}}
-{{--                                                    for="checkboxOne{{$feature->id}}">--}}
-{{--                                                    {{$feature->name}}--}}
-{{--                                                </label>--}}
-{{--                                            </li>--}}
-{{--                                        @endforeach--}}
-{{--                                    </ul>--}}
-{{--                                    @error('tag_folk_acoustic')--}}
-{{--                                    <small class="red-text" role="alert">--}}
-{{--                                        {{ $message }}--}}
-{{--                                    </small>--}}
-{{--                                    @enderror--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    @endif--}}
+                    {{--                    @if($curator_features[20]->name == 'Hip-hop / Rap')--}}
+                    {{--                        <div class="faq row">--}}
+                    {{--                            <div class="col s12 m9 l12">--}}
+                    {{--                                <div class="collapsible-header features_tAgs">--}}
+                    {{--                                    Hip-hop / Rap--}}
+                    {{--                                </div>--}}
+                    {{--                                <div class="features-box">--}}
+                    {{--                                    <ul class="ks-cboxtags">--}}
+                    {{--                                        @foreach($curator_features[20]->curatorFeatureTag as $feature)--}}
+                    {{--                                            <li>--}}
+                    {{--                                                <input type="checkbox"--}}
+                    {{--                                                       id="checkboxOneCat{{$feature->id}}"--}}
+                    {{--                                                       name="tag[]" value="{{$feature->id}}"--}}
+                    {{--                                                       class="">--}}
+                    {{--                                                <label--}}
+                    {{--                                                    for="checkboxOneCat{{$feature->id}}">--}}
+                    {{--                                                    {{$feature->name}}--}}
+                    {{--                                                </label>--}}
+                    {{--                                            </li>--}}
+                    {{--                                        @endforeach--}}
+                    {{--                                    </ul>--}}
+                    {{--                                    @error('tag_folk_acoustic')--}}
+                    {{--                                    <small class="red-text" role="alert">--}}
+                    {{--                                        {{ $message }}--}}
+                    {{--                                    </small>--}}
+                    {{--                                    @enderror--}}
+                    {{--                                </div>--}}
+                    {{--                            </div>--}}
+                    {{--                        </div>--}}
+                    {{--                    @endif--}}
 
                     @if($curator_features[21]->name == 'Jazz')
                         <div class="faq row">
@@ -752,21 +757,17 @@
                                         @foreach($curator_features[21]->curatorFeatureTag as $feature)
                                             <li>
                                                 <input type="checkbox"
-                                                       id="checkboxOne{{$feature->id}}"
-                                                       name="tag_jazz[]" value="{{$feature->id}}"
+                                                       id="checkboxOneCat{{$feature->id}}"
+                                                       name="tag[]" value="{{$feature->id}}"
                                                        class="">
                                                 <label
-                                                    for="checkboxOne{{$feature->id}}">
+                                                    for="checkboxOneCat{{$feature->id}}">
                                                     {{$feature->name}}
                                                 </label>
                                             </li>
                                         @endforeach
                                     </ul>
-                                    @error('tag_jazz')
-                                    <small class="red-text" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
+
                                 </div>
                             </div>
                         </div>
@@ -783,21 +784,17 @@
                                         @foreach($curator_features[22]->curatorFeatureTag as $feature)
                                             <li>
                                                 <input type="checkbox"
-                                                       id="checkboxOne{{$feature->id}}"
-                                                       name="tag_metal[]" value="{{$feature->id}}"
+                                                       id="checkboxOneCat{{$feature->id}}"
+                                                       name="tag[]" value="{{$feature->id}}"
                                                        class="">
                                                 <label
-                                                    for="checkboxOne{{$feature->id}}">
+                                                    for="checkboxOneCat{{$feature->id}}">
                                                     {{$feature->name}}
                                                 </label>
                                             </li>
                                         @endforeach
                                     </ul>
-                                    @error('tag_metal')
-                                    <small class="red-text" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
+
                                 </div>
                             </div>
                         </div>
@@ -814,21 +811,17 @@
                                         @foreach($curator_features[23]->curatorFeatureTag as $feature)
                                             <li>
                                                 <input type="checkbox"
-                                                       id="checkboxOne{{$feature->id}}"
-                                                       name="tag_pop_new[]" value="{{$feature->id}}"
+                                                       id="checkboxOneCat{{$feature->id}}"
+                                                       name="tag[]" value="{{$feature->id}}"
                                                        class="">
                                                 <label
-                                                    for="checkboxOne{{$feature->id}}">
+                                                    for="checkboxOneCat{{$feature->id}}">
                                                     {{$feature->name}}
                                                 </label>
                                             </li>
                                         @endforeach
                                     </ul>
-                                    @error('tag_pop_new')
-                                    <small class="red-text" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
+
                                 </div>
                             </div>
                         </div>
@@ -845,21 +838,17 @@
                                         @foreach($curator_features[24]->curatorFeatureTag as $feature)
                                             <li>
                                                 <input type="checkbox"
-                                                       id="checkboxOne{{$feature->id}}"
-                                                       name="tag_popular_music[]" value="{{$feature->id}}"
+                                                       id="checkboxOneCat{{$feature->id}}"
+                                                       name="tag[]" value="{{$feature->id}}"
                                                        class="">
                                                 <label
-                                                    for="checkboxOne{{$feature->id}}">
+                                                    for="checkboxOneCat{{$feature->id}}">
                                                     {{$feature->name}}
                                                 </label>
                                             </li>
                                         @endforeach
                                     </ul>
-                                    @error('tag_popular_music')
-                                    <small class="red-text" role="alert">
-                                        {{ $message }}
-                                    </small>
-                                    @enderror
+
                                 </div>
                             </div>
                         </div>
@@ -870,72 +859,22 @@
         </div>
     </div>
 
-    <div class="form-group row">
-        <div class="col-sm-3 form-control-label text-muted">YouTube / SoundCloud link</div>
-        <div class="col-sm-9">
-            <input type="text" name="youtube_soundcloud_url" id="trueUrl" onclick="removeStyle(this);"
-                   class="form-control @error('youtube_soundcloud_url') is-invalid @enderror" value=""
-                   placeholder="https://www.youtube.com/watch?v=iLd8ugdjJgk" required>
-            <div id="error_message_youtube_soundcloud" class="red-text" style="color:red; padding:4px;"></div>
-            @error('youtube_soundcloud_url')
-            <small id="error_message"class="red-text ml-10" role="alert">
-                {{ $message }}
-            </small>
-            @enderror
-            <div class="row">
-                <div class="col-sm-12">
-                    <div id="preview"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <div class="col-sm-3 form-control-label text-muted">Spotify track link (optional)</div>
-        <div class="col-sm-9">
-            <input type="url" name="spotify_track_url" onclick="removeStyle(this);"
-                   class="form-control @error('spotify_track_url') is-invalid @enderror"
-                   value=""
-                   placeholder="https://open.spotify.com/artist/5eJu3FXEJJGVaQpAeQjdwg" required>
-            <div id="error_message_spotify_track" class="red-text" style="color:red; padding:4px;"></div>
-            @error('spotify_track_url')
-            <small class="red-text ml-10" role="alert">
-                {{ $message }}
-            </small>
-            @enderror
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <div class="col-sm-3 form-control-label text-muted">Song Thumbnail</div>
-        <div class="col-sm-9">
-            <input type='file' class="form-control" id="imageTrackUpload" name="track_thumbnail"
-                   accept=".png, .jpg, .jpeg" />
-            <label for="imageTrackUpload"></label>
-            <div class="imgTrackPreview">
-                <img src=""
-                     id="imgTrackPreview" style="display:none;">
-            </div>
-        </div>
-    </div>
 
 
+{{--    <div class="form-group row">--}}
+{{--        <div class="col-sm-3 form-control-label text-muted">Song Category</div>--}}
+{{--        <div class="col-sm-9">--}}
+{{--            <select class="form-control c-select" name="song_category" required>--}}
+{{--                <option value="" disabled selected>Choose Song Category</option>--}}
+{{--                @foreach($track_categories as $song_cat)--}}
+{{--                    <option value="{{$song_cat->id}}">{{$song_cat->name}}</option>--}}
+{{--                @endforeach--}}
+{{--            </select>--}}
+{{--            <div id="error_message_song_category" class="red-text" style="color:red; padding:4px;"></div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
-    <div class="form-group row">
-        <div class="col-sm-3 form-control-label text-muted"></div>
-        <div class="col-sm-9">
-            <div class="col s12">
-                <p class="mb-1">
-                    <label>
-                        <input type="checkbox" class="filled-in"
-                               name="display_profile"
-                               value="1"/>
-                        <span class="text-muted">Display on my public profile </span>
-                    </label>
-                </p>
-            </div>
-        </div>
-    </div>
+
 
     <div class="form-group row">
         <button type="submit" class="btn btn-sm rounded add_track" onclick='return validateAddTrackForm("track_song")'>
