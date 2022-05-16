@@ -63,12 +63,15 @@ class AuthenticationSocializeController extends Controller
                 // check email already exists on both side curator and artist
                 $user_email_exist = User::where('email',$user->getEmail())->where('type','!=',$request_from)->first();
 
-                if ($user_email_exist->type == 'curator'){
-                    return redirect('/taste-maker-login')->with('error','This email already exists. Try logging in again, forget your password, or Use another authentication method.');
-                }elseif ($user_email_exist->type == 'artist'){
-                    return redirect('/login')->with('error','This email already exists. Try logging in again, forget your password, or Use another authentication method.');
-                }else{
-                    return redirect('/')->with('error','This email already exists. Try logging in again, forget your password, or Use another authentication method.');
+                if(isset($user_email_exist))
+                {
+                    if ($user_email_exist->type == 'curator'){
+                        return redirect('/taste-maker-login')->with('error','Email is already exists, try with another provider to login');
+                    }elseif ($user_email_exist->type == 'artist'){
+                        return redirect('/login')->with('error','Email is already exists, try with another provider to login');
+                    }else{
+                        return redirect('/')->with('error','Email is already exists, try with another provider to login');
+                    }
                 }
 
             }elseif($provider == 'spotify'){

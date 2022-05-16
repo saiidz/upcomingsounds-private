@@ -580,9 +580,12 @@ ul:not(.browser-default) > li {
     /*top: 100px;*/
     /*left: 240px;*/
     z-index: 100;
-    height: 200px;
-    width:200px;
-    margin-top: 200px
+    /*height: 200px;*/
+    /*width:200px;*/
+    /*margin-top: 200px;*/
+    height: 232px;
+    width: 234px;
+    margin-top: 188px;
 }
 
 svg.svg-inline--fa {

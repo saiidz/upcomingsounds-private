@@ -17,7 +17,8 @@
         }
         .welcome_video > video{
             position: absolute;
-            top: 50%;
+            /*top: 50%;*/
+            top: 36%;
             left: 50%;
             z-index: 0;
             width: auto;
