@@ -186,15 +186,22 @@ class ArtistTrackController extends Controller
      */
     public function destroy(Request $request, ArtistTrack $artist_track)
     {
-        $audio = public_path('uploads/audio/' . $artist_track->audio);
-        if(file_exists($audio)) {
-            unlink($audio);
+        if(!empty($artist_track->audio))
+        {
+            $audio = public_path('uploads/audio/' . $artist_track->audio);
+            if(file_exists($audio)) {
+                unlink($audio);
+            }
         }
 
-        $image = public_path('uploads/track_thumbnail/' . $artist_track->track_thumbnail);
-        if(file_exists($image)) {
-            unlink($image);
+        if(!empty($artist_track->track_thumbnail))
+        {
+            $image = public_path('uploads/track_thumbnail/' . $artist_track->track_thumbnail);
+            if(file_exists($image)) {
+                unlink($image);
+            }
         }
+
         $artist_track->delete();
         return response()->json([
             'success' => 'Track are deleted!',
