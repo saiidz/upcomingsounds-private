@@ -154,11 +154,11 @@
                                 <p class="text-muted">Is This a Cover or a remix</p>
                                 <div class="remix">
                                     <label>
-                                        <input type="checkbox" class="radio audioOriginalEdit" value="original" name="audio_cover" />   Original</label>
+                                        <input type="checkbox" class="radio audioCover audioOriginalEdit" value="original" name="audio_cover" />   Original</label>
                                     <label>
-                                        <input type="checkbox" class="radio audioCoverEdit" value="cover" name="audio_cover" />   Cover</label>
+                                        <input type="checkbox" class="radio audioCover audioCoverEdit" value="cover" name="audio_cover" />   Cover</label>
                                     <label>
-                                        <input type="checkbox" class="radio audioRemixEdit" value="remix" name="audio_cover" />   Remix</label>
+                                        <input type="checkbox" class="radio audioCover audioRemixEdit" value="remix" name="audio_cover" />   Remix</label>
                                 </div>
                             </p>
                         </div>
