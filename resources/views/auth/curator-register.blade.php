@@ -37,7 +37,7 @@
                             {{--                            Sign up with Google--}}
                         </a>
 
-                        <a href="{{ url('/login/facebook/?request_from=taste-maker') }}" class="btn-block">
+                        <a href="{{ url('/login/facebook/?request_from=curator') }}" class="btn-block">
                             <img src="{{asset('images/facebook.png')}}"  style="width: 80%;">
 {{--                            <i class="fa fa-facebook pull-left"></i>--}}
 {{--                            Sign up with Facebook--}}
