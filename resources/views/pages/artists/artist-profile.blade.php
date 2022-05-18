@@ -570,6 +570,7 @@
 @endsection
 
 @section('page-script')
+    <script src="{{asset('js/track.js')}}"></script>
     <script>
         function removeStyle(objfield) {
             objfield.style.borderColor = "";
@@ -1053,6 +1054,19 @@
                     }else{
                         $('#displayEditProfile').attr( 'checked', false );
                     }
+                    $('#audioDescription').val(data.artist_track.audio_description);
+
+                    if(data.artist_track.audio_cover == "original"){
+                        $('.audioOriginalEdit').attr( 'checked', true );
+                    }else if(data.artist_track.audio_cover == "cover"){
+                        $('.audioCoverEdit').attr( 'checked', true );
+                    }else if(data.artist_track.audio_cover == "remix"){
+                        $('.audioRemixEdit').attr( 'checked', true );
+                    }else{
+                        $('.audioOriginalEdit').attr( 'checked', false );
+                        $('.audioCoverEdit').attr( 'checked', false );
+                        $('.audioRemixEdit').attr( 'checked', false );
+                    }
 
                 }
             });
@@ -1130,6 +1144,21 @@
         });
         document.getElementById('closeChangeArtistPassword').addEventListener('click', function (){
             document.querySelector('#changePasswordArtist').reset();
+        });
+    </script>
+
+    {{-- add track --}}
+    <script>
+        $('.audioCover').on('click', function(){
+            var $box = $(this);
+            if($box.is(':checked'))
+            {
+                var group = "input:checkbox[name='" + $box.attr("name") + "']";
+                $(group).prop('checked', false);
+                $box.prop("checked", true);
+            }else {
+                $box.prop("checked", false);
+            }
         });
     </script>
 @endsection

@@ -1,3 +1,4 @@
+
 <form method="POST" action="{{url('/store-track')}}"
       enctype="multipart/form-data" id="track_song" name="track_song">
     @csrf
@@ -113,10 +114,10 @@
     </div>
 
     <div class="form-group row">
-        <div class="col-sm-3 form-control-label text-muted">Song Upload(mp3,mp4,wav,aac)</div>
+        <div class="col-sm-3 form-control-label text-muted">Song Upload(mp3)</div>
         <div class="col-sm-9">
             <input type='file' class="form-control" name="audio" id="audioTrackUpload"
-                   accept=".mp3, .mp4, .wav, .aac" required />
+                   accept=".mp3" required />
             <label for="imageTrackUpload"></label>
             <div class="audioTrackPreview">
                 <audio controls="" src="" type="audio/mp3" controlslist="nodownload" id="audioTrackPreview" style="display:none;"></audio>
@@ -135,16 +136,35 @@
             <div class="col s12">
                 <p class="mb-1">
                     <label>
+                        <span class="afterRelease">After Release date, may we publicity display this in our submissions directory</span>
+                    </label>
+                </p>
+                <p class="mb-1">
+                    <label>
                         <input type="checkbox" class="filled-in"
                                name="display_profile"
                                value="1"/>
                         <span class="text-muted">Display on my public profile </span>
                     </label>
                 </p>
+                <p class="mb-1">
+                    <input type="text" class="form-control" placeholder="e.g. Please do not share this before 31 Dec"
+                               name="audio_description" />
+                </p>
+                <p class="mb-1">
+                    <p class="text-muted">Is This a Cover or a remix</p>
+                    <div class="remix">
+                        <label>
+                            <input type="checkbox" class="radio audioCover" value="original" name="audio_cover" />   Original</label>
+                        <label>
+                            <input type="checkbox" class="radio audioCover" value="cover" name="audio_cover" />   Cover</label>
+                        <label>
+                            <input type="checkbox" class="radio audioCover" value="remix" name="audio_cover" />   Remix</label>
+                    </div>
+                </p>
             </div>
         </div>
     </div>
-
 
     <div class="form-group row">
         <div class="col-sm-3 form-control-label text-muted">Select Genre </div>
@@ -169,7 +189,16 @@
                                 <div class="collapsible-header features_tAgs">
                                     I would love to recieve....
                                 </div>
-                                <div class="features-box">
+                                <div class="features-box-select">
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                        @if(!empty($curator_features))
+                                            @foreach($curator_features[0]->curatorFeatureTag as $feature)
+                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                {{-- <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[0]->curatorFeatureTag as $feature)
                                             <li>
@@ -184,8 +213,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     @endif
@@ -202,7 +230,16 @@
                                 <div class="collapsible-header features_tAgs">
                                     Alternative / Indie
                                 </div>
-                                <div class="features-box">
+                                <div class="features-box-select">
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                        @if(!empty($curator_features))
+                                            @foreach($curator_features[1]->curatorFeatureTag as $feature)
+                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                {{-- <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[1]->curatorFeatureTag as $feature)
                                             <li>
@@ -217,8 +254,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     @endif
@@ -229,7 +265,16 @@
                                 <div class="collapsible-header features_tAgs">
                                     Blogwave
                                 </div>
-                                <div class="features-box">
+                                <div class="features-box-select">
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                        @if(!empty($curator_features))
+                                            @foreach($curator_features[2]->curatorFeatureTag as $feature)
+                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                {{-- <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[2]->curatorFeatureTag as $feature)
                                             <li>
@@ -244,8 +289,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     @endif
@@ -255,7 +299,16 @@
                                 <div class="collapsible-header features_tAgs">
                                     Classic
                                 </div>
-                                <div class="features-box">
+                                <div class="features-box-select">
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                        @if(!empty($curator_features))
+                                            @foreach($curator_features[3]->curatorFeatureTag as $feature)
+                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                {{-- <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[3]->curatorFeatureTag as $feature)
                                             <li>
@@ -270,8 +323,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     @endif
@@ -282,7 +334,16 @@
                                 <div class="collapsible-header features_tAgs">
                                     Classical / Jazz
                                 </div>
-                                <div class="features-box">
+                                <div class="features-box-select">
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                        @if(!empty($curator_features))
+                                            @foreach($curator_features[4]->curatorFeatureTag as $feature)
+                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                {{-- <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[4]->curatorFeatureTag as $feature)
                                             <li>
@@ -297,8 +358,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     @endif
@@ -309,7 +369,16 @@
                                 <div class="collapsible-header features_tAgs">
                                     EDM
                                 </div>
-                                <div class="features-box">
+                                <div class="features-box-select">
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                        @if(!empty($curator_features))
+                                            @foreach($curator_features[5]->curatorFeatureTag as $feature)
+                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                {{-- <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[5]->curatorFeatureTag as $feature)
                                             <li>
@@ -324,7 +393,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     @endif
@@ -335,7 +404,16 @@
                                 <div class="collapsible-header features_tAgs">
                                     Electronica / Breaks
                                 </div>
-                                <div class="features-box">
+                                <div class="features-box-select">
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                        @if(!empty($curator_features))
+                                            @foreach($curator_features[6]->curatorFeatureTag as $feature)
+                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                {{-- <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[6]->curatorFeatureTag as $feature)
                                             <li>
@@ -350,8 +428,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     @endif
@@ -362,7 +439,16 @@
                                 <div class="collapsible-header features_tAgs">
                                     Folk
                                 </div>
-                                <div class="features-box">
+                                <div class="features-box-select">
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                        @if(!empty($curator_features))
+                                            @foreach($curator_features[7]->curatorFeatureTag as $feature)
+                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                {{-- <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[7]->curatorFeatureTag as $feature)
                                             <li>
@@ -377,8 +463,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     @endif
@@ -389,7 +474,16 @@
                                 <div class="collapsible-header features_tAgs">
                                     Hip-hop / Rap
                                 </div>
-                                <div class="features-box">
+                                <div class="features-box-select">
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                        @if(!empty($curator_features))
+                                            @foreach($curator_features[8]->curatorFeatureTag as $feature)
+                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                {{-- <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[8]->curatorFeatureTag as $feature)
                                             <li>
@@ -404,8 +498,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     @endif
@@ -416,7 +509,16 @@
                                 <div class="collapsible-header features_tAgs">
                                     House / Techno
                                 </div>
-                                <div class="features-box">
+                                <div class="features-box-select">
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                        @if(!empty($curator_features))
+                                            @foreach($curator_features[9]->curatorFeatureTag as $feature)
+                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                {{-- <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[9]->curatorFeatureTag as $feature)
                                             <li>
@@ -431,8 +533,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     @endif
@@ -443,7 +544,16 @@
                                 <div class="collapsible-header features_tAgs">
                                     IDM / Downtempo
                                 </div>
-                                <div class="features-box">
+                                <div class="features-box-select">
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                        @if(!empty($curator_features))
+                                            @foreach($curator_features[10]->curatorFeatureTag as $feature)
+                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                {{-- <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[10]->curatorFeatureTag as $feature)
                                             <li>
@@ -458,8 +568,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     @endif
@@ -470,7 +579,16 @@
                                 <div class="collapsible-header features_tAgs">
                                     Metal / Hard Rock
                                 </div>
-                                <div class="features-box">
+                                <div class="features-box-select">
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                        @if(!empty($curator_features))
+                                            @foreach($curator_features[11]->curatorFeatureTag as $feature)
+                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                {{-- <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[11]->curatorFeatureTag as $feature)
                                             <li>
@@ -485,8 +603,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     @endif
@@ -497,7 +614,16 @@
                                 <div class="collapsible-header features_tAgs">
                                     Other
                                 </div>
-                                <div class="features-box">
+                                <div class="features-box-select">
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                        @if(!empty($curator_features))
+                                            @foreach($curator_features[12]->curatorFeatureTag as $feature)
+                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                {{-- <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[12]->curatorFeatureTag as $feature)
                                             <li>
@@ -512,8 +638,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     @endif
@@ -524,7 +649,16 @@
                                 <div class="collapsible-header features_tAgs">
                                     Pop
                                 </div>
-                                <div class="features-box">
+                                <div class="features-box-select">
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                        @if(!empty($curator_features))
+                                            @foreach($curator_features[13]->curatorFeatureTag as $feature)
+                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                {{-- <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[13]->curatorFeatureTag as $feature)
                                             <li>
@@ -539,8 +673,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     @endif
@@ -551,7 +684,16 @@
                                 <div class="collapsible-header features_tAgs">
                                     Punk / Ska
                                 </div>
-                                <div class="features-box">
+                                <div class="features-box-select">
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                        @if(!empty($curator_features))
+                                            @foreach($curator_features[14]->curatorFeatureTag as $feature)
+                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                {{-- <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[14]->curatorFeatureTag as $feature)
                                             <li>
@@ -566,8 +708,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     @endif
@@ -578,7 +719,16 @@
                                 <div class="collapsible-header features_tAgs">
                                     RnB / Funk / Soul
                                 </div>
-                                <div class="features-box">
+                                <div class="features-box-select">
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                        @if(!empty($curator_features))
+                                            @foreach($curator_features[15]->curatorFeatureTag as $feature)
+                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                {{-- <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[15]->curatorFeatureTag as $feature)
                                             <li>
@@ -593,8 +743,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     @endif
@@ -605,7 +754,16 @@
                                 <div class="collapsible-header features_tAgs">
                                     World Music
                                 </div>
-                                <div class="features-box">
+                                <div class="features-box-select">
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                        @if(!empty($curator_features))
+                                            @foreach($curator_features[16]->curatorFeatureTag as $feature)
+                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                {{-- <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[16]->curatorFeatureTag as $feature)
                                             <li>
@@ -620,8 +778,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     @endif
@@ -639,7 +796,16 @@
                                 <div class="collapsible-header features_tAgs">
                                     Classic / Instrumental
                                 </div>
-                                <div class="features-box">
+                                <div class="features-box-select">
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                        @if(!empty($curator_features))
+                                            @foreach($curator_features[17]->curatorFeatureTag as $feature)
+                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                {{-- <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[17]->curatorFeatureTag as $feature)
                                             <li>
@@ -654,8 +820,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     @endif
@@ -666,7 +831,16 @@
                                 <div class="collapsible-header features_tAgs">
                                     Electronic
                                 </div>
-                                <div class="features-box">
+                                <div class="features-box-select">
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                        @if(!empty($curator_features))
+                                            @foreach($curator_features[18]->curatorFeatureTag as $feature)
+                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                {{-- <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[18]->curatorFeatureTag as $feature)
                                             <li>
@@ -681,8 +855,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     @endif
@@ -693,7 +866,16 @@
                                 <div class="collapsible-header features_tAgs">
                                     Folk / Acoustic
                                 </div>
-                                <div class="features-box">
+                                <div class="features-box-select">
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                        @if(!empty($curator_features))
+                                            @foreach($curator_features[19]->curatorFeatureTag as $feature)
+                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                {{-- <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[19]->curatorFeatureTag as $feature)
                                             <li>
@@ -708,8 +890,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     @endif
@@ -752,7 +933,16 @@
                                 <div class="collapsible-header features_tAgs">
                                     Jazz
                                 </div>
-                                <div class="features-box">
+                                <div class="features-box-select">
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                        @if(!empty($curator_features))
+                                            @foreach($curator_features[21]->curatorFeatureTag as $feature)
+                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                {{-- <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[21]->curatorFeatureTag as $feature)
                                             <li>
@@ -767,8 +957,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     @endif
@@ -779,7 +968,16 @@
                                 <div class="collapsible-header features_tAgs">
                                     Metal
                                 </div>
-                                <div class="features-box">
+                                <div class="features-box-select">
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                        @if(!empty($curator_features))
+                                            @foreach($curator_features[22]->curatorFeatureTag as $feature)
+                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                {{-- <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[22]->curatorFeatureTag as $feature)
                                             <li>
@@ -794,8 +992,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     @endif
@@ -806,7 +1003,16 @@
                                 <div class="collapsible-header features_tAgs">
                                     Pop
                                 </div>
-                                <div class="features-box">
+                                <div class="features-box-select">
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                        @if(!empty($curator_features))
+                                            @foreach($curator_features[23]->curatorFeatureTag as $feature)
+                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                {{-- <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[23]->curatorFeatureTag as $feature)
                                             <li>
@@ -821,8 +1027,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     @endif
@@ -833,7 +1038,16 @@
                                 <div class="collapsible-header features_tAgs">
                                     Popular Music
                                 </div>
-                                <div class="features-box">
+                                <div class="features-box-select">
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                        @if(!empty($curator_features))
+                                            @foreach($curator_features[24]->curatorFeatureTag as $feature)
+                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                {{-- <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[24]->curatorFeatureTag as $feature)
                                             <li>
@@ -848,8 +1062,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     @endif

@@ -280,6 +280,25 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
 #releaseDateTrack .gj-textbox-md {
     padding: 7px 25px!important;
 }
+.features-box-select{
+    margin: 20px 0px;
+}
+.choices__list--multiple .choices__item {
+    background-color: #02b875 !important;
+    border: 1px solid #02b875 !important;
+}
+
+
+.collapsible-header.features_tAgs {
+    color: #02b875 !important;
+    border: 1px solid #02b875 !important;
+}
+
+.afterRelease{
+    color:#02b875!important;
+}
+
+
 
 
 

@@ -31,6 +31,20 @@
 <script src="{{asset('scripts/site.js')}}"></script>
 <script src="{{asset('scripts/ajax.js')}}"></script>
 <script src="{{asset('js/swiper-bundle.min.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+        var multipleCancelButton = new Choices('#choices-multiple-remove-button', {
+           removeItemButton: true,
+        //    maxItemCount:5,
+        //    searchResultLimit:5,
+        //    renderChoiceLimit:5
+         });
+
+
+    });
+    </script>
 @yield('page-script')
 <script>
     var preload = document.getElementById("loadings");

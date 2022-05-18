@@ -44,7 +44,7 @@ class ArtistTrackController extends Controller
             'name' => 'required|string',
             'description' => 'required|string',
             'track_thumbnail' => 'required|file|mimes:jpeg,jpg,png,gif|max:2048',
-            'audio' =>'nullable|file|mimes:mp3,mp4,wav,aac',
+            'audio' =>'required|file|mimes:mp3|max:15000',
             'tag'  => 'required',
         ]);
 

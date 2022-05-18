@@ -119,10 +119,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label form-control-label text-muted">Song Upload(mp3,mp4,wav,aac)</label>
+                        <label class="control-label form-control-label text-muted">Song Upload(mp3)</label>
                         <div>
                             <input type='file' class="form-control" name="audio"
-                                   accept=".mp3, .mp4, .wav, .aac" />
+                                   accept=".mp3" />
                             <label for="imageEditTrackUpload"></label>
                             <div class="audioEditTrackPreview">
                                 <audio controls="" src="" type="audio/mp3" controlslist="nodownload" id="audioEditTrack"></audio>
@@ -134,12 +134,32 @@
                         <div>
                             <p class="mb-1">
                                 <label>
+                                    <span class="afterRelease">After Release date, may we publicity display this in our submissions directory</span>
+                                </label>
+                            </p>
+                            <p class="mb-1">
+                                <label>
                                     <input type="checkbox" class="filled-in"
                                            name="display_profile"
                                            id="displayEditProfile"
                                            value="1"/>
                                     <span class="text-muted">Display on my public profile </span>
                                 </label>
+                            </p>
+                            <p class="mb-1">
+                                <input type="text" id="audioDescription" class="form-control" placeholder="e.g. Please do not share this before 31 Dec"
+                                           name="audio_description" />
+                            </p>
+                            <p class="mb-1">
+                                <p class="text-muted">Is This a Cover or a remix</p>
+                                <div class="remix">
+                                    <label>
+                                        <input type="checkbox" class="radio audioOriginalEdit" value="original" name="audio_cover" />   Original</label>
+                                    <label>
+                                        <input type="checkbox" class="radio audioCoverEdit" value="cover" name="audio_cover" />   Cover</label>
+                                    <label>
+                                        <input type="checkbox" class="radio audioRemixEdit" value="remix" name="audio_cover" />   Remix</label>
+                                </div>
                             </p>
                         </div>
                     </div>

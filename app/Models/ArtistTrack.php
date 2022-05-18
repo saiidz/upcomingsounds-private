@@ -19,6 +19,8 @@ class ArtistTrack extends Model
         'youtube_soundcloud_url',
         'soundcloudUrl',
         'audio',
+        'audio_cover',
+        'audio_description',
         'spotify_track_url',
         'release_date',
         'display_profile',
