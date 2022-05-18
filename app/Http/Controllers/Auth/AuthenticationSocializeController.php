@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Exception;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use Laravel\Socialite\Facades\Socialite;
+use Carbon\Carbon;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Providers\RouteServiceProvider;
+use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\Validator;
 
 class AuthenticationSocializeController extends Controller
 {
@@ -135,7 +136,8 @@ class AuthenticationSocializeController extends Controller
     {
         if($request_from == 'artist'){
             $user = User::where('provider_id', $providerUser->id)->where('type',$request_from)->first();
-            if ($user) {
+            Log::info('user info artist: '.$user);
+            if (isset($user)) {
                 $user->update([
                     'name'              => !empty($user->name) ? $user->name : $providerUser->name,
                     'email'             => !empty($user->email) ? $user->email : $providerUser->email,
@@ -146,6 +148,7 @@ class AuthenticationSocializeController extends Controller
                     'provider_id'       => $providerUser->id,
                     'access_token'      => $providerUser->token
                 ]);
+                Log::info('update user info artist: '.$user);
             }else{
                 $user = User::create([
                     'name'              => $providerUser->getName(),
@@ -157,10 +160,12 @@ class AuthenticationSocializeController extends Controller
                     'provider_id'       => $providerUser->getId(),
                     'access_token'      => $providerUser->token,
                 ]);
+                Log::info('create user info artist: '.$user);
             }
         }elseif ($request_from == 'curator'){
             $user = User::where('provider_id', $providerUser->id)->where('type',$request_from)->first();
-            if ($user) {
+            Log::info('user info curator: '.$user);
+            if (isset($user)) {
                 $user->update([
                     'name'              => !empty($user->name) ? $user->name : $providerUser->name,
                     'email'             => !empty($user->email) ? $user->email : $providerUser->email,
@@ -171,6 +176,7 @@ class AuthenticationSocializeController extends Controller
                     'provider_id'       => $providerUser->id,
                     'access_token'      => $providerUser->token
                 ]);
+                Log::info('update user info curator: '.$user);
             }else{
                 $user = User::create([
                     'name'              => $providerUser->getName(),
@@ -182,6 +188,7 @@ class AuthenticationSocializeController extends Controller
                     'provider_id'       => $providerUser->getId(),
                     'access_token'      => $providerUser->token,
                 ]);
+                Log::info('create user info curator: '.$user);
             }
         }
 
