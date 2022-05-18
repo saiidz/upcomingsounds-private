@@ -62,7 +62,8 @@ class AuthenticationSocializeController extends Controller
                 $user = Socialite::driver('facebook')->user();
 
                 // check email already exists on both side curator and artist
-                $user_email_exist = User::where('email',$user->getEmail())->where('type','!=',$request_from)->first();
+                $user_email_exist = User::where('email',$user->getEmail())->first();
+                // $user_email_exist = User::where('email',$user->getEmail())->where('type','!=',$request_from)->first();
 
                 if(isset($user_email_exist))
                 {
