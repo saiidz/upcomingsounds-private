@@ -1,0 +1,50 @@
+<fieldset id="form1">
+    <div class="sub__title__container ">
+        <p>Step 1/4</p>
+        <h2>Start by adding your track or select one if you have already!</h2>
+        <p class="m-b-md">You are one step closer to spreading your art to the world, now add a new track and fill out the required information.</p>
+        <a class="m-b-md rounded addTrack" href="{{url('/artist-profile')}}#add-track">
+           Add New track
+        </a>
+    </div>
+
+    <div class="input__container">
+        <div class="row item-list item-list-md m-b">
+            @if(count($artist_tracks) > 0)
+                @foreach($artist_tracks as $track)
+                    <div class="col-sm-6 promoteArtist" onclick="artistTrack({{$track->id}})" >
+                        <div class="item r" data-id="item-5" id="promoteArtistItem_{{$track->id}}">
+                            <div class="item-media">
+                                @if(!empty($track->track_thumbnail))
+                                    <a href="javascript:void(0)" class="item-media-content" onclick="viewTrack({{$track->id}})" data-toggle="modal" data-target="#view-track"
+                                       style="background-image: url({{asset('uploads/track_thumbnail')}}/{{$track->track_thumbnail}});"></a>
+                                @else
+                                    <a href="javascript:void(0)" class="item-media-content" onclick="viewTrack({{$track->id}})" data-toggle="modal" data-target="#view-track"
+                                       style="background-image: url({{asset('images/b4.jpg')}});"></a>
+                                @endif
+                            </div>
+                            <div class="item-info">
+                                <div class="item-title bottom text-right">
+                                    <input type="checkbox" class="oneTrackSelected" id="oneTrackSelected_{{$track->id}}" value="{{$track->id}}" name="track_id" required />
+                                </div>
+                                <div class="item-title text-ellipsis">
+                                    <div>{{$track->name}}</div>
+                                </div>
+                                <div class="item-author text-sm text-ellipsis ">
+                                    <div class="text-muted">{{($user_artist->name) ? $user_artist->name : ''}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            @else
+                <div class="col-sm-6">
+                    <div class="item r" data-id="item-5">
+                        Not Found
+                    </div>
+                </div>
+            @endif
+        </div>
+        <a class="m-b-md rounded addTrack nxt__btn" onclick="nextForm();"> Next</a>
+    </div>
+</fieldset>

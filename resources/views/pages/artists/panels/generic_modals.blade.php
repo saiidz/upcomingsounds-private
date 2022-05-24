@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="form-group modal-footer">
-                        <button type="button" class="btn dark-white rounded update_track_not" id="closeChangeArtistPassword" data-dismiss="modal">No</button>
+                        <button type="button" class="btn dark-white rounded update_track_not" id="closeChangeArtistPassword" data-dismiss="modal">Cancle</button>
                         {{--                                <button type="button" class="btn danger p-x-md" data-dismiss="modal">Yes</button>--}}
                         <button type="submit" class="btn btn-sm rounded add_track">
                             Update Password</button>

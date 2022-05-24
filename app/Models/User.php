@@ -99,4 +99,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function transactionUserInfo(){
         return $this->hasOne(TransactionUserInfo::class,'user_id');
     }
+
+    // get curators received
+    public function scopeGetReceivedCurstors($query)
+    {
+        $query->where('is_approved',1)->where('type','curator');
+    }
 }

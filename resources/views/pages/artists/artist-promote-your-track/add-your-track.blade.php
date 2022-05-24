@@ -60,56 +60,7 @@
                             <div class="right__container">
                                 <form method="POST" action="{{url('store/track/campaign')}}" enctype="multipart/form-data">
                                     @csrf
-                                    <fieldset id="form1">
-                                        <div class="sub__title__container ">
-                                            <p>Step 1/4</p>
-                                            <h2>Start by adding your track or select one if you have already!</h2>
-                                            <p class="m-b-md">You are one step closer to spreading your art to the world, now add a new track and fill out the required information.</p>
-                                            <a class="m-b-md rounded addTrack" href="{{url('/artist-profile')}}#add-track">
-                                               Add New track
-                                            </a>
-                                        </div>
-
-                                        <div class="input__container">
-                                            <div class="row item-list item-list-md m-b">
-                                                @if(count($artist_tracks) > 0)
-                                                    @foreach($artist_tracks as $track)
-                                                        <div class="col-sm-6">
-                                                            <div class="item r" data-id="item-5">
-                                                                <div class="item-media">
-                                                                    @if(!empty($track->track_thumbnail))
-                                                                        <a href="javascript:void(0)" class="item-media-content" onclick="viewTrack({{$track->id}})" data-toggle="modal" data-target="#view-track"
-                                                                           style="background-image: url({{asset('uploads/track_thumbnail')}}/{{$track->track_thumbnail}});"></a>
-                                                                    @else
-                                                                        <a href="javascript:void(0)" class="item-media-content" onclick="viewTrack({{$track->id}})" data-toggle="modal" data-target="#view-track"
-                                                                           style="background-image: url({{asset('images/b4.jpg')}});"></a>
-                                                                    @endif
-                                                                </div>
-                                                                <div class="item-info">
-                                                                    <div class="item-title bottom text-right">
-                                                                        <input type="checkbox" class="oneTrackSelected" value="{{$track->id}}" name="track_id" />
-                                                                    </div>
-                                                                    <div class="item-title text-ellipsis">
-                                                                        <div>{{$track->name}}</div>
-                                                                    </div>
-                                                                    <div class="item-author text-sm text-ellipsis ">
-                                                                        <div class="text-muted">{{($user_artist->name) ? $user_artist->name : ''}}</div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    @endforeach
-                                                @else
-                                                    <div class="col-sm-6">
-                                                        <div class="item r" data-id="item-5">
-                                                            Not Found
-                                                        </div>
-                                                    </div>
-                                                @endif
-                                            </div>
-                                            <a class="m-b-md rounded addTrack nxt__btn" onclick="nextForm();"> Next</a>
-                                        </div>
-                                    </fieldset>
+                                    @include('pages.artists.artist-promote-your-track.form-wizard.step-one')
                                     <fieldset class="active__form" id="form2">
                                         <div class="sub__title__container">
                                             <p>Step 2/4</p>
@@ -118,33 +69,33 @@
                                             <span class="text-muted">Your answer is private and will not be shared with influencers.</span>
                                         </div>
                                         <div class="input__container">
-                                            <div class="selection newB" id="receivedDetails1">
+                                            <div class="selection selection_received newB" id="receivedDetails1" onclick="stepTwoReceivedTrack()">
                                                 <div class="imoji">
                                                     <img src="{{asset('images/objective_coaching.png')}}">
 {{--                                                    <ion-icon name="happy"></ion-icon>--}}
                                                 </div>
                                                 <div class="descriptionTitle">
-                                                    <h3>Get Detailed Advice</h3>
+                                                    <h3>Recieve Detailed Advice</h3>
                                                     <p>I'm looking for professional feedback for my project and demos in order to know what to improve: arrangement, mixing, production, visual content.</p>
                                                 </div>
                                                 <div class="item-title bottom text-right form2CheckedBox">
-                                                    <input type="checkbox" name="received_details" />
+                                                    <input type="checkbox" name="received_details" id="received_details" value="1" />
                                                 </div>
                                             </div>
-                                            <div class="selection exitB" id="getVisibility1">
+                                            <div class="selection selection_media exitB" id="getVisibility1" onclick="stepTwoMediaTrack()">
                                                 <div class="imoji">
                                                     <img src="{{asset('images/objective_visibility.png')}}">
 {{--                                                    <ion-icon name="business"></ion-icon>--}}
                                                 </div>
                                                 <div class="descriptionTitle">
-                                                    <h3>Obtain media coverage and social media exposure</h3>
+                                                    <h3>Get media coverage and social media exposure</h3>
                                                     <p>Specifically, I am looking for YouTube uploads, playlist placements, radio broadcasts, social media posts, or reviews from media outlets.</p>
                                                 </div>
                                                 <div class="item-title bottom text-right form2CheckedBox">
-                                                    <input type="checkbox"  name="get_visibility" />
+                                                    <input type="checkbox"  name="get_visibility" id="get_visibility" value="2" />
                                                 </div>
                                             </div>
-                                            <div class="selection exitB" id="buildProfessional1">
+                                            <div class="selection selection_establish exitB" id="buildProfessional1" onclick="stepTwoEstablishTrack()">
                                                 <div class="imoji">
                                                     <img src="{{asset('images/objective_partnerships.png')}}">
 {{--                                                    <ion-icon name="business"></ion-icon>--}}
@@ -154,7 +105,7 @@
                                                     <p>It is my goal to secure record deals with labels, booking agents, publishers, and music supervisors (those who place music in movies or TV commercials).</p>
                                                 </div>
                                                 <div class="item-title bottom text-right form2CheckedBox">
-                                                    <input type="checkbox"  name="get_visibility" />
+                                                    <input type="checkbox" name="get_establish" id="get_establish" value="3"/>
                                                 </div>
                                             </div>
                                             <div class="buttons"><a class="m-b-md rounded addTrack prev__btn" onclick="prevForm();">Back</a> <a
@@ -290,11 +241,123 @@
             });
         }
 
+        // promote track
+        function artistTrack(id)
+        {
+            $('.item').removeClass('item_artist');
+            $('#promoteArtistItem_'+id).addClass('item_artist');
+
+            $('.oneTrackSelected').prop('checked', false);
+            $('#oneTrackSelected_'+id).prop('checked', true);
+        }
         $(document).ready(function(){
             $('.oneTrackSelected').click(function() {
                 $('.oneTrackSelected').not(this).prop('checked', false);
             });
         });
+
+        // step 2 artist track
+        function stepTwoReceivedTrack()
+        {
+            $('.selection_media').removeClass('step_media');
+            $('.selection_establish').removeClass('step_establish');
+
+            $('#receivedDetails1').addClass('step_received');
+
+            // $('.oneTrackSelected').prop('checked', false);
+            $('#get_visibility').prop('checked', false);
+            $('#get_establish').prop('checked', false);
+
+            $('#received_details').prop('checked', true);
+
+            // get value of recieved
+            let recieved_check = $('#received_details').val();
+            console.log(recieved_check);
+
+            $.ajax({
+                type: "GET",
+                url: '{{url('/get-curators')}}',
+                data: {
+                    recieved_check: recieved_check,
+                },
+                dataType: 'json',
+                success: function (data) {
+                    if (data.success) {
+                        toastr.success(data.success);
+                    }
+                    // if (data.error) {
+                    //     document.getElementById('redPriceError').innerHTML = data.error;
+                    //     setTimeout(function () {
+                    //         document.getElementById('redPriceError').innerHTML = '';
+                    //     }, 3000);
+                    // }
+                },
+            });
+        }
+
+        function stepTwoMediaTrack()
+        {
+            $('.selection_received').removeClass('step_received');
+            $('.selection_establish').removeClass('step_establish');
+
+            $('#getVisibility1').addClass('step_media');
+
+            // $('.oneTrackSelected').prop('checked', false);
+            $('#received_details').prop('checked', false);
+            $('#get_establish').prop('checked', false);
+
+            $('#get_visibility').prop('checked', true);
+
+            // get value of visibility
+            let visibility_check = $('#get_visibility').val();
+
+            console.log(visibility_check);
+            $.ajax({
+                type: "GET",
+                url: '{{url('/get-curators')}}',
+                data: {
+                    visibility_check: visibility_check,
+                },
+                dataType: 'json',
+                success: function (data) {
+                    if (data.success) {
+                        window.location.reload();
+                        toastr.success(data.success);
+                    }
+
+                },
+            });
+        }
+
+        function stepTwoEstablishTrack()
+        {
+            $('.selection_media').removeClass('step_media');
+            $('.selection_received').removeClass('step_received');
+
+            $('#buildProfessional1').addClass('step_establish');
+
+            $('#received_details').prop('checked', false);
+            $('#get_visibility').prop('checked', false);
+            $('#get_establish').prop('checked', true);
+
+            // get value of establish
+            let establish_check = $('#get_establish').val();
+            console.log(establish_check);
+            $.ajax({
+                type: "GET",
+                url: '{{url('/get-curators')}}',
+                data: {
+                    establish_check: establish_check,
+                },
+                dataType: 'json',
+                success: function (data) {
+                    if (data.success) {
+                        toastr.success(data.success);
+                    }
+
+                },
+            });
+        }
 
         $('#receivedDetails1').click(function ()
         {
@@ -329,7 +392,23 @@
         var viewId = 1;
 
         function nextForm() {
-            console.log("hellonext");
+            // check value track come
+            let track_id = $('.oneTrackSelected').is(':checked');
+            console.log(track_id);
+            if(track_id == false)
+            {
+                toastr.error('Please Select Track');
+                return false;
+            }
+
+            // let track_id = $('#received_details').is(':checked');
+            // console.log(track_id);
+            // if(track_id == false)
+            // {
+            //     toastr.error('Please Select Track');
+            //     return false;
+            // }
+
             viewId = viewId + 1;
             progressBar();
             displayForms();

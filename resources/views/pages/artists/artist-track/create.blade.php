@@ -131,7 +131,7 @@
     </div>
 
     <div class="form-group row">
-        <div class="col-sm-3 form-control-label text-muted"></div>
+        <div class="col-sm-3 form-control-label text-muted" style="color: red !important">Unreleased</div>
         <div class="col-sm-9">
             <div class="col s12">
                 <p class="mb-1">

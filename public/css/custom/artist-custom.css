@@ -297,7 +297,15 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
 .afterRelease{
     color:#02b875!important;
 }
-
+.promoteArtist{
+    cursor: pointer !important;
+}
+.item_artist {
+    border: 1px solid #02b875 !important;
+}
+.step_received, .step_media, .step_establish{
+    border: 1px solid #02b875 !important;
+}
 
 
 

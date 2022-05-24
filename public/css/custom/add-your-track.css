@@ -210,7 +210,8 @@ body{
     border: 1px solid var(--secondery-color);
     margin-bottom: 1.2rem;
     outline: none;
-    color: #ffffff
+    color: #ffffff;
+    opacity: 0;
 }
 .addTrack{
     align-items: center;
@@ -283,8 +284,8 @@ body{
 }
 
 .selection:hover {
-    border: 1px solid var(--secondery-color);
-    background-color: var(--primary-color);
+    /* border: 1px solid var(--secondery-color); */
+    /* background-color: var(--primary-color); */
     cursor: pointer
 }
 
