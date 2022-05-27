@@ -30,8 +30,8 @@
                         </h3>
                         <div class="mrg-bottom-30">
                             <span>
-                                <p class="text-muted text-md">We've combined all of your submissions into one easy-to-use Dashboard, UpcomingSounds is your one source for New Music.</p>
-                                <p class="text-muted text-md">Our platform enables tastemakers, curators, and professionals from around the world to discover new music, connect, share their favorite tunes and find out about cool events. We are looking forward to receiving your application :)</p>
+                                <p class="text-muted text-md">We've unified the submissions into one easy-to-use dashboard. UpcomingSounds.com is the ultimate resource for music promotion.</p>
+                                <p class="text-muted text-md">Our platform allows music fans, curators, and professionals to discover new music, connect, share their favorite tunes, and find out about cool events all over the world. We are looking forward to receiving your upcoming release :)</p>
                             </span>
                         </div>
                         {{--                        @if(Auth::check() && Auth::user()->type == 'artist')--}}
