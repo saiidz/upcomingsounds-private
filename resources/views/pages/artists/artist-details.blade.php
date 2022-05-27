@@ -56,7 +56,11 @@
                                 <span>1- Signup   >>>   2-Uploud your song  >>>    3- Select curators and send your song. </span>
                             </h5>
                             <span>
-                                <p class="text-muted text-md">UpcomingSounds allows you to easily send your music to curators using USC Coins' "credits." Each curator requests the standard fee of 2 USC coins, Verified curators, tastemakers, and pors require 4 to  50 credits depending on their level.</p>
+                                <p class="text-muted text-md">We work in ways that benefit the artist. We offer two different ways to submit music.</p>
+                                <p class="text-muted text-md">As an option 1, you can choose each curator and send each release separately.
+
+With Option 2, a curator will approach you and submit your release to their media platforms when you launch an automatic campaign</p>
+                                <p class="text-muted text-md">With UpcomingSounds, you can easily send your music to curators,  by purchasing USC Coins "credits".  There are three levels of curators: curators, tastemakers, and pros. Curators require 2 USCs, Verified curators, tastemakers, and pros require 4 to 50 USCs, depending on their level.</p>
                                 <p class="text-muted text-md">It doesn't matter if you are just starting and sending demos or if your work is already established and ready to be shown, we are here to help. you can expect your submission decision within 96 hours of receiving it. We will connect you with curators, blogs, journalists and other professionals that can get you the exposure you need in the industry. We can guarantee that you will get feedback from every track you submit. Sometimes the feedback you receive when your song is declined will be useful.</p>
                             </span>
                         </div>
