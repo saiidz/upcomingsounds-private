@@ -87,7 +87,7 @@ With Option 2, a curator will approach you and submit your release to their medi
                                 <span>Verified Pro's / Curators </span>
                             </h5>
                             <p class="text-muted text-md m-t-2">
-                                <span>UpcomingSounds is an Easy Access Tool that allows you to listen and make the decision faster, whether you want to share a song or give feedback. Each submission includes links to the song link, Artwork, Artist social media profiles, additional streaming sources, and information about that song.</span>
+                                <span> Upcomingsounds.com is  an easy-to-use service that allows you to share, promote, and sell your music online, while also connecting you with a variety of music industry experts. </span>
                             </p>
                         </div>
                         <div class="col-xs-12 col-sm-12 m5 bullets offset-m1">
