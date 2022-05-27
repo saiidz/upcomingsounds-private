@@ -22,6 +22,7 @@ class ArtistTrack extends Model
         'audio_cover',
         'audio_description',
         'spotify_track_url',
+        'ep_lp_link',
         'release_date',
         'display_profile',
         'track_thumbnail',

@@ -44,11 +44,27 @@
                 <!-- nabar right -->
                 <ul class="nav navbar-nav pull-right">
                     @if(Auth::check())
-                        <li class="nav-item">
+
+                        @if(Auth::user()->type == 'artist')
+                            <li class="nav-item">
+                                <a href="{{url('/artist-profile')}}" class="nav-link">
+                                    <span class="nav-text">Dashboard</span>
+                                </a>
+                            </li>
+                        @elseif(Auth::user()->type == 'curator')
+                            <li class="nav-item">
+                                <a href="{{url('/taste-maker-profile')}}" class="nav-link">
+                                    <span class="nav-text">Dashboard</span>
+                                </a>
+                            </li>
+                        @else
+                        @endif
+
+                        {{-- <li class="nav-item">
                             <a href="{{ route('logout') }}" class="nav-link">
                                 Sign out
                             </a>
-                        </li>
+                        </li> --}}
                     @else
                         <li class="nav-item">
                             <a href="{{ route('curator.register') }}" class="nav-link">
@@ -77,14 +93,8 @@
                 <!-- / navbar right -->
 
                 <!-- navbar collapse -->
-                <div class="collapse navbar-toggleable-sm l-h-0 text-center" id="navbar">
-                    <!-- link and dropdown -->
+                {{-- <div class="collapse navbar-toggleable-sm l-h-0 text-center" id="navbar">
                     <ul class="nav navbar-nav nav-md inline text-primary-hover">
-{{--                        <li class="nav-item">--}}
-{{--                            <a href="#" class="nav-link">--}}
-{{--                                <span class="nav-text">Site</span>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
                         @if(Auth::check() && Auth::user()->type == 'artist')
                             <li class="nav-item">
                                 <a href="{{url('/artist-profile')}}" class="nav-link">
@@ -108,21 +118,9 @@
                                 </a>
                             </li>
                         @else
-{{--                            <li class="nav-item">--}}
-{{--                                <a href="javascript:void(0)" class="nav-link">--}}
-{{--                                    <span class="nav-text">Web App</span>--}}
-{{--                                </a>--}}
-{{--                            </li>--}}
                         @endif
-
-{{--                        <li class="nav-item">--}}
-{{--                            <a href="#" class="nav-link">--}}
-{{--                                <span class="nav-text">Rtl</span>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
                     </ul>
-                    <!-- / link and dropdown -->
-                </div>
+                </div> --}}
                 <!-- / navbar collapse -->
             </div>
         </div>

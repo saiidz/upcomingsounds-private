@@ -101,6 +101,16 @@
     </div>
 
     <div class="form-group row">
+        <div class="col-sm-3 form-control-label text-muted">EP/LP Link (optional)</div>
+        <div class="col-sm-9">
+            <input type="url" name="ep_lp_link"
+                   class="form-control @error('ep_lp_link') is-invalid @enderror"
+                   value="{{old('ep_lp_link')}}"
+                   placeholder="https://xyz.com">
+        </div>
+    </div>
+
+    <div class="form-group row">
         <div class="col-sm-3 form-control-label text-muted">Song Thumbnail</div>
         <div class="col-sm-9">
             <input type='file' class="form-control" id="imageTrackUpload" name="track_thumbnail"

@@ -1032,6 +1032,7 @@
 
                     $('#soundcloudUrlEdit').val(data.artist_track.soundcloudUrl);
                     $('#spotifyTrackUrl').val(data.artist_track.spotify_track_url);
+                    $('#epLpLink').val(data.artist_track.ep_lp_link);
                     $('#trackEditTitle').val(data.artist_track.name);
                     $('#trackEditDescription').val(data.artist_track.description);
 

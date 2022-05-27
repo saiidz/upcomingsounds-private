@@ -106,6 +106,15 @@
                     </div>
 
                     <div class="form-group">
+                        <label class="control-label form-control-label text-muted">EP/LP Link (optional)</label>
+                        <div>
+                            <input type="url" name="ep_lp_link" id="epLpLink" value="" onclick="removeStyle(this);"
+                                   class="form-control @error('ep_lp_link') is-invalid @enderror"
+                                   placeholder="https://xyz.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label class="control-label form-control-label text-muted">Song Thumbnail</label>
                         <div>
                             <input type='file' class="form-control" id="imageEditTrackUpload" name="track_thumbnail"
