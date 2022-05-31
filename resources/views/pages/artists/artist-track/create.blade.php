@@ -188,7 +188,7 @@
                     </div>
                     <div class="underline"></div>
                     <div class="row music"></div>
-                    @if($curator_features[0]->name == 'You can select interests that correspond with your releases')
+                    @if($curator_features[0]->name == 'You can select interests that correspond with your releases.')
                         @error('tag')
                             <small class="red-text" role="alert">
                                 {{ $message }}
