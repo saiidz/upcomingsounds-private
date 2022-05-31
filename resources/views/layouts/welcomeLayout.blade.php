@@ -48,13 +48,14 @@
                         @if(Auth::user()->type == 'artist')
                             <li class="nav-item">
                                 <a href="{{url('/artist-profile')}}" class="nav-link">
-                                    <span class="nav-text">Dashboard</span>
+                                    <span class="btn btn-sm rounded primary _600">Dashboard</span>
+                                    {{-- <span class="nav-text">Dashboard</span> --}}
                                 </a>
                             </li>
                         @elseif(Auth::user()->type == 'curator')
                             <li class="nav-item">
                                 <a href="{{url('/taste-maker-profile')}}" class="nav-link">
-                                    <span class="nav-text">Dashboard</span>
+                                    <span class="btn btn-sm rounded primary _600">Dashboard</span>
                                 </a>
                             </li>
                         @else

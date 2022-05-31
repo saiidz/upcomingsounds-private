@@ -792,7 +792,7 @@
                             </div>
                         </div>
                     @endif
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col s12 m6 l10">
                             <h4 class="card-title bold"><span class="text tw-mr-2">3.</span> Please don't send me any...</h4>
                         </div>
@@ -815,7 +815,7 @@
                                         @endif
                                     </select>
                                 </div>
-                                {{-- <div class="features-box">
+                                <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[17]->curatorFeatureTag as $feature)
                                             <li>
@@ -830,7 +830,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-                                </div> --}}
+                                </div>
                             </div>
                         </div>
                     @endif
@@ -850,7 +850,7 @@
                                         @endif
                                     </select>
                                 </div>
-                                {{-- <div class="features-box">
+                                <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[18]->curatorFeatureTag as $feature)
                                             <li>
@@ -865,7 +865,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-                                </div> --}}
+                                </div>
                             </div>
                         </div>
                     @endif
@@ -885,7 +885,7 @@
                                         @endif
                                     </select>
                                 </div>
-                                {{-- <div class="features-box">
+                                <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[19]->curatorFeatureTag as $feature)
                                             <li>
@@ -900,10 +900,10 @@
                                             </li>
                                         @endforeach
                                     </ul>
-                                </div> --}}
+                                </div>
                             </div>
                         </div>
-                    @endif
+                    @endif --}}
 
 
                     {{--                    @if($curator_features[20]->name == 'Hip-hop / Rap')--}}
@@ -937,7 +937,7 @@
                     {{--                        </div>--}}
                     {{--                    @endif--}}
 
-                    @if($curator_features[21]->name == 'Jazz')
+                    {{-- @if($curator_features[21]->name == 'Jazz')
                         <div class="faq row">
                             <div class="col s12 m9 l12">
                                 <div class="collapsible-header features_tAgs">
@@ -952,7 +952,7 @@
                                         @endif
                                     </select>
                                 </div>
-                                {{-- <div class="features-box">
+                                <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[21]->curatorFeatureTag as $feature)
                                             <li>
@@ -967,7 +967,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-                                </div> --}}
+                                </div>
                             </div>
                         </div>
                     @endif
@@ -987,7 +987,7 @@
                                         @endif
                                     </select>
                                 </div>
-                                {{-- <div class="features-box">
+                                <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[22]->curatorFeatureTag as $feature)
                                             <li>
@@ -1002,7 +1002,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-                                </div> --}}
+                                </div>
                             </div>
                         </div>
                     @endif
@@ -1022,7 +1022,7 @@
                                         @endif
                                     </select>
                                 </div>
-                                {{-- <div class="features-box">
+                                <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[23]->curatorFeatureTag as $feature)
                                             <li>
@@ -1037,7 +1037,7 @@
                                             </li>
                                         @endforeach
                                     </ul>
-                                </div> --}}
+                                </div>
                             </div>
                         </div>
                     @endif
@@ -1057,7 +1057,7 @@
                                         @endif
                                     </select>
                                 </div>
-                                {{-- <div class="features-box">
+                                <div class="features-box">
                                     <ul class="ks-cboxtags">
                                         @foreach($curator_features[24]->curatorFeatureTag as $feature)
                                             <li>
@@ -1072,10 +1072,10 @@
                                             </li>
                                         @endforeach
                                     </ul>
-                                </div> --}}
+                                </div>
                             </div>
                         </div>
-                    @endif
+                    @endif --}}
                 @endif
 
             </div>
