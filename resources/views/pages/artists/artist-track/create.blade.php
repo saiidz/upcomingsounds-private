@@ -177,7 +177,7 @@
     </div>
 
     <div class="form-group row">
-        <div class="col-sm-3 form-control-label text-muted">Select Genre </div>
+        <div class="col-sm-3 form-control-label text-muted">Select your genres/interests.</div>
         <div class="col-sm-9" id="trackAddFeatures">
             <div class="section" id="faq">
                 @if(isset($curator_features) && !empty($curator_features))
