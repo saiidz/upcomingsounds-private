@@ -195,7 +195,7 @@
                                 </span>
                            </li>
                            <li class="list-group-item d-flex justify-content-between lh-condensed">
-                               <span class="available_credit">Get Credits</span>
+                               <span class="available_credit"> Amount of USC purchased in credits</span>
                                <span class="credit_right">
                                     <div class="tw-relative">
                                         <div class="tw-flex tw-items-center">
