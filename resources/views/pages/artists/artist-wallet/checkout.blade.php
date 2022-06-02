@@ -17,14 +17,14 @@
            <div class="container">
                <div class="py-5 text-center">
                    <h2>UpcomingSounds Checkout form</h2>
-                   <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+                   <p class="lead">Provide your billing information.</p>
                </div>
                <div class="row">
                    <div class="col-md-8 order-md-1">
                        <div class="card">
                            <div class="card-body billing_address">
                                <h5 class="card-title">Billing Information</h5>
-                               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                               <p class="card-text">Enter the required information and choose your payment method</p>
                                <form class="form-contact"
                                      method="POST" action="{{url('/artist-billing-info')}}" autocomplete="off"
                                      id="checkoutForm" novalidate>
@@ -136,8 +136,8 @@
 
                        <div class="card">
                            <div class="card-body billing_address">
-                               <h5 class="card-title">Payment</h5>
-                               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                               <h5 class="card-title">Payment options</h5>
+                               <p class="card-text">How would you like to pay?</p>
                                <div class="row m-t-sm">
                                    <div class="col-md-12 mb-3">
                                        <div class="custom-control custom-radio">
