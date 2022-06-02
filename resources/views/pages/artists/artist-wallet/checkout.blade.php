@@ -158,6 +158,7 @@
                                    {{--  Paypal Form --}}
                                    @include('pages.artists.artist-wallet.paypal-payment')
                                @endif
+                               <p class="byMaking">By making a payment you are agreeing to our <a href="{{url('/term-of-service')}}" class="terMs" target="_blank">terms and conditions</a></p>
                            </div>
                        </div>
                    </div>

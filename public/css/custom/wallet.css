@@ -324,3 +324,10 @@ br.br {
         display: block !important;
     }
 }
+p.byMaking {
+    font-weight: bold;
+}
+.terMs,
+.terMs:hover {
+    color: #ff00f7;
+}
