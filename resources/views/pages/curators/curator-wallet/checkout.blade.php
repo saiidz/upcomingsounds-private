@@ -17,7 +17,7 @@
            <div class="container">
                <div class="py-5 text-center">
                    <h2>UpcomingSounds Checkout form</h2>
-                   <p class="lead"> Provide your billing information.</p>
+                   <p class="lead"> Provide your billing information</p>
                </div>
                <div class="row">
                    <div class="col-md-8 order-md-1">
@@ -137,7 +137,7 @@
                        <div class="card">
                            <div class="card-body billing_address">
                                <h5 class="card-title">Payment options</h5>
-                               <p class="card-text">ow would you like to pay?</p>
+                               <p class="card-text">How would you like to pay?</p>
                                <div class="row m-t-sm">
                                    <div class="col-md-12 mb-3">
                                        <div class="custom-control custom-radio">
