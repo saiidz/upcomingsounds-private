@@ -17,7 +17,7 @@
            <div class="container">
                <div class="py-5 text-center">
                    <h2>UpcomingSounds Checkout form</h2>
-                   <p class="lead">Provide your billing information.</p>
+                   <p class="lead">Provide your billing information</p>
                </div>
                <div class="row">
                    <div class="col-md-8 order-md-1">
