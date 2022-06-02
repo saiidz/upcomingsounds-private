@@ -24,7 +24,7 @@
                        <div class="card">
                            <div class="card-body billing_address">
                                <h5 class="card-title">Billing Information</h5>
-                               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                               <p class="card-text">  Please enter your payment information. </p>
                                <form class="form-contact"
                                      method="POST" action="{{url('/artist-billing-info')}}" autocomplete="off"
                                      id="checkoutForm" novalidate>
@@ -136,17 +136,17 @@
 
                        <div class="card">
                            <div class="card-body billing_address">
-                               <h5 class="card-title">Payment</h5>
+                               <h5 class="card-title">Payment options</h5>
                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                <div class="row m-t-sm">
                                    <div class="col-md-12 mb-3">
                                        <div class="custom-control custom-radio">
                                            <input id="credit" class="stripeChanged" onchange="stripeChanged()" name="paymentMethod" type="radio" checked required>
-                                           <label class="custom-control-label" for="credit">Credit card</label>
+                                           <label class="custom-control-label" for="credit">PAY WITH CARD</label>
                                        </div>
                                        <div class="custom-control custom-radio">
                                            <input id="paypal" class="paypalChanged" onchange="paypalChanged()" name="paymentMethod" type="radio" required>
-                                           <label class="custom-control-label" for="paypal">PayPal</label>
+                                           <label class="custom-control-label" for="paypal"> PAY WITH PAYPAL</label>
                                        </div>
                                    </div>
                                </div>
