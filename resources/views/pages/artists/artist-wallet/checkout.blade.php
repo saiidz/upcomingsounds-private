@@ -142,11 +142,11 @@
                                    <div class="col-md-12 mb-3">
                                        <div class="custom-control custom-radio">
                                            <input id="credit" class="stripeChanged" onchange="stripeChanged()" name="paymentMethod" type="radio" checked required>
-                                           <label class="custom-control-label" for="credit">Credit card</label>
+                                           <label class="custom-control-label" for="credit">PAY WITH CARD</label>
                                        </div>
                                        <div class="custom-control custom-radio">
                                            <input id="paypal" class="paypalChanged" onchange="paypalChanged()" name="paymentMethod" type="radio" required>
-                                           <label class="custom-control-label" for="paypal">PayPal</label>
+                                           <label class="custom-control-label" for="paypal">PAY WITH PAYPAL</label>
                                        </div>
                                    </div>
                                </div>
@@ -195,7 +195,7 @@
                                 </span>
                            </li>
                            <li class="list-group-item d-flex justify-content-between lh-condensed">
-                               <span class="available_credit">Get Credits</span>
+                               <span class="available_credit">Amount of USC purchased in credits</span>
                                <span class="credit_right">
                                     <div class="tw-relative">
                                         <div class="tw-flex tw-items-center">
