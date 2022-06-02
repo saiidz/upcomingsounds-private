@@ -228,6 +228,9 @@
 
                            </li>
                        </ul>
+                        <div class="imaGe m-t">
+                            <img src="{{asset('images/artist/stripe-paypal.png')}}" alt="">
+                        </div>
                    </div>
                </div>
            </div>
