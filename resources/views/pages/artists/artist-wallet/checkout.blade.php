@@ -248,7 +248,7 @@
         $('#country_name').change(function () {
             var cid = $(this).val();
             if (cid) {
-                var url = '/get-cites/'+cid;
+                var url = '/get-cites-artist/'+cid;
                 $.ajax({
                     type: "GET",
                     url: url,

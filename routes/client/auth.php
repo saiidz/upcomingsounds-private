@@ -53,5 +53,5 @@ Route::get('cancel-transaction', [PayPalController::class, 'cancelTransaction'])
 
 
 // get cites
-Route::get('get-cites/{id}', [AjaxController::class,'getCities']);
+Route::get('get-cites-artist/{id}', [AjaxController::class,'getCities']);
 /***************************************************** Artist Routes *********************************************************/
