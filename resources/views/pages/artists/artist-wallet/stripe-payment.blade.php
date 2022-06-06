@@ -23,7 +23,22 @@
             </div>
         </div>
         <div class="form-group modal-footer">
-            <button class="btn btn-dark stripePayment {{empty($artist_billing_info) ? 'disabled no-click' : ''}}" type="button" data-secret="" id="submit-stripe">Pay {{!empty($purchase_data['price']) ? $purchase_data['price'] : ''}}</button>
+            <button class="btn btn-dark stripePayment {{empty($artist_billing_info) ? 'disabled no-click' : ''}}" type="button" data-secret="" id="submit-stripe">Pay
+                @if(!empty($purchase_data['currency']))
+                    @if ($purchase_data['currency'] == 'gbp')
+                    £
+                    @elseif ($purchase_data['currency'] == 'cad')
+                    $
+                    @elseif ($purchase_data['currency'] == 'aud')
+                    $
+                    @elseif ($purchase_data['currency'] == 'usd')
+                    $
+                    @elseif ($purchase_data['currency'] == 'eur')
+                    €
+                    @else
+                    @endif
+                @endif
+                {{!empty($purchase_data['price']) ? $purchase_data['price'] : ''}}</button>
         </div>
     </form>
 </div>
