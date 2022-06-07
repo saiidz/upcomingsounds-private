@@ -108,7 +108,7 @@
                         <div id="previewLink"></div>
                     </div>
 
-                    <div id="TextBoxesGroup">
+                    <div id="TextBoxesGroupEdit">
 
                     </div>
 

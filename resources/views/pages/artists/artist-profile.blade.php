@@ -1013,9 +1013,9 @@
 
                     // url links
                     let counter_count = 1
-                    $('#TextBoxesGroup').empty();
+                    $('#TextBoxesGroupEdit').empty();
                     $.each(data.artist_track_links, function(key, value){
-                        $('#TextBoxesGroup').append('<div class="form-group editNewLink"><label class="control-label form-control-label text-muted">Add New Link #'+counter_count+'</label><div> <input type="url" name="link[]" onclick="removeStyle(this);" class="form-control moreLinks @error('link') is-invalid @enderror" required value="'+value.link+'" id="textbox'+key+'" placeholder="Please Add Embeded Url(youtube?spotify?apple?amazon?deezer?soundcloud?anghami?bandcamp.com)"><a href="javascript:void(0)" class="textbox'+key+'" id="previewIconEdit" onclick="getInputValueEdit(this)"><i class="fa fa-eye"></i> preview</a></div></div>');
+                        $('#TextBoxesGroupEdit').append('<div class="form-group editNewLink"><label class="control-label form-control-label text-muted">Add New Link #'+counter_count+'</label><div> <input type="url" name="link[]" onclick="removeStyle(this);" class="form-control moreLinks @error('link') is-invalid @enderror" required value="'+value.link+'" id="textbox'+key+'" placeholder="Please Add Embeded Url(youtube?spotify?apple?amazon?deezer?soundcloud?anghami?bandcamp.com)"><a href="javascript:void(0)" class="textbox'+key+'" id="previewIconEdit" onclick="getInputValueEdit(this)"><i class="fa fa-eye"></i> preview</a></div></div>');
                         counter_count++;
                     });
 
