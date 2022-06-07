@@ -1120,21 +1120,21 @@
             }
 
             if(match_link[0].indexOf("embed") !== -1){
-                document.querySelector('#previewLinkBlock').style.display = 'block';
-                document.querySelector('#previewLink').innerHTML = "";
-                document.querySelector('#previewLink').innerHTML = '<iframe style="border-radius:12px" id="previewLink" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
+                document.querySelector('#previewLinkBlockEdit').style.display = 'block';
+                document.querySelector('#previewLinkEdit').innerHTML = "";
+                document.querySelector('#previewLinkEdit').innerHTML = '<iframe style="border-radius:12px" id="previewLinkEdit" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
             }else if(match_link[0].indexOf("widget") !== -1){
-                document.querySelector('#previewLinkBlock').style.display = 'block';
-                document.querySelector('#previewLink').innerHTML = "";
-                document.querySelector('#previewLink').innerHTML = '<iframe style="border-radius:12px" id="previewLink" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
+                document.querySelector('#previewLinkEditBlockEdit').style.display = 'block';
+                document.querySelector('#previewLinkEdit').innerHTML = "";
+                document.querySelector('#previewLinkEdit').innerHTML = '<iframe style="border-radius:12px" id="previewLinkEdit" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
             }else if(match_link[0].indexOf("w.soundcloud.com") !== -1){
-                document.querySelector('#previewLinkBlock').style.display = 'block';
-                document.querySelector('#previewLink').innerHTML = "";
-                document.querySelector('#previewLink').innerHTML = '<iframe style="border-radius:12px" id="previewLink" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
+                document.querySelector('#previewLinkEditBlockEdit').style.display = 'block';
+                document.querySelector('#previewLinkEdit').innerHTML = "";
+                document.querySelector('#previewLinkEdit').innerHTML = '<iframe style="border-radius:12px" id="previewLinkEdit" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
             }else if(match_link[0].indexOf("bandcamp") !== -1){
-                document.querySelector('#previewLinkBlock').style.display = 'block';
-                document.querySelector('#previewLink').innerHTML = "";
-                document.querySelector('#previewLink').innerHTML = '<iframe style="border-radius:12px" id="previewLink" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
+                document.querySelector('#previewLinkEditBlockEdit').style.display = 'block';
+                document.querySelector('#previewLinkEdit').innerHTML = "";
+                document.querySelector('#previewLinkEdit').innerHTML = '<iframe style="border-radius:12px" id="previewLinkEdit" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
             }else{
                 toastr.error('Please Add correct url embeded');
                 return false;

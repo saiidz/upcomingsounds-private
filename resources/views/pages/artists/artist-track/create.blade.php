@@ -1161,7 +1161,7 @@
             toastr.error('Please Add correct url embeded');
             return false;
         }
-
+        
         if(match_link[0].indexOf("embed") !== -1){
             document.querySelector('#previewLinkBlock').style.display = 'block';
             document.querySelector('#previewLink').innerHTML = "";

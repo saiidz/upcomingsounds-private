@@ -104,8 +104,8 @@
                             @enderror
                         </div>
                     </div> --}}
-                    <div class="form-group" id="previewLinkBlock" style="display: none">
-                        <div id="previewLink"></div>
+                    <div class="form-group" id="previewLinkBlockEdit" style="display: none">
+                        <div id="previewLinkEdit"></div>
                     </div>
 
                     <div id="TextBoxesGroupEdit">
