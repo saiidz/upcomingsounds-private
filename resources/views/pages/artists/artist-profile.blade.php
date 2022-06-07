@@ -1162,4 +1162,85 @@
             }
         });
     </script>
+    {{-- Mulple links --}}
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+
+            var counter = 2;
+
+            $("#addLinkButton").click(function () {
+
+                if(counter>10){
+                        alert("Only 10 textboxes allow");
+                        return false;
+                }
+
+                var newTextBoxDiv = $(document.createElement('div'))
+                    .attr("id", 'TextBoxDiv' + counter);
+
+                newTextBoxDiv.after().html('<div class="col-sm-3 form-control-label text-muted">Add New Link #'+ counter +'</div>' +
+                    '<div class="col-sm-9 m-b"> <input type="text" required class="form-control moreLinks" name="link[]" id="textbox' + counter + '" value="" placeholder="https://youtube?spotify?apple?amazon?deezer?soundcloud?anghami?bandcamp.com"></div>');
+
+                newTextBoxDiv.appendTo("#TextBoxesGroup");
+
+
+                counter++;
+             });
+
+             $("#removeButton").click(function () {
+                if(counter==1){
+                    alert("No more textbox to remove");
+                    return false;
+                }
+
+                counter--;
+
+                $("#TextBoxDiv" + counter).remove();
+
+             });
+
+            //  $("#getButtonValue").click(function () {
+
+            // var msg = '';
+            // for(i=1; i<counter; i++){
+            //      msg += "\n Textbox #" + i + " : " + $('#textbox' + i).val();
+            // }
+            //       alert(msg);
+            //  });
+
+
+        // document.getElementById('textbox1').addEventListener('focusout', function (){
+
+        //     let textBox = $('#textbox1').val();
+        //     console.log(textBox);
+        //     // document.querySelector('#previewLink').style.display = 'block';
+        //     // document.querySelector('#previewLink').innerHTML = "";
+        //     // document.querySelector('#previewLink').innerHTML = '<iframe width="320" height="315" src="'+textBox+'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+
+        // });
+
+        // if(counter == 2)
+        // {
+        //     document.getElementById('textbox'+counter).addEventListener('focusout', function (){
+        //         if(counter==1){
+        //             alert("No more textbox to remove");
+        //             return false;
+        //         }
+        //         counter--;
+        //         let textBoxs = $('#textbox'+counter).val();
+        //         console.log(textBoxs);
+        //     });
+        // }
+
+        // var el = document.getElementById('textbox'+counter);
+        // console.log(el);
+        // if(el)
+        // {
+        //     document.getElementById('textbox'+counter).addEventListener('focusout', function (){
+        //     console.log('textbox'+counter);
+        // });
+        // }
+    });
+    </script>
 @endsection

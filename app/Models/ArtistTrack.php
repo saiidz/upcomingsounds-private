@@ -44,4 +44,10 @@ class ArtistTrack extends Model
     public function artistTrackTags(){
         return $this->hasMany(ArtistTrackTag::class,'artist_track_id');
     }
+
+    // track has many track links
+    public function artistTrackLinks(){
+        return $this->hasMany(ArtistTrackLink::class,'artist_track_id');
+    }
+    
 }

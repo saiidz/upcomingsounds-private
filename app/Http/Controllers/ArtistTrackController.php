@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\ArtistTrack;
-use App\Models\TrackCategory;
 use Illuminate\Http\Request;
+use App\Models\TrackCategory;
+use App\Models\ArtistTrackLink;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
@@ -38,9 +39,11 @@ class ArtistTrackController extends Controller
      */
     public function store(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
             'youtube_soundcloud_url' => 'required',
-            'spotify_track_url' => 'required|url',
+            // 'spotify_track_url' => 'required|url',
+            // 'link' => 'required|url',
             'name' => 'required|string',
             'description' => 'required|string',
             'track_thumbnail' => 'required|file|mimes:jpeg,jpg,png,gif|max:2048',
@@ -52,7 +55,6 @@ class ArtistTrackController extends Controller
             return redirect('/artist-profile#add-track')->withErrors($validator)
                 ->withInput();
         }
-
 
         $input = $request->all();
         $input['user_id'] = auth()->user()->id;
@@ -92,6 +94,18 @@ class ArtistTrackController extends Controller
             $input['track_thumbnail'] = $image_path;
         }
         $track = ArtistTrack::create($input);
+
+        // create artist track links
+        if(!empty($request->link))
+        {
+            foreach($request->link as $link)
+            {
+                ArtistTrackLink::create([
+                    'artist_track_id' => $track->id,
+                    'link' => $link,
+                ]);
+            }
+        }
 
         // track tags store
         if(!empty($request->tag)){

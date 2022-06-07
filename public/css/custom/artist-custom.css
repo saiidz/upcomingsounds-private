@@ -282,7 +282,10 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
 }
 .features-box-select{
     margin: 20px 0px;
+    color: #02b875 !important;
+    border: 1px solid #02b875 !important;
 }
+
 .choices__list--multiple .choices__item {
     background-color: #02b875 !important;
     border: 1px solid #02b875 !important;
@@ -307,9 +310,42 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
     border: 1px solid #02b875 !important;
 }
 
+#addLinkButton{
+    cursor: pointer;
+    color: #02b875;
+}
+#removeButton{
+    cursor: pointer !important;
+    color: #02b875 !important;
+}
+.plusIcon {
+    color: #02b875;
+    margin-left: 13px;
+    margin-bottom: 3px;
+    text-align: end;
+}
 
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #02b875;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #02b875;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #02b875;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #02b875;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #02b875;
+}
 
-
+::placeholder { /* Most modern browsers support this now. */
+   color:    #02b875;
+}
 
 
 

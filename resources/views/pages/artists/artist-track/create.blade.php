@@ -69,7 +69,7 @@
         </div>
     </div>
 
-    <div class="form-group row">
+    {{-- <div class="form-group row">
         <div class="col-sm-3 form-control-label text-muted">SoundCloud link</div>
         <div class="col-sm-9">
             <input type="text" name="soundcloudUrl" onclick="removeStyle(this);"
@@ -97,6 +97,33 @@
                 {{ $message }}
             </small>
             @enderror
+        </div>
+    </div> --}}
+    <div class="row">
+        <div class="col-sm-12">
+            <div id="previewLink"></div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="plusIcon">
+             <i class="fa fa-remove" id="removeButton">Remove Link</i>
+        </div>
+        <div id="TextBoxesGroup">
+            <div id="TextBoxDiv1">
+                <div class="col-sm-3 form-control-label text-muted">Add New Link #1</div>
+                <div class="col-sm-9 m-b">
+                    <input type="url" name="link[]" onclick="removeStyle(this);"
+                        class="form-control moreLinks @error('link') is-invalid @enderror" required
+                        value="{{old('link')}}" id="textbox1"
+                        placeholder="https://youtube?spotify?apple?amazon?deezer?soundcloud?anghami?bandcamp.com">
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="plusIcon">
+               <i class="fa fa-plus" id="addLinkButton">Add New Link</i>
         </div>
     </div>
 
@@ -188,7 +215,8 @@
                     </div>
                     <div class="underline"></div>
                     <div class="row music"></div>
-                    @if($curator_features[0]->name == 'You can select interests that correspond with your releases.')
+                    @if($curator_features[0]->name == 'I would love to recieve')
+                    {{-- @if($curator_features[0]->name == 'You can select interests that correspond with your releases.') --}}
                         @error('tag')
                             <small class="red-text" role="alert">
                                 {{ $message }}
@@ -196,11 +224,11 @@
                         @enderror
                         <div class="faq row">
                             <div class="col s12 m9 l12">
-                                <div class="collapsible-header features_tAgs">
+                                {{-- <div class="collapsible-header features_tAgs">
                                     I would love to recieve....
-                                </div>
+                                </div> --}}
                                 <div class="features-box-select">
-                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select I would love to recieve" multiple>
                                         @if(!empty($curator_features))
                                             @foreach($curator_features[0]->curatorFeatureTag as $feature)
                                                 <option value="{{$feature->id}}">{{$feature->name}}</option>
@@ -237,11 +265,11 @@
                     @if($curator_features[1]->name == 'Alternative / Indie')
                         <div class="faq row">
                             <div class="col s12 m9 l12">
-                                <div class="collapsible-header features_tAgs">
+                                {{-- <div class="collapsible-header features_tAgs">
                                     Alternative / Indie
-                                </div>
+                                </div> --}}
                                 <div class="features-box-select">
-                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select Alternative / Indie" multiple>
                                         @if(!empty($curator_features))
                                             @foreach($curator_features[1]->curatorFeatureTag as $feature)
                                                 <option value="{{$feature->id}}">{{$feature->name}}</option>
@@ -272,11 +300,11 @@
                     @if($curator_features[2]->name == 'Blogwave')
                         <div class="faq row">
                             <div class="col s12 m9 l12">
-                                <div class="collapsible-header features_tAgs">
+                                {{-- <div class="collapsible-header features_tAgs">
                                     Blogwave
-                                </div>
+                                </div> --}}
                                 <div class="features-box-select">
-                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select Blogwave" multiple>
                                         @if(!empty($curator_features))
                                             @foreach($curator_features[2]->curatorFeatureTag as $feature)
                                                 <option value="{{$feature->id}}">{{$feature->name}}</option>
@@ -306,11 +334,11 @@
                     @if($curator_features[3]->name == 'Classic')
                         <div class="faq row">
                             <div class="col s12 m9 l12">
-                                <div class="collapsible-header features_tAgs">
+                                {{-- <div class="collapsible-header features_tAgs">
                                     Classic
-                                </div>
+                                </div> --}}
                                 <div class="features-box-select">
-                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select Classic" multiple>
                                         @if(!empty($curator_features))
                                             @foreach($curator_features[3]->curatorFeatureTag as $feature)
                                                 <option value="{{$feature->id}}">{{$feature->name}}</option>
@@ -341,11 +369,11 @@
                     @if($curator_features[4]->name == 'Classical / Jazz')
                         <div class="faq row">
                             <div class="col s12 m9 l12">
-                                <div class="collapsible-header features_tAgs">
+                                {{-- <div class="collapsible-header features_tAgs">
                                     Classical / Jazz
-                                </div>
+                                </div> --}}
                                 <div class="features-box-select">
-                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select Classical / Jazz" multiple>
                                         @if(!empty($curator_features))
                                             @foreach($curator_features[4]->curatorFeatureTag as $feature)
                                                 <option value="{{$feature->id}}">{{$feature->name}}</option>
@@ -376,11 +404,11 @@
                     @if($curator_features[5]->name == 'EDM')
                         <div class="faq row">
                             <div class="col s12 m9 l12">
-                                <div class="collapsible-header features_tAgs">
+                                {{-- <div class="collapsible-header features_tAgs">
                                     EDM
-                                </div>
+                                </div> --}}
                                 <div class="features-box-select">
-                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select EDM" multiple>
                                         @if(!empty($curator_features))
                                             @foreach($curator_features[5]->curatorFeatureTag as $feature)
                                                 <option value="{{$feature->id}}">{{$feature->name}}</option>
@@ -411,11 +439,11 @@
                     @if($curator_features[6]->name == 'Electronica / Breaks')
                         <div class="faq row">
                             <div class="col s12 m9 l12">
-                                <div class="collapsible-header features_tAgs">
+                                {{-- <div class="collapsible-header features_tAgs">
                                     Electronica / Breaks
-                                </div>
+                                </div> --}}
                                 <div class="features-box-select">
-                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select Electronica / Breaks" multiple>
                                         @if(!empty($curator_features))
                                             @foreach($curator_features[6]->curatorFeatureTag as $feature)
                                                 <option value="{{$feature->id}}">{{$feature->name}}</option>
@@ -446,11 +474,11 @@
                     @if($curator_features[7]->name == 'Folk')
                         <div class="faq row">
                             <div class="col s12 m9 l12">
-                                <div class="collapsible-header features_tAgs">
+                                {{-- <div class="collapsible-header features_tAgs">
                                     Folk
-                                </div>
+                                </div> --}}
                                 <div class="features-box-select">
-                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select Folk" multiple>
                                         @if(!empty($curator_features))
                                             @foreach($curator_features[7]->curatorFeatureTag as $feature)
                                                 <option value="{{$feature->id}}">{{$feature->name}}</option>
@@ -481,11 +509,11 @@
                     @if($curator_features[8]->name == 'Hip-hop / Rap')
                         <div class="faq row">
                             <div class="col s12 m9 l12">
-                                <div class="collapsible-header features_tAgs">
+                                {{-- <div class="collapsible-header features_tAgs">
                                     Hip-hop / Rap
-                                </div>
+                                </div> --}}
                                 <div class="features-box-select">
-                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select Hip-hop / Rap" multiple>
                                         @if(!empty($curator_features))
                                             @foreach($curator_features[8]->curatorFeatureTag as $feature)
                                                 <option value="{{$feature->id}}">{{$feature->name}}</option>
@@ -516,11 +544,11 @@
                     @if($curator_features[9]->name == 'House / Techno')
                         <div class="faq row">
                             <div class="col s12 m9 l12">
-                                <div class="collapsible-header features_tAgs">
+                                {{-- <div class="collapsible-header features_tAgs">
                                     House / Techno
-                                </div>
+                                </div> --}}
                                 <div class="features-box-select">
-                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select House / Techno" multiple>
                                         @if(!empty($curator_features))
                                             @foreach($curator_features[9]->curatorFeatureTag as $feature)
                                                 <option value="{{$feature->id}}">{{$feature->name}}</option>
@@ -551,11 +579,11 @@
                     @if($curator_features[10]->name == 'IDM / Downtempo')
                         <div class="faq row">
                             <div class="col s12 m9 l12">
-                                <div class="collapsible-header features_tAgs">
+                                {{-- <div class="collapsible-header features_tAgs">
                                     IDM / Downtempo
-                                </div>
+                                </div> --}}
                                 <div class="features-box-select">
-                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select IDM / Downtempo" multiple>
                                         @if(!empty($curator_features))
                                             @foreach($curator_features[10]->curatorFeatureTag as $feature)
                                                 <option value="{{$feature->id}}">{{$feature->name}}</option>
@@ -586,11 +614,11 @@
                     @if($curator_features[11]->name == 'Metal / Hard Rock')
                         <div class="faq row">
                             <div class="col s12 m9 l12">
-                                <div class="collapsible-header features_tAgs">
+                                {{-- <div class="collapsible-header features_tAgs">
                                     Metal / Hard Rock
-                                </div>
+                                </div> --}}
                                 <div class="features-box-select">
-                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select Metal / Hard Rock" multiple>
                                         @if(!empty($curator_features))
                                             @foreach($curator_features[11]->curatorFeatureTag as $feature)
                                                 <option value="{{$feature->id}}">{{$feature->name}}</option>
@@ -621,11 +649,11 @@
                     @if($curator_features[12]->name == 'Other')
                         <div class="faq row">
                             <div class="col s12 m9 l12">
-                                <div class="collapsible-header features_tAgs">
+                                {{-- <div class="collapsible-header features_tAgs">
                                     Other
-                                </div>
+                                </div> --}}
                                 <div class="features-box-select">
-                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select Other" multiple>
                                         @if(!empty($curator_features))
                                             @foreach($curator_features[12]->curatorFeatureTag as $feature)
                                                 <option value="{{$feature->id}}">{{$feature->name}}</option>
@@ -656,11 +684,11 @@
                     @if($curator_features[13]->name == 'Pop')
                         <div class="faq row">
                             <div class="col s12 m9 l12">
-                                <div class="collapsible-header features_tAgs">
+                                {{-- <div class="collapsible-header features_tAgs">
                                     Pop
-                                </div>
+                                </div> --}}
                                 <div class="features-box-select">
-                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select Pop" multiple>
                                         @if(!empty($curator_features))
                                             @foreach($curator_features[13]->curatorFeatureTag as $feature)
                                                 <option value="{{$feature->id}}">{{$feature->name}}</option>
@@ -691,11 +719,11 @@
                     @if($curator_features[14]->name == 'Punk / Ska')
                         <div class="faq row">
                             <div class="col s12 m9 l12">
-                                <div class="collapsible-header features_tAgs">
+                                {{-- <div class="collapsible-header features_tAgs">
                                     Punk / Ska
-                                </div>
+                                </div> --}}
                                 <div class="features-box-select">
-                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select Punk / Ska" multiple>
                                         @if(!empty($curator_features))
                                             @foreach($curator_features[14]->curatorFeatureTag as $feature)
                                                 <option value="{{$feature->id}}">{{$feature->name}}</option>
@@ -726,11 +754,11 @@
                     @if($curator_features[15]->name == 'RnB / Funk / Soul')
                         <div class="faq row">
                             <div class="col s12 m9 l12">
-                                <div class="collapsible-header features_tAgs">
+                                {{-- <div class="collapsible-header features_tAgs">
                                     RnB / Funk / Soul
-                                </div>
+                                </div> --}}
                                 <div class="features-box-select">
-                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select RnB / Funk / Soul" multiple>
                                         @if(!empty($curator_features))
                                             @foreach($curator_features[15]->curatorFeatureTag as $feature)
                                                 <option value="{{$feature->id}}">{{$feature->name}}</option>
@@ -765,7 +793,7 @@
                                     World Music
                                 </div>
                                 <div class="features-box-select">
-                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select features tags" multiple>
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select World Music" multiple>
                                         @if(!empty($curator_features))
                                             @foreach($curator_features[16]->curatorFeatureTag as $feature)
                                                 <option value="{{$feature->id}}">{{$feature->name}}</option>
