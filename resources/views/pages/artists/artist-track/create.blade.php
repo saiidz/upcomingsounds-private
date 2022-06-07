@@ -49,7 +49,7 @@
     </div>
 
 
-    <div class="form-group row">
+    {{-- <div class="form-group row">
         <div class="col-sm-3 form-control-label text-muted">YouTube link</div>
         <div class="col-sm-9">
             <input type="text" name="youtube_soundcloud_url" id="trueUrl" onclick="removeStyle(this);"
@@ -67,7 +67,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     {{-- <div class="form-group row">
         <div class="col-sm-3 form-control-label text-muted">SoundCloud link</div>
@@ -99,8 +99,9 @@
             @enderror
         </div>
     </div> --}}
-    <div class="row">
-        <div class="col-sm-12">
+    <div class="form-group row" id="previewLinkBlock" style="display: none">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-9">
             <div id="previewLink"></div>
         </div>
     </div>
@@ -115,9 +116,8 @@
                     <input type="url" name="link[]" onclick="removeStyle(this);"
                         class="form-control moreLinks @error('link') is-invalid @enderror" required
                         value="{{old('link')}}" id="textbox1"
-                        placeholder="https://youtube?spotify?apple?amazon?deezer?soundcloud?anghami?bandcamp.com">
-
-
+                        placeholder="Please Add Embeded Url(youtube?spotify?apple?amazon?deezer?soundcloud?anghami?bandcamp.com)">
+                        <a href="javascript:void(0)" class="textbox1" id="previewIcon" onclick="getInputValue(this)"><i class="fa fa-eye"></i> preview</a>
                 </div>
             </div>
         </div>
@@ -1128,7 +1128,59 @@
 
 
     <div class="form-group row">
-        <button type="submit" class="btn btn-sm rounded add_track" onclick='return validateAddTrackForm("track_song")'>
+        <button type="submit" class="btn btn-sm rounded add_track">
+        {{-- <button type="submit" class="btn btn-sm rounded add_track" onclick='return validateAddTrackForm("track_song")'> --}}
             Add Song</button>
     </div>
 </form>
+<script>
+    function validURL(str) {
+        var pattern = new RegExp("^((https|http)?://)"); // protocol
+
+        return !!pattern.test(str);
+    }
+    function  getInputValue(elem) {
+
+        let src = document.getElementById(elem.className).value
+        if (src === "") {
+            toastr.error('Please Add url embeded');
+            return false;
+        }
+        url = validURL(src);
+
+        if(url == false)
+        {
+            toastr.error('Please Add correct url embeded');
+            return false;
+        }
+
+        var match_link = src.match(/embed|w.soundcloud.com|bandcamp|widget/g);
+
+        if(match_link == null)
+        {
+            toastr.error('Please Add correct url embeded');
+            return false;
+        }
+
+        if(match_link[0].indexOf("embed") !== -1){
+            document.querySelector('#previewLinkBlock').style.display = 'block';
+            document.querySelector('#previewLink').innerHTML = "";
+            document.querySelector('#previewLink').innerHTML = '<iframe style="border-radius:12px" id="previewLink" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
+        }else if(match_link[0].indexOf("widget") !== -1){
+            document.querySelector('#previewLinkBlock').style.display = 'block';
+            document.querySelector('#previewLink').innerHTML = "";
+            document.querySelector('#previewLink').innerHTML = '<iframe style="border-radius:12px" id="previewLink" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
+        }else if(match_link[0].indexOf("w.soundcloud.com") !== -1){
+            document.querySelector('#previewLinkBlock').style.display = 'block';
+            document.querySelector('#previewLink').innerHTML = "";
+            document.querySelector('#previewLink').innerHTML = '<iframe style="border-radius:12px" id="previewLink" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
+        }else if(match_link[0].indexOf("bandcamp") !== -1){
+            document.querySelector('#previewLinkBlock').style.display = 'block';
+            document.querySelector('#previewLink').innerHTML = "";
+            document.querySelector('#previewLink').innerHTML = '<iframe style="border-radius:12px" id="previewLink" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
+        }else{
+            toastr.error('Please Add correct url embeded');
+            return false;
+        }
+    }
+</script>

@@ -57,7 +57,7 @@
 {{--                        </div>--}}
 {{--                    </div>--}}
 
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label class="control-label form-control-label text-muted">YouTube Link</label>
                         <div>
                             <input type="text" name="youtube_soundcloud_url" id="trueUrlEdit" onclick="removeStyle(this);"
@@ -73,9 +73,9 @@
 
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label class="control-label form-control-label text-muted">SoundCloud Link</label>
                         <div>
                             <input type="text" name="soundcloudUrl" id="soundcloudUrlEdit" onclick="removeStyle(this);"
@@ -103,6 +103,13 @@
                             </small>
                             @enderror
                         </div>
+                    </div> --}}
+                    <div class="form-group" id="previewLinkBlock" style="display: none">
+                        <div id="previewLink"></div>
+                    </div>
+
+                    <div id="TextBoxesGroup">
+
                     </div>
 
                     <div class="form-group">

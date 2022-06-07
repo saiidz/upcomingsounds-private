@@ -41,7 +41,7 @@ class ArtistTrackController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'youtube_soundcloud_url' => 'required',
+            // 'youtube_soundcloud_url' => 'required',
             // 'spotify_track_url' => 'required|url',
             // 'link' => 'required|url',
             'name' => 'required|string',
@@ -58,8 +58,8 @@ class ArtistTrackController extends Controller
 
         $input = $request->all();
         $input['user_id'] = auth()->user()->id;
-        $input['youtube_soundcloud_url'] = $request->get('youtube_soundcloud_url');
-        $input['soundcloudUrl']          = $request->get('soundcloudUrl');
+        // $input['youtube_soundcloud_url'] = $request->get('youtube_soundcloud_url');
+        // $input['soundcloudUrl']          = $request->get('soundcloudUrl');
 //        $input['track_category_id'] = ($request->get('song_category')) ? $request->get('song_category') : null;
         $input['display_profile'] = ($request->get('display_profile')) ? (int)$request->get('display_profile') : 0;
 
@@ -144,9 +144,10 @@ class ArtistTrackController extends Controller
     {
         $track_categories = TrackCategory::all();
         return response()->json([
-            'artist_track' => $artist_track,
-            'track_categories' => $track_categories,
-            'success' => 'Artist Track Get Successfully',
+            'artist_track'       => $artist_track,
+            'artist_track_links' => !empty($artist_track->artistTrackLinks) ? $artist_track->artistTrackLinks : '',
+            'track_categories'   => $track_categories,
+            'success'            => 'Artist Track Get Successfully',
         ]);
     }
 
@@ -161,8 +162,8 @@ class ArtistTrackController extends Controller
     {
         $input = $request->all();
         $input['user_id'] = auth()->user()->id;
-        $input['youtube_soundcloud_url'] = $request->get('youtube_soundcloud_url');
-        $input['soundcloudUrl']          = $request->get('soundcloudUrl');
+        // $input['youtube_soundcloud_url'] = $request->get('youtube_soundcloud_url');
+        // $input['soundcloudUrl']          = $request->get('soundcloudUrl');
         $input['display_profile']        = ($request->get('display_profile')) ? (int)$request->get('display_profile') : 0;
 
         // upload audio song
@@ -188,6 +189,27 @@ class ArtistTrackController extends Controller
         }else{
             $input['track_thumbnail'] = $artist_track->track_thumbnail;
         }
+
+        // delete previous track link
+        $artist_track_link = ArtistTrackLink::where('artist_track_id',$artist_track->id)->pluck('artist_track_id')->toArray();
+
+        if(isset($artist_track_link))
+        {
+            ArtistTrackLink::whereIn('artist_track_id',$artist_track_link)->forceDelete();
+        }
+
+        // create artist track links
+        if(!empty($request->link))
+        {
+            foreach($request->link as $link)
+            {
+                ArtistTrackLink::create([
+                    'artist_track_id' => $artist_track->id,
+                    'link' => $link,
+                ]);
+            }
+        }
+
         $artist_track->update($input);
         return redirect()->back()->with('success', 'Song Track updated successfully.');
     }

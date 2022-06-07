@@ -346,6 +346,19 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
 ::placeholder { /* Most modern browsers support this now. */
    color:    #02b875;
 }
+#previewIcon{
+    color:    #02b875;
+    float: left;
+}
+.editNewLink{
+    margin-bottom: 2rem !important;
+}
+#previewIconEdit{
+    color: #02b875;
+    float: right;
+}
+
+
 
 
 
