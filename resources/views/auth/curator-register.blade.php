@@ -37,11 +37,9 @@
                             {{--                            Sign up with Google--}}
                         </a>
 
-                        <a href="{{ url('/login/facebook/?request_from=curator') }}" class="btn-block">
+                        {{-- <a href="{{ url('/login/facebook/?request_from=curator') }}" class="btn-block">
                             <img src="{{asset('images/facebook.png')}}"  style="width: 80%;">
-{{--                            <i class="fa fa-facebook pull-left"></i>--}}
-{{--                            Sign up with Facebook--}}
-                        </a>
+                        </a> --}}
 
                         <a href="{{ url('/login/twitter/?request_from=curator') }}" class="btn-block">
                             <img src="{{asset('images/twitter.png')}}" style="width: 80%;">

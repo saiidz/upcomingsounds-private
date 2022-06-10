@@ -210,7 +210,7 @@
                 @if(isset($curator_features) && !empty($curator_features))
                     <div class="row">
                         <div class="col s12 m6 l10">
-                            <h4 class="card-title bold"><span class="text tw-mr-2">1.</span> Interests/Genres:  </h4>
+                            <h4 class="card-title bold"><span class="text tw-mr-2">1.</span> Interests:  </h4>
                         </div>
                     </div>
                     <div class="underline"></div>
@@ -228,7 +228,7 @@
                                     I would love to recieve....
                                 </div> --}}
                                 <div class="features-box-select">
-                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select I would love to recieve" multiple>
+                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="You can select interests that correspond with your releases" multiple>
                                         @if(!empty($curator_features))
                                             @foreach($curator_features[0]->curatorFeatureTag as $feature)
                                                 <option value="{{$feature->id}}">{{$feature->name}}</option>
@@ -1161,7 +1161,7 @@
             toastr.error('Please Add correct url embeded');
             return false;
         }
-        
+
         if(match_link[0].indexOf("embed") !== -1){
             document.querySelector('#previewLinkBlock').style.display = 'block';
             document.querySelector('#previewLink').innerHTML = "";

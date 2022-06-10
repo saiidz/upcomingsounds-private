@@ -30,9 +30,9 @@
                             {{--                            Sign up with Google--}}
                         </a>
 
-                        <a href="{{ url('/login/facebook/?request_from=artist') }}" class="btn-block">
+                        {{-- <a href="{{ url('/login/facebook/?request_from=artist') }}" class="btn-block">
                             <img src="{{asset('images/facebook.png')}}"  style="width: 80%;">
-                        </a>
+                        </a> --}}
 
                         <a href="{{ url('/login/twitter/?request_from=artist') }}" class="btn-block">
                             <img src="{{asset('images/twitter.png')}}"  style="width: 80%;">

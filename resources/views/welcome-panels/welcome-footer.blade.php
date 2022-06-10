@@ -23,7 +23,7 @@
                     </div>
 
 
-                    <div class="m-b m-l-md">
+                    <div class="m-b m-l-md" id="footerIcons">
                         <a href="https://www.facebook.com/Upcomingsounds" target="_blank"
                            class="btn btn-icon btn-social btn-social-colored social_color "
                            title="Facebook">
@@ -64,6 +64,12 @@
                            title="Tiktok">
                             <i class="fa-brands fa-tiktok"></i>
 {{--                            <i class="fa-brands fa-tiktok"></i>--}}
+                        </a>
+
+                        <a href="https://www.reddit.com/r/upcomingsounds/?utm_medium=android_app&utm_source=share" target="_blank"
+                           class="btn btn-icon btn-social btn-social-colored social_color"
+                           title="Reddit">
+                            <i class="fab fa-reddit"></i>
                         </a>
 {{--                        <a href="https://www.tiktok.com/@upcomingsounds_" target="_blank"--}}
 {{--                           class="btn btn-icon btn-social btn-social-colored social_color tiktok_footer"--}}
