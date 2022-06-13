@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ArtistTrack;
+use App\Models\ArtistTrackLanguage;
 use Illuminate\Http\Request;
 use App\Models\TrackCategory;
 use App\Models\ArtistTrackLink;
@@ -39,9 +40,8 @@ class ArtistTrackController extends Controller
      */
     public function store(Request $request)
     {
-
         $validator = Validator::make($request->all(), [
-            // 'youtube_soundcloud_url' => 'required',
+            'youtube_soundcloud_url' => 'required',
             // 'spotify_track_url' => 'required|url',
             // 'link' => 'required|url',
             'name' => 'required|string',
@@ -58,7 +58,7 @@ class ArtistTrackController extends Controller
 
         $input = $request->all();
         $input['user_id'] = auth()->user()->id;
-        // $input['youtube_soundcloud_url'] = $request->get('youtube_soundcloud_url');
+        $input['youtube_soundcloud_url'] = $request->get('youtube_soundcloud_url');
         // $input['soundcloudUrl']          = $request->get('soundcloudUrl');
 //        $input['track_category_id'] = ($request->get('song_category')) ? $request->get('song_category') : null;
         $input['display_profile'] = ($request->get('display_profile')) ? (int)$request->get('display_profile') : 0;
@@ -103,6 +103,18 @@ class ArtistTrackController extends Controller
                 ArtistTrackLink::create([
                     'artist_track_id' => $track->id,
                     'link' => $link,
+                ]);
+            }
+        }
+
+        // create artist track language
+        if(!empty($request->language))
+        {
+            foreach($request->language as $language)
+            {
+                ArtistTrackLanguage::create([
+                    'artist_track_id' => $track->id,
+                    'language_id' => $language,
                 ]);
             }
         }
@@ -162,7 +174,7 @@ class ArtistTrackController extends Controller
     {
         $input = $request->all();
         $input['user_id'] = auth()->user()->id;
-        // $input['youtube_soundcloud_url'] = $request->get('youtube_soundcloud_url');
+        $input['youtube_soundcloud_url'] = $request->get('youtube_soundcloud_url');
         // $input['soundcloudUrl']          = $request->get('soundcloudUrl');
         $input['display_profile']        = ($request->get('display_profile')) ? (int)$request->get('display_profile') : 0;
 

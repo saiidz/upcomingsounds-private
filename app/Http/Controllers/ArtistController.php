@@ -6,6 +6,7 @@ use App\Models\ArtistTrack;
 use App\Models\Country;
 use App\Models\CuratorFeature;
 use App\Models\Feature;
+use App\Models\Language;
 use App\Models\TrackCategory;
 use App\Models\User;
 use App\Models\UserTag;
@@ -34,6 +35,7 @@ class ArtistController extends Controller
         $features = Feature::all();
         $track_categories = TrackCategory::all();
         $curator_features = CuratorFeature::all();
+        $languages = Language::all();
         $artist_tracks = ArtistTrack::where('user_id',$user_artist->id)->orderBy('id','desc')->get();
         return view('pages.artists.artist-profile', get_defined_vars());
 //        return view('pages.artists.artist-profile',compact('user_artist','countries','features','selected_feature','track_categories','artist_tracks'));

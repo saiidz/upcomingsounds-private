@@ -48,9 +48,14 @@
         </div>
     </div>
 
-
-    {{-- <div class="form-group row">
-        <div class="col-sm-3 form-control-label text-muted">YouTube link</div>
+    <div class="form-group row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-9">
+            <div id="preview"></div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-3 form-control-label text-muted"><a href="https://www.youtube.com/" target="_blank" style="color:#d64441;" rel="noopener noreferrer">YouTube</a> or <a href="https://soundcloud.com/discover" style="color:#d64441;" target="_blank" rel="noopener noreferrer">Soundcloud</a> link</div>
         <div class="col-sm-9">
             <input type="text" name="youtube_soundcloud_url" id="trueUrl" onclick="removeStyle(this);"
                    class="form-control @error('youtube_soundcloud_url') is-invalid @enderror" value="{{old('youtube_soundcloud_url')}}"
@@ -61,13 +66,13 @@
                 {{ $message }}
             </small>
             @enderror
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-sm-12">
                     <div id="preview"></div>
                 </div>
-            </div>
+            </div> --}}
         </div>
-    </div> --}}
+    </div>
 
     {{-- <div class="form-group row">
         <div class="col-sm-3 form-control-label text-muted">SoundCloud link</div>
@@ -106,25 +111,47 @@
         </div>
     </div>
     <div class="form-group row">
-        <div class="plusIcon">
-             <i class="fa fa-remove" id="removeButton">Remove Link</i>
-        </div>
+        {{-- <div class="col-sm-3"></div>
+        <div class="col-sm-9">
+            <div class="plusIcon">
+                <i class="fa fa-remove" id="removeButton">Remove Link</i>
+            </div>
+        </div> --}}
+
         <div id="TextBoxesGroup">
             <div id="TextBoxDiv1">
                 <div class="col-sm-3 form-control-label text-muted">Add New Link #1</div>
                 <div class="col-sm-9 m-b">
-                    <input type="url" name="link[]" onclick="removeStyle(this);"
-                        class="form-control moreLinks @error('link') is-invalid @enderror" required
-                        value="{{old('link')}}" id="textbox1"
-                        placeholder="Please Add Embeded Url(youtube?spotify?apple?amazon?deezer?soundcloud?anghami?bandcamp.com)">
-                        <a href="javascript:void(0)" class="textbox1" id="previewIcon" onclick="getInputValue(this)"><i class="fa fa-eye"></i> preview</a>
+                    <div class="addEmbeded">
+                        <div class="addMoreLinks">
+                            <input type="url" name="link[]" onclick="removeStyle(this);"
+                            class="form-control moreLinks @error('link') is-invalid @enderror" required
+                            value="{{old('link')}}" id="textbox1"
+                            placeholder="Please Add Embeded Url">
+                        </div>
+
+                        <div class="previewStart">
+                            <a href="javascript:void(0)" class="textbox1" id="previewIcon" onclick="getInputValue(this)"><i class="fa fa-eye"></i> preview</a>
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
         </div>
 
-        <div class="plusIcon">
-               <i class="fa fa-plus" id="addLinkButton">Add New Link</i>
+        <div class="col-sm-3"></div>
+        <div class="col-sm-9">
+            <div class="addMoreRemoveLink">
+                <div class="plusIcon">
+                    <i class="fa fa-plus" id="addLinkButton">Add New Link</i>
+                </div>
+                <div class="plusIconRemove">
+                    <i class="fa fa-remove" id="removeButton">Remove Link</i>
+                </div>
+            </div>
         </div>
+
     </div>
 
     <div class="form-group row">
@@ -199,6 +226,21 @@
                             <input type="checkbox" class="radio audioCover" value="remix" name="audio_cover" />   Remix</label>
                     </div>
                 </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-3 text-muted">Track's lyrics  language(s) (optional)</div>
+        <div class="col-sm-9">
+            <div class="features-box-select-language">
+                <select class="form-control-label" name="language[]" id="choices-multiple-remove-button" placeholder="You can select mutiple languages" multiple>
+                    @if(!empty($languages))
+                        @foreach($languages as $language)
+                            <option value="{{$language->id}}">{{$language->name}}</option>
+                        @endforeach
+                    @endif
+                </select>
             </div>
         </div>
     </div>
@@ -1128,8 +1170,8 @@
 
 
     <div class="form-group row">
-        <button type="submit" class="btn btn-sm rounded add_track">
-        {{-- <button type="submit" class="btn btn-sm rounded add_track" onclick='return validateAddTrackForm("track_song")'> --}}
+        {{-- <button type="submit" class="btn btn-sm rounded add_track"> --}}
+        <button type="submit" class="btn btn-sm rounded add_track" onclick='return validateAddTrackForm("track_song")'>
             Add Song</button>
     </div>
 </form>

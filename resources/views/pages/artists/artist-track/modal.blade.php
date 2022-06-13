@@ -57,7 +57,7 @@
 {{--                        </div>--}}
 {{--                    </div>--}}
 
-                    {{-- <div class="form-group">
+                    <div class="form-group">
                         <label class="control-label form-control-label text-muted">YouTube Link</label>
                         <div>
                             <input type="text" name="youtube_soundcloud_url" id="trueUrlEdit" onclick="removeStyle(this);"
@@ -73,7 +73,7 @@
 
                             </div>
                         </div>
-                    </div> --}}
+                    </div>
 
                     {{-- <div class="form-group">
                         <label class="control-label form-control-label text-muted">SoundCloud Link</label>
