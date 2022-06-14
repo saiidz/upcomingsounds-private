@@ -1248,7 +1248,7 @@
                     .attr("id", 'TextBoxDiv' + counter);
 
                 newTextBoxDiv.after().html('<div class="col-sm-3 form-control-label text-muted">Add New Link #'+ counter +'</div>' +
-                    '<div class="col-sm-9 m-b"> <div class="addEmbeded"><div class="addMoreLinks"><input type="text" required class="form-control moreLinks" name="link[]" id="textbox' + counter + '" value="" placeholder="Please Add Embeded Url"></div><div class="previewStart"><a href="javascript:void(0)" class="textbox' + counter + '" id="previewIcon" onclick="getInputValue(this)"><i class="fa fa-eye"></i> preview</a></div></div></div>');
+                    '<div class="col-sm-9 m-b"> <div class="addEmbeded"><div class="addMoreLinks"><input type="text" class="form-control moreLinks" name="link[]" id="textbox' + counter + '" value="" placeholder="Please Add Embeded Url"></div><div class="previewStart"><a href="javascript:void(0)" class="textbox' + counter + '" id="previewIcon" onclick="getInputValue(this)"><i class="fa fa-eye"></i> preview</a></div></div></div>');
 
                 newTextBoxDiv.appendTo("#TextBoxesGroup");
 

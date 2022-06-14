@@ -125,7 +125,7 @@
                     <div class="addEmbeded">
                         <div class="addMoreLinks">
                             <input type="url" name="link[]" onclick="removeStyle(this);"
-                            class="form-control moreLinks @error('link') is-invalid @enderror" required
+                            class="form-control moreLinks @error('link') is-invalid @enderror"
                             value="{{old('link')}}" id="textbox1"
                             placeholder="Please Add Embeded Url">
                         </div>

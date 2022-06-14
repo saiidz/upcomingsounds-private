@@ -351,25 +351,25 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
 
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    #02b875;
+    color:    black;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    #02b875;
+   color:    black;
    opacity:  1;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    #02b875;
+   color:    black;
    opacity:  1;
 }
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color:    #02b875;
+   color:    black;
 }
 ::-ms-input-placeholder { /* Microsoft Edge */
-   color:    #02b875;
+   color:    black;
 }
 
 ::placeholder { /* Most modern browsers support this now. */
-   color:    #02b875;
+   color:    black;
 }
 #previewIcon{
     color:    #02b875;
