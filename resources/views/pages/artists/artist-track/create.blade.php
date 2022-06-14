@@ -41,6 +41,16 @@
     </div>
 
     <div class="form-group row">
+        <div class="col-sm-3 form-control-label text-muted">Demo</div>
+        <div class="col-sm-9" id="deMo">
+            <label class="switch">
+                <input type="checkbox" name="demo">
+                <span class="slider round switchDemo"></span>
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group row">
         <div class="col-sm-3 form-control-label text-muted">Release Date (optional)</div>
         <div class="col-sm-9" id="releaseDateTrack">
             <input id="datepicker" name="release_date" value="{{old('release_date')}}"
@@ -55,7 +65,7 @@
         </div>
     </div>
     <div class="form-group row">
-        <div class="col-sm-3 form-control-label text-muted"><a href="https://www.youtube.com/" target="_blank" style="color:#d64441;" rel="noopener noreferrer">YouTube</a> or <a href="https://soundcloud.com/discover" style="color:#d64441;" target="_blank" rel="noopener noreferrer">Soundcloud</a> link</div>
+        <div class="col-sm-3 form-control-label text-muted"><a href="https://www.youtube.com/" target="_blank" style="color:#d64441;" rel="noopener noreferrer">YouTube</a> link</div>
         <div class="col-sm-9">
             <input type="text" name="youtube_soundcloud_url" id="trueUrl" onclick="removeStyle(this);"
                    class="form-control @error('youtube_soundcloud_url') is-invalid @enderror" value="{{old('youtube_soundcloud_url')}}"
@@ -104,6 +114,14 @@
             @enderror
         </div>
     </div> --}}
+
+    <div class="form-group row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-9 text-warning">
+           <h6>(Caption for iframe add)</h6>
+        </div>
+    </div>
+
     <div class="form-group row" id="previewLinkBlock" style="display: none">
         <div class="col-sm-3"></div>
         <div class="col-sm-9">
@@ -124,7 +142,7 @@
                 <div class="col-sm-9 m-b">
                     <div class="addEmbeded">
                         <div class="addMoreLinks">
-                            <input type="url" name="link[]" onclick="removeStyle(this);"
+                            <input type="text" name="link[]" onclick="removeStyle(this);"
                             class="form-control moreLinks @error('link') is-invalid @enderror"
                             value="{{old('link')}}" id="textbox1"
                             placeholder="Please Add Embeded Url">
@@ -244,8 +262,15 @@
             </div>
         </div>
     </div>
-
+    
     <div class="form-group row">
+        <div class="col-sm-3 text-muted"></div>
+        <div class="col-sm-9">
+            <button type="button" class="slide-toggle btn btn-sm rounded addYourInterest">Add Your Interest</button>
+        </div>
+    </div>
+    
+    <div class="form-group row interestShow" style="display: none;">
         <div class="col-sm-3 form-control-label text-muted">Select your genres/interests.</div>
         <div class="col-sm-9" id="trackAddFeatures">
             <div class="section" id="faq">
@@ -1176,11 +1201,11 @@
     </div>
 </form>
 <script>
-    function validURL(str) {
-        var pattern = new RegExp("^((https|http)?://)"); // protocol
+    // function validURL(str) {
+    //     var pattern = new RegExp("^((https|http)?://)"); // protocol
 
-        return !!pattern.test(str);
-    }
+    //     return !!pattern.test(str);
+    // }
     function  getInputValue(elem) {
 
         let src = document.getElementById(elem.className).value
@@ -1188,15 +1213,16 @@
             toastr.error('Please Add url embeded');
             return false;
         }
-        url = validURL(src);
+        // url = validURL(src);
 
-        if(url == false)
-        {
-            toastr.error('Please Add correct url embeded');
-            return false;
-        }
+        // if(url == false)
+        // {
+        //     toastr.error('Please Add correct url embeded');
+        //     return false;
+        // }
 
-        var match_link = src.match(/embed|w.soundcloud.com|bandcamp|widget/g);
+        var match_link = src.match(/iframe/g);
+        // var match_link = src.match(/embed|w.soundcloud.com|bandcamp|widget/g);
 
         if(match_link == null)
         {
@@ -1204,25 +1230,34 @@
             return false;
         }
 
-        if(match_link[0].indexOf("embed") !== -1){
+        if(src){
             document.querySelector('#previewLinkBlock').style.display = 'block';
             document.querySelector('#previewLink').innerHTML = "";
-            document.querySelector('#previewLink').innerHTML = '<iframe style="border-radius:12px" id="previewLink" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
-        }else if(match_link[0].indexOf("widget") !== -1){
-            document.querySelector('#previewLinkBlock').style.display = 'block';
-            document.querySelector('#previewLink').innerHTML = "";
-            document.querySelector('#previewLink').innerHTML = '<iframe style="border-radius:12px" id="previewLink" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
-        }else if(match_link[0].indexOf("w.soundcloud.com") !== -1){
-            document.querySelector('#previewLinkBlock').style.display = 'block';
-            document.querySelector('#previewLink').innerHTML = "";
-            document.querySelector('#previewLink').innerHTML = '<iframe style="border-radius:12px" id="previewLink" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
-        }else if(match_link[0].indexOf("bandcamp") !== -1){
-            document.querySelector('#previewLinkBlock').style.display = 'block';
-            document.querySelector('#previewLink').innerHTML = "";
-            document.querySelector('#previewLink').innerHTML = '<iframe style="border-radius:12px" id="previewLink" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
+            document.querySelector('#previewLink').innerHTML = src;
         }else{
             toastr.error('Please Add correct url embeded');
             return false;
         }
+
+        // if(match_link[0].indexOf("embed") !== -1){
+        //     document.querySelector('#previewLinkBlock').style.display = 'block';
+        //     document.querySelector('#previewLink').innerHTML = "";
+        //     document.querySelector('#previewLink').innerHTML = '<iframe style="border-radius:12px" id="previewLink" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
+        // }else if(match_link[0].indexOf("widget") !== -1){
+        //     document.querySelector('#previewLinkBlock').style.display = 'block';
+        //     document.querySelector('#previewLink').innerHTML = "";
+        //     document.querySelector('#previewLink').innerHTML = '<iframe style="border-radius:12px" id="previewLink" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
+        // }else if(match_link[0].indexOf("w.soundcloud.com") !== -1){
+        //     document.querySelector('#previewLinkBlock').style.display = 'block';
+        //     document.querySelector('#previewLink').innerHTML = "";
+        //     document.querySelector('#previewLink').innerHTML = '<iframe style="border-radius:12px" id="previewLink" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
+        // }else if(match_link[0].indexOf("bandcamp") !== -1){
+        //     document.querySelector('#previewLinkBlock').style.display = 'block';
+        //     document.querySelector('#previewLink').innerHTML = "";
+        //     document.querySelector('#previewLink').innerHTML = '<iframe style="border-radius:12px" id="previewLink" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
+        // }else{
+        //     toastr.error('Please Add correct url embeded');
+        //     return false;
+        // }
     }
 </script>

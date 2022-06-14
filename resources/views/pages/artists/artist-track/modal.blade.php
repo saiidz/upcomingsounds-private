@@ -42,6 +42,16 @@
                     </div>
 
                     <div class="form-group">
+                        <label class="control-label form-control-label text-muted">Demo</label>
+                        <div id="deMo">
+                            <label class="switch">
+                                <input type="checkbox" name="demo" id="demoChecked">
+                                <span class="slider round switchDemo"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label class="control-label form-control-label text-muted">Release Date (optional)</label>
                         <div>
                             <input id="dateEditpicker" value="" name="release_date"

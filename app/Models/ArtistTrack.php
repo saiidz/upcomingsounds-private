@@ -26,6 +26,7 @@ class ArtistTrack extends Model
         'release_date',
         'display_profile',
         'track_thumbnail',
+        'demo',
         'favorite',
         'add_queque',
         'add_playlist',
@@ -49,5 +50,5 @@ class ArtistTrack extends Model
     public function artistTrackLinks(){
         return $this->hasMany(ArtistTrackLink::class,'artist_track_id');
     }
-    
+
 }
