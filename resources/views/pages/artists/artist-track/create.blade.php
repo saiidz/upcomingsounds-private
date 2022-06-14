@@ -41,7 +41,7 @@
     </div>
 
     <div class="form-group row">
-        <div class="col-sm-3 form-control-label text-muted">Demo</div>
+        <div class="col-sm-3 form-control-label text-muted">Demo(Is it an unfinished song?)</div>
         <div class="col-sm-9" id="deMo">
             <label class="switch">
                 <input type="checkbox" name="demo">
