@@ -27,6 +27,7 @@ class ArtistTrack extends Model
         'display_profile',
         'track_thumbnail',
         'demo',
+        'release_type',
         'favorite',
         'add_queque',
         'add_playlist',

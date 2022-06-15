@@ -42,7 +42,25 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label form-control-label text-muted">Demo(Is it an unfinished song?)</label>
+                        <div>
+                            <p class="mb-1">
+                                <p class="text-muted">Release Type</p>
+                                <div class="remix">
+                                    <label>
+                                        <input type="checkbox" class="radio releaseType audioSingleEdit" value="single" name="release_type" />   Single</label>
+                                    <label>
+                                        <input type="checkbox" class="radio releaseType audioAlbumEdit" value="album" name="release_type" />   Album</label>
+                                    <label>
+                                        <input type="checkbox" class="radio releaseType audioEpEdit" value="ep" name="release_type" />   EP</label>
+                                    <label>
+                                        <input type="checkbox" class="radio releaseType audioVideoEdit" value="video" name="release_type" />   Video</label>
+                                </div>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label form-control-label text-muted">Demo(Is it an unfinished song?`)</label>
                         <div id="deMo">
                             <label class="switch">
                                 <input type="checkbox" name="demo" id="demoChecked">

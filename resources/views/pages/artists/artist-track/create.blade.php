@@ -41,6 +41,26 @@
     </div>
 
     <div class="form-group row">
+        <div class="col-sm-3 form-control-label text-muted">Release Type</div>
+        <div class="col-sm-9">
+            <div class="col s12">
+                <p class="mb-1">
+                    <div class="remix">
+                        <label>
+                            <input type="checkbox" class="radio releaseType" value="single" name="release_type" />   Single</label>
+                        <label>
+                            <input type="checkbox" class="radio releaseType" value="album" name="release_type" />   Album</label>
+                        <label>
+                            <input type="checkbox" class="radio releaseType" value="ep" name="release_type" />   EP</label>
+                        <label>
+                            <input type="checkbox" class="radio releaseType" value="video" name="release_type" />   Video</label>
+                    </div>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
         <div class="col-sm-3 form-control-label text-muted">Demo(Is it an unfinished song?)</div>
         <div class="col-sm-9" id="deMo">
             <label class="switch">
@@ -262,14 +282,14 @@
             </div>
         </div>
     </div>
-    
+
     <div class="form-group row">
         <div class="col-sm-3 text-muted"></div>
         <div class="col-sm-9">
             <button type="button" class="slide-toggle btn btn-sm rounded addYourInterest">Add Your Interest</button>
         </div>
     </div>
-    
+
     <div class="form-group row interestShow" style="display: none;">
         <div class="col-sm-3 form-control-label text-muted">Select your genres/interests.</div>
         <div class="col-sm-9" id="trackAddFeatures">

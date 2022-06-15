@@ -579,7 +579,7 @@
                 });
             });
         });
-        
+
         function removeStyle(objfield) {
             objfield.style.borderColor = "";
             objfield.style.border = "";
@@ -605,7 +605,7 @@
                     result = 'Please Enter Valid Url';
                     flag = false;
                 }
-            }   
+            }
 
             // if (trackfrm.youtube_soundcloud_url.value != ""){
             //     const string = trackfrm.youtube_soundcloud_url.value;
@@ -1070,7 +1070,7 @@
                     }else{
                         $('#demoChecked').prop('checked', false);
                     }
-                    
+
                     var path_audio = window.location.origin + '/uploads/audio/' + data.artist_track.audio;
                     document.getElementById('audioEditTrack').setAttribute('src', path_audio );
                     // $("#songEditCategory").append('<option value="" disabled selected>Choose Song Category</option>');
@@ -1085,6 +1085,26 @@
                         $('#displayEditProfile').attr( 'checked', false );
                     }
                     $('#audioDescription').val(data.artist_track.audio_description);
+
+                    $('.audioSingleEdit').prop('checked', false );
+                    $('.audioAlbumEdit').prop('checked', false );
+                    $('.audioEpEdit').prop('checked', false );
+                    $('.audioVideoEdit').prop('checked', false );
+
+                    if(data.artist_track.release_type == "single"){
+                        $('.audioSingleEdit').prop('checked', true );
+                    }else if(data.artist_track.release_type == "album"){
+                        $('.audioAlbumEdit').prop('checked', true );
+                    }else if(data.artist_track.release_type == "ep"){
+                        $('.audioEpEdit').prop('checked', true );
+                    }else if(data.artist_track.release_type == "video"){
+                        $('.audioVideoEdit').prop('checked', true );
+                    }else{
+                        $('.audioSingleEdit').prop('checked', false );
+                        $('.audioAlbumEdit').prop('checked', false );
+                        $('.audioEpEdit').prop('checked', false );
+                        $('.audioVideoEdit').prop('checked', false );
+                    }
 
                     $('.audioOriginalEdit').prop('checked', false );
                     $('.audioCoverEdit').prop('checked', false );
@@ -1236,6 +1256,17 @@
     {{-- add track --}}
     <script>
         $('.audioCover').on('click', function(){
+            var $box = $(this);
+            if($box.is(':checked'))
+            {
+                var group = "input:checkbox[name='" + $box.attr("name") + "']";
+                $(group).prop('checked', false);
+                $box.prop("checked", true);
+            }else {
+                $box.prop("checked", false);
+            }
+        });
+        $('.releaseType').on('click', function(){
             var $box = $(this);
             if($box.is(':checked'))
             {
