@@ -6,7 +6,7 @@
         <h4 class="inline m-a-0 update_profile">Add a song</h4>
     </div>
     <div class="item-except text-sm text-muted h-2x m-t-sm">
-        Complete your discography and let influencers discover your songs when they visit your profile.
+        Let influencers discover your songs when they visit your profile by completing your discography.
     </div>
 
     <div class="form-group row">
@@ -26,7 +26,7 @@
     </div>
 
     <div class="form-group row">
-        <div class="col-sm-3 form-control-label text-muted">Description</div>
+        <div class="col-sm-3 form-control-label text-muted">Description/Press Release/Pitch</div>
         <div class="col-sm-9">
             <textarea name="description"
                       placeholder="Tell us more about your artwork... "
