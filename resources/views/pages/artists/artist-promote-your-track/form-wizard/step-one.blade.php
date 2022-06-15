@@ -3,7 +3,7 @@
         <p>Step 1/4</p>
         <h2>Start by adding your track or select one if you have already!</h2>
         <p class="m-b-md">You are one step closer to spreading your art to the world, now add a new track and fill out the required information.</p>
-        <a class="m-b-md rounded addTrack" href="{{url('/artist-profile')}}#add-track">
+        <a class="m-b-md rounded addTrack" data-toggle="modal" data-target="#add-track-promote" href="javascript:void(0)">
            Add New track
         </a>
     </div>
@@ -48,3 +48,5 @@
         <a class="m-b-md rounded addTrack nxt__btn" onclick="nextForm();"> Next</a>
     </div>
 </fieldset>
+
+@include('pages.artists.artist-promote-your-track.artist-track.modal')

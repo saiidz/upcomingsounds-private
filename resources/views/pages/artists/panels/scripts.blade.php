@@ -92,6 +92,11 @@
             input.attr("type", "password");
         }
     });
+
+    $('#datepickerAddTrack').datepicker({
+            iconsLibrary: 'fontawesome',
+            format: "yyyy-mm-dd"
+        });
 </script>
 
 <script>
