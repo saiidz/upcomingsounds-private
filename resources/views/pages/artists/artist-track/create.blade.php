@@ -15,7 +15,7 @@
             <input type="text" name="name"
                    class="form-control @error('name') is-invalid @enderror"
                    value="{{old('name')}}"
-                   placeholder="Your Title" required>
+                   placeholder="Add your release title" required>
             <div id="error_message_name" class="red-text" style="color:red; padding:4px;"></div>
             @error('name')
             <small class="red-text ml-10" role="alert">
