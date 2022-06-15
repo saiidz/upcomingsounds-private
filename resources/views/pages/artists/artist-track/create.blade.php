@@ -286,7 +286,7 @@
     <div class="form-group row">
         <div class="col-sm-3 text-muted"></div>
         <div class="col-sm-9">
-            <button type="button" class="slide-toggle btn btn-sm rounded addYourInterest">Add Your Interest</button>
+            <button type="button" class="slide-toggle btn btn-sm rounded addYourInterest">Add Your Genres/Interest</button>
         </div>
     </div>
 
