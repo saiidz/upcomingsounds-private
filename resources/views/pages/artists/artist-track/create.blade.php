@@ -138,7 +138,7 @@
     <div class="form-group row">
         <div class="col-sm-3"></div>
         <div class="col-sm-9 text-warning">
-           <h6>(Caption for iframe add)</h6>
+           <h6>Insert your embedded player code (from any digital stores: Spotify; Apple Music; Amazon Music; Deezer; Soundcloud; YouTube; Anghami; Bandcamp.)</h6>
         </div>
     </div>
 
