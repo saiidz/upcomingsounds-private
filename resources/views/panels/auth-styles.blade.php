@@ -1,7 +1,11 @@
 <head>
+<meta property="og:title" content="Upcomingsounds.com">
+<meta property="og:description" content="Add description here">
+<meta property="og:image" content="https://https://upcomingsounds.com/og-image.png">
+<meta property="og:url" content="https://upcomingsounds.com">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@yield('title') | {{ config('app.name', 'Upcoming Sound') }}</title>
+    <title>@yield('title') | {{ config('app.name', 'upcomingsounds.com') }}</title>
     <meta name="description" content="acoustic, advice, answers, apply, artist, artists, audiences,
 band, Belgium, best, blog, brazil, budget, build, Canadian, careers,
 cheating, choice, classic, contact, a curator,
