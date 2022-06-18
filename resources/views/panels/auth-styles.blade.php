@@ -2,7 +2,22 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@yield('title') | {{ config('app.name', 'Upcoming Sound') }}</title>
-    <meta name="description" content="Music, Musician, Bootstrap" />
+    <meta name="description" content="acoustic, advice, answers, apply, artist, artists, audiences,
+band, Belgium, best, blog, brazil, budget, build, Canadian, careers,
+cheating, choice, classic, contact, a curator,
+curatorS, days, discover, electronic, explore,
+feedback, folk, United kingdom,  german, getting,
+great, rock,   guaranteed, help, important,
+indie, industry, info, instrumental, island, Italy, jazz, join,
+label, labels, Lebanon, listened,   mentors,
+metal, MUSiC, musicians musique need network open
+opportunities, platform, playlist, playlists, pricing,
+producer, professionals, promote, promotion,
+ProS, publishers, punk, radio, radios, record,
+records, EDM,  release, results, rock music,  select,
+simple, Reels, soul, Spotify, states,  Tiktok, stories, streaming, streams,
+success, touch, track, tracks, transparent, united, visibility,
+ to access music industry jobs, record labels, music promotion, A&R & further your career in music, Music, Gateway, a worldwide, music industry, marketplace, where you find music industry jobs, music cloud storage, music news, music industry jobs, record labels companies, music business worldwide, music industry news, music industry careers, career, in music, business,  how to start a career in music," />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- for ios 7 style, multi-resolution icon of 152x152 -->
