@@ -204,7 +204,7 @@
 {{--                                        </div>--}}
                                         <h6 class="title"> Direct And Simple </h6>
                                         <div class="desc"><p>Our pricing is direct (no hidden fees).
-                                        It starts with only 2USC = £2 to send your track to 1 Tastemaker / Pro. </p></div>
+                                        Our flexible options allow you to individually select curators and send your music to our tastemakers, influencers, and media professionals. Or you can choose an Automated campaign and receive offers from our tastemakers and pros. You select what offer to accept or reject. </p></div>
                                     </div>
                                 </div>
                             </div>
