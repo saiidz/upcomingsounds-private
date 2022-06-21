@@ -202,9 +202,9 @@
 {{--                                        <div class="icon">--}}
 {{--                                            <i class="icon-info-9"></i>--}}
 {{--                                        </div>--}}
-                                        <h6 class="title"> Direct And Simple </h6>
-                                        <div class="desc"><p>Our pricing is direct (no hidden fees).
-                                        Our flexible options allow you to individually select curators and send your music to our tastemakers, influencers, and media professionals. Or you can choose an Automated campaign and receive offers from our tastemakers and pros. You select what offer to accept or reject. </p></div>
+                                        <h6 class="title">Direct And Simple pricing (no hidden fees)</h6>
+                                        <div class="desc"><p>Our flexible options allow you to individually select curators and send your music to our tastemakers, influencers, and media professionals.
+                                        Or you can choose an Automated campaign and receive offers from our tastemakers and pros. You select what offer to accept or reject. </p></div>
                                     </div>
                                 </div>
                             </div>
