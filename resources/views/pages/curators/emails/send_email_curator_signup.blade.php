@@ -33,7 +33,7 @@
     font-weight: 500;
     margin: 0;
 ">Hello {{ $username }},</h2>
-                                <p style="color: #8d8ca4;font-size: 18px;font-weight: 400;line-height:24px;margin:0;padding: 20px 0 0;text-align: left;word-break:normal;direction:ltr;">Thanks for applying to Upcomingsounds. We are evaluating your application. You will hear from us shortly.</p>
+                                <p style="color: black;font-size: 18px;font-weight: 400;line-height:24px;margin:0;padding: 20px 0 0;text-align: left;word-break:normal;direction:ltr;">Thanks for applying to Upcomingsounds. We are evaluating your application. You will hear from us shortly.</p>
                                 <p style="color: #8d8ca4;font-size: 18px;font-weight: 400;line-height:24px;margin:0;padding: 25px 0 0;text-align: left;word-break:normal;direction:ltr;">For any assistance, contact us.</p>
                                 <p style="color: #8d8ca4;font-size: 18px;font-weight: 400;line-height:24px;margin:0;padding: 25px 0 0;text-align: left;word-break:normal;direction:ltr;">Thanks. </p></td>
                         </tr>
