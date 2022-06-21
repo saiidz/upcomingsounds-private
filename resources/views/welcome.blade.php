@@ -102,7 +102,7 @@
                         <div class="black cover cover-gd artists_welcome">
 {{--                        <div class="black cover cover-gd artists_welcome" style="background-image: url({{asset('images/b7.jpg')}});">--}}
                             <div class="p-a-lg text-center p-t-lg">
-                                <h5 class="display-4 m-y-lg text-white"> For Artists / Label / Manager </h5>
+                                <h5 class="display-4 m-y-lg text-white">For Artists / Labels / Managers / </h5>
                                 <p class="text-black text-md m-y-lg">Send your music to real curators and professionals that we have personally selected and tested their ability to impact the music that makes it out to the world.</p>
                                 <a href="{{url('/artist-home')}}" class="btn circle white m-b-lg p-x-md"> Submit Your Music Now</a>
                                 {{--                                <a href="home.html" class="btn circle white m-b-lg p-x-md">View Artists</a>--}}
@@ -113,7 +113,7 @@
                         <div class="black cover cover-gd curators_welcome">
 {{--                        <div class="black cover cover-gd curators_welcome" style="background-image: url({{asset('images/b7.jpg')}});">--}}
                             <div class="p-a-lg text-center p-t-lg">
-                                <h6 class="display-4 m-y-lg text-white"> For Curators/Tastemakers/Influencers </h6>
+                                <h6 class="display-4 m-y-lg text-white"> For Curators / Tastemakers / Influencers / Media  </h6>
                                 <p class="text-black text-md m-y-lg">Discover new music, find upcoming talents, get paid to listen and review new or unreleased music.</p>
                                 <a href="{{url('/curator-home')}}" class="btn circle white m-b-lg p-x-md">Join Our Family </a>
 {{--                                <h3 class="display-3 m-y-lg">Music</h3>--}}
