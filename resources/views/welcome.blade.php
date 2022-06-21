@@ -102,7 +102,7 @@
                         <div class="black cover cover-gd artists_welcome">
 {{--                        <div class="black cover cover-gd artists_welcome" style="background-image: url({{asset('images/b7.jpg')}});">--}}
                             <div class="p-a-lg text-center p-t-lg">
-                                <h5 class="display-4 m-y-lg text-white">For Artists / Labels / Managers / </h5>
+                                <h5 class="display-4 m-y-lg text-white">For Artists / Labels / Managers </h5>
                                 <p class="text-black text-md m-y-lg">Send your music to real curators and professionals that we have personally selected and tested their ability to impact the music that makes it out to the world.</p>
                                 <a href="{{url('/artist-home')}}" class="btn circle white m-b-lg p-x-md"> Submit Your Music Now</a>
                                 {{--                                <a href="home.html" class="btn circle white m-b-lg p-x-md">View Artists</a>--}}
