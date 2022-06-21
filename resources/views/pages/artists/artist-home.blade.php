@@ -219,7 +219,7 @@
 {{--                                            <i class="icon-info-6"></i>--}}
 {{--                                        </div>--}}
                                         <h6 class="title">Build Your Brand </h6>
-                                        <div class="desc"><p>Get you the maximum exposure to the right people. Gain more listeners and fans, create a community of raving fans, and ultimately grow your band or artist profile.</p></div>
+                                        <div class="desc"><p>Get Exposure to the right people at the right time. Gain more listeners and fans, build a community of raving fans, and ultimately grow your band's or artist's profile.</p></div>
                                     </div>
                                 </div>
                             </div>
