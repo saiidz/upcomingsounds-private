@@ -675,56 +675,56 @@
         }
 
 
-        function getId(url) {
-            var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-            var match = url.match(regExp);
+        // function getId(url) {
+        //     var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+        //     var match = url.match(regExp);
 
-            if (match && match[2].length == 11) {
-                return match[2];
-            } else {
-                return 'error';
-            }
-        }
+        //     if (match && match[2].length == 11) {
+        //         return match[2];
+        //     } else {
+        //         return 'error';
+        //     }
+        // }
 
-        document.getElementById('trueUrl').addEventListener('focusout', function (){
-            // if(this.value.includes('https://www.youtube.com/watch') || this.value.includes('https://www.youtube.com/embed/') || this.value.includes('https://w.soundcloud.com') || this.value.includes('https://soundcloud.com/')){
-            if(this.value.includes('https://www.youtube.com/watch') || this.value.includes('https://www.youtube.com/embed/')){
-                var match = this.value.match(/watch|embed|soundcloud/g);
+        // document.getElementById('trueUrl').addEventListener('focusout', function (){
+        //     // if(this.value.includes('https://www.youtube.com/watch') || this.value.includes('https://www.youtube.com/embed/') || this.value.includes('https://w.soundcloud.com') || this.value.includes('https://soundcloud.com/')){
+        //     if(this.value.includes('https://www.youtube.com/watch') || this.value.includes('https://www.youtube.com/embed/')){
+        //         var match = this.value.match(/watch|embed|soundcloud/g);
 
-                if(match[0].indexOf("watch") !== -1){
-                    // alert('youtube');
-                    // document.querySelector('#preview').style.display = 'none';
-                    var res = getId(this.value);
-                    // console.log(document.querySelector("#preview > iframe[src='']") == null);
-                    //     return false;
-                    document.querySelector('#preview').style.display = 'block';
-                    document.querySelector('#preview').innerHTML = "";
-                    // document.querySelector('#iframe_track').src = "https://www.youtube.com/embed/" + res;
-                    document.querySelector('#preview').innerHTML = '<iframe width="320" height="315" src="https://www.youtube.com/embed/'+ res +'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-                    // document.querySelector('#iframe_track').style.display = 'block'
-                }else if(match[0].indexOf("soundcloud") !== -1){
-                    // alert('soundcloud');
-                    // document.querySelector('#preview').style.display = 'block';
-                    // document.querySelector('#preview').innerHTML = "";
-                    // document.querySelector('#preview').innerHTML = this.value;
-                    // document.querySelector('#iframe_track').src = this.value;
-                    // document.querySelector('#iframe_track').style.display = 'block'
-                }else if(match[0].indexOf("embed") !== -1){
-                    // alert('embed')
-                    document.querySelector('#preview').style.display = 'block';
-                    document.querySelector('#preview').innerHTML = "";
-                    document.querySelector('#preview').innerHTML = this.value;
+        //         if(match[0].indexOf("watch") !== -1){
+        //             // alert('youtube');
+        //             // document.querySelector('#preview').style.display = 'none';
+        //             var res = getId(this.value);
+        //             // console.log(document.querySelector("#preview > iframe[src='']") == null);
+        //             //     return false;
+        //             document.querySelector('#preview').style.display = 'block';
+        //             document.querySelector('#preview').innerHTML = "";
+        //             // document.querySelector('#iframe_track').src = "https://www.youtube.com/embed/" + res;
+        //             document.querySelector('#preview').innerHTML = '<iframe width="320" height="315" src="https://www.youtube.com/embed/'+ res +'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+        //             // document.querySelector('#iframe_track').style.display = 'block'
+        //         }else if(match[0].indexOf("soundcloud") !== -1){
+        //             // alert('soundcloud');
+        //             // document.querySelector('#preview').style.display = 'block';
+        //             // document.querySelector('#preview').innerHTML = "";
+        //             // document.querySelector('#preview').innerHTML = this.value;
+        //             // document.querySelector('#iframe_track').src = this.value;
+        //             // document.querySelector('#iframe_track').style.display = 'block'
+        //         }else if(match[0].indexOf("embed") !== -1){
+        //             // alert('embed')
+        //             document.querySelector('#preview').style.display = 'block';
+        //             document.querySelector('#preview').innerHTML = "";
+        //             document.querySelector('#preview').innerHTML = this.value;
 
-                }else{
-                    alert('error')
-                }
+        //         }else{
+        //             alert('error')
+        //         }
 
-            } else {
-                // document.querySelector('#iframe_track').src = ""
-                document.querySelector('#preview').style.display = 'none';
-                // document.querySelector('#iframe_track').style.display = 'none';
-            }
-        })
+        //     } else {
+        //         // document.querySelector('#iframe_track').src = ""
+        //         document.querySelector('#preview').style.display = 'none';
+        //         // document.querySelector('#iframe_track').style.display = 'none';
+        //     }
+        // })
 
         // Edit Track Validations
         function validateEditTrackForm(track_edit_song){
@@ -841,44 +841,44 @@
                 return false;
             }
         }
-        document.getElementById('trueUrlEdit').addEventListener('focusout', function (){
-            if(this.value.includes('https://www.youtube.com/watch') || this.value.includes('https://www.youtube.com/embed/')){
-            // if(this.value.includes('https://www.youtube.com/watch') || this.value.includes('https://www.youtube.com/embed/') || this.value.includes('https://w.soundcloud.com') || this.value.includes('https://soundcloud.com')){
-                var match = this.value.match(/watch|embed|soundcloud/g);
-                if(match[0].indexOf("watch") !== -1){
-                    // alert('youtube');
-                    // document.querySelector('#preview').style.display = 'none';
-                    var res = getId(this.value);
-                    // console.log(document.querySelector("#preview > iframe[src='']") == null);
-                    //     return false;
-                    document.querySelector('#previewEdit').style.display = 'block';
-                    document.querySelector('#previewEdit').innerHTML = "";
-                    // document.querySelector('#iframe_track').src = "https://www.youtube.com/embed/" + res;
-                    document.querySelector('#previewEdit').innerHTML = '<iframe width="320" height="315" src="https://www.youtube.com/embed/'+ res +'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-                    // document.querySelector('#iframe_track').style.display = 'block'
-                }else if(match[0].indexOf("soundcloud") !== -1){
-                    // alert('soundcloud');
-                    document.querySelector('#previewEdit').style.display = 'block';
-                    document.querySelector('#previewEdit').innerHTML = "";
-                    document.querySelector('#previewEdit').innerHTML = this.value;
-                    // document.querySelector('#iframe_track').src = this.value;
-                    // document.querySelector('#iframe_track').style.display = 'block'
-                }else if(match[0].indexOf("embed") !== -1){
-                    // alert('embed')
-                    document.querySelector('#previewEdit').style.display = 'block';
-                    document.querySelector('#previewEdit').innerHTML = "";
-                    document.querySelector('#previewEdit').innerHTML = this.value;
+        // document.getElementById('trueUrlEdit').addEventListener('focusout', function (){
+        //     if(this.value.includes('https://www.youtube.com/watch') || this.value.includes('https://www.youtube.com/embed/')){
+        //     // if(this.value.includes('https://www.youtube.com/watch') || this.value.includes('https://www.youtube.com/embed/') || this.value.includes('https://w.soundcloud.com') || this.value.includes('https://soundcloud.com')){
+        //         var match = this.value.match(/watch|embed|soundcloud/g);
+        //         if(match[0].indexOf("watch") !== -1){
+        //             // alert('youtube');
+        //             // document.querySelector('#preview').style.display = 'none';
+        //             var res = getId(this.value);
+        //             // console.log(document.querySelector("#preview > iframe[src='']") == null);
+        //             //     return false;
+        //             document.querySelector('#previewEdit').style.display = 'block';
+        //             document.querySelector('#previewEdit').innerHTML = "";
+        //             // document.querySelector('#iframe_track').src = "https://www.youtube.com/embed/" + res;
+        //             document.querySelector('#previewEdit').innerHTML = '<iframe width="320" height="315" src="https://www.youtube.com/embed/'+ res +'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+        //             // document.querySelector('#iframe_track').style.display = 'block'
+        //         }else if(match[0].indexOf("soundcloud") !== -1){
+        //             // alert('soundcloud');
+        //             document.querySelector('#previewEdit').style.display = 'block';
+        //             document.querySelector('#previewEdit').innerHTML = "";
+        //             document.querySelector('#previewEdit').innerHTML = this.value;
+        //             // document.querySelector('#iframe_track').src = this.value;
+        //             // document.querySelector('#iframe_track').style.display = 'block'
+        //         }else if(match[0].indexOf("embed") !== -1){
+        //             // alert('embed')
+        //             document.querySelector('#previewEdit').style.display = 'block';
+        //             document.querySelector('#previewEdit').innerHTML = "";
+        //             document.querySelector('#previewEdit').innerHTML = this.value;
 
-                }else{
-                    alert('error')
-                }
+        //         }else{
+        //             alert('error')
+        //         }
 
-            } else {
-                // document.querySelector('#iframe_track').src = ""
-                document.querySelector('#previewEdit').style.display = 'none';
-                // document.querySelector('#iframe_track').style.display = 'none';
-            }
-        });
+        //     } else {
+        //         // document.querySelector('#iframe_track').src = ""
+        //         document.querySelector('#previewEdit').style.display = 'none';
+        //         // document.querySelector('#iframe_track').style.display = 'none';
+        //     }
+        // });
 
     </script>
     <script>
@@ -1027,30 +1027,31 @@
                     let counter_count = 1
                     $('#TextBoxesGroupEdit').empty();
                     $.each(data.artist_track_links, function(key, value){
-                        $('#TextBoxesGroupEdit').append('<div class="form-group editNewLink"><label class="control-label form-control-label text-muted">Add New Link #'+counter_count+'</label><div> <input type="text" name="link[]" onclick="removeStyle(this);" class="form-control moreLinks @error('link') is-invalid @enderror" required value="'+value.link+'" id="textbox'+counter_count+'" placeholder="Please Add Embeded Url"><a href="javascript:void(0)" class="textbox'+counter_count+'" id="previewIconEdit" onclick="getInputValueEdit(this)"><i class="fa fa-eye"></i> preview</a></div></div>');
+                        $('#TextBoxesGroupEdit').append(value.link);
+                        // $('#TextBoxesGroupEdit').append('<div class="form-group editNewLink"><label class="control-label form-control-label text-muted">Add New Link #'+counter_count+'</label><div> <input type="text" name="link[]" onclick="removeStyle(this);" class="form-control moreLinks @error('link') is-invalid @enderror" required value="'+value.link+'" id="textbox'+counter_count+'" placeholder="Please Add Embeded Url"><a href="javascript:void(0)" class="textbox'+counter_count+'" id="previewIconEdit" onclick="getInputValueEdit(this)"><i class="fa fa-eye"></i> preview</a></div></div>');
                         counter_count++;
                     });
 
-                    $('#trueUrlEdit').val(data.artist_track.youtube_soundcloud_url);
-                    if(data.artist_track.youtube_soundcloud_url.includes('https://www.youtube.com/watch') || data.artist_track.youtube_soundcloud_url.includes('https://www.youtube.com/embed') || data.artist_track.youtube_soundcloud_url.includes('https://w.soundcloud.com') || data.artist_track.youtube_soundcloud_url.includes('https://soundcloud.com')) {
-                        var match = data.artist_track.youtube_soundcloud_url.match(/watch|embed|soundcloud/g);
-                        if (match[0].indexOf("watch") !== -1) {
-                            var res = getId(data.artist_track.youtube_soundcloud_url);
-                            document.querySelector('#previewEdit').innerHTML = "";
-                            document.querySelector('#previewEdit').innerHTML = '<iframe width="320" height="315" src="https://www.youtube.com/embed/' + res + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-                        } else if (match[0].indexOf("soundcloud") !== -1) {
-                            document.querySelector('#previewEdit').innerHTML = "";
-                            document.querySelector('#previewEdit').innerHTML = data.artist_track.youtube_soundcloud_url;
-                        } else if (match[0].indexOf("embed") !== -1) {
-                            document.querySelector('#previewEdit').style.display = 'block';
-                            document.querySelector('#previewEdit').innerHTML = "";
-                            document.querySelector('#previewEdit').innerHTML = data.artist_track.youtube_soundcloud_url;
+                    // $('#trueUrlEdit').val(data.artist_track.youtube_soundcloud_url);
+                    // if(data.artist_track.youtube_soundcloud_url.includes('https://www.youtube.com/watch') || data.artist_track.youtube_soundcloud_url.includes('https://www.youtube.com/embed') || data.artist_track.youtube_soundcloud_url.includes('https://w.soundcloud.com') || data.artist_track.youtube_soundcloud_url.includes('https://soundcloud.com')) {
+                    //     var match = data.artist_track.youtube_soundcloud_url.match(/watch|embed|soundcloud/g);
+                    //     if (match[0].indexOf("watch") !== -1) {
+                    //         var res = getId(data.artist_track.youtube_soundcloud_url);
+                    //         document.querySelector('#previewEdit').innerHTML = "";
+                    //         document.querySelector('#previewEdit').innerHTML = '<iframe width="320" height="315" src="https://www.youtube.com/embed/' + res + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                    //     } else if (match[0].indexOf("soundcloud") !== -1) {
+                    //         document.querySelector('#previewEdit').innerHTML = "";
+                    //         document.querySelector('#previewEdit').innerHTML = data.artist_track.youtube_soundcloud_url;
+                    //     } else if (match[0].indexOf("embed") !== -1) {
+                    //         document.querySelector('#previewEdit').style.display = 'block';
+                    //         document.querySelector('#previewEdit').innerHTML = "";
+                    //         document.querySelector('#previewEdit').innerHTML = data.artist_track.youtube_soundcloud_url;
 
-                        }
-                    }
-                    else {
-                        document.querySelector('#previewEdit').style.display = 'none';
-                    }
+                    //     }
+                    // }
+                    // else {
+                    //     document.querySelector('#previewEdit').style.display = 'none';
+                    // }
 
                     // $('#soundcloudUrlEdit').val(data.artist_track.soundcloudUrl);
                     // $('#spotifyTrackUrl').val(data.artist_track.spotify_track_url);
@@ -1267,6 +1268,17 @@
             }
         });
         $('.releaseType').on('click', function(){
+            var $box = $(this);
+            if($box.is(':checked'))
+            {
+                var group = "input:checkbox[name='" + $box.attr("name") + "']";
+                $(group).prop('checked', false);
+                $box.prop("checked", true);
+            }else {
+                $box.prop("checked", false);
+            }
+        });
+        $('.permissionCopyright').on('click', function(){
             var $box = $(this);
             if($box.is(':checked'))
             {

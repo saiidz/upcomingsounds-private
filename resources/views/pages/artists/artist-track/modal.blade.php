@@ -85,7 +85,11 @@
 {{--                        </div>--}}
 {{--                    </div>--}}
 
-                    <div class="form-group">
+                    <div class="form-group text-warning">
+                        <h6>Insert your embedded player code (from any digital stores: Spotify; Apple Music; Amazon Music; Deezer; Soundcloud; YouTube; Anghami; Bandcamp.)</h6>
+                    </div>
+
+                    {{-- <div class="form-group">
                         <label class="control-label form-control-label text-muted">YouTube Link</label>
                         <div>
                             <input type="text" name="youtube_soundcloud_url" id="trueUrlEdit" onclick="removeStyle(this);"
@@ -101,7 +105,7 @@
 
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     {{-- <div class="form-group">
                         <label class="control-label form-control-label text-muted">SoundCloud Link</label>
@@ -244,3 +248,32 @@
     </div>
 </div>
 <!-- / Delete Track Modal -->
+
+
+<!-- Permission Copy Right Modal -->
+<div id="edit-track" class="modal fade black-overlay" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Track</h5>
+            </div>
+            <div class="modal-body">
+                What's the deal with copyrights?
+                When submitting your song, you'll probably see a prompt asking if you're willing to sign a copyright agreement so that someone can upload the song to their channel.
+
+                The copyright agreements are 90% for YouTube channels (occasionally others might ask if they can upload to their Facebook or a radio show, for example). The copyright is you giving them permission to upload the song without getting in trouble. YouTube has all sorts of automatic copyright stuff going on, so if they do get in trouble, they can just show the copyright agreement you signed and say "see, they gave us permission!"
+
+                As for the monetization -- a lot of those YouTube channels run ads on their videos. If you give them permission to monetize your video, they can run ads and keep all the money. The idea is that in exchange, you get exposure. (Also worth noting that YouTube has some of the worst monetization of any music platform, so it's not like you're losing out on much).
+
+                Them having your song on their channel doesn't mean you can't put it on your own official channel.
+
+                Will it make a difference if you allow monetization or not? Nope! SubmitHub will automatically filter out any channels who require monetization, so if your preference is non-monetization, you'll never be sending your song to someone who requires that.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
+</div>
+<!-- Permission Copy Right Modal -->

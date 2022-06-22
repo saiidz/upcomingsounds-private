@@ -318,29 +318,29 @@ class CuratorSignupController extends Controller
 //            }
 
             // Youtube api use for subscriber count
-            if(!empty($request->youtube_url)){
-                $str = $request->youtube_url;
-                $values = parse_url($str);
-                $host = explode('/',$values['path']);
-                $channel_id = (isset($host[2])) ? $host[2] : '';
+            // if(!empty($request->youtube_url)){
+            //     $str = $request->youtube_url;
+            //     $values = parse_url($str);
+            //     $host = explode('/',$values['path']);
+            //     $channel_id = (isset($host[2])) ? $host[2] : '';
 
-                if(empty($channel_id)){
-                    return redirect()->back()->with('error', 'You have entered Youtube invalid url. Please add correct url');
-                }
+            //     if(empty($channel_id)){
+            //         return redirect()->back()->with('error', 'You have entered Youtube invalid url. Please add correct url');
+            //     }
 
 
-                $response = Http::get('https://www.googleapis.com/youtube/v3/channels?part=statistics&id='.$channel_id.'&key=AIzaSyBHT17QSOzWlBr578dulEEN030aboaHXug');
+            //     $response = Http::get('https://www.googleapis.com/youtube/v3/channels?part=statistics&id='.$channel_id.'&key=AIzaSyBHT17QSOzWlBr578dulEEN030aboaHXug');
 
-                if(empty($response->collect()['items'])){
-                    return redirect()->back()->with('error', 'You have entered invalid Youtube url. Please add correct url');
-                }
-                $youtube_followers = $response->collect()['items'][0]['statistics']['subscriberCount'];
+            //     if(empty($response->collect()['items'])){
+            //         return redirect()->back()->with('error', 'You have entered invalid Youtube url. Please add correct url');
+            //     }
+            //     $youtube_followers = $response->collect()['items'][0]['statistics']['subscriberCount'];
 
-                $need_youtube_followers = 15000;
-                if($need_youtube_followers >= $youtube_followers){
-                    return redirect()->back()->with('error', 'Your youtube followers is '.$youtube_followers.'. You need at least 15,000 Youtube Subscriber to apply as an Youtuber');
-                }
-            }
+            //     $need_youtube_followers = 15000;
+            //     if($need_youtube_followers >= $youtube_followers){
+            //         return redirect()->back()->with('error', 'Your youtube followers is '.$youtube_followers.'. You need at least 15,000 Youtube Subscriber to apply as an Youtuber');
+            //     }
+            // }
 
             $curator_signup = $request->session()->get('curator_signup');
             $curator_data = $request->session()->get('curator_data');

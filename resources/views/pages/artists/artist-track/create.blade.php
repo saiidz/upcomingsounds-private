@@ -84,7 +84,7 @@
             <div id="preview"></div>
         </div>
     </div>
-    <div class="form-group row">
+    {{-- <div class="form-group row">
         <div class="col-sm-3 form-control-label text-muted"><a href="https://www.youtube.com/" target="_blank" style="color:#d64441;" rel="noopener noreferrer">YouTube</a> link</div>
         <div class="col-sm-9">
             <input type="text" name="youtube_soundcloud_url" id="trueUrl" onclick="removeStyle(this);"
@@ -96,13 +96,13 @@
                 {{ $message }}
             </small>
             @enderror
-            {{-- <div class="row">
+            <div class="row">
                 <div class="col-sm-12">
                     <div id="preview"></div>
                 </div>
-            </div> --}}
+            </div>
         </div>
-    </div>
+    </div> --}}
 
     {{-- <div class="form-group row">
         <div class="col-sm-3 form-control-label text-muted">SoundCloud link</div>
@@ -219,7 +219,7 @@
         <div class="col-sm-3 form-control-label text-muted">Song Upload(mp3)</div>
         <div class="col-sm-9">
             <input type='file' class="form-control" name="audio" id="audioTrackUpload"
-                   accept=".mp3" required />
+                   accept=".mp3" />
             <label for="imageTrackUpload"></label>
             <div class="audioTrackPreview">
                 <audio controls="" src="" type="audio/mp3" controlslist="nodownload" id="audioTrackPreview" style="display:none;"></audio>
@@ -249,6 +249,14 @@
                         <span class="text-muted">Display on my public profile </span>
                     </label>
                 </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-3 form-control-label text-muted">Unreleased Test</div>
+        <div class="col-sm-9">
+            <div class="col s12">
                 <p class="mb-1">
                     <input type="text" class="form-control" placeholder="e.g. Please do not share this before 31 Dec"
                                name="audio_description" />
@@ -279,6 +287,40 @@
                         @endforeach
                     @endif
                 </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-3 form-control-label text-muted">Permissions / Copyright
+            <div class="mrg-top-10 mrg-bottom-20 small grey-text">
+                <span>Want to learn more?</span>
+                <!-- Button trigger modal -->
+                <a href="javascript:void(0)" data-toggle="modal" data-target="#exampleModalCenter">
+                    Click Here
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <div class="col s12">
+                <p class="mb-1">
+                    <div class="remix">
+                        <label>
+                            <input type="checkbox" class="radio permissionCopyright" value="no" name="permission_copyright" />   No, they cannot upload an MP3 to their own channel
+                            <div class="grey-text small" style="margin-left: 18px;">We will ask them to use the streaming links you provided</div>
+                        </label>
+                    </div>
+                </p>
+            </div>
+            <div class="col s12">
+                <p class="mb-1">
+                    <div class="remix">
+                        <label>
+                            <input type="checkbox" class="radio permissionCopyright" value="yes" name="permission_copyright" />   Yes, let them upload this song
+                            <div class="grey-text small" style="margin-left: 18px;">Often required by YouTube channels and Radio stations</div>
+                        </label>
+                    </div>
+                </p>
             </div>
         </div>
     </div>
@@ -876,9 +918,9 @@
                     @if($curator_features[16]->name == 'World Music')
                         <div class="faq row">
                             <div class="col s12 m9 l12">
-                                <div class="collapsible-header features_tAgs">
+                                {{-- <div class="collapsible-header features_tAgs">
                                     World Music
-                                </div>
+                                </div> --}}
                                 <div class="features-box-select">
                                     <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select World Music" multiple>
                                         @if(!empty($curator_features))
@@ -1220,6 +1262,31 @@
             Add Song</button>
     </div>
 </form>
+<!-- Permission Copy Right Modal -->
+<div id="exampleModalCenter" class="modal fade black-overlay" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">What's the deal with copyrights?</h5>
+            </div>
+            <div class="modal-body">
+                When submitting your song, you'll probably see a prompt asking if you're willing to sign a copyright agreement so that someone can upload the song to their channel.
+
+                The copyright agreements are 90% for YouTube channels (occasionally others might ask if they can upload to their Facebook or a radio show, for example). The copyright is you giving them permission to upload the song without getting in trouble. YouTube has all sorts of automatic copyright stuff going on, so if they do get in trouble, they can just show the copyright agreement you signed and say "see, they gave us permission!"
+
+                As for the monetization -- a lot of those YouTube channels run ads on their videos. If you give them permission to monetize your video, they can run ads and keep all the money. The idea is that in exchange, you get exposure. (Also worth noting that YouTube has some of the worst monetization of any music platform, so it's not like you're losing out on much).
+
+                Them having your song on their channel doesn't mean you can't put it on your own official channel.
+
+                Will it make a difference if you allow monetization or not? Nope! SubmitHub will automatically filter out any channels who require monetization, so if your preference is non-monetization, you'll never be sending your song to someone who requires that.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
+</div>
+<!-- Permission Copy Right Modal -->
 <script>
     // function validURL(str) {
     //     var pattern = new RegExp("^((https|http)?://)"); // protocol

@@ -7,7 +7,7 @@ use App\Models\ArtistTrackLanguage;
 use Illuminate\Http\Request;
 use App\Models\TrackCategory;
 use App\Models\ArtistTrackLink;
-use Illuminate\Support\Facades\File;
+    use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
 class ArtistTrackController extends Controller
@@ -42,7 +42,7 @@ class ArtistTrackController extends Controller
     {
         // dd($request->all());
         $validator = Validator::make($request->all(), [
-            'youtube_soundcloud_url' => 'required',
+            // 'youtube_soundcloud_url' => 'required',
             // 'spotify_track_url' => 'required|url',
             // 'link' => 'required|url',
             'name' => 'required|string',
@@ -56,10 +56,18 @@ class ArtistTrackController extends Controller
             return redirect('/artist-profile#add-track')->withErrors($validator)
                 ->withInput();
         }
-        
+        //check if demo on
+        if($request->demo == "on")
+        {
+            if(empty($request->audio))
+            {
+                return redirect()->back()->with('error','PLease add song because demo is on');
+            }
+        }
+
         $input = $request->all();
         $input['user_id'] = auth()->user()->id;
-        $input['youtube_soundcloud_url'] = $request->get('youtube_soundcloud_url');
+        // $input['youtube_soundcloud_url'] = $request->get('youtube_soundcloud_url');
         // $input['soundcloudUrl']          = $request->get('soundcloudUrl');
 //        $input['track_category_id'] = ($request->get('song_category')) ? $request->get('song_category') : null;
         $input['display_profile'] = ($request->get('display_profile')) ? (int)$request->get('display_profile') : 0;

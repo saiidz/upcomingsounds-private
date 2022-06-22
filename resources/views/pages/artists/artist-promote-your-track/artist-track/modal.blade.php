@@ -6,8 +6,8 @@
                 <h5 class="modal-title">Add a song</h5>
             </div>
             <div class="modal-body p-lg">
-                <form method="POST" action="{{url('/store-track')}}" data-edit-track-id=""
-                      enctype="multipart/form-data" id="track_song" name="track_song">
+                <form method="POST" action="{{url('/store-add-track')}}"
+                      enctype="multipart/form-data" class="basicform_with_reset">
                     @csrf
 
                     <div class="item-except text-sm text-muted h-2x m-t-sm">
@@ -171,8 +171,8 @@
                     <div class="form-group modal-footer">
                         <button type="button" class="btn dark-white rounded update_track_not" id="update_track_not" data-dismiss="modal">Cancle</button>
                         {{--                                <button type="button" class="btn danger p-x-md" data-dismiss="modal">Yes</button>--}}
-                        <button type="submit" id="updateTrack" class="btn btn-sm rounded add_track" onclick='return validateEditTrackForm("track_edit_song")'>
-                            Update</button>
+                        <button type="submit" id="updateTrack" class="btn btn-sm rounded add_track basicbtn" onclick='return validateEditTrackForm("track_edit_song")'>
+                            Create</button>
                     </div>
                 </form>
             </div>
@@ -180,3 +180,56 @@
     </div>
 </div>
 <!-- Add Track Modal -->
+
+<script>
+    /*--------------------------------------
+          basicform submit With Reset
+    ---------------------------------------*/
+$(".basicform_with_reset").on('submit', function(e){
+    alert('aa');
+    e.preventDefault();
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    var basicbtnhtml=$('.basicbtn').html();
+    $.ajax({
+        type: 'POST',
+        url: this.action,
+        data: new FormData(this),
+        dataType: 'json',
+        contentType: false,
+        cache: false,
+        processData:false,
+        beforeSend: function() {
+
+            $('.basicbtn').html('<div class="spinner-border text-light spinner-border-sm" role="status"><span class="sr-only">Loading...</span></div> Please Wait....');
+            $('.basicbtn').attr('disabled','');
+
+        },
+
+        success: function(response){
+            $('.basicbtn').removeAttr('disabled')
+            // Sweet('success',response);
+            toastr.error(response);
+            $('.basicbtn').html(basicbtnhtml);
+            $('.basicform_with_reset').trigger('reset');
+        },
+        error: function(xhr, status, error)
+        {
+            console.log(xhr);
+            $('.basicbtn').html(basicbtnhtml);
+            $('.basicbtn').removeAttr('disabled')
+            $('.errorarea').show();
+            $.each(xhr.responseJSON.errors, function (key, item)
+            {
+                // Sweet('error',item)
+                toastr.error(item);
+                $("#errors").html("<li class='text-danger'>"+item+"</li>")
+            });
+            errosresponse(xhr, status, error);
+        }
+    })
+});
+</script>

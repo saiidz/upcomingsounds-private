@@ -5,8 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\ArtistTrack;
 use Illuminate\Http\Request;
+use App\Models\ArtistTrackLink;
 use App\Models\PromoteYourTrack;
+use Illuminate\Http\JsonResponse;
+use App\Models\ArtistTrackLanguage;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\Artist\AddYourTrackRequest;
+use Illuminate\Support\Facades\File;
 
 class PromoteYourTrackController extends Controller
 {
@@ -85,5 +90,86 @@ class PromoteYourTrackController extends Controller
         // $artist_tracks = ArtistTrack::where('user_id',$user_artist->id)->orderBy('id','desc')->get();
 
         // return view('pages.artists.artist-promote-your-track.add-your-track',get_defined_vars());
+    }
+
+    /**
+     * @param storeAddTrack $request
+     * @return JsonResponse
+     */
+    public function storeAddTrack(AddYourTrackRequest $request): JsonResponse
+    {
+        dd($request->all());
+        $input = $request->all();
+        $input['user_id'] = auth()->user()->id;
+        $input['youtube_soundcloud_url'] = $request->get('youtube_soundcloud_url');
+        $input['display_profile'] = ($request->get('display_profile')) ? (int)$request->get('display_profile') : 0;
+
+        // add audio
+        $path = public_path().'/uploads/audio';
+        if(!File::exists($path)) {
+            File::makeDirectory($path, 0775, true, true);
+        }
+        // upload audio song
+        if ($request->file('audio')) {
+            $file = $request->file('audio');
+            $name = $file->getClientOriginalName();
+            $audio_path = 'default_'.time().$name;
+            $file->move(public_path() . '/uploads/audio/', $audio_path);
+            //store audio file into directory and db
+            $input['audio'] = $audio_path;
+        }
+
+
+        $path = public_path().'/uploads/track_thumbnail';
+        if(!File::exists($path)) {
+            File::makeDirectory($path, 0775, true, true);
+        }
+        // upload track song
+//        if ($request->hasfile('track_thumbnail')) {
+        if ($request->file('track_thumbnail')) {
+            $file = $request->file('track_thumbnail');
+            $name = $file->getClientOriginalName();
+            $image_path = 'default_'.time().$name;
+            $file->move(public_path() . '/uploads/track_thumbnail/', $image_path);
+            //store image file into directory and db
+            $input['track_thumbnail'] = $image_path;
+        }
+        $track = ArtistTrack::create($input);
+
+        // create artist track links
+        if(!empty($request->link))
+        {
+            foreach($request->link as $link)
+            {
+                ArtistTrackLink::create([
+                    'artist_track_id' => $track->id,
+                    'link' => $link,
+                ]);
+            }
+        }
+
+        // create artist track language
+        if(!empty($request->language))
+        {
+            foreach($request->language as $language)
+            {
+                ArtistTrackLanguage::create([
+                    'artist_track_id' => $track->id,
+                    'language_id' => $language,
+                ]);
+            }
+        }
+
+        // track tags store
+        if(!empty($request->tag)){
+            foreach($request->tag as $tag)
+            {
+                $input['user_id']                = auth()->user()->id;
+                $input['curator_feature_tag_id'] = (int) $tag;
+                $track->artistTrackTags()->create($input);
+            }
+        }
+
+        return response()->json('Song Track created successfully.');
     }
 }

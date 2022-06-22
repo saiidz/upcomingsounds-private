@@ -35,6 +35,7 @@ Route::get('promote-your-track', [PromoteYourTrackController::class, 'index']);
 Route::get('add-your-track', [PromoteYourTrackController::class, 'addYourTrack']);
 Route::post('store/track/campaign', [PromoteYourTrackController::class, 'storeTrackCampaign']);
 Route::get('get-curators', [PromoteYourTrackController::class, 'getCurators']);
+Route::post('store-add-track', [PromoteYourTrackController::class, 'storeAddTrack']);
 
 // Wallet Shop Route
 Route::get('/wallet',[ArtistWalletController::class,'wallet']);
