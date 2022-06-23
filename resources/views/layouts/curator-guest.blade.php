@@ -77,7 +77,8 @@
         </div>
 
         @yield('content')
-        @include('welcome-panels.welcome-footer')
+        @include('panels.footer')
+        {{-- @include('welcome-pa nels.welcome-footer') --}}
     </div>
     <!-- / -->
 

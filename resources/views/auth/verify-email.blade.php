@@ -13,19 +13,19 @@
                 <div>
                     <h4>Verify your email</h4>
                     <p class="text-muted m-y">
-                        Thanks for signing up! Before getting started,could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another.
+                        Thanks for signing up! Before getting started,could you verify your email address by clicking on the link we just emailed to you? <span  style="color: red !important;">If you didn't receive the email make sure to check your spam inbox </span>, we will gladly send you another.
                     </p>
                 </div>
                 <div id="snackbar"></div>
                 <div id="snackbarError"></div>
                 @if (session('status') == 'verification-link-sent')
-                    <p class="verify_msg">{{ __('A new verification link has been sent to the email address you provided during registration.') }}</p>
+                    <p class="verify_msg" style="color: red !important;">{{ __('A new verification link has been sent to the email address you provided during registration. If you did not receive the email make sure to check your spam inbox') }}</p>
                 @endif
 
                 <div class="verify-btn">
                     <form method="POST" action="{{ route('verification.send') }}">
                         @csrf
-                        <button type="submit" class="btn circle btn-outline b-primary p-x-md auth_btn verification btn-one">Resend Verification Email</button>
+                        <button type="submit" class="btn circle btn-outline b-primary p-x-md auth_btn verification btn-one">Resend Verification Email.</button>
 {{--                        <button type="submit" class="btn black btn-block p-x-md verification btn-one">Resend Verification Email</button>--}}
                     </form>
                     <br>
