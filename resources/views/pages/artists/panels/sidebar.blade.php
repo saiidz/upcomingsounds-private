@@ -66,14 +66,7 @@
                             <span class="nav-text">Search</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="{{url('/wallet')}}">
-                            <span class="nav-icon">
-                                <i class="fa fa-plus-square"></i>
-                            </span>
-                            <span class="nav-text">Wallet</span>
-                        </a>
-                    </li>
+                    c
 
 {{--                    <div data-flex-no-shrink>--}}
 {{--                        <div class="nav-fold dropup">--}}
