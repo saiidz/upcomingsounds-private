@@ -14,4 +14,9 @@ class ArtistTrackLanguage extends Model
         'artist_track_id',
         'language_id',
     ];
+
+    // User
+    public function language(){
+        return $this->belongsTo(Language::class);
+    }
 }

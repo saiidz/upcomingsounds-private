@@ -7,7 +7,8 @@ use App\Models\ArtistTrackLanguage;
 use Illuminate\Http\Request;
 use App\Models\TrackCategory;
 use App\Models\ArtistTrackLink;
-    use Illuminate\Support\Facades\File;
+use App\Models\Language;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
 class ArtistTrackController extends Controller
@@ -164,11 +165,14 @@ class ArtistTrackController extends Controller
     public function edit(ArtistTrack $artist_track)
     {
         $track_categories = TrackCategory::all();
+        $languages = Language::all();
         return response()->json([
-            'artist_track'       => $artist_track,
-            'artist_track_links' => !empty($artist_track->artistTrackLinks) ? $artist_track->artistTrackLinks : '',
-            'track_categories'   => $track_categories,
-            'success'            => 'Artist Track Get Successfully',
+            'artist_track'           => $artist_track,
+            'artist_track_links'     => !empty($artist_track->artistTrackLinks) ? $artist_track->artistTrackLinks : '',
+            'artist_track_languages' => !empty($artist_track->artistTrackLanguages) ? $artist_track->artistTrackLanguages : '',
+            'track_categories'       => $track_categories,
+            'languages'              => $languages,
+            'success'                => 'Artist Track Get Successfully',
         ]);
     }
 
@@ -181,9 +185,10 @@ class ArtistTrackController extends Controller
      */
     public function update(Request $request,ArtistTrack $artist_track)
     {
+        dd($request->all());
         $input = $request->all();
         $input['user_id'] = auth()->user()->id;
-        $input['youtube_soundcloud_url'] = $request->get('youtube_soundcloud_url');
+        // $input['youtube_soundcloud_url'] = $request->get('youtube_soundcloud_url');
         // $input['soundcloudUrl']          = $request->get('soundcloudUrl');
         $input['display_profile']        = ($request->get('display_profile')) ? (int)$request->get('display_profile') : 0;
 

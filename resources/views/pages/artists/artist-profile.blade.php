@@ -732,22 +732,22 @@
             result = "";
             flag = true;
 
-            if(trackfrm.youtube_soundcloud_url.value == ""){
-                trackfrm.youtube_soundcloud_url.style.borderColor = "#DD0A0A";
-                result = 'Please Enter Url';
-                flag = false;
-            }
+            // if(trackfrm.youtube_soundcloud_url.value == ""){
+            //     trackfrm.youtube_soundcloud_url.style.borderColor = "#DD0A0A";
+            //     result = 'Please Enter Url';
+            //     flag = false;
+            // }
 
-            if (trackfrm.youtube_soundcloud_url.value != ""){
-                const string = trackfrm.youtube_soundcloud_url.value;
-                const substring = "https://www.youtube.com";
+            // if (trackfrm.youtube_soundcloud_url.value != ""){
+            //     const string = trackfrm.youtube_soundcloud_url.value;
+            //     const substring = "https://www.youtube.com";
 
-                if(string.includes(substring) == false ){
-                    trackfrm.youtube_soundcloud_url.style.borderColor = "#DD0A0A";
-                    result = 'Please Enter Valid Url';
-                    flag = false;
-                }
-            }
+            //     if(string.includes(substring) == false ){
+            //         trackfrm.youtube_soundcloud_url.style.borderColor = "#DD0A0A";
+            //         result = 'Please Enter Valid Url';
+            //         flag = false;
+            //     }
+            // }
 
             // if (trackfrm.youtube_soundcloud_url.value != ""){
             //     const string = trackfrm.youtube_soundcloud_url.value;
@@ -808,8 +808,8 @@
             }
 
             // if(flag == true && (trackfrm.youtube_soundcloud_url.value != "") && (trackfrm.soundcloudUrl.value != "") && (trackfrm.spotify_track_url.value != "") && (trackfrm.name.value != "") && (trackfrm.description.value != "")){
-            if(flag == true && (trackfrm.youtube_soundcloud_url.value != "") && (trackfrm.name.value != "") && (trackfrm.description.value != "")){
-                document.getElementById('error_message_edit_youtube_soundcloud').style.display = 'none';
+            if(flag == true && (trackfrm.name.value != "") && (trackfrm.description.value != "")){
+                // document.getElementById('error_message_edit_youtube_soundcloud').style.display = 'none';
                 // document.getElementById('error_message_edit_soundcloud').style.display = 'none';
                 // document.getElementById('error_message_edit_spotify_track').style.display = 'none';
                 document.getElementById('error_message_edit_name').style.display = 'none';
@@ -817,6 +817,8 @@
 
                 var edit_track_id = document.getElementById('track_edit_song').getAttribute('data-edit-track-id');
                 var url = '{{url('update-track')}}/' + edit_track_id;
+                // console.log(url);
+                // return false;
                 document.getElementById('track_edit_song').setAttribute('action',url);
                 trackfrm.submit();
             }else{
@@ -1027,7 +1029,9 @@
                     let counter_count = 1
                     $('#TextBoxesGroupEdit').empty();
                     $.each(data.artist_track_links, function(key, value){
+                        $('#TextBoxesGroupEdit').append("<input type='hidden' name='lang[]' value="+value.link+" >");
                         $('#TextBoxesGroupEdit').append(value.link);
+                        $('#TextBoxesGroupEdit').append('<hr>');
                         // $('#TextBoxesGroupEdit').append('<div class="form-group editNewLink"><label class="control-label form-control-label text-muted">Add New Link #'+counter_count+'</label><div> <input type="text" name="link[]" onclick="removeStyle(this);" class="form-control moreLinks @error('link') is-invalid @enderror" required value="'+value.link+'" id="textbox'+counter_count+'" placeholder="Please Add Embeded Url"><a href="javascript:void(0)" class="textbox'+counter_count+'" id="previewIconEdit" onclick="getInputValueEdit(this)"><i class="fa fa-eye"></i> preview</a></div></div>');
                         counter_count++;
                     });

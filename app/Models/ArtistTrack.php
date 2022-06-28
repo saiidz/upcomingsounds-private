@@ -53,4 +53,8 @@ class ArtistTrack extends Model
         return $this->hasMany(ArtistTrackLink::class,'artist_track_id');
     }
 
+    // track has many track Languages
+    public function artistTrackLanguages(){
+        return $this->hasMany(ArtistTrackLanguage::class,'artist_track_id');
+    }
 }
