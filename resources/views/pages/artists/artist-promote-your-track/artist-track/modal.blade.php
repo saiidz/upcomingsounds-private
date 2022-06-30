@@ -6,7 +6,7 @@
                 <h5 class="modal-title">Add a song</h5>
             </div>
             <div class="modal-body p-lg">
-                <form method="POST" action="{{route('storeTrack')}}"
+                <form method="POST" action=""
                       enctype="multipart/form-data" class="basicform_with_reset">
                     @csrf
 
