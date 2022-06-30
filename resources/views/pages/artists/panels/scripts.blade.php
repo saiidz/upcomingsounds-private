@@ -4,6 +4,7 @@
 <!-- Bootstrap -->
 <script src="{{asset('libs/tether/dist/js/tether.min.js')}}"></script>
 <script src="{{asset('libs/bootstrap/dist/js/bootstrap.js')}}"></script>
+<script src="{{asset('scripts/form.js')}}"></script>
 <!-- core -->
 <script src="{{asset('libs/jQuery-Storage-API/jquery.storageapi.min.js')}}"></script>
 <script src="{{asset('libs/jquery.stellar/jquery.stellar.min.js')}}"></script>

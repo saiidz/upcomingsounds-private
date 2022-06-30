@@ -41,7 +41,6 @@ class PromoteYourTrackController extends Controller
      */
     public function storeTrackCampaign(Request $request)
     {
-        dd($request->all());
         $page = 'add-your-track';
         $user_artist = Auth::user();
         $artist_tracks = ArtistTrack::where('user_id',$user_artist->id)->orderBy('id','desc')->get();
@@ -98,7 +97,7 @@ class PromoteYourTrackController extends Controller
      */
     public function storeAddTrack(AddYourTrackRequest $request): JsonResponse
     {
-        dd($request->all());
+        dd($request->all(),'aa');
         $input = $request->all();
         $input['user_id'] = auth()->user()->id;
         $input['youtube_soundcloud_url'] = $request->get('youtube_soundcloud_url');

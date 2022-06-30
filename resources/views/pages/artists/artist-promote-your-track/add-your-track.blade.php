@@ -19,6 +19,9 @@
                         <div class="title__container">
                             <h1>Add your track</h1>
                             <div class="separator"></div>
+                            <a class="m-b-md rounded addTrack" data-toggle="modal" data-target="#add-track-promote" href="javascript:void(0)">
+                                Add New track
+                             </a>
                         </div>
                         <div class="body__container">
                             <div class="left__container">
