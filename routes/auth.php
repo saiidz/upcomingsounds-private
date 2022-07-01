@@ -1,23 +1,24 @@
 <?php
 
-use App\Http\Controllers\Auth\ArtistSignupController;
-use App\Http\Controllers\Auth\ArtistSignupRepresentativeController;
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\Auth\AuthenticationSocializeController;
-use App\Http\Controllers\Auth\ConfirmablePasswordController;
-use App\Http\Controllers\Auth\CuratorDetailsSignupController;
-use App\Http\Controllers\Auth\CuratorSignupController;
-use App\Http\Controllers\Auth\EmailVerificationNotificationController;
-use App\Http\Controllers\Auth\EmailVerificationPromptController;
-use App\Http\Controllers\Auth\MobileAuthenticatedController;
-use App\Http\Controllers\Auth\NewPasswordController;
-use App\Http\Controllers\Auth\PasswordResetLinkController;
-use App\Http\Controllers\Auth\PhoneNumberVerifiedController;
-use App\Http\Controllers\Auth\PlaylistCuratorSignupController;
-use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\Auth\VerifyEmailController;
-use App\Http\Controllers\Auth\YoutubeCuratorSignupController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\ReferralController;
+use App\Http\Controllers\Auth\NewPasswordController;
+use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\Auth\ArtistSignupController;
+use App\Http\Controllers\Auth\CuratorSignupController;
+use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Auth\PasswordResetLinkController;
+use App\Http\Controllers\Auth\ConfirmablePasswordController;
+use App\Http\Controllers\Auth\MobileAuthenticatedController;
+use App\Http\Controllers\Auth\PhoneNumberVerifiedController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\CuratorDetailsSignupController;
+use App\Http\Controllers\Auth\YoutubeCuratorSignupController;
+use App\Http\Controllers\Auth\PlaylistCuratorSignupController;
+use App\Http\Controllers\Auth\AuthenticationSocializeController;
+use App\Http\Controllers\Auth\EmailVerificationPromptController;
+use App\Http\Controllers\Auth\ArtistSignupRepresentativeController;
+use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 
 Route::get('/register', [RegisteredUserController::class, 'create'])
                 ->middleware('guest')
@@ -394,3 +395,11 @@ Route::get('/youtube-profile-show', [CuratorSignupController::class, 'youtubeSub
     ->middleware('auth');
 
 /***************************************************** Curators Routes *********************************************************/
+
+/***************************************************** Referral Routes *********************************************************/
+Route::get('/choose-signup/{ref}', [ReferralController::class, 'referral'])
+                ->middleware('guest');
+
+Route::post('/referral/register', [ReferralController::class, 'store'])
+                ->middleware('guest');
+/***************************************************** Referral Routes *********************************************************/

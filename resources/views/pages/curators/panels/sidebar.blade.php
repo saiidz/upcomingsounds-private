@@ -16,7 +16,7 @@
                     <li class="nav-header hidden-folded">
                         <span class="text-xs text-muted">Main</span>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="javascript:void(0)">
                             <span class="nav-icon">
                                 <i class="fa fa-music"></i>
@@ -85,7 +85,7 @@
                     <li class="nav-header hidden-folded m-t">
                         <span class="text-xs text-muted">Your collection</span>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="{{url('/taste-maker-profile')}}#profile">
                             <span class="nav-icon">
                             <i class="fa fa-user"></i>
