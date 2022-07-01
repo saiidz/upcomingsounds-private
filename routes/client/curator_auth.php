@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 /***************************************************** Curator Routes *********************************************************/
 
 Route::get('/taste-maker-profile', [CuratorController::class,'curatorProfile']);
+Route::post('update-curator-profile', [CuratorController::class, 'updateCuratorProfile']);
+Route::post('upload-curator-profile', [CuratorController::class, 'uploadCuratorProfile']);
 // Wallet Shop Route
 Route::get('/taste-maker-wallet',[CuratorWalletController::class,'wallet']);
 

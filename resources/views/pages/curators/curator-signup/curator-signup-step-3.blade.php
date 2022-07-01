@@ -77,7 +77,7 @@
                                                         @csrf
                                                         <div class="section" id="faq">
                                                             @if(isset($curator_features) && !empty($curator_features))
-                                                                @if($curator_features[0]->name == 'Interest')
+                                                                @if($curator_features[0]->name == 'I would love to recieve')
                                                                     @error('tag')
                                                                     <small class="red-text" role="alert">
                                                                         {{ $message }}

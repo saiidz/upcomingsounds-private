@@ -86,7 +86,7 @@
                         <span class="text-xs text-muted">Your collection</span>
                     </li>
                     <li>
-                        <a href="#profile">
+                        <a href="{{url('/taste-maker-profile')}}#profile">
                             <span class="nav-icon">
                             <i class="fa fa-user"></i>
                             </span>
@@ -95,7 +95,7 @@
                     </li>
 
                     <li>
-                        <a href="javascript:void(0)">
+                        <a href="{{url('/taste-maker-profile')}}#stats">
                             <span class="nav-icon">
                                 <i class="material-icons">
                                 portrait
@@ -106,7 +106,7 @@
                     </li>
 
                     <li>
-                        <a href="#tracks">
+                        <a href="{{url('/taste-maker-profile')}}#tracks">
                             <span class="nav-icon">
                                 <i class="material-icons">
                                 list
@@ -118,7 +118,7 @@
 
 
                     <li>
-                        <a href="#playlists">
+                        <a href="{{url('/taste-maker-profile')}}#playlists">
                             <span class="nav-icon">
                                 <i class="material-icons">
                                 queue_music
@@ -138,7 +138,7 @@
                     </li>
 
                     <li>
-                        <a href="#edit-profile" id="EditProfileTapHide">
+                        <a href="{{url('/taste-maker-profile')}}#edit-profile" id="EditProfileTapHide">
                             <span class="nav-icon">
                                 <i class="material-icons">
                                 edit
