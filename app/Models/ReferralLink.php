@@ -18,7 +18,7 @@ class ReferralLink extends Model
     //     });
     // }
 
-    private function generateCode()
+    private static function generateCode()
     {
         return (string)Uuid::uuid1();
     }
