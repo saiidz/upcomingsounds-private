@@ -63,6 +63,23 @@
         </div>
 
         <div class="page-title m-b">
+            <h4 class="inline m-a-0 update_profile">Curator's Bio</h4>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-3 form-control-label text-muted">Bio</div>
+            <div class="col-sm-9">
+                <textarea name="curator_bio"
+                            placeholder="Parisian singer, songwriter & producer..."
+                            class="form-control @error('curator_bio') is-invalid @enderror">{{isset($user_curator->curatorUser) ? $user_curator->curatorUser->curator_bio : ''}}</textarea>
+                @error('curator_bio')
+                    <small class="red-text ml-10" role="alert">
+                        {{ $message }}
+                    </small>
+                @enderror
+            </div>
+        </div>
+
+        <div class="page-title m-b">
             <h4 class="inline m-a-0 update_profile">Social Media Links</h4>
         </div>
 
@@ -713,7 +730,7 @@
                                                             id="checkboxOne{{$feature->id}}"
                                                             name="tag[]" {{in_array($feature->id, $selected_feature) ? 'checked' : ''}} value="{{$feature->id}}"
                                                             class="">
-                                                    <label
+                                                    <label class="pleaseAny"
                                                         for="checkboxOne{{$feature->id}}">
                                                         {{$feature->name}}
                                                     </label>
@@ -739,7 +756,7 @@
                                                             id="checkboxOne{{$feature->id}}"
                                                             name="tag[]" {{in_array($feature->id, $selected_feature) ? 'checked' : ''}} value="{{$feature->id}}"
                                                             class="">
-                                                    <label
+                                                    <label class="pleaseAny"
                                                         for="checkboxOne{{$feature->id}}">
                                                         {{$feature->name}}
                                                     </label>
@@ -765,7 +782,7 @@
                                                             id="checkboxOne{{$feature->id}}"
                                                             name="tag[]" {{in_array($feature->id, $selected_feature) ? 'checked' : ''}} value="{{$feature->id}}"
                                                             class="">
-                                                    <label
+                                                    <label class="pleaseAny"
                                                         for="checkboxOne{{$feature->id}}">
                                                         {{$feature->name}}
                                                     </label>
@@ -792,7 +809,7 @@
                                                             id="checkboxOne{{$feature->id}}"
                                                             name="tag[]" {{in_array($feature->id, $selected_feature) ? 'checked' : ''}} value="{{$feature->id}}"
                                                             class="">
-                                                    <label
+                                                    <label class="pleaseAny"
                                                         for="checkboxOne{{$feature->id}}">
                                                         {{$feature->name}}
                                                     </label>
@@ -818,7 +835,7 @@
                                                             id="checkboxOne{{$feature->id}}"
                                                             name="tag[]" {{in_array($feature->id, $selected_feature) ? 'checked' : ''}} value="{{$feature->id}}"
                                                             class="">
-                                                    <label
+                                                    <label class="pleaseAny"
                                                         for="checkboxOne{{$feature->id}}">
                                                         {{$feature->name}}
                                                     </label>
@@ -844,7 +861,7 @@
                                                             id="checkboxOne{{$feature->id}}"
                                                             name="tag[]" {{in_array($feature->id, $selected_feature) ? 'checked' : ''}} value="{{$feature->id}}"
                                                             class="">
-                                                    <label
+                                                    <label class="pleaseAny"
                                                         for="checkboxOne{{$feature->id}}">
                                                         {{$feature->name}}
                                                     </label>
@@ -870,7 +887,7 @@
                                                             id="checkboxOne{{$feature->id}}"
                                                             name="tag[]" {{in_array($feature->id, $selected_feature) ? 'checked' : ''}} value="{{$feature->id}}"
                                                             class="">
-                                                    <label
+                                                    <label class="pleaseAny"
                                                         for="checkboxOne{{$feature->id}}">
                                                         {{$feature->name}}
                                                     </label>
@@ -896,7 +913,7 @@
                                                             id="checkboxOne{{$feature->id}}"
                                                             name="tag[]" {{in_array($feature->id, $selected_feature) ? 'checked' : ''}} value="{{$feature->id}}"
                                                             class="">
-                                                    <label
+                                                    <label class="pleaseAny"
                                                         for="checkboxOne{{$feature->id}}">
                                                         {{$feature->name}}
                                                     </label>

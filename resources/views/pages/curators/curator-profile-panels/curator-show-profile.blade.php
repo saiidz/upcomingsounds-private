@@ -65,6 +65,18 @@
         </div>
     </div>
 
+    <div class="page-title m-b">
+        <h4 class="inline m-a-0 update_profile">Curator's Bio</h4>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-2 form-control-label">Bio:</div>
+        <div class="col-sm-9">
+            <div class="col-sm-3 form-control-label text-muted">
+                <p>{{isset($user_curator->curatorUser) ? $user_curator->curatorUser->curator_bio : ''}}</p>
+            </div>
+        </div>
+    </div>
+
     <div class="page-title m-b-1">
         <h4 class="inline m-a-0 update_profile">Genres</h4>
     </div>

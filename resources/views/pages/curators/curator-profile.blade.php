@@ -12,6 +12,13 @@
         .red-text{
             color:red !important;
         }
+        .collapsible-header.features_tAgs {
+            color: #000 !important;
+        }
+        ul.ks-cboxtags li .pleaseAny {
+            background-color: red !important;
+            color: white !important;
+        }
     </style>
 @endsection
 

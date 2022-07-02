@@ -15,6 +15,7 @@ class CuratorUser extends Model
         'user_id',
         'curator_signup_from',
         'tastemaker_name',
+        'curator_bio',
         'country_id',
         'share_music',
         'instagram_url',

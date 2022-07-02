@@ -67,6 +67,7 @@ class CuratorController extends Controller
                 'name'            => 'required|string|min:2|max:50',
                 'address'         => 'required|string|min:2|max:50',
                 'tastemaker_name' => 'required|string|min:2|max:50',
+                'curator_bio'     => 'required',
                 'country_name'    => 'required',
             ]);
 
@@ -85,6 +86,7 @@ class CuratorController extends Controller
             // Curator Info Update
             $user->curatorUser()->update([
                 'tastemaker_name' => ($request->get('tastemaker_name')) ? $request->get('tastemaker_name') : null,
+                'curator_bio'     => ($request->get('curator_bio')) ? $request->get('curator_bio') : null,
                 'country_id'      => ($request->get('country_name')) ? $request->get('country_name') : null,
                 'instagram_url'   => ($request->get('instagram_url')) ? $request->get('instagram_url') : null,
                 'facebook_url'    => ($request->get('facebook_url')) ? $request->get('facebook_url') : null,
