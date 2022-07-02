@@ -826,6 +826,10 @@ svg.svg-inline--fa {
 
 @media (min-width: 481px) and (max-width: 767px) {
 
+    #loading {
+        top: 38px !important;
+    }
+
     /* CSS */
     .tellMeMore{
         display: inline-table !important;
@@ -912,6 +916,10 @@ svg.svg-inline--fa {
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
+
+    #loading {
+        top: 38px !important;
+    }
 
     /* CSS */
     .tellMeMore{
