@@ -4,7 +4,9 @@
 @section('title','Curator Profile')
 
 @section('page-style')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{asset('css/gijgo.min.css')}}" type="text/css" />
     <style>
         #loadings {
             background: rgba(255, 255, 255, .4) url({{asset('images/loader.gif')}}) no-repeat center center !important;
@@ -175,7 +177,9 @@
                                 <a href="{{$user_curator->curatorUser->tiktok_url}}" target="_blank"
                                    class="btn btn-icon btn-social rounded btn-social-colored"
                                    style="background-color:#333;" title="Tiktok">
-                                    <i class="iconify" data-icon="fa-brands:tiktok"></i>
+                                   <i class="fab fa-tiktok"></i>
+                                    <i class="fab fa-tiktok"></i>
+                                    {{-- <i class="iconify" data-icon="fa-brands:tiktok"></i> --}}
                                 </a>
                             @endif
                         </div>
@@ -253,6 +257,8 @@
 @endsection
 
 @section('page-script')
+<script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+<script src="{{asset('js/gijgo.min.js')}}"></script>
 <script>
     $(document).ready(function (e) {
         $.ajaxSetup({
