@@ -296,3 +296,52 @@
     </div>
 </div>
 <!-- ############ SHARE END -->
+
+
+<!-- Add more classic Modal -->
+<div id="addMoreClassic" class="modal black-overlay" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Tag</h5>
+            </div>
+            <div class="modal-body p-lg">
+                <form action="{{ route('add.curator.tag') }}" class="basicform_with_reload" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <input type="hidden" name="curator_feature_id" id="curatorFeatureId">
+                        <input type="text" required class="form-control" placeholder="Enter Tag Name" name="name">
+                    </div>
+                    <div class="form-group modal-footer">
+                        <button type="button" class="btn dark-white rounded update_track_not" id="closeChangeArtistPassword" data-dismiss="modal">Cancle</button>
+                        <button type="submit" class="btn btn-sm rounded add_track basicbtn">
+                            Create</button>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
+</div>
+<!-- Add more classic Modal -->
+
+<!-- Delete Feature Tag Modal -->
+<!-- Delete Track Modal -->
+<div id="delete-feature-tag-modal" class="modal fade animate black-overlay" data-backdrop="false">
+    <div class="row-col h-v">
+        <div class="row-cell v-m">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content flip-y">
+                    <div class="modal-body text-center">
+                        <p class="p-y m-t"><i class="fa fa-remove text-warning fa-3x"></i></p>
+                        <p>Are you sure to delete this Tag?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-default p-x-md" href="javascript:void(0)" data-dismiss="modal">No</a>
+                        <a class="btn red p-x-md deleteTagCurator" id="delete_FeatureTag" data-feature-id="" data-dismiss="modal" href="javascript:void(0)">Yes</a>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Delete Feature Tag Modal -->

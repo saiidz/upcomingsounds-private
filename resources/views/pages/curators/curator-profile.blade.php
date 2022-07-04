@@ -257,6 +257,7 @@
 @endsection
 
 @section('page-script')
+
 <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
 <script src="{{asset('js/gijgo.min.js')}}"></script>
 <script>
@@ -321,5 +322,41 @@
         // document.getElementById('EditProfileTapShow').style.display = 'inline-block';
         $("#EditProfileTapShow").css({ display: "inline-block" });
     });
+
+    // addMoreClassic
+    function addMoreClassic(id)
+    {
+        $('#curatorFeatureId').val(id);
+        $('#addMoreClassic').modal('show');
+    }
+    // delete tag feature
+    function deleteTagCurator(feature_id)
+    {
+        $('.deleteTagCurator').attr('data-feature-id',feature_id);
+        $('#delete-feature-tag-modal').modal('show');
+    }
+    $('#delete_FeatureTag').click(function (event) {
+            event.preventDefault();
+            var feature_id = $('.deleteTagCurator').attr('data-feature-id');
+            var url= "{{url('/delete-feature-tag')}}";
+            $.ajax({
+                type: "DELETE",
+                url: url,
+                data:{
+                    "_token": "{{ csrf_token() }}",
+                    "feature_id": feature_id,
+                },
+                success: function (data) {
+                    if(data.success){
+                        $('#remove_feature-'+feature_id).remove();
+                        $('#snackbar').html(data.success);
+                        $('#snackbar').addClass("show");
+                        setTimeout(function () {
+                            $('#snackbar').removeClass("show");
+                        }, 5000);
+                    }
+                }
+            });
+        });
 </script>
 @endsection

@@ -725,7 +725,8 @@
                                     <div class="features-box">
                                         <ul class="ks-cboxtags">
                                             @foreach($curator_features[17]->curatorFeatureTag as $feature)
-                                                <li>
+                                            <li id="remove_feature-{{ $feature->id }}">
+                                                <span class="closeTag"><i class="fa fa-remove text-warning" style="font-size: 18px;" onclick="deleteTagCurator({{ $feature->id }})"></i></span>
                                                     <input type="checkbox"
                                                             id="checkboxOne{{$feature->id}}"
                                                             name="tag[]" {{in_array($feature->id, $selected_feature) ? 'checked' : ''}} value="{{$feature->id}}"
@@ -736,6 +737,9 @@
                                                     </label>
                                                 </li>
                                             @endforeach
+                                            <li>
+                                                <a href="javascript:void(0)" class="addMoreClassic" onclick="addMoreClassic({{ $curator_features[17]->id }})">Add More</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -751,7 +755,8 @@
                                     <div class="features-box">
                                         <ul class="ks-cboxtags">
                                             @foreach($curator_features[18]->curatorFeatureTag as $feature)
-                                                <li>
+                                            <li id="remove_feature-{{ $feature->id }}">
+                                                <span class="closeTag"><i class="fa fa-remove text-warning" style="font-size: 18px;" onclick="deleteTagCurator({{ $feature->id }})"></i></span>
                                                     <input type="checkbox"
                                                             id="checkboxOne{{$feature->id}}"
                                                             name="tag[]" {{in_array($feature->id, $selected_feature) ? 'checked' : ''}} value="{{$feature->id}}"
@@ -762,6 +767,9 @@
                                                     </label>
                                                 </li>
                                             @endforeach
+                                            <li>
+                                                <a href="javascript:void(0)" class="addMoreClassic" onclick="addMoreClassic({{ $curator_features[18]->id }})">Add More</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -777,7 +785,8 @@
                                     <div class="features-box">
                                         <ul class="ks-cboxtags">
                                             @foreach($curator_features[19]->curatorFeatureTag as $feature)
-                                                <li>
+                                                <li id="remove_feature-{{ $feature->id }}">
+                                                    <span class="closeTag"><i class="fa fa-remove text-warning" style="font-size: 18px;" onclick="deleteTagCurator({{ $feature->id }})"></i></span>
                                                     <input type="checkbox"
                                                             id="checkboxOne{{$feature->id}}"
                                                             name="tag[]" {{in_array($feature->id, $selected_feature) ? 'checked' : ''}} value="{{$feature->id}}"
@@ -788,6 +797,9 @@
                                                     </label>
                                                 </li>
                                             @endforeach
+                                            <li>
+                                                <a href="javascript:void(0)" class="addMoreClassic" onclick="addMoreClassic({{ $curator_features[19]->id }})">Add More</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -804,7 +816,8 @@
                                     <div class="features-box">
                                         <ul class="ks-cboxtags">
                                             @foreach($curator_features[20]->curatorFeatureTag as $feature)
-                                                <li>
+                                            <li id="remove_feature-{{ $feature->id }}">
+                                                <span class="closeTag"><i class="fa fa-remove text-warning" style="font-size: 18px;" onclick="deleteTagCurator({{ $feature->id }})"></i></span>
                                                     <input type="checkbox"
                                                             id="checkboxOne{{$feature->id}}"
                                                             name="tag[]" {{in_array($feature->id, $selected_feature) ? 'checked' : ''}} value="{{$feature->id}}"
@@ -815,6 +828,9 @@
                                                     </label>
                                                 </li>
                                             @endforeach
+                                            <li>
+                                                <a href="javascript:void(0)" class="addMoreClassic" onclick="addMoreClassic({{ $curator_features[20]->id }})">Add More</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -830,7 +846,8 @@
                                     <div class="features-box">
                                         <ul class="ks-cboxtags">
                                             @foreach($curator_features[21]->curatorFeatureTag as $feature)
-                                                <li>
+                                            <li id="remove_feature-{{ $feature->id }}">
+                                                <span class="closeTag"><i class="fa fa-remove text-warning" style="font-size: 18px;" onclick="deleteTagCurator({{ $feature->id }})"></i></span>
                                                     <input type="checkbox"
                                                             id="checkboxOne{{$feature->id}}"
                                                             name="tag[]" {{in_array($feature->id, $selected_feature) ? 'checked' : ''}} value="{{$feature->id}}"
@@ -841,6 +858,9 @@
                                                     </label>
                                                 </li>
                                             @endforeach
+                                            <li>
+                                                <a href="javascript:void(0)" class="addMoreClassic" onclick="addMoreClassic({{ $curator_features[21]->id }})">Add More</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -856,7 +876,8 @@
                                     <div class="features-box">
                                         <ul class="ks-cboxtags">
                                             @foreach($curator_features[22]->curatorFeatureTag as $feature)
-                                                <li>
+                                            <li id="remove_feature-{{ $feature->id }}">
+                                                <span class="closeTag"><i class="fa fa-remove text-warning" style="font-size: 18px;" onclick="deleteTagCurator({{ $feature->id }})"></i></span>
                                                     <input type="checkbox"
                                                             id="checkboxOne{{$feature->id}}"
                                                             name="tag[]" {{in_array($feature->id, $selected_feature) ? 'checked' : ''}} value="{{$feature->id}}"
@@ -867,6 +888,9 @@
                                                     </label>
                                                 </li>
                                             @endforeach
+                                            <li>
+                                                <a href="javascript:void(0)" class="addMoreClassic" onclick="addMoreClassic({{ $curator_features[22]->id }})">Add More</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -882,7 +906,8 @@
                                     <div class="features-box">
                                         <ul class="ks-cboxtags">
                                             @foreach($curator_features[23]->curatorFeatureTag as $feature)
-                                                <li>
+                                            <li id="remove_feature-{{ $feature->id }}">
+                                                <span class="closeTag"><i class="fa fa-remove text-warning" style="font-size: 18px;" onclick="deleteTagCurator({{ $feature->id }})"></i></span>
                                                     <input type="checkbox"
                                                             id="checkboxOne{{$feature->id}}"
                                                             name="tag[]" {{in_array($feature->id, $selected_feature) ? 'checked' : ''}} value="{{$feature->id}}"
@@ -893,6 +918,9 @@
                                                     </label>
                                                 </li>
                                             @endforeach
+                                            <li>
+                                                <a href="javascript:void(0)" class="addMoreClassic" onclick="addMoreClassic({{ $curator_features[23]->id }})">Add More</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -908,7 +936,8 @@
                                     <div class="features-box">
                                         <ul class="ks-cboxtags">
                                             @foreach($curator_features[24]->curatorFeatureTag as $feature)
-                                                <li>
+                                            <li id="remove_feature-{{ $feature->id }}">
+                                                <span class="closeTag"><i class="fa fa-remove text-warning" style="font-size: 18px;" onclick="deleteTagCurator({{ $feature->id }})"></i></span>
                                                     <input type="checkbox"
                                                             id="checkboxOne{{$feature->id}}"
                                                             name="tag[]" {{in_array($feature->id, $selected_feature) ? 'checked' : ''}} value="{{$feature->id}}"
@@ -919,6 +948,9 @@
                                                     </label>
                                                 </li>
                                             @endforeach
+                                            <li>
+                                                <a href="javascript:void(0)" class="addMoreClassic" onclick="addMoreClassic({{ $curator_features[24]->id }})">Add More</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>

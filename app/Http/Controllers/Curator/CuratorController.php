@@ -7,10 +7,14 @@ use App\Models\Country;
 use Illuminate\Http\Request;
 use App\Models\CuratorFeature;
 use App\Models\CuratorUserTag;
+use App\Models\CuratorFeatureTag;
+use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
+use App\Templates\IMessageTemplates;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\Curator\AddTagCuratorRequest;
 
 class CuratorController extends Controller
 {
@@ -117,8 +121,59 @@ class CuratorController extends Controller
 
     }
 
+
+    /**
+     * @param FormRequest $request
+     * @return JsonResponse
+     * @return update merchant seetings
+     */
+    public function storeCuratorTag(AddTagCuratorRequest $request): JsonResponse
+    {
+        $CuratorFeatureTag = $this->_filterCuratorTagRequest($request);
+
+        try {
+            $response = CuratorFeatureTag::create($CuratorFeatureTag);
+
+            if($response)
+                return response()->json([
+                    'success' => IMessageTemplates::STORECURATORTAG
+                ]);
+        } catch (\Exception $exception) {
+            return response()->json($exception->getMessage());
+        }
+
+    }
+
+
+
+
+    private function _filterCuratorTagRequest($request):array
+    {
+        return [
+            'curator_feature_id' => $request->curator_feature_id,
+            'name' => $request->name,
+        ];
+    }
     // forCurators
     public function forCurators(){
         return view('pages.curators.curator-details');
+    }
+
+    /**
+     * @param FormRequest $request
+     * @return JsonResponse
+     * @return update merchant seetings
+     */
+    public function deleteCuratorTag(Request $request)
+    {
+
+        if(!empty($request->feature_id))
+        {
+            $recor_exist = CuratorFeatureTag::where('id',$request->feature_id)->first();
+            $recor_exist->delete();
+            return response()->json([
+                'success' => IMessageTemplates::DELETECURATORTAG
+            ]);
+        }
     }
 }
