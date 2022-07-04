@@ -69,7 +69,11 @@
             <div class="col-sm">
                 <div class="p-l-md no-padding-xs">
                     <h1 class="page-title">
-                        <span class="h1 _800">{{($user_curator) ? $user_curator->name : ''}}</span>
+                        <span class="h1 _800">{{($user_curator) ? $user_curator->name : ''}}
+                            @if ($user_curator->is_approved == 1)
+                                <img src="{{ asset('images/verified_icon.svg') }}" style="width: 22px;" alt="">
+                            @endif
+                        </span>
                     </h1>
                     <p class="item-desc text-ellipsis text-muted" data-ui-toggle-class="text-ellipsis">
                         @if(!empty($user_curator->curatorUser->curator_signup_from))
