@@ -21,7 +21,13 @@ class StoreReferralCode
 
         if ($request->has('ref')){
             $referral = ReferralLink::whereCode($request->get('ref'))->first();
-            $response->cookie('ref', $referral->id, $referral->lifetime_minutes);
+            if(isset($referral))
+            {
+                $response->cookie('ref', $referral->id, $referral->lifetime_minutes);
+            }else{
+                return $response;
+            }
+
         }
 
         return $response;

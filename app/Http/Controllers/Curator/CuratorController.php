@@ -72,7 +72,7 @@ class CuratorController extends Controller
             ]);
 
             if ($validator->fails()) {
-                return redirect()->back()
+                return redirect('taste-maker-profile#edit-profile')
                     ->withErrors($validator)
                     ->withInput();
             }

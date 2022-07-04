@@ -133,7 +133,7 @@
                             <span class="nav-icon">
                                 <i class="fa fa-plus-square"></i>
                             </span>
-                            <span class="nav-text">Wallet</span>
+                            <span class="nav-text">Wallet {{!empty(Auth::user()->TransactionUserInfo) ? number_format(Auth::user()->TransactionUserInfo->transactionHistory->sum('credits')) : 0}} UCS</span>
                         </a>
                     </li>
 
