@@ -24,8 +24,8 @@ class ReApply
         if (!empty($request->user()) && ($request->user()->is_approved == 0) && ($request->user()->is_rejected == 1)){
             $days = Carbon::parse($request->user()->created_at)->addDays(45);
             // dd('2022-08-19 08:09:28.0' == '2022-08-19 08:09:28.0');
-            if('2022-08-19 08:09:28.0' == '2022-08-19 08:09:28.0')
-            // if(Carbon::today() == $days)
+            // if('2022-08-19 08:09:28.0' == '2022-08-19 08:09:28.0')
+            if(Carbon::today() == $days)
             {
                // update user created at
                 // User::where('id',$request->user()->id)->update([
