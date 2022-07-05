@@ -102,6 +102,7 @@
         @if (Auth::check() && auth()->user())
             @if (!empty(auth()->user()->getReferrals()))
                 @forelse(auth()->user()->getReferrals() as $referral)
+                <button class="btn btn-sm rounded primary m-b-2">get verified</button>
                     <h6 class="text text-muted">Referral Link</h6>
                     <div class="form-group row">
                         <div class="col-sm-12">
