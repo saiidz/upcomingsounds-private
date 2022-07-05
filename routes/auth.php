@@ -226,6 +226,11 @@ Route::post('/create-password', [AuthenticationSocializeController::class, 'stor
     ->middleware('auth')
     ->name('artist.create.password.post');
 
+
+// Artist Approval Admin Route
+Route::get('/artist-approval', [ArtistSignupController::class, 'artistApprovalAdmin'])
+->middleware('auth')
+->name('artist.approval');
 /***************************************************** Artist Routes *********************************************************/
 
 

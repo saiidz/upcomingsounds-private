@@ -1,5 +1,5 @@
 {{-- layout --}}
-@extends('layouts.curator-guest')
+@extends('layouts.artist-guest')
 
 {{-- page title --}}
 @section('title','Application submission')
@@ -39,7 +39,7 @@
                                         <div id="view-input-fields">
                                             <div class="row">
                                                 <div class="col s12">
-                                                    <h2 class="card-title bold" style="font-size: 20px; text-align:center;"> Upcomingsounds - Tastemakers / Curators / pros  </h2>
+                                                    <h2 class="card-title bold" style="font-size: 20px; text-align:center;"> Upcomingsounds - Artist  </h2>
                                                     <p class="m-b-md" style="text-align:center;">Thank you for your submission request. Your application will be reviewed by our administrators. In a few days you will hear about our decision. If you haven't heard from us after 2 weeks, check your spam inbox. </p>
                                                 </div>
                                             </div>

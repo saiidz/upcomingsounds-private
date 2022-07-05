@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use Carbon\Carbon;
+use App\Models\User;
 use App\Models\Country;
 use App\Models\Feature;
-use App\Models\User;
-use App\Providers\RouteServiceProvider;
-use Carbon\Carbon;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Auth\Events\Registered;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
@@ -349,6 +350,16 @@ class ArtistSignupController extends Controller
                 // Artist Signup complete
                 $user->update(['artist_completed_signup' => Carbon::now()]);
 
+                $data['email'] = $user->email;
+                $data['username'] = $user->name;
+                $data["title"] = "Artist Upcoming Sounds";
+
+                Mail::send('pages.artists.emails.send_email_artist_signup', $data, function($message)use($data) {
+                    $message->from('artist@upcomingsounds.com');
+                    $message->to($data["email"], $data["email"])
+                        ->subject($data["title"]);
+                });
+
                 return redirect('/artist-profile')->with('success','Artist Profile is created successfully');
             }else{
                 return redirect()->back()->with('error', 'Please fill out data');
@@ -356,6 +367,16 @@ class ArtistSignupController extends Controller
         }else{
             return redirect()->route('login');
         }
+    }
+
+    /**
+     * artistApprovalAdmin
+     */
+    public function artistApprovalAdmin(Request $request)
+    {
+        return ($request->user()->type == 'artist') && ($request->user()->is_approved == 0)
+            ? view('pages.artists.artist-approved-admin.artist-approved')
+            : redirect()->intended(RouteServiceProvider::HOME);
     }
 
     /**

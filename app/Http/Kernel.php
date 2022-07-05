@@ -71,6 +71,7 @@ class Kernel extends HttpKernel
         'verified_phone_number_curator' => \App\Http\Middleware\VerifyPhoneNumberCurator::class,
         'try_catch' => \App\Http\Middleware\TryCatchMiddleware::class,
         'approved_curator_admin' => \App\Http\Middleware\ApprovedCuratorAdmin::class,
+        'approved_artist_admin' => \App\Http\Middleware\ApprovedArtistAdmin::class,
         'verify_if_admin' => \App\Http\Middleware\VerifyIfAdmin::class,
         'verify_if_user' => \App\Http\Middleware\VerifyIfUser::class,
         'verify_if_curator' => \App\Http\Middleware\VerifyIfCurator::class,
