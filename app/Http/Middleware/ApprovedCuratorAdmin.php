@@ -18,7 +18,7 @@ class ApprovedCuratorAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!empty($request->user()) && ($request->user()->type == 'curator') && ($request->user()->is_approved == 0)){
+        if (!empty($request->user()) && ($request->user()->type == 'curator') && ($request->user()->is_approved == 0) && ($request->user()->is_rejected == 0)){
             return  Redirect::guest(URL::route( 'curator.approval'));
         }
         return $next($request);

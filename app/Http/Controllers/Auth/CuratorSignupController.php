@@ -534,7 +534,19 @@ class CuratorSignupController extends Controller
     public function curatorApprovalAdmin(Request $request)
     {
         return ($request->user()->type == 'curator') && ($request->user()->is_approved == 0)
+            && ($request->user()->is_rejected == 0)
             ? view('pages.curators.curator-approved-admin.curator-approved')
+            : redirect()->intended(RouteServiceProvider::CURATOR);
+    }
+
+    /**
+     * curatorRejectedAdmin
+     */
+    public function curatorRejectedAdmin(Request $request)
+    {
+        return ($request->user()->type == 'curator') && ($request->user()->is_approved == 0)
+            && ($request->user()->is_rejected == 1)
+            ? view('pages.curators.curator-approved-admin.curator-rejected', compact('request'))
             : redirect()->intended(RouteServiceProvider::CURATOR);
     }
 

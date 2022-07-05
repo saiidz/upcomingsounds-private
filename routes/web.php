@@ -41,12 +41,12 @@ Route::group(['middleware' => ['try_catch']], function() {
     Route::prefix('admin')->group(base_path('routes/admin.php'));
 
     /***************************************************** Artist Routes *********************************************************/
-    Route::group(['middleware' => ['auth','verify_if_user','create_password','verified','artist_signup','approved_artist_admin']], function() {
+    Route::group(['middleware' => ['auth','verify_if_user','create_password','verified','artist_signup','approved_artist_admin','re_apply','rejected_artist_admin']], function() {
         Route::prefix('')->group(base_path('routes/client/auth.php'));
     });
 
     /***************************************************** Curators Routes *********************************************************/
-    Route::group(['middleware' => ['auth','verify_if_curator','create_curator_password','verified','verified_phone_number_curator','curator_signup','approved_curator_admin']], function() {
+    Route::group(['middleware' => ['auth','verify_if_curator','create_curator_password','verified','verified_phone_number_curator','curator_signup','approved_curator_admin','re_apply','rejected_curator_admin']], function() {
         Route::prefix('')->group(base_path('routes/client/curator_auth.php'));
     });
 

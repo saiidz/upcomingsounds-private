@@ -34,6 +34,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'type',
         'is_approved',
         'is_verified',
+        'is_rejected',
         'status',
         'is_phone_verified',
         'suspended_at',
@@ -45,6 +46,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'pm_type',
         'pm_last_four',
         'trial_ends_at',
+        'created_at',
     ];
 
     /**

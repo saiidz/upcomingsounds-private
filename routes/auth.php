@@ -229,13 +229,29 @@ Route::post('/create-password', [AuthenticationSocializeController::class, 'stor
 
 // Artist Approval Admin Route
 Route::get('/artist-approval', [ArtistSignupController::class, 'artistApprovalAdmin'])
-->middleware('auth')
-->name('artist.approval');
+    ->middleware('auth')
+    ->name('artist.approval');
+
+// Artist Approval Admin Route
+Route::get('/artist-reject', [ArtistSignupController::class, 'artistRejectedAdmin'])
+    ->middleware('auth')
+    ->name('artist.rejected');
 /***************************************************** Artist Routes *********************************************************/
 
 
 
+// re-apply route
+Route::get('/re-apply', [ArtistSignupController::class, 'reApply'])
+    ->middleware('auth')
+    ->name('re.apply');
 
+Route::get('/re-apply/submission', [ArtistSignupController::class, 'reApplySubmission'])
+    ->middleware('auth')
+    ->name('re.apply.submission');
+
+Route::post('/re-apply/{user}', [ArtistSignupController::class, 'storeReApply'])
+    ->middleware('auth')
+    ->name('re.apply.store');
 
 
 
@@ -356,6 +372,10 @@ Route::get('/taste-maker-approval', [CuratorSignupController::class, 'curatorApp
     ->middleware('auth')
     ->name('curator.approval');
 
+// Curator Approval Admin Route
+Route::get('/taste-maker-reject', [CuratorSignupController::class, 'curatorRejectedAdmin'])
+->middleware('auth')
+->name('curator.rejected');
 
 // Curator Create Password
 Route::get('/taste-maker-create-password', [AuthenticationSocializeController::class, 'createCuratorSocializePassword'])

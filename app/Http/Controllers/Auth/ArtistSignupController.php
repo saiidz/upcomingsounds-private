@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Country;
 use App\Models\Feature;
+use App\Models\ReApplyUser;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -375,8 +376,81 @@ class ArtistSignupController extends Controller
     public function artistApprovalAdmin(Request $request)
     {
         return ($request->user()->type == 'artist') && ($request->user()->is_approved == 0)
+            && ($request->user()->is_rejected == 0)
             ? view('pages.artists.artist-approved-admin.artist-approved')
             : redirect()->intended(RouteServiceProvider::HOME);
+    }
+
+     /**
+     * artistRejectedAdmin
+     */
+    public function artistRejectedAdmin(Request $request)
+    {
+        return ($request->user()->type == 'artist') && ($request->user()->is_approved == 0)
+            && ($request->user()->is_rejected == 1)
+            ? view('pages.artists.artist-approved-admin.artist-rejected', compact('request'))
+            : redirect()->intended(RouteServiceProvider::HOME);
+    }
+
+
+    /**
+     * reApply
+     */
+    public function reApply(Request $request)
+    {
+        // find user
+        $user = User::where('id',Auth::id())->first();
+        if(isset($user))
+        {
+            return view('pages.re_apply.re-apply', get_defined_vars());
+        }else{
+            return redirect('/login');
+        }
+
+    }
+
+    /**
+     * reApplySubmission
+     */
+    public function reApplySubmission()
+    {
+        $user = User::where('id',Auth::id())->first();
+        if(isset($user))
+        {
+            // get ReApplyUser
+            $re_apply_user = ReApplyUser::where('user_id',$user->id)->first();
+            return view('pages.re_apply.apply', get_defined_vars());
+        }else{
+            return redirect('/login');
+        }
+    }
+
+    /**
+     * storeReApply
+     */
+    public function storeReApply(Request $request,User $user)
+    {
+        if($request->re_apply_information == null)
+        {
+            return redirect()->back()->with('error', 'Describe description is required');
+        }
+
+        $re_apply_user = ReApplyUser::where('user_id',$user->id)->first();
+        if(isset($re_apply_user))
+        {
+            // update ReApplyUser
+            $re_apply_user->update([
+                'description' => $request->re_apply_information,
+            ]);
+            return redirect()->back()->with('success', 'Request Submit Updated Successfully.');
+        }else{
+            // create ReApplyUser
+            ReApplyUser::create([
+                'user_id'     => $user->id,
+                'description' => $request->re_apply_information,
+            ]);
+            return redirect()->back()->with('success', 'Request Submit Successfully.');
+        }
     }
 
     /**
