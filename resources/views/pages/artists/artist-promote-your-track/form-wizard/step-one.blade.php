@@ -15,12 +15,17 @@
                     <div class="col-sm-6 promoteArtist" onclick="artistTrack({{$track->id}})" >
                         <div class="item r" data-id="item-5" id="promoteArtistItem_{{$track->id}}">
                             <div class="item-media">
-                                @if(!empty($track->track_thumbnail))
+                                {{-- @if(!empty($track->track_thumbnail))
                                     <a href="javascript:void(0)" class="item-media-content" onclick="viewTrack({{$track->id}})" data-toggle="modal" data-target="#view-track"
                                        style="background-image: url({{asset('uploads/track_thumbnail')}}/{{$track->track_thumbnail}});"></a>
                                 @else
                                     <a href="javascript:void(0)" class="item-media-content" onclick="viewTrack({{$track->id}})" data-toggle="modal" data-target="#view-track"
                                        style="background-image: url({{asset('images/b4.jpg')}});"></a>
+                                @endif --}}
+                                @if(!empty($track->track_thumbnail))
+                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url({{asset('uploads/track_thumbnail')}}/{{$track->track_thumbnail}});"></a>
+                                @else
+                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url({{asset('images/b4.jpg')}});"></a>
                                 @endif
                             </div>
                             <div class="item-info">
@@ -49,4 +54,4 @@
     </div>
 </fieldset>
 
-@include('pages.artists.artist-promote-your-track.artist-track.modal')
+

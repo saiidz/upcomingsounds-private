@@ -532,8 +532,13 @@ body{
 .imoji img{
     height: 40px;
 }
-
-
+.promoteAddTrack a{
+    float: right;
+}
+.switchStyle {
+    height: 2.1rem !important;
+    margin-top: 1rem !important;
+}
 
 
 

@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Language;
 use App\Models\ArtistTrack;
 use Illuminate\Http\Request;
+use App\Models\CuratorFeature;
 use App\Models\ArtistTrackLink;
 use App\Models\PromoteYourTrack;
 use Illuminate\Http\JsonResponse;
 use App\Models\ArtistTrackLanguage;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\Artist\AddYourTrackRequest;
 use Illuminate\Support\Facades\File;
+use App\Http\Requests\Artist\AddYourTrackRequest;
 
 class PromoteYourTrackController extends Controller
 {
@@ -32,7 +34,8 @@ class PromoteYourTrackController extends Controller
         $page = 'add-your-track';
         $user_artist = Auth::user();
         $artist_tracks = ArtistTrack::where('user_id',$user_artist->id)->latest()->get();
-
+        $languages = Language::all();
+        $curator_features = CuratorFeature::all();
         return view('pages.artists.artist-promote-your-track.add-your-track',get_defined_vars());
     }
 
@@ -97,10 +100,17 @@ class PromoteYourTrackController extends Controller
      */
     public function storeAddTrack(AddYourTrackRequest $request): JsonResponse
     {
-        dd($request->all(),'aa');
+        //check if demo on
+        if($request->demo == "on")
+        {
+            if(empty($request->audio))
+            {
+                return response()->json(['error' => 'Please add song because demo is on']);
+            }
+        }
+
         $input = $request->all();
         $input['user_id'] = auth()->user()->id;
-        $input['youtube_soundcloud_url'] = $request->get('youtube_soundcloud_url');
         $input['display_profile'] = ($request->get('display_profile')) ? (int)$request->get('display_profile') : 0;
 
         // add audio
@@ -124,7 +134,6 @@ class PromoteYourTrackController extends Controller
             File::makeDirectory($path, 0775, true, true);
         }
         // upload track song
-//        if ($request->hasfile('track_thumbnail')) {
         if ($request->file('track_thumbnail')) {
             $file = $request->file('track_thumbnail');
             $name = $file->getClientOriginalName();

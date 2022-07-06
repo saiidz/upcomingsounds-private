@@ -24,7 +24,6 @@ class AddYourTrackRequest extends FormRequest
     public function rules()
     {
         return [
-            'youtube_soundcloud_url' => 'required',
             'name' => 'required|string',
             'description' => 'required|string',
             'track_thumbnail' => 'required|file|mimes:jpeg,jpg,png,gif|max:2048',

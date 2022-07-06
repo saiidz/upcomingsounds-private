@@ -185,7 +185,7 @@ class ArtistTrackController extends Controller
      */
     public function update(Request $request,ArtistTrack $artist_track)
     {
-        dd($request->all());
+        // dd($request->all());
         $input = $request->all();
         $input['user_id'] = auth()->user()->id;
         // $input['youtube_soundcloud_url'] = $request->get('youtube_soundcloud_url');

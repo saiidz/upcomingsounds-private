@@ -5,6 +5,15 @@
 
 @section('page-style')
     <link rel="stylesheet" href="{{asset('css/custom/add-your-track.css')}}" type="text/css"/>
+    <link rel="stylesheet" href="{{asset('css/gijgo.min.css')}}" type="text/css" />
+    <style>
+        .addMoreRemoveLink {
+            display: inline-flex !important;
+        }
+        .plusIconRemove {
+            margin-left: 52px !important;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -17,11 +26,17 @@
                 <div class="col-sm-12 text-white m-b-sm">
                     <div class="form__container">
                         <div class="title__container">
-                            <h1>Add your track</h1>
-                            <div class="separator"></div>
-                            <a class="m-b-md rounded addTrack" data-toggle="modal" data-target="#add-track-promote" href="javascript:void(0)">
-                                Add New track
-                             </a>
+                            <div class="separatortrack">
+                                <h1>Add your track</h1>
+                                <div class="separator"></div>
+                            </div>
+
+                            <div class="promoteAddTrack">
+                                <a class="m-b-md rounded addTrack" data-toggle="modal" data-target="#add-track-promote" href="javascript:void(0)">
+                                    Add New track
+                                </a>
+                            </div>
+                            @include('pages.artists.artist-promote-your-track.artist-track.modal')
                         </div>
                         <div class="body__container">
                             <div class="left__container">
@@ -574,6 +589,162 @@
     </script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="{{asset('js/gijgo.min.js')}}"></script>
+    <script>
+        $('#datepickerPromoteDate').datepicker({
+            iconsLibrary: 'fontawesome',
+            format: "yyyy-mm-dd"
+        });
+    </script>
+    <script type="text/javascript">
 
+        $(document).ready(function(){
+
+            var counter = 2;
+
+            $("#addLinkButton").click(function () {
+
+                if(counter>10){
+                        alert("Only 10 textboxes allow");
+                        return false;
+                }
+
+                var newTextBoxDiv = $(document.createElement('div'))
+                    .attr("id", 'TextBoxDiv' + counter);
+
+                newTextBoxDiv.after().html('<label class="control-label form-control-label text-muted">Add New Link #'+ counter +'</label>' +
+                    '<div class="addEmbeded"><div class="addMoreLinks"><input type="text" class="form-control moreLinks" name="link[]" id="textbox' + counter + '" value="" placeholder="Please Add Embeded Url"></div><div class="previewStart"><a href="javascript:void(0)" class="textbox' + counter + '" id="previewIcon" onclick="getInputValue(this)"><i class="fa fa-eye"></i> preview</a></div></div>');
+
+                newTextBoxDiv.appendTo("#TextBoxesGroup");
+
+
+                counter++;
+             });
+
+             $("#removeButton").click(function () {
+                if(counter==1){
+                    alert("No more textbox to remove");
+                    return false;
+                }
+
+                counter--;
+
+                $("#TextBoxDiv" + counter).remove();
+
+             });
+    });
+
+    function removeStyle(objfield) {
+        objfield.style.borderColor = "";
+        objfield.style.border = "";
+    }
+
+    function  getInputValue(elem) {
+
+        let src = document.getElementById(elem.className).value
+        if (src === "") {
+            toastr.error('Please Add url embeded');
+            return false;
+        }
+
+        var match_link = src.match(/iframe/g);
+        // var match_link = src.match(/embed|w.soundcloud.com|bandcamp|widget/g);
+
+        if(match_link == null)
+        {
+            toastr.error('Please Add correct url embeded');
+            return false;
+        }
+
+        if(src){
+            document.querySelector('#previewLinkBlock').style.display = 'block';
+            document.querySelector('#previewLink').innerHTML = "";
+            document.querySelector('#previewLink').innerHTML = src;
+        }else{
+            toastr.error('Please Add correct url embeded');
+            return false;
+        }
+
+    }
+    </script>
+<script>
+    // Image Track Song Preview
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('imgTrackPreview').setAttribute('src', e.target.result );
+                $('#imgTrackPreview').hide();
+                $('#imgTrackPreview').fadeIn(650);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#imageTrackUpload").change(function () {
+        readURL(this);
+    });
+
+
+    // audio track
+    function readAudioURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('audioTrackPreview').setAttribute('src', e.target.result );
+                $('#audioTrackPreview').hide();
+                $('#audioTrackPreview').fadeIn(650);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#audioTrackUpload").change(function () {
+        readAudioURL(this);
+    });
+</script>
+<script>
+    $('.audioCover').on('click', function(){
+        var $box = $(this);
+        if($box.is(':checked'))
+        {
+            var group = "input:checkbox[name='" + $box.attr("name") + "']";
+            $(group).prop('checked', false);
+            $box.prop("checked", true);
+        }else {
+            $box.prop("checked", false);
+        }
+    });
+    $('.releaseType').on('click', function(){
+        var $box = $(this);
+        if($box.is(':checked'))
+        {
+            var group = "input:checkbox[name='" + $box.attr("name") + "']";
+            $(group).prop('checked', false);
+            $box.prop("checked", true);
+        }else {
+            $box.prop("checked", false);
+        }
+    });
+    $('.permissionCopyright').on('click', function(){
+        var $box = $(this);
+        if($box.is(':checked'))
+        {
+            var group = "input:checkbox[name='" + $box.attr("name") + "']";
+            $(group).prop('checked', false);
+            $box.prop("checked", true);
+        }else {
+            $box.prop("checked", false);
+        }
+    });
+
+    $(document).ready(function(){
+        $(".slide-toggle").click(function(){
+            $(".interestShow").animate({
+                height: "toggle"
+            });
+        });
+    });
+</script>
 @endsection
 
