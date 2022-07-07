@@ -17,13 +17,47 @@
                         <span class="text-xs text-muted">Main</span>
                     </li>
                     <li>
+                        <a data-toggle="dropdown">
+                            <span class="nav-icon">
+                                <i class="fa fa-dashboard"></i>
+                            </span>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                        <div class="dropdown-menu w dropdown-menu-scale ">
+                            <a class="dropdown-item" href="{{ route('artist.submission') }}">
+                                <span class="nav-icon">
+                                    <i class="fa fa-music"></i>
+                                </span>
+                                <span class="nav-text">Artist Submission</span>
+                            </a>
+                            <a class="dropdown-item" href="{{ route('artist.saved') }}">
+                                <span class="nav-icon">
+                                    <i class="fa fa-bookmark-o"></i>
+                                </span>
+                                <span class="nav-text">Saved</span>
+                            </a>
+                            <a class="dropdown-item" href="{{ route('artist.accepted') }}">
+                                <span class="nav-icon">
+                                    <i class="fa fa-check-circle"></i>
+                                </span>
+                                <span class="nav-text">Accepted</span>
+                            </a>
+                            <a class="dropdown-item" href="{{ route('artist.rejected') }}">
+                                <span class="nav-icon">
+                                    <i class="fa fa-minus-circle"></i>
+                                </span>
+                                <span class="nav-text">Rejected</span>
+                            </a>
+                        </div>
+                    </li>
+                    {{-- <li>
                         <a href="javascript:void(0)">
                             <span class="nav-icon">
                                 <i class="fa fa-music"></i>
                             </span>
                             <span class="nav-text">Artist Submission</span>
                         </a>
-                    </li>
+                    </li> --}}
                     <li>
                         <a href="javascript:void(0)">
                             <span class="nav-icon">

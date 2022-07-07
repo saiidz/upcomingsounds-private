@@ -66,7 +66,6 @@
                             <span class="nav-text">Search</span>
                         </a>
                     </li>
-                    c
 
 {{--                    <div data-flex-no-shrink>--}}
 {{--                        <div class="nav-fold dropup">--}}
