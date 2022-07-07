@@ -14,10 +14,10 @@
 
         <div class="app-header navbar-md black box-shadow-z1">
             <div class="navbar" data-pjax>
-                <a data-toggle="collapse" data-target="#navbar"
+                {{-- <a data-toggle="collapse" data-target="#navbar"
                    class="navbar-item pull-right hidden-md-up m-r-0 m-l">
                     <i class="material-icons">menu</i>
-                </a>
+                </a> --}}
                 <!-- brand -->
                 <a href="{{url('/')}}" class="navbar-brand md">
                     <img src="{{asset('images/logo.png')}}" alt="">

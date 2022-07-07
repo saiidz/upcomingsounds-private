@@ -548,7 +548,7 @@ ul:not(.browser-default) > li {
 }
 .SliderP{
     color:white !important;
-    text-shadow: 1px 1px #ffffff;
+    /* text-shadow: 1px 1px #ffffff; */
 }
 
 .tiktok_footer > svg{
