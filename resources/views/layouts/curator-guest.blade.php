@@ -59,11 +59,11 @@
 {{--                                <span class="nav-text">Site</span>--}}
 {{--                            </a>--}}
 {{--                        </li>--}}
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="{{url('/taste-maker-profile')}}" class="nav-link">
                                 <span class="nav-text">Dashboard</span>
                             </a>
-                        </li>
+                        </li> --}}
 {{--                        <li class="nav-item">--}}
 {{--                            <a href="#" class="nav-link">--}}
 {{--                                <span class="nav-text">Rtl</span>--}}

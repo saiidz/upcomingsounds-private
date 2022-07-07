@@ -38,21 +38,27 @@
             <div class="col-sm-9">
                 <div class="col s12">
                     <p class="mb-1">
-                        @if($user_artist->artistUser->artist_representative_record == 1)
+                        @if($user_artist->artistUser->artist_representative_record)
+                            <label>
+                                <span>{{ $user_artist->artistUser->artist_representative_record }}</span>
+                            </label>
+                        @endif
+
+                        {{-- @if($user_artist->artistUser->artist_representative_record == 1)
                             <label>
                                 <span>Record Label 🎧</span>
                             </label>
-                        @endif
+                        @endif --}}
 
-                        @if($user_artist->artistUser->artist_representative_manager == 2)
+                        {{-- @if($user_artist->artistUser->artist_representative_manager == 2)
                             <label class="record_label">
                                 <span>Manager 🚀</span>
                             </label>
-                        @endif
+                        @endif --}}
 
                     </p>
                 </div>
-                <div class="col s12">
+                {{-- <div class="col s12">
                     <p class="mb-1">
                         @if($user_artist->artistUser->artist_representative_press == 3)
                             <label class="record_label">
@@ -65,7 +71,7 @@
                             </label>
                         @endif
                     </p>
-                </div>
+                </div> --}}
             </div>
         </div>
 

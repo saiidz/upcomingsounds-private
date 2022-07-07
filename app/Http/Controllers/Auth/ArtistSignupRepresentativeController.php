@@ -379,9 +379,9 @@ class ArtistSignupRepresentativeController extends Controller
                 $input['user_id']                         = $user->id;
                 $input['artist_signup_from']              = 'artist_representative';
                 $input['artist_representative_record']    = isset($artist_representative_data['artist_representative_record']) ? $artist_representative_data['artist_representative_record'] : null;
-                $input['artist_representative_manager']   = isset($artist_representative_data['artist_representative_manager']) ? $artist_representative_data['artist_representative_manager'] : null;
-                $input['artist_representative_press']     = isset($artist_representative_data['artist_representative_press']) ? $artist_representative_data['artist_representative_press'] : null;
-                $input['artist_representative_publisher'] = isset($artist_representative_data['artist_representative_publisher']) ? $artist_representative_data['artist_representative_publisher'] : null;
+                // $input['artist_representative_manager']   = isset($artist_representative_data['artist_representative_manager']) ? $artist_representative_data['artist_representative_manager'] : null;
+                // $input['artist_representative_press']     = isset($artist_representative_data['artist_representative_press']) ? $artist_representative_data['artist_representative_press'] : null;
+                // $input['artist_representative_publisher'] = isset($artist_representative_data['artist_representative_publisher']) ? $artist_representative_data['artist_representative_publisher'] : null;
                 $input['artist_country_id']               = isset($artist_representative_data['artist_country_name']) ? $artist_representative_data['artist_country_name'] : null;
                 $input['artist_name']                     = isset($artist_artist_data['artist_name']) ? $artist_artist_data['artist_name'] : null;
                 $input['country_id']                      = isset($artist_artist_data['country_name']) ? (int) $artist_artist_data['country_name'] : null;

@@ -63,11 +63,12 @@
                                                                 <div class="col s12">
                                                                     <p class="mb-1">
                                                                         <label>
-                                                                            <input type="checkbox" class="filled-in" name="artist_representative_record"  value="1" />
+                                                                            <input type="checkbox" class="filled-in artistRepreCheck" id="" name="artist_representative_record"  value="Record Label 🎧" />
                                                                             <span>Record Label 🎧</span>
                                                                         </label>
                                                                         <label class="record_label">
-                                                                            <input type="checkbox" class="filled-in" name="artist_representative_manager"  value="2" />
+                                                                            <input type="checkbox" class="filled-in artistRepreCheck" name="artist_representative_record"  value="Manager 🚀" />
+                                                                            {{-- <input type="checkbox" class="filled-in artistRepreCheck" name="artist_representative_manager"  value="2" /> --}}
                                                                             <span>Manager 🚀</span>
                                                                         </label>
                                                                     </p>
@@ -75,11 +76,13 @@
                                                                 <div class="col s12">
                                                                     <p class="mb-1">
                                                                         <label>
-                                                                            <input type="checkbox" class="filled-in" name="artist_representative_press"  value="3" />
-                                                                            <span>Press Officer 🎤</span>
+                                                                            <input type="checkbox" class="filled-in artistRepreCheck" name="artist_representative_record"  value="Manager 🚀" />
+                                                                            {{-- <input type="checkbox" class="filled-in artistRepreCheck" name="artist_representative_press"  value="3" /> --}}
+                                                                            <span>Manager 🚀</span>
                                                                         </label>
                                                                         <label class="record_label">
-                                                                            <input type="checkbox" class="filled-in" name="artist_representative_publisher"  value="4" />
+                                                                            <input type="checkbox" class="filled-in artistRepreCheck" name="artist_representative_record"  value="Publisher 🎯" />
+                                                                            {{-- <input type="checkbox" class="filled-in artistRepreCheck" name="artist_representative_publisher"  value="4" /> --}}
                                                                             <span>Publisher 🎯</span>
                                                                         </label>
                                                                     </p>
@@ -136,4 +139,18 @@
 @section('page-script')
     <script src="{{asset('js/vendors.min.js')}}"></script>
     <script src="{{asset('js/plugins.js')}}"></script>
+    <script>
+        $('.artistRepreCheck').on('click', function(){
+            var $box = $(this);
+
+            if($box.is(':checked'))
+            {
+                var group = "input:checkbox[name='" + $box.attr("name") + "']";
+                $(group).prop('checked', false);
+                $box.prop("checked", true);
+            }else {
+                $box.prop("checked", false);
+            }
+        });
+    </script>
 @endsection
