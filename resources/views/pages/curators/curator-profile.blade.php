@@ -65,6 +65,15 @@
 
                     </div>
                 </div>
+                <div>
+                    @if (!empty($user_curator->curatorUser->curator_bio))
+                        <div class="page-title m-b">
+                            <h4 class="inline m-a-0 biO" style="font-size: ">Bio</h4>
+                        </div>
+                        <p id="bioInfo" class="text-muted">{{Str::limit($user_curator->curatorUser->curator_bio, 50)}}</p>
+                        <a href="javascript:void(0)" class="seeMoreBio" onclick="seeMoreBio()">See more</a>
+                    @endif
+                </div>
             </div>
             <div class="col-sm">
                 <div class="p-l-md no-padding-xs">
@@ -362,5 +371,27 @@
                 }
             });
         });
+</script>
+
+<script>
+
+    var curator_bio = {!! json_encode($user_curator->curatorUser->curator_bio) !!};
+    if(curator_bio)
+    {
+        // var counter = 0
+        function seeMoreBio()
+        {
+            // counter += 1
+            // if(counter == 2)
+            // {
+            //     $('#bioInfo').empty();
+            //     $('#bioInfo').text(curator_bio.substring(0,50) + '.....');
+            //     // $('#bioInfo').html(curator_bio);
+            // }
+            $('#bioInfo').empty();
+            $('#bioInfo').html(curator_bio);
+        }
+    }
+
 </script>
 @endsection

@@ -12,7 +12,7 @@
 <script src="{{asset('libs/PACE/pace.min.js')}}"></script>
 <script src="{{asset('libs/jquery-pjax/jquery.pjax.js')}}"></script>
 
-<script src="{{asset('js/form.js')}}"></script>
+<script src="{{asset('scripts/form.js')}}"></script>
 
 <script src="{{asset('libs/mediaelement/build/mediaelement-and-player.min.js')}}"></script>
 <script src="{{asset('libs/mediaelement/build/mep.js')}}"></script>
