@@ -315,7 +315,16 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
 .promoteArtist{
     cursor: pointer !important;
 }
+.budgetMind{
+    cursor: pointer !important;
+}
 .item_artist {
+    border: 1px solid #02b875 !important;
+}
+.itemNot {
+    border: 1px solid #02b875 !important;
+}
+.itemYes {
     border: 1px solid #02b875 !important;
 }
 .step_received, .step_media, .step_establish{

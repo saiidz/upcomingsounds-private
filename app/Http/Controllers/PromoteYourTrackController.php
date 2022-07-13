@@ -86,6 +86,43 @@ class PromoteYourTrackController extends Controller
                 'curators' => $curators,
             ]);
         }
+
+        if(!empty($request->right_now_check))
+        {
+            if($request->right_now_check == 'right_now_check')
+            {
+                if($request->right_now_id == 1)
+                {
+                    $curators = User::with('curatorUser')->whereHas('curatorUser', function($q){
+                        $q->whereIn('curator_signup_from',['sound_expert_producer','brooker_booking','monitor_publisher_synch']);
+                    })->getReceivedCurstors()->latest()->get();
+
+                    return response()->json([
+                        'success' => 'we have '.$curators->count().' curators',
+                        'curators' => $curators,
+                    ]);
+                }elseif($request->right_now_id == 2)
+                {
+                    $curators = User::with('curatorUser')->whereHas('curatorUser', function($q){
+                        $q->whereIn('curator_signup_from',['playlist_curator','influencer','youtube_channel','radio_tv']);
+                    })->getReceivedCurstors()->latest()->get();
+                    return response()->json([
+                        'success' => 'we have '.$curators->count().' curators',
+                        'curators' => $curators,
+                    ]);
+                }elseif($request->right_now_id == 3)
+                {
+                    $curators = User::with('curatorUser')->whereHas('curatorUser', function($q){
+                        $q->whereIn('curator_signup_from',['journalist_media','label_manager','media']);
+                    })->getReceivedCurstors()->latest()->get();
+                    return response()->json([
+                        'success' => 'we have '.$curators->count().' curators',
+                        'curators' => $curators,
+                    ]);
+                }
+            }
+        }
+
         // return false;
         // $page = 'add-your-track';
         // $user_artist = Auth::user();

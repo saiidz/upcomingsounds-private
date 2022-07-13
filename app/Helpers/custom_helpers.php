@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
@@ -98,4 +99,11 @@ function UPLOAD_FILE(object $file, string $path, $rename = true, bool $unlink = 
 function REMOVE_FILE(string $filepath): bool
 {
     return @unlink($filepath ?? '');
+}
+
+// get all approved curators
+function allCurators()
+{
+    $curators = User::where('is_approved', 1)->where('type','curator')->count();
+    return $curators;
 }

@@ -50,7 +50,7 @@
                 </div>
             @endif
         </div>
-        <a class="m-b-md rounded addTrack nxt__btn" onclick="nextForm();"> Next</a>
+        <a class="m-b-md rounded addTrack nxt__btn" onclick="nextForm('step_one');"> Next</a>
     </div>
 </fieldset>
 

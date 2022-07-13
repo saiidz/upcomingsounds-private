@@ -1,7 +1,7 @@
 @extends('pages.artists.panels.layout')
 
 {{-- page title --}}
-@section('title','Add Your Track')
+@section('title','Start a campaign')
 
 @section('page-style')
     <link rel="stylesheet" href="{{asset('css/custom/add-your-track.css')}}" type="text/css"/>
@@ -12,6 +12,9 @@
         }
         .plusIconRemove {
             margin-left: 52px !important;
+        }
+        .text-ellipsis{
+            white-space: initial !important;
         }
     </style>
 @endsection
@@ -27,7 +30,7 @@
                     <div class="form__container">
                         <div class="title__container">
                             <div class="separatortrack">
-                                <h1>Add your track</h1>
+                                <h1>Start a campaign</h1>
                                 <div class="separator"></div>
                             </div>
 
@@ -78,58 +81,13 @@
                             <div class="right__container">
                                 <form method="POST" action="{{url('store/track/campaign')}}" enctype="multipart/form-data">
                                     @csrf
+
+                                    {{-- Step One Form --}}
                                     @include('pages.artists.artist-promote-your-track.form-wizard.step-one')
-                                    <fieldset class="active__form" id="form2">
-                                        <div class="sub__title__container">
-                                            <p>Step 2/4</p>
-                                            <h2>Right now... What are you looking for?</h2>
-                                            <p>Choosing any of these options will let us guide you to the media outlets, curators, and music professionals who best meet your needs. At UpcomingSounds, we guarantee that they'll listen to your track and give you feedback. If your music catches their attention, they are likely to share it or contact you!!</p>
-                                            <span class="text-muted">Your answer is private and will not be shared with influencers.</span>
-                                        </div>
-                                        <div class="input__container">
-                                            <div class="selection selection_received newB" id="receivedDetails1" onclick="stepTwoReceivedTrack()">
-                                                <div class="imoji">
-                                                    <img src="{{asset('images/objective_coaching.png')}}">
-{{--                                                    <ion-icon name="happy"></ion-icon>--}}
-                                                </div>
-                                                <div class="descriptionTitle">
-                                                    <h3>Recieve Detailed Advice</h3>
-                                                    <p>I'm looking for professional feedback for my project and demos in order to know what to improve: arrangement, mixing, production, visual content.</p>
-                                                </div>
-                                                <div class="item-title bottom text-right form2CheckedBox">
-                                                    <input type="checkbox" name="received_details" id="received_details" value="1" />
-                                                </div>
-                                            </div>
-                                            <div class="selection selection_media exitB" id="getVisibility1" onclick="stepTwoMediaTrack()">
-                                                <div class="imoji">
-                                                    <img src="{{asset('images/objective_visibility.png')}}">
-{{--                                                    <ion-icon name="business"></ion-icon>--}}
-                                                </div>
-                                                <div class="descriptionTitle">
-                                                    <h3>Get media coverage and social media exposure</h3>
-                                                    <p>Specifically, I am looking for YouTube uploads, playlist placements, radio broadcasts, social media posts, or reviews from media outlets.</p>
-                                                </div>
-                                                <div class="item-title bottom text-right form2CheckedBox">
-                                                    <input type="checkbox"  name="get_visibility" id="get_visibility" value="2" />
-                                                </div>
-                                            </div>
-                                            <div class="selection selection_establish exitB" id="buildProfessional1" onclick="stepTwoEstablishTrack()">
-                                                <div class="imoji">
-                                                    <img src="{{asset('images/objective_partnerships.png')}}">
-{{--                                                    <ion-icon name="business"></ion-icon>--}}
-                                                </div>
-                                                <div class="descriptionTitle">
-                                                    <h3>Establish my Professorial Music Career</h3>
-                                                    <p>It is my goal to secure record deals with labels, booking agents, publishers, and music supervisors (those who place music in movies or TV commercials).</p>
-                                                </div>
-                                                <div class="item-title bottom text-right form2CheckedBox">
-                                                    <input type="checkbox" name="get_establish" id="get_establish" value="3"/>
-                                                </div>
-                                            </div>
-                                            <div class="buttons"><a class="m-b-md rounded addTrack prev__btn" onclick="prevForm();">Back</a> <a
-                                                    class="m-b-md rounded addTrack nxt__btn" onclick="nextForm();">Next</a></div>
-                                        </div>
-                                    </fieldset>
+
+                                    {{-- Step Two Form --}}
+                                    @include('pages.artists.artist-promote-your-track.form-wizard.step-two')
+
                                     <fieldset class="active__form" id="form3">
                                         <div class="sub__title__container">
                                             <p>Step 3/4</p>
@@ -274,6 +232,30 @@
             });
         });
 
+        // budget yes or not
+        function budgetMind(status)
+        {
+            if(status == 'yes')
+            {
+                $('#notTitle').css('display', 'none');
+                $('#yesTitle').css('display', 'inline-block');
+
+                $('#budgetMindNot').removeClass('itemNot');
+                $('#budgetMindYes').addClass('itemYes');
+                $('.budgetNot').prop('checked', false);
+                $('.budgetYes').prop('checked', true);
+            }
+            if(status == 'not')
+            {
+                $('#yesTitle').css('display', 'none');
+                $('#notTitle').css('display', 'block');
+
+                $('#budgetMindYes').removeClass('itemYes');
+                $('#budgetMindNot').addClass('itemNot');
+                $('.budgetYes').prop('checked', false);
+                $('.budgetNot').prop('checked', true);
+            }
+        }
         // step 2 artist track
         function stepTwoReceivedTrack()
         {
@@ -283,10 +265,10 @@
             $('#receivedDetails1').addClass('step_received');
 
             // $('.oneTrackSelected').prop('checked', false);
-            $('#get_visibility').prop('checked', false);
-            $('#get_establish').prop('checked', false);
+            // $('#get_visibility').prop('checked', false);
+            // $('#get_establish').prop('checked', false);
 
-            $('#received_details').prop('checked', true);
+            // $('#received_details').prop('checked', true);
 
             // get value of recieved
             let recieved_check = $('#received_details').val();
@@ -301,6 +283,12 @@
                 dataType: 'json',
                 success: function (data) {
                     if (data.success) {
+                        $('#get_visibility').prop('checked', false);
+                        $('#get_establish').prop('checked', false);
+
+                        $('#received_details').prop('checked', true);
+
+                        $('#rightNowID').attr('data-id',recieved_check);
                         toastr.success(data.success);
                     }
                     // if (data.error) {
@@ -321,10 +309,10 @@
             $('#getVisibility1').addClass('step_media');
 
             // $('.oneTrackSelected').prop('checked', false);
-            $('#received_details').prop('checked', false);
-            $('#get_establish').prop('checked', false);
+            // $('#received_details').prop('checked', false);
+            // $('#get_establish').prop('checked', false);
 
-            $('#get_visibility').prop('checked', true);
+            // $('#get_visibility').prop('checked', true);
 
             // get value of visibility
             let visibility_check = $('#get_visibility').val();
@@ -339,7 +327,11 @@
                 dataType: 'json',
                 success: function (data) {
                     if (data.success) {
-                        window.location.reload();
+                        $('#received_details').prop('checked', false);
+                        $('#get_establish').prop('checked', false);
+
+                        $('#get_visibility').prop('checked', true);
+                        $('#rightNowID').attr('data-id',visibility_check);
                         toastr.success(data.success);
                     }
 
@@ -354,9 +346,9 @@
 
             $('#buildProfessional1').addClass('step_establish');
 
-            $('#received_details').prop('checked', false);
-            $('#get_visibility').prop('checked', false);
-            $('#get_establish').prop('checked', true);
+            // $('#received_details').prop('checked', false);
+            // $('#get_visibility').prop('checked', false);
+            // $('#get_establish').prop('checked', true);
 
             // get value of establish
             let establish_check = $('#get_establish').val();
@@ -370,6 +362,11 @@
                 dataType: 'json',
                 success: function (data) {
                     if (data.success) {
+                        $('#received_details').prop('checked', false);
+                        $('#get_visibility').prop('checked', false);
+                        $('#get_establish').prop('checked', true);
+
+                        $('#rightNowID').attr('data-id',establish_check);
                         toastr.success(data.success);
                     }
 
@@ -392,6 +389,39 @@
 
     </script>
     <script>
+        function selectSelection()
+        {
+            // check value curator check
+            let received_check = $('.stepTwoReceived').is(':checked');
+            let visibility_check = $('.stepTwoVisibility').is(':checked');
+            let establish_check = $('.stepTwoEstablish').is(':checked');
+
+            if(received_check == false && visibility_check == false && establish_check == false)
+            {
+                toastr.error('Please Select Right Now');
+                return false;
+            }
+
+            var right_now_id =  $('#rightNowID').attr('data-id');
+
+                $.ajax({
+                    type: "GET",
+                    url: '{{url('/get-curators')}}',
+                    data: {
+                        right_now_check: 'right_now_check',
+                        right_now_id: right_now_id,
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.success) {
+                            toastr.success(data.success);
+                        }
+
+                    },
+                });
+        }
+    </script>
+    <script>
         // const nxtBtn = document.querySelector('#submitBtn');
         const form1 = document.querySelector('#form1');
         const form2 = document.querySelector('#form2');
@@ -409,14 +439,31 @@
 
         var viewId = 1;
 
-        function nextForm() {
-            // check value track come
-            let track_id = $('.oneTrackSelected').is(':checked');
-            console.log(track_id);
-            if(track_id == false)
+        function nextForm(status) {
+            if(status == 'step_one')
             {
-                toastr.error('Please Select Track');
-                return false;
+                // check value track come
+                let track_id = $('.oneTrackSelected').is(':checked');
+                console.log(track_id);
+                if(track_id == false)
+                {
+                    toastr.error('Please Select Track');
+                    return false;
+                }
+            }
+
+            if(status == 'step_two')
+            {
+                // check value curator check
+                let received_check = $('.stepTwoReceived').is(':checked');
+                let visibility_check = $('.stepTwoVisibility').is(':checked');
+                let establish_check = $('.stepTwoEstablish').is(':checked');
+
+                if(received_check == false && visibility_check == false && establish_check == false)
+                {
+                    toastr.error('Please Select Right Now');
+                    return false;
+                }
             }
 
             // let track_id = $('#received_details').is(':checked');
