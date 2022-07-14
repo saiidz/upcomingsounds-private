@@ -17,6 +17,14 @@
                         <span class="text-xs text-muted">Main</span>
                     </li>
                     <li>
+                        <a href="{{ route('artist.submission') }}">
+                            <span class="nav-icon">
+                                <i class="fa fa-music"></i>
+                            </span>
+                            <span class="nav-text">Artist Submission</span>
+                        </a>
+                    </li>
+                    {{-- <li>
                         <a data-toggle="dropdown">
                             <span class="nav-icon">
                                 <i class="fa fa-dashboard"></i>
@@ -49,7 +57,7 @@
                                 <span class="nav-text">Rejected</span>
                             </a>
                         </div>
-                    </li>
+                    </li> --}}
                     {{-- <li>
                         <a href="javascript:void(0)">
                             <span class="nav-icon">
