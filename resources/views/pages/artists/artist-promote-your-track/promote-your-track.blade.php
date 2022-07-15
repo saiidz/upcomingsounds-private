@@ -17,7 +17,7 @@
                 <a class="btn btn-lg rounded add_your_track" href="{{url('/add-your-track')}}">
                     <div class="btnTitle">Add your track</div>
                     <div class="btnSubtitle">
-                        And get access to 1244 curators & pros
+                        And get access to {{ $curators }} curators & pros
                     </div>
                 </a>
 {{--                <h2 class="widget-title h4 m-b">--}}

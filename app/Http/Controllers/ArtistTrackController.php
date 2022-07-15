@@ -216,17 +216,17 @@ class ArtistTrackController extends Controller
             $input['track_thumbnail'] = $artist_track->track_thumbnail;
         }
 
-        // delete previous track link
-        $artist_track_link = ArtistTrackLink::where('artist_track_id',$artist_track->id)->pluck('artist_track_id')->toArray();
-
-        if(isset($artist_track_link))
-        {
-            ArtistTrackLink::whereIn('artist_track_id',$artist_track_link)->forceDelete();
-        }
-
         // create artist track links
         if(!empty($request->link))
         {
+            // delete previous track link
+            $artist_track_link = ArtistTrackLink::where('artist_track_id',$artist_track->id)->pluck('artist_track_id')->toArray();
+
+            if(isset($artist_track_link))
+            {
+                ArtistTrackLink::whereIn('artist_track_id',$artist_track_link)->forceDelete();
+            }
+
             foreach($request->link as $link)
             {
                 ArtistTrackLink::create([

@@ -23,6 +23,7 @@ class PromoteYourTrackController extends Controller
     public function index(Request $request)
     {
         $user_artist = Auth::user();
+        $curators = User::getReceivedCurstors()->count();
         $page = 'promote-your-track';
         return view('pages.artists.artist-promote-your-track.promote-your-track',get_defined_vars());
     }

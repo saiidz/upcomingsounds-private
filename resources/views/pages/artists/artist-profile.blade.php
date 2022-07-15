@@ -1033,7 +1033,7 @@
                     let counter_count = 1
                     $('#TextBoxesGroupEdit').empty();
                     $.each(data.artist_track_links, function(key, value){
-                        $('#TextBoxesGroupEdit').append("<input type='hidden' name='lang[]' value="+value.link+" >");
+                        $('#TextBoxesGroupEdit').append("<input type='hidden' name='lang[]' value="+value.link+" ");
                         $('#TextBoxesGroupEdit').append(value.link);
                         $('#TextBoxesGroupEdit').append('<hr>');
                         // $('#TextBoxesGroupEdit').append('<div class="form-group editNewLink"><label class="control-label form-control-label text-muted">Add New Link #'+counter_count+'</label><div> <input type="text" name="link[]" onclick="removeStyle(this);" class="form-control moreLinks @error('link') is-invalid @enderror" required value="'+value.link+'" id="textbox'+counter_count+'" placeholder="Please Add Embeded Url"><a href="javascript:void(0)" class="textbox'+counter_count+'" id="previewIconEdit" onclick="getInputValueEdit(this)"><i class="fa fa-eye"></i> preview</a></div></div>');
