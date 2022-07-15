@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\Auth;
 class ArtistSubmissionController extends Controller
 {
    /**
+     * curatorDashboard
+     */
+    public function curatorDashboard()
+    {
+        $user_curator = Auth::user();
+        return view('pages.curators.dashboard', get_defined_vars());
+    }
+
+    /**
      * artistSubmission
      */
     public function artistSubmission()

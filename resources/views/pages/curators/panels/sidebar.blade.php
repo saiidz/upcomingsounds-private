@@ -16,16 +16,16 @@
                     <li class="nav-header hidden-folded">
                         <span class="text-xs text-muted">Main</span>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="{{ route('artist.submission') }}">
                             <span class="nav-icon">
                                 <i class="fa fa-music"></i>
                             </span>
                             <span class="nav-text">Artist Submission</span>
                         </a>
-                    </li>
-                    {{-- <li>
-                        <a data-toggle="dropdown">
+                    </li> --}}
+                    <li>
+                        <a href="{{ route('curator.dashboard') }}" data-toggle="dropdown">
                             <span class="nav-icon">
                                 <i class="fa fa-dashboard"></i>
                             </span>
@@ -57,7 +57,7 @@
                                 <span class="nav-text">Rejected</span>
                             </a>
                         </div>
-                    </li> --}}
+                    </li>
                     {{-- <li>
                         <a href="javascript:void(0)">
                             <span class="nav-icon">

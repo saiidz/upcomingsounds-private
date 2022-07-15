@@ -26,6 +26,7 @@ Route::get('/taste-maker-wallet',[CuratorWalletController::class,'wallet']);
 Route::post('curator-transfer',[CuratorWalletController::class,'curatorTransfer'])->name('curator.transfer');
 
 // artist submissions
+Route::get('/dashboard', [ArtistSubmissionController::class,'curatorDashboard'])->name('curator.dashboard');
 Route::get('/artist-submission', [ArtistSubmissionController::class,'artistSubmission'])->name('artist.submission');
 Route::get('/saved', [ArtistSubmissionController::class,'artistSaved'])->name('artist.saved');
 Route::get('/accepted', [ArtistSubmissionController::class,'artistAccepted'])->name('artist.accepted');
