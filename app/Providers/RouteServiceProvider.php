@@ -19,7 +19,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public const HOME = '/artist-profile';
 
-    public const CURATOR = '/taste-maker-profile';
+    public const CURATOR = '/dashboard';
 
     /**
      * The controller namespace for the application.
