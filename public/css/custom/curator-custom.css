@@ -1,0 +1,206 @@
+@font-face{
+    font-family:'Poppins';
+    src:url('../fonts/poppins/400.eot');
+    src:url('../fonts/poppins/400.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/poppins/400.woff2') format('woff2'),
+    url('../fonts/poppins/400.woff') format('woff'),
+    url('../fonts/poppins/400.ttf') format('truetype'),
+    url('../fonts/poppins/400.svg#embed-poppins') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face{
+    font-family:'Poppins';
+    src:url('../fonts/poppins/700.eot');
+    src:url('../fonts/poppins/700.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/poppins/700.woff2') format('woff2'),
+    url('../fonts/poppins/700.woff') format('woff'),
+    url('../fonts/poppins/700.ttf') format('truetype'),
+    url('../fonts/poppins/700.svg#embed-poppins') format('svg');
+    font-weight: 700;
+    font-style: normal;
+}
+
+body{
+    font-family: "Segoe UI", "Trebuchet MS", "PT Sans", "Helvetica Neue", "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
+}
+.infoPanel {
+    width: 100%;
+    /* --tw-bg-opacity: 1; */
+    background-color: #25CC88;
+    /* background-color: rgb(235 99 69 / var(--tw-bg-opacity)); */
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.tw-w-full {
+    width: 100%;
+}
+.text{
+    font-size: 1rem;
+    font-weight: 600;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.tw-block {
+    display: block;
+}
+.tw-mb-2 {
+    margin-bottom: 8px;
+}
+.tw-text-center {
+    text-align: center;
+}
+.tw-overflow-x-auto {
+    overflow-x: auto;
+}
+.tw-items-center {
+    align-items: center;
+}
+.tw-flex {
+    display: flex;
+}
+
+.tw-border-white {
+    --tw-border-opacity: 1;
+    border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
+.tw-border-solid {
+    border-style: solid;
+}
+.tw-border {
+    border-width: 1px;
+}
+.tw-rounded-sm {
+    border-radius: 0.125rem;
+}
+.tw-justify-center {
+    justify-content: center;
+}
+.tw-items-baseline {
+    align-items: baseline;
+}
+.tw-inline-block {
+    display: inline-block;
+}
+.tw-mb-1 {
+    margin-bottom: 4px;
+}
+.tw-text-white {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+
+
+@media (min-width: 768px)
+{
+    .md\:tw-text-base {
+        font-size: 1rem;
+    }
+}
+@media (min-width: 600px)
+{
+    .infoPanelCell {
+        width: 100%;
+        flex: 1 1 0%;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        min-width: unset;
+        height: 61px;
+    }
+}
+.infoPanelCell {
+    flex-shrink: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    min-width: -webkit-fit-content;
+    min-width: -moz-fit-content;
+    min-width: fit-content;
+    height: 69px;
+}
+@media (min-width: 1024px)
+{
+    .lg\:tw-w-8\/12 {
+        width: 66.666667%;
+    }
+}
+
+
+
+@media (min-width: 1024px)
+{
+    .lg\:tw-space-x-6 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-x-reverse: 0;
+        margin-right: calc(24px * var(--tw-space-x-reverse));
+        margin-left: calc(24px * calc(1 - var(--tw-space-x-reverse)));
+    }
+}
+@media (min-width: 1024px)
+{
+    .lg\:tw-mb-0 {
+        margin-bottom: 0px;
+    }
+}
+@media (min-width: 1024px)
+{
+    .lg\:tw-text-left {
+        text-align: left;
+    }
+}
+@media (min-width: 1024px)
+{
+    .lg\:tw-flex-col {
+        flex-direction: column;
+    }
+}
+@media (min-width: 1024px)
+{
+    .lg\:tw-w-4\/12 {
+        width: 33.333333%;
+    }
+}
+@media (min-width: 1024px)
+{
+    .lg\:tw-flex {
+        display: flex;
+    }
+}
+@media (min-width: 1024px){
+    .infoPanel {
+        height: 120px;
+        padding-left: calc(var(--page-grid-pad-adjust) - 8px);
+        padding-right: calc(var(--page-grid-pad-adjust) - 8px);
+    }
+
+}
+
+@media (min-width: 480px){
+    .infoPanel {
+        height: 177px;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}
+@media (min-width: 1024px)
+{
+    .lg\:tw-flex {
+        display: flex;
+    }
+}
+
+
+:root {
+    --grid-gap: 24px;
+    --page-width: 976px;
+    --grid-count: 12;
+    --grid-pad-adjust: calc(50% - var(--page-width)/2);
+    --page-grid-pad-adjust: calc(50vw - var(--page-width)/2);
+}

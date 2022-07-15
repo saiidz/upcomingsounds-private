@@ -6,6 +6,7 @@
 @section('page-style')
     <link rel="stylesheet" href="{{asset('css/custom/add-your-track.css')}}" type="text/css"/>
     <link rel="stylesheet" href="{{asset('css/gijgo.min.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{asset('css/custom/curator-custom.css')}}" type="text/css" />
     <style>
         .addMoreRemoveLink {
             display: inline-flex !important;
@@ -418,7 +419,7 @@
                         if (data.success) {
                             toastr.success(data.success);
                             $('#selectionHide').hide();
-                            $('#selectionSHow').html(data.curators)
+                            $('#selectionSHow').append(data.curators)
                         }
 
                     },
@@ -444,6 +445,7 @@
         var viewId = 1;
 
         function nextForm(status) {
+            alert(status);
             if(status == 'step_one')
             {
                 // check value track come
@@ -468,6 +470,11 @@
                     toastr.error('Please Select Right Now');
                     return false;
                 }
+            }
+
+            if(status == 'step_three')
+            {
+                $('#selectionHide').show();
             }
 
             // let track_id = $('#received_details').is(':checked');
