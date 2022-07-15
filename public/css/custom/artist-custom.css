@@ -497,8 +497,10 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
     cursor: pointer !important;
 }
 
-
-
+.bgGradient{
+    background: linear-gradient(to bottom, #99ffcc 0%, #ccff99 96%);
+    padding: 12px;
+}
 
 
 

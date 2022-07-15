@@ -98,29 +98,23 @@ class PromoteYourTrackController extends Controller
                         $q->whereIn('curator_signup_from',['sound_expert_producer','brooker_booking','monitor_publisher_synch']);
                     })->getReceivedCurstors()->latest()->get();
 
-                    return response()->json([
-                        'success' => 'we have '.$curators->count().' curators',
-                        'curators' => $curators,
-                    ]);
                 }elseif($request->right_now_id == 2)
                 {
                     $curators = User::with('curatorUser')->whereHas('curatorUser', function($q){
                         $q->whereIn('curator_signup_from',['playlist_curator','influencer','youtube_channel','radio_tv']);
                     })->getReceivedCurstors()->latest()->get();
-                    return response()->json([
-                        'success' => 'we have '.$curators->count().' curators',
-                        'curators' => $curators,
-                    ]);
+
                 }elseif($request->right_now_id == 3)
                 {
                     $curators = User::with('curatorUser')->whereHas('curatorUser', function($q){
                         $q->whereIn('curator_signup_from',['journalist_media','label_manager','media']);
                     })->getReceivedCurstors()->latest()->get();
-                    return response()->json([
-                        'success' => 'we have '.$curators->count().' curators',
-                        'curators' => $curators,
-                    ]);
                 }
+                $curator_list = view('pages.artists.artist-promote-your-track.form-wizard.selection-curator')->with('curators', $curators)->render();
+                return response()->json([
+                    'success' => 'we have '.$curators->count().' curators',
+                    'curators' => $curator_list,
+                ]);
             }
         }
 

@@ -27,129 +27,131 @@
         <div class="padding p-b-0">
             <div class="row row-sm item-masonry item-info-overlay">
                 <div class="col-sm-12 text-white m-b-sm">
-                    <div class="form__container">
-                        <div class="title__container">
-                            <div class="separatortrack">
-                                <h1>Start a campaign</h1>
-                                <div class="separator"></div>
-                            </div>
+                    <div class="form__container" id="selectionSHow">
+                        <div id="selectionHide">
+                            <div class="title__container">
+                                <div class="separatortrack">
+                                    <h1>Start a campaign</h1>
+                                    <div class="separator"></div>
+                                </div>
 
-                            <div class="promoteAddTrack">
-                                <a class="m-b-md rounded addTrack" data-toggle="modal" data-target="#add-track-promote" href="javascript:void(0)">
-                                    Add New track
-                                </a>
+                                <div class="promoteAddTrack">
+                                    <a class="m-b-md rounded addTrack" data-toggle="modal" data-target="#add-track-promote" href="javascript:void(0)">
+                                        Add New track
+                                    </a>
+                                </div>
+                                @include('pages.artists.artist-promote-your-track.artist-track.modal')
                             </div>
-                            @include('pages.artists.artist-promote-your-track.artist-track.modal')
-                        </div>
-                        <div class="body__container">
-                            <div class="left__container">
-                                <div class="side__titles">
-                                    <div class="title__name">
-                                        <h3>My track</h3>
-                                        <p>Step 1. <span id="inProgress">In progress</span></p>
+                            <div class="body__container">
+                                <div class="left__container">
+                                    <div class="side__titles">
+                                        <div class="title__name">
+                                            <h3>My track</h3>
+                                            <p>Step 1. <span id="inProgress">In progress</span></p>
+                                        </div>
+                                        <div class="title__name">
+                                            <h3>My selection</h3>
+                                            <p>Step 2. <span id="inComplete">Complete</span></p>
+                                        </div>
+                                        <div class="title__name">
+                                            <h3>My messages</h3>
+                                            <p>Step 3 <span id="myMessage"></span></p>
+                                        </div>
+                                        <div class="title__name">
+                                            <h3>My recap</h3>
+                                            <p>Step 4 <span id="myRecap"></span></p>
+                                        </div>
                                     </div>
-                                    <div class="title__name">
-                                        <h3>My selection</h3>
-                                        <p>Step 2. <span id="inComplete">Complete</span></p>
-                                    </div>
-                                    <div class="title__name">
-                                        <h3>My messages</h3>
-                                        <p>Step 3 <span id="myMessage"></span></p>
-                                    </div>
-                                    <div class="title__name">
-                                        <h3>My recap</h3>
-                                        <p>Step 4 <span id="myRecap"></span></p>
+                                    <div class="progress__bar__container">
+                                        <ul>
+                                            <li class="active" id="icon1">
+                                                <i class="fa fa-unlock-alt"></i>
+                                            </li>
+                                            <li id="icon2">
+                                                <i class="fa fa-unlock-alt"></i>
+                                            </li>
+                                            <li id="icon3">
+                                                <i class="fa fa-unlock-alt"></i>
+                                            </li>
+                                            <li id="icon4">
+                                                <i class="fa fa-unlock-alt"></i>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
-                                <div class="progress__bar__container">
-                                    <ul>
-                                        <li class="active" id="icon1">
-                                            <i class="fa fa-unlock-alt"></i>
-                                        </li>
-                                        <li id="icon2">
-                                            <i class="fa fa-unlock-alt"></i>
-                                        </li>
-                                        <li id="icon3">
-                                            <i class="fa fa-unlock-alt"></i>
-                                        </li>
-                                        <li id="icon4">
-                                            <i class="fa fa-unlock-alt"></i>
-                                        </li>
-                                    </ul>
+                                <div class="right__container">
+                                    <form method="POST" action="{{url('store/track/campaign')}}" enctype="multipart/form-data">
+                                        @csrf
+
+                                        {{-- Step One Form --}}
+                                        @include('pages.artists.artist-promote-your-track.form-wizard.step-one')
+
+                                        {{-- Step Two Form --}}
+                                        @include('pages.artists.artist-promote-your-track.form-wizard.step-two')
+
+                                        <fieldset class="active__form" id="form3">
+                                            <div class="sub__title__container">
+                                                <p>Step 3/4</p>
+                                                <h2>What service are looking for ?</h2>
+                                                <p>Please let us know what type of business best describes you as entreprenuer
+                                                    or businessman.</p>
+                                            </div>
+                                            <div class="input__container">
+                                                <div class="selection newB">
+                                                    <div class="imoji">
+                                                        <img src="{{asset('images/objective_partnerships.png')}}">
+    {{--                                                    <ion-icon name="desktop"></ion-icon>--}}
+                                                    </div>
+                                                    <div class="descriptionTitle">
+                                                        <h3>Website Development</h3>
+                                                        <p>Development of online websites</p>
+                                                    </div>
+                                                </div>
+                                                <div class="selection exitB">
+                                                    <div class="imoji">
+                                                        <ion-icon name="phone-portrait"></ion-icon>
+                                                    </div>
+                                                    <div class="descriptionTitle">
+                                                        <h3>Development of Mobile App</h3>
+                                                        <p>Development of android and IOS mobile app</p>
+                                                    </div>
+                                                </div>
+                                                <div class="buttons"><a class="m-b-md rounded addTrack prev__btn" onclick="prevForm();">Back</a> <a
+                                                        class="m-b-md rounded addTrack nxt__btn" onclick="nextForm();">Next</a></div>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset class="active__form" id="form4">
+                                            <div class="sub__title__container">
+                                                <p>Step 4/4</p>
+                                                <h2>Please select your budget</h2>
+                                                <p>Please let us know budget for your project so yes are great that we can give
+                                                    the right quote thanks</p>
+                                            </div>
+                                            <div class="input__container"><input type="range" min="10000" max="500000"
+                                                                                value="250000" class="slider">
+                                                <div class="output__value"></div>
+                                                <div class="buttons">
+                                                    <a class="m-b-md rounded addTrack prev__btn" onclick="prevForm();">Back</a>
+                                                    <button type="submit" value="Submit" class="btn btn-sm rounded addTrack" onclick="nextForm();">Submit</button>
+    {{--                                                <a--}}
+    {{--                                                    class="m-b-md rounded addTrack m-b-md rounded addTrack nxt__btn"  onclick="nextForm();">Next</a></div>--}}
+                                            </div>
+                                        </fieldset>
+    {{--                                    <fieldset class="active__form" id="form5">--}}
+    {{--                                        <div class="sub__title__container">--}}
+    {{--                                            <p>Step 5/5</p>--}}
+    {{--                                            <h2>Complete Submission</h2>--}}
+    {{--                                            <p>Thanks for completing the form and for your time.Plss enter your email below--}}
+    {{--                                                and submit the form</p>--}}
+    {{--                                        </div>--}}
+    {{--                                        <div class="input__container"><label for="Email">Enter your email</label> <input--}}
+    {{--                                                type="text">--}}
+    {{--                                            <div class="buttons"><a class="prev__btn" onclick="prevForm();">Back</a> <a--}}
+    {{--                                                    class="m-b-md rounded addTrack nxt__btn" id="submitBtn" onclick="nextForm();">Next</a></div>--}}
+    {{--                                        </div>--}}
+    {{--                                    </fieldset>--}}
+                                    </form>
                                 </div>
-                            </div>
-                            <div class="right__container">
-                                <form method="POST" action="{{url('store/track/campaign')}}" enctype="multipart/form-data">
-                                    @csrf
-
-                                    {{-- Step One Form --}}
-                                    @include('pages.artists.artist-promote-your-track.form-wizard.step-one')
-
-                                    {{-- Step Two Form --}}
-                                    @include('pages.artists.artist-promote-your-track.form-wizard.step-two')
-
-                                    <fieldset class="active__form" id="form3">
-                                        <div class="sub__title__container">
-                                            <p>Step 3/4</p>
-                                            <h2>What service are looking for ?</h2>
-                                            <p>Please let us know what type of business best describes you as entreprenuer
-                                                or businessman.</p>
-                                        </div>
-                                        <div class="input__container">
-                                            <div class="selection newB">
-                                                <div class="imoji">
-                                                    <img src="{{asset('images/objective_partnerships.png')}}">
-{{--                                                    <ion-icon name="desktop"></ion-icon>--}}
-                                                </div>
-                                                <div class="descriptionTitle">
-                                                    <h3>Website Development</h3>
-                                                    <p>Development of online websites</p>
-                                                </div>
-                                            </div>
-                                            <div class="selection exitB">
-                                                <div class="imoji">
-                                                    <ion-icon name="phone-portrait"></ion-icon>
-                                                </div>
-                                                <div class="descriptionTitle">
-                                                    <h3>Development of Mobile App</h3>
-                                                    <p>Development of android and IOS mobile app</p>
-                                                </div>
-                                            </div>
-                                            <div class="buttons"><a class="m-b-md rounded addTrack prev__btn" onclick="prevForm();">Back</a> <a
-                                                    class="m-b-md rounded addTrack nxt__btn" onclick="nextForm();">Next</a></div>
-                                        </div>
-                                    </fieldset>
-                                    <fieldset class="active__form" id="form4">
-                                        <div class="sub__title__container">
-                                            <p>Step 4/4</p>
-                                            <h2>Please select your budget</h2>
-                                            <p>Please let us know budget for your project so yes are great that we can give
-                                                the right quote thanks</p>
-                                        </div>
-                                        <div class="input__container"><input type="range" min="10000" max="500000"
-                                                                             value="250000" class="slider">
-                                            <div class="output__value"></div>
-                                            <div class="buttons">
-                                                <a class="m-b-md rounded addTrack prev__btn" onclick="prevForm();">Back</a>
-                                                <button type="submit" value="Submit" class="btn btn-sm rounded addTrack" onclick="nextForm();">Submit</button>
-{{--                                                <a--}}
-{{--                                                    class="m-b-md rounded addTrack m-b-md rounded addTrack nxt__btn"  onclick="nextForm();">Next</a></div>--}}
-                                        </div>
-                                    </fieldset>
-{{--                                    <fieldset class="active__form" id="form5">--}}
-{{--                                        <div class="sub__title__container">--}}
-{{--                                            <p>Step 5/5</p>--}}
-{{--                                            <h2>Complete Submission</h2>--}}
-{{--                                            <p>Thanks for completing the form and for your time.Plss enter your email below--}}
-{{--                                                and submit the form</p>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="input__container"><label for="Email">Enter your email</label> <input--}}
-{{--                                                type="text">--}}
-{{--                                            <div class="buttons"><a class="prev__btn" onclick="prevForm();">Back</a> <a--}}
-{{--                                                    class="m-b-md rounded addTrack nxt__btn" id="submitBtn" onclick="nextForm();">Next</a></div>--}}
-{{--                                        </div>--}}
-{{--                                    </fieldset>--}}
-                                </form>
                             </div>
                         </div>
                     </div>
@@ -415,6 +417,8 @@
                     success: function (data) {
                         if (data.success) {
                             toastr.success(data.success);
+                            $('#selectionHide').hide();
+                            $('#selectionSHow').html(data.curators)
                         }
 
                     },
