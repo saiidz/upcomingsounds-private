@@ -103,6 +103,14 @@
             @if (!empty(auth()->user()->getReferrals()))
                 @forelse(auth()->user()->getReferrals() as $referral)
                 <button class="btn btn-sm rounded primary m-b-2">get verified</button>
+                    <h6 class="text text-muted">Referral Program</h6>
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <p>BE A PART OF THE GROWTH OF OUR COMMUNITY!
+                                By referring artists to our platform, you will be able to help them develop their career program and earn 10 USC or the equivalent in British pounds per sign-up.
+                                You can help them sign up by sending them this link:</p>
+                        </div>
+                    </div>
                     <h6 class="text text-muted">Referral Link</h6>
                     <div class="form-group row">
                         <div class="col-sm-12">
@@ -112,6 +120,7 @@
                     <p>
                         Number of referred users: {{ $referral->relationships()->count() }}
                     </p>
+                    <p>*Earning potential based on referrals depending on the artist membership package purchased.</p>
                 @empty
                     No referrals
                 @endforelse
