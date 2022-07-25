@@ -54,7 +54,7 @@
                             </li>
                         @elseif(Auth::user()->type == 'curator')
                             <li class="nav-item">
-                                <a href="{{url('/taste-maker-profile')}}" class="nav-link">
+                                <a href="{{url('/dashboard')}}" class="nav-link">
                                     <span class="btn btn-sm rounded primary _600">Dashboard</span>
                                 </a>
                             </li>

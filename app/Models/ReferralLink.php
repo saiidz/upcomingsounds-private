@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\URL;
 use Ramsey\Uuid\Nonstandard\Uuid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -37,7 +38,8 @@ class ReferralLink extends Model
 
     public function getLinkAttribute()
     {
-        return url($this->program->uri) . '/' . $this->code;
+        return URL::to('/') . '/ref/' . str_replace(' ', '', auth()->user()->name) . '/' .$this->code;
+//        return url($this->program->uri) . '/' . $this->code;
         // return url($this->program->uri) . '?ref=' . $this->code;
     }
 

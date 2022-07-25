@@ -24,8 +24,12 @@ class ReferralController extends Controller
     {
         try {
             $url     = request()->url();
-            $get_ref = explode('choose-signup/',$url);
-            $ref     = !empty($get_ref[1]) ? $get_ref[1] : '';
+//            $get_ref = explode('choose-signup/',$url);
+            $get_ref = explode('ref/',$url);
+            $new_ref  = explode('/',$get_ref[1]);
+//            dd($new_ref[1]);
+            $ref     = !empty($new_ref[1]) ? $new_ref[1] : '';
+//            $ref     = !empty($get_ref[1]) ? $get_ref[1] : '';
             return view('auth.register-referral', get_defined_vars());
         } catch (\Throwable $th) {
             return redirect()->back();
@@ -61,7 +65,10 @@ class ReferralController extends Controller
         if(!empty($request->ref))
         {
             $referral_link = ReferralLink::where('code',$request->ref)->first();
-            event(new UserReferred($referral_link->id, $user));
+            if(isset($referral_link))
+            {
+                event(new UserReferred($referral_link->id, $user));
+            }
         }
 
         Auth::login($user);

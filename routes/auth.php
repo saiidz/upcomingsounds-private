@@ -422,7 +422,8 @@ Route::get('/youtube-profile-show', [CuratorSignupController::class, 'youtubeSub
 /***************************************************** Curators Routes *********************************************************/
 
 /***************************************************** Referral Routes *********************************************************/
-Route::get('/choose-signup/{ref}', [ReferralController::class, 'referral'])
+Route::get('/ref/{ref}/{code}', [ReferralController::class, 'referral'])
+//Route::get('/choose-signup/ref/{ref}/{code}', [ReferralController::class, 'referral'])
                 ->middleware('guest');
 
 Route::post('/referral/register', [ReferralController::class, 'store'])
