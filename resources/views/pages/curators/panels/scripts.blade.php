@@ -48,6 +48,14 @@
 
 
     });
+        $('#artistSubmission').on('click', function ()
+        {
+            window.location.href = '/artist-submission';
+        });
+        $('#curatorDashboard').on('click', function ()
+        {
+            window.location.href = '/dashboard';
+        });
     </script>
 @yield('page-script')
 <script>

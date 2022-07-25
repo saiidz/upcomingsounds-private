@@ -392,6 +392,5 @@
             $('#bioInfo').html(curator_bio);
         }
     }
-
 </script>
 @endsection
