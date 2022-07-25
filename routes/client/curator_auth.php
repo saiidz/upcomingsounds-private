@@ -33,4 +33,7 @@ Route::get('/accepted', [ArtistSubmissionController::class,'artistAccepted'])->n
 Route::get('/rejected', [ArtistSubmissionController::class,'artistRejected'])->name('artist.rejected');
 // get cites
 Route::get('get-cites/{id}', [AjaxController::class,'getCities']);
+
+// get verified
+Route::get('/taste-maker/get-verified', [ArtistSubmissionController::class,'getVerified'])->name('curator.get.verified');
 /***************************************************** Curator Routes *********************************************************/

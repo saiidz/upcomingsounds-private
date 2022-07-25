@@ -52,4 +52,13 @@ class ArtistSubmissionController extends Controller
         $user_curator = Auth::user();
         return view('pages.curators.artist-submission.artist-rejected', get_defined_vars());
     }
+
+    /**
+     * getVerified
+     */
+    public function getVerified()
+    {
+        $user_curator = Auth::user();
+        return view('pages.curators.curator-get-verified.get-verified', get_defined_vars());
+    }
 }
