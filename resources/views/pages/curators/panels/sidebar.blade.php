@@ -73,7 +73,7 @@
                                 <span class="nav-icon">
                                     <i class="fa fa-headphones"></i>
                                 </span>
-                                <span class="nav-text">Submissionsartist-submissionartist-submission</span>
+                                <span class="nav-text">Submissions</span>
                             </a>
                         </li>
 {{--                    <li>--}}
