@@ -223,6 +223,10 @@
                             <a class="nav-link RemoveUpload" href="#" data-toggle="tab"
                                data-target="#playlist">Lists</a>
                         </li>
+                        <li class="nav-item m-r inline">
+                            <a class="nav-link RemoveUpload" href="#" data-toggle="tab"
+                               data-target="#notification-center">Notification Center</a>
+                        </li>
                         <li class="nav-item m-r inline" id="EditProfileTapShow" style="display:none;">
                             <a class="nav-link"  id="EditProfile" href="#" data-toggle="tab"
                                data-target="#edit-profile">Edit Profile</a>
@@ -253,6 +257,12 @@
                         @include('pages.curators.curator-profile-panels.curator-list')
                     </div>
                     {{--               Curator Playlist                     --}}
+
+                    {{--               Curator Notification Center                     --}}
+                    <div class="tab-pane" id="notification-center">
+                        @include('pages.curators.curator-profile-panels.curator-notification-center')
+                    </div>
+                    {{--               Curator Notification Center                     --}}
 
                     {{--               Curator Update Profile                     --}}
                     <div class="tab-pane" id="edit-profile">
