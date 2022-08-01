@@ -19,6 +19,9 @@
                       <div class='con__slide-top-inner-text con__slide--1-top-inner-text active-slide1-top-text'>
                         <h1 class='con__slide-h con__slide--1-top-h'>some nice slider<br> here wow</h1>
                       </div>
+                      <div class='con__slide-top-inner-text con__slide--1-top-inner-text active-slide1-top-text'>
+                        <p class="text-white">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque in ipsam nulla vero, animi pariatur unde facere optio officia cupiditate nihil rerum et a, fugiat excepturi modi qui ratione nesciunt.</p>
+                      </div>
                     </div>
                   </div>
                   <!--     slide--1 top end -->
@@ -103,8 +106,8 @@
                 <!-- slide--4 end -->
 
                 <div class="con__nav">
-                  <div data-target='up' class='con__nav-scroll con__nav-scroll--goup'></div>
-                  <div data-target='down' class='con__nav-scroll con__nav-scroll--godown'></div>
+                  {{-- <div data-target='up' class='con__nav-scroll con__nav-scroll--goup'></div>
+                  <div data-target='down' class='con__nav-scroll con__nav-scroll--godown'></div> --}}
                   <ul class='con__nav-list'>
                     <li data-target="1" class='con__nav-item con__nav-item--1 nav-active'></li>
                     <li data-target="2" class='con__nav-item con__nav-item--2'></li>
@@ -716,7 +719,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <h2 class="widget-title h4 m-b">Tracks from labels</h2>
                     <div class="row">
                         <div class="col-xs-4 col-sm-4 col-md-3">

@@ -163,7 +163,7 @@
             textAnimSpd = 1000,
             nextSlideSpd = topAnimSpd + textAnimSpd,
             animating = true,
-            animTime = 4000,
+            animTime = 200,
             curSlide = 1,
             nextSlide, scrolledUp;
 

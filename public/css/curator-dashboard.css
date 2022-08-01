@@ -216,7 +216,7 @@
   }
   .con__nav {
     position: fixed;
-    bottom: 3%;
+    bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
   }
