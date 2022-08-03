@@ -64,7 +64,7 @@
                             </h5>
                             <p class="text-muted text-md m-t-2">
                                 <span>Our matching service help artists to pick the best match for their need.
-You will receive more than 99 Genres that fit your musical taste to pick. Each month, we select from the most active and impactful Influencers / Curators to add to our editorial submissions lists. It's perfect for helping you discover new music while you increase your rewards.</span>
+                                    You will receive more than 99 Genres that fit your musical taste to pick. Each month, we select from the most active and impactful Influencers / Curators to add to our editorial submissions lists. It's perfect for helping you discover new music while you increase your rewards.</span>
                             </p>
                         </div>
                         <div class="clearfix"></div>
