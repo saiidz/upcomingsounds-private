@@ -585,7 +585,8 @@ ul:not(.browser-default) > li {
     /*margin-top: 200px;*/
     height: 232px;
     width: 234px;
-    margin-top: 188px;
+    margin-top: 280px;
+    /* margin-top: 188px; */
 }
 
 svg.svg-inline--fa {
