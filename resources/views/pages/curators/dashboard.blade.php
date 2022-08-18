@@ -302,7 +302,7 @@
         <div class="row-col">
             <div class="col-lg-9 b-r no-border-md">
                 <div class="padding">
-                    <h2 class="widget-title h4 m-b">Treading</h2>
+                    <h2 class="widget-title h4 m-b">Trending</h2>
                     <div class="owl-carousel owl-theme owl-dots-center" data-ui-jp="owlCarousel" data-ui-options="{
 					margin: 20,
 					responsiveClass:true,

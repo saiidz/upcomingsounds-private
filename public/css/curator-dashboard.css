@@ -1,7 +1,8 @@
 
   .con {
     position: relative;
-    height: 100vh;
+    height: 80vh;
+    /* height: 100vh; */
     background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/image.jpg") center center no-repeat;
     background-size: cover;
     overflow: hidden;
@@ -215,7 +216,8 @@
     z-index: 20;
   }
   .con__nav {
-    position: fixed;
+    position: absolute;
+    /* position: fixed; */
     bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
