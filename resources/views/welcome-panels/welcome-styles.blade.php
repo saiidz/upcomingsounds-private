@@ -68,4 +68,5 @@ success, touch, track, tracks, transparent, united, visibility,
 ]) !!}
     <!-- endbuild -->
     @yield('page-style')
+    @yield('blog-custom-css')
 </head>

@@ -1,4 +1,4 @@
-@extends("layouts.app",['title'=>$post->gen_seo_title()])
+@extends("layouts.welcomeLayout",['title'=>$post->gen_seo_title()])
 
 @section('blog-custom-css')
     <link type="text/css" href="{{ asset('binshops-blog.css') }}" rel="stylesheet">

@@ -1,4 +1,4 @@
-@extends("layouts.app",['title'=>"Saved comment"])
+@extends("layouts.welcomeLayout",['title'=>"Saved comment"])
 @section("content")
 
     <div class='text-center'>

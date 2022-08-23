@@ -1,4 +1,4 @@
-@extends("layouts.app",['title'=>$title])
+@extends("layouts.welcomeLayout",['title'=>$title])
 @section("content")
 
     <div class='row'>
