@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Laravel\Cashier\Billable;
+use Laravel\Passport\HasApiTokens;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Laravel\Passport\HasApiTokens;
-use Laravel\Cashier\Billable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -115,5 +116,39 @@ class User extends Authenticatable implements MustVerifyEmail
         return ReferralProgram::all()->map(function ($program) {
             return ReferralLink::getReferral($this, $program);
         });
+    }
+
+     /**
+     * Enter your own logic (e.g. if ($this->id === 1) to
+     *   enable this user to be able to add/edit blog posts
+     *
+     * @return bool - true = they can edit / manage blog posts,
+     *        false = they have no access to the blog admin panel
+     */
+    public function canManageBinshopsBlogPosts()
+    {
+        if(Auth::check())
+        {
+            // Enter the logic needed for your app.
+            // Maybe you can just hardcode in a user id that you
+            //   know is always an admin ID?
+
+            if (       $this->id === Auth::user()->id
+                && $this->email === Auth::user()->email
+                && $this->type === 'admin'
+            ){
+
+            // return true so this user CAN edit/post/delete
+            // blog posts (and post any HTML/JS)
+
+            return true;
+            }
+
+            // otherwise return false, so they have no access
+            // to the admin panel (but can still view posts)
+
+            return false;
+            }
+
     }
 }

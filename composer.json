@@ -7,6 +7,7 @@
     "require": {
         "php": "^7.3|^8.0",
         "anhskohbo/no-captcha": "^3.3",
+        "binshops/laravel-blog": "^9.2",
         "biscolab/laravel-recaptcha": "^5.1",
         "czpechy/instagramprofilecrawler": "^1.0",
         "fideloper/proxy": "^4.4",

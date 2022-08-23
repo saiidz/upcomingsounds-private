@@ -42,26 +42,25 @@ function sendError($is_api_request = true, $view = null, $error = null, $message
  *
  * @return string
  */
-function STR_RANDOM($length)
-{
-    return Str::random($length);
-}
+// function STR_RANDOM($length)
+// {
+//     return Str::random($length);
+// }
 
 /**
  * Create New Directory
  *
  * @param string $name
  * @return bool
- * @author Shaarif <m.shaarif@xintsolutions.com>
  */
-function MAKE_DIR(string $name): bool
-{
-    if (!Storage::disk('public')->exists($name)) {
-        Storage::disk('public')->makeDirectory($name);
-    }
+// function MAKE_DIR(string $name): bool
+// {
+//     if (!Storage::disk('public')->exists($name)) {
+//         Storage::disk('public')->makeDirectory($name);
+//     }
 
-    return true;
-}
+//     return true;
+// }
 
 /**
  * Upload Given File
@@ -72,22 +71,22 @@ function MAKE_DIR(string $name): bool
  * @param string|null $oldPath
  *
  * @return bool|string
- * @author Shaarif <m.shaarif@xintsolutions.com>
+
  *
  */
-function UPLOAD_FILE(object $file, string $path, $rename = true, bool $unlink = false, string $oldPath = null)
-{
-    $name = $rename ? STR_RANDOM(10) . '-' . time() . '.' . $file->getClientOriginalExtension() : $file->getClientOriginalName();
-    if (MAKE_DIR($path)) {
+// function UPLOAD_FILE(object $file, string $path, $rename = true, bool $unlink = false, string $oldPath = null)
+// {
+//     $name = $rename ? STR_RANDOM(10) . '-' . time() . '.' . $file->getClientOriginalExtension() : $file->getClientOriginalName();
+//     if (MAKE_DIR($path)) {
 
-        Storage::disk('public')->putFileAs($path, $file, $name);
-        $full_image_name = '/storage/' . $path . '/' . $name;
-        !$unlink ?: REMOVE_FILE($oldPath);
-        return $full_image_name;
-    }
+//         Storage::disk('public')->putFileAs($path, $file, $name);
+//         $full_image_name = '/storage/' . $path . '/' . $name;
+//         !$unlink ?: REMOVE_FILE($oldPath);
+//         return $full_image_name;
+//     }
 
-    return false;
-}
+//     return false;
+// }
 
 /**
  * Remove Existing File
@@ -96,10 +95,10 @@ function UPLOAD_FILE(object $file, string $path, $rename = true, bool $unlink = 
  * @return bool
  * @author Shaarif <m.shaarif@xintsolutions.com>
  */
-function REMOVE_FILE(string $filepath): bool
-{
-    return @unlink($filepath ?? '');
-}
+// function REMOVE_FILE(string $filepath): bool
+// {
+//     return @unlink($filepath ?? '');
+// }
 
 // get all approved curators
 function allCurators()
