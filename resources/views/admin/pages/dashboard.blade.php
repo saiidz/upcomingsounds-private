@@ -1,7 +1,7 @@
 @extends('admin.layouts.contentLayoutMaster')
 
 {{-- page title --}}
-@section('title','User Dashboard')
+@section('title','Admin Dashboard')
 
 {{-- vendor styles --}}
 @section('vendor-style')

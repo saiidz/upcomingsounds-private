@@ -4,9 +4,9 @@
         <h1 class="logo-wrapper">
             <a class="brand-logo darken-1" href="{{route('admin.dashboard')}}">
 {{--                <img class="hide-on-med-and-down" src="{{asset('images/logo/logo1.svg')}}" alt="materialize logo"/>--}}
-                <img class="show-on-medium-and-down hide-on-med-and-up" src="{{asset('images/logo/logo1.svg')}}" alt="materialize logo"/>
+                <img class="show-on-medium-and-down hide-on-med-and-up" src="{{asset('images/logo.png')}}" alt="materialize logo"/>
                 <span class="logo-text hide-on-med-and-down">
-                    <img class="hide-on-med-and-down" src="{{asset('images/logo/logo1.svg')}}" alt="materialize logo"/>
+                    <img class="hide-on-med-and-down" src="{{asset('images/logo.png')}}" alt="materialize logo"/>
                 </span>
             </a>
             <a class="navbar-toggler" href="#">
@@ -17,8 +17,8 @@
     <ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out" data-menu="menu-navigation" data-collapsible="menu-accordion">
         <li class="bold"><a class="waves-effect waves-cyan {{Request::segment(2) == 'dashboard' ? 'active' : ''}}" href="{{route('admin.dashboard')}}"><i class="material-icons">settings_input_svideo</i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a></li>
 
-        {{-- Categories   --}}
-        <li class="bold {{Request::segment(2) == 'categories' ? 'active open' : ''}}"><a class="collapsible-header waves-effect waves-cyan {{Request::segment(2) == 'categories'  && Request::segment(4) == 'edit' ? 'active' : ''}}" href="JavaScript:void(0)"><i class="material-icons">view_agenda</i><span class="menu-title" data-i18n="Categories">Category</span></a>
+
+        {{-- <li class="bold {{Request::segment(2) == 'categories' ? 'active open' : ''}}"><a class="collapsible-header waves-effect waves-cyan {{Request::segment(2) == 'categories'  && Request::segment(4) == 'edit' ? 'active' : ''}}" href="JavaScript:void(0)"><i class="material-icons">view_agenda</i><span class="menu-title" data-i18n="Categories">Category</span></a>
             <div class="collapsible-body">
                 <ul class="collapsible collapsible-sub" data-collapsible="accordion">
                     <li><a href="{{route('categories.index')}}" class="{{Request::segment(2) == 'categories'  && Request::segment(3) == '' ? 'active' : ''}}"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Category List">Category List</span></a>
@@ -29,7 +29,7 @@
             </div>
         </li>
 
-        {{-- Vehicles   --}}
+
         <li class="bold {{Request::segment(2) == 'vehicles' || Request::segment(2) == 'unapproved-user-vehicle' || Request::segment(2) == 'list-approved-user-vehicle' || Request::segment(2) == 'view-user-vehicle' ? 'active open' : ''}}"><a class="collapsible-header waves-effect waves-cyan {{Request::segment(2) == 'vehicles'  && Request::segment(4) == 'edit' || Request::segment(2) == 'view-user-vehicle' ? 'active' : ''}}" href="JavaScript:void(0)"><i class="material-icons">directions_car</i><span class="menu-title" data-i18n="Vehicles">Vehicles</span></a>
             <div class="collapsible-body">
                 <ul class="collapsible collapsible-sub" data-collapsible="accordion">
@@ -45,7 +45,7 @@
             </div>
         </li>
 
-        {{-- Auctions --}}
+
         <li class="bold {{Request::segment(2) == 'auctions' ? 'active open' : ''}}"><a class="collapsible-header waves-effect waves-cyan {{Request::segment(2) == 'auctions'  && Request::segment(4) == 'edit' ? 'active' : ''}}" href="JavaScript:void(0)"><i class="material-icons">query_builder</i><span class="menu-title" data-i18n="Auctions">Auctions</span></a>
             <div class="collapsible-body">
                 <ul class="collapsible collapsible-sub" data-collapsible="accordion">
@@ -57,7 +57,7 @@
             </div>
         </li>
 
-        {{-- Bidders --}}
+
         <li class="bold {{Request::segment(2) == 'bidders' || Request::segment(2) == 'suspend-bidders' || Request::segment(2) == 'block-bidders' ? 'active open' : ''}}"><a class="collapsible-header waves-effect waves-cyan {{Request::segment(2) == 'bidders'  && Request::segment(4) == 'edit' || Request::segment(2) == 'suspend-bidders' || Request::segment(2) == 'block-bidders' ? 'active' : ''}}" href="JavaScript:void(0)"><i class="material-icons">face</i><span class="menu-title" data-i18n="Bidders">Bidders</span></a>
             <div class="collapsible-body">
                 <ul class="collapsible collapsible-sub" data-collapsible="accordion">
@@ -73,7 +73,7 @@
             </div>
         </li>
 
-        {{-- System Users --}}
+
         <li class="bold {{Request::segment(2) == 'system-users' ? 'active open' : ''}}"><a class="collapsible-header waves-effect waves-cyan {{Request::segment(2) == 'system-users'  && Request::segment(4) == 'edit' ? 'active' : ''}}" href="JavaScript:void(0)"><i class="material-icons">face</i><span class="menu-title" data-i18n="System Users">System Users</span></a>
             <div class="collapsible-body">
                 <ul class="collapsible collapsible-sub" data-collapsible="accordion">
@@ -85,7 +85,7 @@
             </div>
         </li>
 
-        {{-- Feature Tags   --}}
+
         <li class="bold {{Request::segment(2) == 'feature_tags' ? 'active open' : ''}}"><a class="collapsible-header waves-effect waves-cyan {{Request::segment(2) == 'feature_tags'  && Request::segment(4) == 'edit' ? 'active' : ''}}" href="JavaScript:void(0)"><i class="material-icons">view_list</i><span class="menu-title" data-i18n="Categories">Feature Tags</span></a>
             <div class="collapsible-body">
                 <ul class="collapsible collapsible-sub" data-collapsible="accordion">
@@ -101,11 +101,11 @@
             <div class="collapsible-body">
                 <ul class="collapsible collapsible-sub" data-collapsible="accordion">
                     <li class="bold"><a class="waves-effect waves-cyan {{Request::segment(3) == null && Request::segment(2) == 'settings' ? 'active' : ''}}" href="{{route('settings.index')}}"><i class="material-icons">settings_input_svideo</i><span class="menu-title" data-i18n="Feature Add">View Settings</span></a></li>
-                    {{--  <li><a href="{{route('settings.create')}}" class="{{Request::segment(3) == 'create' && Request::segment(3) == 'create' ? 'active' : ''}}"><i class="material-icons">radio_button_unchecked</i><span data-i18n="Feature Add">Add Settings</span></a>  --}}
+
                     </li>
                 </ul>
             </div>
-        </li>
+        </li> --}}
 
 
 

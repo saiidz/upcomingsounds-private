@@ -1,18 +1,11 @@
 <?php
 
-use App\Http\Controllers\Admin\AuctionController;
-use App\Http\Controllers\Admin\BidderController;
-use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\SystemUserController;
-use App\Http\Controllers\Admin\TagController;
-use App\Http\Controllers\Admin\VehicleController;
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['auth','verify_if_admin']], function() {
-//    Route::get('dashboard', [DashboardController::class,'index'])->name('admin.dashboard');
+   Route::get('dashboard', [DashboardController::class,'index'])->name('admin.dashboard');
 //
 //    // Bidders route
 //    Route::resource('bidders',  BidderController::class);
