@@ -21,6 +21,7 @@
         "laravel/tinker": "^2.5",
         "pragmarx/countries": "^0.7.2",
         "predis/predis": "^2.0",
+        "ralphjsmit/laravel-seo": "^1.0",
         "ramsey/uuid": "^4.3",
         "sendgrid/sendgrid": "^7.9",
         "socialiteproviders/spotify": "^4.1",
@@ -76,7 +77,10 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true
