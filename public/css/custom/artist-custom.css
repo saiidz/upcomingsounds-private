@@ -503,6 +503,20 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
 }
 
 
+.getVerified {
+    text-align: center;
+}
+.getVerified a{
+    padding: 13px;
+}
+
+
+
+
+
+
+
+
 
 
 
