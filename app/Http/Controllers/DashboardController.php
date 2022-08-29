@@ -93,7 +93,7 @@ class DashboardController extends Controller
      */
     public function blog(Request $request)
     {
-        return view('blog');
+        return view('blog.blog');
     }
 
     /**

@@ -92,6 +92,7 @@
                             </li>--}}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{url('/blog')}}">Blog</a>
+{{--                                <a class="nav-link" href="{{url('/blog')}}">Blog</a>--}}
                             </li>
                             <li class="nav-item">
                                 <a href="{{url('/term-of-service')}}" class="nav-link">Term of Service</a>
