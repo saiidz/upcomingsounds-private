@@ -1,13 +1,14 @@
 <?php
 
-use App\Http\Controllers\ArtistController;
-use App\Http\Controllers\Auth\ArtistSignupController;
-use App\Http\Controllers\Curator\CuratorController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\NewsLetterSubscriptionController;
-use App\Http\Controllers\TicketHelpController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArtistController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TicketHelpController;
+use App\Http\Controllers\Curator\CuratorController;
+use App\Http\Controllers\Auth\ArtistSignupController;
+use BinshopsBlog\Controllers\BinshopsReaderController;
+use App\Http\Controllers\NewsLetterSubscriptionController;
 
 
 /***************************************************** Artist Routes *********************************************************/
@@ -49,4 +50,13 @@ Route::post('help/ticket', [TicketHelpController::class,'postHelpTicket']);
 Route::post('newsletter', [NewsLetterSubscriptionController::class,'newsLetter']);
 
 
+// Route::group(['middleware' => ['web'], 'namespace' => '\BinshopsBlog\Controllers'], function () {
+
+//     /** The main public facing blog routes - show all posts, view a category, view a single post, also the add comment route */
+//     Route::group(['prefix' => "/{locale}/".config('binshopsblog.blog_prefix', 'blog')], function () {
+//         Route::get('/', [BinshopsReaderController::class,'index'])
+//             ->name('binshopsblog.index');
+
+//     });
+// });
 /***************************************************** Pages Routes *********************************************************/

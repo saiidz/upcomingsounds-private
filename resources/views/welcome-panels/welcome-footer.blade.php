@@ -90,9 +90,10 @@
                             {{--<li class="nav-item">
                                 <a class="nav-link" href="#">Mobile apps</a>
                             </li>--}}
+                            {{-- {{ dd(app('request'),config('app.locale')) }} --}}
                             <li class="nav-item">
-                                <a class="nav-link" href="{{url('/blog')}}">Blog</a>
-{{--                                <a class="nav-link" href="{{url('/blog')}}">Blog</a>--}}
+                                <a class="nav-link" href="{{route("binshopsblog.index" , config('binshopsblog.default_language'))}}">Blog</a>
+                               <a class="nav-link" href="{{url('/blog')}}">Blog</a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{url('/term-of-service')}}" class="nav-link">Term of Service</a>

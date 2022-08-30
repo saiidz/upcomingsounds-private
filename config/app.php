@@ -234,7 +234,7 @@ return [
         'ReCaptcha' => Biscolab\ReCaptcha\Facades\ReCaptcha::class,
         'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
         'PayPal' => Srmklive\PayPal\Facades\PayPal::class,
-
+        'Image' => Intervention\Image\Facades\Image::class
     ],
 
 ];
