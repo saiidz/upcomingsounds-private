@@ -17,7 +17,7 @@
                     <div class="d-flex justify-content-between">
                         <div class="d-flex align-items-center" style="display: flex;">
                             <h5>
-                                <a href="{{$comment->author_website}}">{{$comment->author()}}</a>
+                                <a href="{{$comment->author_website}}" target='_blank'>{{$comment->author()}}</a>
                             </h5>
                             <p class="date" title='{{$comment->created_at}}'>{{$comment->created_at->diffForHumans()}}</p>
                         </div>

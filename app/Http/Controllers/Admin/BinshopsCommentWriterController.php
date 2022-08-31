@@ -35,7 +35,6 @@ class BinshopsCommentWriterController extends Controller
      */
     public function addNewComment(AddNewCommentRequest $request, $locale, $blog_post_slug)
     {
-        dd('aa');
         if (config("binshopsblog.comments.type_of_comments_to_show", "built_in") !== 'built_in') {
             throw new \RuntimeException("Built in comments are disabled");
         }

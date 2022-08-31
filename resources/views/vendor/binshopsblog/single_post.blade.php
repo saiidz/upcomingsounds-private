@@ -25,7 +25,7 @@
                 </div>
             </div>
         </div>
-{{-- {{ dd($post->post->author) }}} --}}
+{{-- {{ dd($errors) }}} --}}
         <!-- Start Main content -->
         <main class="bg-grey pb-30">
             <div class="container single-content">
