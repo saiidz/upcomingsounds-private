@@ -9,6 +9,7 @@ use App\Http\Controllers\Curator\CuratorController;
 use App\Http\Controllers\Auth\ArtistSignupController;
 use BinshopsBlog\Controllers\BinshopsReaderController;
 use App\Http\Controllers\NewsLetterSubscriptionController;
+use App\Http\Controllers\Admin\BinshopsCommentWriterController;
 
 
 /***************************************************** Artist Routes *********************************************************/
@@ -60,3 +61,5 @@ Route::post('newsletter', [NewsLetterSubscriptionController::class,'newsLetter']
 //     });
 // });
 /***************************************************** Pages Routes *********************************************************/
+
+
