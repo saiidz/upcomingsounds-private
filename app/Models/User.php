@@ -127,7 +127,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function canManageBinshopsBlogPosts()
     {
-        if (       $this->id === 1
+        if (       $this->id === 1 || $this->id === 168
              && $this->type === "admin"
            ){
 
