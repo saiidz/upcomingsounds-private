@@ -30,7 +30,7 @@ class RedirectIfAuthenticated
                 }elseif(Auth::guard($guard)->user()->type == 'admin' && Auth::guard($guard)->user()->is_blog == 0){
                     return redirect()->route('admin.dashboard');
                 }elseif(Auth::guard($guard)->user()->is_blog == 1){
-                    return redirect('/blog_admin');
+                    return redirect('/blog_admin'); 
                 }
                 return redirect(RouteServiceProvider::HOME);
             }
