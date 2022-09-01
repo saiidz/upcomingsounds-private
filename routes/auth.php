@@ -44,6 +44,17 @@ Route::get('/admin', function(){
 });
 // Admin login
 
+// Blog login
+Route::get('/blog/login', [AuthenticatedSessionController::class, 'createBlog'])
+                ->middleware('guest')
+                ->name('blog.login');
+Route::get('/blog', function(){
+   return redirect()->route("blog.login");
+});
+Route::post('/blog-login', [AuthenticatedSessionController::class, 'blogStore'])
+    ->middleware('guest')->name('blog.store');
+// Blog login
+
 Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
                 ->middleware('guest')
                 ->name('password.request');

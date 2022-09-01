@@ -47,6 +47,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'pm_type',
         'pm_last_four',
         'trial_ends_at',
+        'is_blog',
         'created_at',
     ];
 
@@ -127,8 +128,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function canManageBinshopsBlogPosts()
     {
-        if (       $this->id === 1 || $this->id === 168
-             && $this->type === "admin"
+        if (  $this->type != "artist" && $this->is_blog === 1
            ){
 
            // return true so this user CAN edit/post/delete
@@ -141,6 +141,21 @@ class User extends Authenticatable implements MustVerifyEmail
         // to the admin panel (but can still view posts)
 
         return false;
+
+        // if (       $this->id === 1 || $this->id === 168
+        //      && $this->type === "admin"
+        //    ){
+
+        //    // return true so this user CAN edit/post/delete
+        //    // blog posts (and post any HTML/JS)
+
+        //    return true;
+        // }
+
+        // // otherwise return false, so they have no access
+        // // to the admin panel (but can still view posts)
+
+        // return false;
         // if(Auth::check())
         // {
         //     // Enter the logic needed for your app.

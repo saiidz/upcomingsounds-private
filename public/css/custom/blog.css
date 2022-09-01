@@ -132,7 +132,8 @@ p {
     position: absolute;
     top: 0;
     left: 20px;
-    background: #ffd369;
+    background: #da4441;
+    /* background: #ffd369; */
 }
 .blog-entry .one {
     width: 70px;
@@ -143,7 +144,8 @@ p {
 .blog-entry span.day {
     font-size: 44px;
     font-weight: 300;
-    color: #000000;
+    color: #ffff;
+    /* color: #000000; */
     line-height: 1;
 }
 .blog-entry .two {
@@ -159,14 +161,15 @@ p {
     font-size: 13px;
     line-height: 1.6;
     display: block;
-    color: rgba(0, 0, 0, 0.7);
+    color: white;
+    /* color: rgba(0, 0, 0, 0.7); */
 }
-.blog-entry span.yr, .blog-entry span.mos {
+/* .blog-entry span.yr, .blog-entry span.mos {
     font-size: 13px;
     line-height: 1.6;
     display: block;
     color: rgba(0, 0, 0, 0.7);
-}
+} */
 .blog-entry .text .topper::after {
     position: absolute;
     bottom: -10px;

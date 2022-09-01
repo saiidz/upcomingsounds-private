@@ -58,7 +58,7 @@
                                     <span class="btn btn-sm rounded primary _600">Dashboard</span>
                                 </a>
                             </li>
-                        @elseif(Auth::user()->type == 'admin')
+                        @elseif(Auth::user()->type == 'admin' && Auth::user()->is_blog == 0)
                             <li class="nav-item">
                                 <a href="{{url('/admin/dashboard')}}" class="nav-link">
                                     <span class="btn btn-sm rounded primary _600">Dashboard</span>

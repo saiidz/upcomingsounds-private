@@ -101,11 +101,19 @@ class AuthenticatedSessionController extends Controller
     }
 
     /**
-     * Display the login view.
+     * Display the admin login view.
      */
     public function createAdmin()
     {
         return view('admin.pages.admin-login');
+    }
+
+     /**
+     * Display the blog login view.
+     */
+    public function createBlog()
+    {
+        return view('admin.pages.blog-login');
     }
 
 
@@ -160,6 +168,34 @@ class AuthenticatedSessionController extends Controller
             } else {
                 return redirect(RouteServiceProvider::CURATOR);
             }
+        }
+    }
+
+    /**
+     * Handle an incoming authentication request.
+     *
+     * @param  \App\Http\Requests\Auth\LoginRequest  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function blogStore(LoginRequest $request)
+    {
+        // dd($request->all());
+        $user_type = User::where('email', $request->email)->first();
+
+        if(isset($user_type)){
+            if(($user_type->type == 'artist') || ($user_type->type == 'curator')){
+                return redirect()->back()->with('error',"Please add correct credentials.");
+            }
+        }
+
+        $request->authenticate();
+
+        $request->session()->regenerate();
+
+        if(Auth::user()->type == 'admin' && Auth::user()->is_blog != 1){
+            return redirect()->route('admin.dashboard');
+        }else{
+            return redirect('/blog_admin');
         }
     }
 }
