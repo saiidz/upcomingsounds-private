@@ -10,6 +10,7 @@ use BinshopsBlog\Captcha\UsesCaptcha;
 use BinshopsBlog\Events\CommentAdded;
 use BinshopsBlog\Models\BinshopsComment;
 use BinshopsBlog\Captcha\CaptchaAbstract;
+use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\AddNewCommentRequest;
 use App\Http\Middleware\UserCanManageBlogPosts;
 use BinshopsBlog\Models\BinshopsPostTranslation;
@@ -33,8 +34,22 @@ class BinshopsCommentWriterController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \Exception
      */
-    public function addNewComment(AddNewCommentRequest $request, $locale, $blog_post_slug)
+    public function addNewComment(Request $request, $locale, $blog_post_slug)
     {
+        $validator = Validator::make($request->all(), [
+            'comment' => ['required', 'string', 'min:3', 'max:1000'],
+            'author_name' => ['string', 'min:1', 'max:50'],
+            'author_email' => ['string', 'nullable', 'min:1', 'max:254', 'email'],
+            'author_website' => ['string', 'nullable', 'min:' . strlen("http://a.b"), 'max:175', 'active_url',],
+        ]);
+
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         if (config("binshopsblog.comments.type_of_comments_to_show", "built_in") !== 'built_in') {
             throw new \RuntimeException("Built in comments are disabled");
         }
@@ -65,7 +80,7 @@ class BinshopsCommentWriterController extends Controller
      * @param $blog_post
      * @return BinshopsComment
      */
-    protected function createNewComment(AddNewCommentRequest $request, $blog_post)
+    protected function createNewComment($request, $blog_post)
     {
         $new_comment = new BinshopsComment($request->all());
 

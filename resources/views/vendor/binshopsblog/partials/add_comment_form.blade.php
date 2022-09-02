@@ -49,7 +49,7 @@
             </div>
             @if($captcha)
                 {{--Captcha is enabled. Load the type class, and then include the view as defined in the captcha class --}}
-                @include($captcha->view())
+                {{-- @include($captcha->view()) --}}
             @endif
 
             <div class="form-group">
