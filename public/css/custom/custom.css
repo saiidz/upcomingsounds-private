@@ -538,6 +538,7 @@ ul:not(.browser-default) > li {
 .UScarousel{
     background-repeat: no-repeat;
     min-height: 412px;
+    background-size: cover;
 }
 .artists_welcome .text-md,
 .curators_welcome .text-md{
