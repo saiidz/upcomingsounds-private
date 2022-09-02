@@ -82,6 +82,10 @@ body{
     box-shadow: 0 10px 20px rgba(55, 206, 23, 0.72) !important;
 }
 
+#Login {
+    color: white;
+}
+
 .learn_more,
 .artist_login,
 .submitMyMusic,
