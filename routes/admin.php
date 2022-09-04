@@ -5,7 +5,10 @@ use App\Http\Controllers\Admin\SystemUserController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['auth','verify_if_admin']], function() {
-   Route::get('dashboard', [DashboardController::class,'index'])->name('admin.dashboard');
+    Route::get('dashboard', [DashboardController::class,'index'])->name('admin.dashboard');
+    Route::get('profile', [DashboardController::class,'profile'])->name('admin.profile');
+    Route::post('update-profile/{profile}', [DashboardController::class,'storeProfile'])->name('admin.update.profile');
+
 //
 //    // Bidders route
 //    Route::resource('bidders',  BidderController::class);

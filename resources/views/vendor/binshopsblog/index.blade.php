@@ -75,8 +75,7 @@
                                     </div>
                                     <h3 class="heading mb-3"><a href="{{$post->url($locale)}}">{{$post->title}}</a></h3>
                                     <p>{!! mb_strimwidth($post->post_body_output(), 0, 400, "...") !!}</p>
-                                    <p><a href="{{$post->url($locale)}}" class="btn-custom"><i class="fa fa-arrow-circle-right svgCOlor"></i>Read
-                                            more</a></p>
+                                    <p><a href="{{$post->url($locale)}}" class="btn-custom">Read More<i class="fa fa-arrow-circle-right svgCOlor"></i></a></p>
                                 </div>
                             </div>
                         </div>
