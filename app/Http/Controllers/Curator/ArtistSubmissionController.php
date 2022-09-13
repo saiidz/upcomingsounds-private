@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Curator;
 
+use App\Models\CuratorFeature;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -14,6 +15,7 @@ class ArtistSubmissionController extends Controller
     public function curatorDashboard()
     {
         $user_curator = Auth::user();
+        $curator_features = CuratorFeature::all();
         return view('pages.curators.dashboard', get_defined_vars());
     }
 

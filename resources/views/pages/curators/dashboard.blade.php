@@ -516,7 +516,25 @@
                             </div>
                         </div>
                     </div>
-                    <h2 class="widget-title h4 m-b">New</h2>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="dropdown inline">
+                                <h2 class="inline widget-title h4">New</h2>
+                                <button class="btn btn-sm no-bg h4 m-y-0 v-b dropdown-toggle text-primary" data-toggle="dropdown">
+                                    <i class="fa fa-filter"></i>
+                                </button>
+                                @if(!empty($curator_features))
+                                    <div class="dropdown-menu">
+                                        @foreach($curator_features as $curator_feature)
+                                            <a href="javascript:void(0)" class="dropdown-item">{{$curator_feature->name}}</a>
+                                        @endforeach
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="col-xs-4 col-sm-4 col-md-3">
                             <div class="item r" data-id="item-3" data-src="http://api.soundcloud.com/tracks/79031167/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
