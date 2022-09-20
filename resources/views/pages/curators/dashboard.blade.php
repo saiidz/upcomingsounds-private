@@ -521,7 +521,7 @@
                         <div class="col-md-12">
                             <div class="dropdown inline">
                                 <h2 class="inline widget-title h4">New</h2>
-                                <button class="btn btn-sm no-bg h4 m-y-0 v-b dropdown-toggle text-primary" data-toggle="dropdown">
+                                <button class="btn btn-sm no-bg h4 m-y-0 v-b faFIlter dropdown-toggle text-primary" data-toggle="dropdown">
                                     <i class="fa fa-filter"></i>
                                 </button>
                                 @if(!empty($curator_features))

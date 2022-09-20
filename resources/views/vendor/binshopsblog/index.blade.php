@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="{{asset('css/custom/blog.css')}}" type="text/css" />
     <style>
         .svgCOlor {
-            color: #da4441 !important;
+            color: #02b875 !important;
         }
     </style>
 @endsection
