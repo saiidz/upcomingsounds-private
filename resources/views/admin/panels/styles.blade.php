@@ -7,7 +7,7 @@
     <meta name="author" content="ThemeSelect">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title') | {{ config('app.name', 'Mi Auto') }}</title>
+    <title>@yield('title') | {{ config('app.name', 'Upcoming Sounds') }}</title>
     <link rel="apple-touch-icon" href="{{asset('images/favicon/apple-touch-icon-152x152.png')}}">
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('images/favicon/favicon-32x32.png')}}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -16,9 +16,11 @@
     @yield('vendor-style')
     <!-- END: VENDOR CSS-->
     <!-- BEGIN: Page Level CSS-->
-    <link rel="stylesheet" type="text/css" href="{{asset('css/themes/vertical-modern-menu-template/admin-materialize.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/themes/vertical-modern-menu-template/materialize.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/themes/vertical-modern-menu-template/style.css')}}">
+    {{-- <link rel="stylesheet" type="text/css" href="{{asset('css/themes/vertical-modern-menu-template/admin-materialize.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/themes/vertical-modern-menu-template/admin-style.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/themes/vertical-modern-menu-template/style.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/themes/vertical-modern-menu-template/style.min.css')}}"> --}}
 
     <!-- END: Page Level CSS-->
     @yield('page-style')

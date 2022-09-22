@@ -7,7 +7,7 @@
 <!-- BEGIN THEME  JS-->
 <script src="{{asset('js/plugins.js')}}"></script>
 <script src="{{asset('js/search.js')}}"></script>
-{{-- <script src="{{asset('js/custom/custom-script.js')}}"></script> --}}
+<script src="{{asset('js/custom/custom-script.js')}}"></script>
 <script src="{{asset('js/scripts/customizer.js')}}"></script>
 <!-- END THEME  JS-->
 <!-- BEGIN PAGE LEVEL JS-->

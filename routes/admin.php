@@ -1,13 +1,18 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SystemUserController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\CuratorFeatureController;
 
-Route::group(['middleware' => ['auth','verify_if_admin']], function() {
-    Route::get('dashboard', [DashboardController::class,'index'])->name('admin.dashboard');
-    Route::get('profile', [DashboardController::class,'profile'])->name('admin.profile');
-    Route::post('update-profile/{profile}', [DashboardController::class,'storeProfile'])->name('admin.update.profile');
+Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], function() {
+    Route::get('dashboard', [DashboardController::class,'index'])->name('dashboard');
+    Route::get('profile', [DashboardController::class,'profile'])->name('profile');
+    Route::post('update-profile/{profile}', [DashboardController::class,'storeProfile'])->name('update.profile');
+
+    // Curators Features
+    Route::resource('curator-features',  CuratorFeatureController::class);
+
 
 //
 //    // Bidders route

@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -105,4 +106,15 @@ function allCurators()
 {
     $curators = User::where('is_approved', 1)->where('type','curator')->count();
     return $curators;
+}
+
+
+/**
+ * @param $date
+ * @return string
+ * @author Farhan <farhanakram670@gmail.com>
+ */
+function getDateFormat($date,$days=""): string
+{
+    return Carbon::parse($date)->addDays($days)->format('d M Y');
 }
