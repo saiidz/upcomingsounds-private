@@ -72,11 +72,19 @@
                                                                 <td>
                                                                     <div class="action-button">
                                                                         <a href="{{route('admin.curator-features.edit',$curator_feature->id)}}" class="action-button-edit">
-                                                                            <img src="{{asset('images/edit_blue.svg')}}">
+                                                                            <img class="editDell" src="{{asset('images/edit_blue.svg')}}">
                                                                         </a>
-                                                                        <a href="javascript:void(0)" onclick="deleteCategory({{$curator_feature->id}})" class="waves-light action-button-delete mr-4">
-                                                                            <img src="{{asset('images/delete_forever.svg')}}">
+                                                                        <a class="dropdown-item has-icon delete-confirm" href="javascript:void(0)" data-id={{ $curator_feature->id }}>
+                                                                            <img class="editDell" src="{{asset('images/delete_forever.svg')}}">
                                                                         </a>
+                                                                        <!-- Delete Form -->
+                                                                        <form class="d-none" id="delete_form_{{ $curator_feature->id }}" action="{{ route('admin.curator-features.destroy', $curator_feature->id) }}" method="POST">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                        </form>
+                                                                        {{-- <a href="javascript:void(0)" onclick="deleteCategory({{$curator_feature->id}})" class="waves-light action-button-delete mr-4">
+                                                                            <img class="editDell" src="{{asset('images/delete_forever.svg')}}">
+                                                                        </a> --}}
                                                                     </div>
                                                                 </td>
                                                             </tr>

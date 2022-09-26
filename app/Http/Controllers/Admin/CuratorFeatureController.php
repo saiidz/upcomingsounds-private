@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Models\CuratorFeature;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Validator;
 
 class CuratorFeatureController extends Controller
 {
@@ -35,9 +37,24 @@ class CuratorFeatureController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
-        //
+
+        $validator = Validator::make($request->all(), [
+            'name' => "required",
+        ]);
+
+        if ($validator->fails())
+        {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
+
+        $input             = $request->all();
+        $input['name']   = $request->get('name');
+
+        CuratorFeature::create($input);
+
+        return response()->json(['success' => 'Curator Feature created successfully.']);
     }
 
     /**
@@ -57,9 +74,9 @@ class CuratorFeatureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(CuratorFeature $curator_feature)
     {
-        //
+        return view('admin.pages.curator-features.create', get_defined_vars());
     }
 
     /**
@@ -69,9 +86,24 @@ class CuratorFeatureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,CuratorFeature $curator_feature): JsonResponse
     {
-        //
+
+        $validator = Validator::make($request->all(), [
+            'name' => "required",
+        ]);
+
+        if ($validator->fails())
+        {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
+
+        $input         = $request->all();
+        $input['name'] = $request->get('name');
+
+        $curator_feature->update($input);
+
+        return response()->json(['success' => 'Curator Feature updated successfully.']);
     }
 
     /**
@@ -80,8 +112,9 @@ class CuratorFeatureController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(CuratorFeature $curator_feature)
     {
-        //
+        $curator_feature->delete();
+        return redirect()->back()->with('success','Curator Feature deleted successfully');
     }
 }

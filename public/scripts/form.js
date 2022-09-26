@@ -179,25 +179,46 @@
 				$('.basicbtn').attr('disabled','');
 
 			},
-
-			success: function(response){
-				$('.basicbtn').removeAttr('disabled')
-				Sweet('success',response);
-				$('.basicbtn').html(basicbtnhtml);
-				location.reload();
-			},
-			error: function(xhr, status, error)
-			{
-				$('.basicbtn').html(basicbtnhtml);
-				$('.basicbtn').removeAttr('disabled')
-				$('.errorarea').show();
-				$.each(xhr.responseJSON.errors, function (key, item)
-				{
-					Sweet('error',item)
-					$("#errors").html("<li class='text-danger'>"+item+"</li>")
-				});
-				errosresponse(xhr, status, error);
-			}
+            success:function(response)
+            {
+                if(response.success)
+                {
+                    console.log(response.success);
+                    $('.basicbtn').removeAttr('disabled')
+                    Sweet('success',response.success);
+                    $('.basicbtn').html(basicbtnhtml);
+                    location.reload();
+                }
+                if(response.errors)
+                {
+                    $('.basicbtn').html(basicbtnhtml);
+                    $('.basicbtn').removeAttr('disabled')
+                    $('.errorarea').show();
+                    $.each(response.errors, function (key, item)
+                    {
+                        Sweet('error',item)
+                        $("#errors").html("<li class='text-danger'>"+item+"</li>");
+                    });
+                }
+            }
+			// success: function(response){
+			// 	$('.basicbtn').removeAttr('disabled')
+			// 	Sweet('success',response);
+			// 	$('.basicbtn').html(basicbtnhtml);
+			// 	location.reload();
+			// },
+			// error: function(xhr, status, error)
+			// {
+			// 	$('.basicbtn').html(basicbtnhtml);
+			// 	$('.basicbtn').removeAttr('disabled')
+			// 	$('.errorarea').show();
+			// 	$.each(xhr.responseJSON.errors, function (key, item)
+			// 	{
+			// 		Sweet('error',item)
+			// 		$("#errors").html("<li class='text-danger'>"+item+"</li>");
+			// 	});
+			// 	errosresponse(xhr, status, error);
+			// }
 		})
 
 
