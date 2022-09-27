@@ -16,7 +16,7 @@
     </div>
     <ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out" data-menu="menu-navigation" data-collapsible="menu-accordion">
         <li class="bold"><a class="waves-effect waves-cyan {{Request::is('admin/dashboard') ? 'active' : ''}}" href="{{route('admin.dashboard')}}"><i class="material-icons">settings_input_svideo</i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a></li>
-        <li class="bold"><a class="waves-effect waves-cyan  {{ Request::is('admin/curator-features*') ? 'active' : '' }}" href="{{ route('admin.curator-features.index') }}">
+        <li class="bold"><a class="waves-effect waves-cyan  {{ Request::is('admin/curator-features*') || Request::is('admin/curator-sub-feature*') ? 'active' : '' }}" href="{{ route('admin.curator-features.index') }}">
             <i class="material-icons">image_aspect_ratio</i>
             <span class="menu-title" data-i18n="Form Layouts">Curator Features</span></a>
         </li>

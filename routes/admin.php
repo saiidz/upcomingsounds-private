@@ -12,8 +12,12 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
 
     // Curators Features
     Route::resource('curator-features',  CuratorFeatureController::class);
-
-
+    Route::get('curator-sub-feature/{id}',[CuratorFeatureController::class,'subFeature']);
+    Route::get('curator-sub-feature/{id}/create',[CuratorFeatureController::class,'createSubFeature']);
+    Route::post('curator-sub-feature/store', [CuratorFeatureController::class,'storeSubFeature']);
+    Route::get('curator-sub-feature/{id}/edit',[CuratorFeatureController::class,'editSubFeature']);
+    Route::post('curator-sub-feature/{id}/update', [CuratorFeatureController::class,'updateSubFeature']);
+    Route::delete('curator-sub-feature/{id}/delete', [CuratorFeatureController::class,'deleteSubFeature']);
 //
 //    // Bidders route
 //    Route::resource('bidders',  BidderController::class);

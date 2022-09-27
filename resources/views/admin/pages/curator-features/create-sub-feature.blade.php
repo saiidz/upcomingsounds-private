@@ -2,7 +2,7 @@
 
 {{-- page title --}}
 
-@section('title', @isset($curator_feature) ? "Update Curator Features":"Create Curator Features")
+@section('title', @isset($sub_curator_feature) ? "Update Sub Curator Features":"Create Sub Curator Features")
 
 @section('content')
 
@@ -18,7 +18,7 @@
 						<h5 class="breadcrumbs-title mt-0 mb-0"><span>Curator Features</span></h5>
 						<ol class="breadcrumbs mb-0">
                             @include('admin.panels.breadcrumbs')
-							<li class="breadcrumb-item active">Add New Curator Features </li>
+							<li class="breadcrumb-item active">Add New Sub Curator Feature </li>
 						</ol>
 					</div>
                     @if (!empty($curator_feature))
@@ -38,24 +38,25 @@
                     <div class="col s12 m12 l12">
                         <div id="form-with-validation" class="card card card-default scrollspy">
                             <div class="card-content">
-                                {!! Form::model($curator_feature ?? null, [
+                                {!! Form::model($sub_curator_feature ?? null, [
                                     'class' => 'basicform_with_reload',
                                     'reset'=> 'true',
-                                    'method' => isset($curator_feature) ? 'put' : 'post',
-                                    'url' => isset($curator_feature)
-                                    ? route('admin.curator-features.update', $curator_feature->id)
-                                    : route('admin.curator-features.store')
+                                    'method' => isset($sub_curator_feature) ? 'post' : 'post',
+                                    'url' => isset($sub_curator_feature)
+                                    ? url('admin/curator-sub-feature/'.$sub_curator_feature->id.'/update')
+                                    : url('admin/curator-sub-feature/store')
                             ]) !!}
                                      @csrf
+                                     <input type="hidden" name="curator_feature_id" value="{{ !empty($curator_feature) ? $curator_feature->id : (!empty($sub_curator_feature->curatorFeature) ? $sub_curator_feature->curatorFeature->id : '') }}">
                                     <div class="row">
                                         <div class="input-field col m4 s6">
-                                            {!! Form::text('name',$curator_feature->name ?? null,['placeholder'=>'Classic','class'=>"validate", 'id' => 'name', 'required'=>false]) !!}
+                                            {!! Form::text('name',$sub_curator_feature->name ?? null,['placeholder'=>'Acting','class'=>"validate", 'id' => 'name', 'required'=>false]) !!}
                                             <label for="icon_prefix2">Curator Feature Name</label>
                                         </div>
                                         <div class="input-field col m4 s12">
                                             <div class="input-field col s12">
-                                                {{-- {!! Form::submit(isset($curator_feature) ? 'Update' : 'Save',['class'=>'btn cyan waves-effect waves-light basicbtn']) !!} --}}
-                                                <button class="btn cyan waves-effect waves-light basicbtn" type="submit">{{ isset($curator_feature) ? 'Update' : 'Save' }}</button>
+                                                {{-- {!! Form::submit(isset($sub_curator_feature) ? 'Update' : 'Save',['class'=>'btn cyan waves-effect waves-light basicbtn']) !!} --}}
+                                                <button class="btn cyan waves-effect waves-light basicbtn" type="submit">{{ isset($sub_curator_feature) ? 'Update' : 'Save' }}</button>
                                             </div>
                                         </div>
                                     </div>
