@@ -101,7 +101,7 @@
                 </main>
             </div>
 
-            <section class="m-t-lg">
+            <section class="m-t-lg card">
                 <div class="container">
                     <div class="py-5 text-center">
                         <h3>Verification Form</h3>
@@ -114,16 +114,44 @@
                         <div class="row m-t-sm">
                             <div class="col-md-6 mb-3">
                                 <label for="email" class="text-black">Curator Type:</label>
-                                <input type="text"
-                                        class="form-control" readonly disabled value="{{ !empty($user_curator) && !empty($user_curator->curatorUser) ? $user_curator->curatorUser->curator_signup_from : '' }}" autofocus>
+                                <input type="text" name="curator_type"
+                                        class="form-control" readonly disabled value="{{ !empty($user_curator) && !empty($user_curator->curatorUser) ? ucfirst($user_curator->curatorUser->curator_signup_from ) : '' }}" autofocus>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="email" class="text-black">Select Type:</label>
-                                <select name="" id="" class="form-control">
-                                    <option value="spotify">Spotify</option>
-                                    <option value="soundcloud">SoundCloud</option>
-                                    <option value="deezer">Deezer</option>
-                                    <option value="apple_music">Apple Music</option>
+                                <label for="email" class="text-black">Select Sub Category:</label>
+                                <select name="sub_curator_type" id="" class="form-control">
+                                    <option value="" selected disabled>Please Select Sub Category</option>
+                                    @if (!empty($user_curator) && !empty($user_curator->curatorUser))
+                                        @if ($user_curator->curatorUser->curator_signup_from == 'influencer')
+                                            <option value="tikTok">TikTok</option>
+                                            <option value="instagram">Instagram</option>
+                                            <option value="soundcloud">SoundCloud</option>
+                                        @elseif ($user_curator->curatorUser->curator_signup_from == 'playlist_curator')
+                                            <option value="spotify">Spotify</option>
+                                            <option value="soundcloud">SoundCloud</option>
+                                            <option value="deezer">Deezer</option>
+                                            <option value="applemusic">Apple Music</option>
+                                        @elseif ($user_curator->curatorUser->curator_signup_from == 'youtube_channel')
+                                            <option value="youtube_channel">Youtube Channel</option>
+                                            <option value="youtube_playlist">Youtube Playlist</option>
+                                        @elseif ($user_curator->curatorUser->curator_signup_from == 'journalist_media'
+                                                || $user_curator->curatorUser->curator_signup_from == 'radio_tv'
+                                                || $user_curator->curatorUser->curator_signup_from == 'media'
+                                                || $user_curator->curatorUser->curator_signup_from == 'label_manager'
+                                                || $user_curator->curatorUser->curator_signup_from == 'monitor_publisher_synch'
+                                                || $user_curator->curatorUser->curator_signup_from == 'brooker_booking'
+                                                || $user_curator->curatorUser->curator_signup_from == 'sound_expert_producer')
+                                            <option value="pro_exeprt">Pro Exeprt</option>
+                                            <option value="sound_expert">Sound expert</option>
+                                            <option value="produce">Produce</option>
+                                            <option value="record_label">Record label</option>
+                                            <option value="manager">Manager</option>
+                                            <option value="music_supervisor">Music supervisor</option>
+                                            <option value="monitor">Monitor</option>
+                                            <option value="publisher">Publisher</option>
+                                            <option value="sync">Sync</option>
+                                        @endif
+                                    @endif
                                 </select>
                             </div>
                         </div>
@@ -140,7 +168,7 @@
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="email" class="text-black">Upload valid ID/Passport:</label>
-                                <input type="file" name="image"
+                                <input type="file" name="image" accept="image/*, .pdf"
                                         class="form-control" value="" autofocus>
                             </div>
                         </div>
@@ -154,28 +182,29 @@
                         </div>
                         <div class="row m-t-sm">
                             <div class="col-md-12 mb-3">
-                                <input type="text" name="infomation"
-                                        class="form-control" value="{{ old('name') }}" autofocus>
+                                <input type="text" name="information"
+                                        class="form-control" value="{{ old('information') }}" autofocus>
                             </div>
                         </div>
 
                         <div class="row m-t-2">
                             <div class="col-md-12 mb-3">
                                 <div class="">
-                                    <h5>To speed up the application process, please provide the following information so we can get you approved and up and
-                                        running as a verified, certified member of the UPCOMING SOUNDS team.</h5>
+                                    <h5>Explain how your playlists grew in popularity with screenshorts.</h5>
+                                    <span>Provide any proof of monthly activity I.e., Spotify for Artists screenshorts form past months of activity
+                                        or screenshorts from an artist's "Discovered on" section, showing your playlists.
+                                    </span>
                                 </div>
                             </div>
                         </div>
                         <div class="row m-t-sm">
                             <div class="col-md-12 mb-3">
-                                <input type="text" name="infomation"
-                                        class="form-control" value="{{ old('name') }}" autofocus>
+                                <textarea name="descriptions" class="form-control">{{ old('description_details') }}</textarea>
                             </div>
                         </div>
 
                         <hr class="mb-4">
-                        <button class="btn circle btn-outline b-primary p-x-md auth_btn Rigister billingInfo" type="submit">Submit</button>
+                        <button class="btn circle btn-outline b-primary p-x-md auth_btn Rigister billingInfo" type="submit">Apply</button>
                     </form>
                 </div>
             </section>
@@ -192,3 +221,11 @@
     <!-- ############ PAGE END-->
 @endsection
 
+@section('page-script')
+ {{-- CkEditor --}}
+ <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+ <script>
+     CKEDITOR.replace( 'descriptions' );
+ </script>
+
+@endsection

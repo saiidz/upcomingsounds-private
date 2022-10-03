@@ -73,7 +73,8 @@
                                 <span class="nav-icon">
                                     <i class="fa fa-headphones"></i>
                                 </span>
-                                <span class="nav-text">Submissions</span>
+                                <span class="nav-text">Get Verified</span>
+                                {{-- <span class="nav-text">Submissions</span> --}}
                             </a>
                         </li>
 {{--                    <li>--}}
