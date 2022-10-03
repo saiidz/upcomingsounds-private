@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ArtistTrack;
 use App\Models\Country;
 use App\Models\CuratorFeature;
+use App\Models\CuratorFeatureTag;
 use App\Models\Feature;
 use App\Models\Language;
 use App\Models\TrackCategory;
@@ -34,6 +35,13 @@ class ArtistController extends Controller
 //        dd($countries_flag);
         $features = Feature::all();
         $track_categories = TrackCategory::all();
+        $curator_features_ids = CuratorFeature::pluck('id')->toArray();
+        $curator_featuress = CuratorFeatureTag::with('curatorFeature')->whereHas('curatorFeature', function($q){
+                                                $q->select('name');
+                                            })->whereIn('curator_feature_id', $curator_features_ids)->get()
+                                            ->groupBy('curatorFeature.name');
+
+// dd($curator_sub_features);
         $curator_features = CuratorFeature::all();
         $languages = Language::all();
         $artist_tracks = ArtistTrack::where('user_id',$user_artist->id)->orderBy('id','desc')->get();
