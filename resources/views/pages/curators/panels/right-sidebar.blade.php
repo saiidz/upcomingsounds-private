@@ -100,14 +100,18 @@
         </div>
 
         @if (Auth::check() && auth()->user())
-            @if (!empty(auth()->user()->getReferrals()))
-                @forelse(auth()->user()->getReferrals() as $referral)
-                @if (auth()->user()->is_approved == 1)
+                @if (auth()->user()->is_verified == 1)
                     <div class="getVerified">
+                        <span class="btn btn-sm rounded primary m-b-2 text-white">get verified</span>
+                    </div>
+                @else
+                    <div class="getVerified" id="getNoVerified" style="display: none;">
                         <a class="btn btn-sm rounded primary m-b-2 text-white" href="{{ route('curator.get.verified') }}">get verified</a>
                     </div>
-
                 @endif
+            @if (!empty(auth()->user()->getReferrals()))
+                @forelse(auth()->user()->getReferrals() as $referral)
+
                 <div class="bgGradient">
                     <h6 class="text text-muted">Referral Program</h6>
                     <div class="form-group row">

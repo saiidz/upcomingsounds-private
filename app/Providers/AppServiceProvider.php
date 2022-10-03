@@ -36,6 +36,18 @@ class AppServiceProvider extends ServiceProvider
             }
         });
 
+        // Using closure based composers...
+        View::composer('*', function ($view) {
+            if (Auth::check())
+            {
+                if(Auth::user()->type == 'curator')
+                {
+                    $user_curator = Auth::user();
+                    View::share('user_curator', $user_curator);
+                }
+            }
+        });
+
 //        Artisan::call('cache:clear');
 //        Artisan::call('config:clear');
 //        Artisan::call('route:clear');

@@ -14,7 +14,6 @@ class ArtistSubmissionController extends Controller
      */
     public function curatorDashboard()
     {
-        $user_curator = Auth::user();
         $curator_features = CuratorFeature::all();
         return view('pages.curators.dashboard', get_defined_vars());
     }
@@ -24,7 +23,6 @@ class ArtistSubmissionController extends Controller
      */
     public function artistSubmission()
     {
-        $user_curator = Auth::user();
         return view('pages.curators.artist-submission.artist-submission', get_defined_vars());
     }
 
@@ -33,7 +31,6 @@ class ArtistSubmissionController extends Controller
      */
     public function artistSaved()
     {
-        $user_curator = Auth::user();
         return view('pages.curators.artist-submission.artist-saved', get_defined_vars());
     }
 
@@ -42,7 +39,6 @@ class ArtistSubmissionController extends Controller
      */
     public function artistAccepted()
     {
-        $user_curator = Auth::user();
         return view('pages.curators.artist-submission.artist-accepted', get_defined_vars());
     }
 
@@ -51,7 +47,6 @@ class ArtistSubmissionController extends Controller
      */
     public function artistRejected()
     {
-        $user_curator = Auth::user();
         return view('pages.curators.artist-submission.artist-rejected', get_defined_vars());
     }
 
@@ -60,7 +55,6 @@ class ArtistSubmissionController extends Controller
      */
     public function getVerified()
     {
-        $user_curator = Auth::user();
         return view('pages.curators.curator-get-verified.get-verified', get_defined_vars());
     }
 }

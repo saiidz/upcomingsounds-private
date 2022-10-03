@@ -272,3 +272,8 @@
         });
     });
 </script>
+<script>
+    $('#showGetVerified').on('click', function(){
+        $('#getNoVerified').css('display','block');
+    })
+</script>

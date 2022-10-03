@@ -75,6 +75,7 @@
                     @endif
                 </div>
             </div>
+            
             <div class="col-sm">
                 <div class="p-l-md no-padding-xs">
                     <h1 class="page-title">

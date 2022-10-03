@@ -119,12 +119,24 @@
                         </a>
                     </li> --}}
                         <li>
-                            <a href="javascript:void(0)">
-                                <span class="nav-icon">
-                                    <i class="fa fa-suitcase"></i>
-                                </span>
-                                <span class="nav-text">Offers</span>
-                            </a>
+                            @if (Auth::check() && auth()->user())
+                                @if (auth()->user()->is_verified == 1)
+                                    <a href="javascript:void(0)">
+                                        <span class="nav-icon">
+                                            <i class="fa fa-suitcase"></i>
+                                        </span>
+                                        <span class="nav-text">Offers</span>
+                                    </a>
+                                @else
+                                    <a href="javascript:void(0)" id="showGetVerified">
+                                        <span class="nav-icon">
+                                            <i class="fa fa-suitcase"></i>
+                                        </span>
+                                        <span class="nav-text">Offers</span>
+                                    </a>
+                                @endif
+                            @endif
+
                         </li>
                         <li>
                             <a href="javascript:void(0)">
