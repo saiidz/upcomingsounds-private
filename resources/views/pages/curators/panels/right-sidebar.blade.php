@@ -161,10 +161,11 @@
         </div> --}}
         <div class="b-b m-y"></div>
         <div class="nav text-sm _600">
-            <a href="#" class="nav-link text-muted m-r-xs">About</a>
-            <a href="#" class="nav-link text-muted m-r-xs">Contact</a>
-            <a href="#" class="nav-link text-muted m-r-xs">Legal</a>
-            <a href="#" class="nav-link text-muted m-r-xs">Policy</a>
+            <a href="{{ url('about-us') }}" class="nav-link text-muted m-r-xs">About</a>
+            <a href="{{ url('contact-us') }}" class="nav-link text-muted m-r-xs">Contact</a>
+            <a href="{{ url('term-of-service') }}" class="nav-link text-muted m-r-xs">Term of Service</a>
+            {{-- <a href="#" class="nav-link text-muted m-r-xs">Legal</a> --}}
+            <a href="{{ url('privacy-policy') }}" class="nav-link text-muted m-r-xs">Policy Privacy</a>
         </div>
         <p class="text-muted text-xs p-b-lg">&copy; Copyright {{ date('Y') }}</p>
     </div>

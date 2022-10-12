@@ -32,8 +32,15 @@ class CuratorController extends Controller
         $user_curator = Auth::user();
         $selected_feature = $user_curator->curatorUserTags->pluck('curator_feature_tag_id')->toArray();
         $countries = Country::all();
+
+        $curator_features_ids = CuratorFeature::pluck('id')->toArray();
+        $curator_featuress = CuratorFeatureTag::with('curatorFeature')->whereHas('curatorFeature', function($q){
+                                        $q->select('name');
+                                    })->whereIn('curator_feature_id', $curator_features_ids)->get()
+                                    ->groupBy('curatorFeature.name');
+
         $curator_features = CuratorFeature::all();
-        // dd($user_curator->curatorUser);
+        // dd($curator_featuress);
         return view('pages.curators.curator-profile',get_defined_vars());
     }
 
