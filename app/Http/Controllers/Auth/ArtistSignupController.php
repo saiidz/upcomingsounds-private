@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Country;
 use App\Models\Feature;
+use App\Models\FeatureTag;
 use App\Models\ReApplyUser;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -134,8 +135,14 @@ class ArtistSignupController extends Controller
         $artist_data = $request->session()->get('artist_data');
         $artist_social = $request->session()->get('artist_social');
         if(!empty($artist_data) && !empty($artist_social)){
+            $features_ids      = Feature::pluck('id')->toArray();
+            $new_features = FeatureTag::with('feature')->whereHas('feature', function($q){
+                                                $q->select('name');
+                                            })->whereIn('feature_id', $features_ids)->get()
+                                            ->groupBy('feature.name');
+
             $features = Feature::all();
-            return view('pages.artists.artist-signup.artist-signup-step-4',compact('artist_data','artist_social', 'features'));
+            return view('pages.artists.artist-signup.artist-signup-step-4',get_defined_vars());
         }else{
             return redirect()->back();
         }

@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ArtistTrack;
+use App\Models\User;
 use App\Models\Country;
+use App\Models\Feature;
+use App\Models\UserTag;
+use App\Models\Language;
+use App\Models\FeatureTag;
+use App\Models\ArtistTrack;
+use Illuminate\Http\Request;
+use App\Models\TrackCategory;
 use App\Models\CuratorFeature;
 use App\Models\CuratorFeatureTag;
-use App\Models\Feature;
-use App\Models\Language;
-use App\Models\TrackCategory;
-use App\Models\User;
-use App\Models\UserTag;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
@@ -33,6 +34,12 @@ class ArtistController extends Controller
 //                ->flag
 //                ->flag_icon;
 //        dd($countries_flag);
+            $features_ids      = Feature::pluck('id')->toArray();
+            $new_features = FeatureTag::with('feature')->whereHas('feature', function($q){
+                                                $q->select('name');
+                                            })->whereIn('feature_id', $features_ids)->get()
+                                            ->groupBy('feature.name');
+
         $features = Feature::all();
         $track_categories = TrackCategory::all();
         $curator_features_ids = CuratorFeature::pluck('id')->toArray();

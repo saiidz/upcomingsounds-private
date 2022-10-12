@@ -20,6 +20,10 @@
             <i class="material-icons">image_aspect_ratio</i>
             <span class="menu-title" data-i18n="Form Layouts">Curator Features</span></a>
         </li>
+        <li class="bold"><a class="waves-effect waves-cyan  {{ Request::is('admin/artist-features*') || Request::is('admin/artist-sub-feature*') ? 'active' : '' }}" href="{{ route('admin.artist-features.index') }}">
+            <i class="material-icons">image_aspect_ratio</i>
+            <span class="menu-title" data-i18n="Form Layouts">Artist Features</span></a>
+        </li>
 
         {{-- <li class="bold {{Request::segment(2) == 'categories' ? 'active open' : ''}}"><a class="collapsible-header waves-effect waves-cyan {{Request::segment(2) == 'categories'  && Request::segment(4) == 'edit' ? 'active' : ''}}" href="JavaScript:void(0)"><i class="material-icons">view_agenda</i><span class="menu-title" data-i18n="Categories">Category</span></a>
             <div class="collapsible-body">

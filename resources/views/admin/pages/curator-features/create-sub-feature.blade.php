@@ -18,7 +18,7 @@
 						<h5 class="breadcrumbs-title mt-0 mb-0"><span>Curator Features</span></h5>
 						<ol class="breadcrumbs mb-0">
                             @include('admin.panels.breadcrumbs')
-							<li class="breadcrumb-item active">Add New Sub Curator Feature </li>
+							<li class="breadcrumb-item active">{{ isset($sub_curator_feature) ? 'Update Sub Curator Feature' : 'Add New Sub Curator Feature' }} </li>
 						</ol>
 					</div>
                     @if (!empty($curator_feature))
