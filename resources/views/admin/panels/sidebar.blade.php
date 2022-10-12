@@ -15,16 +15,75 @@
         </h1>
     </div>
     <ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out" data-menu="menu-navigation" data-collapsible="menu-accordion">
-        <li class="bold"><a class="waves-effect waves-cyan {{Request::is('admin/dashboard') ? 'active' : ''}}" href="{{route('admin.dashboard')}}"><i class="material-icons">settings_input_svideo</i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a></li>
-        <li class="bold"><a class="waves-effect waves-cyan  {{ Request::is('admin/curator-features*') || Request::is('admin/curator-sub-feature*') ? 'active' : '' }}" href="{{ route('admin.curator-features.index') }}">
-            <i class="material-icons">image_aspect_ratio</i>
-            <span class="menu-title" data-i18n="Form Layouts">Curator Features</span></a>
+        <li class="bold">
+            <a class="waves-effect waves-cyan {{Request::is('admin/dashboard') ? 'active' : ''}}" href="{{route('admin.dashboard')}}">
+                <i class="material-icons">settings_input_svideo</i>
+                <span class="menu-title" data-i18n="Dashboard">Dashboard</span>
+            </a>
+        </li>
+
+        <li class="bold">
+            <a class="waves-effect waves-cyan  {{ Request::is('admin/curator-features*') || Request::is('admin/curator-sub-feature*') ? 'active' : '' }}" href="{{ route('admin.curator-features.index') }}">
+                <i class="material-icons">image_aspect_ratio</i>
+                <span class="menu-title" data-i18n="Form Layouts">Curator Features</span>
+            </a>
         </li>
         <li class="bold"><a class="waves-effect waves-cyan  {{ Request::is('admin/artist-features*') || Request::is('admin/artist-sub-feature*') ? 'active' : '' }}" href="{{ route('admin.artist-features.index') }}">
             <i class="material-icons">image_aspect_ratio</i>
             <span class="menu-title" data-i18n="Form Layouts">Artist Features</span></a>
         </li>
 
+        <li class="bold {{ Request::is('admin/artist-approved') || Request::is('admin/artist-pending') || Request::is('admin/artist-profile*') ? 'active open' : '' }}">
+            <a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)">
+                <i class="material-icons">face</i>
+                <span class="menu-title" data-i18n="User">Artists</span>
+            </a>
+            <div class="collapsible-body">
+                <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+                    <li class="{{ Request::is('admin/artist-approved') ? 'active' : '' }}">
+                        <a class="{{ Request::is('admin/artist-approved') ? 'active' : '' }}" href="{{ route('admin.approved.artist') }}">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            <span data-i18n="List">Artist Approved</span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('admin/artist-pending') ? 'active' : '' }}">
+                        <a class="{{ Request::is('admin/artist-pending') ? 'active' : '' }}" href="{{ route('admin.pending.artist') }}">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            <span data-i18n="List">Artist Pending</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="bold {{ Request::is('admin/curator-approved') || Request::is('admin/curator-pending') || Request::is('admin/curator-profile*') || Request::is('admin/curator-verification') ? 'active open' : '' }}">
+            <a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)">
+                <i class="material-icons">face</i>
+                <span class="menu-title" data-i18n="User">Curators</span>
+            </a>
+            <div class="collapsible-body">
+                <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+                    <li class="{{ Request::is('admin/curator-approved') ? 'active' : '' }}">
+                        <a class="{{ Request::is('admin/curator-approved') ? 'active' : '' }}" href="{{ route('admin.approved.curator') }}">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            <span data-i18n="List">Curator Approved</span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('admin/curator-pending') ? 'active' : '' }}">
+                        <a class="{{ Request::is('admin/curator-pending') ? 'active' : '' }}" href="{{ route('admin.pending.curator') }}">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            <span data-i18n="List">Curator Pending</span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('admin/curator-verification') ? 'active' : '' }}">
+                        <a class="{{ Request::is('admin/curator-verification') ? 'active' : '' }}" href="{{ route('admin.verification.curator') }}">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            <span data-i18n="List">Curator Verification</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
         {{-- <li class="bold {{Request::segment(2) == 'categories' ? 'active open' : ''}}"><a class="collapsible-header waves-effect waves-cyan {{Request::segment(2) == 'categories'  && Request::segment(4) == 'edit' ? 'active' : ''}}" href="JavaScript:void(0)"><i class="material-icons">view_agenda</i><span class="menu-title" data-i18n="Categories">Category</span></a>
             <div class="collapsible-body">
                 <ul class="collapsible collapsible-sub" data-collapsible="accordion">

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\ArtistController;
+use App\Http\Controllers\Admin\CuratorController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SystemUserController;
 use App\Http\Controllers\Admin\ArtistFeatureController;
@@ -28,6 +30,18 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
     Route::get('artist-sub-feature/{id}/edit',[ArtistFeatureController::class,'editSubFeature']);
     Route::post('artist-sub-feature/{id}/update', [ArtistFeatureController::class,'updateSubFeature']);
     Route::delete('artist-sub-feature/{id}/delete', [ArtistFeatureController::class,'deleteSubFeature']);
+
+    // Artist Route
+    Route::get('artist-approved', [ArtistController::class,'approvedArtist'])->name('approved.artist');
+    Route::get('artist-pending', [ArtistController::class,'pendingArtist'])->name('pending.artist');
+    Route::get('artist-profile/{user}',[ArtistController::class,'profileArtist'])->name('artist.profile');
+
+    // Curator Route
+    Route::get('curator-approved', [CuratorController::class,'approvedCurator'])->name('approved.curator');
+    Route::get('curator-pending', [CuratorController::class,'pendingCurator'])->name('pending.curator');
+    Route::get('curator-profile/{user}',[CuratorController::class,'profileCurator'])->name('curator.profile');
+    Route::get('curator-verification', [CuratorController::class,'verificationCurator'])->name('verification.curator');
+
 //
 //    // Bidders route
 //    Route::resource('bidders',  BidderController::class);

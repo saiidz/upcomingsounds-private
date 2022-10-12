@@ -111,6 +111,31 @@ class User extends Authenticatable implements MustVerifyEmail
         $query->where('is_approved',1)->where('type','curator');
     }
 
+    // get artists approved
+    public function scopeGetApprovedArtists($query)
+    {
+        $query->where('is_approved',1)->where('type','artist');
+    }
+
+     // get artists pending
+     public function scopeGetPendingArtists($query)
+     {
+         $query->where('is_approved',0)->where('type','artist');
+     }
+
+     // get curators approved
+    public function scopeGetApprovedCurators($query)
+    {
+        $query->where('is_approved',1)->where('type','curator');
+    }
+
+     // get curators pending
+     public function scopeGetPendingCurators($query)
+     {
+         $query->where('is_approved',0)->where('type','curator');
+     }
+
+
     // get Referrals
     public function getReferrals()
     {
