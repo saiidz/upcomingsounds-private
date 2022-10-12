@@ -20,6 +20,7 @@ class CuratorVerificationForm extends Model
         'information',
         'descriptions',
         'embedded_player',
+        'apply_count',
     ];
     // User
     public function user(){

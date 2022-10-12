@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Curator\CuratorController;
 use App\Http\Controllers\Curator\CuratorWalletController;
 use App\Http\Controllers\Curator\ArtistSubmissionController;
+use App\Http\Controllers\Curator\CuratorVerificationFormController;
 
 // User Routes
 
@@ -36,4 +37,8 @@ Route::get('get-cites/{id}', [AjaxController::class,'getCities']);
 
 // get verified
 Route::get('/taste-maker/get-verified', [ArtistSubmissionController::class,'getVerified'])->name('curator.get.verified');
+
+// curator verificatio form
+Route::post('store-verfication-form', [CuratorVerificationFormController::class, 'storeVerificationForm'])->name('curator.verfication.form');
+
 /***************************************************** Curator Routes *********************************************************/

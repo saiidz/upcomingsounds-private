@@ -9,6 +9,9 @@
             .landing-headline {
                 margin: 20px auto !important;
             }
+            .applyForm{
+                float: right;
+            }
         </style>
         <link rel="stylesheet" type="text/css" href="{{asset('css/custom/for-curators.css')}}">
 @endsection
@@ -101,113 +104,152 @@
                 </main>
             </div>
 
-            <section class="m-t-lg card">
-                <div class="container">
-                    <div class="py-5 text-center">
-                        <h3>Verification Form</h3>
+            @if (!empty($curator_verification_form) && $curator_verification_form->apply_count == 3)
+                <section class="m-t-lg card">
+                    <div class="container">
+                        <div class="py-5 text-center">
+                            <h3>You have completed three chance. Now you cannot send again submit verification form.</h3>
+                        </div>
                     </div>
-                    <form class="form-contact"
-                            method="POST" action="{{route('curator.transfer')}}" autocomplete="off"
-                            id="transferCuratorForm" novalidate>
-                        @csrf
-
+                </section>
+            @else
+                <section class="m-t-lg card">
+                    <div class="container">
+                        <div class="py-5 text-center">
+                            <h3>Verification Form</h3>
+                        </div>
                         <div class="row m-t-sm">
-                            <div class="col-md-6 mb-3">
-                                <label for="email" class="text-black">Curator Type:</label>
-                                <input type="text" name="curator_type"
-                                        class="form-control" readonly disabled value="{{ !empty($user_curator) && !empty($user_curator->curatorUser) ? ucfirst($user_curator->curatorUser->curator_signup_from ) : '' }}" autofocus>
+                            <div class="col-md-12">
+                                <span id="verificationCuratorForm"></span>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="email" class="text-black">Select Sub Category:</label>
-                                <select name="sub_curator_type" id="" class="form-control">
-                                    <option value="" selected disabled>Please Select Sub Category</option>
-                                    @if (!empty($user_curator) && !empty($user_curator->curatorUser))
-                                        @if ($user_curator->curatorUser->curator_signup_from == 'influencer')
-                                            <option value="tikTok">TikTok</option>
-                                            <option value="instagram">Instagram</option>
-                                            <option value="soundcloud">SoundCloud</option>
-                                        @elseif ($user_curator->curatorUser->curator_signup_from == 'playlist_curator')
-                                            <option value="spotify">Spotify</option>
-                                            <option value="soundcloud">SoundCloud</option>
-                                            <option value="deezer">Deezer</option>
-                                            <option value="applemusic">Apple Music</option>
-                                        @elseif ($user_curator->curatorUser->curator_signup_from == 'youtube_channel')
-                                            <option value="youtube_channel">Youtube Channel</option>
-                                            <option value="youtube_playlist">Youtube Playlist</option>
-                                        @elseif ($user_curator->curatorUser->curator_signup_from == 'journalist_media'
-                                                || $user_curator->curatorUser->curator_signup_from == 'radio_tv'
-                                                || $user_curator->curatorUser->curator_signup_from == 'media'
-                                                || $user_curator->curatorUser->curator_signup_from == 'label_manager'
-                                                || $user_curator->curatorUser->curator_signup_from == 'monitor_publisher_synch'
-                                                || $user_curator->curatorUser->curator_signup_from == 'brooker_booking'
-                                                || $user_curator->curatorUser->curator_signup_from == 'sound_expert_producer')
-                                            <option value="pro_exeprt">Pro Exeprt</option>
-                                            <option value="sound_expert">Sound expert</option>
-                                            <option value="produce">Produce</option>
-                                            <option value="record_label">Record label</option>
-                                            <option value="manager">Manager</option>
-                                            <option value="music_supervisor">Music supervisor</option>
-                                            <option value="monitor">Monitor</option>
-                                            <option value="publisher">Publisher</option>
-                                            <option value="sync">Sync</option>
+                        </div>
+                        <form class="new_basicform_with_reload" id="verificationCuratorForm"
+                                method="POST" action="{{route('curator.verfication.form')}}">
+                            @csrf
+                            @php
+                                $count = 1
+                            @endphp
+                            <input type="hidden" name="apply_count" value="{{ !empty($curator_verification_form) ? $curator_verification_form->apply_count + $count : 1 }}">
+                            <div class="row m-t-sm">
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="text-black">Curator Type:</label>
+                                    <input type="text" name="curator_type"
+                                            class="form-control" readonly value="{{ !empty($user_curator) && !empty($user_curator->curatorUser) ? ucfirst($user_curator->curatorUser->curator_signup_from ) : '' }}" autofocus>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="text-black">Select Sub Category:</label>
+                                    <select name="sub_curator_type" id="" class="form-control">
+                                        <option value="" selected disabled>Please Select Sub Category</option>
+                                        @if (!empty($user_curator) && !empty($user_curator->curatorUser))
+                                            @if ($user_curator->curatorUser->curator_signup_from == \App\Templates\ICuratorSignup::INFLUENCER)
+                                                <option value="tikTok">TikTok</option>
+                                                <option value="instagram">Instagram</option>
+                                                <option value="soundcloud">SoundCloud</option>
+                                            @elseif ($user_curator->curatorUser->curator_signup_from == \App\Templates\ICuratorSignup::PLAYLISTCURATOR)
+                                                <option value="spotify">Spotify</option>
+                                                <option value="soundcloud">SoundCloud</option>
+                                                <option value="deezer">Deezer</option>
+                                                <option value="applemusic">Apple Music</option>
+                                            @elseif ($user_curator->curatorUser->curator_signup_from == \App\Templates\ICuratorSignup::YOUTUBECHANNEL)
+                                                <option value="youtube_channel">Youtube Channel</option>
+                                                <option value="youtube_playlist">Youtube Playlist</option>
+                                            @elseif ($user_curator->curatorUser->curator_signup_from == \App\Templates\ICuratorSignup::JOURNALISTMEDIA
+                                                    || $user_curator->curatorUser->curator_signup_from == \App\Templates\ICuratorSignup::RADIOTV
+                                                    || $user_curator->curatorUser->curator_signup_from == \App\Templates\ICuratorSignup::MEDIA
+                                                    || $user_curator->curatorUser->curator_signup_from == \App\Templates\ICuratorSignup::LABELMANAGER
+                                                    || $user_curator->curatorUser->curator_signup_from == \App\Templates\ICuratorSignup::MONITORPUBLISHERSYNCH
+                                                    || $user_curator->curatorUser->curator_signup_from == \App\Templates\ICuratorSignup::BROOKERBOOKING
+                                                    || $user_curator->curatorUser->curator_signup_from == \App\Templates\ICuratorSignup::SOUNDEXPERTPRODUCER)
+                                                <option value="pro_exeprt">Pro Exeprt</option>
+                                                <option value="sound_expert">Sound expert</option>
+                                                <option value="produce">Produce</option>
+                                                <option value="record_label">Record label</option>
+                                                <option value="manager">Manager</option>
+                                                <option value="music_supervisor">Music supervisor</option>
+                                                <option value="monitor">Monitor</option>
+                                                <option value="publisher">Publisher</option>
+                                                <option value="sync">Sync</option>
+                                            @endif
                                         @endif
-                                    @endif
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row m-t-sm">
-                            <div class="col-md-4 mb-3">
-                                <label for="name" class="text-black">Name:</label>
-                                <input type="text" name="name"
-                                        class="form-control" value="{{ old('name') }}" autofocus>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label for="email" class="text-black">Verified Phone Number:</label>
-                                <input type="text"
-                                        class="form-control" readonly disabled value="{{ !empty($user_curator) ? $user_curator->phone_number : '' }}" autofocus>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label for="email" class="text-black">Upload valid ID/Passport:</label>
-                                <input type="file" name="image" accept="image/*, .pdf"
-                                        class="form-control" value="" autofocus>
-                            </div>
-                        </div>
-                        <div class="row m-t-2">
-                            <div class="col-md-12 mb-3">
-                                <div class="">
-                                    <h5>To speed up the application process, please provide the following information so we can get you approved and up and
-                                        running as a verified, certified member of the UPCOMING SOUNDS team.</h5>
+                                    </select>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row m-t-sm">
-                            <div class="col-md-12 mb-3">
-                                <input type="text" name="information"
-                                        class="form-control" value="{{ old('information') }}" autofocus>
-                            </div>
-                        </div>
-
-                        <div class="row m-t-2">
-                            <div class="col-md-12 mb-3">
-                                <div class="">
-                                    <h5>Explain how your playlists grew in popularity with screenshorts.</h5>
-                                    <span>Provide any proof of monthly activity I.e., Spotify for Artists screenshorts form past months of activity
-                                        or screenshorts from an artist's "Discovered on" section, showing your playlists.
-                                    </span>
+                            <div class="row m-t-sm">
+                                <div class="col-md-4 mb-3">
+                                    <label for="name" class="text-black">Name:</label>
+                                    <input type="text" name="name"
+                                            class="form-control" value="{{ old('name') }}" autofocus>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="email" class="text-black">Verified Phone Number:</label>
+                                    <input type="text" name="phone_number"
+                                            class="form-control" readonly value="{{ !empty($user_curator) ? $user_curator->phone_number : '' }}" autofocus>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="email" class="text-black">Upload valid ID/Passport:</label>
+                                    <input type="file" name="image" accept="image/*, .pdf"
+                                            class="form-control" value="" autofocus>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row m-t-sm">
-                            <div class="col-md-12 mb-3">
-                                <textarea name="descriptions" class="form-control">{{ old('description_details') }}</textarea>
+                            <div class="row m-t-2">
+                                <div class="col-md-12 mb-3">
+                                    <div class="">
+                                        <h5>To speed up the application process, please provide the following information so we can get you approved and up and
+                                            running as a verified, certified member of the UPCOMING SOUNDS team.</h5>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                            <div class="row m-t-sm">
+                                <div class="col-md-12 mb-3">
+                                    <input type="text" name="information"
+                                            class="form-control" value="{{ old('information') }}" autofocus>
+                                </div>
+                            </div>
 
-                        <hr class="mb-4">
-                        <button class="btn circle btn-outline b-primary p-x-md auth_btn Rigister billingInfo" type="submit">Apply</button>
-                    </form>
-                </div>
-            </section>
+                            <div class="row m-t-2">
+                                <div class="col-md-12 mb-3">
+                                    <div class="">
+                                        <h5>Explain how your playlists grew in popularity with screenshorts.</h5>
+                                        <span>Provide any proof of monthly activity I.e., Spotify for Artists screenshorts form past months of activity
+                                            or screenshorts from an artist's "Discovered on" section, showing your playlists.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row m-t-sm">
+                                <div class="col-md-12 mb-3">
+                                    <textarea name="description_details" id="descriptionDetails" class="form-control"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="row m-t-lg">
+                                <div class="col-md-12 mb-2">
+                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3vo4PmB8cVL3B2eb0vgKsd?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6XmeZ0pUoUheuzZTXbFjmA?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0UqEAK9Sbv6rLGzGi5rHHf?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1WSCdUV91ridWUPxEPwq6o?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5folHZZCD9Ioo3Gzu7gfiN?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2jEJ3CCG7v0i8SPIX6oETD?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6OZuv9PMatpxM1E0Duf6wg?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0MKZYlvOGtVAivpTyHEVih?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0tdE2fFez5TZcUIo44owAW?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1Z9qBVuGqsaNHjzsHWnGkH?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                </div>
+                            </div>
+
+                            <hr class="mb-4">
+                            <button class="btn circle btn-outline b-primary p-x-md applyForm basicbtn" type="submit">Apply</button>
+                        </form>
+                    </div>
+                </section>
+            @endif
+
         </div>
 
         {{-- <div class="row-col">
@@ -225,7 +267,7 @@
  {{-- CkEditor --}}
  <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
  <script>
-     CKEDITOR.replace( 'descriptions' );
+     CKEDITOR.replace( 'description_details' );
  </script>
 
 @endsection

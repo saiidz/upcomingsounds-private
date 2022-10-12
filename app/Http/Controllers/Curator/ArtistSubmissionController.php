@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Curator;
 
-use App\Models\CuratorFeature;
 use Illuminate\Http\Request;
+use App\Models\CuratorFeature;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Models\CuratorVerificationForm;
 
 class ArtistSubmissionController extends Controller
 {
@@ -55,6 +56,7 @@ class ArtistSubmissionController extends Controller
      */
     public function getVerified()
     {
+        $curator_verification_form = CuratorVerificationForm::where('user_id', Auth::id())->latest()->first();
         return view('pages.curators.curator-get-verified.get-verified', get_defined_vars());
     }
 }
