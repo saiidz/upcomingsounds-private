@@ -44,4 +44,8 @@ class ArtistUser extends Model
     public function country(){
         return $this->belongsTo(Country::class);
     }
+     // user belongs to country
+     public function artistCountry(){
+        return $this->belongsTo(Country::class,'artist_country_id');
+    }
 }

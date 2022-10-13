@@ -40,6 +40,7 @@ class ArtistController extends Controller
 
     public function profileArtist(User $user)
     {
+        // dd($user);
         return view('admin.pages.artists.artist_view', get_defined_vars());
     }
 }

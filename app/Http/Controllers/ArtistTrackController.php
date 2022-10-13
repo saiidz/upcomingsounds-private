@@ -49,7 +49,7 @@ class ArtistTrackController extends Controller
             'name' => 'required|string',
             'description' => 'required|string',
             'track_thumbnail' => 'required|file|mimes:jpeg,jpg,png,gif|max:2048',
-            'audio' =>'required|file|mimes:mp3|max:15000',
+            'audio' =>'file|mimes:mp3|max:15000',
             'tag'  => 'required',
         ]);
 
@@ -62,11 +62,12 @@ class ArtistTrackController extends Controller
         {
             if(empty($request->audio))
             {
-                return redirect()->back()->with('error','PLease add song because demo is on');
+                return redirect('/artist-profile#add-track')->with('error','PLease add song because demo is on');
             }
         }
 
         $input = $request->all();
+
         $input['user_id'] = auth()->user()->id;
         // $input['youtube_soundcloud_url'] = $request->get('youtube_soundcloud_url');
         // $input['soundcloudUrl']          = $request->get('soundcloudUrl');

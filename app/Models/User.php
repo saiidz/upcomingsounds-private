@@ -49,6 +49,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'trial_ends_at',
         'is_blog',
         'created_at',
+        'last_active_at',
     ];
 
     /**
@@ -70,7 +71,10 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
         'artist_completed_signup' => 'datetime',
         'curator_completed_signup' => 'datetime',
+        'last_active_at' => 'datetime',
     ];
+
+    protected $dates = ['last_active_at'];
 
     // User tags
     public function userTags(){
