@@ -139,6 +139,11 @@ class User extends Authenticatable implements MustVerifyEmail
          $query->where('is_approved',0)->where('type','curator');
      }
 
+     // CuratorVerificationForm
+    public function curatorVerificationForm(){
+        return $this->hasMany(CuratorVerificationForm::class, 'user_id');
+    }
+
 
     // get Referrals
     public function getReferrals()

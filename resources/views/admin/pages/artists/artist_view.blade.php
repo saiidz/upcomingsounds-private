@@ -68,7 +68,15 @@
                         </div>
                         <div class="col s12 m5 quick-action-btns display-flex justify-content-end align-items-center pt-2">
                             @if ($user->is_approved == 0)
-                                <a href="#" class="btn-small btn-light-indigo">Approved</a>
+                                <a href="javascript:void(0)" data-id={{ $user->id }} class="btn-small btn-light-indigo dropdown-item has-icon approved-artist-confirm">
+                                    Approved
+                                </a>
+
+                                <!-- Delete Form -->
+                                <form class="d-none" id="approved_artist_form_{{ $user->id }}" action="{{ route('admin.store.approved.artist', $user->id) }}" method="POST">
+                                    @csrf
+                                </form>
+
                             @endif
                             {{-- <a href="app-email.html" class="btn-small btn-light-indigo"><i class="material-icons">mail_outline</i></a>
                             <a href="user-profile-page.html" class="btn-small btn-light-indigo">Profile</a>
@@ -173,7 +181,13 @@
                                     </tr>
                                     <tr>
                                         <td>Country:</td>
-                                        <td>{{ !empty($user->artistUser) ? (($user->artistUser->country) ? $user->artistUser->country->name : '--') : '--' }}</td>
+
+                                        <td>
+                                            @if (!empty($user->artistUser->country))
+                                                <img class="flag_icon" src="{{asset('images/flags')}}/{{$user->artistUser->country->flag_icon}}.png" alt="{{$user->artistUser->country->flag_icon}}">
+                                            @endif
+
+                                             {{ !empty($user->artistUser) ? (($user->artistUser->country) ? $user->artistUser->country->name : '--') : '--' }}</td>
                                     </tr>
                                     <tr>
                                         <td>Contact:</td>
@@ -212,44 +226,44 @@
                             </table>
                             <h6 class="mb-2 mt-2"><i class="material-icons">link</i> Social Links</h6>
                             <table class="striped">
-                            <tbody>
-                                <tr>
-                                    <td>Instagram:</td>
-                                    <td><a href="{{ !empty($user->artistUser) ? $user->artistUser->instagram_url : '--'  }}" target="_blank">{{ !empty($user->artistUser) ? $user->artistUser->instagram_url : '--'  }}</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Facebook:</td>
-                                    <td><a href="{{ !empty($user->artistUser) ? $user->artistUser->facebook_url : '--'  }}" target="_blank">{{ !empty($user->artistUser) ? $user->artistUser->facebook_url : '--'  }}</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Spotify:</td>
-                                    <td><a href="{{ !empty($user->artistUser) ? $user->artistUser->spotify_url : '--'  }}" target="_blank">{{ !empty($user->artistUser) ? $user->artistUser->spotify_url : '--'  }}</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Soundcloud:</td>
-                                    <td><a href="{{ !empty($user->artistUser) ? $user->artistUser->soundcloud_url : '--'  }}" target="_blank">{{ !empty($user->artistUser) ? $user->artistUser->soundcloud_url : '--'  }}</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Youtube:</td>
-                                    <td><a href="{{ !empty($user->artistUser) ? $user->artistUser->youtube_url : '--'  }}" target="_blank">{{ !empty($user->artistUser) ? $user->artistUser->youtube_url : '--'  }}</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Deezer:</td>
-                                    <td><a href="{{ !empty($user->artistUser) ? $user->artistUser->deezer_url : '--'  }}" target="_blank">{{ !empty($user->artistUser) ? $user->artistUser->deezer_url : '--'  }}</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Bandcamp:</td>
-                                    <td><a href="{{ !empty($user->artistUser) ? $user->artistUser->bandcamp_url : '--'  }}" target="_blank">{{ !empty($user->artistUser) ? $user->artistUser->bandcamp_url : '--'  }}</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Tiktok:</td>
-                                    <td><a href="{{ !empty($user->artistUser) ? $user->artistUser->tiktok_url : '--'  }}" target="_blank">{{ !empty($user->artistUser) ? $user->artistUser->tiktok_url : '--'  }}</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Website:</td>
-                                    <td><a href="{{ !empty($user->artistUser) ? $user->artistUser->website_url : '--'  }}" target="_blank">{{ !empty($user->artistUser) ? $user->artistUser->website_url : '--'  }}</a></td>
-                                </tr>
-                            </tbody>
+                                <tbody>
+                                    <tr>
+                                        <td>Instagram:</td>
+                                        <td><a href="{{ !empty($user->artistUser) ? $user->artistUser->instagram_url : '--'  }}" target="_blank">{{ !empty($user->artistUser) ? $user->artistUser->instagram_url : '--'  }}</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Facebook:</td>
+                                        <td><a href="{{ !empty($user->artistUser) ? $user->artistUser->facebook_url : '--'  }}" target="_blank">{{ !empty($user->artistUser) ? $user->artistUser->facebook_url : '--'  }}</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Spotify:</td>
+                                        <td><a href="{{ !empty($user->artistUser) ? $user->artistUser->spotify_url : '--'  }}" target="_blank">{{ !empty($user->artistUser) ? $user->artistUser->spotify_url : '--'  }}</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Soundcloud:</td>
+                                        <td><a href="{{ !empty($user->artistUser) ? $user->artistUser->soundcloud_url : '--'  }}" target="_blank">{{ !empty($user->artistUser) ? $user->artistUser->soundcloud_url : '--'  }}</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Youtube:</td>
+                                        <td><a href="{{ !empty($user->artistUser) ? $user->artistUser->youtube_url : '--'  }}" target="_blank">{{ !empty($user->artistUser) ? $user->artistUser->youtube_url : '--'  }}</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Deezer:</td>
+                                        <td><a href="{{ !empty($user->artistUser) ? $user->artistUser->deezer_url : '--'  }}" target="_blank">{{ !empty($user->artistUser) ? $user->artistUser->deezer_url : '--'  }}</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bandcamp:</td>
+                                        <td><a href="{{ !empty($user->artistUser) ? $user->artistUser->bandcamp_url : '--'  }}" target="_blank">{{ !empty($user->artistUser) ? $user->artistUser->bandcamp_url : '--'  }}</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tiktok:</td>
+                                        <td><a href="{{ !empty($user->artistUser) ? $user->artistUser->tiktok_url : '--'  }}" target="_blank">{{ !empty($user->artistUser) ? $user->artistUser->tiktok_url : '--'  }}</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Website:</td>
+                                        <td><a href="{{ !empty($user->artistUser) ? $user->artistUser->website_url : '--'  }}" target="_blank">{{ !empty($user->artistUser) ? $user->artistUser->website_url : '--'  }}</a></td>
+                                    </tr>
+                                </tbody>
                             </table>
 
                         </div>

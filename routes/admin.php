@@ -35,12 +35,16 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
     Route::get('artist-approved', [ArtistController::class,'approvedArtist'])->name('approved.artist');
     Route::get('artist-pending', [ArtistController::class,'pendingArtist'])->name('pending.artist');
     Route::get('artist-profile/{user}',[ArtistController::class,'profileArtist'])->name('artist.profile');
+    Route::post('store-approved-artist/{user}', [ArtistController::class,'storeApprovedArtist'])->name('store.approved.artist');
 
     // Curator Route
     Route::get('curator-approved', [CuratorController::class,'approvedCurator'])->name('approved.curator');
     Route::get('curator-pending', [CuratorController::class,'pendingCurator'])->name('pending.curator');
     Route::get('curator-profile/{user}',[CuratorController::class,'profileCurator'])->name('curator.profile');
     Route::get('curator-verification', [CuratorController::class,'verificationCurator'])->name('verification.curator');
+    Route::post('store-approved-curator/{user}', [CuratorController::class,'storeApprovedCurator'])->name('store.approved.curator');
+    Route::get('curator-verification/{user}',[CuratorController::class,'curatorVerifcationShow'])->name('curator.verification.show');
+    Route::post('store-verified-curator/{user}', [CuratorController::class,'storeVerifiedCurator'])->name('store.verified.curator');
 
 //
 //    // Bidders route

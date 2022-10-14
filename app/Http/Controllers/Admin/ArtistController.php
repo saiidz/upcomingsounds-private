@@ -43,4 +43,22 @@ class ArtistController extends Controller
         // dd($user);
         return view('admin.pages.artists.artist_view', get_defined_vars());
     }
+
+    /**
+     * storeApprovedArtist function
+     *
+     * @return void
+     */
+
+    public function storeApprovedArtist(User $user)
+    {
+        if(!empty($user))
+        {
+            $user->update([
+                'is_approved' => 1
+            ]);
+        }
+        return redirect()->back()->with('success','Artist Approved successfully');
+    }
+
 }

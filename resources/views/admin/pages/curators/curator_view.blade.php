@@ -1,7 +1,7 @@
 @extends('admin.layouts.contentLayoutMaster')
 
 {{-- page title --}}
-@section('title','Artist Profile')
+@section('title','Curator Profile')
 
 @section('vendor-style')
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/data-tables/css/jquery.dataTables.min.css')}}">
@@ -26,10 +26,10 @@
 			<div class="container">
 				<div class="row">
 					<div class="col s10 m6 l6">
-						<h5 class="breadcrumbs-title mt-0 mb-0"><span>Artist Profile</span></h5>
+						<h5 class="breadcrumbs-title mt-0 mb-0"><span>Curator Profile</span></h5>
 						<ol class="breadcrumbs mb-0">
                             @include('admin.panels.breadcrumbs')
-							<li class="breadcrumb-item active">Artist Profile </li>
+							<li class="breadcrumb-item active">Curator Profile </li>
 						</ol>
 					</div>
 				</div>
@@ -45,25 +45,39 @@
                     <div class="row">
                         <div class="col s12 m7">
                         <div class="display-flex media">
-                            <a href="#" class="avatar">
-                            <img src="../../../app-assets/images/avatar/avatar-15.png" alt="users view avatar" class="z-depth-4 circle"
-                                height="64" width="64">
+                            <a href="{{URL('/')}}/uploads/profile/{{$user->profile}}" target="_blank" class="avatar">
+                                @if(!empty($user->profile))
+                                    <img src="{{URL('/')}}/uploads/profile/{{$user->profile}}" alt="users view avatar" class="z-depth-4 circle"
+                                    height="64" width="64">
+                                @else
+                                    <img src="../../../app-assets/images/avatar/avatar-15.png" alt="users view avatar" class="z-depth-4 circle"
+                                        height="64" width="64">
+                                @endif
+
                             </a>
                             <div class="media-body">
-                            <h6 class="media-heading">
-                                <span class="users-view-name">Dean Stanley </span>
-                                <span class="grey-text">@</span>
-                                <span class="users-view-username grey-text">candy007</span>
-                            </h6>
-                            <span>ID:</span>
-                            <span class="users-view-id">305</span>
+                                <h6 class="media-heading">
+                                    <span class="users-view-name">{{ $user->name ?? '--' }}</span>
+                                    {{-- <span class="grey-text">@</span>
+                                    <span class="users-view-username grey-text">candy007</span> --}}
+                                </h6>
+                                <span>ID:</span>
+                                <span class="users-view-id">{{ $user->id ?? '--' }}</span>
                             </div>
                         </div>
                         </div>
                         <div class="col s12 m5 quick-action-btns display-flex justify-content-end align-items-center pt-2">
-                        <a href="app-email.html" class="btn-small btn-light-indigo"><i class="material-icons">mail_outline</i></a>
-                        <a href="user-profile-page.html" class="btn-small btn-light-indigo">Profile</a>
-                        <a href="page-users-edit.html" class="btn-small indigo">Edit</a>
+                            @if ($user->is_approved == 0)
+                                <a href="javascript:void(0)" data-id={{ $user->id }} class="btn-small btn-light-indigo dropdown-item has-icon approved-curator-confirm">
+                                    Approved
+                                </a>
+
+                                <!-- Delete Form -->
+                                <form class="d-none" id="approved_curator_form_{{ $user->id }}" action="{{ route('admin.store.approved.curator', $user->id) }}" method="POST">
+                                    @csrf
+                                </form>
+
+                            @endif
                         </div>
                     </div>
                     </div>
@@ -74,65 +88,59 @@
                         <div class="row">
                         <div class="col s12 m4">
                             <table class="striped">
-                            <tbody>
-                                <tr>
-                                <td>Registered:</td>
-                                <td>01/01/2019</td>
-                                </tr>
-                                <tr>
-                                <td>Latest Activity:</td>
-                                <td class="users-view-latest-activity">30/04/2019</td>
-                                </tr>
-                                <tr>
-                                <td>Verified:</td>
-                                <td class="users-view-verified">Yes</td>
-                                </tr>
-                                <tr>
-                                <td>Role:</td>
-                                <td class="users-view-role">Staff</td>
-                                </tr>
-                                <tr>
-                                <td>Status:</td>
-                                <td><span class=" users-view-status chip green lighten-5 green-text">Active</span></td>
-                                </tr>
-                            </tbody>
+                                <tbody>
+                                    <tr>
+                                    <td>Registered:</td>
+                                    <td>{{ getDateFormat($user->created_at) ?? '--' }}</td>
+                                    </tr>
+                                    <tr>
+                                    <td>Latest Activity:</td>
+                                    <td class="users-view-latest-activity">{{ !empty($user->last_active_at) ? getDateFormat($user->last_active_at) : '--' }}</td>
+                                    </tr>
+                                    <tr>
+                                    <td>Verified:</td>
+                                    <td class="users-view-verified">{{ ($user->is_verified == 1) ? 'Yes' : 'No' }}</td>
+                                    </tr>
+                                    <tr>
+                                    <td>Role:</td>
+                                    <td class="users-view-role">{{ ($user->type == 'curator') ? 'Curator' : '--' }}</td>
+                                    </tr>
+                                    <tr>
+                                    <td>Status:</td>
+                                    <td>
+                                        @if ($user->is_approved == 1)
+                                            <span class=" users-view-status chip green lighten-5 green-text">Approved</span>
+                                        @else
+                                            <span class=" users-view-status chip red lighten-5 red-text">Pending</span>
+                                        @endif
+
+                                    </td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                         <div class="col s12 m8">
                             <table class="responsive-table">
-                            <thead>
-                                <tr>
-                                <th>Module Permission</th>
-                                <th>Read</th>
-                                <th>Write</th>
-                                <th>Create</th>
-                                <th>Delete</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                <td>Users</td>
-                                <td>Yes</td>
-                                <td>No</td>
-                                <td>No</td>
-                                <td>Yes</td>
-                                </tr>
-                                <tr>
-                                <td>Articles</td>
-                                <td>No</td>
-                                <td>Yes</td>
-                                <td>No</td>
-                                <td>Yes</td>
-                                </tr>
-                                <tr>
-                                <td>Staff</td>
-                                <td>Yes</td>
-                                <td>Yes</td>
-                                <td>No</td>
-                                <td>No</td>
-                                </tr>
-                            </tbody>
-                            </table>
+                                <thead>
+                                    <tr>
+                                        <th>Genres</th>
+                                    </tr>
+                                </thead>
+                                    <tbody>
+                                        @if(count($user->curatorUserTags) > 0)
+                                            @php
+                                                $userTags = $user->curatorUserTags->chunk(6);
+                                            @endphp
+                                            @foreach($userTags as $tags)
+                                                <tr>
+                                                    @foreach($tags as $tag)
+                                                        <td>{{$tag->curatorFeatureTag->name}}</td>
+                                                    @endforeach
+                                                </tr>
+                                            @endforeach
+                                        @endif
+                                    </tbody>
+                                </table>
                         </div>
                         </div>
                     </div>
@@ -143,76 +151,113 @@
                     <div class="card">
                     <div class="card-content">
                         <div class="row indigo lighten-5 border-radius-4 mb-2">
-                        <div class="col s12 m4 users-view-timeline">
-                            <h6 class="indigo-text m-0">Posts: <span>125</span></h6>
-                        </div>
-                        <div class="col s12 m4 users-view-timeline">
-                            <h6 class="indigo-text m-0">Followers: <span>534</span></h6>
-                        </div>
-                        <div class="col s12 m4 users-view-timeline">
-                            <h6 class="indigo-text m-0">Following: <span>256</span></h6>
-                        </div>
+                            <div class="col s12 m4 users-view-timeline">
+                                <h6 class="indigo-text m-0">Tracks: <span>0</span></h6>
+                            </div>
+                            <div class="col s12 m4 users-view-timeline">
+                                <h6 class="indigo-text m-0">Lists: <span>0</span></h6>
+                            </div>
+                            <div class="col s12 m4 users-view-timeline">
+                                <h6 class="indigo-text m-0">Saved: <span>0</span></h6>
+                            </div>
                         </div>
                         <div class="row">
                         <div class="col s12">
                             <table class="striped">
-                            <tbody>
-                                <tr>
-                                <td>Username:</td>
-                                <td class="users-view-username">dean3004</td>
-                                </tr>
-                                <tr>
-                                <td>Name:</td>
-                                <td class="users-view-name">Dean Stanley</td>
-                                </tr>
-                                <tr>
-                                <td>E-mail:</td>
-                                <td class="users-view-email">deanstanley@gmail.com</td>
-                                </tr>
-                                <tr>
-                                <td>Comapny:</td>
-                                <td>XYZ Corp. Ltd.</td>
-                                </tr>
+                                <tbody>
+                                    <tr>
+                                        <td>Name:</td>
+                                        <td class="users-view-name">{{ $user->name ?? '--' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>E-mail:</td>
+                                        <td class="users-view-email">{{ $user->email ?? '--' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Country:</td>
 
-                            </tbody>
+                                        <td>
+                                            @if (!empty($user->curatorUser->country))
+                                                <img class="flag_icon" src="{{asset('images/flags')}}/{{$user->curatorUser->country->flag_icon}}.png" alt="{{$user->curatorUser->country->flag_icon}}">
+                                            @endif
+
+                                             {{ !empty($user->curatorUser) ? (($user->curatorUser->country) ? $user->curatorUser->country->name : '--') : '--' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Contact:</td>
+                                        <td>{{ $user->phone_number ?? '--' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Address:</td>
+                                        <td>{{ $user->address ?? '--' }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h6 class="mb-2 mt-2"><i class="material-icons">error_outline</i> TasteMaker Info</h6>
+                            <table class="striped">
+                                <tbody>
+                                    <tr>
+                                        <td>TasteMaker Name:</td>
+                                        <td class="users-view-name">{{ !empty($user->curatorUser) ? $user->curatorUser->tastemaker_name : '--'  }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TasteMaker Signup From:</td>
+                                        <td class="users-view-email">{{ !empty($user->curatorUser) ? Str::ucfirst($user->curatorUser->curator_signup_from) : '--'  }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Share Music:</td>
+                                        <td class="users-view-email">{{ !empty($user->curatorUser) ? Str::ucfirst($user->curatorUser->share_music) : '--'  }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h6 class="mb-2 mt-2"><i class="material-icons">error_outline</i> TasteMaker Bio</h6>
+                            <table class="striped">
+                                <tbody>
+                                    <tr>
+                                        <td>{{ !empty($user->curatorUser) ? $user->curatorUser->curator_bio : '---'  }}</td>
+                                    </tr>
+                                </tbody>
                             </table>
                             <h6 class="mb-2 mt-2"><i class="material-icons">link</i> Social Links</h6>
                             <table class="striped">
-                            <tbody>
-                                <tr>
-                                <td>Twitter:</td>
-                                <td><a href="#">https://www.twitter.com/</a></td>
-                                </tr>
-                                <tr>
-                                <td>Facebook:</td>
-                                <td><a href="#">https://www.facebook.com/</a></td>
-                                </tr>
-                                <tr>
-                                <td>Instagram:</td>
-                                <td><a href="#">https://www.instagram.com/</a></td>
-                                </tr>
-                            </tbody>
-                            </table>
-                            <h6 class="mb-2 mt-2"><i class="material-icons">error_outline</i> Personal Info</h6>
-                            <table class="striped">
-                            <tbody>
-                                <tr>
-                                <td>Birthday:</td>
-                                <td>03/04/1990</td>
-                                </tr>
-                                <tr>
-                                <td>Country:</td>
-                                <td>USA</td>
-                                </tr>
-                                <tr>
-                                <td>Languages:</td>
-                                <td>English</td>
-                                </tr>
-                                <tr>
-                                <td>Contact:</td>
-                                <td>+(305) 254 24668</td>
-                                </tr>
-                            </tbody>
+                                <tbody>
+                                    <tr>
+                                        <td>Instagram:</td>
+                                        <td><a href="{{ !empty($user->curatorUser) ? $user->curatorUser->instagram_url : '--'  }}" target="_blank">{{ !empty($user->curatorUser) ? $user->curatorUser->instagram_url : '--'  }}</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Facebook:</td>
+                                        <td><a href="{{ !empty($user->curatorUser) ? $user->curatorUser->facebook_url : '--'  }}" target="_blank">{{ !empty($user->curatorUser) ? $user->curatorUser->facebook_url : '--'  }}</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Spotify:</td>
+                                        <td><a href="{{ !empty($user->curatorUser) ? $user->curatorUser->spotify_url : '--'  }}" target="_blank">{{ !empty($user->curatorUser) ? $user->curatorUser->spotify_url : '--'  }}</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Soundcloud:</td>
+                                        <td><a href="{{ !empty($user->curatorUser) ? $user->curatorUser->soundcloud_url : '--'  }}" target="_blank">{{ !empty($user->curatorUser) ? $user->curatorUser->soundcloud_url : '--'  }}</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Youtube:</td>
+                                        <td><a href="{{ !empty($user->curatorUser) ? $user->curatorUser->youtube_url : '--'  }}" target="_blank">{{ !empty($user->curatorUser) ? $user->curatorUser->youtube_url : '--'  }}</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Deezer:</td>
+                                        <td><a href="{{ !empty($user->curatorUser) ? $user->curatorUser->deezer_url : '--'  }}" target="_blank">{{ !empty($user->curatorUser) ? $user->curatorUser->deezer_url : '--'  }}</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Apple:</td>
+                                        <td><a href="{{ !empty($user->curatorUser) ? $user->curatorUser->apple_url : '--'  }}" target="_blank">{{ !empty($user->curatorUser) ? $user->curatorUser->apple_url : '--'  }}</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tiktok:</td>
+                                        <td><a href="{{ !empty($user->curatorUser) ? $user->curatorUser->tiktok_url : '--'  }}" target="_blank">{{ !empty($user->curatorUser) ? $user->curatorUser->tiktok_url : '--'  }}</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Website:</td>
+                                        <td><a href="{{ !empty($user->curatorUser) ? $user->curatorUser->website_url : '--'  }}" target="_blank">{{ !empty($user->curatorUser) ? $user->curatorUser->website_url : '--'  }}</a></td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                         </div>

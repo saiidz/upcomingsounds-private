@@ -1,7 +1,7 @@
 @extends('admin.layouts.contentLayoutMaster')
 
 {{-- page title --}}
-@section('title','Curator Approved')
+@section('title','Curator Verifications')
 
 @section('vendor-style')
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/data-tables/css/jquery.dataTables.min.css')}}">
@@ -25,10 +25,10 @@
 			<div class="container">
 				<div class="row">
 					<div class="col s10 m6 l6">
-						<h5 class="breadcrumbs-title mt-0 mb-0"><span>Curator Approved</span></h5>
+						<h5 class="breadcrumbs-title mt-0 mb-0"><span>Curator Verifications</span></h5>
 						<ol class="breadcrumbs mb-0">
                             @include('admin.panels.breadcrumbs')
-							<li class="breadcrumb-item active">Curator Approved </li>
+							<li class="breadcrumb-item active">Curator Verifications </li>
 						</ol>
 					</div>
 				</div>
@@ -45,7 +45,40 @@
 									<h4 class="card-title">Page Length Options</h4>
 									<div class="row">
 										<div class="col s12 responsive-table">
-											<h1>Under process</h1>
+											<table id="page-length-option" class="table">
+                                                <thead>
+                                                  <tr>
+                                                    <th></th>
+                                                    <th>Name</th>
+                                                    <th>Email</th>
+                                                    <th>Verified</th>
+                                                    <th>Role</th>
+                                                    <th>View</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @php
+                                                        $i = 1
+                                                    @endphp
+                                                    @if (!empty($user_curators))
+                                                        @foreach ($user_curators as $user_curator)
+                                                            @if (!empty($user_curator->curatorVerificationForm) && (count($user_curator->curatorVerificationForm) > 0))
+                                                                <tr>
+                                                                    <td>{{ $i++ }}</td>
+                                                                    <td>
+                                                                        <a href="{{ route('admin.curator.profile', $user_curator->id) }}">{{ $user_curator->name ?? '' }}</a>
+                                                                    </td>
+                                                                    <td>{{ $user_curator->email }}</td>
+                                                                    <td>{{ ($user_curator->is_verified == 1) ? 'Yes' : 'No' }}</td>
+                                                                    <td>{{ ($user_curator->type == 'curator') ? 'Curator' : '--' }}</td>
+                                                                    <td><a href="{{ route('admin.curator.verification.show', $user_curator->id) }}"><i class="material-icons">remove_red_eye</i></a></td>
+                                                                </tr>
+                                                            @endif
+
+                                                        @endforeach
+                                                    @endif
+												</tbody>
+                                            </table>
 										</div>
 									</div>
 								</div>
