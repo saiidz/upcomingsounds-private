@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
+use App\Helpers\Helper;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Templates\IMessageTemplates;
 use App\Models\CuratorVerificationForm;
 
 class CuratorController extends Controller
@@ -105,7 +107,46 @@ class CuratorController extends Controller
             $user->update([
                 'is_verified' => 1
             ]);
+
+            if($user->phone_number)
+            {
+                Helper::twilioOtp($user->phone_number, IMessageTemplates::CURATORVERIFYMESSAGE);
+            }
         }
         return redirect()->back()->with('success','Curator Verified successfully');
+    }
+
+    /**
+     * storeRejectedCurator function
+     *
+     * @return void
+     */
+
+    public function storeRejectedCurator(User $user)
+    {
+
+        if(!empty($user))
+        {
+            if(!empty($user->curatorVerificationForm))
+            {
+                $count_apply = $user->curatorVerificationForm->last()->apply_count;
+
+                if($count_apply == 3)
+                {
+                    $user->update([
+                        'is_rejected' => 1
+                    ]);
+
+                    if($user->phone_number)
+                        Helper::twilioOtp($user->phone_number, IMessageTemplates::CURATORREJECTEDCOMPLETEDMESSAGE);
+                }else{
+                    if($user->phone_number)
+                        Helper::twilioOtp($user->phone_number, IMessageTemplates::CURATORREJECTEDMESSAGE);
+
+                }
+            }
+
+        }
+        return redirect()->back()->with('success','Curator Rejected successfully and send message to curator.');
     }
 }

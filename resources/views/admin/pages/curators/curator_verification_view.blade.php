@@ -68,7 +68,20 @@
                                         @csrf
                                     </form>
                                 @else
-                                    <span class="btn-small btn-light-indigo dropdown-item has-icon">Verified</span>
+                                    <span class="btn disabled">Verified</span>
+                                @endif
+
+                                @if ($user->is_rejected == 0 && $user->is_verified == 0)
+                                    <a href="javascript:void(0)" data-id={{ $user->id }} class="btn-small btn-light-red dropdown-item has-icon rejected-curator-confirm">
+                                        Rejected
+                                    </a>
+
+                                    <!-- Delete Form -->
+                                    <form class="d-none" id="rejected_curator_form_{{ $user->id }}" action="{{ route('admin.store.rejected.curator', $user->id) }}" method="POST">
+                                        @csrf
+                                    </form>
+                                @else
+
                                 @endif
                             </div>
                         </div>
