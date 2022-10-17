@@ -275,7 +275,7 @@
                         </li>
 
                         <li>
-                            <a href="javascript:void(0)">
+                            <a href="{{ url('how-to-help') }}">
                               <span class="nav-icon">
                                 <i class="fa fa-question-circle"></i>
                               </span>

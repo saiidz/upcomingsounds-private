@@ -22,11 +22,6 @@
             </a>
         </li>
 
-        <li class="bold"><a class="waves-effect waves-cyan  {{ Request::is('admin/artist-features*') || Request::is('admin/artist-sub-feature*') ? 'active' : '' }}" href="{{ route('admin.artist-features.index') }}">
-            <i class="material-icons">image_aspect_ratio</i>
-            <span class="menu-title" data-i18n="Form Layouts">Artist Features</span></a>
-        </li>
-
         <li class="bold {{ Request::is('admin/artist-approved') || Request::is('admin/artist-pending') || Request::is('admin/artist-profile*') ? 'active open' : '' }}">
             <a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)">
                 <i class="material-icons">face</i>
@@ -44,6 +39,12 @@
                         <a class="{{ Request::is('admin/artist-pending') ? 'active' : '' }}" href="{{ route('admin.pending.artist') }}">
                             <i class="material-icons">radio_button_unchecked</i>
                             <span data-i18n="List">Artist Pending</span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('admin/artist-features*') || Request::is('admin/artist-sub-feature*') ? 'active' : '' }}">
+                        <a class="waves-effect waves-cyan  {{ Request::is('admin/artist-features*') || Request::is('admin/artist-sub-feature*') ? 'active' : '' }}" href="{{ route('admin.artist-features.index') }}">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            <span data-i18n="List">Artist Features</span>
                         </a>
                     </li>
                 </ul>
