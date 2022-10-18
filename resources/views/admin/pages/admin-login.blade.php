@@ -22,6 +22,17 @@
     <!-- END: Page Level CSS-->
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/custom/custom.css')}}">
+    <style>
+        .cookiealert
+        {
+            padding: 15px;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: 0.25rem;
+            text-align: center;
+            display: block!important;
+        }
+    </style>
     <!-- END: Custom CSS-->
 </head>
 <!-- END: Head-->

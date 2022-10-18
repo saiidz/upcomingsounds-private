@@ -13,3 +13,13 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 .editDell{
     height: 24px;
 }
+
+.cookiealert
+{
+    padding: 15px;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    text-align: center;
+    display: block!important;
+}
