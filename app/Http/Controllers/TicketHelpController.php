@@ -50,7 +50,7 @@ class TicketHelpController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-dd('a');
+
         $input = $request->all();
         $input['ticket_no']  = $this->generateAccNo();
         $input['country_id'] = $request->get('country_name');
