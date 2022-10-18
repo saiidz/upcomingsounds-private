@@ -130,7 +130,7 @@
                                             <tr>
                                                 <td>
                                                     <a href="#modal2" class="pop modal-trigger">
-                                                        <img src="{{URL('/')}}/uploads/tickets/{{$ticket_help->image}}" height="300"
+                                                        <img src="{{URL('/')}}/uploads/tickets/{{$ticket_help->image}}" height="300" width="100%"
                                                         class="w-100" img-fluid stye="object-fit:container"/>
                                                     </a>
                                                 </td>
