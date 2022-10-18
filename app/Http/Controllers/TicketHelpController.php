@@ -37,7 +37,7 @@ class TicketHelpController extends Controller
             'name'                 => 'required|string',
             'email'                => 'required|string|email|max:255',
             'description'          => 'required',
-            'phone_number'         => 'required|numeric',
+            'phone_number'         => 'required|numeric|max:14',
             'ticket_issue'         => 'required',
             'country_name'         => 'required',
             'image'                => 'required',
@@ -50,7 +50,7 @@ class TicketHelpController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-
+dd('a');
         $input = $request->all();
         $input['ticket_no']  = $this->generateAccNo();
         $input['country_id'] = $request->get('country_name');
