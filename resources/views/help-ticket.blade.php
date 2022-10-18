@@ -62,7 +62,7 @@
                                                     <i class="fa-wrapper fa fa-phone"></i>
                                                 </span>
                                             </label>
-                                            <input type="number" name="phone_number" value="{{old('phone_number')}}" required class="form-group-input" placeholder="Enter your phone number" />
+                                            <input type="number" name="phone_number" value="{{old('phone_number')}}" required class="form-group-input" placeholder="Enter your phone number with country code" />
                                             @error('phone_number')
                                                 <small class="red-text" role="alert">
                                                     {{ $message }}

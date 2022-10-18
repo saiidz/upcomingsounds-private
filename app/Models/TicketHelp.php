@@ -16,6 +16,8 @@ class TicketHelp extends Model
         'email',
         'description',
         'phone_number',
+        'ticket_no',
+        'status',
         'ticket_issue',
         'country_id',
         'image',

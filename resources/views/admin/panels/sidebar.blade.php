@@ -87,6 +87,14 @@
                 </ul>
             </div>
         </li>
+
+        <li class="bold">
+            <a class="waves-effect waves-cyan {{Request::is('admin/tickets') || Request::is('admin/ticket*') ? 'active' : ''}}" href="{{route('admin.help.ticket')}}">
+                <i class="material-icons">help_outline</i>
+                <span class="menu-title" data-i18n="Support">Tickets</span>
+            </a>
+        </li>
+
         {{-- <li class="bold {{Request::segment(2) == 'categories' ? 'active open' : ''}}"><a class="collapsible-header waves-effect waves-cyan {{Request::segment(2) == 'categories'  && Request::segment(4) == 'edit' ? 'active' : ''}}" href="JavaScript:void(0)"><i class="material-icons">view_agenda</i><span class="menu-title" data-i18n="Categories">Category</span></a>
             <div class="collapsible-body">
                 <ul class="collapsible collapsible-sub" data-collapsible="accordion">

@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ArtistController;
 use App\Http\Controllers\Admin\CuratorController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SystemUserController;
+use App\Http\Controllers\Admin\TicketHelpController;
 use App\Http\Controllers\Admin\ArtistFeatureController;
 use App\Http\Controllers\Admin\CuratorFeatureController;
 
@@ -46,6 +47,11 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
     Route::get('curator-verification/{user}',[CuratorController::class,'curatorVerifcationShow'])->name('curator.verification.show');
     Route::post('store-verified-curator/{user}', [CuratorController::class,'storeVerifiedCurator'])->name('store.verified.curator');
     Route::post('store-rejected-curator/{user}', [CuratorController::class,'storeRejectedCurator'])->name('store.rejected.curator');
+
+    // Help Tickets Route
+    Route::get('tickets', [TicketHelpController::class,'helpTicket'])->name('help.ticket');
+    Route::get('ticket/{ticket_help}',[TicketHelpController::class,'viewTicketHelp'])->name('view.ticket.help');
+    Route::post('store-ticket/{ticket_help}', [TicketHelpController::class,'storeTicketHelp'])->name('store.ticket.help');
 
 //
 //    // Bidders route
