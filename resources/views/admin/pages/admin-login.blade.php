@@ -32,6 +32,16 @@
             text-align: center;
             display: block!important;
         }
+        .btn.acceptcookies:not([disabled]):hover, .btn.acceptcookies:not([disabled]):focus, .btn.acceptcookies:not([disabled]).active {
+            box-shadow: inset 0 -10rem 0px rgb(158 158 158 / 10%);
+        }
+        .cookiealert .acceptcookies {
+            margin-left: 10px;
+            vertical-align: baseline;
+        }
+        .rounded, .circle {
+            border-radius: 500px;
+        }
     </style>
     <!-- END: Custom CSS-->
 </head>
