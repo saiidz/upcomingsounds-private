@@ -95,6 +95,54 @@
             </a>
         </li>
 
+        <li class="bold">
+            <a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)">
+                <i class="material-icons">content_paste</i>
+                <span class="menu-title" data-i18n="Pages">Frontend Settings</span>
+            </a>
+            <div class="collapsible-body">
+                <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+                    <li class="">
+                        <a class="" href="#!">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            <span data-i18n="List">Home Page</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a class="" href="#!">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            <span data-i18n="List">About Us Page</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a class="" href="#!">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            <span data-i18n="List">Contact Page</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a class="" href="#!">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            <span data-i18n="List">For Artists Page</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a class="" href="#!">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            <span data-i18n="List">For Curators Page</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="bold">
+            <a class="waves-effect waves-cyan" href="#!">
+                <i class="material-icons">settings</i>
+                <span class="menu-title" data-i18n="Settings">Theme Settings</span>
+            </a>
+        </li>
+
         {{-- <li class="bold {{Request::segment(2) == 'categories' ? 'active open' : ''}}"><a class="collapsible-header waves-effect waves-cyan {{Request::segment(2) == 'categories'  && Request::segment(4) == 'edit' ? 'active' : ''}}" href="JavaScript:void(0)"><i class="material-icons">view_agenda</i><span class="menu-title" data-i18n="Categories">Category</span></a>
             <div class="collapsible-body">
                 <ul class="collapsible collapsible-sub" data-collapsible="accordion">
