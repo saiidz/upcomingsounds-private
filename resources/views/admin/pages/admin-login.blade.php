@@ -35,6 +35,9 @@
         .btn.acceptcookies:not([disabled]):hover, .btn.acceptcookies:not([disabled]):focus, .btn.acceptcookies:not([disabled]).active {
             box-shadow: inset 0 -10rem 0px rgb(158 158 158 / 10%);
         }
+        .acceptcookies {
+            background-color: #1f1f25 !;
+        }
         .cookiealert .acceptcookies {
             margin-left: 10px;
             vertical-align: baseline;
