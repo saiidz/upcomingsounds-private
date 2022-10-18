@@ -52,6 +52,7 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
     Route::get('tickets', [TicketHelpController::class,'helpTicket'])->name('help.ticket');
     Route::get('ticket/{ticket_help}',[TicketHelpController::class,'viewTicketHelp'])->name('view.ticket.help');
     Route::post('store-ticket/{ticket_help}', [TicketHelpController::class,'storeTicketHelp'])->name('store.ticket.help');
+    Route::delete('ticket/{id}/delete', [TicketHelpController::class,'deleteTicket'])->name('delete.ticket.help');
 
 //
 //    // Bidders route

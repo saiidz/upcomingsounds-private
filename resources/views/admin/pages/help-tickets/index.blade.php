@@ -77,7 +77,17 @@
                                                                         </span>
                                                                     @endif
                                                                 </td>
-                                                                <td><a href="{{ route('admin.view.ticket.help', $ticket_help->id) }}"><i class="material-icons">remove_red_eye</i></a></td>
+                                                                <td>
+                                                                    <a href="{{ route('admin.view.ticket.help', $ticket_help->id) }}"><i class="material-icons">remove_red_eye</i></a>
+                                                                    <a class="dropdown-item has-icon delete-confirm" href="javascript:void(0)" data-id={{ $ticket_help->id }}>
+                                                                        <img class="editDell" src="{{asset('images/delete_forever.svg')}}">
+                                                                    </a>
+                                                                    <!-- Delete Form -->
+                                                                    <form class="d-none" id="delete_form_{{ $ticket_help->id }}" action="{{ route('admin.delete.ticket.help', $ticket_help->id) }}" method="POST">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                    </form>
+                                                                </td>
                                                             </tr>
                                                         @endforeach
                                                     @endif

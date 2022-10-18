@@ -55,4 +55,18 @@ class TicketHelpController extends Controller
         }
         return redirect()->back()->with('success','Ticket solved successfully');
     }
+
+
+     /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function deleteTicket($id)
+    {
+        TicketHelp::where('id',$id)->delete();
+
+        return redirect()->back()->with('success','Ticket deleted successfully');
+    }
 }
