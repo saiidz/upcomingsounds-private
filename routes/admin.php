@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ArtistController;
+use App\Http\Controllers\Admin\OptionController;
 use App\Http\Controllers\Admin\CuratorController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SystemUserController;
@@ -54,6 +55,9 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
     Route::post('store-ticket/{ticket_help}', [TicketHelpController::class,'storeTicketHelp'])->name('store.ticket.help');
     Route::delete('ticket/{id}/delete', [TicketHelpController::class,'deleteTicket'])->name('delete.ticket.help');
 
+    //Theme settings
+    Route::get('theme/settings', [OptionController::class,'settingsEdit'])->name('theme.settings');
+    Route::post('theme/settings-store', [OptionController::class,'settingsUpdate'])->name('theme.settings.store');
 //
 //    // Bidders route
 //    Route::resource('bidders',  BidderController::class);

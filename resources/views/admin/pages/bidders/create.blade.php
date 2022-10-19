@@ -64,7 +64,7 @@
                                                 </div>
                                                 <div class="row password_shows">
                                                     <div class="input-field col m6 s12">
-                                                       
+
 
                                                         <input id="password" class=" form-control validate @error('password') is-invalid @enderror"
                                                                name="password" type="password">
@@ -82,7 +82,7 @@
                                                             alt=""
                                                             class="password-toggle showing"
                                                         />
-                
+
                                                         <img
                                                             src="{{asset('images/show-pas_black.svg')}}"
                                                             alt=""

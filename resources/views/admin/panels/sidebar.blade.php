@@ -137,7 +137,7 @@
         </li>
 
         <li class="bold">
-            <a class="waves-effect waves-cyan" href="#!">
+            <a class="waves-effect waves-cyan {{Request::is('admin/theme/settings') ? 'active' : ''}}" href="{{ route('admin.theme.settings') }}">
                 <i class="material-icons">settings</i>
                 <span class="menu-title" data-i18n="Settings">Theme Settings</span>
             </a>
