@@ -35,7 +35,7 @@
                     {{--                            <circle cx="24" cy="24" r="3" fill="#000000"/>--}}
                     {{--                        </svg>--}}
 
-                    <img src="{{asset('images/logo.png')}}" alt="">
+                    <img src="{{asset(!empty($theme->logo) ? $theme->logo : 'images/logo.png')}}" alt="">
                     {{--                        <img src="{{asset('images/logo.png')}}" alt="." class="hide">--}}
                     {{--                        <span class="hidden-folded inline">pulse</span>--}}
                 </a>

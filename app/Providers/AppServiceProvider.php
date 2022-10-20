@@ -2,12 +2,13 @@
 
 namespace App\Providers;
 
-use App\Models\ArtistTrack;
 use Carbon\Carbon;
+use App\Models\Option;
+use App\Models\ArtistTrack;
 use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -45,6 +46,16 @@ class AppServiceProvider extends ServiceProvider
                     $user_curator = Auth::user();
                     View::share('user_curator', $user_curator);
                 }
+            }
+        });
+
+        // theme setting composer
+        View::composer('*', function ($view) {
+            $theme = Option::where('key', 'theme_settings')->first();
+            if(!empty($theme))
+            {
+                $theme = json_decode($theme->value);
+                View::share('theme', $theme);
             }
         });
 
