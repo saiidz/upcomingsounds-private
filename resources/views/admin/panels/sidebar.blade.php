@@ -95,7 +95,8 @@
             </a>
         </li>
 
-        <li class="bold {{ Request::is('admin/frontend/settings/home-section') ? 'active open' : '' }}">
+        <li class="bold {{ Request::is('admin/frontend/settings/home-section')
+        || Request::is('admin/frontend/settings/about-section') ? 'active open' : '' }}">
             <a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)">
                 <i class="material-icons">face</i>
                 <span class="menu-title" data-i18n="User">Frontend Settings</span>
@@ -108,8 +109,8 @@
                             <span data-i18n="List">Home Page</span>
                         </a>
                     </li>
-                    <li class="">
-                        <a class="" href="#!">
+                    <li class="{{Request::is('admin/frontend/settings/about-section') ? 'active' : ''}}">
+                        <a class="{{Request::is('admin/frontend/settings/about-section') ? 'active' : ''}}" href="{{ route('admin.about.settings') }}">
                             <i class="material-icons">radio_button_unchecked</i>
                             <span data-i18n="List">About Us Page</span>
                         </a>

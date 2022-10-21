@@ -165,4 +165,137 @@ class FrontendController extends Controller
 
        return response()->json(['success' => 'Home Settings Updated!.']);
     }
+
+     /**
+     * aboutSection function
+     *
+     * @return void
+     */
+    public function aboutSection()
+    {
+        $theme = Option::where('key', 'about_settings')->first();
+        return view('admin.pages.frontend.about', get_defined_vars());
+    }
+
+
+    /**
+     * aboutSectionUpdate function
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function aboutSectionUpdate(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'btn_link_three'    => 'required',
+            'btn_text_three'    => 'required',
+            'description_three' => 'required',
+            'banner_three'      => 'mimes:png,jpg',
+            'btn_link_two'      => 'required',
+            'btn_text_two'      => 'required',
+            'description_two'   => 'required',
+            'banner_two'        => 'mimes:png,jpg',
+            'btn_link_one'      => 'required',
+            'btn_text_one'      => 'required',
+            'description_one'   => 'required',
+            'banner_one'        => 'mimes:png,jpg',
+            'about_us_title'    => 'required',
+            'content_two'       => 'required',
+            'heading_two'       => 'required',
+            'content_one'       => 'required',
+            'heading_one'       => 'required',
+            'description'       => 'required',
+            'heading'           => 'required',
+            'banner'            => 'mimes:png,jpg',
+        ]);
+
+        if ($validator->fails())
+        {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
+
+        if ($request->hasFile('banner')) {
+            $banner = $request->file('banner');
+            $banner_name = 'banner.png';
+            $banner_path = 'uploads/aboutsection/';
+            $banner_new_path = $banner_path.$banner_name;
+            $banner->move($banner_path, $banner_name);
+        }
+
+        if ($request->hasFile('banner_one')) {
+            $banner_one = $request->file('banner_one');
+            $banner_one_name = 'banner_one.png';
+            $banner_one_path = 'uploads/aboutsection/';
+            $banner_one_new_path = $banner_one_path.$banner_one_name;
+            $banner_one->move($banner_one_path, $banner_one_name);
+        }
+
+        if ($request->hasFile('banner_two')) {
+            $banner_two = $request->file('banner_two');
+            $banner_two_name = 'banner_two.png';
+            $banner_two_path = 'uploads/aboutsection/';
+            $banner_two_new_path = $banner_two_path.$banner_two_name;
+            $banner_two->move($banner_two_path, $banner_two_name);
+        }
+
+        if ($request->hasFile('banner_three')) {
+            $banner_three = $request->file('banner_three');
+            $banner_three_name = 'banner_three.png';
+            $banner_three_path = 'uploads/aboutsection/';
+            $banner_three_new_path = $banner_three_path.$banner_three_name;
+            $banner_three->move($banner_three_path, $banner_three_name);
+        }
+
+
+        $theme = Option::where('key','about_settings')->first();
+
+        if(!empty($theme))
+        {
+            $theme_banner = json_decode($theme->value)->banner;
+            $theme_banner_three = json_decode($theme->value)->banner_three;
+            $theme_banner_two = json_decode($theme->value)->banner_two;
+            $theme_banner_one = json_decode($theme->value)->banner_one;
+        }
+
+        $data = [
+            'btn_link_three'    => $request->btn_link_three,
+            'btn_text_three'    => $request->btn_text_three,
+            'description_three' => $request->description_three,
+            'banner_three'      => !empty($banner_three_new_path) ? $banner_three_new_path : $theme_banner_three,
+            'btn_link_two'      => $request->btn_link_two,
+            'btn_text_two'      => $request->btn_text_two,
+            'description_two'   => $request->description_two,
+            'banner_two'        => !empty($banner_two_new_path) ? $banner_two_new_path : $theme_banner_two,
+            'btn_link_one'      => $request->btn_link_one,
+            'btn_text_one'      => $request->btn_text_one,
+            'description_one'   => $request->description_one,
+            'banner_one'        => !empty($banner_one_new_path) ? $banner_one_new_path : $theme_banner_one,
+            'about_us_title'    => $request->about_us_title,
+            'content_two'       => $request->content_two,
+            'heading_two'       => $request->heading_two,
+            'content_one'       => $request->content_one,
+            'heading_one'       => $request->heading_one,
+            'description'       => $request->description,
+            'heading'           => $request->heading,
+            'banner'            => !empty($banner_new_path) ? $banner_new_path : $theme_banner,
+        ];
+
+
+
+        if(!empty($theme))
+        {
+            Option::where(['id' => $theme->id, 'key' => $theme->key])->update([
+                'key'   => 'about_settings',
+                'value' => json_encode($data),
+            ]);
+
+        }else{
+            Option::create([
+                'key'   => 'about_settings',
+                'value' => json_encode($data),
+            ]);
+        }
+
+       return response()->json(['success' => 'About Settings Updated!.']);
+    }
 }

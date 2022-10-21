@@ -62,7 +62,9 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
 
     // Frontend Route
     Route::get('frontend/settings/home-section', [FrontendController::class,'homeSection'])->name('home.settings');
-    Route::post('theme/settings-store', [FrontendController::class,'homeSectionUpdate'])->name('home.section.store');
+    Route::post('theme/settings-home-store', [FrontendController::class,'homeSectionUpdate'])->name('home.section.store');
+    Route::get('frontend/settings/about-section', [FrontendController::class,'aboutSection'])->name('about.settings');
+    Route::post('theme/settings-about-store', [FrontendController::class,'aboutSectionUpdate'])->name('about.section.store');
 
 //
 //    // Bidders route
