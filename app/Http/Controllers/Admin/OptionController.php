@@ -20,6 +20,12 @@ class OptionController extends Controller
         return view('admin.pages.option.theme', get_defined_vars());
     }
 
+    /**
+     * settingsUpdate function
+     *
+     * @param Request $request
+     * @return void
+     */
     public function settingsUpdate(Request $request)
     {
         $validator = Validator::make($request->all(), [

@@ -95,15 +95,15 @@
             </a>
         </li>
 
-        <li class="bold">
+        <li class="bold {{ Request::is('admin/frontend/settings/home-section') ? 'active open' : '' }}">
             <a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)">
-                <i class="material-icons">content_paste</i>
-                <span class="menu-title" data-i18n="Pages">Frontend Settings</span>
+                <i class="material-icons">face</i>
+                <span class="menu-title" data-i18n="User">Frontend Settings</span>
             </a>
             <div class="collapsible-body">
                 <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-                    <li class="">
-                        <a class="" href="#!">
+                    <li class="{{Request::is('admin/frontend/settings/home-section') ? 'active' : ''}}">
+                        <a class="{{Request::is('admin/frontend/settings/home-section') ? 'active' : ''}}" href="{{ route('admin.home.settings') }}">
                             <i class="material-icons">radio_button_unchecked</i>
                             <span data-i18n="List">Home Page</span>
                         </a>
@@ -135,6 +135,7 @@
                 </ul>
             </div>
         </li>
+
 
         <li class="bold">
             <a class="waves-effect waves-cyan {{Request::is('admin/theme/settings') ? 'active' : ''}}" href="{{ route('admin.theme.settings') }}">

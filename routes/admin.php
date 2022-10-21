@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ArtistController;
 use App\Http\Controllers\Admin\OptionController;
 use App\Http\Controllers\Admin\CuratorController;
+use App\Http\Controllers\Admin\FrontendController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SystemUserController;
 use App\Http\Controllers\Admin\TicketHelpController;
@@ -58,6 +59,11 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
     //Theme settings
     Route::get('theme/settings', [OptionController::class,'settingsEdit'])->name('theme.settings');
     Route::post('theme/settings-store', [OptionController::class,'settingsUpdate'])->name('theme.settings.store');
+
+    // Frontend Route
+    Route::get('frontend/settings/home-section', [FrontendController::class,'homeSection'])->name('home.settings');
+    Route::post('theme/settings-store', [FrontendController::class,'homeSectionUpdate'])->name('home.section.store');
+
 //
 //    // Bidders route
 //    Route::resource('bidders',  BidderController::class);

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Option;
 use App\Helpers\Helper;
 use Twilio\Rest\Client;
 use Illuminate\Support\Facades\Route;
@@ -26,7 +27,12 @@ use App\Http\Controllers\Admin\BinshopsCommentWriterController;
 //});
 
 Route::get('/', function () {
-    return view('welcome');
+    $theme = Option::where('key', 'home_settings')->first();
+    if(!empty($theme))
+    {
+        $theme = json_decode($theme->value);
+    }
+    return view('welcome', get_defined_vars());
 });
 //Route::get('/', function () {
 //    return view('welcome');
