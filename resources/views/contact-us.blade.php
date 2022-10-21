@@ -173,23 +173,24 @@
                         <div class="media contact-info">
                             <span class="contact-info__icon"><i class="fa fa-home"></i></span>
                             <div class="media-body">
-                                <h3>Liverpool, England.</h3>
-                                <p>29-31 Parliament Street, L8 5RN</p>
+                                <h3>{{ !empty($theme->address) ? $theme->address : 'Liverpool, England.' }}</h3>
+                                <p>{{ !empty($theme->address_detail) ? $theme->address_detail : '29-31 Parliament Street, L8 5RN'}}</p>
                             </div>
                         </div>
                         <div class="media contact-info">
                             <span class="contact-info__icon"><i class="fa fa-tablet"></i></span>
                             <div class="media-body">
                                 <h3></h3>
-                                <p>Mon to Fri 9am to 6pm</p>
+                                <p>{{ !empty($theme->working_hours) ? $theme->working_hours : 'Mon to Fri 9am to 6pm'}}</p>
                             </div>
                         </div>
                         <div class="contact-info">
                             <span class="contact-info__icon"><i class="fa fa-envelope"></i></span>
                             <div class="media-body">
-                                <h3><a href="mailto:info@upcomingsounds.com" class="__cf_email__"> info@upcomingsounds.com </a>
+                                <h3>
+                                    <a href="mailto:{{ !empty($theme->email) ? $theme->email : 'info@upcomingsounds.com'}}" class="__cf_email__"> {{ !empty($theme->email) ? $theme->email : 'info@upcomingsounds.com'}} </a>
                                 </h3>
-                                <p>Send us your query anytime!</p>
+                                <p>{{ !empty($theme->email_title) ? $theme->email_title : 'Send us your query anytime!'}}</p>
                             </div>
                         </div>
                     </div>

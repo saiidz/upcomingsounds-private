@@ -177,7 +177,6 @@ class FrontendController extends Controller
         return view('admin.pages.frontend.about', get_defined_vars());
     }
 
-
     /**
      * aboutSectionUpdate function
      *
@@ -297,5 +296,65 @@ class FrontendController extends Controller
         }
 
        return response()->json(['success' => 'About Settings Updated!.']);
+    }
+
+     /**
+     * contactSection function
+     *
+     * @return void
+     */
+    public function contactSection()
+    {
+        $theme = Option::where('key', 'contact_settings')->first();
+        return view('admin.pages.frontend.contact', get_defined_vars());
+    }
+
+     /**
+     * contactSectionUpdate function
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function contactSectionUpdate(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'email_title'    => 'required',
+            'email'          => 'required',
+            'working_hours'  => 'required',
+            'address_detail' => 'required',
+            'address'        => 'required',
+        ]);
+
+        if ($validator->fails())
+        {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
+
+        $theme = Option::where('key','contact_settings')->first();
+
+
+        $data = [
+            'email_title'    => $request->email_title,
+            'email'          => $request->email,
+            'working_hours'  => $request->working_hours,
+            'address_detail' => $request->address_detail,
+            'address'        => $request->address,
+        ];
+
+        if(!empty($theme))
+        {
+            Option::where(['id' => $theme->id, 'key' => $theme->key])->update([
+                'key'   => 'contact_settings',
+                'value' => json_encode($data),
+            ]);
+
+        }else{
+            Option::create([
+                'key'   => 'contact_settings',
+                'value' => json_encode($data),
+            ]);
+        }
+
+       return response()->json(['success' => 'Contact Settings Updated!.']);
     }
 }

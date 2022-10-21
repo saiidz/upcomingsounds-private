@@ -63,7 +63,12 @@ class DashboardController extends Controller
      */
     public function contactUs(Request $request)
     {
-        return view('contact-us');
+        $theme = Option::where('key', 'contact_settings')->first();
+        if(!empty($theme))
+        {
+            $theme = json_decode($theme->value);
+        }
+        return view('contact-us', get_defined_vars());
     }
     /**
      * contactUsPost
