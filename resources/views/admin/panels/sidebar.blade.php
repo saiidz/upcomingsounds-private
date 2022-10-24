@@ -122,8 +122,9 @@
                             <span data-i18n="List">Contact Page</span>
                         </a>
                     </li>
-                    <li class="">
-                        <a class="" href="#!">
+                    {{-- <li class="{{Request::is('admin/frontend/settings/for-artists-section') ? 'active' : ''}}">
+                        <a class="{{Request::is('admin/frontend/settings/for-artists-section') ? 'active' : ''}}"
+                            href="{{ route('admin.for.artists.settings') }}">
                             <i class="material-icons">radio_button_unchecked</i>
                             <span data-i18n="List">For Artists Page</span>
                         </a>
@@ -133,7 +134,7 @@
                             <i class="material-icons">radio_button_unchecked</i>
                             <span data-i18n="List">For Curators Page</span>
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </li>

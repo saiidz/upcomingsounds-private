@@ -357,4 +357,15 @@ class FrontendController extends Controller
 
        return response()->json(['success' => 'Contact Settings Updated!.']);
     }
+
+      /**
+     * forArtistsSection function
+     *
+     * @return void
+     */
+    public function forArtistsSection()
+    {
+        $theme = Option::where('key', 'for_artists_settings')->first();
+        return view('admin.pages.frontend.for_artists', get_defined_vars());
+    }
 }
