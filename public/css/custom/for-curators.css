@@ -142,7 +142,8 @@ svg:not(:root) {
 }
 svg {
     vertical-align: middle;
-    color: #02b875 !important;
+    color: #fff !important;
+    /* color: #02b875 !important; */
 }
 .landing-bullets h5 {
     /*margin: 0 0 1vw;*/
