@@ -74,7 +74,7 @@
                         </li> --}}
                     @else
                         <li class="nav-item">
-                            <a href="{{ url('/curator-home') }}" class="nav-link">
+                            <a href="{{ url('/for-curators') }}" class="nav-link">
                                 <span class="btn btn-sm rounded primary _600 tastemakers_signup">
                                   For Curators
                                 </span>
