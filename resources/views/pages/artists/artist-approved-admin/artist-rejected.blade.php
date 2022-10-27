@@ -39,7 +39,7 @@
                                         <div id="view-input-fields">
                                             <div class="row">
                                                 <div class="col s12">
-                                                    <h2 class="card-title bold" style="font-size: 20px; text-align:center;"> Upcomingsounds - Tastemakers / Curators / pros  </h2>
+                                                    <h2 class="card-title bold" style="font-size: 20px; text-align:center;"> Upcomingsounds - Artist  </h2>
                                                     <p class="m-b-md" style="text-align:center;">Looks like you have already applied. The application was for: {{ ($request->user()) ? $request->user()->name : '' }} </p>
                                                     <p class="m-b-md" style="text-align:center;">Status - closed / declined</p>
                                                     <p class="m-b-md" style="text-align:center;">You re-applied within the last 45 days ({{ ($request->user()) ? Carbon\Carbon::parse($request->user()->created_at)->format('M d,Y') : '' }}). You should hear from us soon.</p>

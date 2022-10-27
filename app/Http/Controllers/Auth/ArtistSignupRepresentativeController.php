@@ -366,7 +366,7 @@ class ArtistSignupRepresentativeController extends Controller
 
         $user = User::find($auth_id);
 
-        if(isset($user)){
+        if(isset($user) && empty($user->artistUser)){
             if(isset($artist_representative_data) || isset($artist_artist_data) || isset($artist_representative_social) || isset($artist_representative_tags) || isset($released_representative)){
                 if(isset($released_representative['released_current'])){
                     $released_day = $released_representative['released_current'];

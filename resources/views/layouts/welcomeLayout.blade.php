@@ -74,11 +74,16 @@
                         </li> --}}
                     @else
                         <li class="nav-item">
-                            <a href="{{ route('curator.register') }}" class="nav-link">
+                            <a href="{{ url('/curator-home') }}" class="nav-link">
+                                <span class="btn btn-sm rounded primary _600 tastemakers_signup">
+                                  Curator
+                                </span>
+                            </a>
+                            {{-- <a href="{{ route('curator.register') }}" class="nav-link">
                                 <span class="btn btn-sm rounded primary _600 tastemakers_signup">
                                   Apply as Tastemaker / Pro
                                 </span>
-                            </a>
+                            </a> --}}
                         </li>
                         <li class="nav-item" id="Login">
                             <a href="{{ route('login') }}" class="nav-link">
@@ -86,11 +91,16 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('register') }}" class="nav-link">
+                            <a href="{{ url('/for-artists') }}" class="nav-link">
+                                <span class="btn btn-sm rounded primary _600 tastemakers_signup">
+                                  Submit Now
+                                </span>
+                            </a>
+                            {{-- <a href="{{ route('register') }}" class="nav-link">
                                 <span class="btn btn-sm rounded primary _600 tastemakers_signup">
                                   Signup
                                 </span>
-                            </a>
+                            </a> --}}
                         </li>
 
 

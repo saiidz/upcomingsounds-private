@@ -9,12 +9,14 @@ use App\Models\Feature;
 use App\Models\FeatureTag;
 use App\Models\ReApplyUser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Auth\Events\Registered;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
 class ArtistSignupController extends Controller
@@ -321,7 +323,7 @@ class ArtistSignupController extends Controller
 
         $user = User::find($auth_id);
 
-        if(isset($user)){
+        if(isset($user) && empty($user->artistUser)){
             if(isset($artist_data) || isset($artist_social) || isset($artist_tags) || isset($released)){
                 if(isset($released['released_current'])){
                     $released_day = $released['released_current'];
@@ -393,9 +395,18 @@ class ArtistSignupController extends Controller
      */
     public function artistRejectedAdmin(Request $request)
     {
+        if (!empty($request->user()) && ($request->user()->type == 'artist') && ($request->user()->is_approved == 0) && ($request->user()->is_rejected == 1)){
+            $days = Carbon::parse($request->user()->updated_at)->addDays(45);
+
+            if(Carbon::today() >= $days)
+            {
+                return redirect('/re-apply');
+            }
+        }
+
         return ($request->user()->type == 'artist') && ($request->user()->is_approved == 0)
             && ($request->user()->is_rejected == 1)
-            ? view('pages.artists.artist-approved-admin.artist-rejected', compact('request'))
+            ? view('pages.artists.artist-approved-admin.artist-rejected', get_defined_vars())
             : redirect()->intended(RouteServiceProvider::HOME);
     }
 
@@ -405,6 +416,10 @@ class ArtistSignupController extends Controller
      */
     public function reApply(Request $request)
     {
+        if (!empty($request->user()) && ($request->user()->type == 'artist') && ($request->user()->is_approved == 0) && ($request->user()->is_rejected == 0)){
+            return redirect('/artist-reject');
+        }
+
         // find user
         $user = User::where('id',Auth::id())->first();
         if(isset($user))
@@ -449,14 +464,14 @@ class ArtistSignupController extends Controller
             $re_apply_user->update([
                 'description' => $request->re_apply_information,
             ]);
-            return redirect()->back()->with('success', 'Request Submit Updated Successfully.');
+            return redirect()->back()->with('success', 'Request Submit Updated Successfully. Admin will contact you soon');
         }else{
             // create ReApplyUser
             ReApplyUser::create([
                 'user_id'     => $user->id,
                 'description' => $request->re_apply_information,
             ]);
-            return redirect()->back()->with('success', 'Request Submit Successfully.');
+            return redirect()->back()->with('success', 'Request Submit Successfully. Admin will contact you soon.');
         }
     }
 

@@ -119,7 +119,7 @@
                                     <a class="nav-link" href="{{url('/login')}}">Login</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{url('/for-curators')}}">Apply as Tastemaker / Pro</a>
+                                    <a class="nav-link" href="{{url('/for-curators')}}">Curator</a>
                                 </li>
                             @endif
                             <li class="nav-item">

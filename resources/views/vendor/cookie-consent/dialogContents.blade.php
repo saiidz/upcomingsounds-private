@@ -41,7 +41,8 @@
 <div class="alert text-center cookiealert" role="alert">
     <b>Do you like cookies?</b> &#x1F36A; We use cookies to ensure you get the best experience on our website. <a
         href="{{url('privacy-policy')}}" target="_blank">Learn more</a>
-    <button type="button" class="btn btn-sm acceptcookies circle white p-x-md">
+    <button type="button" class="btn btn-sm acceptcookies circle black p-x-md">
+{{--    <button type="button" class="btn btn-sm acceptcookies circle white p-x-md">--}}
         I agree
     </button>
 </div>

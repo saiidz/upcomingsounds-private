@@ -50,7 +50,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{{ route('artist.accepted') }}">
+                            <a class="dropdown-item" href="{{ route('accepted.artist') }}">
                                     <span class="nav-icon">
                                         <i class="fa fa-check-circle"></i>
                                     </span>
@@ -58,7 +58,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{{ route('artist.rejected') }}">
+                            <a class="dropdown-item" href="{{ route('rejected.artist') }}">
                                     <span class="nav-icon">
                                         <i class="fa fa-minus-circle"></i>
                                     </span>
@@ -73,8 +73,8 @@
                                 <span class="nav-icon">
                                     <i class="fa fa-headphones"></i>
                                 </span>
-                                <span class="nav-text">Get Verified</span>
-                                {{-- <span class="nav-text">Submissions</span> --}}
+                                {{-- <span class="nav-text">Get Verified</span> --}}
+                                <span class="nav-text" data-toggle="tooltip" title="Get Verified">Submissions</span>
                             </a>
                         </li>
 {{--                    <li>--}}

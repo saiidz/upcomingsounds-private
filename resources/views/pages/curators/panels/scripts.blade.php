@@ -280,3 +280,8 @@
         $('#getNoVerified').css('display','block');
     })
 </script>
+<script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>

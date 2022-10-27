@@ -160,7 +160,13 @@
                                                     || $user_curator->curatorUser->curator_signup_from == \App\Templates\ICuratorSignup::MONITORPUBLISHERSYNCH
                                                     || $user_curator->curatorUser->curator_signup_from == \App\Templates\ICuratorSignup::BROOKERBOOKING
                                                     || $user_curator->curatorUser->curator_signup_from == \App\Templates\ICuratorSignup::SOUNDEXPERTPRODUCER)
-                                                <option value="pro_exeprt">Pro Exeprt</option>
+                                                <option value="journalist_media">Journalist & Media</option>
+                                                <option value="radio_tv">Radio / TV</option>
+                                                <option value="blog">Blog</option>
+                                                <option value="magazine">Magazine</option>
+                                                <option value="newspaper">Newspaper</option>
+
+                                                {{-- <option value="pro_exeprt">Pro Exeprt</option>
                                                 <option value="sound_expert">Sound expert</option>
                                                 <option value="produce">Produce</option>
                                                 <option value="record_label">Record label</option>
@@ -168,7 +174,7 @@
                                                 <option value="music_supervisor">Music supervisor</option>
                                                 <option value="monitor">Monitor</option>
                                                 <option value="publisher">Publisher</option>
-                                                <option value="sync">Sync</option>
+                                                <option value="sync">Sync</option> --}}
                                             @endif
                                         @endif
                                     </select>

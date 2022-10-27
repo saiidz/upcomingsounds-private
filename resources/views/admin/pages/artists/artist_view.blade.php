@@ -68,15 +68,33 @@
                         </div>
                         <div class="col s12 m5 quick-action-btns display-flex justify-content-end align-items-center pt-2">
                             @if ($user->is_approved == 0)
-                                <a href="javascript:void(0)" data-id={{ $user->id }} class="btn-small btn-light-indigo dropdown-item has-icon approved-artist-confirm">
+                                <a href="#approvedModal" data-id={{ $user->id }} class="btn-small btn-light-indigo dropdown-item has-icon modal-trigger approvedArtist-confirm">
+                                    Approved
+                                </a>
+
+                                {{-- <a href="javascript:void(0)" data-id={{ $user->id }} class="btn-small btn-light-indigo dropdown-item has-icon approved-artist-confirm">
                                     Approved
                                 </a>
 
                                 <!-- Delete Form -->
                                 <form class="d-none" id="approved_artist_form_{{ $user->id }}" action="{{ route('admin.store.approved.artist', $user->id) }}" method="POST">
                                     @csrf
-                                </form>
+                                </form> --}}
+                            @endif
 
+                            @php
+                                $days = \Carbon\Carbon::parse($user->updated_at)->addDays(45);
+                            @endphp
+
+                            @if ($user->is_approved == 0 && $user->is_rejected == 0)
+                                <a href="#rejectModal" data-id={{ $user->id }} class="btn-small btn-light-red dropdown-item has-icon modal-trigger reject-artist-confirm">
+                                    Reject
+                                </a>
+                            @elseif ($user->is_rejected == 1 && \Carbon\Carbon::today() >= $days)
+                                <a href="#rejectModal" data-id={{ $user->id }} class="btn-small btn-light-red dropdown-item has-icon modal-trigger reject-artist-confirm">
+                                    Reject
+                                </a>
+                            @else
                             @endif
                             {{-- <a href="app-email.html" class="btn-small btn-light-indigo"><i class="material-icons">mail_outline</i></a>
                             <a href="user-profile-page.html" class="btn-small btn-light-indigo">Profile</a>
@@ -119,6 +137,16 @@
 
                                 </td>
                                 </tr>
+                                @if ($user->is_approved == 0 && $user->is_rejected == 1)
+                                    <tr>
+                                        <td>Rejected:</td>
+                                        <td>
+                                            <span class=" users-view-status chip red lighten-5 red-text">Rejected</span>
+
+                                        </td>
+                                    </tr>
+                                @endif
+
                             </tbody>
                             </table>
                         </div>
@@ -281,6 +309,11 @@
 	</div>
 </div>
 <!-- END: Page Main-->
+
+@include('admin.pages.artists.artist_modal')
+
+
+
 @endsection
 
 {{-- vendor scripts --}}
@@ -294,4 +327,49 @@
 {{-- page scripts --}}
 @section('page-script')
     <script src="{{asset('app-assets/js/scripts/data-tables.js')}}"></script>
+    <script src="{{asset('app-assets/js/artist/artist.js')}}"></script>
+    <script>
+        $(function () {
+            $('.reject-artist-confirm').on('click', function () {
+                $(".modal").modal(),
+                $("#modal3").modal("open"),
+                $("#modal3").modal("close")
+            });
+        });
+        $(function () {
+            $('.approvedArtist-confirm').on('click', function () {
+                $(".modal").modal(),
+                $("#modal3").modal("open"),
+                $("#modal3").modal("close")
+            });
+        });
+    </script>
+     {{-- CkEditor --}}
+ <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+ {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script> --}}
+ <script>
+//    $(document).ready(function () {
+//         $('#rejectArtistForm').validate({ // initialize the plugin
+//             rules: {
+//                 description_artist_reject_message: {
+//                     required: function()
+//                         {
+//                          CKEDITOR.instances.descriptionArtistRejectMessage.updateElement();
+//                         },
+
+//                          minlength:10
+//                 },
+//             },
+//             messages: {
+//                 description_artist_reject_message: "The description field is required",
+//             }
+//         });
+//     });
+    $(document).ready(function() {
+
+        $('.ckeditor').ckeditor();
+
+    });
+    //  CKEDITOR.replace( 'description_artist_reject_message' );
+ </script>
 @endsection
