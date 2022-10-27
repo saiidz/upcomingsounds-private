@@ -58,30 +58,39 @@
                                 </div>
                             </div>
                             <div class="col s12 m5 quick-action-btns display-flex justify-content-end align-items-center pt-2">
-                                @if ($user->is_verified == 0)
-                                    <a href="javascript:void(0)" data-id={{ $user->id }} class="btn-small btn-light-indigo dropdown-item has-icon verified-curator-confirm">
+                                @if ($user->is_verified == 0 && $user->is_rejected == 0)
+
+                                    <a href="#verifiedModal" data-id={{ $user->id }} class="btn-small btn-light-indigo dropdown-item has-icon modal-trigger verified-curator-confirm">
+                                        Verified
+                                    </a>
+
+                                    {{-- <a href="javascript:void(0)" data-id={{ $user->id }} class="btn-small btn-light-indigo dropdown-item has-icon verified-curator-confirm">
                                         Verified
                                     </a>
 
                                     <!-- Delete Form -->
                                     <form class="d-none" id="verified_curator_form_{{ $user->id }}" action="{{ route('admin.store.verified.curator', $user->id) }}" method="POST">
                                         @csrf
-                                    </form>
-                                @else
+                                    </form> --}}
+                                @elseif (($user->is_verified == 1 && $user->is_rejected == 0))
                                     <span class="btn disabled">Verified</span>
                                 @endif
 
                                 @if ($user->is_rejected == 0 && $user->is_verified == 0)
-                                    <a href="javascript:void(0)" data-id={{ $user->id }} class="btn-small btn-light-red dropdown-item has-icon rejected-curator-confirm">
+                                    <a href="#rejectVerifyModal" data-id={{ $user->id }} class="btn-small btn-light-red dropdown-item has-icon modal-trigger rejected-curator-confirm">
+                                        Reject
+                                    </a>
+
+                                    {{-- <a href="javascript:void(0)" data-id={{ $user->id }} class="btn-small btn-light-red dropdown-item has-icon rejected-curator-confirm">
                                         Rejected
                                     </a>
 
                                     <!-- Delete Form -->
                                     <form class="d-none" id="rejected_curator_form_{{ $user->id }}" action="{{ route('admin.store.rejected.curator', $user->id) }}" method="POST">
                                         @csrf
-                                    </form>
-                                @else
-
+                                    </form> --}}
+                                @elseif ($user->is_verified == 0 && $user->is_rejected == 1)
+                                    <span class="btn disabled">Rejected</span>
                                 @endif
                             </div>
                         </div>
@@ -133,8 +142,8 @@
                                                             <td>
                                                                 @if(str_contains($verification_curator->image,'.png') || str_contains($verification_curator->image,'.jpeg') || str_contains($verification_curator->image,'.jpg'))
                                                                     <a href="#modal2" class="pop modal-trigger">
-                                                                        <img src="{{asset('uploads/verification_form')}}/{{ $verification_curator->image }}" height="300"
-                                                                            class="w-100" img-fluid stye="object-fit:container"/>
+                                                                        <img src="{{asset('uploads/verification_form')}}/{{ $verification_curator->image }}" height="300" width="100%"
+                                                                            img-fluid stye="object-fit:container"/>
                                                                     </a>
                                                                 @else
                                                                     <iframe src="{{asset('uploads/verification_form')}}/{{ $verification_curator->image }}"
@@ -161,7 +170,7 @@
 	</div>
 </div>
 <!-- END: Page Main-->
-
+@include('admin.pages.curators.curator_modal')
 <div id="modal2" class="modal modal-fixed-footer">
     <div class="modal-content">
         <img src="" class="imagepreview" style="width: 100%;">
@@ -185,5 +194,31 @@
                 // $('#imagemodal').modal('show');
             });
         });
+    </script>
+    <script src="{{asset('app-assets/js/curator/curator.js')}}"></script>
+    <script>
+        $(function () {
+            $('.rejected-curator-confirm').on('click', function () {
+                $(".modal").modal(),
+                $("#modal3").modal("open"),
+                $("#modal3").modal("close")
+            });
+        });
+        $(function () {
+            $('.verified-curator-confirm').on('click', function () {
+                $(".modal").modal(),
+                $("#modal3").modal("open"),
+                $("#modal3").modal("close")
+            });
+        });
+    </script>
+    <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+    <script>
+            $(document).ready(function() {
+
+                $('.ckeditor').ckeditor();
+
+            });
+            //  CKEDITOR.replace( 'description_artist_reject_message' );
     </script>
 @endsection

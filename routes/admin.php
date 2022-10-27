@@ -47,6 +47,9 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
     Route::get('curator-profile/{user}',[CuratorController::class,'profileCurator'])->name('curator.profile');
     Route::get('curator-verification', [CuratorController::class,'verificationCurator'])->name('verification.curator');
     Route::post('store-approved-curator/{user}', [CuratorController::class,'storeApprovedCurator'])->name('store.approved.curator');
+    Route::post('store-curator-reject/{user}',[CuratorController::class,'storeRejectCurator'])->name('store.curator.reject');
+
+    // curator verification form
     Route::get('curator-verification/{user}',[CuratorController::class,'curatorVerifcationShow'])->name('curator.verification.show');
     Route::post('store-verified-curator/{user}', [CuratorController::class,'storeVerifiedCurator'])->name('store.verified.curator');
     Route::post('store-rejected-curator/{user}', [CuratorController::class,'storeRejectedCurator'])->name('store.rejected.curator');

@@ -75,15 +75,25 @@
                         </div>
                         <div class="col s12 m5 quick-action-btns display-flex justify-content-end align-items-center pt-2">
                             @if ($user->is_approved == 0)
-                                <a href="javascript:void(0)" data-id={{ $user->id }} class="btn-small btn-light-indigo dropdown-item has-icon approved-curator-confirm">
+                                <a href="#approvedModal" data-id={{ $user->id }} class="btn-small btn-light-indigo dropdown-item has-icon modal-trigger approvedCurator-confirm">
+                                    Approved
+                                </a>
+
+                                {{-- <a href="javascript:void(0)" data-id={{ $user->id }} class="btn-small btn-light-indigo dropdown-item has-icon approved-curator-confirm">
                                     Approved
                                 </a>
 
                                 <!-- Delete Form -->
                                 <form class="d-none" id="approved_curator_form_{{ $user->id }}" action="{{ route('admin.store.approved.curator', $user->id) }}" method="POST">
                                     @csrf
-                                </form>
+                                </form> --}}
 
+                            @endif
+
+                            @if ($user->is_approved == 0 && $user->is_rejected == 0)
+                                <a href="#rejectModal" data-id={{ $user->id }} class="btn-small btn-light-red dropdown-item has-icon modal-trigger reject-curator-confirm">
+                                    Reject
+                                </a>
                             @endif
                         </div>
                     </div>
@@ -113,16 +123,25 @@
                                     <td class="users-view-role">{{ ($user->type == 'curator') ? 'Curator' : '--' }}</td>
                                     </tr>
                                     <tr>
-                                    <td>Status:</td>
-                                    <td>
-                                        @if ($user->is_approved == 1)
-                                            <span class=" users-view-status chip green lighten-5 green-text">Approved</span>
-                                        @else
-                                            <span class=" users-view-status chip red lighten-5 red-text">Pending</span>
-                                        @endif
+                                        <td>Status:</td>
+                                        <td>
+                                            @if ($user->is_approved == 1)
+                                                <span class=" users-view-status chip green lighten-5 green-text">Approved</span>
+                                            @else
+                                                <span class=" users-view-status chip red lighten-5 red-text">Pending</span>
+                                            @endif
 
-                                    </td>
+                                        </td>
                                     </tr>
+                                    @if ($user->is_approved == 0 && $user->is_rejected == 1)
+                                        <tr>
+                                            <td>Rejected:</td>
+                                            <td>
+                                                <span class=" users-view-status chip red lighten-5 red-text">Rejected</span>
+
+                                            </td>
+                                        </tr>
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -281,6 +300,8 @@
 	</div>
 </div>
 <!-- END: Page Main-->
+
+@include('admin.pages.curators.curator_modal')
 @endsection
 
 {{-- vendor scripts --}}
@@ -294,4 +315,30 @@
 {{-- page scripts --}}
 @section('page-script')
     <script src="{{asset('app-assets/js/scripts/data-tables.js')}}"></script>
+    <script src="{{asset('app-assets/js/curator/curator.js')}}"></script>
+    <script>
+        $(function () {
+            $('.reject-curator-confirm').on('click', function () {
+                $(".modal").modal(),
+                $("#modal3").modal("open"),
+                $("#modal3").modal("close")
+            });
+        });
+        $(function () {
+            $('.approvedCurator-confirm').on('click', function () {
+                $(".modal").modal(),
+                $("#modal3").modal("open"),
+                $("#modal3").modal("close")
+            });
+        });
+    </script>
+    <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+    <script>
+            $(document).ready(function() {
+
+                $('.ckeditor').ckeditor();
+
+            });
+            //  CKEDITOR.replace( 'description_artist_reject_message' );
+    </script>
 @endsection

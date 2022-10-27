@@ -104,11 +104,31 @@
                 </main>
             </div>
 
-            @if (!empty($curator_verification_form) && $curator_verification_form->apply_count == 3)
+            @if (!empty($curator_verification_form) && $curator_verification_form->apply_count == 3
+            && !empty($curator_verification_form->user) && $curator_verification_form->user->is_verified == 0
+            && $curator_verification_form->user->is_rejected == 0)
                 <section class="m-t-lg card">
                     <div class="container">
                         <div class="py-5 text-center">
                             <h3>You have completed three chance. Now you cannot send again submit verification form.</h3>
+                        </div>
+                    </div>
+                </section>
+            @elseif (!empty($curator_verification_form) && $curator_verification_form->apply_count == 3
+                    && !empty($curator_verification_form->user) && $curator_verification_form->user->is_verified == 1)
+                <section class="m-t-lg card">
+                    <div class="container">
+                        <div class="py-5 text-center">
+                            <h3>You are verified congratulation.</h3>
+                        </div>
+                    </div>
+                </section>
+            @elseif (!empty($curator_verification_form) && $curator_verification_form->apply_count == 3
+                    && !empty($curator_verification_form->user) && $curator_verification_form->user->is_rejected == 1)
+                <section class="m-t-lg card">
+                    <div class="container">
+                        <div class="py-5 text-center">
+                            <h3>You are rejected.</h3>
                         </div>
                     </div>
                 </section>

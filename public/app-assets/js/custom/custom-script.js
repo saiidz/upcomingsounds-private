@@ -102,62 +102,62 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR CUSTOM SCRIPT I
 /*-------------------------------
     Verified Curator Confirmation Alert
   -----------------------------------*/
-  $('.verified-curator-confirm').on('click', function(event) {
-    const id = $(this).data('id');
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "You want to verified this Curator!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, verified it!'
-    }).then((result) => {
-        if (result.value) {
-            event.preventDefault();
-            document.getElementById('verified_curator_form_' + id).submit();
-        } else if (
-            result.dismiss === Swal.DismissReason.cancel
-        ) {
-            swalWithBootstrapButtons.fire(
-                'Cancelled',
-                'Your Data is Save :)',
-                'error'
-            )
-        }
-    })
-});
+//   $('.verified-curator-confirm').on('click', function(event) {
+//     const id = $(this).data('id');
+//     Swal.fire({
+//         title: 'Are you sure?',
+//         text: "You want to verified this Curator!",
+//         icon: 'warning',
+//         showCancelButton: true,
+//         confirmButtonColor: '#3085d6',
+//         cancelButtonColor: '#d33',
+//         confirmButtonText: 'Yes, verified it!'
+//     }).then((result) => {
+//         if (result.value) {
+//             event.preventDefault();
+//             document.getElementById('verified_curator_form_' + id).submit();
+//         } else if (
+//             result.dismiss === Swal.DismissReason.cancel
+//         ) {
+//             swalWithBootstrapButtons.fire(
+//                 'Cancelled',
+//                 'Your Data is Save :)',
+//                 'error'
+//             )
+//         }
+//     })
+// });
 
 
 
 /*-------------------------------
     Rejected Curator Confirmation Alert
   -----------------------------------*/
-  $('.rejected-curator-confirm').on('click', function(event) {
-    const id = $(this).data('id');
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "You want to rejected this Curator!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, rejected it!'
-    }).then((result) => {
-        if (result.value) {
-            event.preventDefault();
-            document.getElementById('rejected_curator_form_' + id).submit();
-        } else if (
-            result.dismiss === Swal.DismissReason.cancel
-        ) {
-            swalWithBootstrapButtons.fire(
-                'Cancelled',
-                'Your Data is Save :)',
-                'error'
-            )
-        }
-    })
-});
+//   $('.rejected-curator-confirm').on('click', function(event) {
+//     const id = $(this).data('id');
+//     Swal.fire({
+//         title: 'Are you sure?',
+//         text: "You want to rejected this Curator!",
+//         icon: 'warning',
+//         showCancelButton: true,
+//         confirmButtonColor: '#3085d6',
+//         cancelButtonColor: '#d33',
+//         confirmButtonText: 'Yes, rejected it!'
+//     }).then((result) => {
+//         if (result.value) {
+//             event.preventDefault();
+//             document.getElementById('rejected_curator_form_' + id).submit();
+//         } else if (
+//             result.dismiss === Swal.DismissReason.cancel
+//         ) {
+//             swalWithBootstrapButtons.fire(
+//                 'Cancelled',
+//                 'Your Data is Save :)',
+//                 'error'
+//             )
+//         }
+//     })
+// });
 
 
 /*-------------------------------

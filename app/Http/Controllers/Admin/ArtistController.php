@@ -86,7 +86,7 @@ class ArtistController extends Controller
             }
 
         }
-        return response()->json(['success' => 'Artist Approved successfully and send email to artist.']);
+        return response()->json(['success' => 'Artist Approved successfully and send email to Artist.']);
         // return redirect()->back()->with('success','Artist Approved successfully and send email to artist.');
     }
 
@@ -129,7 +129,7 @@ class ArtistController extends Controller
                 //throw $th;
             }
         }
-        return response()->json(['success' => 'Artist Reject successfully and send email to artist.']);
+        return response()->json(['success' => 'Artist Reject successfully and send email to Artist.']);
         // return redirect()->back()->with('success','Artist Reject successfully and send email to artist.');
     }
 }

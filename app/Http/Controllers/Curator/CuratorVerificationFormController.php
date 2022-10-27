@@ -61,10 +61,10 @@ class CuratorVerificationFormController extends Controller
 
         CuratorVerificationForm::create($input);
 
-        if($request->get('phone_number'))
-        {
-            Helper::twilioOtp($request->get('phone_number'), IMessageTemplates::CURATORVERIFICATIONMESSAGE);
-        }
+        // if($request->get('phone_number'))
+        // {
+        //     Helper::twilioOtp($request->get('phone_number'), IMessageTemplates::CURATORVERIFICATIONMESSAGE);
+        // }
 
         return response()->json(['success' => IMessageTemplates::CURATORVERIFICATIONMESSAGE]);
         // return response()->json(['success' => 'Verification Form Send successfully. We will contact you soon.']);
