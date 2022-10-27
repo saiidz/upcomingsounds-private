@@ -76,7 +76,7 @@
                         <li class="nav-item">
                             <a href="{{ url('/curator-home') }}" class="nav-link">
                                 <span class="btn btn-sm rounded primary _600 tastemakers_signup">
-                                  Curator
+                                  For Curators
                                 </span>
                             </a>
                             {{-- <a href="{{ route('curator.register') }}" class="nav-link">

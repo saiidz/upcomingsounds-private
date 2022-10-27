@@ -45,16 +45,23 @@
                     <div class="row">
                         <div class="col s12 m7">
                         <div class="display-flex media">
-                            <a href="{{URL('/')}}/uploads/profile/{{$user->profile}}" target="_blank" class="avatar">
-                                @if(!empty($user->profile))
+                            @if(!empty($user->profile) && empty($user->provider))
+                                <a href="{{URL('/')}}/uploads/profile/{{$user->profile}}" target="_blank" class="avatar">
                                     <img src="{{URL('/')}}/uploads/profile/{{$user->profile}}" alt="users view avatar" class="z-depth-4 circle"
                                     height="64" width="64">
-                                @else
+                                </a>
+                            @elseif (!empty($user->profile) && !empty($user->provider))
+                                <a href="{{$user->profile}}" target="_blank" class="avatar">
+                                    <img src="{{$user->profile}}" alt="users view avatar" class="z-depth-4 circle"
+                                        height="64" width="64">
+                                </a>
+                            @else
+                                <a href="{{URL('/')}}/uploads/profile/{{$user->profile}}" target="_blank" class="avatar">
                                     <img src="../../../app-assets/images/avatar/avatar-15.png" alt="users view avatar" class="z-depth-4 circle"
                                         height="64" width="64">
-                                @endif
+                                </a>
+                            @endif
 
-                            </a>
                             <div class="media-body">
                                 <h6 class="media-heading">
                                     <span class="users-view-name">{{ $user->name ?? '--' }}</span>
