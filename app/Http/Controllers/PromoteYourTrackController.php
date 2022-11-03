@@ -24,7 +24,7 @@ class PromoteYourTrackController extends Controller
     {
         $user_artist = Auth::user();
         $curators = User::getReceivedCurstors()->count();
-        $page = 'promote-your-track';
+        $page = 'welcome-your-track';
         return view('pages.artists.artist-promote-your-track.promote-your-track',get_defined_vars());
     }
     /**
@@ -32,7 +32,7 @@ class PromoteYourTrackController extends Controller
      */
     public function addYourTrack(Request $request)
     {
-        $page = 'add-your-track';
+        $page = 'promote-your-track';
         $user_artist = Auth::user();
         $artist_tracks = ArtistTrack::where('user_id',$user_artist->id)->latest()->get();
         $languages = Language::all();
@@ -45,7 +45,7 @@ class PromoteYourTrackController extends Controller
      */
     public function storeTrackCampaign(Request $request)
     {
-        $page = 'add-your-track';
+        $page = 'promote-your-track';
         $user_artist = Auth::user();
         $artist_tracks = ArtistTrack::where('user_id',$user_artist->id)->orderBy('id','desc')->get();
 

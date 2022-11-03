@@ -14,7 +14,7 @@
                 <h1 class="inline m-a-0">Welcome {{($user_artist) ? $user_artist->name : ''}} ready to promote your track?</h1>
             </div>
             <div class="page-title m-b-2">
-                <a class="btn btn-lg rounded add_your_track" href="{{url('/add-your-track')}}">
+                <a class="btn btn-lg rounded add_your_track" href="{{url('/promote-your-track')}}">
                     <div class="btnTitle">Add your track</div>
                     <div class="btnSubtitle">
                         And get access to {{ $curators }} curators & pros
