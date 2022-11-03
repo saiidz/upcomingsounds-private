@@ -990,7 +990,7 @@ svg.svg-inline--fa {
         padding-bottom: 0.5rem !important;
     }
     .app-header ~ .app-body {
-        padding-top: 7rem;
+        /*padding-top: 7rem;*/
     }
     .app-header ~ .app-bodynew {
         padding-top: 3.5rem;
@@ -1039,7 +1039,8 @@ svg.svg-inline--fa {
         display: block !important;
     }
     .display-4 {
-        font-size: 1.5rem !important;
+        font-size: 1.2rem !important;
+        /*font-size: 1.5rem !important;*/
     }
     .mouse-wheel{
         font-size:30px !important;
