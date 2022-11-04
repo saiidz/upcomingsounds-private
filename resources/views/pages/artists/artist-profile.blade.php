@@ -107,7 +107,7 @@
                                 </form>
 
                                 <div class="block clearfix m-b">
-                                    <span>9</span> <span class="text-muted">Albums</span>,
+                                    {{-- <span>9</span> <span class="text-muted">Albums</span>, --}}
                                     @if(!empty($artist_track_count) && $artist_track_count !== 0)
                                     <span>{{ $artist_track_count  }}</span> <span
                                         class="text-muted">Tracks</span>
@@ -1243,5 +1243,31 @@
 
 
     });
+    </script>
+    <script>
+        $('.reloadTrack').on('click', function(){
+            window.open(
+                window.location.origin + '/artist-profile#tracks',
+                '_self' // <- This is what makes it open in a new window.
+                );
+        });
+        $('.reloadList').on('click', function(){
+            window.open(
+                window.location.origin + '/artist-profile#playlists',
+                '_self' // <- This is what makes it open in a new window.
+                );
+        });
+        $('.reloadSaved').on('click', function(){
+            window.open(
+                window.location.origin + '/artist-profile#likes',
+                '_self' // <- This is what makes it open in a new window.
+                );
+        });
+        $('.reloadProfile').on('click', function(){
+            window.open(
+                window.location.origin + '/artist-profile#profile',
+                '_self' // <- This is what makes it open in a new window.
+                );
+        });
     </script>
 @endsection

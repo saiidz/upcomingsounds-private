@@ -24,6 +24,10 @@
                             <a href="javascript:void(0)" class="btn-more" data-toggle="dropdown"><i
                                     class="fa fa-ellipsis-h"></i></a>
                             <div class="dropdown-menu pull-right black lt"></div>
+
+                        </div>
+                        <div class="item bottom text-right">
+                            <span class="badge badge-warning">Pending</span>
                         </div>
                         <div class="item-title text-ellipsis">
                             <a href="javascript:void(0)">{{$track->name}}</a>

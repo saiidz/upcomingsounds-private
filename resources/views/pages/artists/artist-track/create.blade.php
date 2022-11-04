@@ -254,7 +254,7 @@
     </div>
 
     <div class="form-group row">
-        <div class="col-sm-3 form-control-label text-muted">Unreleased Test</div>
+        {{-- <div class="col-sm-3 form-control-label text-muted">Unreleased Test</div> --}}
         <div class="col-sm-9">
             <div class="col s12">
                 <p class="mb-1">
