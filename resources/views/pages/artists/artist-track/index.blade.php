@@ -27,7 +27,12 @@
 
                         </div>
                         <div class="item bottom text-right">
-                            <span class="badge badge-warning">Pending</span>
+                            @if ($track->is_approved == 1)
+                                <span class="text-primary">Approved</span>
+                            @else
+                                <span class="text-danger">Pending</span>
+                            @endif
+
                         </div>
                         <div class="item-title text-ellipsis">
                             <a href="javascript:void(0)">{{$track->name}}</a>

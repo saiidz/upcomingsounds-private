@@ -51,6 +51,30 @@
             </div>
         </li>
 
+        {{-- artist tracks --}}
+        <li class="bold {{ Request::is('admin/track-approved') || Request::is('admin/track-pending') ? 'active open' : '' }}">
+            <a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)">
+                <i class="material-icons">face</i>
+                <span class="menu-title" data-i18n="User">Artist Tracks</span>
+            </a>
+            <div class="collapsible-body">
+                <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+                    <li class="{{ Request::is('admin/track-approved') ? 'active' : '' }}">
+                        <a class="{{ Request::is('admin/track-approved') ? 'active' : '' }}" href="{{ route('admin.approved.track') }}">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            <span data-i18n="List">Approved</span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('admin/track-pending') ? 'active' : '' }}">
+                        <a class="{{ Request::is('admin/track-pending') ? 'active' : '' }}" href="{{ route('admin.pending.track') }}">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            <span data-i18n="List">Pending</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
         <li class="bold {{ Request::is('admin/curator-approved') || Request::is('admin/curator-pending')
         || Request::is('admin/curator-profile*') || Request::is('admin/curator-verification*')
         || Request::is('admin/curator-features*') || Request::is('admin/curator-sub-feature*') ? 'active open' : '' }}">

@@ -15,6 +15,7 @@ class ArtistTrack extends Model
         'name',
         'description',
         'user_id',
+        'is_approved',
 //        'track_category_id',
         'youtube_soundcloud_url',
         'soundcloudUrl',
@@ -56,5 +57,15 @@ class ArtistTrack extends Model
     // track has many track Languages
     public function artistTrackLanguages(){
         return $this->hasMany(ArtistTrackLanguage::class,'artist_track_id');
+    }
+    // get artists approved
+    public function scopeGetApprovedTrack($query)
+    {
+        $query->where('is_approved',1);
+    }
+    // get artists pending
+    public function scopeGetPendingTrack($query)
+    {
+        $query->where('is_approved',0);
     }
 }

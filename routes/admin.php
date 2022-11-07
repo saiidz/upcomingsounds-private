@@ -40,6 +40,8 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
     Route::get('artist-profile/{user}',[ArtistController::class,'profileArtist'])->name('artist.profile');
     Route::post('store-artist-reject/{user}',[ArtistController::class,'storeRejectArtist'])->name('store.artist.reject');
     Route::post('store-approved-artist/{user}', [ArtistController::class,'storeApprovedArtist'])->name('store.approved.artist');
+    Route::get('track-approved', [ArtistController::class,'approvedTrack'])->name('approved.track');
+    Route::get('track-pending', [ArtistController::class,'pendingTrack'])->name('pending.track');
 
     // Curator Route
     Route::get('curator-approved', [CuratorController::class,'approvedCurator'])->name('approved.curator');

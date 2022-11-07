@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\ArtistTrack;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
@@ -131,5 +132,29 @@ class ArtistController extends Controller
         }
         return response()->json(['success' => 'Artist Reject successfully and send email to Artist.']);
         // return redirect()->back()->with('success','Artist Reject successfully and send email to artist.');
+    }
+
+    /**
+     * approvedTrack function
+     *
+     * @return void
+     */
+
+    public function approvedTrack()
+    {
+        $approved_tracks = ArtistTrack::GetApprovedTrack()->latest()->get();
+        return view('admin.pages.artist-tracks.artist_approved_tracks', get_defined_vars());
+    }
+
+    /**
+     * pendingTrack function
+     *
+     * @return void
+     */
+
+    public function pendingTrack()
+    {
+        $pending_tracks = ArtistTrack::GetPendingTrack()->latest()->get();
+        return view('admin.pages.artist-tracks.artist_pending_tracks', get_defined_vars());
     }
 }

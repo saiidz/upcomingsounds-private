@@ -53,7 +53,6 @@ class ArtistController extends Controller
         $languages = Language::all();
         $artist_tracks = ArtistTrack::where('user_id',$user_artist->id)->orderBy('id','desc')->get();
         return view('pages.artists.artist-profile', get_defined_vars());
-//        return view('pages.artists.artist-profile',compact('user_artist','countries','features','selected_feature','track_categories','artist_tracks'));
     }
     // Artist Update Profile
     public function updateArtistProfile(Request $request)
