@@ -70,14 +70,14 @@
                         </div>
                         <div class="col s12 m5 quick-action-btns display-flex justify-content-end align-items-center pt-2">
                             @if ($artist_track->is_approved == 0)
-                                <a href="#approvedModal" class="btn-small btn-light-indigo dropdown-item has-icon modal-trigger approvedArtist-confirm" data-id={{ $artist_track->id }}>
+                                <a href="#approvedTrackModal" class="btn-small btn-light-indigo dropdown-item has-icon modal-trigger approvedArtistTrack-confirm" data-id={{ $artist_track->id }}>
                                     Approved
                                 </a>
                             @endif
 
 
-                            @if ($artist_track->is_approved == 0 && $artist_track->is_rejected == 0)
-                                <a href="#rejectModal" class="btn-small btn-light-red dropdown-item has-icon modal-trigger reject-artist-confirm" data-id={{ $artist_track->id }} >
+                            @if ($artist_track->is_approved == 0)
+                                <a href="#rejectTrackModal" class="btn-small btn-light-red dropdown-item has-icon modal-trigger reject-track-confirm" data-id={{ $artist_track->id }} >
                                     Reject
                                 </a>
                             @endif
@@ -139,14 +139,6 @@
                                                     <a href="{{ $artist_track->ep_lp_link ?? '--'  }}" target="_blank">{{ $artist_track->ep_lp_link ?? '--'  }}</a>
                                                 </td>
                                             </tr>
-                                            @if ($artist_track->demo == 'on')
-                                                <tr>
-                                                    <td>Demo:</td>
-                                                    <td>
-                                                        {{$artist_track->demo}}
-                                                    </td>
-                                                </tr>
-                                            @endif
                                             <tr>
                                                 <td>Release Type:</td>
                                                 <td>
@@ -184,7 +176,7 @@
                                             @endif
                                             @if(!empty($artist_track->track_thumbnail))
                                                 <tr>
-                                                    <td>Track Thumbnail:</td>
+                                                    <td>Song Thumbnail:</td>
                                                     <td>
                                                         <a href="{{URL('/')}}/uploads/track_thumbnail/{{$artist_track->track_thumbnail}}" target="_blank" class="avatar">
                                                             <img src="{{URL('/')}}/uploads/track_thumbnail/{{$artist_track->track_thumbnail}}" alt="users view avatar" class="z-depth-4"
@@ -218,6 +210,12 @@
                                     <h6 class="mb-2 mt-2"><i class="material-icons">error_outline</i> Audio Info</h6>
                                     <table class="striped">
                                         <tbody>
+                                            <tr>
+                                                <td>Demo:</td>
+                                                <td>
+                                                    {{$artist_track->demo}}
+                                                </td>
+                                            </tr>
                                             <tr>
                                                 <td>Audio Cover:</td>
                                                 <td>{{$artist_track->audio_cover}}</td>
@@ -258,11 +256,13 @@
                                     @if(count($artist_track->artistTrackLinks) > 0)
                                         <tr>
                                             @foreach($artist_track->artistTrackLinks as $link)
-                                                <td>
-                                                    @php
-                                                        echo $link->link;
-                                                    @endphp
-                                                </td>
+                                                @if(!empty($link->link))
+                                                    <td>
+                                                        @php
+                                                            echo $link->link;
+                                                        @endphp
+                                                    </td>
+                                                @endif
                                             @endforeach
                                         </tr>
                                     @endif
@@ -284,7 +284,7 @@
 </div>
 <!-- END: Page Main-->
 
-{{--@include('admin.pages.artists.artist_modal')--}}
+@include('admin.pages.artist-tracks.artist_track_modal')
 
 
 
@@ -304,14 +304,14 @@
     <script src="{{asset('app-assets/js/artist/artist.js')}}"></script>
     <script>
         $(function () {
-            $('.reject-artist-confirm').on('click', function () {
+            $('.reject-track-confirm').on('click', function () {
                 $(".modal").modal(),
                 $("#modal3").modal("open"),
                 $("#modal3").modal("close")
             });
         });
         $(function () {
-            $('.approvedArtist-confirm').on('click', function () {
+            $('.approvedArtistTrack-confirm').on('click', function () {
                 $(".modal").modal(),
                 $("#modal3").modal("open"),
                 $("#modal3").modal("close")

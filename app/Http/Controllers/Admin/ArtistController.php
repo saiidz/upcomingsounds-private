@@ -169,4 +169,89 @@ class ArtistController extends Controller
 //        dd($artist_track);
         return view('admin.pages.artist-tracks.artist_track_view', get_defined_vars());
     }
+
+    /**
+     * storeApprovedTrack function
+     *
+     * @return void
+     */
+
+    public function storeApprovedTrack(Request $request,ArtistTrack $artist_track)
+    {
+        $validator = Validator::make($request->all(), [
+            'description_details' => "required",
+        ]);
+
+        if ($validator->fails())
+        {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
+
+        if(!empty($artist_track))
+        {
+            $artist_track->update([
+                'is_approved' => 1,
+                'is_rejected' => 0,
+            ]);
+
+            $data['email'] = $artist_track->user->email;
+            $data['username'] = $artist_track->user->name;
+            $data["title"] = "Approved Track Artist Upcoming Sounds";
+            $data['approvedTrackMessage'] = $request->description_details ?? null;
+
+            try {
+                Mail::send('admin.emails.track_artist_email.send_approved_email_to_artist', $data, function($message)use($data) {
+                    $message->from('gary@upcomingsounds.com');
+                    $message->to($data["email"], $data["email"])
+                        ->subject($data["title"]);
+                });
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+
+        }
+        return response()->json(['success' => 'Track Approved successfully and send email to Artist.']);
+    }
+
+    /**
+     * storeRejectTrack function
+     *
+     * @return void
+     */
+
+    public function storeRejectTrack(Request $request,ArtistTrack $artist_track)
+    {
+        $validator = Validator::make($request->all(), [
+            'description_details' => "required",
+        ]);
+
+        if ($validator->fails())
+        {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
+
+        if(!empty($artist_track))
+        {
+            $artist_track->update([
+                'is_approved' => 0,
+                'is_rejected' => 1,
+            ]);
+
+            $data['email'] = $artist_track->user->email;
+            $data['username'] = $artist_track->user->name;
+            $data["title"] = "Rejected Track Artist Upcoming Sounds";
+            $data['rejectTrackMessage'] = $request->description_details ?? null;
+
+            try {
+                Mail::send('admin.emails.track_artist_email.send_reject_email_to_artist', $data, function($message)use($data) {
+                    $message->from('no_reply@upcomingsounds.com');
+                    $message->to($data["email"], $data["email"])
+                        ->subject($data["title"]);
+                });
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+        }
+        return response()->json(['success' => 'Track Reject successfully and send email to Artist.']);
+    }
 }

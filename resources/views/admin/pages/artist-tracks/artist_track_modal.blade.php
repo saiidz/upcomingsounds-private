@@ -1,10 +1,10 @@
-{{-- Approved Modal  --}}
-<div id="approvedModal" class="modal">
-    <form class="new_basicform_approved_with_reload" action="{{ route('admin.store.approved.artist', $user->id) }}" id="approvedArtistForm" method="post">
+{{-- Approved Track Modal  --}}
+<div id="approvedTrackModal" class="modal">
+    <form class="new_basicform_approved_with_reload" action="{{ route('admin.store.approved.track', $artist_track->id) }}" id="approvedArtistForm" method="post">
         @csrf
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Reason For Approved</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Add Reason For Approved Track</h5>
               </div>
             <div class="modal-body">
                 <div class="form-group">
@@ -22,12 +22,12 @@
 {{--  Approved Modal --}}
 
 {{-- Reject Modal  --}}
-<div id="rejectModal" class="modal">
-    <form class="new_basicform_reject_with_reload" action="{{ route('admin.store.artist.reject', $user->id) }}" id="rejectArtistForm" method="post">
+<div id="rejectTrackModal" class="modal">
+    <form class="new_basicform_reject_with_reload" action="{{ route('admin.store.track.reject', $artist_track->id) }}" id="rejectArtistForm" method="post">
         @csrf
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Reason For Reject</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Add Reason For Reject Track</h5>
               </div>
             <div class="modal-body">
                 <div class="form-group">

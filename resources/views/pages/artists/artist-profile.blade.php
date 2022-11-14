@@ -1244,30 +1244,4 @@
 
     });
     </script>
-    <script>
-        $('.reloadTrack').on('click', function(){
-            window.open(
-                window.location.origin + '/artist-profile#tracks',
-                '_self' // <- This is what makes it open in a new window.
-                );
-        });
-        $('.reloadList').on('click', function(){
-            window.open(
-                window.location.origin + '/artist-profile#playlists',
-                '_self' // <- This is what makes it open in a new window.
-                );
-        });
-        $('.reloadSaved').on('click', function(){
-            window.open(
-                window.location.origin + '/artist-profile#likes',
-                '_self' // <- This is what makes it open in a new window.
-                );
-        });
-        $('.reloadProfile').on('click', function(){
-            window.open(
-                window.location.origin + '/artist-profile#profile',
-                '_self' // <- This is what makes it open in a new window.
-                );
-        });
-    </script>
 @endsection

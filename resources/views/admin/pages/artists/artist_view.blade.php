@@ -78,7 +78,7 @@
                         </div>
                         <div class="col s12 m5 quick-action-btns display-flex justify-content-end align-items-center pt-2">
                             @if ($user->is_approved == 0)
-                                <a href="#approvedModal" data-id={{ $user->id }} class="btn-small btn-light-indigo dropdown-item has-icon modal-trigger approvedArtist-confirm">
+                                <a href="#approvedModal" class="btn-small btn-light-indigo dropdown-item has-icon modal-trigger approvedArtist-confirm" data-id={{ $user->id }}>
                                     Approved
                                 </a>
 

@@ -43,6 +43,8 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
     Route::get('track-approved', [ArtistController::class,'approvedTrack'])->name('approved.track');
     Route::get('track-pending', [ArtistController::class,'pendingTrack'])->name('pending.track');
     Route::get('track-details/{artist_track}',[ArtistController::class,'trackDetails'])->name('artist.track.detail');
+    Route::post('store-approved-track/{artist_track}', [ArtistController::class,'storeApprovedTrack'])->name('store.approved.track');
+    Route::post('store-track-reject/{artist_track}',[ArtistController::class,'storeRejectTrack'])->name('store.track.reject');
 
     // Curator Route
     Route::get('curator-approved', [CuratorController::class,'approvedCurator'])->name('approved.curator');
