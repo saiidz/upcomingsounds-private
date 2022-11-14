@@ -75,7 +75,7 @@
                                                                         </span>
                                                                     @endif
                                                                 </td>
-                                                                <td><a href="{{ route('admin.artist.profile', $approved_track->id) }}"><i class="material-icons">remove_red_eye</i></a></td>
+                                                                <td><a href="{{ route('admin.artist.track.detail', $approved_track->id) }}"><i class="material-icons">remove_red_eye</i></a></td>
                                                           </tr>
                                                         @endforeach
                                                     @endif

@@ -8,13 +8,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ArtistTrackTag extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
     protected $table = 'artist_track_tags';
 
     protected $fillable = [
         'artist_track_id',
         'curator_feature_tag_id',
-        'deleted_at',
     ];
     public function curatorFeatureTag(){
         return $this->belongsTo(CuratorFeatureTag::class);

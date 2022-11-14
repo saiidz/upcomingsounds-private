@@ -16,6 +16,7 @@ class ArtistTrack extends Model
         'description',
         'user_id',
         'is_approved',
+        'is_rejected',
 //        'track_category_id',
         'youtube_soundcloud_url',
         'soundcloudUrl',

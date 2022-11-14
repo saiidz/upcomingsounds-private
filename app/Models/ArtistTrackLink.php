@@ -16,4 +16,7 @@ class ArtistTrackLink extends Model
         'link',
         'icon',
     ];
+    public function language(){
+        return $this->belongsTo(Language::class);
+    }
 }

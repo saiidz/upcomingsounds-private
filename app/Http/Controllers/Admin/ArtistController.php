@@ -157,4 +157,16 @@ class ArtistController extends Controller
         $pending_tracks = ArtistTrack::GetPendingTrack()->latest()->get();
         return view('admin.pages.artist-tracks.artist_pending_tracks', get_defined_vars());
     }
+
+    /**
+     * trackDetails function
+     *
+     * @return void
+     */
+
+    public function trackDetails(ArtistTrack $artist_track)
+    {
+//        dd($artist_track);
+        return view('admin.pages.artist-tracks.artist_track_view', get_defined_vars());
+    }
 }

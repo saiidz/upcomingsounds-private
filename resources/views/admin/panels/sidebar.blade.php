@@ -52,7 +52,8 @@
         </li>
 
         {{-- artist tracks --}}
-        <li class="bold {{ Request::is('admin/track-approved') || Request::is('admin/track-pending') ? 'active open' : '' }}">
+        <li class="bold {{ Request::is('admin/track-approved') || Request::is('admin/track-pending')
+            || Request::is('admin/track-details*')? 'active open' : '' }}">
             <a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)">
                 <i class="material-icons">face</i>
                 <span class="menu-title" data-i18n="User">Artist Tracks</span>
