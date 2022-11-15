@@ -76,11 +76,11 @@
                             @endif
 
 
-                            @if ($artist_track->is_approved == 0)
+{{--                            @if ($artist_track->is_approved == 1 && $artist_track->is_rejected == 0)--}}
                                 <a href="#rejectTrackModal" class="btn-small btn-light-red dropdown-item has-icon modal-trigger reject-track-confirm" data-id={{ $artist_track->id }} >
                                     Reject
                                 </a>
-                            @endif
+{{--                            @endif--}}
                         </div>
                     </div>
                     </div>
