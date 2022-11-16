@@ -200,6 +200,11 @@
                         $("#errors").html("<li class='text-danger'>"+item+"</li>");
                     });
                 }
+                if(response.error)
+                {
+                    $('.basicbtn').removeAttr('disabled')
+                    Sweet('error',response.error);
+                }
             }
 			// success: function(response){
 			// 	$('.basicbtn').removeAttr('disabled')
@@ -251,7 +256,7 @@
 			}
 		});
 		var basicbtnhtml=$('.basicbtn').html();
-        showLoader();
+        // showLoader();
 		$.ajax({
 			type: 'POST',
 			url: this.action,
@@ -268,7 +273,7 @@
 			},
 
 			success: function(response){
-                hideLoader();
+                // hideLoader();
                 if(response.error)
                 {
                     Sweet('error',response.error);
@@ -283,7 +288,7 @@
 			},
 			error: function(xhr, status, error)
 			{
-                hideLoader();
+                // hideLoader();
                 console.log(xhr);
 				$('.basicbtn').html(basicbtnhtml);
 				$('.basicbtn').removeAttr('disabled')

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Artist\StoreTrackRequest;
 use App\Models\ArtistTrack;
 use App\Models\ArtistTrackLanguage;
+use App\Rules\ValidateArrayLinkTrack;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\TrackCategory;
 use App\Models\ArtistTrackLink;
@@ -42,28 +45,30 @@ class ArtistTrackController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
         $validator = Validator::make($request->all(), [
-            // 'youtube_soundcloud_url' => 'required',
-            // 'spotify_track_url' => 'required|url',
-            // 'link' => 'required|url',
-            'name' => 'required|string',
-            'description' => 'required|string',
+            'audio'           => ($request->demo == "on") ? 'required|file|mimes:mp3|max:15000' :'file|mimes:mp3|max:15000',
+            'tag'             => 'required',
             'track_thumbnail' => 'required|file|mimes:jpeg,jpg,png,gif|max:2048',
-            'audio' =>'file|mimes:mp3|max:15000',
-            'tag'  => 'required',
+            'link.*'          =>  'required',
+            'release_type'    => 'required',
+            'description'     => 'required|string',
+            'name'            => 'required|string',
         ]);
 
-        if ($validator->fails()) {
-            return redirect('/artist-profile#add-track')->withErrors($validator)
-                ->withInput();
-        }
-        //check if demo on
-        if($request->demo == "on")
+        if ($validator->fails())
         {
-            if(empty($request->audio))
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
+
+        if(!empty($request->link))
+        {
+            foreach ($request->link as $link)
             {
-                return redirect('/artist-profile#add-track')->with('error','PLease add song because demo is on');
+                $check_link = str_contains($link, 'iframe') ? true : false;
+                if ($check_link == false)
+                {
+                    return response()->json(['error' => 'Please add iframe links not other links.']);
+                }
             }
         }
 
@@ -141,7 +146,8 @@ class ArtistTrackController extends Controller
             }
         }
 
-        return redirect()->back()->with('success', 'Song Track created successfully.');
+        return response()->json(['success' => 'Song Track created successfully.']);
+//        return redirect()->back()->with('success', 'Song Track created successfully.');
     }
 
     /**

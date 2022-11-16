@@ -1,6 +1,6 @@
 
-<form method="POST" action="{{url('/store-track')}}"
-      enctype="multipart/form-data" id="track_song" name="track_song">
+<form method="POST" action="{{url('/store-track')}}" class="basicform_with_reload"
+      enctype="multipart/form-data">
     @csrf
     <div class="page-title m-b">
         <h4 class="inline m-a-0 update_profile">Add a song</h4>
@@ -15,7 +15,7 @@
             <input type="text" name="name"
                    class="form-control @error('name') is-invalid @enderror"
                    value="{{old('name')}}"
-                   placeholder="Add your release title" required>
+                   placeholder="Add your release title">
             <div id="error_message_name" class="red-text" style="color:red; padding:4px;"></div>
             @error('name')
             <small class="red-text ml-10" role="alert">
@@ -30,7 +30,7 @@
         <div class="col-sm-9">
             <textarea name="description"
                       placeholder="Tell us more about your artwork... "
-                      class="form-control @error('description') is-invalid @enderror" required>{{old('description')}}</textarea>
+                      class="form-control @error('description') is-invalid @enderror">{{old('description')}}</textarea>
             <div id="error_message_description" class="red-text" style="color:red; padding:4px;"></div>
             @error('description')
             <small class="red-text ml-10" role="alert">
@@ -84,56 +84,6 @@
             <div id="preview"></div>
         </div>
     </div>
-    {{-- <div class="form-group row">
-        <div class="col-sm-3 form-control-label text-muted"><a href="https://www.youtube.com/" target="_blank" style="color:#d64441;" rel="noopener noreferrer">YouTube</a> link</div>
-        <div class="col-sm-9">
-            <input type="text" name="youtube_soundcloud_url" id="trueUrl" onclick="removeStyle(this);"
-                   class="form-control @error('youtube_soundcloud_url') is-invalid @enderror" value="{{old('youtube_soundcloud_url')}}"
-                   placeholder="https://www.youtube.com/watch?v=iLd8ugdjJgk" required>
-            <div id="error_message_youtube_soundcloud" class="red-text" style="color:red; padding:4px;"></div>
-            @error('youtube_soundcloud_url')
-            <small id="error_message"class="red-text ml-10" role="alert">
-                {{ $message }}
-            </small>
-            @enderror
-            <div class="row">
-                <div class="col-sm-12">
-                    <div id="preview"></div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-
-    {{-- <div class="form-group row">
-        <div class="col-sm-3 form-control-label text-muted">SoundCloud link</div>
-        <div class="col-sm-9">
-            <input type="text" name="soundcloudUrl" onclick="removeStyle(this);"
-                   class="form-control @error('soundcloudUrl') is-invalid @enderror" value="{{old('soundcloudUrl')}}"
-                   placeholder="https://soundcloud.com">
-            <div id="error_message_soundcloud" class="red-text" style="color:red; padding:4px;"></div>
-            @error('soundcloudUrl')
-            <small class="red-text ml-10" role="alert">
-                {{ $message }}
-            </small>
-            @enderror
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <div class="col-sm-3 form-control-label text-muted">Spotify track link (optional)</div>
-        <div class="col-sm-9">
-            <input type="url" name="spotify_track_url" onclick="removeStyle(this);"
-                   class="form-control @error('spotify_track_url') is-invalid @enderror"
-                   value="{{old('spotify_track_url')}}"
-                   placeholder="https://open.spotify.com/artist/5eJu3FXEJJGVaQpAeQjdwg">
-            <div id="error_message_spotify_track" class="red-text" style="color:red; padding:4px;"></div>
-            @error('spotify_track_url')
-            <small class="red-text ml-10" role="alert">
-                {{ $message }}
-            </small>
-            @enderror
-        </div>
-    </div> --}}
 
     <div class="form-group row">
         <div class="col-sm-3"></div>
@@ -149,13 +99,6 @@
         </div>
     </div>
     <div class="form-group row">
-        {{-- <div class="col-sm-3"></div>
-        <div class="col-sm-9">
-            <div class="plusIcon">
-                <i class="fa fa-remove" id="removeButton">Remove Link</i>
-            </div>
-        </div> --}}
-
         <div id="TextBoxesGroup">
             <div id="TextBoxDiv1">
                 <div class="col-sm-3 form-control-label text-muted">Add New Link #1</div>
@@ -206,7 +149,7 @@
         <div class="col-sm-3 form-control-label text-muted">Song Thumbnail</div>
         <div class="col-sm-9">
             <input type='file' class="form-control" id="imageTrackUpload" name="track_thumbnail"
-                   accept=".png, .jpg, .jpeg" required />
+                   accept=".png, .jpg, .jpeg" />
             <label for="imageTrackUpload"></label>
             <div class="imgTrackPreview">
                 <img src=""
@@ -371,25 +314,9 @@
     </div>
 
 
-
-{{--    <div class="form-group row">--}}
-{{--        <div class="col-sm-3 form-control-label text-muted">Song Category</div>--}}
-{{--        <div class="col-sm-9">--}}
-{{--            <select class="form-control c-select" name="song_category" required>--}}
-{{--                <option value="" disabled selected>Choose Song Category</option>--}}
-{{--                @foreach($track_categories as $song_cat)--}}
-{{--                    <option value="{{$song_cat->id}}">{{$song_cat->name}}</option>--}}
-{{--                @endforeach--}}
-{{--            </select>--}}
-{{--            <div id="error_message_song_category" class="red-text" style="color:red; padding:4px;"></div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-
-
-
     <div class="form-group row">
         {{-- <button type="submit" class="btn btn-sm rounded add_track"> --}}
-        <button type="submit" class="btn btn-sm rounded add_track" onclick='return validateAddTrackForm("track_song")'>
+        <button type="submit" class="btn btn-sm rounded add_track basicbtn">
             Add Song</button>
     </div>
 </form>

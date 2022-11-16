@@ -251,23 +251,38 @@
                                     </tbody>
                                 </table>
                                 <h6 class="mb-2 mt-2"><i class="material-icons">error_outline</i> Artist Track Links</h6>
-                                <table class="striped">
-                                    <tbody>
+
+                                <div class="row">
                                     @if(count($artist_track->artistTrackLinks) > 0)
-                                        <tr>
-                                            @foreach($artist_track->artistTrackLinks as $link)
-                                                @if(!empty($link->link))
-                                                    <td>
-                                                        @php
-                                                            echo $link->link;
-                                                        @endphp
-                                                    </td>
-                                                @endif
-                                            @endforeach
-                                        </tr>
+                                        @foreach($artist_track->artistTrackLinks as $link)
+                                            @if(!empty($link->link))
+                                                <div class="col-lg-4" style="display:inline-block">
+                                                    @php
+                                                        echo $link->link;
+                                                    @endphp
+                                                </div>
+                                            @endif
+                                        @endforeach
+
                                     @endif
-                                    </tbody>
-                                </table>
+                                </div>
+{{--                                <table class="striped">--}}
+{{--                                    <tbody>--}}
+{{--                                    @if(count($artist_track->artistTrackLinks) > 0)--}}
+{{--                                        <tr>--}}
+{{--                                            @foreach($artist_track->artistTrackLinks as $link)--}}
+{{--                                                @if(!empty($link->link))--}}
+{{--                                                    <td>--}}
+{{--                                                        @php--}}
+{{--                                                            echo $link->link;--}}
+{{--                                                        @endphp--}}
+{{--                                                    </td>--}}
+{{--                                                @endif--}}
+{{--                                            @endforeach--}}
+{{--                                        </tr>--}}
+{{--                                    @endif--}}
+{{--                                    </tbody>--}}
+{{--                                </table>--}}
                             </div>
                         </div>
                         <!-- </div> -->
