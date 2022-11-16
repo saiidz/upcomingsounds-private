@@ -1090,6 +1090,10 @@
                 }
             });
         });
+        // requestEdit Track Model
+        function requestEditTrack(track_id){
+            $('.trackID').val(track_id);
+        }
     </script>
     <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
 
@@ -1243,5 +1247,14 @@
 
 
     });
+    </script>
+    <script src="{{asset('app-assets/js/artist/artist.js')}}"></script>
+    <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $('.ckeditor').ckeditor();
+
+        });
     </script>
 @endsection

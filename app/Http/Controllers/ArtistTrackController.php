@@ -9,6 +9,7 @@ use App\Models\TrackCategory;
 use App\Models\ArtistTrackLink;
 use App\Models\Language;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class ArtistTrackController extends Controller
@@ -269,5 +270,49 @@ class ArtistTrackController extends Controller
         return response()->json([
             'success' => 'Track are deleted!',
         ]);
+    }
+
+    /**
+     * requestTrackEdit function
+     *
+     * @return void
+     */
+
+    public function requestTrackEdit(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'description_details' => "required",
+        ]);
+
+        if ($validator->fails())
+        {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
+        $artist_track = ArtistTrack::where('id', $request->track_id)->first();
+        if(!empty($artist_track))
+        {
+//            $artist_track->update([
+//                'is_approved' => 1,
+//                'is_rejected' => 0,
+//            ]);
+
+            $data['trackID'] = $artist_track->id;
+            $data['email'] = $artist_track->user->email;
+            $data['username'] = $artist_track->user->name;
+            $data["title"] = "Request to Edit Track Admin";
+            $data['requestEditTrackAdmin'] = $request->description_details ?? null;
+
+            try {
+                Mail::send('pages.artists.emails.send_request_to_edit_email_admin', $data, function($message)use($data) {
+                    $message->from($data["email"], $data["email"]);
+                    $message->to('admin@edmrekords.com')
+                        ->subject($data["title"]);
+                });
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+
+        }
+        return response()->json(['success' => 'Email send successfully and send to Admin.']);
     }
 }

@@ -277,3 +277,30 @@
     </div>
 </div>
 <!-- Permission Copy Right Modal -->
+
+<!-- Request Edit Modal -->
+<div id="requestEdit" class="modal fade black-overlay" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Request To Admin For Edit Track</h5>
+            </div>
+            <form class="new_basicform_approved_with_reload" action="{{route('request.edit.track',)}}" method="post">
+                @csrf
+                <input type="hidden" name="track_id" class="trackID" value="">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <textarea class="form-control ckeditor" name="description_details" id="descriptionApprovedDetails" required></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary basicbtn">Send</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div>
+</div>
+<!-- Permission Copy Right Modal -->

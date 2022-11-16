@@ -57,7 +57,9 @@
                             @if($track->is_locked == 0 && $track->is_approved == 0)
                                 <button class="btn btn-xs white" onclick="editTrack({{$track->id}})" data-toggle="modal" data-target="#edit-track">Edit</button>
                             @else
-                                <button class="btn btn-xs white" data-toggle="modal" data-target="#edit-track">Request To Edit</button>
+{{--                                <button class="btn btn-xs white" data-toggle="modal" data-target="#requestEdit">Request To Edit</button>--}}
+                                <a href="javascript:void(0)" onclick="requestEditTrack({{$track->id}})" class="btn btn-xs white" data-toggle="modal"
+                                   data-target="#requestEdit">Request To Edit</a>
                             @endif
                             <a href="javascript:void(0)" onclick="deleteTrack({{$track->id}})" class="btn btn-xs white" data-toggle="modal"
                                data-target="#delete-track-modal">Delete</a>
