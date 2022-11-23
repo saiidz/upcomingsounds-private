@@ -7,7 +7,7 @@
             </div>
             <div class="modal-body p-lg">
                 <form method="POST" action="" data-edit-track-id=""
-                      enctype="multipart/form-data" id="track_edit_song" name="track_edit_song">
+                      enctype="multipart/form-data" class="basicform_with_reload">
                     @csrf
 
                     <div class="form-group">
@@ -27,7 +27,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label form-control-label text-muted">Description</label>
+                        <label class="control-label form-control-label text-muted">Description/Press Release/Pitch</label>
                         <div>
                                    <textarea name="description" value="" id="trackEditDescription"
                                              placeholder="Your description..."
@@ -77,73 +77,35 @@
                         </div>
                     </div>
 
-{{--                    <div class="form-group">--}}
-{{--                        <label class="control-label form-control-label text-muted">Song Category</label>--}}
-{{--                        <div>--}}
-{{--                            <select class="form-control c-select" id="songEditCategory" name="song_category" required></select>--}}
-{{--                            <div id="error_message_edit_song_category" class="red-text" style="color:red; padding:4px;"></div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-
                     <div class="form-group text-warning">
                         <h6>Insert your embedded player code (from any digital stores: Spotify; Apple Music; Amazon Music; Deezer; Soundcloud; YouTube; Anghami; Bandcamp.)</h6>
                     </div>
 
-                    {{-- <div class="form-group">
-                        <label class="control-label form-control-label text-muted">YouTube Link</label>
-                        <div>
-                            <input type="text" name="youtube_soundcloud_url" id="trueUrlEdit" onclick="removeStyle(this);"
-                                   class="form-control @error('youtube_soundcloud_url') is-invalid @enderror"
-                                   placeholder="https://www.youtube.com/watch?v=iLd8ugdjJgk" required>
-                            <div id="error_message_edit_youtube_soundcloud" class="red-text" style="color:red; padding:4px;"></div>
-                            @error('youtube_soundcloud_url')
-                            <small id="error_message"class="red-text ml-10" role="alert">
-                                {{ $message }}
-                            </small>
-                            @enderror
-                            <div id="previewEdit">
+                    <div class="form-group" id="previewLinkBlockEdit" style="display: none">
+                        <div class="col-sm-12">
+                            <div id="previewLinkEdit"></div>
+                        </div>
+                    </div>
 
+{{--                    <div id="TextBoxesGroupEdit">--}}
+
+{{--                    </div>--}}
+
+                    <div class="form-group row" id="LinksIframeEdit">
+                        <div id="TextBoxesGroupEdit">
+                        </div>
+                    </div>
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-9">
+                        <div class="addMoreRemoveLink">
+                            <div class="plusIcon">
+                                <i class="fa fa-plus addLinkButtonEdit" id="addLinkButtonEdit" data-counter="">Add New Link</i>
+                            </div>
+                            <div class="plusIconRemove">
+                                <i class="fa fa-remove removeButtonEdit" id="removeButtonEdit" data-counter="">Remove Link</i>
                             </div>
                         </div>
-                    </div> --}}
-
-                    {{-- <div class="form-group">
-                        <label class="control-label form-control-label text-muted">SoundCloud Link</label>
-                        <div>
-                            <input type="text" name="soundcloudUrl" id="soundcloudUrlEdit" onclick="removeStyle(this);"
-                                   class="form-control @error('soundcloudUrl') is-invalid @enderror"
-                                   placeholder="https://soundcloud.com">
-                            <div id="error_message_edit_soundcloud" class="red-text" style="color:red; padding:4px;"></div>
-                            @error('soundcloudUrl')
-                            <small id="error_message"class="red-text ml-10" role="alert">
-                                {{ $message }}
-                            </small>
-                            @enderror
-                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <label class="control-label form-control-label text-muted">Spotify track link (optional)</label>
-                        <div>
-                            <input type="url" name="spotify_track_url" id="spotifyTrackUrl" value="" onclick="removeStyle(this);"
-                                   class="form-control @error('spotify_track_url') is-invalid @enderror"
-                                   placeholder="https://open.spotify.com/artist/5eJu3FXEJJGVaQpAeQjdwg">
-                            <div id="error_message_edit_spotify_track" class="red-text" style="color:red; padding:4px;"></div>
-                            @error('spotify_track_url')
-                            <small class="red-text ml-10" role="alert">
-                                {{ $message }}
-                            </small>
-                            @enderror
-                        </div>
-                    </div> --}}
-                    <div class="form-group" id="previewLinkBlockEdit" style="display: none">
-                        <div id="previewLinkEdit"></div>
-                    </div>
-
-                    <div id="TextBoxesGroupEdit">
-
-                    </div>
-
                     <div class="form-group">
                         <label class="control-label form-control-label text-muted">EP/LP Link (optional)</label>
                         <div>
@@ -169,7 +131,7 @@
                     <div class="form-group">
                         <label class="control-label form-control-label text-muted">Song Upload(mp3)</label>
                         <div>
-                            <input type='file' class="form-control" name="audio"
+                            <input type='file' class="form-control" name="audio" id="audioEditTrackPreview"
                                    accept=".mp3" />
                             <label for="imageEditTrackUpload"></label>
                             <div class="audioEditTrackPreview">
@@ -180,6 +142,7 @@
 
                     <div class="form-group">
                         <div>
+                            <div class="text-muted" style="color: red !important">Unreleased</div>
                             <p class="mb-1">
                                 <label>
                                     <span class="afterRelease">After Release date, may we publicity display this in our submissions directory</span>
@@ -212,10 +175,53 @@
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        <label class="control-label form-control-label text-muted">Track's lyrics  language(s) (optional)</label>
+                        <div class="features-box-select-language" id="trackEditLanguages">
+                            <select class="form-control-label editTrackLanguages" name="language[]" id="editTrackLanguages" placeholder="You can select mutiple languages" multiple>
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="text-muted">Permissions / Copyright
+                            <div class="mrg-top-10 mrg-bottom-20 small grey-text">
+                                <span>Want to learn more?</span>
+                                <!-- Button trigger modal -->
+                                <a href="javascript:void(0)" data-toggle="modal" data-target="#exampleModalCenter">
+                                    Click Here
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="col s12">
+                                <p class="mb-1">
+                                <div class="remix">
+                                    <label>
+                                        <input type="checkbox" class="radio permissionCopyright" value="no" name="permission_copyright" />   No, they cannot upload an MP3 to their own channel
+                                        <div class="grey-text small" style="margin-left: 18px;">We will ask them to use the streaming links you provided</div>
+                                    </label>
+                                </div>
+                                </p>
+                            </div>
+                            <div class="col s12">
+                                <p class="mb-1">
+                                <div class="remix">
+                                    <label>
+                                        <input type="checkbox" class="radio permissionCopyright" value="yes" name="permission_copyright" />   Yes, let them upload this song
+                                        <div class="grey-text small" style="margin-left: 18px;">Often required by YouTube channels and Radio stations</div>
+                                    </label>
+                                </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="form-group modal-footer">
                         <button type="button" class="btn dark-white rounded update_track_not" id="update_track_not" data-dismiss="modal">Cancle</button>
                         {{--                                <button type="button" class="btn danger p-x-md" data-dismiss="modal">Yes</button>--}}
-                        <button type="submit" id="updateTrack" class="btn btn-sm rounded add_track" onclick='return validateEditTrackForm("track_edit_song")'>
+                        <button type="submit" id="updateTrack" class="btn btn-sm rounded add_track basicbtn">
                             Update</button>
                     </div>
                 </form>
@@ -300,6 +306,32 @@
                     <button type="submit" class="btn btn-primary basicbtn">Send</button>
                 </div>
             </form>
+        </div><!-- /.modal-content -->
+    </div>
+</div>
+<!-- Permission Copy Right Modal -->
+
+<!-- Permission Copy Right Modal -->
+<div id="exampleModalCenter" class="modal fade black-overlay" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">What's the deal with copyrights?</h5>
+            </div>
+            <div class="modal-body">
+                When submitting your song, you'll probably see a prompt asking if you're willing to sign a copyright agreement so that someone can upload the song to their channel.
+
+                The copyright agreements are 90% for YouTube channels (occasionally others might ask if they can upload to their Facebook or a radio show, for example). The copyright is you giving them permission to upload the song without getting in trouble. YouTube has all sorts of automatic copyright stuff going on, so if they do get in trouble, they can just show the copyright agreement you signed and say "see, they gave us permission!"
+
+                As for the monetization -- a lot of those YouTube channels run ads on their videos. If you give them permission to monetize your video, they can run ads and keep all the money. The idea is that in exchange, you get exposure. (Also worth noting that YouTube has some of the worst monetization of any music platform, so it's not like you're losing out on much).
+
+                Them having your song on their channel doesn't mean you can't put it on your own official channel.
+
+                Will it make a difference if you allow monetization or not? Nope! SubmitHub will automatically filter out any channels who require monetization, so if your preference is non-monetization, you'll never be sending your song to someone who requires that.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
         </div><!-- /.modal-content -->
     </div>
 </div>

@@ -335,6 +335,14 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
     cursor: pointer;
     color: #02b875;
 }
+#addLinkButtonEdit{
+    cursor: pointer;
+    color: #02b875;
+}
+#removeButtonEdit{
+    cursor: pointer !important;
+    color: red !important;
+}
 #removeButton{
     cursor: pointer !important;
     color: red !important;
@@ -471,7 +479,7 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
     border-radius: 500px !important;
 }
 #TextBoxesGroupEdit {
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 .addMoreClassic {

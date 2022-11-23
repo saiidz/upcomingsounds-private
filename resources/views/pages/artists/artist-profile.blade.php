@@ -808,6 +808,23 @@
         $("#audioTrackUpload").change(function () {
             readAudioURL(this);
         });
+
+        // edit track
+        $("#audioEditTrackPreview").change(function () {
+            readAudioEditURL(this);
+        });
+
+        function readAudioEditURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('audioEditTrack').setAttribute('src', e.target.result );
+                    $('#audioEditTrack').hide();
+                    $('#audioEditTrack').fadeIn(650);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
     </script>
     <script src="{{asset('js/gijgo.min.js')}}"></script>
     <script>
@@ -884,6 +901,17 @@
         });
     </script>
     <script>
+        // $(document).ready(function(){
+        //
+        //     var multipleCancelButton = new Choices('#editTrackLanguages', {
+        //         removeItemButton: true,
+        //         //    maxItemCount:5,
+        //         //    searchResultLimit:5,
+        //         //    renderChoiceLimit:5
+        //     });
+        //
+        //
+        // });
         // Edit Track
         function editTrack(track_id){
             // showLoader();
@@ -892,47 +920,32 @@
                 url: '{{url('/edit-track')}}/' + track_id,
                 dataType: 'JSON',
                 success:function (data){
+                    console.log(data);
                     // loader();
 
                     $('#track_edit_song').trigger("reset");
-                    // $('#trueUrl').val(data.artist_track.youtube_soundcloud_url);
-                    // $('#spotifyTrackUrl').val(data.artist_track.spotify_track_url);
                     $('#track_edit_song').attr('data-edit-track-id',data.artist_track.id);
 
                     // url links
                     let counter_count = 1
                     $('#TextBoxesGroupEdit').empty();
+
+                    // add counter in addlink
+                    $('#addLinkButtonEdit').attr('data-counter',data.artist_track_links.length);
+                    $('#removeButtonEdit').attr('data-counter',data.artist_track_links.length);
+                    // links iframe
                     $.each(data.artist_track_links, function(key, value){
-                        $('#TextBoxesGroupEdit').append("<input type='hidden' name='lang[]' value="+value.link+" ");
-                        $('#TextBoxesGroupEdit').append(value.link);
-                        $('#TextBoxesGroupEdit').append('<hr>');
-                        // $('#TextBoxesGroupEdit').append('<div class="form-group editNewLink"><label class="control-label form-control-label text-muted">Add New Link #'+counter_count+'</label><div> <input type="text" name="link[]" onclick="removeStyle(this);" class="form-control moreLinks @error('link') is-invalid @enderror" required value="'+value.link+'" id="textbox'+counter_count+'" placeholder="Please Add Embeded Url"><a href="javascript:void(0)" class="textbox'+counter_count+'" id="previewIconEdit" onclick="getInputValueEdit(this)"><i class="fa fa-eye"></i> preview</a></div></div>');
+                        var linkIframe = value.link;
+                        let linkIframeNew = linkIframe.replace(/\"/g, "");
+                        var newTextBoxDiv = $(document.createElement('div'))
+                            .attr("id", 'TextBoxEditDiv' + counter_count);
+                        newTextBoxDiv.after().html('<div class="col-sm-3 form-control-label text-muted">Add New Link #'+ counter_count +'</div>' +
+                            '<div class="col-sm-9 m-b"> <div class="addEmbeded"><div class="addMoreLinks"><input type="text" class="form-control moreLinks" name="link[]" id="textbox' + counter_count + '" value="'+linkIframeNew+'" placeholder="Please Add Embeded Url"></div><div class="previewStart"><a href="javascript:void(0)" class="textbox' + counter_count + '" id="previewIcon" onclick="getInputValueEdit(this)"><i class="fa fa-eye"></i> preview</a></div></div></div>');
+
+                        newTextBoxDiv.appendTo("#TextBoxesGroupEdit");
                         counter_count++;
                     });
 
-                    // $('#trueUrlEdit').val(data.artist_track.youtube_soundcloud_url);
-                    // if(data.artist_track.youtube_soundcloud_url.includes('https://www.youtube.com/watch') || data.artist_track.youtube_soundcloud_url.includes('https://www.youtube.com/embed') || data.artist_track.youtube_soundcloud_url.includes('https://w.soundcloud.com') || data.artist_track.youtube_soundcloud_url.includes('https://soundcloud.com')) {
-                    //     var match = data.artist_track.youtube_soundcloud_url.match(/watch|embed|soundcloud/g);
-                    //     if (match[0].indexOf("watch") !== -1) {
-                    //         var res = getId(data.artist_track.youtube_soundcloud_url);
-                    //         document.querySelector('#previewEdit').innerHTML = "";
-                    //         document.querySelector('#previewEdit').innerHTML = '<iframe width="320" height="315" src="https://www.youtube.com/embed/' + res + '" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-                    //     } else if (match[0].indexOf("soundcloud") !== -1) {
-                    //         document.querySelector('#previewEdit').innerHTML = "";
-                    //         document.querySelector('#previewEdit').innerHTML = data.artist_track.youtube_soundcloud_url;
-                    //     } else if (match[0].indexOf("embed") !== -1) {
-                    //         document.querySelector('#previewEdit').style.display = 'block';
-                    //         document.querySelector('#previewEdit').innerHTML = "";
-                    //         document.querySelector('#previewEdit').innerHTML = data.artist_track.youtube_soundcloud_url;
-
-                    //     }
-                    // }
-                    // else {
-                    //     document.querySelector('#previewEdit').style.display = 'none';
-                    // }
-
-                    // $('#soundcloudUrlEdit').val(data.artist_track.soundcloudUrl);
-                    // $('#spotifyTrackUrl').val(data.artist_track.spotify_track_url);
                     $('#epLpLink').val(data.artist_track.ep_lp_link);
                     $('#trackEditTitle').val(data.artist_track.name);
                     $('#trackEditDescription').val(data.artist_track.description);
@@ -946,17 +959,15 @@
                     if(data.artist_track.demo == 'on')
                     {
                         $('#demoChecked').prop('checked', true);
+                        var path_audio = window.location.origin + '/uploads/audio/' + data.artist_track.audio;
+                        document.getElementById('audioEditTrack').setAttribute('src', path_audio );
+
                     }else{
                         $('#demoChecked').prop('checked', false);
                     }
 
-                    var path_audio = window.location.origin + '/uploads/audio/' + data.artist_track.audio;
-                    document.getElementById('audioEditTrack').setAttribute('src', path_audio );
-                    // $("#songEditCategory").append('<option value="" disabled selected>Choose Song Category</option>');
-                    // $.each(data.track_categories, function (key, value) {
-                    //     let selected = (value.id == data.artist_track.track_category_id) ? 'selected' : '';
-                    //     $("#songEditCategory").append('<option value="' + value.id + '" '+selected+'>' + value.name + '</option>');
-                    // });
+
+
                     $('#dateEditpicker').val(data.artist_track.release_date);
                     if(data.artist_track.display_profile == "1"){
                         $('#displayEditProfile').attr( 'checked', true );
@@ -1000,20 +1011,23 @@
                         $('.audioCoverEdit').prop('checked', false );
                         $('.audioRemixEdit').prop('checked', false );
                     }
-
+                    // $('select[name="language[]"]').empty();
+                    // language list
+                    var firstElement = document.getElementById('editTrackLanguages');
+                    // console.log(firstElement.removeHighlightedItems());
+                    firstElement.removeHighlightedItems();
+                    const choices1 = new Choices(firstElement, {
+                        removeItemButton: true,
+                        choices: data.selected_languages,
+                    });
+                    // choices1.clearChoices()
                 }
             });
         }
-        // document.getElementById('update_track_not').addEventListener('click', function (){
-        //     document.querySelector('#previewEdit').innerHTML = "";
-        // });
-    </script>
-    <script>
-        function validURLEdit(str) {
-            var pattern = new RegExp("^((https|http)?://)"); // protocol
 
-            return !!pattern.test(str);
-        }
+        document.getElementById('update_track_not').addEventListener('click', function (){
+            document.querySelector('#previewLinkEdit').innerHTML = "";
+        });
         function  getInputValueEdit(elem) {
 
             let src = document.getElementById(elem.className).value
@@ -1021,43 +1035,170 @@
                 toastr.error('Please Add url embeded');
                 return false;
             }
-            url = validURLEdit(src);
+            // url = validURL(src);
 
-            if(url == false)
-            {
+            // if(url == false)
+            // {
+            //     toastr.error('Please Add correct url embeded');
+            //     return false;
+            // }
+
+            var match_link = src.match(/iframe/g);
+            // var match_link = src.match(/embed|w.soundcloud.com|bandcamp|widget/g);
+
+            if (match_link == null) {
                 toastr.error('Please Add correct url embeded');
                 return false;
             }
 
-            var match_link = src.match(/embed|w.soundcloud.com|bandcamp|widget/g);
-
-            if(match_link == null)
-            {
-                toastr.error('Please Add correct url embeded');
-                return false;
-            }
-
-            if(match_link[0].indexOf("embed") !== -1){
+            if (src) {
                 document.querySelector('#previewLinkBlockEdit').style.display = 'block';
                 document.querySelector('#previewLinkEdit').innerHTML = "";
-                document.querySelector('#previewLinkEdit').innerHTML = '<iframe style="border-radius:12px" id="previewLinkEdit" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
-            }else if(match_link[0].indexOf("widget") !== -1){
-                document.querySelector('#previewLinkBlockEdit').style.display = 'block';
-                document.querySelector('#previewLinkEdit').innerHTML = "";
-                document.querySelector('#previewLinkEdit').innerHTML = '<iframe style="border-radius:12px" id="previewLinkEdit" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
-            }else if(match_link[0].indexOf("w.soundcloud.com") !== -1){
-                document.querySelector('#previewLinkBlockEdit').style.display = 'block';
-                document.querySelector('#previewLinkEdit').innerHTML = "";
-                document.querySelector('#previewLinkEdit').innerHTML = '<iframe style="border-radius:12px" id="previewLinkEdit" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
-            }else if(match_link[0].indexOf("bandcamp") !== -1){
-                document.querySelector('#previewLinkBlockEdit').style.display = 'block';
-                document.querySelector('#previewLinkEdit').innerHTML = "";
-                document.querySelector('#previewLinkEdit').innerHTML = '<iframe style="border-radius:12px" id="previewLinkEdit" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
-            }else{
+                document.querySelector('#previewLinkEdit').innerHTML = src;
+            } else {
                 toastr.error('Please Add correct url embeded');
                 return false;
             }
         }
+    </script>
+    {{-- Mulple links --}}
+    <script type="text/javascript">
+
+
+
+        $(document).ready(function(){
+
+            var counter = 2;
+
+            $("#addLinkButton").click(function () {
+
+                if(counter>5){
+                    alert("Only 5 Links allow");
+                    return false;
+                }
+
+                var newTextBoxDiv = $(document.createElement('div'))
+                    .attr("id", 'TextBoxDiv' + counter);
+
+                newTextBoxDiv.after().html('<div class="col-sm-3 form-control-label text-muted">Add New Link #'+ counter +'</div>' +
+                    '<div class="col-sm-9 m-b"> <div class="addEmbeded"><div class="addMoreLinks"><input type="text" class="form-control moreLinks" name="link[]" id="textbox' + counter + '" value="" placeholder="Please Add Embeded Url"></div><div class="previewStart"><a href="javascript:void(0)" class="textbox' + counter + '" id="previewIcon" onclick="getInputValue(this)"><i class="fa fa-eye"></i> preview</a></div></div></div>');
+
+                newTextBoxDiv.appendTo("#TextBoxesGroup");
+
+
+                counter++;
+            });
+
+            $("#removeButton").click(function () {
+                if(counter==1){
+                    alert("No more textbox to remove");
+                    return false;
+                }
+
+                counter--;
+
+                $("#TextBoxDiv" + counter).remove();
+
+            });
+
+            // Edit AddLink Button new
+
+
+
+            $("#addLinkButtonEdit").on("click",function (e) {
+                e.preventDefault();
+
+                let counter_edit = $(this).attr('data-counter');
+                counter_edit++;
+                if(counter_edit>5){
+                    alert("Only 5 Links allow");
+                    return false;
+                }
+
+                var newTextBoxDiv = $(document.createElement('div'))
+                    .attr("id", 'TextBoxEditDiv' + counter_edit);
+
+                newTextBoxDiv.after().html('<div class="col-sm-3 form-control-label text-muted">Add New Link #'+ counter_edit +'</div>' +
+                    '<div class="col-sm-9 m-b"> <div class="addEmbeded"><div class="addMoreLinks"><input type="text" class="form-control moreLinks" name="link[]" id="textbox' + counter_edit + '" value="" placeholder="Please Add Embeded Url"></div><div class="previewStart"><a href="javascript:void(0)" class="textbox' + counter_edit + '" id="previewIcon" onclick="getInputValueEdit(this)"><i class="fa fa-eye"></i> preview</a></div></div></div>');
+
+                newTextBoxDiv.appendTo("#TextBoxesGroupEdit");
+
+                // counter_edit++;
+                $('.addLinkButtonEdit').attr('data-counter','');
+                $('.addLinkButtonEdit').attr('data-counter',counter_edit);
+                $('.removeButtonEdit').attr('data-counter','');
+                $('.removeButtonEdit').attr('data-counter',counter_edit);
+            });
+
+            $("#removeButtonEdit").on("click",function (e) {
+                e.preventDefault();
+                let counter_edit = $(this).attr('data-counter');
+
+                if(counter_edit==0){
+                    alert("No more textbox to remove");
+                    return false;
+                }
+                $("#TextBoxEditDiv" + counter_edit).remove();
+
+                counter_edit--;
+                $('.addLinkButtonEdit').attr('data-counter','');
+                $('.addLinkButtonEdit').attr('data-counter',counter_edit);
+                $('.removeButtonEdit').attr('data-counter','');
+                $('.removeButtonEdit').attr('data-counter',counter_edit);
+
+            });
+        });
+    </script>
+    <script>
+        // function validURLEdit(str) {
+        //     var pattern = new RegExp("^((https|http)?://)"); // protocol
+        //
+        //     return !!pattern.test(str);
+        // }
+        // function  getInputValueEdit(elem) {
+        //
+        //     let src = document.getElementById(elem.className).value
+        //     if (src === "") {
+        //         toastr.error('Please Add url embeded');
+        //         return false;
+        //     }
+        //     url = validURLEdit(src);
+        //
+        //     if(url == false)
+        //     {
+        //         toastr.error('Please Add correct url embeded');
+        //         return false;
+        //     }
+        //
+        //     var match_link = src.match(/embed|w.soundcloud.com|bandcamp|widget/g);
+        //
+        //     if(match_link == null)
+        //     {
+        //         toastr.error('Please Add correct url embeded');
+        //         return false;
+        //     }
+        //
+        //     if(match_link[0].indexOf("embed") !== -1){
+        //         document.querySelector('#previewLinkBlockEdit').style.display = 'block';
+        //         document.querySelector('#previewLinkEdit').innerHTML = "";
+        //         document.querySelector('#previewLinkEdit').innerHTML = '<iframe style="border-radius:12px" id="previewLinkEdit" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
+        //     }else if(match_link[0].indexOf("widget") !== -1){
+        //         document.querySelector('#previewLinkBlockEdit').style.display = 'block';
+        //         document.querySelector('#previewLinkEdit').innerHTML = "";
+        //         document.querySelector('#previewLinkEdit').innerHTML = '<iframe style="border-radius:12px" id="previewLinkEdit" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
+        //     }else if(match_link[0].indexOf("w.soundcloud.com") !== -1){
+        //         document.querySelector('#previewLinkBlockEdit').style.display = 'block';
+        //         document.querySelector('#previewLinkEdit').innerHTML = "";
+        //         document.querySelector('#previewLinkEdit').innerHTML = '<iframe style="border-radius:12px" id="previewLinkEdit" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
+        //     }else if(match_link[0].indexOf("bandcamp") !== -1){
+        //         document.querySelector('#previewLinkBlockEdit').style.display = 'block';
+        //         document.querySelector('#previewLinkEdit').innerHTML = "";
+        //         document.querySelector('#previewLinkEdit').innerHTML = '<iframe style="border-radius:12px" id="previewLinkEdit" src="'+src+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
+        //     }else{
+        //         toastr.error('Please Add correct url embeded');
+        //         return false;
+        //     }
+        // }
     </script>
 
     <script>
@@ -1172,82 +1313,7 @@
             }
         });
     </script>
-    {{-- Mulple links --}}
-    <script type="text/javascript">
 
-        $(document).ready(function(){
-
-            var counter = 2;
-
-            $("#addLinkButton").click(function () {
-
-                if(counter>10){
-                        alert("Only 10 textboxes allow");
-                        return false;
-                }
-
-                var newTextBoxDiv = $(document.createElement('div'))
-                    .attr("id", 'TextBoxDiv' + counter);
-
-                newTextBoxDiv.after().html('<div class="col-sm-3 form-control-label text-muted">Add New Link #'+ counter +'</div>' +
-                    '<div class="col-sm-9 m-b"> <div class="addEmbeded"><div class="addMoreLinks"><input type="text" class="form-control moreLinks" name="link[]" id="textbox' + counter + '" value="" placeholder="Please Add Embeded Url"></div><div class="previewStart"><a href="javascript:void(0)" class="textbox' + counter + '" id="previewIcon" onclick="getInputValue(this)"><i class="fa fa-eye"></i> preview</a></div></div></div>');
-
-                newTextBoxDiv.appendTo("#TextBoxesGroup");
-
-
-                counter++;
-             });
-
-             $("#removeButton").click(function () {
-                if(counter==1){
-                    alert("No more textbox to remove");
-                    return false;
-                }
-
-                counter--;
-
-                $("#TextBoxDiv" + counter).remove();
-
-             });
-
-            //  $("#getButtonValue").click(function () {
-
-            // var msg = '';
-            // for(i=1; i<counter; i++){
-            //      msg += "\n Textbox #" + i + " : " + $('#textbox' + i).val();
-            // }
-            //       alert(msg);
-            //  });
-
-
-        // let more = document.getElementsByClassName('moreLinks');
-        // console.log(more);
-        // for (let index = 0; index < more.length; index++) {
-        //    more[index].addEventListener('focusout', function (){
-
-        //     var match_link = this.value.match(/embed|w.soundcloud.com|widget/g);
-
-        //         if(match_link[0].indexOf("embed") !== -1){
-        //             document.querySelector('#previewLinkBlock').style.display = 'block';
-        //             document.querySelector('#previewLink').innerHTML = "";
-        //             document.querySelector('#previewLink').innerHTML = '<iframe style="border-radius:12px" id="previewLink" src="'+this.value+'" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
-        //         }else{
-        //             alert('error')
-        //         }
-
-        //     });
-        // }
-
-        // function  getInputValue() {
-        //     // let src = document.getElementById(elem.className).value
-        //     console.log(this)
-        // }
-
-
-
-
-    });
-    </script>
     <script src="{{asset('app-assets/js/artist/artist.js')}}"></script>
     <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
     <script>

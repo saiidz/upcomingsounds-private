@@ -173,13 +173,24 @@ class ArtistTrackController extends Controller
     public function edit(ArtistTrack $artist_track)
     {
         $track_categories = TrackCategory::all();
-        $languages = Language::all();
+        $selected_language = !empty($artist_track->artistTrackLanguages) ? $artist_track->artistTrackLanguages->pluck('language_id')->toArray() : '';
+        $newLanguageArray = [];
+        $languages = Language::get(['id','name'])->toArray();
+        foreach ($languages as $language)
+        {
+            $language_new = [
+                'value' => $language['id'],
+                'label' => $language['name'],
+                'selected' => in_array($language['id'],$selected_language) ? true : false,
+            ];
+            array_push($newLanguageArray, $language_new);
+        }
+
         return response()->json([
             'artist_track'           => $artist_track,
             'artist_track_links'     => !empty($artist_track->artistTrackLinks) ? $artist_track->artistTrackLinks : '',
-            'artist_track_languages' => !empty($artist_track->artistTrackLanguages) ? $artist_track->artistTrackLanguages : '',
             'track_categories'       => $track_categories,
-            'languages'              => $languages,
+            'selected_languages'     => $newLanguageArray,
             'success'                => 'Artist Track Get Successfully',
         ]);
     }
@@ -193,7 +204,7 @@ class ArtistTrackController extends Controller
      */
     public function update(Request $request,ArtistTrack $artist_track)
     {
-        // dd($request->all());
+         dd($request->all());
         $input = $request->all();
         $input['user_id'] = auth()->user()->id;
         // $input['youtube_soundcloud_url'] = $request->get('youtube_soundcloud_url');
