@@ -913,8 +913,10 @@
         //
         // });
         // Edit Track
+        let count =0;
         function editTrack(track_id){
             // showLoader();
+             count++;
             $.ajax({
                 type: "GET",
                 url: '{{url('/edit-track')}}/' + track_id,
@@ -1011,15 +1013,24 @@
                         $('.audioCoverEdit').prop('checked', false );
                         $('.audioRemixEdit').prop('checked', false );
                     }
-                    // $('select[name="language[]"]').empty();
+
                     // language list
-                    var firstElement = document.getElementById('editTrackLanguages');
-                    // console.log(firstElement.removeHighlightedItems());
-                    firstElement.removeHighlightedItems();
-                    const choices1 = new Choices(firstElement, {
-                        removeItemButton: true,
-                        choices: data.selected_languages,
-                    });
+                    if(count==1)
+                    {
+                        var firstElement = document.getElementById('editTrackLanguages');
+                        const choices1 = new Choices(firstElement, {
+                            removeItemButton: true,
+                            choices: data.selected_languages,
+                        });
+                    }
+                    // var firstElement = document.getElementById('editTrackLanguages');
+                    //
+                    // // console.log(firstElement.removeHighlightedItems());
+                    // // firstElement.removeHighlightedItems();
+                    // const choices1 = new Choices(firstElement, {
+                    //     removeItemButton: true,
+                    //     choices: data.selected_languages,
+                    // });
                     // choices1.clearChoices()
                 }
             });
@@ -1027,6 +1038,7 @@
 
         document.getElementById('update_track_not').addEventListener('click', function (){
             document.querySelector('#previewLinkEdit').innerHTML = "";
+            location.reload();
         });
         function  getInputValueEdit(elem) {
 
