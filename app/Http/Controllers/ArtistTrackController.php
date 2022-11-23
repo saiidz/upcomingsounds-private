@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Artist\StoreTrackRequest;
 use App\Models\ArtistTrack;
 use App\Models\ArtistTrackLanguage;
+use App\Models\CuratorFeature;
+use App\Models\CuratorFeatureTag;
 use App\Rules\ValidateArrayLinkTrack;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -185,6 +187,28 @@ class ArtistTrackController extends Controller
             ];
             array_push($newLanguageArray, $language_new);
         }
+
+        // all curator features
+        $new_curator_features = [];
+        $selected_curator_features = !empty($artist_track->artistTrackTags) ? $artist_track->artistTrackTags->pluck('curator_feature_tag_id')->toArray() : '';
+        $curator_features_ids = CuratorFeature::pluck('id')->toArray();
+        $curator_featuress = CuratorFeatureTag::with('curatorFeature')->whereHas('curatorFeature', function($q){
+                                    $q->select('name');
+                                })->whereIn('curator_feature_id', $curator_features_ids)->get()
+                                    ->groupBy('curatorFeature.name');
+
+        foreach ($curator_featuress as $curator_feature_name => $curator_features)
+        {
+
+//            foreach ($curator_features as $curator_feature)
+//            {
+//
+//
+//                array_push($new_curator_features, $curator_features_new);
+//            }
+
+        }
+//        dd($new_curator_features);
 
         return response()->json([
             'artist_track'           => $artist_track,

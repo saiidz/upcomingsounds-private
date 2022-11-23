@@ -95,17 +95,20 @@
                         <div id="TextBoxesGroupEdit">
                         </div>
                     </div>
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-9">
-                        <div class="addMoreRemoveLink">
-                            <div class="plusIcon">
-                                <i class="fa fa-plus addLinkButtonEdit" id="addLinkButtonEdit" data-counter="">Add New Link</i>
-                            </div>
-                            <div class="plusIconRemove">
-                                <i class="fa fa-remove removeButtonEdit" id="removeButtonEdit" data-counter="">Remove Link</i>
+                    <div class="form-group">
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-9">
+                            <div class="addMoreRemoveLink">
+                                <div class="plusIcon">
+                                    <i class="fa fa-plus addLinkButtonEdit" id="addLinkButtonEdit" data-counter="">Add New Link</i>
+                                </div>
+                                <div class="plusIconRemove">
+                                    <i class="fa fa-remove removeButtonEdit" id="removeButtonEdit" data-counter="">Remove Link</i>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label class="control-label form-control-label text-muted">EP/LP Link (optional)</label>
                         <div>
@@ -199,7 +202,7 @@
                                 <p class="mb-1">
                                 <div class="remix">
                                     <label>
-                                        <input type="checkbox" class="radio permissionCopyright" value="no" name="permission_copyright" />   No, they cannot upload an MP3 to their own channel
+                                        <input type="checkbox" class="radio permissionCopyright" id="permissionCopyrightNo" value="no" name="permission_copyright" />   No, they cannot upload an MP3 to their own channel
                                         <div class="grey-text small" style="margin-left: 18px;">We will ask them to use the streaming links you provided</div>
                                     </label>
                                 </div>
@@ -209,11 +212,53 @@
                                 <p class="mb-1">
                                 <div class="remix">
                                     <label>
-                                        <input type="checkbox" class="radio permissionCopyright" value="yes" name="permission_copyright" />   Yes, let them upload this song
+                                        <input type="checkbox" class="radio permissionCopyright" id="permissionCopyrightYes" value="yes" name="permission_copyright" />   Yes, let them upload this song
                                         <div class="grey-text small" style="margin-left: 18px;">Often required by YouTube channels and Radio stations</div>
                                     </label>
                                 </div>
                                 </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:10px;">
+                        <button type="button" class="slide-toggle btn btn-sm rounded addYourInterest">Add Your Genres/Interest</button>
+                    </div>
+
+                    <div class="form-group interestShow" style="display: none;">
+                        <label class=" control-label form-control-label text-muted" style="margin-top:10px">Select your genres/interests.</label>
+                        <div class="col-sm-12" id="trackAddFeatures">
+                            <div class="section " id="faq">
+                                @if (!empty($curator_featuress))
+                                    @foreach ($curator_featuress as $key => $curator_sub_features)
+
+                                        <div class="row">
+                                            <div class="col s12 m6 l10">
+                                                <h4 class="card-title bold"><span class="text tw-mr-2">{{ $loop->iteration }}.</span> {{ $key }}  </h4>
+                                            </div>
+                                        </div>
+                                        <div class="underline"></div>
+                                        <div class="row music"></div>
+                                        @error('tag')
+                                        <small class="red-text" role="alert">
+                                            {{ $message }}
+                                        </small>
+                                        @enderror
+                                        <div class="faq row">
+                                            <div class="col s12 m9 l12">
+                                                <div class="features-box-select">
+                                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="You can select {{ $key }}" multiple>
+                                                        @if(!empty($curator_sub_features))
+                                                            @foreach($curator_sub_features as $feature)
+                                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
+                                                            @endforeach
+                                                        @endif
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @endif
                             </div>
                         </div>
                     </div>

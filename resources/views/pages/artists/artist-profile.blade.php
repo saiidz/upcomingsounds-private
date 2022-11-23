@@ -1023,6 +1023,20 @@
                             choices: data.selected_languages,
                         });
                     }
+
+                    // copyright permission
+                    $('#permissionCopyrightNo').prop('checked', false );
+                    $('#permissionCopyrightYes').prop('checked', false );
+
+                    if(data.artist_track.permission_copyright == "yes"){
+                        $('#permissionCopyrightYes').prop('checked', true );
+                    }else if(data.artist_track.permission_copyright == "no"){
+                        $('#permissionCopyrightNo').prop('checked', true );
+                    }else{
+                        $('#permissionCopyrightNo').prop('checked', false );
+                        $('#permissionCopyrightYes').prop('checked', false );
+                    }
+
                     // var firstElement = document.getElementById('editTrackLanguages');
                     //
                     // // console.log(firstElement.removeHighlightedItems());
