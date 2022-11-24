@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Artist\StoreTrackRequest;
 use App\Models\ArtistTrack;
 use App\Models\ArtistTrackLanguage;
+use App\Models\ArtistTrackTag;
 use App\Models\CuratorFeature;
 use App\Models\CuratorFeatureTag;
 use App\Rules\ValidateArrayLinkTrack;
@@ -191,6 +192,7 @@ class ArtistTrackController extends Controller
         // all curator features
         $new_curator_features = [];
         $selected_curator_features = !empty($artist_track->artistTrackTags) ? $artist_track->artistTrackTags->pluck('curator_feature_tag_id')->toArray() : '';
+
         $curator_features_ids = CuratorFeature::pluck('id')->toArray();
         $curator_featuress = CuratorFeatureTag::with('curatorFeature')->whereHas('curatorFeature', function($q){
                                     $q->select('name');
@@ -199,22 +201,25 @@ class ArtistTrackController extends Controller
 
         foreach ($curator_featuress as $curator_feature_name => $curator_features)
         {
+            $new_curator_features[$curator_feature_name] = [];
+            foreach ($curator_features as $curator_feature)
+            {
+                $selected_curator_new = [
+                    'value' => $curator_feature['id'],
+                    'label' => $curator_feature['name'],
+                    'selected' => in_array($curator_feature['id'],$selected_curator_features) ? true : false,
+                ];
 
-//            foreach ($curator_features as $curator_feature)
-//            {
-//
-//
-//                array_push($new_curator_features, $curator_features_new);
-//            }
-
+                array_push($new_curator_features[$curator_feature_name], $selected_curator_new);
+            }
         }
-//        dd($new_curator_features);
 
         return response()->json([
             'artist_track'           => $artist_track,
             'artist_track_links'     => !empty($artist_track->artistTrackLinks) ? $artist_track->artistTrackLinks : '',
             'track_categories'       => $track_categories,
             'selected_languages'     => $newLanguageArray,
+            'new_curator_features'     => $new_curator_features,
             'success'                => 'Artist Track Get Successfully',
         ]);
     }
@@ -228,15 +233,48 @@ class ArtistTrackController extends Controller
      */
     public function update(Request $request,ArtistTrack $artist_track)
     {
-         dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'audio'           => ($request->demo == "on") ? 'file|mimes:mp3|max:15000' :'file|mimes:mp3|max:15000',
+            'tag'             => 'required',
+            'track_thumbnail' => 'file|mimes:jpeg,jpg,png,gif|max:2048',
+            'link.*'          =>  'required',
+            'release_type'    => 'required',
+            'description'     => 'required|string',
+            'name'            => 'required|string',
+        ]);
+
+        if ($validator->fails())
+        {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
+
+        if(!empty($request->link))
+        {
+            foreach ($request->link as $link)
+            {
+                $check_link = str_contains($link, 'iframe') ? true : false;
+                if ($check_link == false)
+                {
+                    return response()->json(['error' => 'Please add iframe links not other links.']);
+                }
+            }
+        }
+
         $input = $request->all();
         $input['user_id'] = auth()->user()->id;
-        // $input['youtube_soundcloud_url'] = $request->get('youtube_soundcloud_url');
-        // $input['soundcloudUrl']          = $request->get('soundcloudUrl');
         $input['display_profile']        = ($request->get('display_profile')) ? (int)$request->get('display_profile') : 0;
 
         // upload audio song
         if ($request->hasfile('audio')) {
+            // delete audio previous
+            if(!empty($artist_track->audio))
+            {
+                $audio = public_path('uploads/audio/' . $artist_track->audio);
+                if(file_exists($audio)) {
+                    unlink($audio);
+                }
+            }
+
             $file = $request->file('audio');
             $name = $file->getClientOriginalName();
             $audio_path = 'default_'.time().$name;
@@ -249,6 +287,15 @@ class ArtistTrackController extends Controller
 
         // upload track song
         if ($request->hasfile('track_thumbnail')) {
+            // delete thumbnail previous
+            if(!empty($artist_track->track_thumbnail))
+            {
+                $image = public_path('uploads/track_thumbnail/' . $artist_track->track_thumbnail);
+                if(file_exists($image)) {
+                    unlink($image);
+                }
+            }
+
             $file = $request->file('track_thumbnail');
             $name = $file->getClientOriginalName();
             $image_path = 'default_'.time().$name;
@@ -279,8 +326,47 @@ class ArtistTrackController extends Controller
             }
         }
 
+        // create artist track language
+        if(!empty($request->language))
+        {
+            // delete previous track language
+            $artist_track_language = ArtistTrackLanguage::where('artist_track_id',$artist_track->id)->pluck('artist_track_id')->toArray();
+
+            if(isset($artist_track_language))
+            {
+                ArtistTrackLanguage::whereIn('artist_track_id',$artist_track_language)->forceDelete();
+            }
+
+            foreach($request->language as $language)
+            {
+                ArtistTrackLanguage::create([
+                    'artist_track_id' => $artist_track->id,
+                    'language_id' => $language,
+                ]);
+            }
+        }
+
+        // track tags store
+        if(!empty($request->tag))
+        {
+            // delete previous track tag
+            $artist_track_tag = ArtistTrackTag::where('artist_track_id',$artist_track->id)->pluck('artist_track_id')->toArray();
+
+            if(isset($artist_track_tag))
+            {
+                ArtistTrackTag::whereIn('artist_track_id',$artist_track_tag)->forceDelete();
+            }
+
+            foreach($request->tag as $tag)
+            {
+                $input['user_id']                = auth()->user()->id;
+                $input['curator_feature_tag_id'] = (int) $tag;
+                $artist_track->artistTrackTags()->create($input);
+            }
+        }
+
         $artist_track->update($input);
-        return redirect()->back()->with('success', 'Song Track updated successfully.');
+        return response()->json(['success' => 'Song Track updated successfully.']);
     }
 
     /**

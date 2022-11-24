@@ -165,6 +165,7 @@
 			}
 		});
 		var basicbtnhtml=$('.basicbtn').html();
+        showLoader();
 		$.ajax({
 			type: 'POST',
 			url: this.action,
@@ -183,6 +184,7 @@
             {
                 if(response.success)
                 {
+                    hideLoader();
                     console.log(response.success);
                     $('.basicbtn').removeAttr('disabled')
                     Sweet('success',response.success);
@@ -191,6 +193,7 @@
                 }
                 if(response.errors)
                 {
+                    hideLoader();
                     $('.basicbtn').html(basicbtnhtml);
                     $('.basicbtn').removeAttr('disabled')
                     $('.errorarea').show();
@@ -202,6 +205,7 @@
                 }
                 if(response.error)
                 {
+                    hideLoader();
                     $('.basicbtn').removeAttr('disabled')
                     Sweet('error',response.error);
                 }
@@ -233,7 +237,7 @@
       		Loader
     	---------------------------------------*/
 
-    var preload = document.getElementById('loading');
+    var preload = document.getElementById('loadings');
     function hideLoader()
     {
         preload.style.display = "none";

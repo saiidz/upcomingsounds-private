@@ -19,6 +19,7 @@
     <div id="content" class="app-content white bg box-shadow-z2" role="main">
         <div id="snackbar"></div>
         <div id="snackbarError"></div>
+
         <div class="app-header hidden-lg-up white lt box-shadow-z1">
             <div class="navbar">
                 <!-- brand -->

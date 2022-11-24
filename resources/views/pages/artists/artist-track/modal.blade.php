@@ -6,7 +6,7 @@
                 <h5 class="modal-title">Edit Track</h5>
             </div>
             <div class="modal-body p-lg">
-                <form method="POST" action="" data-edit-track-id=""
+                <form method="POST" action="" id="track_edit_song"
                       enctype="multipart/form-data" class="basicform_with_reload">
                     @csrf
 
@@ -16,7 +16,7 @@
                             <input type="text" name="name" id="trackEditTitle"
                                    class="form-control @error('name') is-invalid @enderror"
                                    value=""
-                                   placeholder="Your Title" required>
+                                   placeholder="Your Title">
                             <div id="error_message_edit_name" class="red-text" style="color:red; padding:4px;"></div>
                             @error('name')
                             <small class="red-text ml-10" role="alert">
@@ -31,7 +31,7 @@
                         <div>
                                    <textarea name="description" value="" id="trackEditDescription"
                                              placeholder="Your description..."
-                                             class="form-control @error('description') is-invalid @enderror" required></textarea>
+                                             class="form-control @error('description') is-invalid @enderror"></textarea>
                             <div id="error_message_edit_description" class="red-text" style="color:red; padding:4px;"></div>
                             @error('description')
                             <small class="red-text ml-10" role="alert">
@@ -228,37 +228,7 @@
                     <div class="form-group interestShow" style="display: none;">
                         <label class=" control-label form-control-label text-muted" style="margin-top:10px">Select your genres/interests.</label>
                         <div class="col-sm-12" id="trackAddFeatures">
-                            <div class="section " id="faq">
-                                @if (!empty($curator_featuress))
-                                    @foreach ($curator_featuress as $key => $curator_sub_features)
-
-                                        <div class="row">
-                                            <div class="col s12 m6 l10">
-                                                <h4 class="card-title bold"><span class="text tw-mr-2">{{ $loop->iteration }}.</span> {{ $key }}  </h4>
-                                            </div>
-                                        </div>
-                                        <div class="underline"></div>
-                                        <div class="row music"></div>
-                                        @error('tag')
-                                        <small class="red-text" role="alert">
-                                            {{ $message }}
-                                        </small>
-                                        @enderror
-                                        <div class="faq row">
-                                            <div class="col s12 m9 l12">
-                                                <div class="features-box-select">
-                                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="You can select {{ $key }}" multiple>
-                                                        @if(!empty($curator_sub_features))
-                                                            @foreach($curator_sub_features as $feature)
-                                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
-                                                            @endforeach
-                                                        @endif
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                @endif
+                            <div class="section" id="editTrackCuratorFeature">
                             </div>
                         </div>
                     </div>
