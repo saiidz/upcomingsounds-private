@@ -63,7 +63,7 @@
                     <li class="{{ Request::is('admin/track-approved') ? 'active' : '' }}">
                         <a class="{{ Request::is('admin/track-approved') ? 'active' : '' }}" href="{{ route('admin.approved.track') }}">
                             <i class="material-icons">radio_button_unchecked</i>
-                            <span data-i18n="List">Approved</span>
+                            <span data-i18n="List">Approve</span>
                         </a>
                     </li>
                     <li class="{{ Request::is('admin/track-pending') ? 'active' : '' }}">

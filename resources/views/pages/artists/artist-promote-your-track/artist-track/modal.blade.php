@@ -5,8 +5,9 @@
             <div class="modal-header">
                 <h5 class="modal-title">Add a song</h5>
             </div>
+
             <div class="modal-body p-lg">
-                <form method="post" action="{{ route('storeTrack') }}" class="basicform_with_reload">
+                <form method="post" action="{{ route('artist.track.store') }}" enctype="multipart/form-data" class="basicform_with_reload">
                     @csrf
                     <div class="item-except text-sm text-muted h-2x m-t-sm">
                         Complete your discography and let influencers discover your songs when they visit your profile.
@@ -16,14 +17,9 @@
                         <label class="control-label form-control-label text-muted">Title</label>
                         <div>
                             <input type="text" name="name"
-                                class="form-control @error('name') is-invalid @enderror"
-                                value="{{old('name')}}"
-                                placeholder="Your Title" required>
-                            @error('name')
-                                <small class="red-text ml-10" role="alert">
-                                    {{ $message }}
-                                </small>
-                            @enderror
+                                   class="form-control @error('name') is-invalid @enderror"
+                                   value="{{old('name')}}"
+                                   placeholder="Add your release title">
                         </div>
                     </div>
 
@@ -31,14 +27,8 @@
                         <label class="control-label form-control-label text-muted">Description</label>
                         <div>
                             <textarea name="description"
-                                placeholder="Tell us more about your artwork... "
-                                class="form-control @error('description') is-invalid @enderror" required>{{old('description')}}</textarea>
-
-                            @error('description')
-                                <small class="red-text ml-10" role="alert">
-                                    {{ $message }}
-                                </small>
-                            @enderror
+                                      placeholder="Tell us more about your artwork... "
+                                      class="form-control @error('description') is-invalid @enderror">{{old('description')}}</textarea>
                         </div>
                     </div>
 
@@ -85,7 +75,9 @@
                     </div>
 
                     <div class="form-group" id="previewLinkBlock" style="display: none">
-                        <div id="previewLink"></div>
+                        <div class="col-sm-12">
+                            <div id="previewLink"></div>
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -95,9 +87,9 @@
                                 <div class="addEmbeded">
                                     <div class="addMoreLinks">
                                         <input type="text" name="link[]" onclick="removeStyle(this);"
-                                        class="form-control moreLinks @error('link') is-invalid @enderror"
-                                        value="{{old('link')}}" id="textbox1"
-                                        placeholder="Please Add Embeded Url">
+                                               class="form-control moreLinks @error('link') is-invalid @enderror"
+                                               value="{{old('link')}}" id="textbox1"
+                                               placeholder="Please Add Embeded Url">
                                     </div>
 
                                     <div class="previewStart">
@@ -119,8 +111,9 @@
                     <div class="form-group">
                         <label class="control-label form-control-label text-muted">EP/LP Link (optional)</label>
                         <div>
-                            <input type="url" name="ep_lp_link" id="epLpLink" value="" onclick="removeStyle(this);"
+                            <input type="url" name="ep_lp_link"
                                    class="form-control @error('ep_lp_link') is-invalid @enderror"
+                                   value="{{old('ep_lp_link')}}"
                                    placeholder="https://xyz.com">
                         </div>
                     </div>
@@ -129,11 +122,11 @@
                         <label class="control-label form-control-label text-muted">Song Thumbnail</label>
                         <div>
                             <input type='file' class="form-control" id="imageTrackUpload" name="track_thumbnail"
-                                accept=".png, .jpg, .jpeg" required />
+                                   accept=".png, .jpg, .jpeg" />
                             <label for="imageTrackUpload"></label>
                             <div class="imgTrackPreview">
                                 <img src=""
-                                    id="imgTrackPreview" style="display:none;">
+                                     id="imgTrackPreview" style="display:none;">
                             </div>
                         </div>
                     </div>
@@ -142,7 +135,7 @@
                         <label class="control-label form-control-label text-muted">Song Upload(mp3)</label>
                         <div>
                             <input type='file' class="form-control" name="audio" id="audioTrackUpload"
-                                accept=".mp3" />
+                                   accept=".mp3" />
                             <label for="imageTrackUpload"></label>
                             <div class="audioTrackPreview">
                                 <audio controls="" src="" type="audio/mp3" controlslist="nodownload" id="audioTrackPreview" style="display:none;"></audio>
@@ -161,24 +154,23 @@
                                 <label>
                                     <input type="checkbox" class="filled-in"
                                            name="display_profile"
-                                           id="displayEditProfile"
                                            value="1"/>
                                     <span class="text-muted">Display on my public profile </span>
                                 </label>
                             </p>
                             <p class="mb-1">
-                                <input type="text" id="audioDescription" class="form-control" placeholder="e.g. Please do not share this before 31 Dec"
-                                           name="audio_description" />
+                                <input type="text" class="form-control" placeholder="e.g. Please do not share this before 31 Dec"
+                                       name="audio_description" />
                             </p>
                             <p class="mb-1">
                                 <p class="text-muted">Is This a Cover or a remix</p>
                                 <div class="remix">
                                     <label>
-                                        <input type="checkbox" class="radio audioCover audioOriginalEdit" value="original" name="audio_cover" />   Original</label>
+                                        <input type="checkbox" class="radio audioCover" value="original" name="audio_cover" />   Original</label>
                                     <label>
-                                        <input type="checkbox" class="radio audioCover audioCoverEdit" value="cover" name="audio_cover" />   Cover</label>
+                                        <input type="checkbox" class="radio audioCover" value="cover" name="audio_cover" />   Cover</label>
                                     <label>
-                                        <input type="checkbox" class="radio audioCover audioRemixEdit" value="remix" name="audio_cover" />   Remix</label>
+                                        <input type="checkbox" class="radio audioCover" value="remix" name="audio_cover" />   Remix</label>
                                 </div>
                             </p>
                         </div>
@@ -233,24 +225,27 @@
                         <div class="form-control-label text-muted">Select your genres/interests.</div>
                         <div id="trackAddFeatures">
                             <div class="section" id="faq">
-                                @if(isset($curator_features) && !empty($curator_features))
-                                    <div class="m6 l10">
-                                        <h4 class="card-title bold"><span class="text tw-mr-2">1.</span> Interests:  </h4>
-                                    </div>
-                                    <div class="underline"></div>
-                                    <div class=" music"></div>
-                                    @if($curator_features[0]->name == 'I would love to recieve')
+                                @if (!empty($curator_featuress))
+                                    @foreach ($curator_featuress as $key => $curator_sub_features)
+
+                                        <div class="row">
+                                            <div class="col s12 m6 l10">
+                                                <h4 class="card-title bold"><span class="text tw-mr-2">{{ $loop->iteration }}.</span> {{ $key }}  </h4>
+                                            </div>
+                                        </div>
+                                        <div class="underline"></div>
+                                        <div class="row music"></div>
                                         @error('tag')
-                                            <small class="red-text" role="alert">
-                                                {{ $message }}
-                                            </small>
+                                        <small class="red-text" role="alert">
+                                            {{ $message }}
+                                        </small>
                                         @enderror
-                                        <div class="faq ">
-                                            <div class=" m9 l12">
+                                        <div class="faq row">
+                                            <div class="col s12 m9 l12">
                                                 <div class="features-box-select">
-                                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="You can select interests that correspond with your releases" multiple>
-                                                        @if(!empty($curator_features))
-                                                            @foreach($curator_features[0]->curatorFeatureTag as $feature)
+                                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="You can select {{ $key }}" multiple>
+                                                        @if(!empty($curator_sub_features))
+                                                            @foreach($curator_sub_features as $feature)
                                                                 <option value="{{$feature->id}}">{{$feature->name}}</option>
                                                             @endforeach
                                                         @endif
@@ -258,270 +253,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    @endif
-                                    <div class="">
-                                        <div class=" m6 l10">
-                                            <h4 class="card-title bold"><span class="text tw-mr-2">2.</span> GENRES</h4>
-                                        </div>
-                                    </div>
-                                    <div class="underline"></div>
-                                    <div class=" music"></div>
-                                    @if($curator_features[1]->name == 'Alternative / Indie')
-                                        <div class="faq ">
-                                            <div class=" m9 l12">
-                                                <div class="features-box-select">
-                                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select Alternative / Indie" multiple>
-                                                        @if(!empty($curator_features))
-                                                            @foreach($curator_features[1]->curatorFeatureTag as $feature)
-                                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
-                                                            @endforeach
-                                                        @endif
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-
-                                    @if($curator_features[2]->name == 'Blogwave')
-                                        <div class="faq ">
-                                            <div class=" m9 l12">
-                                                <div class="features-box-select">
-                                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select Blogwave" multiple>
-                                                        @if(!empty($curator_features))
-                                                            @foreach($curator_features[2]->curatorFeatureTag as $feature)
-                                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
-                                                            @endforeach
-                                                        @endif
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-                                    @if($curator_features[3]->name == 'Classic')
-                                        <div class="faq ">
-                                            <div class=" m9 l12">
-                                                <div class="features-box-select">
-                                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select Classic" multiple>
-                                                        @if(!empty($curator_features))
-                                                            @foreach($curator_features[3]->curatorFeatureTag as $feature)
-                                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
-                                                            @endforeach
-                                                        @endif
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-
-                                    @if($curator_features[4]->name == 'Classical / Jazz')
-                                        <div class="faq ">
-                                            <div class=" m9 l12">
-                                                <div class="features-box-select">
-                                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select Classical / Jazz" multiple>
-                                                        @if(!empty($curator_features))
-                                                            @foreach($curator_features[4]->curatorFeatureTag as $feature)
-                                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
-                                                            @endforeach
-                                                        @endif
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-
-                                    @if($curator_features[5]->name == 'EDM')
-                                        <div class="faq ">
-                                            <div class=" m9 l12">
-                                                <div class="features-box-select">
-                                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select EDM" multiple>
-                                                        @if(!empty($curator_features))
-                                                            @foreach($curator_features[5]->curatorFeatureTag as $feature)
-                                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
-                                                            @endforeach
-                                                        @endif
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-
-                                    @if($curator_features[6]->name == 'Electronica / Breaks')
-                                        <div class="faq ">
-                                            <div class=" m9 l12">
-                                                <div class="features-box-select">
-                                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select Electronica / Breaks" multiple>
-                                                        @if(!empty($curator_features))
-                                                            @foreach($curator_features[6]->curatorFeatureTag as $feature)
-                                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
-                                                            @endforeach
-                                                        @endif
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-
-                                    @if($curator_features[7]->name == 'Folk')
-                                        <div class="faq ">
-                                            <div class=" m9 l12">
-                                                <div class="features-box-select">
-                                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select Folk" multiple>
-                                                        @if(!empty($curator_features))
-                                                            @foreach($curator_features[7]->curatorFeatureTag as $feature)
-                                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
-                                                            @endforeach
-                                                        @endif
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-
-                                    @if($curator_features[8]->name == 'Hip-hop / Rap')
-                                        <div class="faq ">
-                                            <div class=" m9 l12">
-                                                <div class="features-box-select">
-                                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select Hip-hop / Rap" multiple>
-                                                        @if(!empty($curator_features))
-                                                            @foreach($curator_features[8]->curatorFeatureTag as $feature)
-                                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
-                                                            @endforeach
-                                                        @endif
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-
-                                    @if($curator_features[9]->name == 'House / Techno')
-                                        <div class="faq ">
-                                            <div class=" m9 l12">
-                                                <div class="features-box-select">
-                                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select House / Techno" multiple>
-                                                        @if(!empty($curator_features))
-                                                            @foreach($curator_features[9]->curatorFeatureTag as $feature)
-                                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
-                                                            @endforeach
-                                                        @endif
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-
-                                    @if($curator_features[10]->name == 'IDM / Downtempo')
-                                        <div class="faq ">
-                                            <div class=" m9 l12">
-                                                <div class="features-box-select">
-                                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select IDM / Downtempo" multiple>
-                                                        @if(!empty($curator_features))
-                                                            @foreach($curator_features[10]->curatorFeatureTag as $feature)
-                                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
-                                                            @endforeach
-                                                        @endif
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-
-                                    @if($curator_features[11]->name == 'Metal / Hard Rock')
-                                        <div class="faq ">
-                                            <div class=" m9 l12">
-                                                <div class="features-box-select">
-                                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select Metal / Hard Rock" multiple>
-                                                        @if(!empty($curator_features))
-                                                            @foreach($curator_features[11]->curatorFeatureTag as $feature)
-                                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
-                                                            @endforeach
-                                                        @endif
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-
-                                    @if($curator_features[12]->name == 'Other')
-                                        <div class="faq ">
-                                            <div class=" m9 l12">
-                                                <div class="features-box-select">
-                                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select Other" multiple>
-                                                        @if(!empty($curator_features))
-                                                            @foreach($curator_features[12]->curatorFeatureTag as $feature)
-                                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
-                                                            @endforeach
-                                                        @endif
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-
-                                    @if($curator_features[13]->name == 'Pop')
-                                        <div class="faq ">
-                                            <div class=" m9 l12">
-                                                <div class="features-box-select">
-                                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select Pop" multiple>
-                                                        @if(!empty($curator_features))
-                                                            @foreach($curator_features[13]->curatorFeatureTag as $feature)
-                                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
-                                                            @endforeach
-                                                        @endif
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-
-                                    @if($curator_features[14]->name == 'Punk / Ska')
-                                        <div class="faq ">
-                                            <div class=" m9 l12">
-                                                <div class="features-box-select">
-                                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select Punk / Ska" multiple>
-                                                        @if(!empty($curator_features))
-                                                            @foreach($curator_features[14]->curatorFeatureTag as $feature)
-                                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
-                                                            @endforeach
-                                                        @endif
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-
-                                    @if($curator_features[15]->name == 'RnB / Funk / Soul')
-                                        <div class="faq ">
-                                            <div class=" m9 l12">
-                                                <div class="features-box-select">
-                                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select RnB / Funk / Soul" multiple>
-                                                        @if(!empty($curator_features))
-                                                            @foreach($curator_features[15]->curatorFeatureTag as $feature)
-                                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
-                                                            @endforeach
-                                                        @endif
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-
-                                    @if($curator_features[16]->name == 'World Music')
-                                        <div class="faq ">
-                                            <div class=" m9 l12">
-                                                <div class="features-box-select">
-                                                    <select class="form-control-label" name="tag[]" id="choices-multiple-remove-button" placeholder="Select World Music" multiple>
-                                                        @if(!empty($curator_features))
-                                                            @foreach($curator_features[16]->curatorFeatureTag as $feature)
-                                                                <option value="{{$feature->id}}">{{$feature->name}}</option>
-                                                            @endforeach
-                                                        @endif
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
+                                    @endforeach
                                 @endif
-
                             </div>
                         </div>
                     </div>

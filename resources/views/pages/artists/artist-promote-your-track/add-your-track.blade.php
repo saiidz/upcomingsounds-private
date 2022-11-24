@@ -662,8 +662,8 @@
 
             $("#addLinkButton").click(function () {
 
-                if(counter>10){
-                        alert("Only 10 textboxes allow");
+                if(counter>5){
+                        alert("Only 5 textboxes allow");
                         return false;
                 }
 
@@ -680,7 +680,7 @@
              });
 
              $("#removeButton").click(function () {
-                if(counter==1){
+                if(counter==2){
                     alert("No more textbox to remove");
                     return false;
                 }

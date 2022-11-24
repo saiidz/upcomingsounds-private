@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CuratorFeatureTag;
 use App\Models\User;
 use App\Models\Language;
 use App\Models\ArtistTrack;
@@ -34,8 +35,14 @@ class PromoteYourTrackController extends Controller
     {
         $page = 'promote-your-track';
         $user_artist = Auth::user();
-        $artist_tracks = ArtistTrack::where('user_id',$user_artist->id)->latest()->get();
+        $artist_tracks = ArtistTrack::where('user_id',$user_artist->id)->where('is_approved', 1)->latest()->get();
         $languages = Language::all();
+
+        $curator_features_ids = CuratorFeature::pluck('id')->toArray();
+        $curator_featuress = CuratorFeatureTag::with('curatorFeature')->whereHas('curatorFeature', function($q){
+                                    $q->select('name');
+                                })->whereIn('curator_feature_id', $curator_features_ids)->get()
+                                    ->groupBy('curatorFeature.name');
         $curator_features = CuratorFeature::all();
         return view('pages.artists.artist-promote-your-track.add-your-track',get_defined_vars());
     }

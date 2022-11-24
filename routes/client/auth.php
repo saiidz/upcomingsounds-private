@@ -24,7 +24,7 @@ Route::post('artist-change-password', [ArtistController::class, 'artistChangePas
 // artist tracks routes
 Route::get('tracks', [ArtistTrackController::class, 'index']);
 Route::get('add-track', [ArtistTrackController::class, 'create']);
-Route::post('store-track', [ArtistTrackController::class, 'store']);
+Route::post('store-track', [ArtistTrackController::class, 'store'])->name('artist.track.store');
 Route::get('view-track/{artist_track}', [ArtistTrackController::class, 'show']);
 Route::get('edit-track/{artist_track}', [ArtistTrackController::class, 'edit']);
 Route::post('update-track/{artist_track}',[ArtistTrackController::class,'update']);
