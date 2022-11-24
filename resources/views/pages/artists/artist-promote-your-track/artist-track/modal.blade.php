@@ -7,7 +7,7 @@
             </div>
 
             <div class="modal-body p-lg">
-                <form method="post" action="{{ route('artist.track.store') }}" enctype="multipart/form-data" class="basicform_with_reload">
+                <form method="post" action="{{ route('artist.track.store') }}" enctype="multipart/form-data" id="ddTrackPromote" class="basicform_with_reload">
                     @csrf
                     <div class="item-except text-sm text-muted h-2x m-t-sm">
                         Complete your discography and let influencers discover your songs when they visit your profile.

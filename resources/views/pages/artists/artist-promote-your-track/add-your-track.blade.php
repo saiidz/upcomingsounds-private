@@ -803,6 +803,11 @@
             });
         });
     });
+
+    document.getElementById('update_track_not').addEventListener('click', function (){
+        $('#ddTrackPromote').trigger("reset");
+        // location.reload();
+    });
 </script>
 @endsection
 
