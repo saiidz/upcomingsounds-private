@@ -584,6 +584,10 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
 @media (min-width: 481px) and (max-width: 767px) {
 
     /* CSS */
+    #previewLinkEdit iframe
+    {
+        width: 480px !important;
+    }
 }
 
 /*
@@ -600,5 +604,9 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
         font-size: 13px!important;
         top: 59px !important;
         right: 28px!important;
+    }
+    #previewLinkEdit iframe
+    {
+        width: 335px !important;
     }
 }

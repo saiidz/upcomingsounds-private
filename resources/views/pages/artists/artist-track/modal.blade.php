@@ -192,7 +192,7 @@
                             <div class="mrg-top-10 mrg-bottom-20 small grey-text">
                                 <span>Want to learn more?</span>
                                 <!-- Button trigger modal -->
-                                <a href="javascript:void(0)" data-toggle="modal" data-target="#exampleModalCenter">
+                                <a href="javascript:void(0)" data-toggle="modal" data-target="#exampleModalCenterEdit">
                                     Click Here
                                 </a>
                             </div>
@@ -327,7 +327,7 @@
 <!-- Permission Copy Right Modal -->
 
 <!-- Permission Copy Right Modal -->
-<div id="exampleModalCenter" class="modal fade black-overlay" data-backdrop="false">
+<div id="exampleModalCenterEdit" class="modal fade black-overlay" data-backdrop="false">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
