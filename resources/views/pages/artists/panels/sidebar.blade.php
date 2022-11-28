@@ -181,13 +181,21 @@
                    </a>
                 </li>
                 <li>
-                   <a href="{{ url('how-to-help') }}">
+                   <a href="{{ url('/wallet') }}">
+                   <span class="nav-icon">
+                   <i class="fa fa-plus-square"></i>
+                   </span>
+                   <span class="nav-text">Wallet</span>
+                   </a>
+                </li>
+                 <li>
+                     <a href="{{ url('how-to-help') }}">
                    <span class="nav-icon">
                    <i class="fa fa-question-circle"></i>
                    </span>
-                   <span class="nav-text">Need help?</span>
-                   </a>
-                </li>
+                         <span class="nav-text">Need help?</span>
+                     </a>
+                 </li>
                 <li>
                    <a href="{{route('logout')}}">
                    <span class="nav-icon">
