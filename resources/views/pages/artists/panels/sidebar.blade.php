@@ -16,7 +16,7 @@
                    <span class="text-xs text-muted">Main</span>
                 </li>
                 <li class="{{Request::segment(1) == 'welcome-your-track' || Request::segment(1) == 'promote-your-track' ? 'active' : ''}}">
-                   <a href="{{url('/welcome-your-track')}}">
+                   <a href="{{url('/welcome-your-track')}}" class="reloadWelcomeTrack">
                    <span class="nav-icon">
                    <i class="material-icons">
                    play_circle_outline

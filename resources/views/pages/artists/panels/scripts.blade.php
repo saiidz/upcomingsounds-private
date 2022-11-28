@@ -173,4 +173,10 @@
             '_self' // <- This is what makes it open in a new window.
         );
     });
+    $('.reloadWelcomeTrack').on('click', function(){
+        window.open(
+            window.location.origin + '/welcome-your-track',
+            '_self' // <- This is what makes it open in a new window.
+        );
+    });
 </script>
