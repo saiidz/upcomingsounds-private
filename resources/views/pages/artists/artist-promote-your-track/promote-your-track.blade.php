@@ -50,7 +50,7 @@
             /* CSS */
             .sidebarCollapsed
             {
-                width: 100% !important;
+                width: 475px !important;
             }
             .sidebarCollapsed .closebtn {
                 top: 40px;
