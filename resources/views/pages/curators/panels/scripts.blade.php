@@ -285,3 +285,35 @@
       $('[data-toggle="tooltip"]').tooltip();
     });
 </script>
+<script>
+    $('.reloadList').on('click', function(){
+        window.open(
+            window.location.origin + '/taste-maker-profile#playlists',
+            '_self' // <- This is what makes it open in a new window.
+        );
+    });
+    $('.reloadProfile').on('click', function(){
+        window.open(
+            window.location.origin + '/taste-maker-profile#profile',
+            '_self' // <- This is what makes it open in a new window.
+        );
+    });
+    $('.reloadStats').on('click', function(){
+        window.open(
+            window.location.origin + '/taste-maker-profile#stats',
+            '_self' // <- This is what makes it open in a new window.
+        );
+    });
+    $('.reloadTracks').on('click', function(){
+        window.open(
+            window.location.origin + '/taste-maker-profile#tracks',
+            '_self' // <- This is what makes it open in a new window.
+        );
+    });
+    $('.reloadCuratorDashboard').on('click', function(){
+        window.open(
+            window.location.origin + '/dashboard',
+            '_self' // <- This is what makes it open in a new window.
+        );
+    });
+</script>

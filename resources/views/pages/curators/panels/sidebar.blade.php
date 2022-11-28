@@ -25,7 +25,7 @@
                         </a>
                     </li> --}}
                     <li>
-                        <a href="{{ route('curator.dashboard') }}" id="curatorDashboard">
+                        <a href="{{ route('curator.dashboard') }}" id="curatorDashboard" class="reloadCuratorDashboard">
                             <span class="nav-icon">
                                 <i class="fa fa-dashboard"></i>
                             </span>
@@ -193,7 +193,7 @@
                             <span class="text-xs text-muted">Your collection</span>
                         </li>
                         <li>
-                            <a href="{{url('/taste-maker-profile')}}#profile">
+                            <a href="{{url('/taste-maker-profile')}}#profile" class="reloadProfile">
                                 <span class="nav-icon">
                                 <i class="fa fa-user"></i>
                                 </span>
@@ -202,7 +202,7 @@
                         </li>
 
                         <li>
-                            <a href="{{url('/taste-maker-profile')}}#stats">
+                            <a href="{{url('/taste-maker-profile')}}#stats" class="reloadStats">
                                 <span class="nav-icon">
                                     <i class="material-icons">
                                     portrait
@@ -213,7 +213,7 @@
                         </li>
 
                         <li>
-                            <a href="{{url('/taste-maker-profile')}}#tracks">
+                            <a href="{{url('/taste-maker-profile')}}#tracks" class="reloadTracks">
                                 <span class="nav-icon">
                                     <i class="material-icons">
                                     list
@@ -225,7 +225,7 @@
 
 
                         <li>
-                            <a href="{{url('/taste-maker-profile')}}#playlists">
+                            <a href="{{url('/taste-maker-profile')}}#playlists" class="reloadList">
                                 <span class="nav-icon">
                                     <i class="material-icons">
                                     queue_music
