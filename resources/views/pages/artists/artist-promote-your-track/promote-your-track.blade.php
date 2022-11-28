@@ -44,14 +44,15 @@
         @media screen and (max-height: 450px) {
             .sidebarCollapsed {padding-top: 15px;}
             .sidebarCollapsed a {font-size: 18px;}
+            /*.sidebarCollapsed*/
+            /*{*/
+            /*    width: 475px;*/
+            /*}*/
         }
         @media (min-width: 320px) and (max-width: 480px) {
 
             /* CSS */
-            .sidebarCollapsed
-            {
-                width: 475px !important;
-            }
+
             .sidebarCollapsed .closebtn {
                 top: 40px;
             }

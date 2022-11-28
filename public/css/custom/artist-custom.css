@@ -563,10 +563,10 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
 @media (min-width: 320px) and (max-width: 480px) {
 
     /* CSS */
-    .sidebarCollapsed
-    {
-        width: 475px !important;
-    }
+    /*.sidebarCollapsed*/
+    /*{*/
+    /*    width: 475px;*/
+    /*}*/
     .sidebarCollapsed .closebtn {
         top: 40px;
     }
