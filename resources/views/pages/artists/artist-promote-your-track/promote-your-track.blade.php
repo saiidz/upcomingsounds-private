@@ -181,7 +181,7 @@
                     </div>
                 </div>
                 <div class="col-sm-3 col-xs-6">
-                    <div class="item r" data-id="item-2" data-src="http://api.soundcloud.com/tracks/259445397/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                    <div class="item r" data-id="item-2" data-src="{{URL('/')}}/uploads/audio/default_1668626804testmp3.mp3">
                         <div class="item-media ">
                             <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b1.jpg');"></a>
                             <div class="item-overlay center">
@@ -231,7 +231,7 @@
                     </div>
                 </div>
                 <div class="col-sm-3 col-xs-6">
-                    <div class="item r" data-id="item-4" data-src="http://api.soundcloud.com/tracks/230791292/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                    <div class="item r" data-id="item-4" data-src="{{URL('/')}}/uploads/audio/default_1668626804testmp3.mp3">
                         <div class="item-media ">
                             <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b3.jpg');"></a>
                             <div class="item-overlay center">
@@ -275,7 +275,7 @@
 				    }
 				}">
                         <div class="">
-                            <div class="item r" data-id="item-5" data-src="http://streaming.radionomy.com/JamendoLounge">
+                            <div class="item r" data-id="item-5" data-src="{{URL('/')}}/uploads/audio/default_1668626804testmp3.mp3">
                                 <div class="item-media item-media-4by3">
                                     <a href="javascript:void(0)" onclick="openNav()" class="item-media-content" style="background-image: url('images/b4.jpg');"></a>
                                     <div class="item-overlay center">
@@ -300,7 +300,7 @@
                             </div>
                         </div>
                         <div class="">
-                            <div class="item r" data-id="item-7" data-src="http://api.soundcloud.com/tracks/245566366/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                            <div class="item r" data-id="item-7" data-src="{{URL('/')}}/uploads/audio/default_1668626804testmp3.mp3">
                                 <div class="item-media item-media-4by3">
                                     <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b6.jpg');"></a>
                                     <div class="item-overlay center">
@@ -325,7 +325,7 @@
                             </div>
                         </div>
                         <div class="">
-                            <div class="item r" data-id="item-11" data-src="http://api.soundcloud.com/tracks/218060449/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                            <div class="item r" data-id="item-11" data-src="{{URL('/')}}/uploads/audio/default_1668626804testmp3.mp3">
                                 <div class="item-media item-media-4by3">
                                     <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b10.jpg');"></a>
                                     <div class="item-overlay center">
@@ -400,7 +400,7 @@
                             </div>
                         </div>
                         <div class="">
-                            <div class="item r" data-id="item-4" data-src="http://api.soundcloud.com/tracks/230791292/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                            <div class="item r" data-id="item-4" data-src="{{URL('/')}}/uploads/audio/default_1668626804testmp3.mp3">
                                 <div class="item-media item-media-4by3">
                                     <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b3.jpg');"></a>
                                     <div class="item-overlay center">
@@ -425,7 +425,7 @@
                             </div>
                         </div>
                         <div class="">
-                            <div class="item r" data-id="item-2" data-src="http://api.soundcloud.com/tracks/259445397/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                            <div class="item r" data-id="item-2" data-src="{{URL('/')}}/uploads/audio/default_1668626804testmp3.mp3">
                                 <div class="item-media item-media-4by3">
                                     <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b1.jpg');"></a>
                                     <div class="item-overlay center">
@@ -578,7 +578,7 @@
                             </div>
                         </div>
                         <div class="col-xs-4 col-sm-4 col-md-3">
-                            <div class="item r" data-id="item-12" data-src="http://api.soundcloud.com/tracks/174495152/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                            <div class="item r" data-id="item-12" data-src="{{URL('/')}}/uploads/audio/default_1668626804testmp3.mp3">
                                 <div class="item-media ">
                                     <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b11.jpg');"></a>
                                     <div class="item-overlay center">
@@ -603,7 +603,7 @@
                             </div>
                         </div>
                         <div class="col-xs-4 col-sm-4 col-md-3">
-                            <div class="item r" data-id="item-4" data-src="http://api.soundcloud.com/tracks/230791292/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                            <div class="item r" data-id="item-4" data-src="{{URL('/')}}/uploads/audio/default_1668626804testmp3.mp3">
                                 <div class="item-media ">
                                     <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b3.jpg');"></a>
                                     <div class="item-overlay center">
@@ -628,7 +628,7 @@
                             </div>
                         </div>
                         <div class="col-xs-4 col-sm-4 col-md-3">
-                            <div class="item r" data-id="item-11" data-src="http://api.soundcloud.com/tracks/218060449/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                            <div class="item r" data-id="item-11" data-src="{{URL('/')}}/uploads/audio/default_1668626804testmp3.mp3">
                                 <div class="item-media ">
                                     <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b10.jpg');"></a>
                                     <div class="item-overlay center">
@@ -653,7 +653,7 @@
                             </div>
                         </div>
                         <div class="col-xs-4 col-sm-4 col-md-3">
-                            <div class="item r" data-id="item-2" data-src="http://api.soundcloud.com/tracks/259445397/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                            <div class="item r" data-id="item-2" data-src="{{URL('/')}}/uploads/audio/default_1668626804testmp3.mp3">
                                 <div class="item-media ">
                                     <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b1.jpg');"></a>
                                     <div class="item-overlay center">
@@ -706,7 +706,7 @@
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="item r" data-id="item-2" data-src="http://api.soundcloud.com/tracks/259445397/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                            <div class="item r" data-id="item-2" data-src="{{URL('/')}}/uploads/audio/default_1668626804testmp3.mp3">
                                 <div class="item-media ">
                                     <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b1.jpg');"></a>
                                     <div class="item-overlay center">
@@ -731,7 +731,7 @@
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="item r" data-id="item-11" data-src="http://api.soundcloud.com/tracks/218060449/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                            <div class="item r" data-id="item-11" data-src="{{URL('/')}}/uploads/audio/default_1668626804testmp3.mp3">
                                 <div class="item-media ">
                                     <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b10.jpg');"></a>
                                     <div class="item-overlay center">
@@ -756,7 +756,7 @@
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="item r" data-id="item-1" data-src="http://api.soundcloud.com/tracks/269944843/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                            <div class="item r" data-id="item-1" data-src="{{URL('/')}}/uploads/audio/default_1668626804testmp3.mp3">
                                 <div class="item-media ">
                                     <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
                                     <div class="item-overlay center">
@@ -781,7 +781,7 @@
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="item r" data-id="item-12" data-src="http://api.soundcloud.com/tracks/174495152/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                            <div class="item r" data-id="item-12" data-src="{{URL('/')}}/uploads/audio/default_1668626804testmp3.mp3">
                                 <div class="item-media ">
                                     <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b11.jpg');"></a>
                                     <div class="item-overlay center">
@@ -806,7 +806,7 @@
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="item r" data-id="item-4" data-src="http://api.soundcloud.com/tracks/230791292/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                            <div class="item r" data-id="item-4" data-src="{{URL('/')}}/uploads/audio/default_1668626804testmp3.mp3">
                                 <div class="item-media ">
                                     <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b3.jpg');"></a>
                                     <div class="item-overlay center">
