@@ -63,7 +63,7 @@
         <div class="p-a-lg h-v row-cell v-m">
             <div class="row">
                 <div class="col-md-8 offset-md-2">
-                    <form action="search.html" class="m-b-md">
+                    <form action="javascript:void(0)" class="m-b-md">
                         <div class="input-group input-group-lg">
                             <input type="text" class="form-control" placeholder="Type keyword"
                                    data-ui-toggle-class="hide" data-ui-target="#search-result">
@@ -82,15 +82,15 @@
                                         <div class="item r" data-id="item-9"
                                              data-src="http://api.soundcloud.com/tracks/264094434/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
                                             <div class="item-media ">
-                                                <a href="track.detail.html" class="item-media-content"
+                                                <a href="javascript:void(0)" class="item-media-content"
                                                    style="background-image: url('images/b8.jpg');"></a>
                                             </div>
                                             <div class="item-info">
                                                 <div class="item-title text-ellipsis">
-                                                    <a href="track.detail.html">All I Need</a>
+                                                    <a href="javascript:void(0)">All I Need</a>
                                                 </div>
                                                 <div class="item-author text-sm text-ellipsis ">
-                                                    <a href="artist.detail.html" class="text-muted">Pablo
+                                                    <a href="javascript:void(0)" class="text-muted">Pablo
                                                         Nouvelle</a>
                                                 </div>
                                                 <div class="item-meta text-sm text-muted">
@@ -104,15 +104,15 @@
                                         <div class="item r" data-id="item-2"
                                              data-src="http://api.soundcloud.com/tracks/259445397/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
                                             <div class="item-media ">
-                                                <a href="track.detail.html" class="item-media-content"
+                                                <a href="javascript:void(0)" class="item-media-content"
                                                    style="background-image: url('images/b1.jpg');"></a>
                                             </div>
                                             <div class="item-info">
                                                 <div class="item-title text-ellipsis">
-                                                    <a href="track.detail.html">Fireworks</a>
+                                                    <a href="javascript:void(0)">Fireworks</a>
                                                 </div>
                                                 <div class="item-author text-sm text-ellipsis ">
-                                                    <a href="artist.detail.html" class="text-muted">Kygo</a>
+                                                    <a href="javascript:void(0)" class="text-muted">Kygo</a>
                                                 </div>
                                                 <div class="item-meta text-sm text-muted">
                                                 </div>
@@ -125,15 +125,15 @@
                                         <div class="item r" data-id="item-7"
                                              data-src="http://api.soundcloud.com/tracks/245566366/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
                                             <div class="item-media ">
-                                                <a href="track.detail.html" class="item-media-content"
+                                                <a href="javascript:void(0)" class="item-media-content"
                                                    style="background-image: url('images/b6.jpg');"></a>
                                             </div>
                                             <div class="item-info">
                                                 <div class="item-title text-ellipsis">
-                                                    <a href="track.detail.html">Reflection (Deluxe)</a>
+                                                    <a href="javascript:void(0)">Reflection (Deluxe)</a>
                                                 </div>
                                                 <div class="item-author text-sm text-ellipsis ">
-                                                    <a href="artist.detail.html" class="text-muted">Fifth
+                                                    <a href="javascript:void(0)" class="text-muted">Fifth
                                                         Harmony</a>
                                                 </div>
                                                 <div class="item-meta text-sm text-muted">
@@ -147,15 +147,15 @@
                                         <div class="item r" data-id="item-11"
                                              data-src="http://api.soundcloud.com/tracks/218060449/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
                                             <div class="item-media ">
-                                                <a href="track.detail.html" class="item-media-content"
+                                                <a href="javascript:void(0)" class="item-media-content"
                                                    style="background-image: url('images/b10.jpg');"></a>
                                             </div>
                                             <div class="item-info">
                                                 <div class="item-title text-ellipsis">
-                                                    <a href="track.detail.html">Spring</a>
+                                                    <a href="javascript:void(0)">Spring</a>
                                                 </div>
                                                 <div class="item-author text-sm text-ellipsis ">
-                                                    <a href="artist.detail.html" class="text-muted">Pablo
+                                                    <a href="javascript:void(0)" class="text-muted">Pablo
                                                         Nouvelle</a>
                                                 </div>
                                                 <div class="item-meta text-sm text-muted">
@@ -172,12 +172,12 @@
                                     <div class="col-xs-12">
                                         <div class="item">
                                             <div class="item-media rounded ">
-                                                <a href="artist.detail.html" class="item-media-content"
+                                                <a href="javascript:void(0)" class="item-media-content"
                                                    style="background-image: url('images/a4.jpg');"></a>
                                             </div>
                                             <div class="item-info ">
                                                 <div class="item-title text-ellipsis">
-                                                    <a href="artist.detail.html">Judith Garcia</a>
+                                                    <a href="javascript:void(0)">Judith Garcia</a>
                                                     <div class="text-sm text-muted">13 songs</div>
                                                 </div>
                                             </div>
@@ -186,12 +186,12 @@
                                     <div class="col-xs-12">
                                         <div class="item">
                                             <div class="item-media rounded ">
-                                                <a href="artist.detail.html" class="item-media-content"
+                                                <a href="javascript:void(0)" class="item-media-content"
                                                    style="background-image: url('images/a9.jpg');"></a>
                                             </div>
                                             <div class="item-info ">
                                                 <div class="item-title text-ellipsis">
-                                                    <a href="artist.detail.html">Douglas Torres</a>
+                                                    <a href="javascript:void(0)">Douglas Torres</a>
                                                     <div class="text-sm text-muted">20 songs</div>
                                                 </div>
                                             </div>
@@ -200,12 +200,12 @@
                                     <div class="col-xs-12">
                                         <div class="item">
                                             <div class="item-media rounded ">
-                                                <a href="artist.detail.html" class="item-media-content"
+                                                <a href="javascript:void(0)" class="item-media-content"
                                                    style="background-image: url('images/b1.jpg');"></a>
                                             </div>
                                             <div class="item-info ">
                                                 <div class="item-title text-ellipsis">
-                                                    <a href="artist.detail.html">Melissa Garza</a>
+                                                    <a href="javascript:void(0)">Melissa Garza</a>
                                                     <div class="text-sm text-muted">20 songs</div>
                                                 </div>
                                             </div>
@@ -214,12 +214,12 @@
                                     <div class="col-xs-12">
                                         <div class="item">
                                             <div class="item-media rounded ">
-                                                <a href="artist.detail.html" class="item-media-content"
+                                                <a href="javascript:void(0)" class="item-media-content"
                                                    style="background-image: url('images/a3.jpg');"></a>
                                             </div>
                                             <div class="item-info ">
                                                 <div class="item-title text-ellipsis">
-                                                    <a href="artist.detail.html">Joe Holmes</a>
+                                                    <a href="javascript:void(0)">Joe Holmes</a>
                                                     <div class="text-sm text-muted">24 songs</div>
                                                 </div>
                                             </div>

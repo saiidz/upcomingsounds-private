@@ -3,6 +3,61 @@
 {{-- page title --}}
 @section('title','Promote Your Track')
 
+@section('page-style')
+    <style>
+        .sidebarCollapsed {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            right: 0;
+            background-color: #363c43;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidebarCollapsed a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebarCollapsed a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidebarCollapsed .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+            .sidebarCollapsed {padding-top: 15px;}
+            .sidebarCollapsed a {font-size: 18px;}
+        }
+        @media (min-width: 320px) and (max-width: 480px) {
+
+            /* CSS */
+            .sidebarCollapsed
+            {
+                width: 100% !important;
+            }
+            .sidebarCollapsed .closebtn {
+                top: 40px;
+            }
+        }
+    </style>
+@endsection
 
 @section('content')
     <!-- ############ PAGE START-->
@@ -201,7 +256,7 @@
                 </div>
             </div>
         </div>
-
+        @include('pages.artists.artist-promote-your-track.collapsed_sidebar')
         <div class="row-col">
             <div class="col-lg-9 b-r no-border-md">
                 <div class="padding">
@@ -221,7 +276,7 @@
                         <div class="">
                             <div class="item r" data-id="item-5" data-src="http://streaming.radionomy.com/JamendoLounge">
                                 <div class="item-media item-media-4by3">
-                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b4.jpg');"></a>
+                                    <a href="javascript:void(0)" onclick="openNav()" class="item-media-content" style="background-image: url('images/b4.jpg');"></a>
                                     <div class="item-overlay center">
                                         <button  class="btn-playpause">Play</button>
                                     </div>
@@ -424,7 +479,7 @@
                         <div class="col-xs-4 col-sm-4 col-md-3">
                             <div class="item r" data-id="item-3" data-src="http://api.soundcloud.com/tracks/79031167/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
                                 <div class="item-media ">
-                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
+                                    <a href="javascript:void(0)" onclick="openNav()" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
                                     <div class="item-overlay center">
                                         <button  class="btn-playpause">Play</button>
                                     </div>
@@ -884,3 +939,16 @@
     <!-- ############ PAGE END-->
 @endsection
 
+@section('page-script')
+    <script>
+        function openNav() {
+            document.getElementById("mySidebarCollapsed").style.width = "490px";
+            document.getElementById("app-body").style.marginLeft = "490px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebarCollapsed").style.width = "0";
+            document.getElementById("app-body").style.marginLeft= "0";
+        }
+    </script>
+@endsection

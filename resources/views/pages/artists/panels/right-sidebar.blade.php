@@ -6,15 +6,15 @@
                 <div class="item r" data-id="item-3"
                      data-src="http://api.soundcloud.com/tracks/79031167/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
                     <div class="item-media ">
-                        <a href="track.detail.html" class="item-media-content"
+                        <a href="javascript:void(0)" class="item-media-content"
                            style="background-image: url('images/b2.jpg');"></a>
                     </div>
                     <div class="item-info">
                         <div class="item-title text-ellipsis">
-                            <a href="track.detail.html">I Wanna Be In the Cavalry</a>
+                            <a href="javascript:void(0)">I Wanna Be In the Cavalry</a>
                         </div>
                         <div class="item-author text-sm text-ellipsis ">
-                            <a href="artist.detail.html" class="text-muted">Jeremy Scott</a>
+                            <a href="javascript:void(0)" class="text-muted">Jeremy Scott</a>
                         </div>
 
 
@@ -25,15 +25,15 @@
                 <div class="item r" data-id="item-1"
                      data-src="http://api.soundcloud.com/tracks/269944843/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
                     <div class="item-media ">
-                        <a href="track.detail.html" class="item-media-content"
+                        <a href="javascript:void(0)" class="item-media-content"
                            style="background-image: url('images/b0.jpg');"></a>
                     </div>
                     <div class="item-info">
                         <div class="item-title text-ellipsis">
-                            <a href="track.detail.html">Pull Up</a>
+                            <a href="javascript:void(0)">Pull Up</a>
                         </div>
                         <div class="item-author text-sm text-ellipsis ">
-                            <a href="artist.detail.html" class="text-muted">Summerella</a>
+                            <a href="javascript:void(0)" class="text-muted">Summerella</a>
                         </div>
 
 
@@ -44,15 +44,15 @@
                 <div class="item r" data-id="item-12"
                      data-src="http://api.soundcloud.com/tracks/174495152/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
                     <div class="item-media ">
-                        <a href="track.detail.html" class="item-media-content"
+                        <a href="javascript:void(0)" class="item-media-content"
                            style="background-image: url('images/b11.jpg');"></a>
                     </div>
                     <div class="item-info">
                         <div class="item-title text-ellipsis">
-                            <a href="track.detail.html">Happy ending</a>
+                            <a href="javascript:void(0)">Happy ending</a>
                         </div>
                         <div class="item-author text-sm text-ellipsis ">
-                            <a href="artist.detail.html" class="text-muted">Postiljonen</a>
+                            <a href="javascript:void(0)" class="text-muted">Postiljonen</a>
                         </div>
 
 
@@ -63,15 +63,15 @@
                 <div class="item r" data-id="item-11"
                      data-src="http://api.soundcloud.com/tracks/218060449/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
                     <div class="item-media ">
-                        <a href="track.detail.html" class="item-media-content"
+                        <a href="javascript:void(0)" class="item-media-content"
                            style="background-image: url('images/b10.jpg');"></a>
                     </div>
                     <div class="item-info">
                         <div class="item-title text-ellipsis">
-                            <a href="track.detail.html">Spring</a>
+                            <a href="javascript:void(0)">Spring</a>
                         </div>
                         <div class="item-author text-sm text-ellipsis ">
-                            <a href="artist.detail.html" class="text-muted">Pablo Nouvelle</a>
+                            <a href="javascript:void(0)" class="text-muted">Pablo Nouvelle</a>
                         </div>
 
 
@@ -82,15 +82,15 @@
                 <div class="item r" data-id="item-6"
                      data-src="http://api.soundcloud.com/tracks/236107824/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
                     <div class="item-media ">
-                        <a href="track.detail.html" class="item-media-content"
+                        <a href="javascript:void(0)" class="item-media-content"
                            style="background-image: url('images/b5.jpg');"></a>
                     </div>
                     <div class="item-info">
                         <div class="item-title text-ellipsis">
-                            <a href="track.detail.html">Body on me</a>
+                            <a href="javascript:void(0)">Body on me</a>
                         </div>
                         <div class="item-author text-sm text-ellipsis ">
-                            <a href="artist.detail.html" class="text-muted">Rita Ora</a>
+                            <a href="javascript:void(0)" class="text-muted">Rita Ora</a>
                         </div>
 
 
