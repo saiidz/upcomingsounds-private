@@ -71,7 +71,7 @@
                         <div class="col s12 m5 quick-action-btns display-flex justify-content-end align-items-center pt-2">
                             @if ($artist_track->is_approved == 0)
                                 <a href="#approvedTrackModal" class="btn-small btn-light-indigo dropdown-item has-icon modal-trigger approvedArtistTrack-confirm" data-id={{ $artist_track->id }}>
-                                    Approved
+                                    Approve
                                 </a>
                             @endif
 
