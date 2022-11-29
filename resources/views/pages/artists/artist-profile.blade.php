@@ -603,6 +603,15 @@
         });
     </script>
     <script>
+        var preload = document.getElementById("loadings");
+        function loader(){
+            preload.style.display='none';
+        }
+        function showLoader(){
+            preload.style.display='block';
+        }
+    </script>
+    <script>
         // Edit Track
         let count =0;
         function editTrack(track_id){
@@ -614,7 +623,7 @@
                 dataType: 'JSON',
                 success:function (data){
                     loader();
-
+                    console.log(data);
                     $('#track_edit_song').trigger("reset");
                     // $('#track_edit_song').attr('data-edit-track-id',data.artist_track.id);
 
@@ -644,12 +653,31 @@
                     $('#epLpLink').val(data.artist_track.ep_lp_link);
                     $('#trackEditTitle').val(data.artist_track.name);
                     $('#trackEditDescription').val(data.artist_track.description);
+                    $('#trackEditPitchDescription').val(data.artist_track.pitch_description);
 
 
                     var path = window.location.origin + '/uploads/track_thumbnail/' + data.artist_track.track_thumbnail;
                     document.getElementById('imgEditTrackPreview').setAttribute('src', path );
                     $('#imgEditTrackPreview').hide();
                     $('#imgEditTrackPreview').fadeIn(650);
+
+                    // multiple Images display
+                    if(data.artist_track_images.length > 0)
+                    {
+                        $.each(data.artist_track_images, function (key, value){
+                            var path_image = window.location.origin + '/uploads/track_images/' + value.path;
+                            if(value.type == 'pdf')
+                            {
+                                $('#multipleImgEditTrackPdf').append('<div class="PdfClose" id="removeImgPdf-'+value.id+'"><iframe src="'+path_image+'" type="application/pdf" width="30%" height="30%"></iframe><a href="javascript:void(0)" class="closebtn" onclick="deleteImagePdf('+value.id+')">×</a></div>')
+                            }else{
+                                $('#multipleImgEditTrack').append('<div class="ImageClose" id="removeImgPdf-'+value.id+'"><img src="'+path_image+'" id="multipleImgEditTrackPreview" class="multipleImgEditTrackPreview"><a href="javascript:void(0)" class="closebtn" onclick="deleteImagePdf('+value.id+')">×</a></div>')
+                            }
+
+                        });
+                    }else{
+                        $('#multipleImgEditTrack').empty();
+                        $('#multipleImgEditTrackPdf').empty();
+                    }
 
                     if(data.artist_track.demo == 'on')
                     {
@@ -767,6 +795,49 @@
             });
         }
 
+        // deleteImagePdf
+        function closeModel(name){
+            if(name == "imgPdf")
+            {
+                $('#delete-imgPdf-tag-modal').modal('hide');
+            }else if(name == "copyRight"){
+                $('#exampleModalCenterEdit').modal('hide');
+            }
+            $('body').addClass('open-modal');
+            $('body').addClass('openModal');
+        }
+        function deleteImagePdf(id)
+        {
+            $('.deleteImgPdfTrack').attr('data-img-pdf-id',id);
+            $('#delete-imgPdf-tag-modal').modal('show');
+        }
+        $('#delete_Image_Pdf').click(function (event) {
+            event.preventDefault();
+            var img_pdf_id = $('.deleteImgPdfTrack').attr('data-img-pdf-id');
+            var url= "{{url('/delete-track-image')}}";
+            $.ajax({
+                type: "DELETE",
+                url: url,
+                data:{
+                    "_token": "{{ csrf_token() }}",
+                    "img_pdf_id": img_pdf_id,
+                },
+                success: function (data) {
+                    if(data.success){
+                        $('#removeImgPdf-'+img_pdf_id).remove();
+                        $('#snackbar').html(data.success);
+                        $('#snackbar').addClass("show");
+                        setTimeout(function () {
+                            $('#snackbar').removeClass("show");
+                        }, 5000);
+                        $('#delete-imgPdf-tag-modal').modal('hide');
+                        $('body').addClass('open-modal');
+                        $('body').addClass('openModal');
+                    }
+                }
+            });
+        });
+        // deleteImagePdf
         document.getElementById('update_track_not').addEventListener('click', function (){
             document.querySelector('#previewLinkEdit').innerHTML = "";
             location.reload();

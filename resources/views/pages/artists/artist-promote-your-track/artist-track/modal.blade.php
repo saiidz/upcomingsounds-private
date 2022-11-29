@@ -132,6 +132,15 @@
                     </div>
 
                     <div class="form-group">
+                        <label class="control-label form-control-label text-muted">Track Images/Pdf</label>
+                        <div>
+                            <input type='file' class="form-control" id="multipleImageEditTrackUpload" name="track_images[]" multiple="multiple"
+                                   accept=".png, .jpg, .jpeg, .pdf" />
+                            <label for="multipleImageEditTrackUpload"></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label class="control-label form-control-label text-muted">Song Upload(mp3)</label>
                         <div>
                             <input type='file' class="form-control" name="audio" id="audioTrackUpload"
@@ -215,6 +224,15 @@
                                 </label>
                             </div>
                         </p>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label form-control-label text-muted">Pitch Description</label>
+                        <div>
+                                   <textarea name="pitch_description" value="" id="trackEditPitchDescription"
+                                             placeholder="Your description..."
+                                             class="form-control @error('pitch_description') is-invalid @enderror"></textarea>
+                        </div>
                     </div>
 
                     <div class="form-group">

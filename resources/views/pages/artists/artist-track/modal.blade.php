@@ -1,5 +1,6 @@
 <!-- Edit Track Modal -->
-<div id="edit-track" class="modal black-overlay" data-backdrop="false">
+<div id="edit-track" class="modal fade animate black-overlay" tab-index="-1" data-backdrop="false" aria-labelledby="edit-track"
+     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -27,7 +28,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label form-control-label text-muted">Description/Press Release/Pitch</label>
+                        <label class="control-label form-control-label text-muted">Description/Press Release</label>
                         <div>
                                    <textarea name="description" value="" id="trackEditDescription"
                                              placeholder="Your description..."
@@ -132,6 +133,22 @@
                     </div>
 
                     <div class="form-group">
+                        <label class="control-label form-control-label text-muted">Track Images/Pdf</label>
+                        <div>
+                            <input type='file' class="form-control" id="multipleImageEditTrackUpload" name="track_images[]" multiple="multiple"
+                                   accept=".png, .jpg, .jpeg, .pdf" />
+                            <label for="multipleImageEditTrackUpload"></label>
+                            <div id="multipleImgEditTrack">
+                                <div class="form-group"><label class="control-label form-control-label text-muted">Images</label></div>
+                            </div>
+                            <div id="multipleImgEditTrackPdf">
+                                <div class="form-group"><label class="control-label form-control-label text-muted">Pdf</label></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
                         <label class="control-label form-control-label text-muted">Song Upload(mp3)</label>
                         <div>
                             <input type='file' class="form-control" name="audio" id="audioEditTrackPreview"
@@ -221,6 +238,15 @@
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        <label class="control-label form-control-label text-muted">Pitch Description</label>
+                        <div>
+                                   <textarea name="pitch_description" value="" id="trackEditPitchDescription"
+                                             placeholder="Your description..."
+                                             class="form-control @error('pitch_description') is-invalid @enderror"></textarea>
+                        </div>
+                    </div>
+
                     <div class="form-group" style="margin-bottom:10px;">
                         <button type="button" class="slide-toggle btn btn-sm rounded addYourInterest">Add Your Genres/Interest</button>
                     </div>
@@ -234,7 +260,7 @@
                     </div>
 
                     <div class="form-group modal-footer">
-                        <button type="button" class="btn dark-white rounded update_track_not" id="update_track_not" data-dismiss="modal">Cancle</button>
+                        <button type="button" class="btn dark-white rounded update_track_not" id="update_track_not">Cancle</button>
                         {{--                                <button type="button" class="btn danger p-x-md" data-dismiss="modal">Yes</button>--}}
                         <button type="submit" id="updateTrack" class="btn btn-sm rounded add_track basicbtn">
                             Update</button>
@@ -269,35 +295,6 @@
     </div>
 </div>
 <!-- / Delete Track Modal -->
-
-
-<!-- Permission Copy Right Modal -->
-<div id="edit-track" class="modal fade black-overlay" data-backdrop="false">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Edit Track</h5>
-            </div>
-            <div class="modal-body">
-                What's the deal with copyrights?
-                When submitting your song, you'll probably see a prompt asking if you're willing to sign a copyright agreement so that someone can upload the song to their channel.
-
-                The copyright agreements are 90% for YouTube channels (occasionally others might ask if they can upload to their Facebook or a radio show, for example). The copyright is you giving them permission to upload the song without getting in trouble. YouTube has all sorts of automatic copyright stuff going on, so if they do get in trouble, they can just show the copyright agreement you signed and say "see, they gave us permission!"
-
-                As for the monetization -- a lot of those YouTube channels run ads on their videos. If you give them permission to monetize your video, they can run ads and keep all the money. The idea is that in exchange, you get exposure. (Also worth noting that YouTube has some of the worst monetization of any music platform, so it's not like you're losing out on much).
-
-                Them having your song on their channel doesn't mean you can't put it on your own official channel.
-
-                Will it make a difference if you allow monetization or not? Nope! SubmitHub will automatically filter out any channels who require monetization, so if your preference is non-monetization, you'll never be sending your song to someone who requires that.
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div>
-</div>
-<!-- Permission Copy Right Modal -->
 
 <!-- Request Edit Modal -->
 <div id="requestEdit" class="modal fade black-overlay" data-backdrop="false">
@@ -345,9 +342,33 @@
                 Will it make a difference if you allow monetization or not? Nope! SubmitHub will automatically filter out any channels who require monetization, so if your preference is non-monetization, you'll never be sending your song to someone who requires that.
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+{{--                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--}}
+                <a class="btn btn-secondary" href="javascript:void(0)" onclick="closeModel('copyRight')">Close</a>
             </div>
         </div><!-- /.modal-content -->
     </div>
 </div>
 <!-- Permission Copy Right Modal -->
+
+
+<!-- Delete Track Modal -->
+<div id="delete-imgPdf-tag-modal" class="modal fade animate black-overlay" data-backdrop="false" aria-labelledby="delete-imgPdf-tag-modal"
+     aria-hidden="true">
+    <div class="row-col h-v">
+        <div class="row-cell v-m">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content flip-y">
+                    <div class="modal-body text-center">
+                        <p class="p-y m-t"><i class="fa fa-remove text-warning fa-3x"></i></p>
+                        <p>Are you sure to delete this Image/Pdf?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-default p-x-md" href="javascript:void(0)" onclick="closeModel('imgPdf')">No</a>
+                        <a class="btn red p-x-md deleteImgPdfTrack" id="delete_Image_Pdf" data-img-pdf-id="" href="javascript:void(0)">Yes</a>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Delete Feature Tag Modal -->

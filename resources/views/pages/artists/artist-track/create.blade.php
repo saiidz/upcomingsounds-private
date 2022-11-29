@@ -26,7 +26,7 @@
     </div>
 
     <div class="form-group row">
-        <div class="col-sm-3 form-control-label text-muted">Description/Press Release/Pitch</div>
+        <div class="col-sm-3 form-control-label text-muted">Description/Press Release</div>
         <div class="col-sm-9">
             <textarea name="description"
                       placeholder="Tell us more about your artwork... "
@@ -159,6 +159,15 @@
     </div>
 
     <div class="form-group row">
+        <div class="col-sm-3 form-control-label text-muted">Track Images/Pdf</div>
+        <div class="col-sm-9">
+            <input type='file' class="form-control" id="multipleImageTrackUpload" name="track_images[]" multiple="multiple"
+                   accept=".png, .jpg, .jpeg, .pdf" />
+            <label for="multipleImageTrackUpload"></label>
+        </div>
+    </div>
+
+    <div class="form-group row">
         <div class="col-sm-3 form-control-label text-muted">Song Upload(mp3)</div>
         <div class="col-sm-9">
             <input type='file' class="form-control" name="audio" id="audioTrackUpload"
@@ -265,6 +274,15 @@
                     </div>
                 </p>
             </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-3 text-muted">Pitch Description</div>
+        <div class="col-sm-9">
+            <textarea name="pitch_description"
+                      placeholder="Tell us more about your artwork... "
+                      class="form-control @error('pitch_description') is-invalid @enderror">{{old('pitch_description')}}</textarea>
         </div>
     </div>
 

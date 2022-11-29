@@ -30,6 +30,7 @@ Route::get('edit-track/{artist_track}', [ArtistTrackController::class, 'edit']);
 Route::post('update-track/{artist_track}',[ArtistTrackController::class,'update']);
 Route::delete('delete-track/{artist_track}',[ArtistTrackController::class,'destroy']);
 Route::post('request-edit-track', [ArtistTrackController::class,'requestTrackEdit'])->name('request.edit.track');
+Route::delete('delete-track-image',[ArtistTrackController::class,'destroyImgPdf']);
 
 // promote your track
 Route::get('welcome-your-track', [PromoteYourTrackController::class, 'index']);

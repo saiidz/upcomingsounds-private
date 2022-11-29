@@ -575,11 +575,43 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
 
 
 
+.multipleImgEditTrackPreview{
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    border: 1px solid black;
+    margin-bottom: 15px;
+}
+.ImageClose {
+    display: inline-block;
+    position: relative;
+}
+.ImageClose .closebtn {
+    position: absolute;
+    top: -17px;
+    left: 26px;
+    font-size: 20px;
+    margin-left: 50px;
+}
+.PdfClose {
+    display: initial;
+    position: relative;
+    margin-right: 20px;
+}
+.PdfClose .closebtn {
+    position: absolute;
+    top: -160px;
+    left: 161px;
+    font-size: 20px;
+}
 
-
-
-
-
+.open-modal .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.openModal {
+    overflow: hidden;
+}
 
 
 

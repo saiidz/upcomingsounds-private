@@ -14,6 +14,7 @@ class ArtistTrack extends Model
     protected $fillable = [
         'name',
         'description',
+        'pitch_description',
         'user_id',
         'is_approved',
         'is_rejected',
@@ -53,6 +54,11 @@ class ArtistTrack extends Model
     // track has many track links
     public function artistTrackLinks(){
         return $this->hasMany(ArtistTrackLink::class,'artist_track_id');
+    }
+
+    // track has many track images
+    public function artistTrackImages(){
+        return $this->hasMany(ArtistTrackImage::class,'artist_track_id');
     }
 
     // track has many track Languages

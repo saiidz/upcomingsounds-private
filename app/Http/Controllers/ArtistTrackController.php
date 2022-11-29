@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Artist\StoreTrackRequest;
 use App\Models\ArtistTrack;
+use App\Models\ArtistTrackImage;
 use App\Models\ArtistTrackLanguage;
 use App\Models\ArtistTrackTag;
 use App\Models\CuratorFeature;
 use App\Models\CuratorFeatureTag;
 use App\Rules\ValidateArrayLinkTrack;
+use App\Templates\IMessageTemplates;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\TrackCategory;
@@ -51,6 +53,7 @@ class ArtistTrackController extends Controller
         $validator = Validator::make($request->all(), [
             'audio'           => ($request->demo == "on") ? 'required|file|mimes:mp3|max:15000' :'file|mimes:mp3|max:15000',
             'tag'             => 'required',
+            'track_images.*'  => 'file|mimes:jpeg,jpg,png,pdf|max:2048',
             'track_thumbnail' => 'required|file|mimes:jpeg,jpg,png,gif|max:2048',
             'link.*'          =>  'required',
             'release_type'    => 'required',
@@ -78,9 +81,6 @@ class ArtistTrackController extends Controller
         $input = $request->all();
 
         $input['user_id'] = auth()->user()->id;
-        // $input['youtube_soundcloud_url'] = $request->get('youtube_soundcloud_url');
-        // $input['soundcloudUrl']          = $request->get('soundcloudUrl');
-//        $input['track_category_id'] = ($request->get('song_category')) ? $request->get('song_category') : null;
         $input['display_profile'] = ($request->get('display_profile')) ? (int)$request->get('display_profile') : 0;
 
         // add audio
@@ -103,7 +103,7 @@ class ArtistTrackController extends Controller
         if(!File::exists($path)) {
             File::makeDirectory($path, 0775, true, true);
         }
-        // upload track song
+        // upload track_thumbnail
 //        if ($request->hasfile('track_thumbnail')) {
         if ($request->file('track_thumbnail')) {
             $file = $request->file('track_thumbnail');
@@ -114,6 +114,31 @@ class ArtistTrackController extends Controller
             $input['track_thumbnail'] = $image_path;
         }
         $track = ArtistTrack::create($input);
+
+
+
+        // upload multiple images
+        $path = public_path().'/uploads/track_images';
+        if(!File::exists($path)) {
+            File::makeDirectory($path, 0775, true, true);
+        }
+
+        if ($request->hasFile('track_images')) {
+            foreach ($request->file('track_images') as $file){
+                $type = explode('/',$file->getClientMimeType());
+
+                $name = $file->getClientOriginalName();
+                $image_path = 'default_'.time().$name;
+                $file->move(public_path() . '/uploads/track_images/', $image_path);
+                //store image file into directory and db
+                $input['artist_track_id'] = $track->id;
+                $input['path'] = $image_path;
+                $input['type'] = !empty($type[1]) ? $type[1] : null;
+
+                $track->artistTrackImages()->create($input);
+            }
+        }
+
 
         // create artist track links
         if(!empty($request->link))
@@ -175,7 +200,6 @@ class ArtistTrackController extends Controller
      */
     public function edit(ArtistTrack $artist_track)
     {
-        $track_categories = TrackCategory::all();
         $selected_language = !empty($artist_track->artistTrackLanguages) ? $artist_track->artistTrackLanguages->pluck('language_id')->toArray() : '';
         $newLanguageArray = [];
         $languages = Language::get(['id','name'])->toArray();
@@ -217,9 +241,9 @@ class ArtistTrackController extends Controller
         return response()->json([
             'artist_track'           => $artist_track,
             'artist_track_links'     => !empty($artist_track->artistTrackLinks) ? $artist_track->artistTrackLinks : '',
-            'track_categories'       => $track_categories,
+            'artist_track_images'    => !empty($artist_track->artistTrackImages) ? $artist_track->artistTrackImages : '',
             'selected_languages'     => $newLanguageArray,
-            'new_curator_features'     => $new_curator_features,
+            'new_curator_features'   => $new_curator_features,
             'success'                => 'Artist Track Get Successfully',
         ]);
     }
@@ -306,6 +330,24 @@ class ArtistTrackController extends Controller
             $input['track_thumbnail'] = $artist_track->track_thumbnail;
         }
 
+        // upload multiple images
+
+        if ($request->hasFile('track_images')) {
+            foreach ($request->file('track_images') as $file){
+                $type = explode('/',$file->getClientMimeType());
+
+                $name = $file->getClientOriginalName();
+                $image_path = 'default_'.time().$name;
+                $file->move(public_path() . '/uploads/track_images/', $image_path);
+                //store image file into directory and db
+                $input['artist_track_id'] = $artist_track->id;
+                $input['path'] = $image_path;
+                $input['type'] = !empty($type[1]) ? $type[1] : null;
+
+                $artist_track->artistTrackImages()->create($input);
+            }
+        }
+
         // create artist track links
         if(!empty($request->link))
         {
@@ -377,6 +419,7 @@ class ArtistTrackController extends Controller
      */
     public function destroy(Request $request, ArtistTrack $artist_track)
     {
+        //audio delete
         if(!empty($artist_track->audio))
         {
             $audio = public_path('uploads/audio/' . $artist_track->audio);
@@ -385,6 +428,7 @@ class ArtistTrackController extends Controller
             }
         }
 
+        //track_thumbnail delete
         if(!empty($artist_track->track_thumbnail))
         {
             $image = public_path('uploads/track_thumbnail/' . $artist_track->track_thumbnail);
@@ -393,9 +437,41 @@ class ArtistTrackController extends Controller
             }
         }
 
-        $artist_track->delete();
+        //artistTrackImages delete
+        if(!empty($artist_track->artistTrackImages))
+        {
+            foreach ($artist_track->artistTrackImages as $artistTrackImage)
+            {
+                $path = public_path('uploads/track_images/' . $artistTrackImage->path);
+                if(file_exists($path)) {
+                    unlink($path);
+                }
+            }
+            $artist_track->artistTrackImages()->forceDelete();
+        }
+
+        //artistTrackLanguages delete
+        if(!empty($artist_track->artistTrackLanguages))
+        {
+            $artist_track->artistTrackLanguages()->delete();
+        }
+
+        //artistTrackLinks delete
+        if(!empty($artist_track->artistTrackLinks))
+        {
+            $artist_track->artistTrackLinks()->forceDelete();
+        }
+
+        //artistTrackTags delete
+        if(!empty($artist_track->artistTrackTags))
+        {
+            $artist_track->artistTrackTags()->delete();
+        }
+
+        //$artist_track delete
+        $artist_track->forceDelete();
         return response()->json([
-            'success' => 'Track are deleted!',
+            'success' => 'Track deleted! successfully',
         ]);
     }
 
@@ -441,5 +517,29 @@ class ArtistTrackController extends Controller
 
         }
         return response()->json(['success' => 'Email send successfully and send to Admin.']);
+    }
+
+    /**
+     * @param FormRequest $request
+     * @return JsonResponse
+     */
+    public function destroyImgPdf(Request $request)
+    {
+
+        if(!empty($request->img_pdf_id))
+        {
+            $record_exist = ArtistTrackImage::where('id',$request->img_pdf_id)->first();
+            if(!empty($record_exist))
+            {
+                $path = public_path('uploads/track_images/' . $record_exist->path);
+                if(file_exists($path)) {
+                    unlink($path);
+                }
+            }
+            $record_exist->forceDelete();
+            return response()->json([
+                'success' => IMessageTemplates::DELETEIMGPDF
+            ]);
+        }
     }
 }

@@ -266,6 +266,25 @@
 
                                     @endif
                                 </div>
+
+                                <h6 class="mb-2 mt-2"><i class="material-icons">error_outline</i> Artist Track Images</h6>
+
+                                <div class="row">
+                                    @if(count($artist_track->artistTrackImages) > 0)
+                                        @foreach($artist_track->artistTrackImages as $path)
+                                            @if(!empty($path->type == 'pdf'))
+                                                <div class="col-lg-4" style="display:inline-block">
+                                                    <iframe width=560 height=315 src="{{URL('/')}}/uploads/track_images/{{$path->path}}" allow=accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture allowfullscreen></iframe>
+                                                </div>
+                                            @else
+                                                <div class="col-lg-4" style="display:inline-block">
+                                                    <img src="{{URL('/')}}/uploads/track_images/{{$path->path}}" alt="{{$path->type}}" style=" width:560px; height:315px">
+                                                </div>
+                                            @endif
+                                        @endforeach
+                                    @endif
+                                </div>
+
 {{--                                <table class="striped">--}}
 {{--                                    <tbody>--}}
 {{--                                    @if(count($artist_track->artistTrackLinks) > 0)--}}

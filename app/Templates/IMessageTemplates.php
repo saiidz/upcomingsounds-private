@@ -17,4 +17,5 @@ use Illuminate\Support\Facades\Auth;
     const CURATORVERIFYMESSAGE            =   'Congratulation, You are verfied. Thanks for join UpcomingSounds.';
     const CURATORREJECTEDMESSAGE          =   'Your verification is rejected. Please re-submit your verification form. You have only three chance for submit verification. Thanks for join UpcomingSounds.';
     const CURATORREJECTEDCOMPLETEDMESSAGE =   'Your verification is rejected. You have completed three chance. Thanks for join UpcomingSounds.';
+    const DELETEIMGPDF                    =   'Image/Pdf Deleted Successfully';
  }
