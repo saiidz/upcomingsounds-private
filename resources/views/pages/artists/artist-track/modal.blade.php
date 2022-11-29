@@ -263,7 +263,7 @@
                         <button type="button" class="btn dark-white rounded update_track_not" id="update_track_not">Cancle</button>
                         {{--                                <button type="button" class="btn danger p-x-md" data-dismiss="modal">Yes</button>--}}
                         <button type="submit" id="updateTrack" class="btn btn-sm rounded add_track basicbtn">
-                            Update</button>
+                            Edit</button>
                     </div>
                 </form>
             </div>
