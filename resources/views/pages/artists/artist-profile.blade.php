@@ -806,11 +806,13 @@
             $('body').addClass('open-modal');
             $('body').addClass('openModal');
         }
+
         function deleteImagePdf(id)
         {
             $('.deleteImgPdfTrack').attr('data-img-pdf-id',id);
             $('#delete-imgPdf-tag-modal').modal('show');
         }
+
         $('#delete_Image_Pdf').click(function (event) {
             event.preventDefault();
             var img_pdf_id = $('.deleteImgPdfTrack').attr('data-img-pdf-id');
