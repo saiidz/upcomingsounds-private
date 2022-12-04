@@ -35,7 +35,7 @@ Route::delete('delete-track-image',[ArtistTrackController::class,'destroyImgPdf'
 // promote your track
 Route::get('welcome-your-track', [PromoteYourTrackController::class, 'index']);
 Route::get('promote-your-track', [PromoteYourTrackController::class, 'addYourTrack']);
-Route::post('store/track/campaign', [PromoteYourTrackController::class, 'storeTrackCampaign']);
+Route::post('store/track/campaign', [PromoteYourTrackController::class, 'storeTrackCampaign'])->name('store.Track.Campaign');
 Route::get('get-curators', [PromoteYourTrackController::class, 'getCurators']);
 Route::post('track-add-store', [PromoteYourTrackController::class, 'storeAddTrack'])->name('storeTrack');
 

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Laravel\Cashier\Billable;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Support\Facades\Auth;
@@ -109,6 +110,13 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(TransactionUserInfo::class,'user_id');
     }
 
+    /**
+     * @return HasMany
+     */
+    public function campaign(): HasMany
+    {
+        return $this->hasMany(Campaign::class, 'user_id');
+    }
     // get curators received
     public function scopeGetReceivedCurstors($query)
     {

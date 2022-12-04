@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Campaign;
 use App\Models\CuratorFeatureTag;
 use App\Models\User;
 use App\Models\Language;
 use App\Models\ArtistTrack;
+use App\Templates\IMessageTemplates;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use App\Models\CuratorFeature;
 use App\Models\ArtistTrackLink;
@@ -28,8 +33,10 @@ class PromoteYourTrackController extends Controller
         $page = 'welcome-your-track';
         return view('pages.artists.artist-promote-your-track.promote-your-track',get_defined_vars());
     }
+
     /**
-     * PromoteYourTrack index
+     * @param Request $request
+     * @return Application|Factory|View
      */
     public function addYourTrack(Request $request)
     {
@@ -48,19 +55,27 @@ class PromoteYourTrackController extends Controller
     }
 
     /**
-     * storeTrackCampaign
+     * @param Request $request
+     * @return JsonResponse
      */
     public function storeTrackCampaign(Request $request)
     {
-        $page = 'promote-your-track';
-        $user_artist = Auth::user();
-        $artist_tracks = ArtistTrack::where('user_id',$user_artist->id)->orderBy('id','desc')->get();
+        $artist_credits = !empty(Auth::user()->TransactionUserInfo) ? number_format(Auth::user()->TransactionUserInfo->transactionHistory->sum('credits')) : 0;
+        $usc_credits = $request->usc_credit;
+        if (!empty($usc_credits))
+            if ($usc_credits > $artist_credits)
+                return response()->json(['error' => IMessageTemplates::INSUFFICIENT_USC]);
 
-        return view('pages.artists.artist-promote-your-track.add-your-track',get_defined_vars());
+        $input = $request->all();
+        // create campaign
+        $input['user_id'] = Auth::id();
+        Campaign::create($input);
+        return response()->json(['success' => 'Campaign created successfully.']);
     }
 
     /**
-     * getCurators
+     * @param Request $request
+     * @return JsonResponse|void
      */
     public function getCurators(Request $request)
     {

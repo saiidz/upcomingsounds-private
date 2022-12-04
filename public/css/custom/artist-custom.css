@@ -331,6 +331,10 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
     border: 1px solid #02b875 !important;
 }
 
+.step_standard, .step_advanced, .step_pro, .step_premium{
+    border: 1px solid #02b875 !important;
+}
+
 #addLinkButton{
     cursor: pointer;
     color: #02b875;
@@ -612,6 +616,7 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
 .openModal {
     overflow: hidden;
 }
+
 
 
 

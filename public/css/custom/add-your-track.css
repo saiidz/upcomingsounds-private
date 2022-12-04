@@ -233,7 +233,7 @@ body{
 
 }
 .nxt__btn {
-    width: 15%;
+    width: 17%;
     /*display: flex;*/
     /*align-items: center;*/
     /*justify-content: center;*/
@@ -261,7 +261,7 @@ body{
 }
 
 .prev__btn {
-    width: 15%;
+    width: 17%;
     /*margin: 0;*/
     /*display: flex;*/
     /*align-items: center;*/
@@ -273,6 +273,9 @@ body{
     cursor: pointer
 }
 
+.selection_new{
+    padding: 1.5rem 0.5rem !important;
+}
 .selection {
     display: flex;
     align-items: center;

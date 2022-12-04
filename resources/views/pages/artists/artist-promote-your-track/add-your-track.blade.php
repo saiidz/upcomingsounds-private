@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="{{asset('css/gijgo.min.css')}}" type="text/css" />
     <link rel="stylesheet" href="{{asset('css/custom/curator-custom.css')}}" type="text/css" />
     <style>
+        #loadings {
+            background: rgba(255, 255, 255, .4) url({{asset('images/loader.gif')}}) no-repeat center center !important;
+        }
         .addMoreRemoveLink {
             display: inline-flex !important;
         }
@@ -52,16 +55,17 @@
                                         </div>
                                         <div class="title__name">
                                             <h3>My selection</h3>
-                                            <p>Step 2. <span id="inComplete">Complete</span></p>
+                                            <p>Step 2. <span id="inComplete">Selections</span></p>
                                         </div>
                                         <div class="title__name">
-                                            <h3>My messages</h3>
-                                            <p>Step 3 <span id="myMessage"></span></p>
+                                            <h3>Activate your campaign</h3>
+{{--                                            <h3>My messages</h3>--}}
+                                            <p>Step 3 <span id="myMessage">Complete</span></p>
                                         </div>
-                                        <div class="title__name">
-                                            <h3>My recap</h3>
-                                            <p>Step 4 <span id="myRecap"></span></p>
-                                        </div>
+{{--                                        <div class="title__name">--}}
+{{--                                            <h3>My recap</h3>--}}
+{{--                                            <p>Step 4 <span id="myRecap"></span></p>--}}
+{{--                                        </div>--}}
                                     </div>
                                     <div class="progress__bar__container">
                                         <ul>
@@ -74,14 +78,14 @@
                                             <li id="icon3">
                                                 <i class="fa fa-unlock-alt"></i>
                                             </li>
-                                            <li id="icon4">
-                                                <i class="fa fa-unlock-alt"></i>
-                                            </li>
+{{--                                            <li id="icon4">--}}
+{{--                                                <i class="fa fa-unlock-alt"></i>--}}
+{{--                                            </li>--}}
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="right__container">
-                                    <form method="POST" action="{{url('store/track/campaign')}}" enctype="multipart/form-data">
+                                    <form method="POST" id="storeTrackCampaign" enctype="multipart/form-data">
                                         @csrf
 
                                         {{-- Step One Form --}}
@@ -90,54 +94,28 @@
                                         {{-- Step Two Form --}}
                                         @include('pages.artists.artist-promote-your-track.form-wizard.step-two')
 
-                                        <fieldset class="active__form" id="form3">
-                                            <div class="sub__title__container">
-                                                <p>Step 3/4</p>
-                                                <h2>What service are looking for ?</h2>
-                                                <p>Please let us know what type of business best describes you as entreprenuer
-                                                    or businessman.</p>
-                                            </div>
-                                            <div class="input__container">
-                                                <div class="selection newB">
-                                                    <div class="imoji">
-                                                        <img src="{{asset('images/objective_partnerships.png')}}">
-    {{--                                                    <ion-icon name="desktop"></ion-icon>--}}
-                                                    </div>
-                                                    <div class="descriptionTitle">
-                                                        <h3>Website Development</h3>
-                                                        <p>Development of online websites</p>
-                                                    </div>
-                                                </div>
-                                                <div class="selection exitB">
-                                                    <div class="imoji">
-                                                        <ion-icon name="phone-portrait"></ion-icon>
-                                                    </div>
-                                                    <div class="descriptionTitle">
-                                                        <h3>Development of Mobile App</h3>
-                                                        <p>Development of android and IOS mobile app</p>
-                                                    </div>
-                                                </div>
-                                                <div class="buttons"><a class="m-b-md rounded addTrack prev__btn" onclick="prevForm();">Back</a> <a
-                                                        class="m-b-md rounded addTrack nxt__btn" onclick="nextForm();">Next</a></div>
-                                            </div>
-                                        </fieldset>
-                                        <fieldset class="active__form" id="form4">
-                                            <div class="sub__title__container">
-                                                <p>Step 4/4</p>
-                                                <h2>Please select your budget</h2>
-                                                <p>Please let us know budget for your project so yes are great that we can give
-                                                    the right quote thanks</p>
-                                            </div>
-                                            <div class="input__container"><input type="range" min="10000" max="500000"
-                                                                                value="250000" class="slider">
-                                                <div class="output__value"></div>
-                                                <div class="buttons">
-                                                    <a class="m-b-md rounded addTrack prev__btn" onclick="prevForm();">Back</a>
-                                                    <button type="submit" value="Submit" class="btn btn-sm rounded addTrack" onclick="nextForm();">Submit</button>
-    {{--                                                <a--}}
-    {{--                                                    class="m-b-md rounded addTrack m-b-md rounded addTrack nxt__btn"  onclick="nextForm();">Next</a></div>--}}
-                                            </div>
-                                        </fieldset>
+                                        {{-- Step Three Form --}}
+                                        @include('pages.artists.artist-promote-your-track.form-wizard.step-three')
+
+
+{{--                                        <fieldset class="active__form" id="form4">--}}
+{{--                                            <div class="sub__title__container">--}}
+{{--                                                <p>Step 4/4</p>--}}
+{{--                                                <h2>Please select your budget</h2>--}}
+{{--                                                <p>Please let us know budget for your project so yes are great that we can give--}}
+{{--                                                    the right quote thanks</p>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="input__container"><input type="range" min="10000" max="500000"--}}
+{{--                                                                                value="250000" class="slider">--}}
+{{--                                                <div class="output__value"></div>--}}
+{{--                                                <div class="buttons">--}}
+{{--                                                    <a class="m-b-md rounded addTrack prev__btn" onclick="prevForm();">Back</a>--}}
+{{--                                                    <button type="submit" value="Submit" class="btn btn-sm rounded addTrack" onclick="nextForm();">Submit</button>--}}
+{{--    --}}{{--                                                <a--}}
+{{--    --}}{{--                                                    class="m-b-md rounded addTrack m-b-md rounded addTrack nxt__btn"  onclick="nextForm();">Next</a>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </fieldset>--}}
     {{--                                    <fieldset class="active__form" id="form5">--}}
     {{--                                        <div class="sub__title__container">--}}
     {{--                                            <p>Step 5/5</p>--}}
@@ -167,6 +145,16 @@
 @endsection
 
 @section('page-script')
+    <script>
+        var preload = document.getElementById("loadings");
+        function loader(){
+            preload.style.display='none';
+        }
+        function showLoader(){
+            preload.style.display='block';
+        }
+    </script>
+
     <script>
         function getId(url) {
             var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
@@ -247,6 +235,11 @@
                 $('#budgetMindYes').addClass('itemYes');
                 $('.budgetNot').prop('checked', false);
                 $('.budgetYes').prop('checked', true);
+
+                // check if true campaign change buttons
+                $('.rightNowClass').css('display', 'none');
+                $('.twoStep').css('display', 'block');
+
             }
             if(status == 'not')
             {
@@ -257,6 +250,10 @@
                 $('#budgetMindNot').addClass('itemNot');
                 $('.budgetYes').prop('checked', false);
                 $('.budgetNot').prop('checked', true);
+
+                // check if true campaign change buttons
+                $('.twoStep').css('display', 'none');
+                $('.rightNowClass').css('display', 'block');
             }
         }
         // step 2 artist track
@@ -292,7 +289,7 @@
                         $('#received_details').prop('checked', true);
 
                         $('#rightNowID').attr('data-id',recieved_check);
-                        toastr.success(data.success);
+                        // toastr.success(data.success);
                     }
                     // if (data.error) {
                     //     document.getElementById('redPriceError').innerHTML = data.error;
@@ -335,7 +332,7 @@
 
                         $('#get_visibility').prop('checked', true);
                         $('#rightNowID').attr('data-id',visibility_check);
-                        toastr.success(data.success);
+                        // toastr.success(data.success);
                     }
 
                 },
@@ -370,7 +367,7 @@
                         $('#get_establish').prop('checked', true);
 
                         $('#rightNowID').attr('data-id',establish_check);
-                        toastr.success(data.success);
+                        // toastr.success(data.success);
                     }
 
                 },
@@ -390,10 +387,89 @@
             $(this).find('input[type=checkbox]').prop("checked", !$(this).find('input[type=checkbox]').prop("checked"));
         });
 
+        // choose package js
+        function choosePackage(package)
+        {
+            if(package == "standard")
+            {
+                $('.selection_advanced').removeClass('step_advanced');
+                $('.selection_pro').removeClass('step_pro');
+                $('.selection_premium').removeClass('step_premium');
+
+                $('#cStandard').addClass('step_standard');
+
+                $(this).find('input[type=checkbox]').prop("checked", !$(this).find('input[type=checkbox]').prop("checked"));
+
+                $('#get_advanced').prop('checked', false);
+                $('#get_pro').prop('checked', false);
+                $('#cPremium').prop('checked', false);
+
+                $('#get_standard').prop('checked', true);
+
+                // add use credit
+                $('.uscCredit').val('{{ App\Templates\IPackages::STANDARD_USC }}');
+            }else if(package == "advanced"){
+                $('.selection_standard').removeClass('step_standard');
+                $('.selection_pro').removeClass('step_pro');
+                $('.selection_premium').removeClass('step_premium');
+
+                $('#cAdvanced').addClass('step_advanced');
+
+                $(this).find('input[type=checkbox]').prop("checked", !$(this).find('input[type=checkbox]').prop("checked"));
+
+                $('#get_standard').prop('checked', false);
+                $('#get_pro').prop('checked', false);
+                $('#cPremium').prop('checked', false);
+
+                $('#get_advanced').prop('checked', true);
+
+                // add use credit
+                $('.uscCredit').val('{{ App\Templates\IPackages::ADVANCED_FEATURED_USC }}');
+            }else if(package == "pro"){
+                $('.selection_standard').removeClass('step_standard');
+                $('.selection_advanced').removeClass('step_advanced');
+                $('.selection_premium').removeClass('step_premium');
+
+                $('#cPro').addClass('step_pro');
+
+                $(this).find('input[type=checkbox]').prop("checked", !$(this).find('input[type=checkbox]').prop("checked"));
+
+                $('#get_standard').prop('checked', false);
+                $('#get_advanced').prop('checked', false);
+                $('#cPremium').prop('checked', false);
+
+                $('#get_pro').prop('checked', true);
+
+                // add use credit
+                $('.uscCredit').val('{{ App\Templates\IPackages::PRO_USC }}');
+
+            }else if(package == "premium"){
+                $('.selection_standard').removeClass('step_standard');
+                $('.selection_advanced').removeClass('step_advanced');
+                $('.selection_pro').removeClass('step_pro');
+
+                $('#cPremium').addClass('step_premium');
+
+                $(this).find('input[type=checkbox]').prop("checked", !$(this).find('input[type=checkbox]').prop("checked"));
+
+                $('#get_standard').prop('checked', false);
+                $('#get_advanced').prop('checked', false);
+                $('#get_pro').prop('checked', false);
+
+                $('#get_premium').prop('checked', true);
+
+                // add use credit
+                $('.uscCredit').val('{{ App\Templates\IPackages::PREMIUM_USC }}');
+
+            }
+        }
+        // choose package js
     </script>
     <script>
         function selectSelection()
         {
+            toastr.error('work is pending');
+            return false;
             // check value curator check
             let received_check = $('.stepTwoReceived').is(':checked');
             let visibility_check = $('.stepTwoVisibility').is(':checked');
@@ -403,6 +479,15 @@
             {
                 toastr.error('Please Select Right Now');
                 return false;
+            }
+
+            let payNow = $('.budgetYes').is(':checked');
+            let budgetNot = $('.budgetNot').is(':checked');
+
+            if(payNow == false && budgetNot == false)
+            {
+                toastr.error('Please select any activate your campaign');
+                return  false;
             }
 
             var right_now_id =  $('#rightNowID').attr('data-id');
@@ -438,19 +523,17 @@
         const icon1 = document.querySelector('#icon1');
         const icon2 = document.querySelector('#icon2');
         const icon3 = document.querySelector('#icon3');
-        const icon4 = document.querySelector('#icon4');
+        // const icon4 = document.querySelector('#icon4');
         // const icon5 = document.querySelector('#icon5');
 
 
         var viewId = 1;
 
         function nextForm(status) {
-            alert(status);
             if(status == 'step_one')
             {
                 // check value track come
                 let track_id = $('.oneTrackSelected').is(':checked');
-                console.log(track_id);
                 if(track_id == false)
                 {
                     toastr.error('Please Select Track');
@@ -465,16 +548,56 @@
                 let visibility_check = $('.stepTwoVisibility').is(':checked');
                 let establish_check = $('.stepTwoEstablish').is(':checked');
 
+                // check right now
                 if(received_check == false && visibility_check == false && establish_check == false)
                 {
                     toastr.error('Please Select Right Now');
                     return false;
                 }
+                // check start campaign
+                let payNow = $('.budgetYes').is(':checked');
+                let budgetNot = $('.budgetNot').is(':checked');
+
+                if(payNow == false && budgetNot == false)
+                {
+                    toastr.error('Please select any activate your campaign');
+                    return  false;
+                }
             }
 
             if(status == 'step_three')
             {
-                $('#selectionHide').show();
+                showLoader();
+                let form = document.getElementById('storeTrackCampaign');
+                var formData = new FormData(form)
+                $.ajax({
+                    type: "POST",
+                    url: '{{route('store.Track.Campaign')}}',
+                    data: formData,
+                    dataType: 'json',
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    beforeSend: function() {
+
+                        $('.threeStep').html('<div class="spinner-border text-light spinner-border-sm" role="status"><span class="sr-only">Loading...</span></div> Please Wait....');
+                        $('.threeStep').attr('disabled','');
+
+                    },
+                    success: function (data) {
+                        loader();
+                        if (data.success) {
+                            $('.threeStep').removeAttr('disabled');
+                            toastr.success(data.success);
+                            window.location = '{{ URL::to('/promote-your-track') }}';
+                        }
+                        if (data.error) {
+                            toastr.error(data.error);
+                        }
+                    },
+                });
+                return false;
+                // $('#selectionHide').show();
             }
 
             // let track_id = $('#received_details').is(':checked');
@@ -507,25 +630,25 @@
                 icon2.classList.add('active');
                 icon2.classList.remove('active');
                 icon3.classList.remove('active');
-                icon4.classList.remove('active');
+                // icon4.classList.remove('active');
                 // icon5.classList.remove('active');
             }
             if (viewId === 2) {
                 // alert('viewId1');
                 icon2.classList.add('active');
                 icon3.classList.remove('active');
-                icon4.classList.remove('active');
+                // icon4.classList.remove('active');
                 // icon5.classList.remove('active');
             }
             if (viewId === 3) {
                 // alert('viewId3');
                 icon3.classList.add('active');
-                icon4.classList.remove('active');
+                // icon4.classList.remove('active');
                 // icon5.classList.remove('active');
             }
             if (viewId === 4) {
                 // alert('viewId4');
-                icon4.classList.add('active');
+                // icon4.classList.add('active');
                 // icon5.classList.remove('active');
             }
             // if (viewId === 5) {
@@ -537,7 +660,7 @@
                 // alert('viewId5');
                 icon2.classList.remove('active');
                 icon3.classList.remove('active');
-                icon4.classList.remove('active');
+                // icon4.classList.remove('active');
                 // icon5.classList.remove('active');
 
             }
@@ -554,7 +677,7 @@
             }
             if (viewId === 4) {
                 // alert('viewId4');
-                icon4.classList.add('active');
+                // icon4.classList.add('active');
             }
             // if (viewId === 5) {
             //     alert('viewId5');
@@ -565,7 +688,7 @@
                 // alert(viewId);
                 icon2.classList.remove('active');
                 icon3.classList.remove('active');
-                icon4.classList.remove('active');
+                // icon4.classList.remove('active');
                 // icon5.classList.remove('active');
 
             }
@@ -620,8 +743,8 @@
                 document.getElementById('myMessage').innerHTML = 'Modify'
                 form3.style.display = 'none';
 
-                document.getElementById('myRecap').innerHTML = 'Complete'
-                form4.style.display = 'block';
+                // document.getElementById('myRecap').innerHTML = 'Complete'
+                // form4.style.display = 'block';
                 // form5.style.display = 'none';
 
             }
@@ -762,7 +885,8 @@
     });
 </script>
 <script>
-    $('.audioCover').on('click', function(){
+    $('.audioCover').on('click', function(e){
+        e.preventDefault();
         var $box = $(this);
         if($box.is(':checked'))
         {
@@ -773,7 +897,8 @@
             $box.prop("checked", false);
         }
     });
-    $('.releaseType').on('click', function(){
+    $('.releaseType').on('click', function(e){
+        e.preventDefault();
         var $box = $(this);
         if($box.is(':checked'))
         {
@@ -784,7 +909,8 @@
             $box.prop("checked", false);
         }
     });
-    $('.permissionCopyright').on('click', function(){
+    $('.permissionCopyright').on('click', function(e){
+        e.preventDefault();
         var $box = $(this);
         if($box.is(':checked'))
         {

@@ -55,6 +55,16 @@
                    <span class="nav-text">Artist</span>
                    </a>
                 </li>
+                 <li>
+                   <a href="javascript:void(0)">
+                   <span class="nav-icon">
+                   <i class="material-icons">
+                   portrait
+                   </i>
+                   </span>
+                   <span class="nav-text">Active Campaigns</span>
+                   </a>
+                </li>
                 <li>
                    <a data-toggle="modal" data-target="#search-modal">
                    <span class="nav-icon">
