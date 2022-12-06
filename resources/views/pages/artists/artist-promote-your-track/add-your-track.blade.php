@@ -154,7 +154,58 @@
             preload.style.display='block';
         }
     </script>
+    <script>
+        $('.audioCover').change(function(e){
+            e.preventDefault();
+            var $box = $(this);
+            if($box.is(':checked'))
+            {
+                var group = "input:checkbox[name='" + $box.attr("name") + "']";
+                $(group).prop('checked', false);
+                $box.prop("checked", true);
+            }else {
+                $box.prop("checked", false);
+            }
+        });
 
+        $('.releaseTypeModal').change(function(e){
+            e.preventDefault();
+            var $box = $(this);
+            if($box.is(':checked'))
+            {
+                var group = "input:checkbox[name='" + $box.attr("name") + "']";
+                $(group).prop('checked', false);
+                $box.prop("checked", true);
+            }else {
+                $box.prop("checked", true);
+            }
+        });
+        $('.permissionCopyright').change(function(e){
+            e.preventDefault();
+            var $box = $(this);
+            if($box.is(':checked'))
+            {
+                var group = "input:checkbox[name='" + $box.attr("name") + "']";
+                $(group).prop('checked', false);
+                $box.prop("checked", true);
+            }else {
+                $box.prop("checked", false);
+            }
+        });
+
+        $(document).ready(function(){
+            $(".slide-toggle").click(function(){
+                $(".interestShow").animate({
+                    height: "toggle"
+                });
+            });
+        });
+
+        document.getElementById('update_track_not').addEventListener('click', function (){
+            $('#ddTrackPromote').trigger("reset");
+            // location.reload();
+        });
+    </script>
     <script>
         function getId(url) {
             var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
@@ -578,16 +629,17 @@
                     contentType: false,
                     cache: false,
                     processData:false,
-                    beforeSend: function() {
-
-                        $('.threeStep').html('<div class="spinner-border text-light spinner-border-sm" role="status"><span class="sr-only">Loading...</span></div> Please Wait....');
-                        $('.threeStep').attr('disabled','');
-
-                    },
+                    // beforeSend: function() {
+                    //
+                    //     $('.threeStep').html('<div class="spinner-border text-light spinner-border-sm" role="status"><span class="sr-only" id="nowPay">Loading...</span></div> Please Wait....');
+                    //     $('.threeStep').attr('disabled','');
+                    //
+                    // },
                     success: function (data) {
                         loader();
                         if (data.success) {
-                            $('.threeStep').removeAttr('disabled');
+                            // $('.threeStep').removeAttr('disabled');
+                            // $('.threeStep').empty("");
                             toastr.success(data.success);
                             window.location = '{{ URL::to('/promote-your-track') }}';
                         }
@@ -709,7 +761,7 @@
                 document.getElementById('inComplete').innerHTML = 'Complete'
 
                 form3.style.display = 'none';
-                form4.style.display = 'none';
+                // form4.style.display = 'none';
                 // form5.style.display = 'none';
 
             } else if (viewId === 2) {
@@ -723,7 +775,7 @@
                 document.getElementById('myMessage').innerHTML = 'Complete'
                 form3.style.display = 'none';
 
-                form4.style.display = 'none';
+                // form4.style.display = 'none';
                 // form5.style.display = 'none';
 
             } else if (viewId === 3) {
@@ -734,7 +786,7 @@
 
                 document.getElementById('myMessage').innerHTML = 'In progress'
                 form3.style.display = 'block';
-                form4.style.display = 'none';
+                // form4.style.display = 'none';
                 // form5.style.display = 'none';
             } else if (viewId === 4) {
                 form1.style.display = 'none';
@@ -760,13 +812,13 @@
 
         // for slider
 
-        var slider = document.querySelector(".slider");
-        var output = document.querySelector(".output__value");
-        output.innerHTML = slider.value;
-
-        slider.oninput = function () {
-            output.innerHTML = this.value;
-        }
+        // var slider = document.querySelector(".slider");
+        // var output = document.querySelector(".output__value");
+        // output.innerHTML = slider.value;
+        //
+        // slider.oninput = function () {
+        //     output.innerHTML = this.value;
+        // }
     </script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -884,56 +936,6 @@
         readAudioURL(this);
     });
 </script>
-<script>
-    $('.audioCover').on('click', function(e){
-        e.preventDefault();
-        var $box = $(this);
-        if($box.is(':checked'))
-        {
-            var group = "input:checkbox[name='" + $box.attr("name") + "']";
-            $(group).prop('checked', false);
-            $box.prop("checked", true);
-        }else {
-            $box.prop("checked", false);
-        }
-    });
-    $('.releaseType').on('click', function(e){
-        e.preventDefault();
-        var $box = $(this);
-        if($box.is(':checked'))
-        {
-            var group = "input:checkbox[name='" + $box.attr("name") + "']";
-            $(group).prop('checked', false);
-            $box.prop("checked", true);
-        }else {
-            $box.prop("checked", false);
-        }
-    });
-    $('.permissionCopyright').on('click', function(e){
-        e.preventDefault();
-        var $box = $(this);
-        if($box.is(':checked'))
-        {
-            var group = "input:checkbox[name='" + $box.attr("name") + "']";
-            $(group).prop('checked', false);
-            $box.prop("checked", true);
-        }else {
-            $box.prop("checked", false);
-        }
-    });
 
-    $(document).ready(function(){
-        $(".slide-toggle").click(function(){
-            $(".interestShow").animate({
-                height: "toggle"
-            });
-        });
-    });
-
-    document.getElementById('update_track_not').addEventListener('click', function (){
-        $('#ddTrackPromote').trigger("reset");
-        // location.reload();
-    });
-</script>
 @endsection
 

@@ -38,13 +38,13 @@
                                 <p class="text-muted">Release Type</p>
                                 <div class="remix">
                                     <label>
-                                        <input type="checkbox" class="radio releaseType" value="single" name="release_type" />   Single</label>
+                                        <input type="checkbox" class="radio releaseTypeModal" value="single" name="release_type" />   Single</label>
                                     <label>
-                                        <input type="checkbox" class="radio releaseType" value="album" name="release_type" />   Album</label>
+                                        <input type="checkbox" class="radio releaseTypeModal" value="album" name="release_type" />   Album</label>
                                     <label>
-                                        <input type="checkbox" class="radio releaseType" value="ep" name="release_type" />   EP</label>
+                                        <input type="checkbox" class="radio releaseTypeModal" value="ep" name="release_type" />   EP</label>
                                     <label>
-                                        <input type="checkbox" class="radio releaseType" value="video" name="release_type" />   Video</label>
+                                        <input type="checkbox" class="radio releaseTypeModal" value="video" name="release_type" />   Video</label>
                                 </div>
                             </p>
                         </div>

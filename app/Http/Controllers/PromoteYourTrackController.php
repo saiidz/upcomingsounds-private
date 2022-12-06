@@ -60,11 +60,12 @@ class PromoteYourTrackController extends Controller
      */
     public function storeTrackCampaign(Request $request)
     {
-        $artist_credits = !empty(Auth::user()->TransactionUserInfo) ? number_format(Auth::user()->TransactionUserInfo->transactionHistory->sum('credits')) : 0;
+        $artist_credits = !empty(Auth::user()->TransactionUserInfo) ? number_format(Auth::user()->TransactionUserInfo->transactionHistory->sum('credits')) - (!empty(Auth::user()->campaign) ? number_format(Auth::user()->campaign->sum('usc_credit')) : 0) : 0;
         $usc_credits = $request->usc_credit;
-        if (!empty($usc_credits))
-            if ($usc_credits > $artist_credits)
-                return response()->json(['error' => IMessageTemplates::INSUFFICIENT_USC]);
+        if ($usc_credits > $artist_credits)
+        {
+            return response()->json(['error' => 'You have insufficient '.$artist_credits.'USC credits, please go to wallet and purchased credits']);
+        }
 
         $input = $request->all();
         // create campaign
