@@ -56,7 +56,7 @@
                    </a>
                 </li>
                  <li>
-                   <a href="javascript:void(0)">
+                   <a href="{{route('active.campaign')}}">
                    <span class="nav-icon">
                    <i class="material-icons">
                    portrait

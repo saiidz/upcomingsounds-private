@@ -37,6 +37,13 @@ class AppServiceProvider extends ServiceProvider
             }
         });
 
+        // user artist
+        View::composer('*', function ($view) {
+            if (Auth::check()) {
+                $user_artist = Auth::user();
+                View::share('user_artist', $user_artist);
+            }
+        });
         // Using closure based composers...
         View::composer('*', function ($view) {
             if (Auth::check())

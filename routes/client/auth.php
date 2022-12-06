@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\Artist\CampaignController;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\ArtistTrackController;
 use App\Http\Controllers\ArtistWalletController;
@@ -53,6 +54,8 @@ Route::post('process-transaction', [PayPalController::class, 'processTransaction
 Route::get('success-transaction', [PayPalController::class, 'successTransaction']);
 Route::get('cancel-transaction', [PayPalController::class, 'cancelTransaction']);
 
+// active campaign routes
+Route::get('campaigns', [CampaignController::class,'activeCampaign'])->name('active.campaign');
 
 
 // get cites
