@@ -4,7 +4,11 @@
 @section('title','Active Campaign')
 
 @section('page-style')
-
+    <style>
+        .mediaItem{
+            height: 150px !important;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -21,7 +25,7 @@
                             @foreach($campaigns as $campaign)
                                 <div class="col-xs-12" id="remove_track-{{$campaign->artistTrack->id}}">
                                     <div class="item r" data-id="item-{{$campaign->artistTrack->id}}" data-src="{{URL('/')}}/uploads/audio/{{$campaign->artistTrack->audio}}">
-                                        <div class="item-media ">
+                                        <div class="item-media mediaItem">
                                             @if(!empty($campaign->artistTrack->track_thumbnail))
                                                 <a href="javascript:void(0)" class="item-media-content"
                                                    style="background-image: url({{asset('uploads/track_thumbnail')}}/{{$campaign->artistTrack->track_thumbnail}});"></a>
@@ -44,9 +48,9 @@
                                                 <a href="javascript:void(0)" class="text-muted">{{($campaign->artistTrack->user->name) ? $campaign->artistTrack->user->name : ''}}</a>
                                             </div>
                                             <div class="item-meta text-sm text-muted">
-                                                <span class="item-meta-category">
-                                                    <a href="javascript:void(0)" class="label">{{($campaign->artistTrack->trackCategory) ? ucfirst($campaign->artistTrack->trackCategory->name) : ''}}</a>
-                                                </span>
+{{--                                                <span class="item-meta-category">--}}
+{{--                                                    <a href="javascript:void(0)" class="label">{{($campaign->artistTrack->trackCategory) ? ucfirst($campaign->artistTrack->trackCategory->name) : ''}}</a>--}}
+{{--                                                </span>--}}
                                                 <span class="item-meta-date text-xs">{{($campaign->artistTrack->release_date) ? \Carbon\Carbon::parse($campaign->artistTrack->release_date)->format('M d Y') : ''}}</span>
                                             </div>
 

@@ -42,7 +42,7 @@
                         </div>
                         <div class="item-meta text-sm text-muted">
                             <span class="item-meta-category">
-                                <a href="javascript:void(0)" class="label">{{($track->trackCategory) ? ucfirst($track->trackCategory->name) : ''}}</a>
+{{--                                <a href="javascript:void(0)" class="label">{{($track->trackCategory) ? ucfirst($track->trackCategory->name) : ''}}</a>--}}
 {{--                                <a href="browse.html" class="label">{{($track->trackCategory) ? ucfirst($track->trackCategory->name) : ''}}</a>--}}
                             </span>
                             <span class="item-meta-date text-xs">{{($track->release_date) ? \Carbon\Carbon::parse($track->release_date)->format('M d Y') : ''}}</span>

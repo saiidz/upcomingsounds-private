@@ -257,11 +257,11 @@
                 </div>
             </div>
         </div>
-        @include('pages.artists.artist-promote-your-track.collapsed_sidebar')
+{{--        @include('pages.artists.artist-promote-your-track.collapsed_sidebar')--}}
         <div class="row-col">
             <div class="col-lg-9 b-r no-border-md">
                 <div class="padding">
-                    <h2 class="widget-title h4 m-b">Treading</h2>
+                    <h2 class="widget-title h4 m-b">Trending</h2>
                     <div class="owl-carousel owl-theme owl-dots-center" data-ui-jp="owlCarousel" data-ui-options="{
 					margin: 20,
 					responsiveClass:true,
@@ -277,7 +277,7 @@
                         <div class="">
                             <div class="item r" data-id="item-5" data-src="{{URL('/')}}/uploads/audio/default_1668626804testmp3.mp3">
                                 <div class="item-media item-media-4by3">
-                                    <a href="javascript:void(0)" onclick="openNav()" class="item-media-content" style="background-image: url('images/b4.jpg');"></a>
+                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b4.jpg');"></a>
                                     <div class="item-overlay center">
                                         <button  class="btn-playpause">Play</button>
                                     </div>
@@ -480,7 +480,7 @@
                         <div class="col-xs-4 col-sm-4 col-md-3">
                             <div class="item r" data-id="item-3" data-src="http://api.soundcloud.com/tracks/79031167/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
                                 <div class="item-media ">
-                                    <a href="javascript:void(0)" onclick="openNav()" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
+                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
                                     <div class="item-overlay center">
                                         <button  class="btn-playpause">Play</button>
                                     </div>
@@ -942,14 +942,14 @@
 
 @section('page-script')
     <script>
-        function openNav() {
-            document.getElementById("mySidebarCollapsed").style.width = "490px";
-            document.getElementById("app-body").style.marginLeft = "490px";
-        }
-
-        function closeNav() {
-            document.getElementById("mySidebarCollapsed").style.width = "0";
-            document.getElementById("app-body").style.marginLeft= "0";
-        }
+        // function openNav() {
+        //     document.getElementById("mySidebarCollapsed").style.width = "490px";
+        //     document.getElementById("app-body").style.marginLeft = "490px";
+        // }
+        //
+        // function closeNav() {
+        //     document.getElementById("mySidebarCollapsed").style.width = "0";
+        //     document.getElementById("app-body").style.marginLeft= "0";
+        // }
     </script>
 @endsection

@@ -13,4 +13,9 @@ abstract class IPackages
     const ADVANCED_FEATURED_USC = '60';
     const PRO_USC               = '80';
     const PREMIUM_USC           = '100';
+
+    const STANDARD_NAME          = 'standard';
+    const ADVANCED_FEATURED_NAME = 'advanced';
+    const PRO_NAME               = '';
+    const PREMIUM_NAME           = 'premium';
 }
