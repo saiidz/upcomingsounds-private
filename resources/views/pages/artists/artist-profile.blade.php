@@ -1088,4 +1088,15 @@
 
         });
     </script>
+{{--    Promote to track redirect and checked track--}}
+    <script>
+        function promoteTrackRedirect(track_id)
+        {
+            window.open(
+                window.location.origin + '/promote-your-track/?track_id='+track_id,
+                '_self' // <- This is what makes it open in a new window.
+            );
+        }
+    </script>
+{{--    Promote to track redirect and checked track--}}
 @endsection

@@ -641,7 +641,7 @@
                             // $('.threeStep').removeAttr('disabled');
                             // $('.threeStep').empty("");
                             toastr.success(data.success);
-                            window.location = '{{ URL::to('/promote-your-track') }}';
+                            window.location = '{{ URL::to('/campaigns') }}';
                         }
                         if (data.error) {
                             toastr.error(data.error);

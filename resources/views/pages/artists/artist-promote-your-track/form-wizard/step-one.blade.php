@@ -7,13 +7,15 @@
            Add New track
         </a> --}}
     </div>
-
+    @php
+        $SelectedTrack =  $_GET['track_id'] ??'';
+    @endphp
     <div class="input__container">
         <div class="row item-list item-list-md m-b">
             @if(count($artist_tracks) > 0)
                 @foreach($artist_tracks as $track)
                     <div class="col-sm-6 promoteArtist" onclick="artistTrack({{$track->id}})" >
-                        <div class="item r" data-id="item-5" id="promoteArtistItem_{{$track->id}}">
+                        <div class="item r {{!empty($SelectedTrack) && ($SelectedTrack == $track->id) ? 'item_artist' : ''}}" data-id="item-{{$track->id}}" id="promoteArtistItem_{{$track->id}}">
                             <div class="item-media">
                                 {{-- @if(!empty($track->track_thumbnail))
                                     <a href="javascript:void(0)" class="item-media-content" onclick="viewTrack({{$track->id}})" data-toggle="modal" data-target="#view-track"
@@ -30,7 +32,7 @@
                             </div>
                             <div class="item-info">
                                 <div class="item-title bottom text-right">
-                                    <input type="checkbox" class="oneTrackSelected" id="oneTrackSelected_{{$track->id}}" value="{{$track->id}}" name="track_id" required />
+                                    <input type="checkbox" class="oneTrackSelected" {{!empty($SelectedTrack) && ($SelectedTrack == $track->id) ? 'checked' : ''}} id="oneTrackSelected_{{$track->id}}" value="{{$track->id}}" name="track_id" required />
                                 </div>
                                 <div class="item-title text-ellipsis">
                                     <div>{{$track->name}}</div>

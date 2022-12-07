@@ -17,10 +17,10 @@
                         <h2 class="widget-title inline m-a-0">Active Campaigns</h2>
                     </div>
                     <div class="row item-list item-list-by m-b">
-                        @if(!empty($campaigns))
+                        @if(count($campaigns) > 0)
                             @foreach($campaigns as $campaign)
                                 <div class="col-xs-12" id="remove_track-{{$campaign->artistTrack->id}}">
-                                    <div class="item r" data-id="item-{{$campaign->artistTrack->id}}">
+                                    <div class="item r" data-id="item-{{$campaign->artistTrack->id}}" data-src="{{URL('/')}}/uploads/audio/{{$campaign->artistTrack->audio}}">
                                         <div class="item-media ">
                                             @if(!empty($campaign->artistTrack->track_thumbnail))
                                                 <a href="javascript:void(0)" class="item-media-content"
@@ -29,24 +29,13 @@
                                                 <a href="javascript:void(0)" class="item-media-content"
                                                    style="background-image: url({{asset('images/b9.jpg')}});"></a>
                                             @endif
+                                            <div class="item-overlay center">
+                                                <button class="btn-playpause">Play</button>
+                                            </div>
                                         </div>
                                         <div class="item-info">
-{{--                                            <div class="item-overlay bottom text-right">--}}
-{{--                                                <a href="javascript:void(0)" class="btn-favorite"><i--}}
-{{--                                                        class="fa fa-heart-o"></i></a>--}}
-{{--                                                <a href="javascript:void(0)" class="btn-more" data-toggle="dropdown"><i--}}
-{{--                                                        class="fa fa-ellipsis-h"></i></a>--}}
-{{--                                                <div class="dropdown-menu pull-right black lt"></div>--}}
-
-{{--                                            </div>--}}
                                             <div class="item bottom text-right">
-{{--                                                {{dd(\Carbon\Carbon::parse($campaign->created_at)->addDays(45) - \Carbon\Carbon::now())}}--}}
-{{--                                                @if ($campaign->artistTrack->is_approved == 1)--}}
-{{--                                                    <span class="text-primary">Approved</span>--}}
-{{--                                                @else--}}
-{{--                                                    <span class="text-danger">Pending</span>--}}
-{{--                                                @endif--}}
-
+                                                <span class="text-primary">{{getExpiryDayCampaign($campaign->created_at)}}</span>
                                             </div>
                                             <div class="item-title text-ellipsis">
                                                 <a href="javascript:void(0)">{{$campaign->artistTrack->name}}</a>
@@ -66,15 +55,17 @@
                                                 {{$campaign->artistTrack->description}}
                                             </div>
 
-{{--                                            <div class="item-action visible-list m-t-sm">--}}
-{{--                                                @if($campaign->artistTrack->is_locked == 0 && $campaign->artistTrack->is_approved == 0)--}}
-{{--                                                    <button class="btn btn-xs white" onclick="editTrack({{$campaign->artistTrack->id}})" data-toggle="modal" data-target="#edit-track">Edit</button>--}}
-{{--                                                @else--}}
-{{--                                                    --}}{{--                                <button class="btn btn-xs white" data-toggle="modal" data-target="#requestEdit">Request To Edit</button>--}}
-{{--                                                    <a href="javascript:void(0)" onclick="requestEditTrack({{$campaign->artistTrack->id}})" class="btn btn-xs white" data-toggle="modal"--}}
-{{--                                                       data-target="#requestEdit">Request To Edit</a>--}}
-{{--                                                @endif--}}
-{{--                                            </div>--}}
+                                            @if(!empty($campaign->artistTrack->artistTrackTags))
+                                                <div class="item-action visible-list m-t-sm">
+                                                    <div>
+                                                        @foreach($campaign->artistTrack->artistTrackTags as $tag)
+                                                            <span class="btn btn-xs white">{{$tag->curatorFeatureTag->name}}</span>
+                                                        @endforeach
+
+                                                    </div>
+                                                </div>
+                                            @endif
+
                                         </div>
                                     </div>
                                 </div>
@@ -82,7 +73,7 @@
                             @endforeach
                         @else
                             <div class="item-title text-ellipsis">
-                                <h3 class="white" style="text-align:center">Not Found</h3>
+                                <h3 class="white" style="text-align:center">Not Campaign Found</h3>
                             </div>
                         @endif
                     </div>

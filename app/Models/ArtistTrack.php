@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ArtistTrack extends Model
@@ -37,42 +39,79 @@ class ArtistTrack extends Model
         'add_playlist',
         'deleted_at',
     ];
-    // track category belongs to artist track
-    public function trackCategory(){
+
+    /**
+     * @return BelongsTo
+     */
+    public function trackCategory(): BelongsTo
+    {
         return $this->belongsTo(TrackCategory::class);
     }
-    // User
-    public function user(){
+
+    /**
+     * @return BelongsTo
+     */
+    public function user(): BelongsTo
+    {
         return $this->belongsTo(User::class);
     }
 
-    // track has many track tag
-    public function artistTrackTags(){
+    /**
+     * @return HasMany
+     */
+    public function artistTrackTags(): HasMany
+    {
         return $this->hasMany(ArtistTrackTag::class,'artist_track_id');
     }
 
-    // track has many track links
-    public function artistTrackLinks(){
+    /**
+     * @return HasMany
+     */
+    public function artistTrackLinks(): HasMany
+    {
         return $this->hasMany(ArtistTrackLink::class,'artist_track_id');
     }
 
-    // track has many track images
-    public function artistTrackImages(){
+    /**
+     * @return HasMany
+     */
+    public function artistTrackImages(): HasMany
+    {
         return $this->hasMany(ArtistTrackImage::class,'artist_track_id');
     }
 
-    // track has many track Languages
-    public function artistTrackLanguages(){
+    /**
+     * @return HasMany
+     */
+    public function artistTrackLanguages(): HasMany
+    {
         return $this->hasMany(ArtistTrackLanguage::class,'artist_track_id');
     }
-    // get artists approved
+
+    /**
+     * @param $query
+     * @return void
+     */
     public function scopeGetApprovedTrack($query)
     {
         $query->where('is_approved',1);
     }
-    // get artists pending
+
+    /**
+     * @param $query
+     * @return void
+     */
     public function scopeGetPendingTrack($query)
     {
         $query->where('is_approved',0);
     }
+
+    /**
+     * @return HasMany
+     */
+    public function campaign(): HasMany
+    {
+        return $this->hasMany(Campaign::class,'track_id','id');
+    }
+
 }
