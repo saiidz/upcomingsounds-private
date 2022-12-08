@@ -953,7 +953,7 @@
     </script>
     <script>
         function openNav(campaign_id) {
-            // showLoader();
+            showLoader();
             //send ajax
             $.ajax({
                 type: "GET",
@@ -961,7 +961,7 @@
                 data: {campaign_id:campaign_id},
                 dataType: 'json',
                 success: function (data) {
-                    // loader();
+                    loader();
                     if (data.success) {
                         $('#campaignAddRemove').empty();
                         $('#campaignAddRemove').html(data.campaign);
