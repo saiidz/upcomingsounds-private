@@ -16,6 +16,6 @@ abstract class IPackages
 
     const STANDARD_NAME          = 'standard';
     const ADVANCED_FEATURED_NAME = 'advanced';
-    const PRO_NAME               = '';
+    const PRO_NAME               = 'pro';
     const PREMIUM_NAME           = 'premium';
 }

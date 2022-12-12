@@ -144,7 +144,7 @@
                             </div>
                         </div>
                         <form class="new_basicform_with_reload" id="verificationCuratorForm"
-                                method="POST" action="{{route('curator.verfication.form')}}">
+                                method="POST" action="{{route('curator.verification.form')}}">
                             @csrf
                             @php
                                 $count = 1

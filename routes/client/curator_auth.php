@@ -40,6 +40,6 @@ Route::get('get-cites/{id}', [AjaxController::class,'getCities']);
 Route::get('/taste-maker/get-verified', [ArtistSubmissionController::class,'getVerified'])->name('curator.get.verified');
 
 // curator verification form
-Route::post('store-verfication-form', [CuratorVerificationFormController::class, 'storeVerificationForm'])->name('curator.verfication.form');
+Route::post('store-verification-form', [CuratorVerificationFormController::class, 'storeVerificationForm'])->name('curator.verification.form');
 
 /***************************************************** Curator Routes *********************************************************/

@@ -362,7 +362,8 @@
       padding-top: 60px;
   }
 
-  .sidebarCollapsed a {
+  .sidebarCollapsed .closebtn,
+  .sidebarCollapsed .btn-favorite {
       padding: 8px 8px 8px 32px;
       text-decoration: none;
       font-size: 25px;
@@ -371,7 +372,8 @@
       transition: 0.3s;
   }
 
-  .sidebarCollapsed a:hover {
+  .sidebarCollapsed .closebtn:hover,
+  .sidebarCollapsed .btn-favorite:hover {
       color: #f1f1f1;
   }
 
@@ -383,22 +385,104 @@
       margin-left: 50px;
   }
 
+  .collapsed_list {
+      padding: 5px 10px;
+  }
+  .d-flex.justify-content-between.align-items-center {
+      justify-content: space-between !important;
+      align-items: center !important;
+      display: flex !important;
+  }
+
+  #camArtTraLink iframe {
+      width: 455px;
+  }
+
+  .startCollapse {
+      padding: 0 0 100px 0;
+  }
+
+  span.btn.btn-xs.white {
+      margin-bottom: 10px;
+  }
+
+  .campaignTag{
+      margin-bottom: 10px;
+  }
+
+  .campaignBtn {
+      text-align: center;
+      margin-top: 15px;
+      border-top: 1px solid #4a5158 !important;
+  }
+
+  .campaign_btn {
+      margin-top: 20px;
+      border-color: #02b875 !important;
+      background-color: #1f1f25 !important;
+      color: white !important;
+      text-align: center !important;
+      padding: 10px 1.5rem 10px 1.5rem !important;
+      white-space: nowrap !important;
+      vertical-align: middle !important;
+      box-shadow: inset 0 0 1px rgb(0 0 0 / 30%) !important;
+      border-radius: 500px !important;
+      margin-left: 10px!important;
+  }
+
+  .campaignBtn {
+      text-align: center;
+      margin-top: 15px;
+  }
 
   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
   @media screen and (max-height: 450px) {
       .sidebarCollapsed {padding-top: 15px;}
-      .sidebarCollapsed a {font-size: 18px;}
+      .sidebarCollapsed .closebtn {font-size: 18px;}
       /*.sidebarCollapsed*/
       /*{*/
       /*    width: 475px;*/
       /*}*/
   }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+
+      /* CSS */
+      .collapsed_list {
+          padding: 25px 10px;
+      }
+      .sidebarCollapsed .closebtn {
+          top: 38px;
+          right: 3px;
+      }
+  }
+
+  @media (min-width: 481px) and (max-width: 767px) {
+
+      /* CSS */
+      .collapsed_list {
+          padding: 25px 10px;
+      }
+      .sidebarCollapsed .closebtn {
+          top: 38px;
+          right: 3px;
+      }
+  }
+
   @media (min-width: 320px) and (max-width: 480px) {
 
       /* CSS */
-
+      .collapsed_list {
+          padding: 40px 10px;
+      }
       .sidebarCollapsed .closebtn {
           top: 40px;
+      }
+      #mySidebarCollapsed{
+          width: 390px !important;
+      }
+      #camArtTraLink iframe {
+          width: 360px !important;
       }
   }
   /*collapse*/
