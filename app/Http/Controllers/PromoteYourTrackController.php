@@ -43,6 +43,18 @@ class PromoteYourTrackController extends Controller
         $page = 'promote-your-track';
         $user_artist = Auth::user();
         $artist_tracks = ArtistTrack::where('user_id',$user_artist->id)->where('is_approved', 1)->latest()->get();
+
+        $artist_tracks = $artist_tracks->reject(function ($track){
+            $campaign = Campaign::where(['user_id' => Auth::id(), 'track_id' => $track->id])->latest()->first();
+            if(!empty($campaign)){
+                $data = getExpiryDayCampaign($campaign->created_at);
+                if($data == 'false')
+                    return '';
+                else
+                    return $data;
+            }
+        })->flatten();
+
         $languages = Language::all();
 
         $curator_features_ids = CuratorFeature::pluck('id')->toArray();

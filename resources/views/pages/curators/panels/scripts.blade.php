@@ -317,3 +317,24 @@
         );
     });
 </script>
+<script>
+    function favorite(campaign_id) {
+        showLoader();
+        //send ajax
+        $.ajax({
+            type: "GET",
+            url: '{{route('curator.favorite.track')}}',
+            data: {campaign_id:campaign_id},
+            dataType: 'json',
+            success: function (data) {
+                loader();
+                if (data.success) {
+                    
+                }
+                if (data.error) {
+                    toastr.error(data.error);
+                }
+            },
+        });
+    }
+</script>

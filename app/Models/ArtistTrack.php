@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ArtistTrack extends Model
@@ -114,4 +115,11 @@ class ArtistTrack extends Model
         return $this->hasMany(Campaign::class,'track_id','id');
     }
 
+    /**
+     * @return HasOne
+     */
+    public function latestCampaign(): HasOne
+    {
+        return $this->hasOne(Campaign::class,'track_id','id')->latest();
+    }
 }

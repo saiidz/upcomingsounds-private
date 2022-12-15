@@ -90,4 +90,21 @@ class ArtistSubmissionController extends Controller
         }
 
     }
+
+    public function favoriteTrack(Request $request)
+    {
+        if ($request->campaign_id)
+        {
+            $campaign = Campaign::find($request->campaign_id);
+
+            if($request->ajax()){
+                return response()->json([
+                    'success' => 'Campaign Found successfully',
+                ]);
+            }
+        }else
+        {
+            return response()->json(['error' => 'Campaign Not Found.']);
+        }
+    }
 }

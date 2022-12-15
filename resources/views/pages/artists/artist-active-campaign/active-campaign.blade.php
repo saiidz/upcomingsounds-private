@@ -8,6 +8,15 @@
         .mediaItem{
             height: 150px !important;
         }
+        .campaignBtn{
+            float:right !important;
+        }
+        .remove_campaign {
+            border-bottom: 1px solid rgba(120, 120, 120, 0.1);
+        }
+        .item-list .item-info:after {
+            border-bottom: none !important;
+        }
     </style>
 @endsection
 
@@ -23,7 +32,7 @@
                     <div class="row item-list item-list-by m-b">
                         @if(count($campaigns) > 0)
                             @foreach($campaigns as $campaign)
-                                <div class="col-xs-12" id="remove_track-{{$campaign->artistTrack->id}}">
+                                <div class="col-xs-12 remove_campaign" id="remove_campaign-{{$campaign->artistTrack->id}}">
                                     <div class="item r" data-id="item-{{$campaign->artistTrack->id}}" data-src="{{URL('/')}}/uploads/audio/{{$campaign->artistTrack->audio}}">
                                         <div class="item-media mediaItem">
                                             @if(!empty($campaign->artistTrack->track_thumbnail))
@@ -39,7 +48,11 @@
                                         </div>
                                         <div class="item-info">
                                             <div class="item bottom text-right">
-                                                <span class="text-primary">{{getExpiryDayCampaign($campaign->created_at)}}</span>
+                                                @if(getExpiryDayCampaign($campaign->created_at) == 'false')
+                                                    <span class="text-danger">Closed</span>
+                                                @else
+                                                    <span class="text-primary">{{getExpiryDayCampaign($campaign->created_at)}}</span>
+                                                @endif
                                             </div>
                                             <div class="item-title text-ellipsis">
                                                 <a href="javascript:void(0)">{{$campaign->artistTrack->name}}</a>
@@ -70,6 +83,14 @@
                                                 </div>
                                             @endif
 
+                                            @if(getExpiryDayCampaign($campaign->created_at) == 'false')
+                                                <div class="item-action visible-list m-t-sm campaignBtn">
+                                                    <a href="javascript:void(0)" onclick="promoteTrackRedirect({{$campaign->artistTrack->id}})" class="btn btn-xs white">Resubmit Your Track</a>
+                                                    <a href="javascript:void(0)" onclick="deleteCampaign({{$campaign->id}})" class="btn btn-xs white" data-toggle="modal"
+                                                       data-target="#delete-campaign-modal">Delete</a>
+                                                </div>
+                                            @endif
+
                                         </div>
                                     </div>
                                 </div>
@@ -88,10 +109,50 @@
     </div>
 
     <!-- ############ PAGE END-->
-
+    @include('pages.artists.artist-active-campaign.modal')
 
 @endsection
 
 @section('page-script')
+    <script>
+        // Delete Campaign Model
+        function deleteCampaign(campaign_id){
+            $('.deleteCampaign').attr('data-campaign-id',campaign_id);
+        }
+        $('#delete_campaign').click(function (event) {
+            event.preventDefault();
+            var campaign_id = $('.deleteCampaign').attr('data-campaign-id');
+            var url= "{{url('/delete-campaign')}}/"+campaign_id;
+            $.ajax({
+                type: "DELETE",
+                url: url,
+                data:{
+                    "_token": "{{ csrf_token() }}",
+                    "campaign_id": campaign_id,
+                },
+                success: function (data) {
+                    if(data.success){
+                        $('#remove_campaign-'+campaign_id).remove();
+                        $('#snackbar').html(data.success);
+                        $('#snackbar').addClass("show");
+                        setTimeout(function () {
+                            $('#snackbar').removeClass("show");
 
+                        }, 5000);
+                    }
+                }
+            });
+        });
+    </script>
+    {{--    Promote to track redirect and checked track--}}
+    <script>
+        function promoteTrackRedirect(track_id)
+        {
+            window.open(
+                window.location.origin + '/promote-your-track/?track_id='+track_id,
+                '_self' // <- This is what makes it open in a new window.
+            );
+        }
+    </script>
+    {{--    Promote to track redirect and checked track--}}
 @endsection

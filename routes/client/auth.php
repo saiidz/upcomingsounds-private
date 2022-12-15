@@ -49,14 +49,14 @@ Route::post('/artist-billing-info',[ArtistWalletController::class,'artistBilling
 // Stripe Route
 Route::post('/stripe-payment', [ArtistWalletController::class, 'handlePost']);
 
-// Paypal Route
+// PayPal Route
 Route::post('process-transaction', [PayPalController::class, 'processTransaction']);
 Route::get('success-transaction', [PayPalController::class, 'successTransaction']);
 Route::get('cancel-transaction', [PayPalController::class, 'cancelTransaction']);
 
 // active campaign routes
 Route::get('campaigns', [CampaignController::class,'activeCampaign'])->name('active.campaign');
-
+Route::delete('delete-campaign/{campaign}',[CampaignController::class,'destroy'])->name('delete.campaign');
 
 // get cites
 Route::get('get-cites-artist/{id}', [AjaxController::class,'getCities']);

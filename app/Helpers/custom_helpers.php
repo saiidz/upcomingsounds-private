@@ -119,13 +119,17 @@ function getDateFormat($date,$days=""): string
     return Carbon::parse($date)->addDays($days)->format('d M Y');
 }
 
-function getExpiryDayCampaign($date)
+/**
+ * @param $date
+ * @return string
+ */
+function getExpiryDayCampaign($date): string
 {
     $carbon =   Carbon::today();
     $carbon_target    = Carbon::parse($date)->addDays(45);
 
     if(Carbon::today() > $carbon_target)
-        return 'Expired';
+        return 'false';
     else
         $diff_in_days = $carbon->diffInDays($carbon_target);
         return $diff_in_days.' Days Left';

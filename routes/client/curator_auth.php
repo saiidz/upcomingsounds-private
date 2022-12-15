@@ -33,6 +33,10 @@ Route::get('/artist-submission', [ArtistSubmissionController::class,'artistSubmi
 Route::get('/saved', [ArtistSubmissionController::class,'artistSaved'])->name('artist.saved');
 Route::get('/accepted', [ArtistSubmissionController::class,'artistAccepted'])->name('accepted.artist');
 Route::get('/rejected', [ArtistSubmissionController::class,'artistRejected'])->name('rejected.artist');
+
+// favorite tracks
+Route::get('favorite-track', [ArtistSubmissionController::class,'favoriteTrack'])->name('curator.favorite.track');
+
 // get cites
 Route::get('get-cites/{id}', [AjaxController::class,'getCities']);
 
