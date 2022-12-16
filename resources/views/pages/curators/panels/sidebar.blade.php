@@ -74,7 +74,7 @@
                                     <i class="fa fa-headphones"></i>
                                 </span>
                                 {{-- <span class="nav-text">Get Verified</span> --}}
-                                <span class="nav-text" data-toggle="tooltip" title="Get Verified">Submissions</span>
+                                <span class="nav-text" data-toggle="tooltip" title="You will need to submit for curator verifications in order to view this page">Submissions</span>
                             </a>
                         </li>
 {{--                    <li>--}}
