@@ -171,7 +171,7 @@
                             @endforeach
                         @else
                             <div class="item-title text-ellipsis">
-                                <h3 class="white" style="text-align:center">Not Campaign Found</h3>
+                                <h3 class="white" style="text-align:center;font-size: 15px;">Not Campaign Found</h3>
                             </div>
                         @endif
 {{--                        <div class="item r" data-id="item-115" data-src="http://api.soundcloud.com/tracks/239793212/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">--}}
@@ -276,7 +276,7 @@
                     @endforeach
                 @else
                     <div class="item-title text-ellipsis">
-                        <h3 class="white" style="text-align:center">Not Pro Campaign Found</h3>
+                        <h3 class="white" style="text-align:center;font-size: 15px;">Not Pro Campaign Found</h3>
                     </div>
                 @endif
 {{--                <div class="col-sm-3 col-xs-6">--}}
@@ -435,7 +435,7 @@
                             @endforeach
                         @else
                             <div class="item-title text-ellipsis">
-                                <h3 class="white" style="text-align:center">Not Trending Found</h3>
+                                <h3 class="white" style="text-align:center;font-size: 15px;">Not Trending Found</h3>
                             </div>
                         @endif
 
@@ -521,7 +521,7 @@
                             @endforeach
                         @else
                             <div class="item-title text-ellipsis">
-                                <h3 class="white" style="text-align:center">Not New Found</h3>
+                                <h3 class="white" style="text-align:center;font-size: 15px;">Not New Found</h3>
                             </div>
                         @endif
 {{--                        <div class="col-xs-4 col-sm-4 col-md-3">--}}
