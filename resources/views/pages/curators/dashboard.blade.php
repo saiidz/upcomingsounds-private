@@ -139,69 +139,104 @@
 		                    ,nav: true
 		                    ,animateOut:&#x27;fadeOut&#x27;
 		                  }">
-                        <div class="item r" data-id="item-115" data-src="http://api.soundcloud.com/tracks/239793212/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
-                            <div class="item-media primary">
-                                <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/c1.jpg');"></a>
-                                <div class="item-overlay center">
-                                    <button class="btn-playpause">Play</button>
+                        @if(count($pro_premium_campaigns) > 0)
+                            @foreach($pro_premium_campaigns as $pro_premium_campaign)
+                                <div class="item r" data-id="item-{{$pro_premium_campaign->artistTrack->id}}" data-src="{{URL('/')}}/uploads/audio/{{$pro_premium_campaign->artistTrack->audio}}">
+                                    <div class="item-media primary">
+                                        @if(!empty($pro_premium_campaign->artistTrack->track_thumbnail))
+                                            <a href="javascript:void(0)" class="item-media-content" onclick="openNav({{$pro_premium_campaign->id}})"
+                                               style="background-image: url({{asset('uploads/track_thumbnail')}}/{{$pro_premium_campaign->artistTrack->track_thumbnail}});"></a>
+                                        @else
+                                            <a href="javascript:void(0)" onclick="openNav({{$pro_premium_campaign->id}})" class="item-media-content"
+                                               style="background-image: url({{asset('images/b4.jpg')}});"></a>
+                                        @endif
+                                        <div class="item-overlay center">
+                                            <button class="btn-playpause">Play</button>
+                                        </div>
+                                    </div>
+                                    <div class="item-info">
+                                        <div class="item-overlay bottom text-right">
+                                            <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
+                                            <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
+                                            <div class="dropdown-menu pull-right black lt"></div>
+                                        </div>
+                                        <div class="item-title text-ellipsis">
+                                            <a href="javascript:void(0)" onclick="openNav({{$pro_premium_campaign->id}})">{{$pro_premium_campaign->artistTrack->name}}</a>
+                                        </div>
+{{--                                        <div class="item-author text-sm text-ellipsis">--}}
+{{--                                            <a href="javascript:void(0)" class="text-muted">Nouvelle</a>--}}
+{{--                                        </div>--}}
+                                    </div>
                                 </div>
+                            @endforeach
+                        @else
+                            <div class="item-title text-ellipsis">
+                                <h3 class="white" style="text-align:center">Not Campaign Found</h3>
                             </div>
-                            <div class="item-info">
-                                <div class="item-overlay bottom text-right">
-                                    <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
-                                    <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
-                                    <div class="dropdown-menu pull-right black lt"></div>
-                                </div>
-                                <div class="item-title text-ellipsis">
-                                    <a href="javascript:void(0)">New Album from Nouvelle</a>
-                                </div>
-                                <div class="item-author text-sm text-ellipsis">
-                                    <a href="javascript:void(0)" class="text-muted">Nouvelle</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item r" data-id="item-116" data-src="http://api.soundcloud.com/tracks/260682299/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
-                            <div class="item-media info">
-                                <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/c2.jpg');"></a>
-                                <div class="item-overlay center">
-                                    <button class="btn-playpause">Play</button>
-                                </div>
-                            </div>
-                            <div class="item-info">
-                                <div class="item-overlay bottom text-right">
-                                    <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
-                                    <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
-                                    <div class="dropdown-menu pull-right black lt"></div>
-                                </div>
-                                <div class="item-title text-ellipsis">
-                                    <a href="javascript:void(0)">Blind Me</a>
-                                </div>
-                                <div class="item-author text-sm text-ellipsis">
-                                    <a href="javascript:void(0)" class="text-muted">Fifty</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item r" data-id="item-117" data-src="http://api.soundcloud.com/tracks/232886537/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
-                            <div class="item-media accent">
-                                <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/c3.jpg');"></a>
-                                <div class="item-overlay center">
-                                    <button class="btn-playpause">Play</button>
-                                </div>
-                            </div>
-                            <div class="item-info">
-                                <div class="item-overlay bottom text-right">
-                                    <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
-                                    <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
-                                    <div class="dropdown-menu pull-right black lt"></div>
-                                </div>
-                                <div class="item-title text-ellipsis">
-                                    <a href="javascript:void(0)">New Track from Pablo Nouvelle</a>
-                                </div>
-                                <div class="item-author text-sm text-ellipsis">
-                                    <a href="javascript:void(0)" class="text-muted">Pablo Nouvelle</a>
-                                </div>
-                            </div>
-                        </div>
+                        @endif
+{{--                        <div class="item r" data-id="item-115" data-src="http://api.soundcloud.com/tracks/239793212/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">--}}
+{{--                            <div class="item-media primary">--}}
+{{--                                <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/c1.jpg');"></a>--}}
+{{--                                <div class="item-overlay center">--}}
+{{--                                    <button class="btn-playpause">Play</button>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="item-info">--}}
+{{--                                <div class="item-overlay bottom text-right">--}}
+{{--                                    <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>--}}
+{{--                                    <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
+{{--                                    <div class="dropdown-menu pull-right black lt"></div>--}}
+{{--                                </div>--}}
+{{--                                <div class="item-title text-ellipsis">--}}
+{{--                                    <a href="javascript:void(0)">New Album from Nouvelle</a>--}}
+{{--                                </div>--}}
+{{--                                <div class="item-author text-sm text-ellipsis">--}}
+{{--                                    <a href="javascript:void(0)" class="text-muted">Nouvelle</a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="item r" data-id="item-116" data-src="http://api.soundcloud.com/tracks/260682299/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">--}}
+{{--                            <div class="item-media info">--}}
+{{--                                <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/c2.jpg');"></a>--}}
+{{--                                <div class="item-overlay center">--}}
+{{--                                    <button class="btn-playpause">Play</button>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="item-info">--}}
+{{--                                <div class="item-overlay bottom text-right">--}}
+{{--                                    <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>--}}
+{{--                                    <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
+{{--                                    <div class="dropdown-menu pull-right black lt"></div>--}}
+{{--                                </div>--}}
+{{--                                <div class="item-title text-ellipsis">--}}
+{{--                                    <a href="javascript:void(0)">Blind Me</a>--}}
+{{--                                </div>--}}
+{{--                                <div class="item-author text-sm text-ellipsis">--}}
+{{--                                    <a href="javascript:void(0)" class="text-muted">Fifty</a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="item r" data-id="item-117" data-src="http://api.soundcloud.com/tracks/232886537/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">--}}
+{{--                            <div class="item-media accent">--}}
+{{--                                <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/c3.jpg');"></a>--}}
+{{--                                <div class="item-overlay center">--}}
+{{--                                    <button class="btn-playpause">Play</button>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="item-info">--}}
+{{--                                <div class="item-overlay bottom text-right">--}}
+{{--                                    <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>--}}
+{{--                                    <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
+{{--                                    <div class="dropdown-menu pull-right black lt"></div>--}}
+{{--                                </div>--}}
+{{--                                <div class="item-title text-ellipsis">--}}
+{{--                                    <a href="javascript:void(0)">New Track from Pablo Nouvelle</a>--}}
+{{--                                </div>--}}
+{{--                                <div class="item-author text-sm text-ellipsis">--}}
+{{--                                    <a href="javascript:void(0)" class="text-muted">Pablo Nouvelle</a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
 
