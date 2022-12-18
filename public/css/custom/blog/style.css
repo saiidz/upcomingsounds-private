@@ -104,7 +104,7 @@ p{margin-bottom:1.2em;font-weight:400}
 a,
 .button{-webkit-transition:all .2s ease-out 0s;-moz-transition:all .2s ease-out 0s;-ms-transition:all .2s ease-out 0s;-o-transition:all .2s ease-out 0s;transition:all .2s ease-out 0s}
 *:focus{text-decoration:none;outline:none}
-a{color:var(--color-muted);}
+/*a{color:var(--color-muted);}*/
 a:hover{color:var(--color-primary);}
 a:focus,
 a:hover,
