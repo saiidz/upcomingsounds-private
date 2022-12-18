@@ -13,7 +13,7 @@
 @endsection
 
 {{-- page title --}}
-@section('title','Blog Detail')
+@section('title','Blog | '. $post->title)
 
 @section("content")
 
@@ -44,7 +44,7 @@
                                     @if (!empty($post))
                                         <a class="author-avatar" href="javascript:void(0)">
                                             @if (!empty($post->post->author->profile))
-                                                <img class="img-circle" src="{{ asset($post->post->author->profile) }}" alt="">
+                                                <img class="img-circle" src="{{ asset('uploads/user_profile') }}/{{$post->post->author->profile}}" alt="">
                                             @else
                                                 <img class="img-circle" src="{{ asset('images/author.jpg') }}" alt="">
                                             @endif
