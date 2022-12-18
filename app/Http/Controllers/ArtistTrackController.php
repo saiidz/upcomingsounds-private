@@ -91,7 +91,8 @@ class ArtistTrackController extends Controller
         // upload audio song
         if ($request->file('audio')) {
             $file = $request->file('audio');
-            $name = $file->getClientOriginalName();
+            $name = str_replace(' ', '', $file->getClientOriginalName());
+//            $name = str_replace(' ', '', $file->getClientOriginalName());
             $audio_path = 'default_'.time().$name;
             $file->move(public_path() . '/uploads/audio/', $audio_path);
             //store audio file into directory and db
@@ -107,7 +108,8 @@ class ArtistTrackController extends Controller
 //        if ($request->hasfile('track_thumbnail')) {
         if ($request->file('track_thumbnail')) {
             $file = $request->file('track_thumbnail');
-            $name = $file->getClientOriginalName();
+            $name = str_replace(' ', '', $file->getClientOriginalName());
+//            $name = str_replace(' ', '', $file->getClientOriginalName());
             $image_path = 'default_'.time().$name;
             $file->move(public_path() . '/uploads/track_thumbnail/', $image_path);
             //store image file into directory and db
@@ -127,7 +129,7 @@ class ArtistTrackController extends Controller
             foreach ($request->file('track_images') as $file){
                 $type = explode('/',$file->getClientMimeType());
 
-                $name = $file->getClientOriginalName();
+                $name = str_replace(' ', '', $file->getClientOriginalName());
                 $image_path = 'default_'.time().$name;
                 $file->move(public_path() . '/uploads/track_images/', $image_path);
                 //store image file into directory and db
@@ -300,7 +302,7 @@ class ArtistTrackController extends Controller
             }
 
             $file = $request->file('audio');
-            $name = $file->getClientOriginalName();
+            $name = str_replace(' ', '', $file->getClientOriginalName());
             $audio_path = 'default_'.time().$name;
             $file->move(public_path() . '/uploads/audio/', $audio_path);
             //store audio file into directory and db
@@ -321,7 +323,7 @@ class ArtistTrackController extends Controller
             }
 
             $file = $request->file('track_thumbnail');
-            $name = $file->getClientOriginalName();
+            $name = str_replace(' ', '', $file->getClientOriginalName());
             $image_path = 'default_'.time().$name;
             $file->move(public_path() . '/uploads/track_thumbnail/', $image_path);
             //store image file into directory and db
@@ -336,7 +338,7 @@ class ArtistTrackController extends Controller
             foreach ($request->file('track_images') as $file){
                 $type = explode('/',$file->getClientMimeType());
 
-                $name = $file->getClientOriginalName();
+                $name = str_replace(' ', '', $file->getClientOriginalName());
                 $image_path = 'default_'.time().$name;
                 $file->move(public_path() . '/uploads/track_images/', $image_path);
                 //store image file into directory and db
