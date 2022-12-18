@@ -13,7 +13,7 @@
 @endsection
 
 {{-- page title --}}
-@section('title','Blog | '. $post->title)
+@section('title', $post->title)
 
 @section("content")
 
