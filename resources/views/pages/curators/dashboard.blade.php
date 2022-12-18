@@ -115,8 +115,11 @@
 
                             </div>
                             <!--    slide--3 bot end -->
-                            <div class="con__slide-content con__slide--1-content active-slide-left-content">
-                                <img class='con__slide--right-content-image con__slide--1-content-image' src="{{asset('uploads/track_thumbnail')}}/{{$premium_campaign->artistTrack->track_thumbnail}}" alt="" />
+                            <div class="con__slide-content con__slide--border-content active-slide-left-content">
+                                <img class='con__slide--right-content-image-border con__slide--1-content-image' src="{{asset('images/border.png')}}" alt="" />
+                                <div class="con__slide-content con__slide--1-content active-slide-left-content">
+                                    <img class='con__slide--right-content-image con__slide--1-content-image' src="{{asset('uploads/track_thumbnail')}}/{{$premium_campaign->artistTrack->track_thumbnail}}" alt="" />
+                                </div>
                             </div>
                             <!--     slide--3 content end -->
                         </div>
@@ -137,7 +140,7 @@
                                 @php
                                     $key++
                                 @endphp
-                                <li data-target="{{$key}}" class='con__nav-item con__nav-item--{{$key}} {{($key == 0) ? 'nav-active' : ''}}'></li>
+                                <li data-target="{{$key}}" class='con__nav-item con__nav-item--{{$key}} {{($key == 1) ? 'nav-active' : ''}}'></li>
                             @endforeach
                         @else
                         @endif
