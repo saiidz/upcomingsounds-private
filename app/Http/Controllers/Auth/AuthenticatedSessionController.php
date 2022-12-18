@@ -7,7 +7,10 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Models\Config;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
 
 class AuthenticatedSessionController extends Controller
@@ -26,7 +29,7 @@ class AuthenticatedSessionController extends Controller
      * Handle an incoming authentication request.
      *
      * @param  \App\Http\Requests\Auth\LoginRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function store(LoginRequest $request)
     {
@@ -70,7 +73,7 @@ class AuthenticatedSessionController extends Controller
      * Destroy an authenticated session.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function destroy(Request $request)
     {
@@ -87,7 +90,7 @@ class AuthenticatedSessionController extends Controller
      * Destroy an destroyCurator authenticated session.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function destroyCurator(Request $request)
     {
@@ -131,7 +134,7 @@ class AuthenticatedSessionController extends Controller
      * Handle an incoming authentication storeCurator request.
      *
      * @param  \App\Http\Requests\Auth\LoginRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function storeCurator(LoginRequest $request)
     {
@@ -172,10 +175,8 @@ class AuthenticatedSessionController extends Controller
     }
 
     /**
-     * Handle an incoming authentication request.
-     *
-     * @param  \App\Http\Requests\Auth\LoginRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param LoginRequest $request
+     * @return Application|RedirectResponse|Redirector
      */
     public function blogStore(LoginRequest $request)
     {
