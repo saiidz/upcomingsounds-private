@@ -513,5 +513,18 @@
       #camArtTraLink iframe {
           width: 360px !important;
       }
+      .con__slide-bot {
+          top: -135px;
+          left: -1102px;
+      }
+      .con__slide-h {
+          font-size: 30px;
+      }
+      .con__slide--border-content {
+          right: 20%;
+      }
+      .con__slide--1-content {
+          right: 12%;
+      }
   }
   /*collapse*/
