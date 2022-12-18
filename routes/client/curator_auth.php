@@ -21,7 +21,7 @@ Route::post('/store-curator-tag', [CuratorController::class, 'storeCuratorTag'])
 Route::delete('delete-feature-tag',[CuratorController::class,'deleteCuratorTag']);
 
 // Wallet Shop Route
-Route::get('/taste-maker-wallet',[CuratorWalletController::class,'wallet']);
+Route::get('/taste-maker-wallet',[CuratorWalletController::class,'wallet'])->name('curator.wallet');
 
 // Wallet Transfer Route
 Route::post('curator-transfer',[CuratorWalletController::class,'curatorTransfer'])->name('curator.transfer');

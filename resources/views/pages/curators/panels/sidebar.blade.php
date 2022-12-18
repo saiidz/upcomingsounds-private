@@ -236,7 +236,7 @@
                         </li>
 
                         <li>
-                            <a href="javascript:void(0)">
+                            <a href="{{route('curator.wallet')}}">
                                 <span class="nav-icon">
                                     <i class="fa fa-plus-square"></i>
                                 </span>
