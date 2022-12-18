@@ -19,7 +19,7 @@ class CampaignController extends Controller
      */
     public function activeCampaign()
     {
-        $campaigns = Campaign::where('user_id',Auth::id())->get();
+        $campaigns = Campaign::where('user_id',Auth::id())->latest()->get();
         return view('pages.artists.artist-active-campaign.active-campaign',get_defined_vars());
     }
 

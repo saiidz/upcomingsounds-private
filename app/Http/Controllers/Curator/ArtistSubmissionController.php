@@ -34,6 +34,7 @@ class ArtistSubmissionController extends Controller
      */
     public function artistSubmission()
     {
+        $campaigns = Campaign::latest()->get();
         return view('pages.curators.artist-submission.artist-submission', get_defined_vars());
     }
 
