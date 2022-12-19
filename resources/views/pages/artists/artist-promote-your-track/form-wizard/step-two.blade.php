@@ -6,6 +6,19 @@
         <span class="text-muted">Your answer is private and will not be shared with influencers.</span>
     </div>
     <div class="input__container">
+        <div class="selection selection_media exitB" id="getVisibility1" onclick="stepTwoMediaTrack()">
+            <div class="imoji">
+                <img src="{{asset('images/objective_visibility.png')}}">
+                {{--                                                    <ion-icon name="business"></ion-icon>--}}
+            </div>
+            <div class="descriptionTitle">
+                <h3>Get media coverage and social media exposure</h3>
+                <p>Specifically, I am looking for YouTube uploads, playlist placements, radio broadcasts, social media posts, or reviews from media outlets.</p>
+            </div>
+            <div class="item-title bottom text-right form2CheckedBox">
+                <input type="checkbox" class="stepTwoVisibility"  name="establish_receive_media" id="get_visibility" value="2" />
+            </div>
+        </div>
         <div class="selection selection_establish exitB" id="buildProfessional1" onclick="stepTwoEstablishTrack()">
             <div class="imoji">
                 <img src="{{asset('images/objective_partnerships.png')}}">
@@ -32,19 +45,7 @@
                 <input type="checkbox" class="stepTwoReceived" name="establish_receive_media" id="received_details" value="1" />
             </div>
         </div>
-        <div class="selection selection_media exitB" id="getVisibility1" onclick="stepTwoMediaTrack()">
-            <div class="imoji">
-                <img src="{{asset('images/objective_visibility.png')}}">
-{{--                                                    <ion-icon name="business"></ion-icon>--}}
-            </div>
-            <div class="descriptionTitle">
-                <h3>Get media coverage and social media exposure</h3>
-                <p>Specifically, I am looking for YouTube uploads, playlist placements, radio broadcasts, social media posts, or reviews from media outlets.</p>
-            </div>
-            <div class="item-title bottom text-right form2CheckedBox">
-                <input type="checkbox" class="stepTwoVisibility"  name="establish_receive_media" id="get_visibility" value="2" />
-            </div>
-        </div>
+
         <div class="sub__title__container">
             <h2>Please activate your campaign</h2>
 {{--            <h2>Do you have a budget in mind?</h2>--}}
