@@ -72,7 +72,8 @@ class PromoteYourTrackController extends Controller
      */
     public function storeTrackCampaign(Request $request)
     {
-        $artist_credits = !empty(Auth::user()->TransactionUserInfo) ? number_format(Auth::user()->TransactionUserInfo->transactionHistory->sum('credits')) - (!empty(Auth::user()->campaign) ? number_format(Auth::user()->campaign->sum('usc_credit')) : 0) : 0;
+        $artist_credits = !empty(Auth::user()->TransactionUserInfo) ? Auth::user()->TransactionUserInfo->transactionHistory->sum('credits') - (!empty(Auth::user()->campaign) ? Auth::user()->campaign->sum('usc_credit') : 0) : 0;
+//        $artist_credits = !empty(Auth::user()->TransactionUserInfo) ? number_format(Auth::user()->TransactionUserInfo->transactionHistory->sum('credits')) - (!empty(Auth::user()->campaign) ? number_format(Auth::user()->campaign->sum('usc_credit')) : 0) : 0;
         $usc_credits = $request->usc_credit;
         if ($usc_credits > $artist_credits)
         {
