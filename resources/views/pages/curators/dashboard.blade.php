@@ -19,7 +19,7 @@
     </div>
     <div class="page-content">
         <div class="padding p-b-0">
-            <div class="con m-b" style="background: url({{asset(!empty($theme->curator_banner_img) ? $theme->curator_banner_img : 'images/banner_cd.png')}}) center center no-repeat">
+            <div class="con m-b" style="background: url({{asset(!empty($theme->curator_banner_img) ? $theme->curator_banner_img : 'images/banner_cd.png')}}) center center no-repeat;background-size: 100%;">
 {{--                <div class="con__slide  con__slide--1">--}}
 {{--                  <div class="con__slide-top con__slide--1-top active-slide-left-top">--}}
 {{--                    <div class='con__slide-top-inner con__slide--1-top-inner'>--}}

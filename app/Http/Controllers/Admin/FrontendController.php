@@ -409,7 +409,7 @@ class FrontendController extends Controller
 
         if(!empty($theme))
         {
-            $theme_banner = json_decode($theme->value)->banner;
+            $theme_banner = json_decode($theme->value)->curator_banner_img;
         }
 
         $data = [

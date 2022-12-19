@@ -75,7 +75,7 @@
   }
   .con__slide--1-content {
     position: absolute;
-    right: 125px;
+    right: 140px;
     /*right: 300px;*/
     top: 50%;
     transform: translateY(-55%);
@@ -83,7 +83,8 @@
     transition: transform 1000ms, opacity 1000ms;
   }
   .con__slide--right-content-image{
-      width: 300px;
+      width: 273px;
+      /*width: 300px;*/
   }
   .con__slide--border-content {
     position: absolute;
