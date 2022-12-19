@@ -78,7 +78,8 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
     Route::post('theme/settings-contact-store', [FrontendController::class,'contactSectionUpdate'])->name('contact.section.store');
     Route::get('frontend/settings/for-artists-section', [FrontendController::class,'forArtistsSection'])->name('for.artists.settings');
     Route::post('theme/settings-for-artists-store', [FrontendController::class,'forArtistsSectionUpdate'])->name('for.artists.section.store');
-
+    Route::get('frontend/settings/curators', [FrontendController::class,'curatorsSection'])->name('curators.settings');
+    Route::post('theme/settings-curators', [FrontendController::class,'curatorsSettingUpdate'])->name('curators.store');
 
 
 //

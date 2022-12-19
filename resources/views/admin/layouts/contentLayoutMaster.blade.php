@@ -6,6 +6,7 @@ Author: PIXINVENT
 Author URL: https://themeforest.net/user/pixinvent/portfolio
 ================================================================================ -->
 <html class="loading" lang="en" data-textdirection="ltr">
+<div id="loadings"></div>
 <!-- BEGIN: Head-->
 {{-- Include core + vendor Styles --}}
 @include('admin.panels.styles')

@@ -147,6 +147,12 @@
                             <span data-i18n="List">Contact Page</span>
                         </a>
                     </li>
+                    <li class="{{Request::is('admin/frontend/settings/curators') ? 'active' : ''}}">
+                        <a class="{{Request::is('admin/frontend/settings/curators') ? 'active' : ''}}" href="{{ route('admin.curators.settings') }}">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            <span data-i18n="List">Curators Settings</span>
+                        </a>
+                    </li>
                     {{-- <li class="{{Request::is('admin/frontend/settings/for-artists-section') ? 'active' : ''}}">
                         <a class="{{Request::is('admin/frontend/settings/for-artists-section') ? 'active' : ''}}"
                             href="{{ route('admin.for.artists.settings') }}">

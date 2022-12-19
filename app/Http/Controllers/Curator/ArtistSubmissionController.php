@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Curator;
 
 use App\Models\Campaign;
+use App\Models\Option;
 use App\Templates\IPackages;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -26,6 +27,11 @@ class ArtistSubmissionController extends Controller
         $pro_campaigns = Campaign::where('package_name', IPackages::PRO_NAME)->take(4)->latest()->get();
         $premium_campaigns = Campaign::where('package_name', IPackages::PREMIUM_NAME)->latest()->get();
         $pro_premium_campaigns = Campaign::where('package_name', IPackages::PRO_NAME)->orWhere('package_name', IPackages::PREMIUM_NAME)->latest()->get();
+        $theme = Option::where('key', 'curators_settings')->first();
+        if(!empty($theme))
+        {
+            $theme = json_decode($theme->value);
+        }
         return view('pages.curators.dashboard', get_defined_vars());
     }
 

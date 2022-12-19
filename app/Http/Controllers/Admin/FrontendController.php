@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Option;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -367,5 +371,67 @@ class FrontendController extends Controller
     {
         $theme = Option::where('key', 'for_artists_settings')->first();
         return view('admin.pages.frontend.for_artists', get_defined_vars());
+    }
+
+    /**
+     * @return Application|Factory|View
+     */
+    public function curatorsSection()
+    {
+        $theme = Option::where('key', 'curators_settings')->first();
+        return view('admin.pages.frontend.curator-dashboard', get_defined_vars());
+    }
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function curatorsSettingUpdate(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'curator_banner_img' => 'required|mimes:png,jpg',
+        ]);
+
+        if ($validator->fails())
+        {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
+
+        if ($request->hasFile('curator_banner_img')) {
+            $banner = $request->file('curator_banner_img');
+            $banner_name = 'curator_banner_img.png';
+            $banner_path = 'uploads/curatorssetting/';
+            $banner_new_path = $banner_path.$banner_name;
+            $banner->move($banner_path, $banner_name);
+        }
+
+        $theme = Option::where('key','curators_settings')->first();
+
+        if(!empty($theme))
+        {
+            $theme_banner = json_decode($theme->value)->banner;
+        }
+
+        $data = [
+            'curator_banner_img'  => !empty($banner_new_path) ? $banner_new_path : $theme_banner,
+        ];
+
+
+
+        if(!empty($theme))
+        {
+            Option::where(['id' => $theme->id, 'key' => $theme->key])->update([
+                'key'   => 'curators_settings',
+                'value' => json_encode($data),
+            ]);
+
+        }else{
+            Option::create([
+                'key'   => 'curators_settings',
+                'value' => json_encode($data),
+            ]);
+        }
+
+        return response()->json(['success' => 'Curator Settings Updated!.']);
     }
 }

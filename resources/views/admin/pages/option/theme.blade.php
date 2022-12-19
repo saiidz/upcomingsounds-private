@@ -4,6 +4,14 @@
 
 @section('title', "Theme Settings")
 
+@section('page-style')
+    <style>
+        #loadings {
+            background: rgba(255, 255, 255, .4) url({{asset('images/loader.gif')}}) no-repeat center center !important;
+        }
+    </style>
+@endsection
+
 @section('content')
 
 <!-- BEGIN: Page Main-->
