@@ -8,7 +8,8 @@
     <div class="input__container">
         <div class="selection selection_media exitB" id="getVisibility1" onclick="stepTwoMediaTrack()">
             <div class="imoji">
-                <img src="{{asset('images/objective_visibility.png')}}">
+                <img src="{{asset('images/get.svg')}}">
+{{--                <img src="{{asset('images/objective_visibility.png')}}">--}}
                 {{--                                                    <ion-icon name="business"></ion-icon>--}}
             </div>
             <div class="descriptionTitle">
@@ -21,7 +22,8 @@
         </div>
         <div class="selection selection_establish exitB" id="buildProfessional1" onclick="stepTwoEstablishTrack()">
             <div class="imoji">
-                <img src="{{asset('images/objective_partnerships.png')}}">
+                <img src="{{asset('images/establish .svg')}}">
+{{--                <img src="{{asset('images/objective_partnerships.png')}}">--}}
                 {{--                                                    <ion-icon name="business"></ion-icon>--}}
             </div>
             <div class="descriptionTitle">
@@ -34,7 +36,8 @@
         </div>
         <div class="selection selection_received newB" id="receivedDetails1" onclick="stepTwoReceivedTrack()">
             <div class="imoji">
-                <img src="{{asset('images/objective_coaching.png')}}">
+                <img src="{{asset('images/recieve.svg')}}">
+{{--                <img src="{{asset('images/objective_coaching.png')}}">--}}
 {{--                                                    <ion-icon name="happy"></ion-icon>--}}
             </div>
             <div class="descriptionTitle">
