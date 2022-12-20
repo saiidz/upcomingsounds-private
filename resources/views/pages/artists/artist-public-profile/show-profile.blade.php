@@ -85,7 +85,7 @@
     <div class="form-group row">
         <div class="col-sm-2 form-control-label">Hot News:</div>
         <div class="col-sm-9">
-            <div class="col-sm-3 form-control-label text-muted">
+            <div class="form-control-label text-muted">
                 <p>{{isset($user->artistUser) ? $user->artistUser->hot_news : ''}}</p>
             </div>
         </div>

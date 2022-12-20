@@ -188,8 +188,8 @@
                                         @endif
                                         <a href="{{route('artist.public.profile',$user_artist->name)}}" target="_blank"
                                            class="btn btn-icon btn-social rounded btn-social-colored"
-                                           style="background-color:#fff !important;" title="Public Profile">
-                                            <img src="{{asset('/images/artist_us.png')}}" alt="" style="width: 30px !important;">
+                                           style="background-color:#333 !important;" title="Public Profile">
+                                            <img src="{{asset('/images/artist_us.png')}}" alt="" style="width: 20px !important;">
                                         </a>
                                     </div>
                                 </div>
