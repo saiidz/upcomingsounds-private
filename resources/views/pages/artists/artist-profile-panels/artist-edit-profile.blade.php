@@ -5,10 +5,10 @@
         <h4 class="inline m-a-0 update_profile">Basic Info</h4>
     </div>
     <div class="form-group row">
-        <div class="col-sm-3 form-control-label text-muted">Name</div>
+        <div class="col-sm-3 form-control-label text-muted">UserName</div>
         <div class="col-sm-9">
             <input type="text" name="name"
-                   class="form-control @error('name') is-invalid @enderror"
+                   class="form-control @error('name') is-invalid @enderror" readonly disabled
                    value="{{ isset($user_artist->name) ? $user_artist->name : ''  }}"
                    placeholder="Username" required>
             @error('name')

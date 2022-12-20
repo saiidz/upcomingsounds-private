@@ -5,27 +5,27 @@
     <div class="col-sm-2 form-control-label">Name:</div>
     <div class="col-sm-9">
         <div
-            class="col-sm-3 form-control-label text-muted">{{ isset($user_artist->name) ? $user_artist->name : ''  }}</div>
+            class="col-sm-3 form-control-label text-muted">{{ isset($user->name) ? $user->name : ''  }}</div>
     </div>
 </div>
 <div class="form-group row">
     <div class="col-sm-2 form-control-label">Email:</div>
     <div class="col-sm-9">
         <div
-            class="col-sm-3 form-control-label text-muted">{{ isset($user_artist->email) ? $user_artist->email : ''  }}</div>
+            class="col-sm-3 form-control-label text-muted">{{ isset($user->email) ? $user->email : ''  }}</div>
     </div>
 </div>
-@if(!empty($user_artist->artistUser))
-    @if($user_artist->artistUser->artist_signup_from == 'artist')
+@if(!empty($user->artistUser))
+    @if($user->artistUser->artist_signup_from == 'artist')
         <input type="hidden" name="artist_signup_from"
-               value="{{($user_artist->artistUser) ? $user_artist->artistUser->artist_signup_from : ''}}">
+               value="{{($user->artistUser) ? $user->artistUser->artist_signup_from : ''}}">
         <div class="page-title m-b">
             <h4 class="inline m-a-0 update_profile">Artist Info</h4>
         </div>
 
-    @elseif($user_artist->artistUser->artist_signup_from == 'artist_representative')
+    @elseif($user->artistUser->artist_signup_from == 'artist_representative')
         <input type="hidden" name="artist_signup_from"
-               value="{{($user_artist->artistUser) ? $user_artist->artistUser->artist_signup_from : ''}}">
+               value="{{($user->artistUser) ? $user->artistUser->artist_signup_from : ''}}">
         <div class="page-title m-b">
             <h4 class="inline m-a-0 update_profile">Artist Representative
                 Info</h4>
@@ -38,40 +38,13 @@
             <div class="col-sm-9">
                 <div class="col s12">
                     <p class="mb-1">
-                        @if($user_artist->artistUser->artist_representative_record)
+                        @if($user->artistUser->artist_representative_record)
                             <label>
-                                <span>{{ $user_artist->artistUser->artist_representative_record }}</span>
-                            </label>
-                        @endif
-
-                        {{-- @if($user_artist->artistUser->artist_representative_record == 1)
-                            <label>
-                                <span>Record Label 🎧</span>
-                            </label>
-                        @endif --}}
-
-                        {{-- @if($user_artist->artistUser->artist_representative_manager == 2)
-                            <label class="record_label">
-                                <span>Manager 🚀</span>
-                            </label>
-                        @endif --}}
-
-                    </p>
-                </div>
-                {{-- <div class="col s12">
-                    <p class="mb-1">
-                        @if($user_artist->artistUser->artist_representative_press == 3)
-                            <label class="record_label">
-                                <span>Press Officer 🎤</span>
-                            </label>
-                        @endif
-                        @if($user_artist->artistUser->artist_representative_publisher == 4)
-                            <label class="record_label">
-                                <span>Publisher 🎯</span>
+                                <span>{{ $user->artistUser->artist_representative_record }}</span>
                             </label>
                         @endif
                     </p>
-                </div> --}}
+                </div>
             </div>
         </div>
 
@@ -83,14 +56,14 @@
         </div>
         <div class="col-sm-9">
             <div
-                class="col-sm-3 form-control-label text-muted">{{isset($user_artist->artistUser) ? $user_artist->artistUser->artist_name : ''}}</div>
+                class="col-sm-3 form-control-label text-muted">{{isset($user->artistUser) ? $user->artistUser->artist_name : ''}}</div>
         </div>
     </div>
     <div class="form-group row">
         <div class="col-sm-2 form-control-label">Country:</div>
         <div class="col-sm-9">
             <div
-                class="col-sm-3 form-control-label text-muted">{{isset($user_artist->artistUser) ? $user_artist->artistUser->country->name : ''}}</div>
+                class="col-sm-3 form-control-label text-muted">{{isset($user->artistUser) ? $user->artistUser->country->name : ''}}</div>
         </div>
     </div>
 
@@ -101,7 +74,7 @@
         <div class="col-sm-2 form-control-label">Bio:</div>
         <div class="col-sm-9">
             <div class="form-control-label text-muted">
-                <p>{{isset($user_artist->artistUser) ? $user_artist->artistUser->artist_bio : ''}}</p>
+                <p>{{isset($user->artistUser) ? $user->artistUser->artist_bio : ''}}</p>
             </div>
         </div>
     </div>
@@ -113,7 +86,7 @@
         <div class="col-sm-2 form-control-label">Hot News:</div>
         <div class="col-sm-9">
             <div class="col-sm-3 form-control-label text-muted">
-                <p>{{isset($user_artist->artistUser) ? $user_artist->artistUser->hot_news : ''}}</p>
+                <p>{{isset($user->artistUser) ? $user->artistUser->hot_news : ''}}</p>
             </div>
         </div>
     </div>
@@ -123,9 +96,9 @@
     </div>
     <div class="form-group row">
         <div class="artist-features">
-            @if(count($user_artist->userTags) > 0)
+            @if(count($user->userTags) > 0)
                 @php
-                    $userTags = $user_artist->userTags->chunk(6);
+                    $userTags = $user->userTags->chunk(6);
                 @endphp
                 @foreach($userTags as $tags)
                     <ul>

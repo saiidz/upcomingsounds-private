@@ -9,10 +9,15 @@ use App\Models\UserTag;
 use App\Models\Language;
 use App\Models\FeatureTag;
 use App\Models\ArtistTrack;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\TrackCategory;
 use App\Models\CuratorFeature;
 use App\Models\CuratorFeatureTag;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
@@ -58,7 +63,7 @@ class ArtistController extends Controller
     public function updateArtistProfile(Request $request)
     {
             $validator = Validator::make($request->all(), [
-                'name'         => 'required|string|min:2|max:50',
+                'name'         => 'alpha_dash',
                 'artist_name'  => 'required|string|min:2|max:50',
                 'country_name' => 'required',
             ]);
@@ -72,7 +77,7 @@ class ArtistController extends Controller
             $auth_id = Auth::user()->id;
             $user = User::find($auth_id);
             $input = $request->all();
-            $input['name'] = ($request->get('name')) ? $request->get('name') : null;
+//            $input['name'] = ($request->get('name')) ? $request->get('name') : null;
 
             // Artist Info Update
             $user->artistUser()->update([
@@ -198,8 +203,26 @@ class ArtistController extends Controller
             }
         }
     }
+
+    /**
+     * @return Application|Factory|View
+     */
     // forArtists
     public function forArtists(){
         return view('pages.artists.artist-details');
+    }
+
+    /**
+     * @param User $user
+     * @return Application|Factory|View|RedirectResponse|Redirector
+     */
+    public function artistPublicProfile(User $user)
+    {
+        try {
+            return view('pages.artists.artist-public-profile.public-profile', get_defined_vars());
+        }catch (\Exception $exception)
+        {
+            return redirect('/artist-profile');
+        }
     }
 }

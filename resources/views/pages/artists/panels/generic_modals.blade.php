@@ -289,7 +289,7 @@
                     </a>
                 </div>
                 <div>
-                    <input class="form-control" value="http://plamusic.com/slug"/>
+                    <input class="form-control" value="" id="publicArtistLink" />
                 </div>
             </div>
         </div>

@@ -77,7 +77,7 @@
                                         @endif
                                     </span>
                                 </h1>
-                                <p class="item-desc text-ellipsis text-muted" data-ui-toggle-class="text-ellipsis">
+                                <p class="item-desc text-ellipsis text-muted" data-ui-toggle-class="text-ellipsis"  style="font-size: 14px;">
                                     @if(!empty($user_artist->artistUser->artist_bio))
                                         {{$user_artist->artistUser->artist_bio}}
                                     @endif
@@ -186,6 +186,11 @@
                                                 <i class="iconify" data-icon="fa-brands:tiktok"></i>
                                             </a>
                                         @endif
+                                        <a href="{{route('artist.public.profile',$user_artist->name)}}" target="_blank"
+                                           class="btn btn-icon btn-social rounded btn-social-colored"
+                                           style="background-color:#fff !important;" title="Public Profile">
+                                            <img src="{{asset('/images/artist_us.png')}}" alt="" style="width: 30px !important;">
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -236,7 +241,7 @@
                                             <div class="item r" data-id="item-2"
                                                  data-src="http://api.soundcloud.com/tracks/259445397/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
                                                 <div class="item-media ">
-                                                    <a href="track.detail.html" class="item-media-content"
+                                                    <a href="javascript:void(0)" class="item-media-content"
                                                        style="background-image: url('images/b1.jpg');"></a>
                                                     <div class="item-overlay center">
                                                         <button class="btn-playpause">Play</button>
@@ -251,10 +256,10 @@
                                                         <div class="dropdown-menu pull-right black lt"></div>
                                                     </div>
                                                     <div class="item-title text-ellipsis">
-                                                        <a href="track.detail.html">Fireworks</a>
+                                                        <a href="javascript:void(0)">Fireworks</a>
                                                     </div>
                                                     <div class="item-author text-sm text-ellipsis hide">
-                                                        <a href="artist.detail.html" class="text-muted">Kygo</a>
+                                                        <a href="javascript:void(0)" class="text-muted">Kygo</a>
                                                     </div>
                                                     <div class="item-meta text-sm text-muted">
               		          <span class="item-meta-stats text-xs ">
@@ -271,7 +276,7 @@
                                             <div class="item r" data-id="item-10"
                                                  data-src="http://api.soundcloud.com/tracks/237514750/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
                                                 <div class="item-media ">
-                                                    <a href="track.detail.html" class="item-media-content"
+                                                    <a href="javascript:void(0)" class="item-media-content"
                                                        style="background-image: url('images/b9.jpg');"></a>
                                                     <div class="item-overlay center">
                                                         <button class="btn-playpause">Play</button>
@@ -286,10 +291,10 @@
                                                         <div class="dropdown-menu pull-right black lt"></div>
                                                     </div>
                                                     <div class="item-title text-ellipsis">
-                                                        <a href="track.detail.html">The Open Road</a>
+                                                        <a href="javascript:void(0)">The Open Road</a>
                                                     </div>
                                                     <div class="item-author text-sm text-ellipsis hide">
-                                                        <a href="artist.detail.html" class="text-muted">Postiljonen</a>
+                                                        <a href="javascript:void(0)" class="text-muted">Postiljonen</a>
                                                     </div>
                                                     <div class="item-meta text-sm text-muted">
               		          <span class="item-meta-stats text-xs ">
@@ -306,7 +311,7 @@
                                             <div class="item r" data-id="item-1"
                                                  data-src="http://api.soundcloud.com/tracks/269944843/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
                                                 <div class="item-media ">
-                                                    <a href="track.detail.html" class="item-media-content"
+                                                    <a href="javascript:void(0)" class="item-media-content"
                                                        style="background-image: url('images/b0.jpg');"></a>
                                                     <div class="item-overlay center">
                                                         <button class="btn-playpause">Play</button>
@@ -321,10 +326,10 @@
                                                         <div class="dropdown-menu pull-right black lt"></div>
                                                     </div>
                                                     <div class="item-title text-ellipsis">
-                                                        <a href="track.detail.html">Pull Up</a>
+                                                        <a href="javascript:void(0)">Pull Up</a>
                                                     </div>
                                                     <div class="item-author text-sm text-ellipsis hide">
-                                                        <a href="artist.detail.html" class="text-muted">Summerella</a>
+                                                        <a href="javascript:void(0)" class="text-muted">Summerella</a>
                                                     </div>
                                                     <div class="item-meta text-sm text-muted">
               		          <span class="item-meta-stats text-xs ">
@@ -345,7 +350,7 @@
                                             <div class="item r" data-id="item-10"
                                                  data-src="http://api.soundcloud.com/tracks/237514750/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
                                                 <div class="item-media ">
-                                                    <a href="track.detail.html" class="item-media-content"
+                                                    <a href="javascript:void(0)" class="item-media-content"
                                                        style="background-image: url('images/b9.jpg');"></a>
                                                     <div class="item-overlay center">
                                                         <button class="btn-playpause">Play</button>
@@ -360,10 +365,10 @@
                                                         <div class="dropdown-menu pull-right black lt"></div>
                                                     </div>
                                                     <div class="item-title text-ellipsis">
-                                                        <a href="track.detail.html">The Open Road</a>
+                                                        <a href="javascript:void(0)">The Open Road</a>
                                                     </div>
                                                     <div class="item-author text-sm text-ellipsis hide">
-                                                        <a href="artist.detail.html" class="text-muted">Postiljonen</a>
+                                                        <a href="javascript:void(0)" class="text-muted">Postiljonen</a>
                                                     </div>
                                                     <div class="item-meta text-sm text-muted">
               		          <span class="item-meta-stats text-xs ">
@@ -380,7 +385,7 @@
                                             <div class="item r" data-id="item-11"
                                                  data-src="http://api.soundcloud.com/tracks/218060449/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
                                                 <div class="item-media ">
-                                                    <a href="track.detail.html" class="item-media-content"
+                                                    <a href="javascript:void(0)" class="item-media-content"
                                                        style="background-image: url('images/b10.jpg');"></a>
                                                     <div class="item-overlay center">
                                                         <button class="btn-playpause">Play</button>
@@ -395,10 +400,10 @@
                                                         <div class="dropdown-menu pull-right black lt"></div>
                                                     </div>
                                                     <div class="item-title text-ellipsis">
-                                                        <a href="track.detail.html">Spring</a>
+                                                        <a href="javascript:void(0)">Spring</a>
                                                     </div>
                                                     <div class="item-author text-sm text-ellipsis hide">
-                                                        <a href="artist.detail.html" class="text-muted">Pablo
+                                                        <a href="javascript:void(0)" class="text-muted">Pablo
                                                             Nouvelle</a>
                                                     </div>
                                                     <div class="item-meta text-sm text-muted">

@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Laravel\Cashier\Billable;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Support\Facades\Auth;
@@ -11,6 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use LaravelIdea\Helper\App\Models\_IH_ReferralProgram_C;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -97,16 +100,44 @@ class User extends Authenticatable implements MustVerifyEmail
     public function country(){
         return $this->belongsTo(Country::class);
     }
-    // User track
-    public function artistTrack(){
+
+    /**
+     * @return HasMany
+     */
+    public function artistTrack(): HasMany
+    {
         return $this->hasMany(ArtistTrack::class, 'user_id');
     }
-    // User can have many transactions
-    public function transactionHistory(){
+
+    /**
+     * @return HasMany
+     */
+    public function artistTrackAlbum(): HasMany
+    {
+        return $this->hasMany(ArtistTrack::class, 'user_id')->where('release_type','album');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function artistTrackPopular(): HasMany
+    {
+        return $this->hasMany(ArtistTrack::class, 'user_id')->where('release_type','!=','album');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function transactionHistory(): HasMany
+    {
         return $this->hasMany(TransactionHistory::class, 'user_id');
     }
-    // curator user
-    public function transactionUserInfo(){
+
+    /**
+     * @return HasOne
+     */
+    public function transactionUserInfo(): HasOne
+    {
         return $this->hasOne(TransactionUserInfo::class,'user_id');
     }
 
@@ -117,7 +148,7 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Campaign::class, 'user_id');
     }
-    // get curators received
+
     public function scopeGetReceivedCurstors($query)
     {
         $query->where('is_approved',1)->where('type','curator');
@@ -153,7 +184,9 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
 
-    // get Referrals
+    /**
+     * @return ReferralProgram[]|Collection|\Illuminate\Support\Collection|_IH_ReferralProgram_C
+     */
     public function getReferrals()
     {
         return ReferralProgram::all()->map(function ($program) {

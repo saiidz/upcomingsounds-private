@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArtistController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\ReferralController;
 use App\Http\Controllers\Auth\NewPasswordController;
@@ -426,7 +427,7 @@ Route::get('/instagram-profile-show', [CuratorSignupController::class, 'instagra
 Route::get('/tiktok-profile-show', [CuratorSignupController::class, 'tiktokProfileShow'])
     ->middleware('auth');
 
-// Youtube Profile Show
+// YouTube Profile Show
 Route::get('/youtube-profile-show', [CuratorSignupController::class, 'youtubeSubscriberShow'])
     ->middleware('auth');
 
@@ -440,3 +441,10 @@ Route::get('/ref/{ref}/{code}', [ReferralController::class, 'referral'])
 Route::post('/referral/register', [ReferralController::class, 'store'])
                 ->middleware('guest');
 /***************************************************** Referral Routes *********************************************************/
+
+/***************************************************** Artist Public Routes *********************************************************/
+// public profile artist
+Route::get('artist/public/{user:name}',[ArtistController::class,'artistPublicProfile'])
+    ->middleware('guest')
+    ->name('artist.public.profile');
+/***************************************************** Artist Public Routes *********************************************************/

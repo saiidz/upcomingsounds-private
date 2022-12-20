@@ -38,7 +38,9 @@ class ReferralLink extends Model
 
     public function getLinkAttribute()
     {
-        return URL::to('/') . '/ref/' . str_replace(' ', '', auth()->user()->name) . '/' .$this->code;
+        $name = preg_replace(["/\s+/","/\//"], "", auth()->user()->name);
+        return URL::to('/') . '/ref/' . $name . '/' .$this->code;
+//        return URL::to('/') . '/ref/' . str_replace(' ', '', auth()->user()->name) . '/' .$this->code;
 //        return url($this->program->uri) . '/' . $this->code;
         // return url($this->program->uri) . '?ref=' . $this->code;
     }
