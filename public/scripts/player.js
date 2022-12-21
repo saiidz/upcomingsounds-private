@@ -1,6 +1,6 @@
 (function ($) {
   "use strict";
-  
+
   if($('.playlist').length == 0) return;
 
   var playlist = $( '.playlist' ).mepPlaylist({
@@ -122,6 +122,7 @@
   // simulate the play btn
   $(document).on('click.btn', '.btn-playpause', function(e){
       e.stopPropagation();
+      document.getElementById('playDisplay').style.display = "block";
       var self = $(this);
       if( self.hasClass('is-playing') ){
         self.removeClass('is-playing');

@@ -53,4 +53,9 @@ success, touch, track, tracks, transparent, united, visibility,
      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <!-- endbuild -->
     @yield('page-style')
+    <style>
+        .app-aside{
+            bottom:0!important;
+        }
+    </style>
 </head>

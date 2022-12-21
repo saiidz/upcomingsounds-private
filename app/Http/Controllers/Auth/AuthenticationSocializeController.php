@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Auth;
 use Exception;
 use Carbon\Carbon;
 use App\Models\User;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
@@ -131,7 +134,7 @@ class AuthenticationSocializeController extends Controller
     /**
      * If a user has registered before using social auth, return the user
      * else, create a new user object.
-     * @return User|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return User|Application|RedirectResponse|Redirector
      */
     public function findOrCreateUser($providerUser, $provider, $request_from)
     {

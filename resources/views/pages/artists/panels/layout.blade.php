@@ -40,7 +40,7 @@
                 <!-- / navbar right -->
             </div>
         </div>
-        <div class="app-footer app-player grey bg">
+        <div class="app-footer app-player grey bg" id="playDisplay" style="display:none">
             <div class="playlist" style="width:100%"></div>
         </div>
         <div class="app-body" id="view">

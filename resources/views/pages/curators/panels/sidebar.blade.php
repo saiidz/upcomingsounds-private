@@ -9,7 +9,8 @@
             </a>
             <!-- / brand -->
         </div>
-        <div data-flex class="hide-scroll">
+{{--        <div data-flex class="hide-scroll">--}}
+        <div class="hide-scroll">
             <nav class="scroll nav-stacked nav-active-primary">
 
                 <ul class="nav" data-ui-nav>
