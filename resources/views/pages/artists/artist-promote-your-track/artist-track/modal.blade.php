@@ -279,7 +279,7 @@
                     <div class="form-group modal-footer">
                         <button type="button" class="btn dark-white rounded update_track_not" id="update_track_not" data-dismiss="modal">Cancle</button>
                         <button type="submit" class="btn btn-sm rounded add_track basicbtn">
-                            Create</button>
+                            Submit</button>
                     </div>
                 </form>
             </div>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Artist;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class AddYourTrackRequest extends FormRequest
 {
@@ -11,7 +13,7 @@ class AddYourTrackRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,14 +23,38 @@ class AddYourTrackRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            'name' => 'required|string',
-            'description' => 'required|string',
+            'audio'           => (request()->demo == "on") ? 'required|file|mimes:mp3|max:15000' :'file|mimes:mp3|max:15000',
+            'tag'             => 'required',
+            'track_images.*'  => 'file|mimes:jpeg,jpg,png,pdf|max:2048',
             'track_thumbnail' => 'required|file|mimes:jpeg,jpg,png,gif|max:2048',
-            'audio' =>'required|file|mimes:mp3|max:15000',
-            'tag'  => 'required',
+            'link.*'          =>  'required',
+            'release_type'    => 'required',
+            'description'     => 'required|string',
+            'name'            => 'required|string',
         ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages(): array
+    {
+        return [
+            'tag.required' => 'The tag field is required. please add your interests and the genres ---> You will need to specify your interests and genres in order to proceed',
+        ];
+    }
+
+    /**
+     * @param Validator $validator
+     * @return array
+     */
+    protected function failedValidation(Validator $validator): array
+    {
+        throw new HttpResponseException(response()->json(['errors' => $validator->errors()->all()]));
     }
 }

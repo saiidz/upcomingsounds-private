@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Artist\AddYourTrackRequest;
 use App\Http\Requests\Artist\StoreTrackRequest;
 use App\Models\ArtistTrack;
 use App\Models\ArtistTrackImage;
@@ -48,23 +49,23 @@ class ArtistTrackController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AddYourTrackRequest $request)
     {
-        $validator = Validator::make($request->all(), [
-            'audio'           => ($request->demo == "on") ? 'required|file|mimes:mp3|max:15000' :'file|mimes:mp3|max:15000',
-            'tag'             => 'required',
-            'track_images.*'  => 'file|mimes:jpeg,jpg,png,pdf|max:2048',
-            'track_thumbnail' => 'required|file|mimes:jpeg,jpg,png,gif|max:2048',
-            'link.*'          =>  'required',
-            'release_type'    => 'required',
-            'description'     => 'required|string',
-            'name'            => 'required|string',
-        ]);
-
-        if ($validator->fails())
-        {
-            return response()->json(['errors' => $validator->errors()->all()]);
-        }
+//        $validator = Validator::make($request->all(), [
+//            'audio'           => ($request->demo == "on") ? 'required|file|mimes:mp3|max:15000' :'file|mimes:mp3|max:15000',
+//            'tag'             => 'required',
+//            'track_images.*'  => 'file|mimes:jpeg,jpg,png,pdf|max:2048',
+//            'track_thumbnail' => 'required|file|mimes:jpeg,jpg,png,gif|max:2048',
+//            'link.*'          =>  'required',
+//            'release_type'    => 'required',
+//            'description'     => 'required|string',
+//            'name'            => 'required|string',
+//        ]);
+//
+//        if ($validator->fails())
+//        {
+//            return response()->json(['errors' => $validator->errors()->all()]);
+//        }
 
         if(!empty($request->link))
         {
