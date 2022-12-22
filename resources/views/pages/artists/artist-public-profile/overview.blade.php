@@ -12,9 +12,12 @@
                             <a href="javascript:void(0)" class="item-media-content"
                                style="background-image: url({{asset('images/b4.jpg')}});"></a>
                         @endif
-                        <div class="item-overlay center">
-                            <button  class="btn-playpause">Play</button>
-                        </div>
+
+                        @if(!empty($track->audio))
+                            <div class="item-overlay center">
+                                <button  class="btn-playpause">Play</button>
+                            </div>
+                        @endif
                     </div>
                     <div class="item-info">
                         {{--                <div class="item-overlay bottom text-right">--}}
@@ -58,9 +61,12 @@
                             <a href="javascript:void(0)" class="item-media-content"
                                style="background-image: url({{asset('images/b4.jpg')}});"></a>
                         @endif
-                        <div class="item-overlay center">
-                            <button  class="btn-playpause">Play</button>
-                        </div>
+
+                        @if(!empty($track->audio))
+                            <div class="item-overlay center">
+                                <button  class="btn-playpause">Play</button>
+                            </div>
+                        @endif
                     </div>
                     <div class="item-info">
                         <div class="item-title text-ellipsis">

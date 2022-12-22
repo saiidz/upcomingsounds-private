@@ -184,9 +184,12 @@
                                             <a href="javascript:void(0)" onclick="openNav({{$pro_premium_campaign->id}})" class="item-media-content"
                                                style="background-image: url({{asset('images/b4.jpg')}});"></a>
                                         @endif
-                                        <div class="item-overlay center">
-                                            <button class="btn-playpause">Play</button>
-                                        </div>
+
+                                        @if(!empty($pro_premium_campaign->artistTrack->audio))
+                                            <div class="item-overlay center">
+                                                <button  class="btn-playpause">Play</button>
+                                            </div>
+                                        @endif
                                     </div>
                                     <div class="item-info">
                                         <div class="item-overlay bottom text-right">
@@ -286,9 +289,12 @@
                                         <a href="javascript:void(0)" onclick="openNav({{$pro_campaign->id}})" class="item-media-content"
                                            style="background-image: url({{asset('images/b4.jpg')}});"></a>
                                     @endif
-                                    <div class="item-overlay center">
-                                        <button  class="btn-playpause">Play</button>
-                                    </div>
+
+                                    @if(!empty($pro_campaign->artistTrack->audio))
+                                        <div class="item-overlay center">
+                                            <button  class="btn-playpause">Play</button>
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="item-info">
                                     <div class="item-overlay bottom text-right">
@@ -445,9 +451,12 @@
                                                 <a href="javascript:void(0)" onclick="openNav({{$advance_campaign->id}})" class="item-media-content"
                                                    style="background-image: url({{asset('images/b4.jpg')}});"></a>
                                             @endif
-                                            <div class="item-overlay center">
-                                                <button  class="btn-playpause">Play</button>
-                                            </div>
+
+                                            @if(!empty($advance_campaign->artistTrack->audio))
+                                                <div class="item-overlay center">
+                                                    <button  class="btn-playpause">Play</button>
+                                                </div>
+                                            @endif
                                         </div>
                                         <div class="item-info">
                                             <div class="item-overlay bottom text-right">
@@ -531,9 +540,12 @@
                                                 <a href="javascript:void(0)" class="item-media-content" onclick="openNav({{$standard_campaign->id}})"
                                                    style="background-image: url({{asset('images/b2.jpg')}});"></a>
                                             @endif
-                                            <div class="item-overlay center">
-                                                <button  class="btn-playpause">Play</button>
-                                            </div>
+
+                                            @if(!empty($standard_campaign->artistTrack->audio))
+                                                <div class="item-overlay center">
+                                                    <button  class="btn-playpause">Play</button>
+                                                </div>
+                                            @endif
                                         </div>
                                         <div class="item-info">
                                             <div class="item-overlay bottom text-right">
