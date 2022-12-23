@@ -58,22 +58,52 @@
                                 <button class="btn btn-xs white" onclick="editTrack({{$track->id}})" data-toggle="modal" data-target="#edit-track">Edit</button>
                             @else
 {{--                                <button class="btn btn-xs white" data-toggle="modal" data-target="#requestEdit">Request To Edit</button>--}}
-                                <a href="javascript:void(0)" onclick="requestEditTrack({{$track->id}})" class="btn btn-xs white" data-toggle="modal"
-                                   data-target="#requestEdit">Request To Edit</a>
+
+                                @if($track->is_locked == 0 && $track->is_approved == 1 &&
+                                        !empty($track->latestCampaign) && getExpiryDayCampaign($track->latestCampaign->created_at) == 'false')
+                                    <a href="javascript:void(0)" onclick="requestEditTrack({{$track->id}})" class="btn btn-xs white" data-toggle="modal"
+                                       data-target="#requestEdit">Request To Edit</a>
+                                @elseif($track->is_locked == 0 && $track->is_approved == 1 && empty($track->latestCampaign))
+                                    <a href="javascript:void(0)" onclick="requestEditTrack({{$track->id}})" class="btn btn-xs white" data-toggle="modal"
+                                       data-target="#requestEdit">Request To Edit</a>
+                                @else
+
+                                @endif
+
                             @endif
 
-                            @if(count($track->campaign) > 0 && !empty($track->campaign))
+
+                            @if($track->is_locked == 0 && $track->is_approved == 1 &&
+                                        !empty($track->latestCampaign) && getExpiryDayCampaign($track->latestCampaign->created_at) == 'false')
+                                <a href="javascript:void(0)" onclick="deleteTrack({{$track->id}})" class="btn btn-xs white" data-toggle="modal"
+                                   data-target="#delete-track-modal">Delete</a>
+                                @if($track->is_approved == 1)
+                                    <a href="javascript:void(0)" onclick="promoteTrackRedirect({{$track->id}})" class="btn btn-xs white">Promote Your Track</a>
+                                @endif
+                            @elseif(!empty($track->latestCampaign) && $track->is_approved == 1)
                                 <div class="btn btn-xs white">
                                     <span class="text-primary">Active In Campaign</span>
                                 </div>
                             @else
-                                <a href="javascript:void(0)" onclick="deleteTrack({{$track->id}})" class="btn btn-xs white" data-toggle="modal"
-                                   data-target="#delete-track-modal">Delete</a>
-                                @if($track->is_approved == 1)
+                                    <a href="javascript:void(0)" onclick="deleteTrack({{$track->id}})" class="btn btn-xs white" data-toggle="modal"
+                                       data-target="#delete-track-modal">Delete</a>
+                                    @if($track->is_approved == 1)
                                         <a href="javascript:void(0)" onclick="promoteTrackRedirect({{$track->id}})" class="btn btn-xs white">Promote Your Track</a>
-                                @endif
-
+                                    @endif
                             @endif
+
+{{--                            @if(count($track->campaign) > 0 && !empty($track->campaign))--}}
+{{--                                <div class="btn btn-xs white">--}}
+{{--                                    <span class="text-primary">Active In Campaign</span>--}}
+{{--                                </div>--}}
+{{--                            @else--}}
+{{--                                <a href="javascript:void(0)" onclick="deleteTrack({{$track->id}})" class="btn btn-xs white" data-toggle="modal"--}}
+{{--                                   data-target="#delete-track-modal">Delete</a>--}}
+{{--                                @if($track->is_approved == 1)--}}
+{{--                                        <a href="javascript:void(0)" onclick="promoteTrackRedirect({{$track->id}})" class="btn btn-xs white">Promote Your Track</a>--}}
+{{--                                @endif--}}
+
+{{--                            @endif--}}
                         </div>
                     </div>
                 </div>
