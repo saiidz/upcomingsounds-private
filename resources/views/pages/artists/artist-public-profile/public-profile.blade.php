@@ -1,7 +1,7 @@
 @extends('pages.artists.panels.layout')
 
 {{-- page title --}}
-@section('title','Public Profile Artist')
+@section('title','Public Profile '.UC_FIRST($user->name))
 
 @section('page-style')
     <link rel="stylesheet" href="{{asset('css/custom/custom.css')}}" type="text/css" />
