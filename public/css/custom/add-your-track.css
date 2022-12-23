@@ -303,7 +303,7 @@ body{
     font-weight: 900;
     color: yellow;
     border-radius: 50%;
-    background: var(--shadow-color)
+    /*background: var(--shadow-color)*/
 }
 
 .descriptionTitle h3 {
@@ -312,7 +312,7 @@ body{
 }
 
 .descriptionTitle p {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     color: var(--shadow-color)
 }
 
@@ -533,7 +533,7 @@ body{
     display: flex;
 }
 .imoji img{
-    height: 40px;
+    height: 50px;
 }
 .promoteAddTrack a{
     float: right;

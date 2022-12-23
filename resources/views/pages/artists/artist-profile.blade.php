@@ -186,11 +186,20 @@
                                                 <i class="iconify" data-icon="fa-brands:tiktok"></i>
                                             </a>
                                         @endif
-                                        <a href="{{route('artist.public.profile',$user_artist->name)}}" target="_blank"
-                                           class="btn btn-icon btn-social rounded btn-social-colored"
-                                           style="background-color:#333 !important;" title="Public Profile">
-                                            <img src="{{asset('/images/artist_us.png')}}" alt="" style="width: 20px !important;">
-                                        </a>
+
+                                        @if($user_artist->is_public_profile == 1)
+                                            <a href="{{route('artist.public.profile',$user_artist->name)}}" target="_blank" id="Public_Profile"
+                                               class="btn btn-icon btn-social rounded btn-social-colored"
+                                               style="background-color:#333 !important;" title="Public Profile">
+                                                <img src="{{asset('/images/artist_us.png')}}" alt="" style="width: 20px !important;">
+                                            </a>
+                                        @else
+                                            <a href="{{route('artist.public.profile',$user_artist->name)}}" target="_blank" id="Public_Profile"
+                                               class="btn btn-icon btn-social rounded btn-social-colored"
+                                               style="background-color:#333 !important; display:none;" title="Public Profile">
+                                                <img src="{{asset('/images/artist_us.png')}}" alt="" style="width: 20px !important;">
+                                            </a>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -1104,4 +1113,41 @@
         }
     </script>
 {{--    Promote to track redirect and checked track--}}
+
+{{--    Public Profile Display--}}
+    <script>
+        $('#changePublicProfile').on('change', function() {
+            let checked = $(this).is(':checked')
+            if(checked == 'true'){
+                var data = checked;
+            }else{
+                var data = checked;
+            }
+            var url = "{{route('artist.change.public.profile')}}";
+            $.ajax({
+                type: "POST",
+                url: url,
+                data:{
+                    "_token": "{{ csrf_token() }}",
+                    "is_public_profile": data,
+                },
+                success: function (data) {
+                    if(data.success){
+                        if(data.is_public_profile == 0)
+                        {
+                            $('#Public_Profile').css('display', 'none');
+                        }else{
+                            $('#Public_Profile').css('display', 'inline-block');
+                        }
+                        $('#snackbar').html(data.success);
+                        $('#snackbar').addClass("show");
+                        setTimeout(function () {
+                            $('#snackbar').removeClass("show");
+                        }, 5000);
+                    }
+                }
+            });
+        });
+    </script>
+{{--    Public Profile Display--}}
 @endsection

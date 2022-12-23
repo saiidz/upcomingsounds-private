@@ -41,7 +41,11 @@ success, touch, track, tracks, transparent, united, visibility,
     <link rel="stylesheet" href="{{asset('css/styles/style.css')}}" type="text/css" />
     <link rel="stylesheet" href="{{asset('css/styles/font.css')}}" type="text/css" />
 {{--    <link rel="stylesheet" href="{{asset('css/custom/custom.css')}}" type="text/css" />--}}
-    <link rel="stylesheet" href="{{asset('css/custom/artist-custom.css')}}" type="text/css" />
+    @if(Request::is('artist/public*') == 'true')
+    @else
+        <link rel="stylesheet" href="{{asset('css/custom/artist-custom.css')}}" type="text/css" />
+    @endif
+
     <link rel="stylesheet" href="{{asset('vendors/flag-icon/css/flag-icons.css')}}" type="text/css" />
 
     <link rel="stylesheet" href="{{asset('libs/owl.carousel/dist/assets/owl.carousel.min.css')}}" type="text/css" />

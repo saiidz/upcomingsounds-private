@@ -50,6 +50,8 @@ Route::get('help/ticket', [TicketHelpController::class,'helpTicket']);
 Route::post('help/ticket', [TicketHelpController::class,'postHelpTicket']);
 Route::post('newsletter', [NewsLetterSubscriptionController::class,'newsLetter']);
 
+// public profile artist
+Route::get('artist/public/{user:name}',[ArtistController::class,'artistPublicProfile'])->name('artist.public.profile');
 
 // Route::group(['middleware' => ['web'], 'namespace' => '\BinshopsBlog\Controllers'], function () {
 

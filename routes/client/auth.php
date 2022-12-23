@@ -62,5 +62,6 @@ Route::delete('delete-campaign/{campaign}',[CampaignController::class,'destroy']
 Route::get('get-cites-artist/{id}', [AjaxController::class,'getCities']);
 
 // public profile artist
-Route::get('artist/public/{user:name}',[ArtistController::class,'artistPublicProfile'])->name('artist.public.profile');
+Route::post('artist/change-public-profile',[ArtistController::class,'artistChangeStatusProfile'])->name('artist.change.public.profile');
+//Route::get('artist/public/{user:name}',[ArtistController::class,'artistPublicProfile'])->name('artist.public.profile');
 /***************************************************** Artist Routes *********************************************************/

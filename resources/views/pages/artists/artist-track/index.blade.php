@@ -64,7 +64,7 @@
 
                             @if(count($track->campaign) > 0 && !empty($track->campaign))
                                 <div class="btn btn-xs white">
-                                    <span class="text-primary">Added In Campaign</span>
+                                    <span class="text-primary">Active In Campaign</span>
                                 </div>
                             @else
                                 <a href="javascript:void(0)" onclick="deleteTrack({{$track->id}})" class="btn btn-xs white" data-toggle="modal"

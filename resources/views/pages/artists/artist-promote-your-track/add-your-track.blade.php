@@ -20,6 +20,13 @@
         .text-ellipsis{
             white-space: initial !important;
         }
+        .title__name h3{
+            font-size: 0.8rem !important;
+        }
+        #selectionSHow h2,h3{
+            font-size:22px !important;
+        }
+
     </style>
 @endsection
 

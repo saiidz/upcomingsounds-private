@@ -42,9 +42,12 @@
                                                 <a href="javascript:void(0)" class="item-media-content"
                                                    style="background-image: url({{asset('images/b9.jpg')}});"></a>
                                             @endif
-                                            <div class="item-overlay center">
-                                                <button class="btn-playpause">Play</button>
-                                            </div>
+
+                                            @if(!empty($campaign->artistTrack->audio))
+                                                <div class="item-overlay center">
+                                                    <button  class="btn-playpause">Play</button>
+                                                </div>
+                                            @endif
                                         </div>
                                         <div class="item-info">
                                             <div class="item bottom text-right">
@@ -55,7 +58,7 @@
                                                 @endif
                                             </div>
                                             <div class="item-title text-ellipsis">
-                                                <a href="javascript:void(0)">{{$campaign->artistTrack->name}}</a>
+                                                <a href="javascript:void(0)">{{$campaign->artistTrack->name}} ({{UC_FIRST($campaign->package_name) ?? '----'}})</a>
                                             </div>
                                             <div class="item-author text-sm text-ellipsis hide">
                                                 <a href="javascript:void(0)" class="text-muted">{{($campaign->artistTrack->user->name) ? $campaign->artistTrack->user->name : ''}}</a>

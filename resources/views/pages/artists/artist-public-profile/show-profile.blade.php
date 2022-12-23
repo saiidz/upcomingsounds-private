@@ -1,20 +1,20 @@
-<div class="page-title m-b">
-    <h4 class="inline m-a-0 update_profile">Basic Info</h4>
-</div>
-<div class="form-group row">
-    <div class="col-sm-2 form-control-label">Name:</div>
-    <div class="col-sm-9">
-        <div
-            class="col-sm-3 form-control-label text-muted">{{ isset($user->name) ? $user->name : ''  }}</div>
-    </div>
-</div>
-<div class="form-group row">
-    <div class="col-sm-2 form-control-label">Email:</div>
-    <div class="col-sm-9">
-        <div
-            class="col-sm-3 form-control-label text-muted">{{ isset($user->email) ? $user->email : ''  }}</div>
-    </div>
-</div>
+{{--<div class="page-title m-b">--}}
+{{--    <h4 class="inline m-a-0 update_profile">Basic Info</h4>--}}
+{{--</div>--}}
+{{--<div class="form-group row">--}}
+{{--    <div class="col-sm-2 form-control-label">Name:</div>--}}
+{{--    <div class="col-sm-9">--}}
+{{--        <div--}}
+{{--            class="col-sm-3 form-control-label text-muted">{{ isset($user->name) ? $user->name : ''  }}</div>--}}
+{{--    </div>--}}
+{{--</div>--}}
+{{--<div class="form-group row">--}}
+{{--    <div class="col-sm-2 form-control-label">Email:</div>--}}
+{{--    <div class="col-sm-9">--}}
+{{--        <div--}}
+{{--            class="col-sm-3 form-control-label text-muted">{{ isset($user->email) ? $user->email : ''  }}</div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 @if(!empty($user->artistUser))
     @if($user->artistUser->artist_signup_from == 'artist')
         <input type="hidden" name="artist_signup_from"

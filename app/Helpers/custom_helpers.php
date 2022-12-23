@@ -134,3 +134,12 @@ function getExpiryDayCampaign($date): string
         $diff_in_days = $carbon->diffInDays($carbon_target);
         return $diff_in_days.' Days Left';
 }
+
+/**
+ * @param $name
+ * @return string
+ */
+function UC_FIRST($name): string
+{
+    return Str::ucfirst($name);
+}

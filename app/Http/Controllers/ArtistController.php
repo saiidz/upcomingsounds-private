@@ -219,10 +219,34 @@ class ArtistController extends Controller
     public function artistPublicProfile(User $user)
     {
         try {
-            return view('pages.artists.artist-public-profile.public-profile', get_defined_vars());
+            if($user->is_public_profile == 1)
+            {
+                return view('pages.artists.artist-public-profile.public-profile', get_defined_vars());
+            }else{
+                return abort(403, "Restricted Access!");
+            }
+
         }catch (\Exception $exception)
         {
-            return redirect('/artist-profile');
+            return abort(403, "Restricted Access!");
         }
+    }
+
+    public function artistChangeStatusProfile(Request $request)
+    {
+       $artist_id = Auth::id();
+
+       // update status public profile
+        User::where('id', $artist_id)->update([
+            'is_public_profile' => ($request->is_public_profile == 'true') ? 1 : 0,
+        ]);
+
+        // artist find
+        $artist = User::find($artist_id);
+
+        return response()->json([
+            'success' => 'Public Profile Is Updated',
+            'is_public_profile' => $artist->is_public_profile ?? null,
+        ]);
     }
 }

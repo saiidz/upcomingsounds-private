@@ -4,13 +4,22 @@
 @section('title','Public Profile Artist')
 
 @section('page-style')
-
+    <link rel="stylesheet" href="{{asset('css/custom/custom.css')}}" type="text/css" />
+{{--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />--}}
+    <style>
+        svg.svg-inline--fa {
+            font-size: inherit !important;
+        }
+        /*.profile_public{*/
+        /*    margin-left: 12.5rem;*/
+        /*}*/
+    </style>
 @endsection
 
 @section('content')
     <!-- ############ PAGE START-->
     <div class="page-content">
-        <div class="padding b-b">
+        <div class="padding b-b profile_public">
             <div class="row-col">
                 <div class="col-sm w w-auto-xs m-b">
                     <div class="item w rounded">
@@ -59,9 +68,9 @@
                             @endif
                         </p>
                         <div class="item-action m-b">
-                            <a class="btn btn-icon white rounded btn-share pull-right" href="javascript:void(0)" id="shareArtistProfile" data-url_root="{{route('artist.public.profile',$user->name)}}" data-toggle="modal" data-target="#share-modal">
-                                <i class="fa fa-share-alt"></i>
-                            </a>
+{{--                            <a class="btn btn-icon white rounded btn-share pull-right" href="javascript:void(0)" id="shareArtistProfile" data-url_root="{{route('artist.public.profile',$user->name)}}" data-toggle="modal" data-target="#share-modal">--}}
+{{--                                <i class="fa fa-share-alt"></i>--}}
+{{--                            </a>--}}
                             <button class="btn-playpause text-primary m-r-sm"></button>
                             <span>
                                 @if(!empty($user->artistTrackAlbum))
@@ -103,7 +112,7 @@
     </div>
 
     <!-- ############ PAGE END-->
-
+    @include('welcome-panels.welcome-footer')
 @endsection
 
 @section('page-script')
@@ -113,4 +122,5 @@
            $('#publicArtistLink').val(url);
         });
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" async integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 @endsection
