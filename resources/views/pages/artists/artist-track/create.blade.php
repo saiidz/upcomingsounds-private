@@ -334,8 +334,8 @@
 
     <div class="form-group row">
         {{-- <button type="submit" class="btn btn-sm rounded add_track"> --}}
-        <button type="submit" class="btn btn-sm rounded add_track basicbtn">
-            Add Song</button>
+        <button type="submit" class="btn btn-sm rounded add_track">
+            Submit</button>
     </div>
 </form>
 <!-- Permission Copy Right Modal -->
