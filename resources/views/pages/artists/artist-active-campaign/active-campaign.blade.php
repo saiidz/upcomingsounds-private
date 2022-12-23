@@ -58,7 +58,7 @@
                                                 @endif
                                             </div>
                                             <div class="item-title text-ellipsis">
-                                                <a href="javascript:void(0)">{{$campaign->artistTrack->name}} ({{UC_FIRST($campaign->package_name) ?? '----'}})</a>
+                                                <a href="javascript:void(0)">{{$campaign->artistTrack->name}} <span class="text-muted">({{UC_FIRST($campaign->package_name) ?? '----'}})</span></a>
                                             </div>
                                             <div class="item-author text-sm text-ellipsis hide">
                                                 <a href="javascript:void(0)" class="text-muted">{{($campaign->artistTrack->user->name) ? $campaign->artistTrack->user->name : ''}}</a>
