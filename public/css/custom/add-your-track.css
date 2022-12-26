@@ -542,15 +542,25 @@ body{
     height: 2.1rem !important;
     margin-top: 1rem !important;
 }
+.packageDec{
+    padding: 0.6rem 0.1rem;
+    margin-bottom: 0.25rem;
+}
+.packageDec p {
+    text-align: justify;
+    color: var(--shadow-color);
+    font-size: 0.75rem;
+}
 
-
-
+.packageDec p a{
+    color: #02b875 !important;
+}
 
 
 
 /*
-  ##Device = Desktops
-  ##Screen = 1281px to higher resolution desktops
+##Device = Desktops
+##Screen = 1281px to higher resolution desktops
 */
 
 @media (min-width: 1281px) {

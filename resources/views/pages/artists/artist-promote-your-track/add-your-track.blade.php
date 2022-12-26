@@ -73,6 +73,22 @@
 {{--                                            <h3>My recap</h3>--}}
 {{--                                            <p>Step 4 <span id="myRecap"></span></p>--}}
 {{--                                        </div>--}}
+                                        <div class="packageDec" id="standard_dec" style="display:none">
+                                            <h3>Standard Info</h3>
+                                            <p>{{\App\Templates\IMessageTemplates::STANDARD_DEC}} <a href="javascript:void(0)" target="_blank">Learn more</a></p>
+                                        </div>
+                                        <div class="packageDec" id="advanced_dec" style="display:none">
+                                            <h3>Advanced Info</h3>
+                                            <p>{{\App\Templates\IMessageTemplates::ADVANCED_DEC}} <a href="javascript:void(0)" target="_blank">Learn more</a></p>
+                                        </div>
+                                        <div class="packageDec" id="pro_dec" style="display:none">
+                                            <h3>Pro Info</h3>
+                                            <p>{{\App\Templates\IMessageTemplates::PRO_DEC}} <a href="javascript:void(0)" target="_blank">Learn more</a></p>
+                                        </div>
+                                        <div class="packageDec" id="premium_dec" style="display:none">
+                                            <h3>Premium Info</h3>
+                                            <p>{{\App\Templates\IMessageTemplates::PREMIUM_DEC}} <a href="javascript:void(0)" target="_blank">Learn more</a></p>
+                                        </div>
                                     </div>
                                     <div class="progress__bar__container">
                                         <ul>
@@ -454,7 +470,15 @@
                 $('.selection_pro').removeClass('step_pro');
                 $('.selection_premium').removeClass('step_premium');
 
+                // show package info
+                $('#standard_dec').css('display','block');
+                $('#advanced_dec').css('display','none');
+                $('#pro_dec').css('display','none');
+                $('#premium_dec').css('display','none');
+
+
                 $('#cStandard').addClass('step_standard');
+
 
                 $(this).find('input[type=checkbox]').prop("checked", !$(this).find('input[type=checkbox]').prop("checked"));
 
@@ -470,6 +494,12 @@
                 $('.selection_standard').removeClass('step_standard');
                 $('.selection_pro').removeClass('step_pro');
                 $('.selection_premium').removeClass('step_premium');
+
+                // show package info
+                $('#advanced_dec').css('display','block');
+                $('#standard_dec').css('display','none');
+                $('#pro_dec').css('display','none');
+                $('#premium_dec').css('display','none');
 
                 $('#cAdvanced').addClass('step_advanced');
 
@@ -488,6 +518,12 @@
                 $('.selection_advanced').removeClass('step_advanced');
                 $('.selection_premium').removeClass('step_premium');
 
+                // show package info
+                $('#pro_dec').css('display','block');
+                $('#advanced_dec').css('display','none');
+                $('#standard_dec').css('display','none');
+                $('#premium_dec').css('display','none');
+
                 $('#cPro').addClass('step_pro');
 
                 $(this).find('input[type=checkbox]').prop("checked", !$(this).find('input[type=checkbox]').prop("checked"));
@@ -505,6 +541,12 @@
                 $('.selection_standard').removeClass('step_standard');
                 $('.selection_advanced').removeClass('step_advanced');
                 $('.selection_pro').removeClass('step_pro');
+
+                // show package info
+                $('#premium_dec').css('display','block');
+                $('#pro_dec').css('display','none');
+                $('#advanced_dec').css('display','none');
+                $('#standard_dec').css('display','none');
 
                 $('#cPremium').addClass('step_premium');
 
