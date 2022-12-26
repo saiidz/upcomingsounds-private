@@ -11,7 +11,7 @@
             </div>
             <div class="item-title bottom text-right form2CheckedBox">
                 <input type="checkbox" class="stepThreeStandard" name="package_name" id="get_standard" value="standard"/>
-                <input type="hidden" class="uscCredit" name="usc_credit" value="{{ App\Templates\IPackages::STANDARD_USC }}">
+                <input type="hidden" class="uscCredit" name="usc_credit" value="">
             </div>
         </div>
         <div class="selection selection_new selection_advanced" id="cAdvanced" onclick="choosePackage('advanced')">
@@ -20,7 +20,6 @@
             </div>
             <div class="item-title bottom text-right form2CheckedBox">
                 <input type="checkbox" class="stepThreeAdvanced" name="package_name" id="get_advanced" value="advanced"/>
-                <input type="hidden"  class="uscCredit" name="usc_credit" value="{{ App\Templates\IPackages::ADVANCED_FEATURED_USC }}">
             </div>
         </div>
         <div class="selection selection_new selection_pro" id="cPro" onclick="choosePackage('pro')">
@@ -29,7 +28,6 @@
             </div>
             <div class="item-title bottom text-right form2CheckedBox">
                 <input type="checkbox" class="stepThreePro" name="package_name" id="get_pro" value="pro"/>
-                <input type="hidden"  class="uscCredit" name="usc_credit" value="{{ App\Templates\IPackages::PRO_USC }}">
             </div>
         </div>
         <div class="selection selection_new selection_premium" id="cPremium" onclick="choosePackage('premium')">
@@ -38,7 +36,6 @@
             </div>
             <div class="item-title bottom text-right form2CheckedBox">
                 <input type="checkbox" class="stepThreePremium" name="package_name" id="get_premium" value="premium"/>
-                <input type="hidden"  class="uscCredit" name="usc_credit" value="{{ App\Templates\IPackages::PREMIUM_USC }}">
             </div>
         </div>
         <div class="buttons"><a class="m-b-md rounded addTrack prev__btn" onclick="prevForm();">Back</a> <a

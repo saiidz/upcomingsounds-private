@@ -43,19 +43,20 @@
                             <div class="title__container">
                                 <div class="separatortrack">
                                     <div class="promoteAddTrack">
-                                        <a class="m-b-md rounded addTrack" href="{{ url('/wallet') }}">
-                                            Wallet {{!empty(Auth::user()->TransactionUserInfo) ? Auth::user()->TransactionUserInfo->transactionHistory->sum('credits') - (!empty(Auth::user()->campaign) ? Auth::user()->campaign->sum('usc_credit') : 0) : 0}} UCS
+                                        <a class="m-b-md" href="{{ url('/wallet') }}">
+                                            <span class="amount">{{!empty(Auth::user()->TransactionUserInfo) ? Auth::user()->TransactionUserInfo->transactionHistory->sum('credits') - (!empty(Auth::user()->campaign) ? Auth::user()->campaign->sum('usc_credit') : 0) : 0}} UCS</span>
+                                            <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
                                         </a>
                                     </div>
                                     <h1>Start a campaign</h1>
                                     <div class="separator"></div>
                                 </div>
 
-                                <div class="promoteAddTrack">
-                                    <a class="m-b-md rounded addTrack" data-toggle="modal" data-target="#add-track-promote" href="javascript:void(0)">
-                                        Submit New Release
-                                    </a>
-                                </div>
+{{--                                <div class="promoteAddTrack">--}}
+{{--                                    <a class="m-b-md rounded addTrack" data-toggle="modal" data-target="#add-track-promote" href="javascript:void(0)">--}}
+{{--                                        Submit New Release--}}
+{{--                                    </a>--}}
+{{--                                </div>--}}
                                 @include('pages.artists.artist-promote-your-track.artist-track.modal')
                             </div>
                             <div class="body__container">
@@ -489,7 +490,7 @@
 
                 $('#get_advanced').prop('checked', false);
                 $('#get_pro').prop('checked', false);
-                $('#cPremium').prop('checked', false);
+                $('#get_premium').prop('checked', false);
 
                 $('#get_standard').prop('checked', true);
 
@@ -512,7 +513,7 @@
 
                 $('#get_standard').prop('checked', false);
                 $('#get_pro').prop('checked', false);
-                $('#cPremium').prop('checked', false);
+                $('#get_premium').prop('checked', false);
 
                 $('#get_advanced').prop('checked', true);
 
@@ -535,7 +536,7 @@
 
                 $('#get_standard').prop('checked', false);
                 $('#get_advanced').prop('checked', false);
-                $('#cPremium').prop('checked', false);
+                $('#get_premium').prop('checked', false);
 
                 $('#get_pro').prop('checked', true);
 

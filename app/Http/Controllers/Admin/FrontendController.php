@@ -403,14 +403,16 @@ class FrontendController extends Controller
             $banner_path = 'uploads/curatorssetting/';
             $banner_new_path = $banner_path.$banner_name;
             $banner->move($banner_path, $banner_name);
+        }else{
+            $theme = Option::where('key','curators_settings')->first();
+
+            if(!empty($theme))
+            {
+                $theme_banner = json_decode($theme->value)->curator_banner_img;
+            }
         }
 
-        $theme = Option::where('key','curators_settings')->first();
 
-        if(!empty($theme))
-        {
-            $theme_banner = json_decode($theme->value)->curator_banner_img;
-        }
 
         $data = [
             'curator_banner_img'  => !empty($banner_new_path) ? $banner_new_path : $theme_banner,

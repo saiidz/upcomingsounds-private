@@ -533,10 +533,11 @@ body{
     display: flex;
 }
 .imoji img{
-    height: 50px;
+    height: 65px;
 }
 .promoteAddTrack a{
     float: right;
+    font-size:1rem;
 }
 .switchStyle {
     height: 2.1rem !important;
@@ -549,13 +550,20 @@ body{
 .packageDec p {
     text-align: justify;
     color: var(--shadow-color);
-    font-size: 0.75rem;
+    font-size: 1rem;
 }
 
 .packageDec p a{
     color: #02b875 !important;
 }
-
+.icon_UP {
+    width: 25px;
+    height: 25px;
+    vertical-align: bottom;
+}
+.amount {
+    margin-right: 4px;
+}
 
 
 /*

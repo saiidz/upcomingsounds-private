@@ -52,7 +52,13 @@
                 </div>
             @endif
         </div>
-        <a class="m-b-md rounded addTrack nxt__btn" onclick="nextForm('step_one');"> Next</a>
+{{--        <a class="m-b-md rounded addTrack nxt__btn" onclick="nextForm('step_one');"> Next</a>--}}
+        <div class="buttons" style="justify-content: flex-start !important;">
+            <a class="m-b-md rounded addTrack nxt__btn" onclick="nextForm('step_one');"> Next</a>
+            <a class="m-b-md rounded addTrack" data-toggle="modal" data-target="#add-track-promote" href="javascript:void(0)">
+                Submit New Release
+            </a>
+        </div>
     </div>
 </fieldset>
 
