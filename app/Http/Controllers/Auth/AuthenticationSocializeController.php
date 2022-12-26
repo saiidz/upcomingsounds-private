@@ -26,14 +26,18 @@ class AuthenticationSocializeController extends Controller
      */
     public function redirectToProvider($provider, Request $request)
     {
-        // session(['request_from' => $request->get('request_from')]);
+        try {
+            // session(['request_from' => $request->get('request_from')]);
 //        return Socialite::driver($provider)->setScopes(['openid', 'email'])->redirect();
-        if($provider == 'google'){
-            session(['request_from' => $request->get('request_from')]);
-            return Socialite::driver($provider)->setScopes(['openid', 'email'])->redirect();
-        }else{
-            session(['request_from' => $request->get('request_from')]);
-            return Socialite::driver($provider)->redirect();
+            if($provider == 'google'){
+                session(['request_from' => $request->get('request_from')]);
+                return Socialite::driver($provider)->setScopes(['openid', 'email'])->redirect();
+            }else{
+                session(['request_from' => $request->get('request_from')]);
+                return Socialite::driver($provider)->redirect();
+            }
+        }catch (Exception $e) {
+            return redirect()->back();
         }
     }
 
@@ -46,19 +50,29 @@ class AuthenticationSocializeController extends Controller
         try {
             $request_from = session('request_from');
             if($provider == 'google'){
-                $user = Socialite::driver('google')->stateless()->user();
+                $user = Socialite::driver($provider)->stateless()->user();
 
                 // check email already exists on both side curator and artist
-                $user_email_exist = User::where('email',$user->getEmail())->where('type','!=',$request_from)->first();
-
+//                $user_email_exist = User::where('email',$user->getEmail())->where('type','!=',$request_from)->first();
+                $user_email_exist = User::where('email',$user->getEmail())->first();
                 if(isset($user_email_exist)){
-                    if ($user_email_exist->type == 'curator'){
-                        return redirect('/taste-maker-login')->with('error','This email already exists. Try logging in again, forget your password, or Use another authentication method.');
-                    }elseif ($user_email_exist->type == 'artist'){
-                        return redirect('/login')->with('error','This email already exists. Try logging in again, forget your password, or Use another authentication method.');
-                    }else{
-                        return redirect('/')->with('error','This email already exists. Try logging in again, forget your password, or Use another authentication method.');
+
+                    if ($user_email_exist->type != $request_from){
+                        if ($user_email_exist->type == 'curator'){
+                            return redirect('/taste-maker-login')->with('error','This email already exists. You are already Register this email from curator.');
+                        }elseif ($user_email_exist->type == 'artist'){
+                            return redirect('/login')->with('error','This email already exists. You are already Register this email from artist.');
+                        }
                     }
+//                    if ($user_email_exist->type == 'curator'){
+//                        return redirect('/taste-maker-login')->with('error','This email already exists. Try signing in using another method or resetting your password.');
+////                        return redirect('/taste-maker-login')->with('error','This email already exists. Try logging in again, forget your password, or Use another authentication method.');
+//                    }elseif ($user_email_exist->type == 'artist'){
+//                        return redirect('/login')->with('error','This email already exists. Try signing in using another method or resetting your password.');
+////                        return redirect('/login')->with('error','This email already exists. Try logging in again, forget your password, or Use another authentication method.');
+//                    }else{
+//                        return redirect('/')->with('error','This email already exists. Try signing in using another method or resetting your password.');
+//                    }
                 }
             }elseif($provider == 'facebook'){
 
@@ -100,13 +114,20 @@ class AuthenticationSocializeController extends Controller
 
                 if(!empty($user->getEmail())){
                     $user_email_exist = User::where('email','=',$user->getEmail())->first();
-                    if ($user_email_exist->type == 'curator'){
-                        return redirect('/taste-maker-login')->with('error','This email already exists. Try logging in again, forget your password, or Use another authentication method.');
-                    }elseif ($user_email_exist->type == 'artist'){
-                        return redirect('/login')->with('error','This email already exists. Try logging in again, forget your password, or Use another authentication method.');
-                    }else{
-                        return redirect('/')->with('error','EThis email already exists. Try logging in again, forget your password, or Use another authentication method.');
+                    if ($user_email_exist->type != $request_from){
+                        if ($user_email_exist->type == 'curator'){
+                            return redirect('/taste-maker-login')->with('error','This email already exists. You are already Register this email from curator.');
+                        }elseif ($user_email_exist->type == 'artist'){
+                            return redirect('/login')->with('error','This email already exists. You are already Register this email from artist.');
+                        }
                     }
+//                    if ($user_email_exist->type == 'curator'){
+//                        return redirect('/taste-maker-login')->with('error','This email already exists. Try signing in using another method or resetting your password.');
+//                    }elseif ($user_email_exist->type == 'artist'){
+//                        return redirect('/login')->with('error','This email already exists. Try signing in using another method or resetting your password.');
+//                    }else{
+//                        return redirect('/')->with('error','This email already exists. Try signing in using another method or resetting your password.');
+//                    }
                 }
 
             }else{
@@ -168,6 +189,7 @@ class AuthenticationSocializeController extends Controller
             }
         }elseif ($request_from == 'curator'){
             $user = User::where('provider_id', $providerUser->id)->where('type',$request_from)->first();
+
             Log::info('user info curator: '.$user);
             if (isset($user)) {
                 $user->update([
@@ -183,10 +205,10 @@ class AuthenticationSocializeController extends Controller
                 Log::info('update user info curator: '.$user);
             }else{
                 $user = User::create([
-                    'name'              => $providerUser->getName(),
-                    'email'             => $providerUser->getEmail(),
+                    'name'              => $providerUser->getName() ?? null,
+                    'email'             => $providerUser->getEmail() ?? null,
                     'email_verified_at' => (!empty($providerUser->getEmail())) ? Carbon::now() : null,
-                    'profile'           => $providerUser->getAvatar(),
+                    'profile'           => $providerUser->getAvatar() ?? null,
                     'type'              => 'curator',
                     'provider'          => $provider,
                     'provider_id'       => $providerUser->getId(),
