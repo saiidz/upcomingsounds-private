@@ -63,7 +63,6 @@
                                             height="64" width="64">
                                     </a>
                                 @endif
-                            </a>
 
                             <div class="media-body">
                             <h6 class="media-heading">

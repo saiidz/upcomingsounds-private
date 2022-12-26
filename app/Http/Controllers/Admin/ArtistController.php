@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
+use App\Templates\IEmails;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\ArtistTrack;
@@ -73,12 +74,13 @@ class ArtistController extends Controller
 
             $data['email'] = $user->email;
             $data['username'] = $user->name;
-            $data["title"] = "Approved Artist Upcoming Sounds";
+            $data["title"] = "Welcome to our family :)";
+//            $data["title"] = "Approved Artist Upcoming Sounds";
             $data['approvedMessage'] = $request->description_details ?? null;
 
             try {
                 Mail::send('admin.emails.artist_email.send_approved_email_to_artist', $data, function($message)use($data) {
-                    $message->from('gary@upcomingsounds.com');
+                    $message->from(IEmails::GARY_EMAIL);
                     $message->to($data["email"], $data["email"])
                         ->subject($data["title"]);
                 });
@@ -117,7 +119,8 @@ class ArtistController extends Controller
 
             $data['email'] = $user->email;
             $data['username'] = $user->name;
-            $data["title"] = "Artist Rejected";
+            $data["title"] = "Submission rejected";
+//            $data["title"] = "Artist Rejected";
             $data['rejectMessage'] = $request->description_details ?? null;
 
             try {
@@ -196,12 +199,13 @@ class ArtistController extends Controller
 
             $data['email'] = $artist_track->user->email;
             $data['username'] = $artist_track->user->name;
-            $data["title"] = "Approved Track Artist Upcoming Sounds";
+            $data["title"] = "Submission approved";
+//            $data["title"] = "Approved Track Artist Upcoming Sounds";
             $data['approvedTrackMessage'] = $request->description_details ?? null;
 
             try {
                 Mail::send('admin.emails.track_artist_email.send_approved_email_to_artist', $data, function($message)use($data) {
-                    $message->from('gary@upcomingsounds.com');
+                    $message->from(IEmails::GARY_EMAIL);
                     $message->to($data["email"], $data["email"])
                         ->subject($data["title"]);
                 });
@@ -239,12 +243,14 @@ class ArtistController extends Controller
 
             $data['email'] = $artist_track->user->email;
             $data['username'] = $artist_track->user->name;
-            $data["title"] = "Rejected Track Artist Upcoming Sounds";
+            $data["title"] = "Submission rejected";
+//            $data["title"] = "Rejected Track Artist Upcoming Sounds";
             $data['rejectTrackMessage'] = $request->description_details ?? null;
 
             try {
                 Mail::send('admin.emails.track_artist_email.send_reject_email_to_artist', $data, function($message)use($data) {
-                    $message->from('no_reply@upcomingsounds.com');
+                    $message->from(IEmails::GARY_EMAIL);
+//                    $message->from('no_reply@upcomingsounds.com');
                     $message->to($data["email"], $data["email"])
                         ->subject($data["title"]);
                 });

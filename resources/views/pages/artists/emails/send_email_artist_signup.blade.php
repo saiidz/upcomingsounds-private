@@ -33,9 +33,12 @@
         font-weight: 500;
         margin: 0;
     ">Hello {{ $username }},</h2>
-                                    <p style="color: black;font-size: 18px;font-weight: 400;line-height:24px;margin:0;padding: 20px 0 0;text-align: left;word-break:normal;direction:ltr;">Thanks for applying to Upcomingsounds. We are evaluating your application. You will hear from us shortly.</p>
-                                    <p style="color: #8d8ca4;font-size: 18px;font-weight: 400;line-height:24px;margin:0;padding: 25px 0 0;text-align: left;word-break:normal;direction:ltr;">For any assistance, contact us.</p>
-                                    <p style="color: #8d8ca4;font-size: 18px;font-weight: 400;line-height:24px;margin:0;padding: 25px 0 0;text-align: left;word-break:normal;direction:ltr;">Thanks. </p></td>
+                                    <p style="color: black;font-size: 18px;font-weight: 400;line-height:24px;margin:0;padding: 20px 0 0;text-align: left;word-break:normal;direction:ltr;">Thank you for signing up for UpcomingSounds.com!.</p>
+                                    <p style="color: black;font-size: 18px;font-weight: 400;line-height:24px;margin:0;padding: 20px 0 0;text-align: left;word-break:normal;direction:ltr;">We are excited to have you join our community of talented musicians and artists, and we look forward to hearing your music.</p>
+                                    <p style="color: black;font-size: 18px;font-weight: 400;line-height:24px;margin:0;padding: 20px 0 0;text-align: left;word-break:normal;direction:ltr;">Our team is currently evaluating your profile and you will hear from us soon. In the meantime, please feel free to explore the resources and opportunities available on our blog. We have a range of tools and services designed to help you succeed and grow your career, including industry-leading promotion tools, expert advice, and a supportive community of fellow artists.</p>
+                                    <p style="color: black;font-size: 18px;font-weight: 400;line-height:24px;margin:0;padding: 20px 0 0;text-align: left;word-break:normal;direction:ltr;">If you have questions or need support along the way, don't hesitate to reach out to us. We are here to help you succeed and make an impact with your art.</p>
+                                    <p style="color: #8d8ca4;font-size: 18px;font-weight: 400;line-height:24px;margin:0;padding: 25px 0 0;text-align: left;word-break:normal;direction:ltr;">Sincerely,</p>
+                                    <p style="color: #8d8ca4;font-size: 18px;font-weight: 400;line-height:24px;margin:0;padding: 25px 0 0;text-align: left;word-break:normal;direction:ltr;">Upcomingsounds team.</p></td>
                             </tr>
                             </tbody>
                             <tbody>

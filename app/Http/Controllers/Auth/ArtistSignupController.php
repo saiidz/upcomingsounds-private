@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Templates\IEmails;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Country;
@@ -362,10 +363,10 @@ class ArtistSignupController extends Controller
 
                 $data['email'] = $user->email;
                 $data['username'] = $user->name;
-                $data["title"] = "Artist Upcoming Sounds";
+                $data["title"] = "Thanks for signing up!";
 
                 Mail::send('pages.artists.emails.send_email_artist_signup', $data, function($message)use($data) {
-                    $message->from('artist@upcomingsounds.com');
+                    $message->from(IEmails::ARTIST_SIGNUP);
                     $message->to($data["email"], $data["email"])
                         ->subject($data["title"]);
                 });
