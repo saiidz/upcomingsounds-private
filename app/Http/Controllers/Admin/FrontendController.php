@@ -399,10 +399,15 @@ class FrontendController extends Controller
 
         if ($request->hasFile('curator_banner_img')) {
             $banner = $request->file('curator_banner_img');
-            $banner_name = 'curator_banner_img.png';
-            $banner_path = 'uploads/curatorssetting/';
-            $banner_new_path = $banner_path.$banner_name;
-            $banner->move($banner_path, $banner_name);
+            $name = str_replace(' ', '', $banner->getClientOriginalName());
+            $image_path = 'curator_banner_img.png';
+            $banner->move(public_path() . '/uploads/curatorssetting/', $image_path);
+            $banner_new_path = 'uploads/curatorssetting/'. $image_path;
+
+//            $banner_name = 'curator_banner_img.png';
+//            $banner_path = 'uploads/curatorssetting/';
+//            $banner_new_path = $banner_path.$banner_name;
+//            $banner->move($banner_path, $banner_name);
         }else{
             $theme = Option::where('key','curators_settings')->first();
 
