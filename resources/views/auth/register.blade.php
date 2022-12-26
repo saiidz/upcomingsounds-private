@@ -34,9 +34,9 @@
                             <img src="{{asset('images/facebook.png')}}"  style="width: 80%;">
                         </a> --}}
 
-                        <a href="{{ url('/login/twitter/?request_from=artist') }}" class="btn-block">
-                            <img src="{{asset('images/twitter.png')}}"  style="width: 80%;">
-                        </a>
+{{--                        <a href="{{ url('/login/twitter/?request_from=artist') }}" class="btn-block">--}}
+{{--                            <img src="{{asset('images/twitter.png')}}"  style="width: 80%;">--}}
+{{--                        </a>--}}
 {{--                        <a href="{{url('/login/spotify/?request_from=artist')}}" style="background-color: #1ed760;;" class="btn btn-block artist_sides text-white m-b-sm">--}}
 {{--                            <i class="fa fa-spotify pull-left"></i>--}}
 {{--                            Sign up with Spotify--}}

@@ -41,11 +41,11 @@
                             <img src="{{asset('images/facebook.png')}}"  style="width: 80%;">
                         </a> --}}
 
-                        <a href="{{ url('/login/twitter/?request_from=curator') }}" class="btn-block">
-                            <img src="{{asset('images/twitter.png')}}" style="width: 80%;">
+{{--                        <a href="{{ url('/login/twitter/?request_from=curator') }}" class="btn-block">--}}
+{{--                            <img src="{{asset('images/twitter.png')}}" style="width: 80%;">--}}
 {{--                            <i class="fa fa-twitter pull-left"></i>--}}
 {{--                            Sign up with Twitter--}}
-                        </a>
+{{--                        </a>--}}
 {{--                        <a href="{{url('/login/spotify/?request_from=curator')}}" style="background-color: #1ed760;;" class="btn btn-block curator_sides text-white m-b-sm">--}}
 {{--                            <i class="fa fa-spotify pull-left"></i>--}}
 {{--                            Sign up with Spotify--}}
