@@ -15,6 +15,25 @@
         /*.profile_public{*/
         /*    margin-left: 12.5rem;*/
         /*}*/
+        .artist-features {
+            display: flex;
+            align-items: center;
+            margin: 0 28px 20px 10px;
+            flex-wrap: wrap;
+        }
+        .artist-features ul {
+            margin: 0;
+            padding: 0 0px 0 40px;
+        }
+        .artist-features ul li {
+            color: #8d8ca4;
+            font-size: 16px;
+            line-height: 16px;
+            margin: 10px 0 0 0;
+        }
+        .artist-features ul li::marker {
+            color: #02b875;
+        }
     </style>
 @endsection
 
