@@ -26,6 +26,7 @@ class AddYourTrackRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'audio_cover'     => 'required',
             'audio'           => (request()->demo == "on") ? 'required|file|mimes:mp3|max:15000' :'file|mimes:mp3|max:15000',
             'tag'             => 'required',
             'track_images.*'  => 'file|mimes:jpeg,jpg,png,pdf|max:2048',

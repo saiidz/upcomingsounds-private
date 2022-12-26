@@ -103,8 +103,10 @@
                                         <span class="currencyWrap"><span>@isset($standard_products){{number_format($standard_products['data'][4]['unit_amount'] / 100, 2)}} @endisset</span></span>
                                     </div>
                                     <ul>
-                                        <li class="price_bold">52 <img class="icon_UP" src="{{asset('images/coin_bg.png')}}"></li>
-                                        <li class="price_bold">(= 26 contacts)</li>
+                                        <li class="price_bold">52
+{{--                                            <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">--}}
+                                        </li>
+{{--                                        <li class="price_bold">(= 26 contacts)</li>--}}
                                     </ul>
                                     <a href="javascript:void(0)" class="button buyStandardNow" onclick="buyStandardNow()" data-standard-package="Standard" data-standard-contacts="52" data-standard-currency="gbp" data-standard-price="@isset($standard_products){{number_format($standard_products['data'][4]['unit_amount'] / 100, 2)}} @endisset">Buy now</a>
                                 </div>
@@ -118,8 +120,10 @@
                                         <span class="currencyWrap"><span>@isset($plus_products){{number_format($plus_products['data'][4]['unit_amount'] / 100, 2)}} @endisset</span></span>
                                     </div>
                                     <ul>
-                                        <li class="price_bold">120 <img class="icon_UP" src="{{asset('images/coin_bg.png')}}"></li>
-                                        <li class="price_bold">(= 60 contacts)</li>
+                                        <li class="price_bold">120
+{{--                                            <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">--}}
+                                        </li>
+{{--                                        <li class="price_bold">(= 60 contacts)</li>--}}
                                     </ul>
                                     <a href="javascript:void(0)" class="button buyPlusNow" onclick="buyPlusNow()" data-plus-package="Plus" data-plus-contacts="120" data-plus-currency="gbp" data-plus-price="@isset($plus_products){{number_format($plus_products['data'][4]['unit_amount'] / 100, 2)}} @endisset">Buy now</a>
                                 </div>
@@ -131,8 +135,10 @@
                                         <span class="currencyWrap"><span>@isset($most_popular_products){{number_format($most_popular_products['data'][4]['unit_amount'] / 100, 2)}} @endisset</span></span>
                                     </div>
                                     <ul>
-                                        <li class="price_bold">250 <img class="icon_UP" src="{{asset('images/coin_bg.png')}}"></li>
-                                        <li class="price_bold">(= 125 contacts)</li>
+                                        <li class="price_bold">250
+{{--                                            <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">--}}
+                                        </li>
+{{--                                        <li class="price_bold">(= 125 contacts)</li>--}}
                                     </ul>
                                     <a href="javascript:void(0)" class="button buyMostNow" onclick="buyMostNow()" data-most-package="Most Popular" data-most-contacts="250" data-most-currency="gbp" data-most-price="@isset($most_popular_products){{number_format($most_popular_products['data'][4]['unit_amount'] / 100, 2)}} @endisset">Buy now</a>
                                 </div>
@@ -144,8 +150,10 @@
                                         <span class="currencyWrap"><span>@isset($premium_products){{number_format($premium_products['data'][4]['unit_amount'] / 100, 2)}} @endisset</span></span>
                                     </div>
                                     <ul>
-                                        <li class="price_bold">520 <img class="icon_UP" src="{{asset('images/coin_bg.png')}}"></li>
-                                        <li class="price_bold">(= 260 contacts) </li>
+                                        <li class="price_bold">520
+{{--                                            <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">--}}
+                                        </li>
+{{--                                        <li class="price_bold">(= 260 contacts) </li>--}}
                                     </ul>
                                     <a href="javascript:void(0)" class="button buyPremiumNow" onclick="buyPremiumNow()" data-premium-package="Premium" data-premium-contacts="520" data-premium-currency="gbp" data-premium-price="@isset($premium_products){{number_format($premium_products['data'][4]['unit_amount'] / 100, 2)}} @endisset">Buy now</a>
                                 </div>
@@ -157,8 +165,10 @@
                                         <span class="currencyWrap"><span>@isset($platinum_products){{number_format($platinum_products['data'][4]['unit_amount'] / 100, 2)}} @endisset</span></span>
                                     </div>
                                     <ul>
-                                        <li class="price_bold">1,100 <img class="icon_UP" src="{{asset('images/coin_bg.png')}}"></li>
-                                        <li class="price_bold">(= 550 contacts)</li>
+                                        <li class="price_bold">1,100
+{{--                                            <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">--}}
+                                        </li>
+{{--                                        <li class="price_bold">(= 550 contacts)</li>--}}
                                     </ul>
                                     <a href="javascript:void(0)" class="button buyPlantinumNow" onclick="buyPlantinumNow()" data-plantinum-package="Platinum" data-plantinum-contacts="1100" data-plantinum-currency="gbp" data-plantinum-price="@isset($platinum_products){{number_format($platinum_products['data'][4]['unit_amount'] / 100, 2)}} @endisset">Buy now</a>
 {{--                                    <a href="" class="button">Buy now</a>--}}

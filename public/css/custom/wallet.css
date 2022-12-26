@@ -242,6 +242,7 @@ br.br {
 }
 .price_bold{
     font-weight: bolder;
+    font-size: 2rem;
 }
 .StripeElement {
     box-sizing: border-box;

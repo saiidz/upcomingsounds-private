@@ -42,13 +42,18 @@
                         <div id="selectionHide">
                             <div class="title__container">
                                 <div class="separatortrack">
+                                    <div class="promoteAddTrack">
+                                        <a class="m-b-md rounded addTrack" href="{{ url('/wallet') }}">
+                                            Wallet {{!empty(Auth::user()->TransactionUserInfo) ? Auth::user()->TransactionUserInfo->transactionHistory->sum('credits') - (!empty(Auth::user()->campaign) ? Auth::user()->campaign->sum('usc_credit') : 0) : 0}} UCS
+                                        </a>
+                                    </div>
                                     <h1>Start a campaign</h1>
                                     <div class="separator"></div>
                                 </div>
 
                                 <div class="promoteAddTrack">
                                     <a class="m-b-md rounded addTrack" data-toggle="modal" data-target="#add-track-promote" href="javascript:void(0)">
-                                        Add New track
+                                        Submit New Release
                                     </a>
                                 </div>
                                 @include('pages.artists.artist-promote-your-track.artist-track.modal')
@@ -667,6 +672,18 @@
 
             if(status == 'step_three')
             {
+                let standard_check = $('.stepThreeStandard').is(':checked');
+                let advanced_check = $('.stepThreeAdvanced').is(':checked');
+                let pro_check = $('.stepThreePro').is(':checked');
+                let premium_check = $('.stepThreePremium').is(':checked');
+
+                // check Package now
+                if(standard_check == false && advanced_check == false && pro_check == false && premium_check == false)
+                {
+                    toastr.error('Please Select Any Package');
+                    return false;
+                }
+
                 showLoader();
                 let form = document.getElementById('storeTrackCampaign');
                 var formData = new FormData(form)
@@ -694,6 +711,7 @@
                         }
                         if (data.error) {
                             toastr.error(data.error);
+                            window.open('{{ URL::to('/wallet') }}', '_blank');
                         }
                     },
                 });

@@ -261,6 +261,7 @@ class ArtistTrackController extends Controller
     public function update(Request $request,ArtistTrack $artist_track)
     {
         $validator = Validator::make($request->all(), [
+            'audio_cover'     => 'required',
             'audio'           => ($request->demo == "on") ? 'file|mimes:mp3|max:15000' :'file|mimes:mp3|max:15000',
             'tag'             => 'required',
             'track_thumbnail' => 'file|mimes:jpeg,jpg,png,gif|max:2048',
