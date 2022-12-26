@@ -891,9 +891,11 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="{{asset('js/gijgo.min.js')}}"></script>
     <script>
+        var dateToday = new Date();
         $('#datepickerPromoteDate').datepicker({
             iconsLibrary: 'fontawesome',
-            format: "yyyy-mm-dd"
+            format: "yyyy-mm-dd",
+            minDate: dateToday
         });
     </script>
     <script type="text/javascript">
