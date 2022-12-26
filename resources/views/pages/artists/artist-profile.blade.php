@@ -544,13 +544,17 @@
     </script>
     <script src="{{asset('js/gijgo.min.js')}}"></script>
     <script>
+        var dateToday = new Date();
         $('#datepicker').datepicker({
             iconsLibrary: 'fontawesome',
-            format: "yyyy-mm-dd"
+            format: "yyyy-mm-dd",
+            minDate: dateToday
+
         });
         $('#dateEditpicker').datepicker({
             iconsLibrary: 'fontawesome',
-            format: "yyyy-mm-dd"
+            format: "yyyy-mm-dd",
+            minDate: dateToday
         });
     </script>
     <script>
