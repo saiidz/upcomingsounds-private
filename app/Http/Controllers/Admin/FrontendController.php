@@ -418,11 +418,10 @@ class FrontendController extends Controller
         }
 
         $data = [
-            'curator_banner_img'  => !empty($banner_new_path) ? $banner_new_path : $theme_banner,
+            'curator_banner_img'  => !empty($banner_new_path) ? 'newiamge' : $theme_banner,
         ];
 
-
-dd($theme);
+dd($data);
         if(!empty($theme))
         {
             Option::where(['id' => $theme->id, 'key' => $theme->key])->update([
