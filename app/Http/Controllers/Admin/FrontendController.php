@@ -397,10 +397,25 @@ class FrontendController extends Controller
             return response()->json(['errors' => $validator->errors()->all()]);
         }
 
+        $theme = Option::where('key','curators_settings')->first();
+
+        if(!empty($theme))
+        {
+            $theme_banner = json_decode($theme->value)->curator_banner_img;
+        }
+
         if ($request->hasFile('curator_banner_img')) {
+            if (!empty($theme_banner))
+            {
+                $themeBanner = public_path($theme_banner);
+                if(file_exists($themeBanner)) {
+                    unlink($themeBanner);
+                }
+            }
+
             $banner = $request->file('curator_banner_img');
             $name = str_replace(' ', '', $banner->getClientOriginalName());
-            $image_path = 'curator_banner_img.png';
+            $image_path = 'curator_banner_img_'. $name;
             $banner->move(public_path() . '/uploads/curatorssetting/', $image_path);
             $banner_new_path = 'uploads/curatorssetting/'. $image_path;
 
@@ -410,18 +425,11 @@ class FrontendController extends Controller
 //            $banner->move($banner_path, $banner_name);
         }
 
-        $theme = Option::where('key','curators_settings')->first();
-
-        if(!empty($theme))
-        {
-            $theme_banner = json_decode($theme->value)->curator_banner_img;
-        }
-
         $data = [
-            'curator_banner_img'  => !empty($banner_new_path) ? 'newiamge' : $theme_banner,
+            'curator_banner_img'  => !empty($banner_new_path) ? $banner_new_path : $theme_banner,
         ];
 
-dd($data);
+
         if(!empty($theme))
         {
             Option::where(['id' => $theme->id, 'key' => $theme->key])->update([
