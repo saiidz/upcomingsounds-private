@@ -160,7 +160,8 @@ class AuthenticationSocializeController extends Controller
     public function findOrCreateUser($providerUser, $provider, $request_from)
     {
         if($request_from == 'artist'){
-            $user = User::where('provider_id', $providerUser->id)->where('type',$request_from)->first();
+//            $user = User::where('provider_id', $providerUser->id)->where('type',$request_from)->first();
+            $user = User::where('email',$providerUser->getEmail())->where('provider_id', $providerUser->id)->first();
             Log::info('user info artist: '.$user);
             if (isset($user)) {
                 $user->update([
@@ -188,7 +189,8 @@ class AuthenticationSocializeController extends Controller
                 Log::info('create user info artist: '.$user);
             }
         }elseif ($request_from == 'curator'){
-            $user = User::where('provider_id', $providerUser->id)->where('type',$request_from)->first();
+            $user = User::where('email',$providerUser->getEmail())->where('provider_id', $providerUser->id)->first();
+//            $user = User::where('provider_id', $providerUser->id)->where('type',$request_from)->first();
 
             Log::info('user info curator: '.$user);
             if (isset($user)) {
