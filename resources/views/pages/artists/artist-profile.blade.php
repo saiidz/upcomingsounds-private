@@ -4,6 +4,7 @@
 @section('title','Artist Profile')
 
 @section('page-style')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{asset('css/gijgo.min.css')}}" type="text/css" />
 {{--    <link rel="stylesheet" href="{{asset('css/custom/custom.css')}}" type="text/css" />--}}
@@ -24,6 +25,15 @@
         /*    background-color:#02b875 !important;*/
         /*    color:white;*/
         /*}*/
+        .custom-icon::before {
+            content: "";
+            background-image: url({{asset('/images/artist_us.png')}});
+            width: 22px;
+            height: 22px;
+            display: inline-block;
+            background-size: cover;
+            margin-top: 7px;
+        }
     </style>
 @endsection
 
@@ -167,8 +177,10 @@
                                             <a href="{{$user_artist->artistUser->deezer_url}}" target="_blank"
                                                class="btn btn-icon btn-social rounded btn-social-colored"
                                                style="background-color:#eb9d00;" title="Deezer">
+                                                <i class="fab fa-deezer"></i>
+                                                <i class="fab fa-deezer"></i>
                                                 {{--                                                <span class="iconify" data-icon="fa-brands:deezer"></span>--}}
-                                                <i class="iconify" data-icon="fa-brands:deezer"></i>
+{{--                                                <i class="iconify" data-icon="fa-brands:deezer"></i>--}}
                                             </a>
                                         @endif
                                         @if(!empty($user_artist->artistUser->bandcamp_url))
@@ -183,7 +195,9 @@
                                             <a href="{{$user_artist->artistUser->tiktok_url}}" target="_blank"
                                                class="btn btn-icon btn-social rounded btn-social-colored"
                                                style="background-color:#333;" title="Tiktok">
-                                                <i class="iconify" data-icon="fa-brands:tiktok"></i>
+                                                <i class="fab fa-tiktok"></i>
+                                                <i class="fab fa-tiktok"></i>
+{{--                                                <i class="iconify" data-icon="fa-brands:tiktok"></i>--}}
                                             </a>
                                         @endif
 
@@ -191,13 +205,17 @@
                                             <a href="{{route('artist.public.profile',$user_artist->name)}}" target="_blank" id="Public_Profile"
                                                class="btn btn-icon btn-social rounded btn-social-colored"
                                                style="background-color:#333 !important;" title="Public Profile">
-                                                <img src="{{asset('/images/artist_us.png')}}" alt="" style="width: 20px !important;">
+                                                <i class="custom-icon"></i>
+                                                <i class="custom-icon"></i>
+{{--                                                <img src="{{asset('/images/artist_us.png')}}" alt="" style="width: 20px !important;">--}}
                                             </a>
                                         @else
                                             <a href="{{route('artist.public.profile',$user_artist->name)}}" target="_blank" id="Public_Profile"
                                                class="btn btn-icon btn-social rounded btn-social-colored"
                                                style="background-color:#333 !important; display:none;" title="Public Profile">
-                                                <img src="{{asset('/images/artist_us.png')}}" alt="" style="width: 20px !important;">
+                                                <i class="custom-icon"></i>
+                                                <i class="custom-icon"></i>
+{{--                                                <img src="{{asset('/images/artist_us.png')}}" alt="" style="width: 20px !important;">--}}
                                             </a>
                                         @endif
                                     </div>

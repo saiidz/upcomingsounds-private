@@ -4,7 +4,8 @@
 @section('title','Curator Profile')
 
 @section('page-style')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+{{--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />--}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{asset('css/gijgo.min.css')}}" type="text/css" />
     <style>
@@ -175,8 +176,10 @@
                                 <a href="{{$user_curator->curatorUser->deezer_url}}" target="_blank"
                                    class="btn btn-icon btn-social rounded btn-social-colored"
                                    style="background-color:#eb9d00;" title="Deezer">
+                                    <i class="fab fa-deezer"></i>
+                                    <i class="fab fa-deezer"></i>
                                     {{--                                                <span class="iconify" data-icon="fa-brands:deezer"></span>--}}
-                                    <i class="iconify" data-icon="fa-brands:deezer"></i>
+{{--                                    <i class="iconify" data-icon="fa-brands:deezer"></i>--}}
                                 </a>
                             @endif
                             @if(!empty($user_curator->curatorUser->apple_url))
