@@ -529,3 +529,13 @@
       }
   }
   /*collapse*/
+
+
+  #nameFlag{
+      display:inline-block;
+  }
+  .flag_icon {
+      margin-right: 5px;
+      width: 20px !important;
+      height: 15px !important;
+  }

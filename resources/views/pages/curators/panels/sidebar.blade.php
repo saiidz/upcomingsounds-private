@@ -70,13 +70,24 @@
 {{--                    {{dd(Request::is('artist-submission'))}}--}}
                     @if(Request::is('artist-submission') != 'artist-submission')
                         <li>
-                            <a href="{{ route('artist.submission') }}" id="artistSubmission">
-                                <span class="nav-icon">
-                                    <i class="fa fa-headphones"></i>
-                                </span>
-                                {{-- <span class="nav-text">Get Verified</span> --}}
-                                <span class="nav-text" data-toggle="tooltip" title="You will need to submit for curator verifications in order to view this page">Submissions</span>
-                            </a>
+                            @if (Auth::check() && auth()->user())
+                                @if (auth()->user()->is_verified == 1)
+                                    <a href="{{ route('artist.submission') }}" id="artistSubmission">
+                                        <span class="nav-icon">
+                                            <i class="fa fa-headphones"></i>
+                                        </span>
+                                        {{-- <span class="nav-text">Get Verified</span> --}}
+                                        <span class="nav-text">Submissions</span>
+                                    </a>
+                                @else
+                                    <a href="javascript:void(0)">
+                                        <span class="nav-icon">
+                                            <i class="fa fa-headphones"></i>
+                                        </span>
+                                        <span class="nav-text" data-toggle="tooltip" title="You will need to submit for curator verifications in order to view this page">Submissions</span>
+                                    </a>
+                                @endif
+                            @endif
                         </li>
 {{--                    <li>--}}
 {{--                        <a href="{{ route('curator.dashboard') }}" data-toggle="dropdown">--}}

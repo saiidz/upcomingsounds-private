@@ -101,9 +101,9 @@
 
         @if (Auth::check() && auth()->user())
                 @if (auth()->user()->is_verified == 1)
-                    <div class="getVerified">
-                        <span class="btn btn-sm rounded primary m-b-2 text-white">get verified</span>
-                    </div>
+{{--                    <div class="getVerified">--}}
+{{--                        <span class="btn btn-sm rounded primary m-b-2 text-white">get verified</span>--}}
+{{--                    </div>--}}
                 @else
                     <div class="getVerified" id="getNoVerified" style="display: none;">
                         <a class="btn btn-sm rounded primary m-b-2 text-white" href="{{ route('curator.get.verified') }}">get verified</a>

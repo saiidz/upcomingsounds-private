@@ -60,8 +60,20 @@
                                                         <div class="item-title text-ellipsis">
                                                             <a href="javascript:void(0)" onclick="openNav({{$campaign->id}})">{{$campaign->artistTrack->name}}</a>
                                                         </div>
+                                                        <div class="item-author text-ellipsis">
+                                                            <span class="text-muted">Release Date: {{ getDateFormat($campaign->artistTrack->created_at) }}</span>
+                                                        </div>
+                                                        <div class="item-author text-ellipsis">
+                                                            @if(!empty($campaign->user) && !empty($campaign->user->artistUser->country))
+                                                                <div class="clearfix m-b-sm">
+                                                                    <img class="flag_icon" src="{{asset('images/flags')}}/{{$campaign->user->artistUser->country->flag_icon}}.png" alt="{{$campaign->user->artistUser->country->flag_icon}}">
+                                                                    <span class="text-muted"
+                                                                          style="font-size:15px">{{($campaign->user->artistUser->country) ? $campaign->user->artistUser->country->name : ''}}</span>
+                                                                </div>
+                                                            @endif
+                                                        </div>
                                                         <div class="item-author text-sm text-ellipsis">
-                                                            <a href="javascript:void(0)" class="text-muted">{{$campaign->package_name ?? '----'}}</a>
+                                                            <a href="javascript:void(0)" class="text-muted">{{Str::ucfirst($campaign->package_name) ?? '----'}}</a>
                                                         </div>
                                                     </div>
                                                 </div>
