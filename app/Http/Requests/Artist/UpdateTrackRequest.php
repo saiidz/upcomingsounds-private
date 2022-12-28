@@ -6,14 +6,14 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class AddYourTrackRequest extends FormRequest
+class UpdateTrackRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
      */
-    public function authorize(): bool
+    public function authorize()
     {
         return true;
     }
@@ -30,7 +30,7 @@ class AddYourTrackRequest extends FormRequest
             'audio'           => (request()->demo == "on") ? 'required|file|mimes:mp3|max:15000' :'file|mimes:mp3|max:15000',
             'tag'             => 'required',
             'track_images.*'  => 'file|mimes:jpeg,jpg,png,pdf|max:2048',
-            'track_thumbnail' => 'required|file|mimes:jpeg,jpg,png,gif|max:2048',
+            'track_thumbnail' => 'file|mimes:jpeg,jpg,png,gif|max:2048',
             'link.*'          =>  'required',
             'release_type'    => 'required',
             'description'     => 'required|string',

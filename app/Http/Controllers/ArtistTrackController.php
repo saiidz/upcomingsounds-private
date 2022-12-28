@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Artist\AddYourTrackRequest;
 use App\Http\Requests\Artist\StoreTrackRequest;
+use App\Http\Requests\Artist\UpdateTrackRequest;
 use App\Models\ArtistTrack;
 use App\Models\ArtistTrackImage;
 use App\Models\ArtistTrackLanguage;
@@ -258,23 +259,23 @@ class ArtistTrackController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,ArtistTrack $artist_track)
+    public function update(UpdateTrackRequest $request,ArtistTrack $artist_track)
     {
-        $validator = Validator::make($request->all(), [
-            'audio_cover'     => 'required',
-            'audio'           => ($request->demo == "on") ? 'file|mimes:mp3|max:15000' :'file|mimes:mp3|max:15000',
-            'tag'             => 'required',
-            'track_thumbnail' => 'file|mimes:jpeg,jpg,png,gif|max:2048',
-            'link.*'          =>  'required',
-            'release_type'    => 'required',
-            'description'     => 'required|string',
-            'name'            => 'required|string',
-        ]);
-
-        if ($validator->fails())
-        {
-            return response()->json(['errors' => $validator->errors()->all()]);
-        }
+//        $validator = Validator::make($request->all(), [
+//            'audio_cover'     => 'required',
+//            'audio'           => ($request->demo == "on") ? 'file|mimes:mp3|max:15000' :'file|mimes:mp3|max:15000',
+//            'tag'             => 'required',
+//            'track_thumbnail' => 'file|mimes:jpeg,jpg,png,gif|max:2048',
+//            'link.*'          =>  'required',
+//            'release_type'    => 'required',
+//            'description'     => 'required|string',
+//            'name'            => 'required|string',
+//        ]);
+//
+//        if ($validator->fails())
+//        {
+//            return response()->json(['errors' => $validator->errors()->all()]);
+//        }
 
         if(!empty($request->link))
         {

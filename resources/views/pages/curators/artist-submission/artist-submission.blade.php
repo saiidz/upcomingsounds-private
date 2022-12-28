@@ -49,9 +49,11 @@
                                                                style="background-image: url({{asset('images/b4.jpg')}});"></a>
                                                         @endif
 
-                                                        <div class="item-overlay center">
-                                                            <button class="btn-playpause">Play</button>
-                                                        </div>
+                                                        @if(!empty($campaign->artistTrack->audio))
+                                                            <div class="item-overlay center">
+                                                                <button  class="btn-playpause">Play</button>
+                                                            </div>
+                                                        @endif
                                                     </div>
                                                     <div class="item-info">
                                                         <div class="item-overlay bottom text-right"><a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a> <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
