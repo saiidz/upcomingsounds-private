@@ -1086,7 +1086,7 @@
                     if (data.success) {
                         $('#campaignAddRemove').empty();
                         $('#campaignAddRemove').html(data.campaign);
-                        document.getElementById("mySidebarCollapsed").style.width = "min-content";
+                        document.getElementById("mySidebarCollapsed").style.width = "auto";
                         document.getElementById("app-body").style.marginLeft = "490px";
                     }
                     if (data.error) {
@@ -1097,6 +1097,7 @@
         }
 
         function closeNav() {
+            alert('aa');
             document.getElementById("mySidebarCollapsed").style.width = "0";
             document.getElementById("app-body").style.marginLeft= "0";
         }
