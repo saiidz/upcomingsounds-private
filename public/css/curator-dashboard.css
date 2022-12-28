@@ -518,13 +518,13 @@
           top: 40px;
       }
       .mySidebarCollapsed{
-          width: 390px;
+          width: -webkit-fill-available;
       }
       .mySidebarCollapsedRemove{
           width: 0;
       }
       #camArtTraLink iframe {
-          width: 360px !important;
+          width: 340px !important;
       }
       .con__slide-bot {
           top: -135px;
