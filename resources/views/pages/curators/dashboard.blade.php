@@ -1086,8 +1086,9 @@
                     if (data.success) {
                         $('#campaignAddRemove').empty();
                         $('#campaignAddRemove').html(data.campaign);
-                        document.getElementById("mySidebarCollapsed").style.width = "min-content";
-                        document.getElementById("app-body").style.marginLeft = "min-content";
+                        $('#mySidebarCollapsed').addClass('mySidebarCollapsed');
+                        // document.getElementById("mySidebarCollapsed").style.width = "490px";
+                        document.getElementById("app-body").style.marginLeft = "490px";
                     }
                     if (data.error) {
                         toastr.error(data.error);

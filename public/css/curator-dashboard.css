@@ -465,6 +465,11 @@
       margin-top: 15px;
   }
 
+
+  .mySidebarCollapsed{
+      width: 490px;
+  }
+
   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
   @media screen and (max-height: 450px) {
       .sidebarCollapsed {padding-top: 15px;}
@@ -508,8 +513,8 @@
       .sidebarCollapsed .closebtn {
           top: 40px;
       }
-      #mySidebarCollapsed{
-          /*width: 390px;*/
+      .mySidebarCollapsed{
+          width: 390px;
       }
       #camArtTraLink iframe {
           width: 360px !important;
