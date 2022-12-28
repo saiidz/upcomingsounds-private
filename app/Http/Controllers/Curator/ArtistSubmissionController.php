@@ -36,12 +36,19 @@ class ArtistSubmissionController extends Controller
     }
 
     /**
-     * artistSubmission
+     * @return Application|Factory|View|never
      */
     public function artistSubmission()
     {
-        $campaigns = Campaign::latest()->get();
-        return view('pages.curators.artist-submission.artist-submission', get_defined_vars());
+        $user = Auth::user();
+        if(!empty($user) && $user->is_verified == 1)
+        {
+            $campaigns = Campaign::latest()->get();
+            return view('pages.curators.artist-submission.artist-submission', get_defined_vars());
+        }else{
+            return abort(403, "Restricted Access!");
+        }
+
     }
 
     /**
