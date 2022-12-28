@@ -509,7 +509,7 @@
           top: 40px;
       }
       #mySidebarCollapsed{
-          width: 390px !important;
+          /*width: 390px;*/
       }
       #camArtTraLink iframe {
           width: 360px !important;

@@ -1086,7 +1086,7 @@
                     if (data.success) {
                         $('#campaignAddRemove').empty();
                         $('#campaignAddRemove').html(data.campaign);
-                        document.getElementById("mySidebarCollapsed").style.width = "490px";
+                        document.getElementById("mySidebarCollapsed").style.width = "min-content";
                         document.getElementById("app-body").style.marginLeft = "490px";
                     }
                     if (data.error) {
