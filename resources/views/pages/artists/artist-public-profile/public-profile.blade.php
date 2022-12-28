@@ -5,6 +5,7 @@
 
 @section('page-style')
     <link rel="stylesheet" href="{{asset('css/custom/custom.css')}}" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{asset('css/gijgo.min.css')}}" type="text/css" />
 {{--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />--}}
@@ -162,8 +163,8 @@
                                     <a href="{{$user->artistUser->deezer_url}}" target="_blank"
                                        class="btn btn-icon btn-social rounded btn-social-colored"
                                        style="background-color:#eb9d00;" title="Deezer">
-                                        {{--                                                <span class="iconify" data-icon="fa-brands:deezer"></span>--}}
-                                        <i class="iconify" data-icon="fa-brands:deezer"></i>
+                                        <i class="fab fa-deezer"></i>
+                                        <i class="fab fa-deezer"></i>
                                     </a>
                                 @endif
                                 @if(!empty($user->artistUser->bandcamp_url))
@@ -178,7 +179,8 @@
                                     <a href="{{$user->artistUser->tiktok_url}}" target="_blank"
                                        class="btn btn-icon btn-social rounded btn-social-colored"
                                        style="background-color:#333;" title="Tiktok">
-                                        <i class="iconify" data-icon="fa-brands:tiktok"></i>
+                                        <i class="fab fa-tiktok"></i>
+                                        <i class="fab fa-tiktok"></i>
                                     </a>
                                 @endif
                             </div>

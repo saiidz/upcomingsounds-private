@@ -27,10 +27,10 @@ use App\Http\Controllers\Admin\BinshopsCommentWriterController;
 //});
 
 Route::get('/', function () {
-    $theme = Option::where('key', 'home_settings')->first();
-    if(!empty($theme))
+    $theme_home = Option::where('key', 'home_settings')->first();
+    if(!empty($theme_home))
     {
-        $theme = json_decode($theme->value);
+        $theme_home = json_decode($theme_home->value);
     }
     return view('welcome', get_defined_vars());
 });
