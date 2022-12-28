@@ -1098,8 +1098,8 @@
         }
 
         function closeNav() {
-            alert('aa');
-            document.getElementById("mySidebarCollapsed").style.width = "0";
+            $('#mySidebarCollapsed').addClass('mySidebarCollapsedRemove');
+            // document.getElementById("mySidebarCollapsed").style.width = "0";
             document.getElementById("app-body").style.marginLeft= "0";
         }
     </script>
