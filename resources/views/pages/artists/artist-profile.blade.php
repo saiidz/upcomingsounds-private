@@ -1039,44 +1039,44 @@
     </script>
     <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
 
-    <script>
-        // Change Artist password
-        $('#changePasswordArtist').on('submit', function(e){
-            e.preventDefault();
+{{--    <script>--}}
+{{--        // Change Artist password--}}
+{{--        $('#changePasswordArtist').on('submit', function(e){--}}
+{{--            e.preventDefault();--}}
 
-            $.ajax({
-                url:$(this).attr('action'),
-                method:$(this).attr('method'),
-                data:new FormData(this),
-                processData:false,
-                dataType:'json',
-                contentType:false,
-                beforeSend:function(){
-                    $(document).find('span.error-text').text('');
-                },
-                success:function(data){
-                    if(data.status == 0){
-                        $.each(data.error, function(prefix, val){
-                            $('span.'+prefix+'_error').text(val[0]);
-                        });
-                    }else{
-                        document.getElementById('change-password').style.display = 'none';
-                        $('#changePasswordArtist')[0].reset();
-                        $('#snackbar').html(data.msg);
-                        $('#snackbar').addClass("show");
-                        setTimeout(function () {
-                            $('#snackbar').removeClass("show");
+{{--            $.ajax({--}}
+{{--                url:$(this).attr('action'),--}}
+{{--                method:$(this).attr('method'),--}}
+{{--                data:new FormData(this),--}}
+{{--                processData:false,--}}
+{{--                dataType:'json',--}}
+{{--                contentType:false,--}}
+{{--                beforeSend:function(){--}}
+{{--                    $(document).find('span.error-text').text('');--}}
+{{--                },--}}
+{{--                success:function(data){--}}
+{{--                    if(data.status == 0){--}}
+{{--                        $.each(data.error, function(prefix, val){--}}
+{{--                            $('span.'+prefix+'_error').text(val[0]);--}}
+{{--                        });--}}
+{{--                    }else{--}}
+{{--                        document.getElementById('change-password').style.display = 'none';--}}
+{{--                        $('#changePasswordArtist')[0].reset();--}}
+{{--                        $('#snackbar').html(data.msg);--}}
+{{--                        $('#snackbar').addClass("show");--}}
+{{--                        setTimeout(function () {--}}
+{{--                            $('#snackbar').removeClass("show");--}}
 
-                        }, 5000);
-                        // alert(data.msg);
-                    }
-                }
-            });
-        });
-        document.getElementById('closeChangeArtistPassword').addEventListener('click', function (){
-            document.querySelector('#changePasswordArtist').reset();
-        });
-    </script>
+{{--                        }, 5000);--}}
+{{--                        // alert(data.msg);--}}
+{{--                    }--}}
+{{--                }--}}
+{{--            });--}}
+{{--        });--}}
+{{--        document.getElementById('closeChangeArtistPassword').addEventListener('click', function (){--}}
+{{--            document.querySelector('#changePasswordArtist').reset();--}}
+{{--        });--}}
+{{--    </script>--}}
 
     {{-- add track --}}
     <script>

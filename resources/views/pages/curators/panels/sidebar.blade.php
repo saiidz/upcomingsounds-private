@@ -269,7 +269,7 @@
 
                         <li>
                             <a href="javascript:void(0)" data-toggle="modal"
-                               data-target="#change-password">
+                               data-target="#change-password-curator">
                                 <span class="nav-icon">
                                     <i class="fa fa-lock"></i>
                                 </span>

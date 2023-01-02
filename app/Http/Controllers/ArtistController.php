@@ -160,7 +160,8 @@ class ArtistController extends Controller
     }
 
     /**
-     * User artist change password
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
     function artistChangePassword(Request $request){
 

@@ -1,12 +1,12 @@
 <!-- Change Password Modal -->
-<div id="change-password" class="modal black-overlay" data-backdrop="false">
+<div id="change-password-curator" class="modal black-overlay" data-backdrop="false">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Change Password</h5>
             </div>
             <div class="modal-body p-lg">
-                <form action="{{ url('/artist-change-password') }}" method="POST" id="changePasswordArtist">
+                <form action="{{ url('/curator-change-password') }}" method="POST" id="changePasswordCurator">
                     @csrf
                     <div class="form-group changePassword">
                         <input type="password" class="form-control" id="oldpassword" placeholder="Enter current password" name="oldpassword">
@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="form-group modal-footer">
-                        <button type="button" class="btn dark-white rounded update_track_not" id="closeChangeArtistPassword" data-dismiss="modal">Cancle</button>
+                        <button type="button" class="btn dark-white rounded update_track_not" id="closeChangeCuratorPassword" data-dismiss="modal">Cancle</button>
                         {{--                                <button type="button" class="btn danger p-x-md" data-dismiss="modal">Yes</button>--}}
                         <button type="submit" class="btn btn-sm rounded add_track">
                             Update Password</button>

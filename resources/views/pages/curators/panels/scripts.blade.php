@@ -329,7 +329,7 @@
             success: function (data) {
                 loader();
                 if (data.success) {
-                    
+
                 }
                 if (data.error) {
                     toastr.error(data.error);
@@ -337,4 +337,42 @@
             },
         });
     }
+</script>
+<script>
+    // Change Artist password
+    $('#changePasswordCurator').submit(function(e){
+        e.preventDefault();
+
+        $.ajax({
+            url:$(this).attr('action'),
+            method:$(this).attr('method'),
+            data:new FormData(this),
+            processData:false,
+            dataType:'json',
+            contentType:false,
+            beforeSend:function(){
+                $(document).find('span.error-text').text('');
+            },
+            success:function(data){
+                if(data.status == 0){
+                    $.each(data.error, function(prefix, val){
+                        $('span.'+prefix+'_error').text(val[0]);
+                    });
+                }else{
+                    document.getElementById('change-password-curator').style.display = 'none';
+                    $('#changePasswordCurator')[0].reset();
+                    $('#snackbar').html(data.msg);
+                    $('#snackbar').addClass("show");
+                    setTimeout(function () {
+                        $('#snackbar').removeClass("show");
+
+                    }, 5000);
+                    // alert(data.msg);
+                }
+            }
+        });
+    });
+    document.getElementById('closeChangeCuratorPassword').addEventListener('click', function (){
+        document.querySelector('#changePasswordCurator').reset();
+    });
 </script>
