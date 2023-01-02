@@ -59,6 +59,10 @@
         {
             window.location.href = '/dashboard';
         });
+        $('#curatorOffers').on('click', function ()
+        {
+            window.location.href = '/offers';
+        });
     </script>
 @yield('page-script')
 <script>

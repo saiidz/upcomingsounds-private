@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Curator\OfferController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AjaxController;
@@ -46,5 +47,15 @@ Route::get('/taste-maker/get-verified', [ArtistSubmissionController::class,'getV
 
 // curator verification form
 Route::post('store-verification-form', [CuratorVerificationFormController::class, 'storeVerificationForm'])->name('curator.verification.form');
+
+// offers routes
+Route::get('offers', [OfferController::class,'offers'])->name('curator.offers');
+Route::get('offer-pending', [OfferController::class,'pending'])->name('curator.pending');
+Route::get('offer-accepted', [OfferController::class,'accepted'])->name('curator.accepted');
+Route::get('offer-rejected', [OfferController::class,'rejected'])->name('curator.rejected');
+Route::get('offer-alternative', [OfferController::class,'alternative'])->name('curator.alternative');
+Route::get('offer-artists-submissions', [OfferController::class,'artistsSubmissions'])->name('curator.artists.submissions');
+Route::get('offer-completed', [OfferController::class,'completed'])->name('curator.completed');
+// offers routes
 
 /***************************************************** Curator Routes *********************************************************/

@@ -67,8 +67,8 @@
                             </a>
                         </li>
                     @endif
-{{--                    {{dd(Request::is('artist-submission'))}}--}}
-                    @if(Request::is('artist-submission') != 'artist-submission')
+
+                    @if(Request::is('artist-submission') != 'artist-submission' && Request::is('offers') != 'offers')
                         <li>
                             @if (Auth::check() && auth()->user())
                                 @if (auth()->user()->is_verified == 1)
@@ -134,7 +134,7 @@
                         <li>
                             @if (Auth::check() && auth()->user())
                                 @if (auth()->user()->is_verified == 1)
-                                    <a href="javascript:void(0)">
+                                    <a href="{{route('curator.offers')}}" id="curatorOffers">
                                         <span class="nav-icon">
                                             <i class="fa fa-suitcase"></i>
                                         </span>
@@ -295,6 +295,79 @@
                             </a>
                         </li>
                     @endif
+
+                    {{-- Offers Pages --}}
+                    @if(Request::is('offers') == 'offers')
+                        <li>
+                            @if (Auth::check() && auth()->user())
+                                @if (auth()->user()->is_verified == 1)
+                                    <a href="{{route('curator.offers')}}" id="curatorOffers">
+                                        <span class="nav-icon">
+                                            <i class="fa fa-suitcase"></i>
+                                        </span>
+                                        <span class="nav-text">Offers</span>
+                                    </a>
+                                @else
+                                    <a href="javascript:void(0)" id="showGetVerified">
+                                        <span class="nav-icon">
+                                            <i class="fa fa-suitcase"></i>
+                                        </span>
+                                        <span class="nav-text">Offers</span>
+                                    </a>
+                                @endif
+                            @endif
+
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('curator.pending') }}">
+                                    <span class="nav-icon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </span>
+                                <span class="nav-text">Pending</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('curator.accepted') }}">
+                                    <span class="nav-icon">
+                                        <i class="fa fa-thumbs-o-up"></i>
+                                    </span>
+                                <span class="nav-text">Accepted</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('curator.rejected') }}">
+                                    <span class="nav-icon">
+                                        <i class="fa fa-thumbs-o-down"></i>
+                                    </span>
+                                <span class="nav-text">Rejected</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('curator.alternative') }}">
+                                    <span class="nav-icon">
+                                        <i class="fa fa-code-fork"></i>
+                                    </span>
+                                <span class="nav-text">Alternative</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('curator.artists.submissions') }}">
+                                    <span class="nav-icon">
+                                        <i class="fa fa-plus"></i>
+                                    </span>
+                                <span class="nav-text">Artists Submissions</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('curator.completed') }}">
+                                    <span class="nav-icon">
+                                        <i class="fa fa-check-circle-o"></i>
+                                    </span>
+                                <span class="nav-text">Completed</span>
+                            </a>
+                        </li>
+                    @endif
+                    {{-- Offers Pages --}}
 
                 </ul>
             </nav>
