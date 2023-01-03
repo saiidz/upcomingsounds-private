@@ -13,6 +13,9 @@
 @endsection
 
 @section('content')
+    <div id="campaignAddRemove">
+        @include('pages.curators.collapsed_sidebar')
+    </div>
     <!-- ############ PAGE START-->
         <div class="page-content">
             <div class="row-col">
@@ -24,9 +27,6 @@
                                 <button class="btn btn-sm no-bg h4 m-y-0 v-b dropdown-toggle text-primary" data-toggle="dropdown">All</button>
                                 <div class="dropdown-menu"><a href="#" class="dropdown-item active">All</a> <a href="#" class="dropdown-item">acoustic</a> <a href="#" class="dropdown-item">ambient</a> <a href="#" class="dropdown-item">blues</a> <a href="#" class="dropdown-item">classical</a> <a href="#" class="dropdown-item">country</a> <a href="#" class="dropdown-item">electronic</a> <a href="#" class="dropdown-item">emo</a> <a href="#" class="dropdown-item">folk</a> <a href="#" class="dropdown-item">hardcore</a> <a href="#" class="dropdown-item">hip hop</a> <a href="#" class="dropdown-item">indie</a> <a href="#" class="dropdown-item">jazz</a> <a href="#" class="dropdown-item">latin</a> <a href="#" class="dropdown-item">metal</a> <a href="#" class="dropdown-item">pop</a> <a href="#" class="dropdown-item">pop punk</a> <a href="#" class="dropdown-item">punk</a> <a href="#" class="dropdown-item">reggae</a> <a href="#" class="dropdown-item">rnb</a> <a href="#" class="dropdown-item">rock</a> <a href="#" class="dropdown-item">soul</a> <a href="#" class="dropdown-item">world</a></div>
                             </div>
-                        </div>
-                        <div id="campaignAddRemove">
-                            @include('pages.curators.collapsed_sidebar')
                         </div>
                         <div data-ui-jp="jscroll" class="jscroll-loading-center" data-ui-options="{
                     autoTrigger: true,
@@ -121,7 +121,8 @@
                     if (data.success) {
                         $('#campaignAddRemove').empty();
                         $('#campaignAddRemove').html(data.campaign);
-                        document.getElementById("mySidebarCollapsed").style.width = "490px";
+                        $('#mySidebarCollapsed').addClass('mySidebarCollapsed');
+                        // document.getElementById("mySidebarCollapsed").style.width = "490px";
                         document.getElementById("app-body").style.marginLeft = "490px";
                     }
                     if (data.error) {
@@ -132,7 +133,8 @@
         }
 
         function closeNav() {
-            document.getElementById("mySidebarCollapsed").style.width = "0";
+            $('#mySidebarCollapsed').addClass('mySidebarCollapsedRemove');
+            // document.getElementById("mySidebarCollapsed").style.width = "0";
             document.getElementById("app-body").style.marginLeft= "0";
         }
     </script>
