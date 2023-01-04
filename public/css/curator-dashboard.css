@@ -473,7 +473,7 @@
       width: 0;
   }
   #curatorBanner{
-      background-size: 100%;
+      background-size: 100% !important;
   }
 
   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
