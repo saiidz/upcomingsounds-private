@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\Artist\CampaignController;
+use App\Http\Controllers\Artist\OfferController;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\ArtistTrackController;
 use App\Http\Controllers\ArtistWalletController;
@@ -64,4 +65,16 @@ Route::get('get-cites-artist/{id}', [AjaxController::class,'getCities']);
 // public profile artist
 Route::post('artist/change-public-profile',[ArtistController::class,'artistChangeStatusProfile'])->name('artist.change.public.profile');
 //Route::get('artist/public/{user:name}',[ArtistController::class,'artistPublicProfile'])->name('artist.public.profile');
+
+// offers routes
+Route::get('artist-offers', [OfferController::class,'offers'])->name('artist.offers');
+Route::get('pending-offer', [OfferController::class,'pending'])->name('artist.pending');
+Route::get('accepted-offer', [OfferController::class,'accepted'])->name('artist.accepted');
+Route::get('rejected-offer', [OfferController::class,'rejected'])->name('artist.rejected');
+Route::get('alternative-offer', [OfferController::class,'alternative'])->name('artist.alternative');
+Route::get('artists-submissions-offer', [OfferController::class,'artistsSubmissions'])->name('artist.artists.submissions');
+Route::get('completed-offer', [OfferController::class,'completed'])->name('artist.completed');
+Route::get('new-offer', [OfferController::class,'new'])->name('artist.new');
+Route::get('proposition-offer', [OfferController::class,'proposition'])->name('artist.proposition');
+// offers routes
 /***************************************************** Artist Routes *********************************************************/

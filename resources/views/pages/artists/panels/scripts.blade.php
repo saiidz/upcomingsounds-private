@@ -179,6 +179,10 @@
             '_self' // <- This is what makes it open in a new window.
         );
     });
+    $('#artistOffers').on('click', function ()
+    {
+        window.location.href = '/artist-offers';
+    });
 </script>
 <script>
     // Change Artist password

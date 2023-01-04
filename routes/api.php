@@ -21,11 +21,11 @@ Route::get('get-cites/{id}', [AjaxController::class,'getCities']);
 Route::group(['middleware' => ['try_catch']], function() {
 
     /***************************************************** Front *********************************************************/
-    Route::group(['middleware' => ['auth:api', 'check_if_blocked']], function() {
-         Route::prefix('')->group(base_path('routes/client/auth.php'));
-    });
+//    Route::group(['middleware' => ['auth:api', 'check_if_blocked']], function() {
+//         Route::prefix('')->group(base_path('routes/client/auth.php'));
+//    });
 
-     Route::prefix('')->group(base_path('routes/client/no_auth.php'));
+//     Route::prefix('')->group(base_path('routes/client/no_auth.php'));
 });
 
 Route::any('{url?}/{sub_url?}', [Helper::class, 'fallback']);
