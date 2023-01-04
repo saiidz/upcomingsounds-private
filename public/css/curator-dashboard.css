@@ -509,7 +509,7 @@
           right: 3px;
       }
       #curatorBanner{
-          background-size: cover;
+          background-size: cover !important;;
       }
       .con__slide-bot-text {
           right: -390px;
@@ -575,7 +575,7 @@
           right: 12%;
       }
       #curatorBanner{
-          background-size: cover;
+          background-size: cover !important;;
       }
       .con__slide--1-content {
           right: -57px;
