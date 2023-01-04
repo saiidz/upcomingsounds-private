@@ -65,4 +65,12 @@ class OfferController extends Controller
     {
         return view('pages.curators.curator-offers.completed', get_defined_vars());
     }
+
+    /**
+     * @return Application|Factory|View
+     */
+    public function proposition()
+    {
+        return view('pages.curators.curator-offers.proposition', get_defined_vars());
+    }
 }

@@ -359,6 +359,14 @@
                             </a>
                         </li>
                         <li>
+                            <a class="dropdown-item" href="{{ route('curator.proposition') }}">
+                                    <span class="nav-icon">
+                                        <i class="fa fa-edit"></i>
+                                    </span>
+                                <span class="nav-text">Proposition</span>
+                            </a>
+                        </li>
+                        <li>
                             <a class="dropdown-item" href="{{ route('curator.completed') }}">
                                     <span class="nav-icon">
                                         <i class="fa fa-check-circle-o"></i>

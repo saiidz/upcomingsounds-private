@@ -56,6 +56,7 @@ Route::get('offer-rejected', [OfferController::class,'rejected'])->name('curator
 Route::get('offer-alternative', [OfferController::class,'alternative'])->name('curator.alternative');
 Route::get('offer-artists-submissions', [OfferController::class,'artistsSubmissions'])->name('curator.artists.submissions');
 Route::get('offer-completed', [OfferController::class,'completed'])->name('curator.completed');
+Route::get('offer-proposition', [OfferController::class,'proposition'])->name('curator.proposition');
 // offers routes
 
 /***************************************************** Curator Routes *********************************************************/
