@@ -207,7 +207,7 @@
                        </a>
                     </li>
                     <li>
-                       <a href="{{ url('/wallet') }}">
+                       <a href="javascript:void(0)" class="reloadWallet">
                        <span class="nav-icon">
                        <i class="fa fa-plus-square"></i>
                        </span>
