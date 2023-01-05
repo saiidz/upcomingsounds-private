@@ -581,7 +581,7 @@
           background-size: cover !important;;
       }
       .con__slide--1-content {
-          right: --70px;
+          right: -70px;
       }
       .con__slide--right-content-image {
           width: 33%;
