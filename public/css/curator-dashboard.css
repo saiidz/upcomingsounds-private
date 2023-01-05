@@ -61,8 +61,10 @@
   }
   .con__slide-bot-text {
     position: absolute;
-    right: -440px;
-    top: 430px;
+      right: -374px;
+      top: 410px;
+    /*right: -440px;*/
+    /*top: 430px;*/
     transform: rotate(45deg);
     transition: transform 1000ms;
   }
@@ -579,10 +581,10 @@
           background-size: cover !important;;
       }
       .con__slide--1-content {
-          right: -57px;
+          right: --70px;
       }
       .con__slide--right-content-image {
-          width: 40%;
+          width: 33%;
           margin: 0 auto;
           display: block;
       }
