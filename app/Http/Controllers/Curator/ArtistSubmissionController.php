@@ -25,8 +25,9 @@ class ArtistSubmissionController extends Controller
         $standard_campaigns = Campaign::where('package_name', IPackages::STANDARD_NAME)->latest()->get();
         $advance_campaigns = Campaign::where('package_name', IPackages::ADVANCED_FEATURED_NAME)->latest()->get();
         $pro_campaigns = Campaign::where('package_name', IPackages::PRO_NAME)->take(4)->latest()->get();
-        $premium_campaigns = Campaign::where('package_name', IPackages::PREMIUM_NAME)->latest()->get();
-        $pro_premium_campaigns = Campaign::where('package_name', IPackages::PRO_NAME)->orWhere('package_name', IPackages::PREMIUM_NAME)->latest()->get();
+        $premium_campaigns = Campaign::where('package_name', IPackages::PREMIUM_NAME)->whereNotNull('track_id')->latest()->get();
+        $pro_premium_campaigns = Campaign::where('package_name', IPackages::PRO_NAME)->orWhere('package_name', IPackages::PREMIUM_NAME)
+                                            ->whereNotNull('track_id')->latest()->get();
         $theme = Option::where('key', 'curators_settings')->first();
         if(!empty($theme))
         {
