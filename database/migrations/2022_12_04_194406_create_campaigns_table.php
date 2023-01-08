@@ -16,12 +16,18 @@ class CreateCampaignsTable extends Migration
         Schema::create('campaigns', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('track_id')->constrained('artist_tracks')->onDelete('cascade');
+            $table->foreignId('track_id')->nullable()->constrained('artist_tracks')->onDelete('cascade');
             $table->string('package_name')->nullable();
             $table->string('usc_credit')->nullable();
             $table->string('pay_now')->nullable();
             $table->string('establish_receive_media')->nullable();
             $table->boolean('status')->default(false);
+            $table->integer('add_days')->nullable();
+            $table->boolean('add_remove_banner')->default(false);
+            $table->string('track_name')->nullable();
+            $table->longText('track_description')->nullable();
+            $table->longText('artist_name')->nullable();
+            $table->longText('artist_thumbnail')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

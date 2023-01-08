@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Language;
 use App\Models\ArtistTrack;
 use App\Templates\IMessageTemplates;
+use App\Templates\IPackages;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -83,6 +84,12 @@ class PromoteYourTrackController extends Controller
         $input = $request->all();
         // create campaign
         $input['user_id'] = Auth::id();
+        if ($request->package_name == IPackages::PREMIUM_NAME)
+        {
+            $input['add_days'] = IPackages::ADD_DAYS;
+            $input['add_remove_banner'] = IPackages::ADD_BANNER;
+        }
+
         Campaign::create($input);
         return response()->json(['success' => 'Campaign created successfully.']);
     }

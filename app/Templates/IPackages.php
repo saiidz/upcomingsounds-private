@@ -18,4 +18,8 @@ abstract class IPackages
     const ADVANCED_FEATURED_NAME = 'advanced';
     const PRO_NAME               = 'pro';
     const PREMIUM_NAME           = 'premium';
+
+    const ADD_DAYS               = 7;
+    const ADD_BANNER             = 1;
+    const REMOVE_BANNER          = 0;
 }

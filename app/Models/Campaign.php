@@ -20,6 +20,12 @@ class Campaign extends Model
         'pay_now',
         'establish_receive_media',
         'status',
+        'add_days',
+        'add_remove_banner',
+        'track_name',
+        'track_description',
+        'artist_name',
+        'artist_thumbnail',
         'deleted_at',
     ];
 

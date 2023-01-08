@@ -53,6 +53,7 @@
 
         {{-- artist tracks --}}
         <li class="bold {{ Request::is('admin/track-approved') || Request::is('admin/track-pending')
+            || Request::is('admin/active-campaign')
             || Request::is('admin/track-details*')? 'active open' : '' }}">
             <a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)">
                 <i class="material-icons">face</i>
@@ -70,6 +71,12 @@
                         <a class="{{ Request::is('admin/track-pending') ? 'active' : '' }}" href="{{ route('admin.pending.track') }}">
                             <i class="material-icons">radio_button_unchecked</i>
                             <span data-i18n="List">Pending</span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('admin/active-campaign') ? 'active' : '' }}">
+                        <a class="{{ Request::is('admin/active-campaign') ? 'active' : '' }}" href="{{ route('admin.artist.campaign-active') }}">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            <span data-i18n="List">Active Campaign</span>
                         </a>
                     </li>
                 </ul>

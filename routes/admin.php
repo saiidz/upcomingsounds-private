@@ -81,7 +81,11 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
     Route::get('frontend/settings/curators', [FrontendController::class,'curatorsSection'])->name('curators.settings');
     Route::post('theme/settings-curators', [FrontendController::class,'curatorsSettingUpdate'])->name('curators.store');
 
-
+    // active campaign artist
+    Route::get('active-campaign', [ArtistController::class,'activeCampaign'])->name('artist.campaign-active');
+    Route::post('add-days/{campaign}',[ArtistController::class,'addDays'])->name('add-days');
+    Route::post('banner-add/{campaign}',[ArtistController::class,'bannerAdd'])->name('banner-add');
+    Route::post('banner-remove/{campaign}',[ArtistController::class,'bannerRemove'])->name('banner-remove');
 //
 //    // Bidders route
 //    Route::resource('bidders',  BidderController::class);
