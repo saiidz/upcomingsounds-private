@@ -46,6 +46,7 @@ class AddYourTrackRequest extends FormRequest
     public function messages(): array
     {
         return [
+            'audio.required' => 'Demo is on please upload mp3 music. it is required',
             'audio_cover.required' => 'Indicate whether the release is original,cover, or remix',
             'tag.required' => 'The tag field is required. please add your interests and the genres ---> You will need to specify your interests and genres in order to proceed',
         ];

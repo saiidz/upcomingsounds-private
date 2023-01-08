@@ -178,7 +178,7 @@ class ArtistTrackController extends Controller
             }
         }
 
-        return response()->json(['success' => 'Song Track created successfully.']);
+        return response()->json(['success' => 'Song Track created successfully. Please wait for approval from admin side.']);
 //        return redirect()->back()->with('success', 'Song Track created successfully.');
     }
 
