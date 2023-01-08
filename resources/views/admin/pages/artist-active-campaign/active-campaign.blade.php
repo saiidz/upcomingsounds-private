@@ -96,7 +96,7 @@
                                                                     <form action="{{route('admin.add-days',$activeCampaign->id)}}" method="POST" class="basicform_with_reload">
                                                                         @csrf
                                                                         <input type="number" min="1" name="add_days" value="{{!empty($activeCampaign->add_days) ? $activeCampaign->add_days : \App\Templates\IPackages::ADD_DAYS}}" style="width:70%">
-                                                                        <button type="submit" class="btn-floating mb-1 btn-sm waves-effect waves-light mr-1 basicbtn">
+                                                                        <button type="submit" class="btn-floating mb-1 btn-sm waves-effect waves-light mr-1">
                                                                             <i class="material-icons">add</i>
                                                                         </button>
                                                                     </form>
