@@ -12,6 +12,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\ArtistTrack;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
@@ -271,7 +272,7 @@ class ArtistController extends Controller
      */
     public function activeCampaign()
     {
-        $activeCampaigns = Campaign::latest()->get();
+        $activeCampaigns = Campaign::where('user_id', '!=' ,Auth::id())->latest()->get();
         return view('admin.pages.artist-active-campaign.active-campaign', get_defined_vars());
     }
 

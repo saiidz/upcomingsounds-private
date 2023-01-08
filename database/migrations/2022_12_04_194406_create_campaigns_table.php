@@ -27,7 +27,7 @@ class CreateCampaignsTable extends Migration
             $table->string('track_name')->nullable();
             $table->longText('track_description')->nullable();
             $table->longText('artist_name')->nullable();
-            $table->longText('artist_thumbnail')->nullable();
+            $table->longText('track_thumbnail')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

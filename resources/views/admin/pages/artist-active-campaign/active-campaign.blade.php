@@ -31,6 +31,11 @@
 							<li class="breadcrumb-item active">Active Campaign </li>
 						</ol>
 					</div>
+                    <div class="col s2 m6 l6">
+                        <a class="btn dropdown-settings waves-effect waves-light breadcrumbs-btn right" href="{{ route('admin.banners.create') }}" data-target="dropdown1">
+                            <span class="hide-on-small-onl">Add New Banner</span>
+                        </a>
+                    </div>
 				</div>
 			</div>
 		</div>
@@ -56,7 +61,7 @@
                                                     <th>Created At</th>
                                                     <th>Status</th>
                                                     <th>Add Days</th>
-                                                    <th>View</th>
+                                                    <th>Action</th>
                                                   </tr>
                                                 </thead>
                                                 <tbody>
@@ -129,6 +134,19 @@
                                                         @endforeach
                                                     @endif
 												</tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>Artist Name</th>
+                                                        <th>Artist Track</th>
+                                                        <th>Campaign Name</th>
+                                                        <th>USC Credit</th>
+                                                        <th>Created At</th>
+                                                        <th>Status</th>
+                                                        <th>Add Days</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </tfoot>
                                             </table>
 										</div>
 									</div>

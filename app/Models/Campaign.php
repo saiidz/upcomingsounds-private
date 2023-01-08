@@ -25,7 +25,7 @@ class Campaign extends Model
         'track_name',
         'track_description',
         'artist_name',
-        'artist_thumbnail',
+        'track_thumbnail',
         'deleted_at',
     ];
 
