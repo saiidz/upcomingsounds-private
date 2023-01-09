@@ -44,6 +44,7 @@ class BannerController extends Controller
             'track_name'        => 'required',
             'audio'             => 'file|mimes:mp3|max:15000',
             'track_thumbnail'   => 'required|mimes:jpeg,jpg,png',
+            'artist_name'       => 'required',
         ]);
 
         if ($validator->fails())
@@ -117,6 +118,7 @@ class BannerController extends Controller
             'track_name'        => 'required',
             'audio'             => 'file|mimes:mp3|max:15000',
             'track_thumbnail'   => 'mimes:jpeg,jpg,png',
+            'artist_name'       => 'required',
         ]);
 
         if ($validator->fails())

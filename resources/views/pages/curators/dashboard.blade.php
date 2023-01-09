@@ -5,6 +5,7 @@
 
 @section('page-style')
     <link rel="stylesheet" href="{{ asset('css/curator-dashboard.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css">
     <style>
         #loadings {
             background: rgba(255, 255, 255, .4) url({{asset('images/loader.gif')}}) no-repeat center center !important;
@@ -19,14 +20,111 @@
     </div>
     <div class="page-content">
         <div class="padding p-b-0">
-            <div class="con m-b" id="curatorBanner" style="background: url({{asset(!empty($theme->curator_banner_img) ? $theme->curator_banner_img : 'images/banner_cd.png')}}) center center no-repeat;">
+            <div class="con m-b" id="curatorBanner" style="background-color: #000000">
+{{--            <div class="con m-b" id="curatorBanner" style="background: url({{asset(!empty($theme->curator_banner_img) ? $theme->curator_banner_img : 'images/banner_cd.png')}}) center center no-repeat;">--}}
+                <header>
+                    <h1>SITE TITLE</h1>
+                </header>
+                <section class="main-slider">
+                    @if(count($premium_campaigns) > 0)
+                        @foreach($premium_campaigns as $key => $premium_campaign)
+                            @php
+                                $days = \Illuminate\Support\Carbon::parse($premium_campaign->created_at)->addDays($premium_campaign->add_days);
+                                $date = \Illuminate\Support\Carbon::today();
+                            @endphp
+                            @if($date >= $days)
+                            @else
+                                <div class="item image">
+                                    <span class="loading">Loading...</span>
+                                    <div class="outer-left">
+                                        <h1 class="headline animated fadeInLeft">
+                                            {{ !empty($premium_campaign->artistTrack) ? $premium_campaign->artistTrack->name : (!empty($premium_campaign->track_name) ? $premium_campaign->track_name : '') }}<br />
+                                        </h1>
+                                        <h3 class="title animated bounceInLeft" @if($premium_campaign->artistTrack) onclick="openNav({{$premium_campaign->id}})" style="cursor:pointer" @endif>
+                                            {{ !empty($premium_campaign->artistTrack) ? $premium_campaign->artistTrack->user->name : (!empty($premium_campaign->artist_name) ? $premium_campaign->artist_name : '') }}
+                                        </h3>
+                                        <p class="description animated fadeInDown delay-06s">
+                                            {{ !empty($premium_campaign->artistTrack) ? \Illuminate\Support\Str::limit($premium_campaign->artistTrack->description, 400, $end='...') : (!empty($premium_campaign->track_description) ? $premium_campaign->track_description : '') }}
+                                        </p>
+                                        @if(!empty($premium_campaign->artistTrack) && !empty($premium_campaign->artistTrack->audio))
+                                            <div class="item r" data-id="item-{{$premium_campaign->artistTrack->id}}" data-src="{{URL('/')}}/uploads/audio/{{$premium_campaign->artistTrack->audio}}">
+                                                <div class="item-media">
+                                                    <div class="item-media-content" id="itemMediaContent"></div>
+                                                    <div class="">
+                                                        <button class="btn-playpause">Play</button>
+                                                    </div>
+                                                </div>
+                                                <div class="item-info" style="display:none;">
+                                                    <div class="item-title text-ellipsis">
+                                                        <a href="javascript:void(0)">
+                                                            {{ !empty($premium_campaign->artistTrack) ? $premium_campaign->artistTrack->user->name : (!empty($premium_campaign->artist_name) ? $premium_campaign->artist_name : '') }}
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @elseif(empty($premium_campaign->artistTrack) && !empty($premium_campaign->audio))
+                                            <div class="item r" data-id="item-{{$premium_campaign->id}}" data-src="{{URL('/')}}/uploads/audio/{{$premium_campaign->audio}}">
+                                                <div class="item-media">
+                                                    <div class="item-media-content" id="itemMediaContent"></div>
+                                                    <div class="">
+                                                        <button  class="btn-playpause">Play</button>
+                                                    </div>
+                                                </div>
+                                                <div class="item-info" style="display:none;">
+                                                    <div class="item-title text-ellipsis">
+                                                        <a href="javascript:void(0)">
+                                                            {{ !empty($premium_campaign->artistTrack) ? $premium_campaign->artistTrack->user->name : (!empty($premium_campaign->artist_name) ? $premium_campaign->artist_name : '') }}
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @else
+                                        @endif
+
+                                    </div>
+                                    <div class="outer-right">
+                                        <div class="border_image">
+                                            <img class="border" src="{{asset('images/border.png')}}" alt="" />
+                                            @if(!empty($premium_campaign->artistTrack) && !empty($premium_campaign->artistTrack->track_thumbnail))
+                                                <div class="trackThumbnail">
+                                                    <img class="thumbnail" src="{{asset('uploads/track_thumbnail')}}/{{$premium_campaign->artistTrack->track_thumbnail}}" alt="" />
+                                                </div>
+                                            @elseif(empty($premium_campaign->artistTrack) && !empty($premium_campaign->track_thumbnail))
+                                                <div class="trackThumbnail">
+                                                    <img class="thumbnail" src="{{asset('uploads/track_thumbnail')}}/{{$premium_campaign->track_thumbnail}}" alt="" />
+                                                </div>
+                                            @else
+                                                <div class="trackThumbnail">
+                                                    <img class="thumbnail" src="{{asset('images/banner_cd.png')}}" alt="" />
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <figure>
+                                        <div class="slide-image slide-media" style="background-image:url({{asset(!empty($theme->curator_banner_img) ? $theme->curator_banner_img : 'images/banner_cd.png')}});">
+                                            <img data-lazy="{{asset(!empty($theme->curator_banner_img) ? $theme->curator_banner_img : 'images/banner_cd.png')}}" class="image-entity" />
+                                        </div>
+                                    </figure>
+                                </div>
+                            @endif
+                        @endforeach
+                    @else
+                        <div class="item-title text-ellipsis">
+                            <h3 class="white" style="text-align:center;font-size: 15px;">Not Campaign Found</h3>
+                        </div>
+                    @endif
+                </section>
+            </div>
+
+
+{{--            <div class="con m-b" id="curatorBanner" style="background: url({{asset(!empty($theme->curator_banner_img) ? $theme->curator_banner_img : 'images/banner_cd.png')}}) center center no-repeat;">--}}
 {{--                <div class="con__slide  con__slide--1">--}}
 {{--                  <div class="con__slide-top con__slide--1-top active-slide-left-top">--}}
 {{--                    <div class='con__slide-top-inner con__slide--1-top-inner'>--}}
 {{--                      <div class='con__slide-top-inner-text con__slide--1-top-inner-text active-slide1-top-text'>--}}
 {{--                        <h1 class='con__slide-h con__slide--1-top-h'>some nice slider<br> here wow</h1>--}}
 {{--                      </div>--}}
-{{--                      --}}{{-- <div class='con__slide-top-inner-text con__slide--1-top-inner-text active-slide1-top-text'>--}}
+{{--                      --}}{{----}}{{-- <div class='con__slide-top-inner-text con__slide--1-top-inner-text active-slide1-top-text'>--}}
 {{--                        <p class="text-white">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque in ipsam nulla vero, animi pariatur unde facere optio officia cupiditate nihil rerum et a, fugiat excepturi modi qui ratione nesciunt.</p>--}}
 {{--                      </div> --}}
 {{--                    </div>--}}
@@ -90,63 +188,63 @@
 {{--                  </div>--}}
 {{--                  <!--     slide--4 content end -->--}}
 {{--                </div>--}}
-                <!-- slide--4 end -->
+{{--                <!-- slide--4 end -->--}}
 
-                @if(count($premium_campaigns) > 0)
-                    @foreach($premium_campaigns as $key => $premium_campaign)
-                        @php
-                            $key++
-                        @endphp
-                        <div class="con__slide con__slide--{{$key}}">
-                            <div class="con__slide-top  con__slide--{{$key}}-top active-slide-left-top">
+{{--                @if(count($premium_campaigns) > 0)--}}
+{{--                    @foreach($premium_campaigns as $key => $premium_campaign)--}}
+{{--                        @php--}}
+{{--                            $key++--}}
+{{--                        @endphp--}}
+{{--                        <div class="con__slide con__slide--{{$key}}">--}}
+{{--                            <div class="con__slide-top  con__slide--{{$key}}-top active-slide-left-top">--}}
 {{--                                <div class='con__slide-top-inner con__slide--3-top-inner'>--}}
 {{--                                    <div class='con__slide-top-inner-text con__slide--3-top-inner-text active-slide3-top-text'>--}}
 {{--                                        <h1 class='con__slide-h con__slide--3-top-h'>half collored<br> text so nice</h1>--}}
 {{--                                    </div>--}}
 {{--                                </div>--}}
-                            </div>
-                            <!--    slide--3 top end -->
-                            <div class="con__slide-bot  con__slide--1-bot active-slide-left-bot">
-                                <div class='con__slide-bot-text con__slide--{{$key}}-bot-text active-slide1-bot-text'>
-                                    <h1 class='con__slide-h  con__slide--1-bot-h'>{{$premium_campaign->artistTrack->name}}<br>
-                                        <a href="javascript:void(0)" onclick="openNav({{$premium_campaign->id}})">{{$premium_campaign->artistTrack->user->name}}</a>
-                                    </h1>
-                                    <p class="text-white">{{ \Illuminate\Support\Str::limit($premium_campaign->artistTrack->description, 50, $end='...') }}</p>
-                                </div>
+{{--                            </div>--}}
+{{--                            <!--    slide--3 top end -->--}}
+{{--                            <div class="con__slide-bot  con__slide--1-bot active-slide-left-bot">--}}
+{{--                                <div class='con__slide-bot-text con__slide--{{$key}}-bot-text active-slide1-bot-text'>--}}
+{{--                                    <h1 class='con__slide-h  con__slide--1-bot-h'>{{$premium_campaign->artistTrack->name}}<br>--}}
+{{--                                        <a href="javascript:void(0)" onclick="openNav({{$premium_campaign->id}})">{{$premium_campaign->artistTrack->user->name}}</a>--}}
+{{--                                    </h1>--}}
+{{--                                    <p class="text-white">{{ \Illuminate\Support\Str::limit($premium_campaign->artistTrack->description, 50, $end='...') }}</p>--}}
+{{--                                </div>--}}
 
-                            </div>
-                            <!--    slide--3 bot end -->
-                            <div class="con__slide-content con__slide--border-content active-slide-left-content">
-                                <img class='con__slide--right-content-image-border con__slide--1-content-image' src="{{asset('images/border.png')}}" alt="" />
-                                <div class="con__slide-content con__slide--1-content active-slide-left-content">
-                                    <img class='con__slide--right-content-image con__slide--1-content-image' src="{{asset('uploads/track_thumbnail')}}/{{$premium_campaign->artistTrack->track_thumbnail}}" alt="" />
-                                </div>
-                            </div>
-                            <!--     slide--3 content end -->
-                        </div>
-                        <!-- slide--3 end -->
-                    @endforeach
-                @else
-                    <div class="item-title text-ellipsis">
-                        <h3 class="white" style="text-align:center;font-size: 15px;">Not Campaign Found</h3>
-                    </div>
-                @endif
+{{--                            </div>--}}
+{{--                            <!--    slide--3 bot end -->--}}
+{{--                            <div class="con__slide-content con__slide--border-content active-slide-left-content">--}}
+{{--                                <img class='con__slide--right-content-image-border con__slide--1-content-image' src="{{asset('images/border.png')}}" alt="" />--}}
+{{--                                <div class="con__slide-content con__slide--1-content active-slide-left-content">--}}
+{{--                                    <img class='con__slide--right-content-image con__slide--1-content-image' src="{{asset('uploads/track_thumbnail')}}/{{$premium_campaign->artistTrack->track_thumbnail}}" alt="" />--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <!--     slide--3 content end -->--}}
+{{--                        </div>--}}
+{{--                        <!-- slide--3 end -->--}}
+{{--                    @endforeach--}}
+{{--                @else--}}
+{{--                    <div class="item-title text-ellipsis">--}}
+{{--                        <h3 class="white" style="text-align:center;font-size: 15px;">Not Campaign Found</h3>--}}
+{{--                    </div>--}}
+{{--                @endif--}}
 
-                <div class="con__nav">
-                    <div data-target='up' class=' con__nav-scroll--goup'></div>
-                    <div data-target='down' class=' con__nav-scroll--godown'></div>
-                    <ul class='con__nav-list'>
-                        @if(count($premium_campaigns) > 0)
-                            @foreach($premium_campaigns as $key => $premium_campaign)
-                                @php
-                                    $key++
-                                @endphp
-                                <li data-target="{{$key}}" class='con__nav-item con__nav-item--{{$key}} {{($key == 1) ? 'nav-active' : ''}}'></li>
-                            @endforeach
-                        @else
-                        @endif
-                    </ul>
-                </div>
+{{--                <div class="con__nav">--}}
+{{--                    <div data-target='up' class=' con__nav-scroll--goup'></div>--}}
+{{--                    <div data-target='down' class=' con__nav-scroll--godown'></div>--}}
+{{--                    <ul class='con__nav-list'>--}}
+{{--                        @if(count($premium_campaigns) > 0)--}}
+{{--                            @foreach($premium_campaigns as $key => $premium_campaign)--}}
+{{--                                @php--}}
+{{--                                    $key++--}}
+{{--                                @endphp--}}
+{{--                                <li data-target="{{$key}}" class='con__nav-item con__nav-item--{{$key}} {{($key == 1) ? 'nav-active' : ''}}'></li>--}}
+{{--                            @endforeach--}}
+{{--                        @else--}}
+{{--                        @endif--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
 {{--                <div class="con__nav">--}}
 {{--                    <div data-target='up' class=' con__nav-scroll--goup'></div>--}}
 {{--                    <div data-target='down' class=' con__nav-scroll--godown'></div>--}}
@@ -157,8 +255,8 @@
 {{--                        <li data-target="4" class='con__nav-item con__nav-item--4'></li>--}}
 {{--                    </ul>--}}
 {{--                </div>--}}
-              <!--   nav end -->
-              </div>
+{{--              <!--   nav end -->--}}
+{{--            </div>--}}
 
 
             <div class="page-title m-b">
@@ -309,8 +407,6 @@
                                     <div class="item-author text-sm text-ellipsis ">
 {{--                                        <a href="javascript:void(0)" class="text-muted">Summerella</a>--}}
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>
@@ -1064,6 +1160,8 @@
 @endsection
 
 @section('page-script')
+    <script src="{{asset('js/custom/curator/curator-dashboard.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
     <script>
         var preload = document.getElementById("loadings");
         function loader(){
