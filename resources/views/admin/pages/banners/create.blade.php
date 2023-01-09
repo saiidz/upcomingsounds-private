@@ -53,17 +53,26 @@
                             ]) !!}
                                 @csrf
                                 <div class="row">
-                                    <div class="input-field col s6">
+                                    <div class="input-field col s12">
                                         {!! Form::text('artist_name',$banner->artist_name ?? null,['placeholder'=>'Farhan','class'=>"validate", 'id' => 'artist_name', 'required'=>false]) !!}
                                         <label for="artist_title">Artist Name</label>
                                     </div>
                                     <div class="col m6 s12 file-field input-field">
                                         <div class="btn float-right">
-                                            <span>Artist Thumbnail</span>
+                                            <span>Track Thumbnail</span>
                                             {!! Form::file('track_thumbnail',['placeholder'=>'Farhan','accept' => 'image/*','class'=>"validate", 'id' => 'artist_name', 'required'=>false]) !!}
                                         </div>
                                         <div class="file-path-wrapper">
                                             <img class=" ml-3 img-fluid" src="{{ asset(!empty($banner->track_thumbnail) ? 'uploads/track_thumbnail/'.$banner->track_thumbnail : 'images/logo.png') }}" alt="" height="50" style="object-fit: contain">
+                                        </div>
+                                    </div>
+                                    <div class="col m6 s12 file-field input-field">
+                                        <div class="btn float-right">
+                                            <span>Track Audio</span>
+                                            {!! Form::file('audio',['accept' => '.mp3','class'=>"validate", 'required'=>false]) !!}
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <audio controls="" src="{{ asset(!empty($banner->audio) ? 'uploads/audio/'.$banner->audio : '') }}" type="audio/mp3" controlslist="nodownload" id="audioTrackPreview"></audio>
                                         </div>
                                     </div>
                                     <div class="input-field col s12">

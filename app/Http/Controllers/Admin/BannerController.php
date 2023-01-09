@@ -42,6 +42,7 @@ class BannerController extends Controller
         $validator = Validator::make($request->all(), [
             'track_description' => 'required',
             'track_name'        => 'required',
+            'audio'             => 'file|mimes:mp3|max:15000',
             'track_thumbnail'   => 'required|mimes:jpeg,jpg,png',
         ]);
 
@@ -56,6 +57,16 @@ class BannerController extends Controller
         $input['package_name']      = IPackages::PREMIUM_NAME;
         $input['add_days']          = IPackages::ADD_DAYS;
         $input['add_remove_banner'] = IPackages::ADD_BANNER;
+
+        // upload audio song
+        if ($request->file('audio')) {
+            $file = $request->file('audio');
+            $name = str_replace(' ', '', $file->getClientOriginalName());
+            $audio_path = 'default_'.time().$name;
+            $file->move(public_path() . '/uploads/audio/', $audio_path);
+            //store audio file into directory and db
+            $input['audio'] = $audio_path;
+        }
 
         if ($request->file('track_thumbnail')) {
             $file = $request->file('track_thumbnail');
@@ -104,6 +115,7 @@ class BannerController extends Controller
         $validator = Validator::make($request->all(), [
             'track_description' => 'required',
             'track_name'        => 'required',
+            'audio'             => 'file|mimes:mp3|max:15000',
             'track_thumbnail'   => 'mimes:jpeg,jpg,png',
         ]);
 
@@ -121,7 +133,37 @@ class BannerController extends Controller
         $input['add_days']          = IPackages::ADD_DAYS;
         $input['add_remove_banner'] = IPackages::ADD_BANNER;
 
+        // upload audio song
+        if ($request->hasfile('audio')) {
+            // delete audio previous
+            if(!empty($banner->audio))
+            {
+                $audio = public_path('uploads/audio/' . $banner->audio);
+                if(file_exists($audio)) {
+                    unlink($audio);
+                }
+            }
+
+            $file = $request->file('audio');
+            $name = str_replace(' ', '', $file->getClientOriginalName());
+            $audio_path = 'default_'.time().$name;
+            $file->move(public_path() . '/uploads/audio/', $audio_path);
+            //store audio file into directory and db
+            $input['audio'] = $audio_path;
+        }else{
+            $input['audio'] = $banner->audio;
+        }
+
         if ($request->file('track_thumbnail')) {
+            // delete thumbnail previous
+            if(!empty($banner->track_thumbnail))
+            {
+                $image = public_path('uploads/track_thumbnail/' . $banner->track_thumbnail);
+                if(file_exists($image)) {
+                    unlink($image);
+                }
+            }
+
             $file = $request->file('track_thumbnail');
             $name = str_replace(' ', '', $file->getClientOriginalName());
             $image_path = 'default_'.time().$name;
@@ -153,6 +195,16 @@ class BannerController extends Controller
                     unlink($image);
                 }
             }
+
+            //audio delete
+            if(!empty($banner->audio))
+            {
+                $audio = public_path('uploads/audio/' . $banner->audio);
+                if(file_exists($audio)) {
+                    unlink($audio);
+                }
+            }
+
             $banner->forceDelete();
 
         return redirect()->back()->with('success','Banner deleted Successfully');
