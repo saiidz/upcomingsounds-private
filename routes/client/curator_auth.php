@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Curator\OfferController;
+use App\Http\Controllers\Curator\SavedArtistController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AjaxController;
@@ -58,5 +59,9 @@ Route::get('offer-artists-submissions', [OfferController::class,'artistsSubmissi
 Route::get('offer-completed', [OfferController::class,'completed'])->name('curator.completed');
 Route::get('offer-proposition', [OfferController::class,'proposition'])->name('curator.proposition');
 // offers routes
+
+// saved artist routes
+Route::get('saved-artists', [SavedArtistController::class,'savedArtist'])->name('curator.saved.artists');
+// saved artist routes
 
 /***************************************************** Curator Routes *********************************************************/

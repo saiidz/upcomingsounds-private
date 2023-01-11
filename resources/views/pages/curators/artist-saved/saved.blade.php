@@ -1,0 +1,64 @@
+@extends('pages.curators.panels.layout')
+
+{{-- page title --}}
+@section('title','Saved Artist')
+
+@section('page-style')
+
+@endsection
+
+@section('content')
+    <!-- ############ PAGE START-->
+    <div class="page-content">
+        <div class="row-col">
+            <div class="col-lg-9 b-r no-border-md">
+                <div class="padding">
+                    <div class="page-title m-b">
+                        <h1 class="inline m-a-0">Artists</h1>
+                        <div class="dropdown inline">
+                            <button class="btn btn-sm no-bg h4 m-y-0 v-b dropdown-toggle text-primary" data-toggle="dropdown">By name</button>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item active">
+                                    By name
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    Songs
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div data-ui-jp="jscroll" data-ui-options="{
+            autoTrigger: false,
+            loadingHtml: '<i class=\'fa fa-refresh fa-spin text-md text-muted\'></i>',
+            padding: 50,
+            nextSelector: 'a.jscroll-next:last'
+          }">
+                        <div class="row row-lg">
+                            <div class="col-xs-4 col-sm-4 col-md-3">
+                                <div class="item">
+                                    <div class="item-media rounded ">
+                                        <a href="artist.detail.html" class="item-media-content" style="background-image: url('images/a4.jpg');"></a>
+                                    </div>
+                                    <div class="item-info text-center">
+                                        <div class="item-title text-ellipsis">
+                                            <a href="artist.detail.html">Judith Garcia</a>
+                                            <div class="text-sm text-muted">13 songs</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="scroll.author.html" class="btn btn-sm white rounded jscroll-next">Show More</a>
+                    </div>
+                </div>
+            </div>
+            @include('pages.curators.panels.right-sidebar')
+        </div>
+    </div>
+    <!-- ############ PAGE END-->
+@endsection
+
+@section('page-script')
+
+@endsection

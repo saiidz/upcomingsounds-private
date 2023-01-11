@@ -320,6 +320,15 @@
             '_self' // <- This is what makes it open in a new window.
         );
     });
+
+    function publicProfileBlank()
+    {
+        let url = $('#publicProfileBlank').data('value');
+        window.open(
+            url,
+            '_blank' // <- This is what makes it open in a new window.
+        );
+    }
 </script>
 <script>
     function favorite(campaign_id) {

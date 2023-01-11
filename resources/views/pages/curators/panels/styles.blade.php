@@ -57,5 +57,14 @@ success, touch, track, tracks, transparent, united, visibility,
         .app-aside{
             bottom:0!important;
         }
+        .custom-icon::before {
+            content: "";
+            background-image: url({{asset('/images/artist_us.png')}});
+            width: 22px;
+            height: 22px;
+            display: inline-block;
+            background-size: cover;
+            margin-top: 7px;
+        }
     </style>
 </head>

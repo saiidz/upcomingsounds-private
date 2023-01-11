@@ -152,7 +152,7 @@
 
                         </li>
                         <li>
-                            <a href="javascript:void(0)">
+                            <a href="{{route('curator.saved.artists')}}">
                                 <span class="nav-icon">
                                     <i class="material-icons">
                                     favorite_border
@@ -252,7 +252,7 @@
                                 <span class="nav-icon">
                                     <i class="fa fa-plus-square"></i>
                                 </span>
-                                <span class="nav-text">Wallet {{!empty(Auth::user()->TransactionUserInfo) ? number_format(Auth::user()->TransactionUserInfo->transactionHistory->sum('credits')) : 0}} UCS</span>
+                                <span class="nav-text">Wallet {{!empty(Auth::user()->TransactionUserInfo) ? number_format(Auth::user()->TransactionUserInfo->transactionHistory->sum('credits')) : 0}} USC</span>
                             </a>
                         </li>
 
