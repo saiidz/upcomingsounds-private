@@ -1,6 +1,6 @@
 <fieldset class="active__form" id="form2">
     <div class="sub__title__container">
-        <p>Step 2/4</p>
+        <p>Step 2/3</p>
         <h2>Right now... What are you looking for?</h2>
         <p>Choosing any of these options will let us guide you to the media outlets, curators, and music professionals who best meet your needs. At UpcomingSounds, we guarantee that they'll listen to your track and give you feedback. If your music catches their attention, they are likely to share it or contact you!!</p>
         <span class="text-muted">Your answer is private and will not be shared with influencers.</span>
@@ -61,10 +61,10 @@
                             <input type="checkbox" class="budgetYes budget_mind" name="pay_now" value="yes" />
                         </div>
                         <div class="item-title text-ellipsis">
-                            <div>You can directly start your campaign.</div>
+                            <div>Start your campaign.</div>
                         </div>
                         <div class="item-author text-sm text-ellipsis ">
-                            <div class="text-muted">Pay Now</div>
+                            <div class="text-muted">4 coverage plans to choose from</div>
                         </div>
                     </div>
                 </div>

@@ -44,11 +44,11 @@
                                 <div class="separatortrack">
                                     <div class="promoteAddTrack">
                                         <a class="m-b-md" href="{{ url('/wallet') }}">
-                                            <span class="amount">{{!empty(Auth::user()->TransactionUserInfo) ? Auth::user()->TransactionUserInfo->transactionHistory->sum('credits') - (!empty(Auth::user()->campaign) ? Auth::user()->campaign->sum('usc_credit') : 0) : 0}} UCS</span>
+                                            <span class="amount">{{!empty(Auth::user()->TransactionUserInfo) ? Auth::user()->TransactionUserInfo->transactionHistory->sum('credits') - (!empty(Auth::user()->campaign) ? Auth::user()->campaign->sum('usc_credit') : 0) : 0}} USC</span>
                                             <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
                                         </a>
                                     </div>
-                                    <h1>Start a campaign</h1>
+                                    <h1>Get started with your campaign</h1>
                                     <div class="separator"></div>
                                 </div>
 
@@ -63,11 +63,11 @@
                                 <div class="left__container">
                                     <div class="side__titles">
                                         <div class="title__name">
-                                            <h3>My track</h3>
+                                            <h3>Add your release</h3>
                                             <p>Step 1. <span id="inProgress">In progress</span></p>
                                         </div>
                                         <div class="title__name">
-                                            <h3>My selection</h3>
+                                            <h3>Choose a campaign</h3>
                                             <p>Step 2. <span id="inComplete">Selections</span></p>
                                         </div>
                                         <div class="title__name">
@@ -296,6 +296,8 @@
 
             $('.oneTrackSelected').prop('checked', false);
             $('#oneTrackSelected_'+id).prop('checked', true);
+
+            $('#firstStepBtn').addClass('firstStepBtn');
         }
         $(document).ready(function(){
             $('.oneTrackSelected').click(function() {
@@ -642,7 +644,7 @@
                 let track_id = $('.oneTrackSelected').is(':checked');
                 if(track_id == false)
                 {
-                    toastr.error('Please Select Track');
+                    toastr.error('Select or add your new release if you haven`t already.');
                     return false;
                 }
             }

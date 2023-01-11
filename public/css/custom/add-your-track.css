@@ -213,10 +213,13 @@ body{
     color: #ffffff;
     opacity: 0;
 }
+.firstStepBtn{
+    background-color: #02b875 !important;
+}
 .addTrack{
     align-items: center;
     border-color: #02b875 !important;
-    background-color: #1f1f25 !important;
+    background-color: #1f1f25;
     color: white !important;
     text-align: center !important;
     padding: 10px 1.5rem 10px 1.5rem !important;

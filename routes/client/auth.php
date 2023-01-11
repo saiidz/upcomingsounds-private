@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\Artist\CampaignController;
+use App\Http\Controllers\Artist\MessageController;
 use App\Http\Controllers\Artist\OfferController;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\ArtistTrackController;
@@ -77,4 +78,12 @@ Route::get('completed-offer', [OfferController::class,'completed'])->name('artis
 Route::get('new-offer', [OfferController::class,'new'])->name('artist.new');
 Route::get('proposition-offer', [OfferController::class,'proposition'])->name('artist.proposition');
 // offers routes
+
+// messages routes
+Route::get('messages', [MessageController::class,'messages'])->name('artist.messages');
+Route::get('new-messages', [MessageController::class,'new'])->name('artist.new.messages');
+Route::get('viewed-messages', [MessageController::class,'viewed'])->name('artist.viewed.messages');
+Route::get('responses-messages', [MessageController::class,'responses'])->name('artist.responses.messages');
+// messages routes
+
 /***************************************************** Artist Routes *********************************************************/

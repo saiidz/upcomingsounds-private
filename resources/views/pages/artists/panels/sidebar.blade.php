@@ -16,17 +16,31 @@
                 <li class="nav-header hidden-folded">
                    <span class="text-xs text-muted">Main</span>
                 </li>
-                <li class="{{Request::segment(1) == 'welcome-your-track' || Request::segment(1) == 'promote-your-track' ? 'active' : ''}}">
-                   <a href="{{url('/welcome-your-track')}}" class="reloadWelcomeTrack">
-                   <span class="nav-icon">
-                   <i class="material-icons">
-                   play_circle_outline
-                   </i>
-                   </span>
-                   <span class="nav-text">Promote Your Track</span>
-                   </a>
-                </li>
-                 @if(Request::is('artist-offers') != 'artist-offers')
+                 @if(Request::is('artist-offers') == 'artist-offers' || Request::is('messages') == 'messages')
+                     <li class="{{Request::segment(1) == 'welcome-your-track' || Request::segment(1) == 'promote-your-track' ? 'active' : ''}}">
+                         <a href="{{url('/welcome-your-track')}}" class="reloadWelcomeTrack">
+                            <span class="nav-icon">
+                               <i class="material-icons">
+                               play_circle_outline
+                               </i>
+                            </span>
+                             <span class="nav-text">Dashboard</span>
+                         </a>
+                     </li>
+                 @else
+                     <li class="{{Request::segment(1) == 'welcome-your-track' || Request::segment(1) == 'promote-your-track' ? 'active' : ''}}">
+                         <a href="{{url('/welcome-your-track')}}" class="reloadWelcomeTrack">
+                            <span class="nav-icon">
+                               <i class="material-icons">
+                               play_circle_outline
+                               </i>
+                            </span>
+                            <span class="nav-text">Promote Your Track</span>
+                         </a>
+                     </li>
+                 @endif
+
+                 @if(Request::is('artist-offers') != 'artist-offers' && Request::is('messages') != 'messages')
                      <li>
                          <a href="{{route('artist.offers')}}" id="artistOffers">
                             <span class="nav-icon">
@@ -36,7 +50,7 @@
                          </a>
                      </li>
                      <li>
-                         <a href="javascript:void(0)">
+                         <a href="{{route('artist.messages')}}" id="artistMessages">
                                     <span class="nav-icon">
                                         <i class="fa fa-inbox"></i>
                                     </span>
@@ -307,6 +321,43 @@
                      </li>
                  @endif
                  {{-- Offers Pages --}}
+
+                 {{-- Message Pages --}}
+                 @if(Request::is('messages') == 'messages')
+                     <li>
+                         <a href="{{route('artist.messages')}}" id="artistMessages">
+                            <span class="nav-icon">
+                                <i class="fa fa-inbox"></i>
+                            </span>
+                             <span class="nav-text">Messages</span>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="{{route('artist.new.messages')}}">
+                        <span class="nav-icon">
+                            <i class="fa fa-envelope-o"></i>
+                        </span>
+                             <span class="nav-text">New</span>
+                         </a>
+                     </li>
+                     <li>
+                         <a class="dropdown-item" href="{{ route('artist.viewed.messages') }}">
+                                    <span class="nav-icon">
+                                        <i class="fa fa-bullseye"></i>
+                                    </span>
+                             <span class="nav-text">Viewed</span>
+                         </a>
+                     </li>
+                     <li>
+                         <a class="dropdown-item" href="{{ route('artist.responses.messages') }}">
+                                    <span class="nav-icon">
+                                        <i class="fa fa-star-o"></i>
+                                    </span>
+                             <span class="nav-text">Responses</span>
+                         </a>
+                     </li>
+                 @endif
+                 {{-- Message Pages --}}
              </ul>
           </nav>
        </div>

@@ -380,3 +380,54 @@
         document.querySelector('#changePasswordCurator').reset();
     });
 </script>
+<script>
+    /*--------------------------------------
+            favorite Track
+      ---------------------------------------*/
+    function favoriteTrack(track_id)
+    {
+        e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        showLoader();
+        $.ajax({
+            type: 'POST',
+            url: this.action,
+            data: new FormData(this),
+            dataType: 'json',
+            success:function(response)
+            {
+                if(response.success)
+                {
+                    loader();
+                    console.log(response.success);
+                    $('.basicbtn').removeAttr('disabled')
+                    Sweet('success',response.success);
+                    $('.basicbtn').html(basicbtnhtml);
+                    location.reload();
+                }
+                if(response.errors)
+                {
+                    loader();
+                    $('.basicbtn').html(basicbtnhtml);
+                    $('.basicbtn').removeAttr('disabled')
+                    $('.errorarea').show();
+                    $.each(response.errors, function (key, item)
+                    {
+                        Sweet('error',item)
+                        $("#errors").html("<li class='text-danger'>"+item+"</li>");
+                    });
+                }
+                if(response.error)
+                {
+                    hideLoader();
+                    $('.basicbtn').removeAttr('disabled')
+                    Sweet('error',response.error);
+                }
+            }
+        })
+    }
+</script>

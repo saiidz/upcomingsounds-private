@@ -509,6 +509,7 @@
 		$('input:checkbox').not(this).prop('checked', this.checked);
 	});
 
+
 	/*------------------------------------------------------------
       		if all child selected then parent checked - Dynamic
     	--------------------------------------------------------------*/

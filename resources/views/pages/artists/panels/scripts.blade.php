@@ -189,6 +189,11 @@
     {
         window.location.href = '/artist-offers';
     });
+
+    $('#artistMessages').on('click', function ()
+    {
+        window.location.href = '/messages';
+    });
 </script>
 <script>
     // Change Artist password

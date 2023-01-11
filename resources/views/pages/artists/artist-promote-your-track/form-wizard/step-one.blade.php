@@ -1,7 +1,7 @@
 <fieldset id="form1">
     <div class="sub__title__container ">
-        <p>Step 1/4</p>
-        <h2>Start by adding your track or select one if you have already!</h2>
+        <p>Step 1/3</p>
+        <h2>Start by adding your release or select one if you have already!</h2>
         <p class="m-b-md">You are one step closer to spreading your art to the world, now add a new track and fill out the required information.</p>
         {{-- <a class="m-b-md rounded addTrack" data-toggle="modal" data-target="#add-track-promote" href="javascript:void(0)">
            Add New track
@@ -47,17 +47,17 @@
             @else
                 <div class="col-sm-6">
                     <div class="item r" data-id="item-5">
-                        Not Found
+                        There are no results to show
                     </div>
                 </div>
             @endif
         </div>
 {{--        <a class="m-b-md rounded addTrack nxt__btn" onclick="nextForm('step_one');"> Next</a>--}}
         <div class="buttons" style="justify-content: flex-start !important;">
-            <a class="m-b-md rounded addTrack nxt__btn" onclick="nextForm('step_one');"> Next</a>
             <a class="m-b-md rounded addTrack" data-toggle="modal" data-target="#add-track-promote" href="javascript:void(0)">
                 Submit New Release
             </a>
+            <a class="m-b-md rounded addTrack nxt__btn" id="firstStepBtn" onclick="nextForm('step_one');"> Next</a>
         </div>
     </div>
 </fieldset>
