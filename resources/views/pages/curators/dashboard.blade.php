@@ -295,7 +295,19 @@
                                     </div>
                                     <div class="item-info">
                                         <div class="item-overlay bottom text-right">
-                                            <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
+
+                                            @if(!empty($pro_premium_campaign->curatorFavoriteTrack) && $pro_premium_campaign->curatorFavoriteTrack->status == \App\Templates\IFavoriteTrackStatus::SAVE)
+                                                <a href="javascript:void(0)" class="btn-favorite" @if($pro_premium_campaign->artistTrack) onclick="favoriteTrack({{$pro_premium_campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>
+                                                    <i class=" {{ !empty($pro_premium_campaign->curatorFavoriteTrack) ? 'fa fa-heart colorAdd' : 'fa fa-heart-o' }}"></i>
+                                                </a>
+                                            @else
+                                                @if(empty($pro_premium_campaign->curatorFavoriteTrack))
+                                                    <a href="javascript:void(0)" class="btn-favorite" @if($pro_premium_campaign->artistTrack) onclick="favoriteTrack({{$pro_premium_campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>
+                                                        <i class="fa fa-heart-o"></i>
+                                                    </a>
+                                                @endif
+                                            @endif
+
                                             <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
                                             <div class="dropdown-menu pull-right black lt"></div>
                                         </div>
@@ -400,7 +412,17 @@
                                 </div>
                                 <div class="item-info">
                                     <div class="item-overlay bottom text-right">
-                                        <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
+                                        @if(!empty($pro_campaign->curatorFavoriteTrack) && $pro_campaign->curatorFavoriteTrack->status == \App\Templates\IFavoriteTrackStatus::SAVE)
+                                            <a href="javascript:void(0)" class="btn-favorite" @if($pro_campaign->artistTrack) onclick="favoriteTrack({{$pro_campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>
+                                                <i class=" {{ !empty($pro_campaign->curatorFavoriteTrack) ? 'fa fa-heart colorAdd' : 'fa fa-heart-o' }}"></i>
+                                            </a>
+                                        @else
+                                            @if(empty($pro_campaign->curatorFavoriteTrack))
+                                                <a href="javascript:void(0)" class="btn-favorite" @if($pro_campaign->artistTrack) onclick="favoriteTrack({{$pro_campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>
+                                                    <i class="fa fa-heart-o"></i>
+                                                </a>
+                                            @endif
+                                        @endif
                                         <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
                                         <div class="dropdown-menu pull-right black lt"></div>
                                     </div>
@@ -560,7 +582,17 @@
                                         </div>
                                         <div class="item-info">
                                             <div class="item-overlay bottom text-right">
-                                                <a href="javascript:void(0)" onclick="favorite({{$advance_campaign->id}})" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
+                                                @if(!empty($advance_campaign->curatorFavoriteTrack) && $advance_campaign->curatorFavoriteTrack->status == \App\Templates\IFavoriteTrackStatus::SAVE)
+                                                    <a href="javascript:void(0)" class="btn-favorite" @if($advance_campaign->artistTrack) onclick="favoriteTrack({{$advance_campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>
+                                                        <i class=" {{ !empty($advance_campaign->curatorFavoriteTrack) ? 'fa fa-heart colorAdd' : 'fa fa-heart-o' }}"></i>
+                                                    </a>
+                                                @else
+                                                    @if(empty($advance_campaign->curatorFavoriteTrack))
+                                                        <a href="javascript:void(0)" class="btn-favorite" @if($advance_campaign->artistTrack) onclick="favoriteTrack({{$advance_campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>
+                                                            <i class="fa fa-heart-o"></i>
+                                                        </a>
+                                                    @endif
+                                                @endif
                                                 <a href="javascript:void(0)" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
                                                 <div class="dropdown-menu pull-right black lt"></div>
                                             </div>
@@ -649,7 +681,17 @@
                                         </div>
                                         <div class="item-info">
                                             <div class="item-overlay bottom text-right">
-                                                <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
+                                                @if(!empty($standard_campaign->curatorFavoriteTrack) && $standard_campaign->curatorFavoriteTrack->status == \App\Templates\IFavoriteTrackStatus::SAVE)
+                                                    <a href="javascript:void(0)" class="btn-favorite" @if($standard_campaign->artistTrack) onclick="favoriteTrack({{$standard_campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>
+                                                        <i class=" {{ !empty($standard_campaign->curatorFavoriteTrack) ? 'fa fa-heart colorAdd' : 'fa fa-heart-o' }}"></i>
+                                                    </a>
+                                                @else
+                                                    @if(empty($standard_campaign->curatorFavoriteTrack))
+                                                        <a href="javascript:void(0)" class="btn-favorite" @if($standard_campaign->artistTrack) onclick="favoriteTrack({{$standard_campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>
+                                                            <i class="fa fa-heart-o"></i>
+                                                        </a>
+                                                    @endif
+                                                @endif
                                                 <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
                                                 <div class="dropdown-menu pull-right black lt"></div>
                                             </div>
