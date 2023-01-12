@@ -5,7 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
 
 class Campaign extends Model
 {
@@ -44,5 +46,13 @@ class Campaign extends Model
     public function artistTrack(): BelongsTo
     {
         return $this->belongsTo(ArtistTrack::class, 'track_id', 'id');
+    }
+
+    /**
+     * @return HasOne
+     */
+    public function curatorFavoriteTrack(): HasOne
+    {
+        return $this->hasOne(CuratorFavoriteTrack::class,'track_id','track_id')->where('user_id',Auth::id());
     }
 }

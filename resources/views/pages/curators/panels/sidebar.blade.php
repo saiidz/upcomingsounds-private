@@ -33,9 +33,10 @@
                             <span class="nav-text">Dashboard</span>
                         </a>
                     </li>
-                    @if(Request::is('artist-submission') == 'artist-submission')
+                    @if(Request::is('artist-submission') == 'artist-submission' || Request::is('saved') == 'saved'
+                         || Request::is('accepted') == 'accepted' || Request::is('rejected') == 'rejected')
                         <li>
-                            <a class="dropdown-item" href="{{ route('artist.submission') }}">
+                            <a class="dropdown-item" href="{{ route('artist.submission') }}" id="artistSubmission">
                                     <span class="nav-icon">
                                         <i class="fa fa-music"></i>
                                     </span>
@@ -43,7 +44,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{{ route('artist.saved') }}">
+                            <a class="dropdown-item" href="{{ route('artist.saved') }}" id="artistSaved">
                                     <span class="nav-icon">
                                         <i class="fa fa-bookmark-o"></i>
                                     </span>
@@ -51,7 +52,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{{ route('accepted.artist') }}">
+                            <a class="dropdown-item" href="{{ route('accepted.artist') }}" id="acceptedArtist">
                                     <span class="nav-icon">
                                         <i class="fa fa-check-circle"></i>
                                     </span>
@@ -59,7 +60,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{{ route('rejected.artist') }}">
+                            <a class="dropdown-item" href="{{ route('rejected.artist') }}" id="rejectedArtist">
                                     <span class="nav-icon">
                                         <i class="fa fa-minus-circle"></i>
                                     </span>
@@ -68,7 +69,8 @@
                         </li>
                     @endif
 
-                    @if(Request::is('artist-submission') != 'artist-submission' && Request::is('offers') != 'offers')
+                    @if(Request::is('artist-submission') != 'artist-submission' && Request::is('saved') != 'saved' &&
+                         Request::is('accepted') != 'accepted' && Request::is('rejected') != 'rejected' && Request::is('offers') != 'offers')
                         <li>
                             @if (Auth::check() && auth()->user())
                                 @if (auth()->user()->is_verified == 1)

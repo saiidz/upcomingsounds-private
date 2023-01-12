@@ -245,12 +245,42 @@
                       <div class="campaignBtn">
                           <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn basicbtn">
                              Report</a>
-                          <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn basicbtn">
-                              Offer</a>
-                          <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn basicbtn">
-                              Save</a>
-                          <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn basicbtn">
-                              Decline</a>
+
+                          @if(!empty($campaign->curatorFavoriteTrack) && $campaign->curatorFavoriteTrack->status == \App\Templates\IFavoriteTrackStatus::ACCEPTED)
+                              <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn basicbtn {{ !empty($campaign->curatorFavoriteTrack) ? 'colorBgAdd' : '' }}"
+                                 @if($campaign->artistTrack) onclick="favoriteTrack({{$campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::ACCEPTED}}')" @endif>
+                                  Offer</a>
+                          @else
+                              @if(empty($campaign->curatorFavoriteTrack))
+                                  <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn basicbtn"
+                                     @if($campaign->artistTrack) onclick="favoriteTrack({{$campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::ACCEPTED}}')" @endif>
+                                      Offer</a>
+                              @endif
+                          @endif
+
+                          @if(!empty($campaign->curatorFavoriteTrack) && $campaign->curatorFavoriteTrack->status == \App\Templates\IFavoriteTrackStatus::SAVE)
+                              <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn basicbtn {{ !empty($campaign->curatorFavoriteTrack) ? 'colorBgAdd' : '' }}"
+                                 @if($campaign->artistTrack) onclick="favoriteTrack({{$campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>
+                                  Save</a>
+                          @else
+                              @if(empty($campaign->curatorFavoriteTrack))
+                                  <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn basicbtn"
+                                     @if($campaign->artistTrack) onclick="favoriteTrack({{$campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>
+                                      Save</a>
+                              @endif
+                          @endif
+
+                          @if(!empty($campaign->curatorFavoriteTrack) && $campaign->curatorFavoriteTrack->status == \App\Templates\IFavoriteTrackStatus::REJECTED)
+                              <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn basicbtn {{ !empty($campaign->curatorFavoriteTrack) ? 'colorBgAdd' : '' }}"
+                                 @if($campaign->artistTrack) onclick="favoriteTrack({{$campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::REJECTED}}')" @endif>
+                                  Decline</a>
+                          @else
+                              @if(empty($campaign->curatorFavoriteTrack))
+                                  <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn basicbtn"
+                                     @if($campaign->artistTrack) onclick="favoriteTrack({{$campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::REJECTED}}')" @endif>
+                                      Decline</a>
+                              @endif
+                          @endif
                       </div>
                   </div>
                </div>

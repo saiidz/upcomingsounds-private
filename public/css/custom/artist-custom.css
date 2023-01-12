@@ -617,7 +617,12 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
     overflow: hidden;
 }
 
-
+.colorAdd{
+    color:#02b875 !important;
+}
+.colorBgAdd{
+    background-color:#02b875 !important;
+}
 
 
 

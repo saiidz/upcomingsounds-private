@@ -17,6 +17,7 @@ class CreateCuratorFavoriteTracksTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('track_id')->constrained('artist_tracks')->onDelete('cascade');
+            $table->enum('status',['SAVE','ACCEPTED','REJECTED'])->nullable();
             $table->timestamps();
         });
     }

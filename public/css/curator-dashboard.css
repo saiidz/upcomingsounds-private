@@ -754,7 +754,7 @@ header nav ul li a:hover {
   .campaign_btn {
       margin-top: 20px;
       border-color: #02b875 !important;
-      background-color: #1f1f25 !important;
+      background-color: #1f1f25;
       color: white !important;
       text-align: center !important;
       padding: 10px 1.5rem 10px 1.5rem !important;

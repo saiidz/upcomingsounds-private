@@ -55,6 +55,19 @@
         {
             window.location.href = '/artist-submission';
         });
+        $('#artistSaved').on('click', function ()
+        {
+            window.location.href = '/saved';
+        });
+        $('#acceptedArtist').on('click', function ()
+        {
+            window.location.href = '/accepted';
+        });
+        $('#rejectedArtist').on('click', function ()
+        {
+            window.location.href = '/rejected';
+        });
+
         $('#curatorDashboard').on('click', function ()
         {
             window.location.href = '/dashboard';
@@ -331,27 +344,6 @@
     }
 </script>
 <script>
-    function favorite(campaign_id) {
-        showLoader();
-        //send ajax
-        $.ajax({
-            type: "GET",
-            url: '{{route('curator.favorite.track')}}',
-            data: {campaign_id:campaign_id},
-            dataType: 'json',
-            success: function (data) {
-                loader();
-                if (data.success) {
-
-                }
-                if (data.error) {
-                    toastr.error(data.error);
-                }
-            },
-        });
-    }
-</script>
-<script>
     // Change Artist password
     $('#changePasswordCurator').submit(function(e){
         e.preventDefault();
@@ -389,54 +381,58 @@
         document.querySelector('#changePasswordCurator').reset();
     });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
 <script>
     /*--------------------------------------
             favorite Track
       ---------------------------------------*/
-    function favoriteTrack(track_id)
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    function favoriteTrack(track_id_, status_)
     {
-        e.preventDefault();
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+        var track_id = window.btoa( track_id_ );
+        var status = window.btoa( status_ );
+
         showLoader();
         $.ajax({
-            type: 'POST',
-            url: this.action,
-            data: new FormData(this),
+            type: "GET",
+            url: '{{route('curator.favorite.track')}}',
+            data: {track_id:track_id,status: status},
             dataType: 'json',
-            success:function(response)
-            {
-                if(response.success)
-                {
-                    loader();
-                    console.log(response.success);
-                    $('.basicbtn').removeAttr('disabled')
-                    Sweet('success',response.success);
-                    $('.basicbtn').html(basicbtnhtml);
-                    location.reload();
-                }
-                if(response.errors)
-                {
-                    loader();
-                    $('.basicbtn').html(basicbtnhtml);
-                    $('.basicbtn').removeAttr('disabled')
-                    $('.errorarea').show();
-                    $.each(response.errors, function (key, item)
+            success: function (data) {
+                loader();
+                if (data.success) {
+                    toastr.success(data.success);
+
+                    if(data.reload_page == "reload_page")
                     {
-                        Sweet('error',item)
-                        $("#errors").html("<li class='text-danger'>"+item+"</li>");
-                    });
+                        location.reload();
+                    }
+                    if(data.statusTrack == "SAVE")
+                    {
+                        window.location.replace('{{route('artist.saved')}}');
+
+                    }else if(data.statusTrack == 'ACCEPTED'){
+                        window.open(
+                            window.location.origin + '/accepted',
+                            '_self' // <- This is what makes it open in a new window.
+                        );
+                    }else if(data.statusTrack == 'REJECTED'){
+                        window.open(
+                            window.location.origin + '/rejected',
+                            '_self' // <- This is what makes it open in a new window.
+                        );
+                    }
+
                 }
-                if(response.error)
-                {
-                    hideLoader();
-                    $('.basicbtn').removeAttr('disabled')
-                    Sweet('error',response.error);
+                if (data.error) {
+                    toastr.error(data.error);
                 }
-            }
+            },
         })
     }
 </script>

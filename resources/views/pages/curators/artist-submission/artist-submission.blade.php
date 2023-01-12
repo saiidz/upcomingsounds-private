@@ -60,9 +60,19 @@
                                                     </div>
                                                     <div class="item-info">
                                                         <div class="item-overlay bottom text-right">
-                                                            <a href="javascript:void(0)" class="btn-favorite" @if($campaign->artistTrack) onclick="favoriteTrack({{$campaign->artistTrack->id}})" @endif>
-                                                                <i class="fa fa-heart-o"></i>
-                                                            </a>
+                                                            @if(!empty($campaign->curatorFavoriteTrack) && $campaign->curatorFavoriteTrack->status == \App\Templates\IFavoriteTrackStatus::SAVE)
+                                                                <a href="javascript:void(0)" class="btn-favorite" @if($campaign->artistTrack) onclick="favoriteTrack({{$campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>
+                                                                    <i class=" {{ !empty($campaign->curatorFavoriteTrack) ? 'fa fa-heart colorAdd' : 'fa fa-heart-o' }}"></i>
+                                                                </a>
+                                                            @else
+                                                                @if(empty($campaign->curatorFavoriteTrack))
+                                                                    <a href="javascript:void(0)" class="btn-favorite" @if($campaign->artistTrack) onclick="favoriteTrack({{$campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>
+                                                                        <i class="fa fa-heart-o"></i>
+                                                                    </a>
+                                                                @endif
+                                                            @endif
+
+
                                                             <a href="#" class="btn-more" data-toggle="dropdown">
                                                                 <i class="fa fa-ellipsis-h"></i>
                                                             </a>

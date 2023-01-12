@@ -32,7 +32,7 @@
                     @if(count($premium_campaigns) > 0)
                         @foreach($premium_campaigns as $key => $premium_campaign)
                             @php
-                                $days = \Illuminate\Support\Carbon::parse($premium_campaign->created_at)->addDays($premium_campaign->add_days);
+                                $days = \Illuminate\Support\Carbon::parse($premium_campaign->updated_at)->addDays($premium_campaign->add_days);
                                 $date = \Illuminate\Support\Carbon::today();
                             @endphp
                             @if($date >= $days)

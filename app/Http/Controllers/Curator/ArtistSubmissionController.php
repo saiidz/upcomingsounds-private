@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Curator;
 
 use App\Models\Campaign;
+use App\Models\CuratorFavoriteTrack;
 use App\Models\Option;
+use App\Templates\IFavoriteTrackStatus;
 use App\Templates\IPackages;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\CuratorFeature;
 use App\Http\Controllers\Controller;
@@ -54,27 +57,48 @@ class ArtistSubmissionController extends Controller
     }
 
     /**
-     * artistSaved
+     * @return Application|Factory|View|never
      */
     public function artistSaved()
     {
-        return view('pages.curators.artist-submission.artist-saved', get_defined_vars());
+        $user = Auth::user();
+        if(!empty($user) && $user->is_verified == 1)
+        {
+            $saved = CuratorFavoriteTrack::where(['user_id' => Auth::id(), 'status' => IFavoriteTrackStatus::SAVE])->latest()->get();
+            return view('pages.curators.artist-submission.artist-saved', get_defined_vars());
+        }else{
+            return abort(403, "Restricted Access!");
+        }
     }
 
     /**
-     * artistAccepted
+     * @return Application|Factory|View|never
      */
     public function artistAccepted()
     {
-        return view('pages.curators.artist-submission.artist-accepted', get_defined_vars());
+        $user = Auth::user();
+        if(!empty($user) && $user->is_verified == 1)
+        {
+            $accepted = CuratorFavoriteTrack::where(['user_id' => Auth::id(), 'status' => IFavoriteTrackStatus::ACCEPTED])->latest()->get();
+            return view('pages.curators.artist-submission.artist-accepted', get_defined_vars());
+        }else{
+            return abort(403, "Restricted Access!");
+        }
     }
 
     /**
-     * artistRejected
+     * @return Application|Factory|View|never
      */
     public function artistRejected()
     {
-        return view('pages.curators.artist-submission.artist-rejected', get_defined_vars());
+        $user = Auth::user();
+        if(!empty($user) && $user->is_verified == 1)
+        {
+            $rejected = CuratorFavoriteTrack::where(['user_id' => Auth::id(), 'status' => IFavoriteTrackStatus::REJECTED])->latest()->get();
+            return view('pages.curators.artist-submission.artist-rejected', get_defined_vars());
+        }else{
+            return abort(403, "Restricted Access!");
+        }
     }
 
     /**
@@ -108,20 +132,46 @@ class ArtistSubmissionController extends Controller
 
     }
 
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function favoriteTrack(Request $request)
     {
-        if ($request->campaign_id)
-        {
-            $campaign = Campaign::find($request->campaign_id);
+        if($request->ajax()){
+            if ($request->track_id)
+            {
+                $track_id = base64_decode($request->track_id);
+                $status = base64_decode($request->status);
 
-            if($request->ajax()){
-                return response()->json([
-                    'success' => 'Campaign Found successfully',
+                // if record exists in database
+                $curatorFavoriteTrack = CuratorFavoriteTrack::where(['user_id' => Auth::id(), 'track_id' => $track_id])->first();
+                if(!empty($curatorFavoriteTrack))
+                {
+                    $curatorFavoriteTrack->delete();
+                    return response()->json([
+                        'success' => 'Track Updated successfully',
+                        'reload_page'  => 'reload_page',
+                    ]);
+                }
+
+                CuratorFavoriteTrack::create([
+                    'user_id'  => Auth::id(),
+                    'track_id' => $track_id,
+                    'status'   => $status,
                 ]);
+                return response()->json([
+                    'success' => 'Track Updated successfully',
+                    'statusTrack'  => $status,
+                ]);
+            }else
+            {
+                return response()->json(['error' => 'Error In Ajax call.']);
             }
         }else
         {
-            return response()->json(['error' => 'Campaign Not Found.']);
+            return response()->json(['error' => 'Error In Ajax call.']);
         }
+
     }
 }
