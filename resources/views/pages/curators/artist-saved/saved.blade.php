@@ -35,21 +35,70 @@
             nextSelector: 'a.jscroll-next:last'
           }">
                         <div class="row row-lg">
-                            <div class="col-xs-4 col-sm-4 col-md-3">
-                                <div class="item">
-                                    <div class="item-media rounded ">
-                                        <a href="artist.detail.html" class="item-media-content" style="background-image: url('images/a4.jpg');"></a>
-                                    </div>
-                                    <div class="item-info text-center">
-                                        <div class="item-title text-ellipsis">
-                                            <a href="artist.detail.html">Judith Garcia</a>
-                                            <div class="text-sm text-muted">13 songs</div>
+                            @if(count($savedArtists) > 0)
+                                @foreach($savedArtists as $savedArtist)
+
+                                    @php
+                                        if(!empty($savedArtist->artistUser))
+                                        {
+                                            $mystring = $savedArtist->artistUser->profile;
+                                            $findhttps   = 'https';
+                                            $findhttp   = 'http';
+                                            $poshttps = strpos($mystring, $findhttps);
+
+                                            $poshttp = strpos($mystring, $findhttp);
+                                            if($poshttps != false){
+                                                $pos = $poshttps;
+                                            }else{
+                                                $pos = $poshttp;
+                                            }
+                                        }
+                                    @endphp
+
+                                    <div class="col-xs-4 col-sm-4 col-md-3">
+                                        <div class="item">
+                                            <div class="item-media rounded ">
+                                                @if(!empty($savedArtist->artistUser))
+                                                    <a href="javascript:void(0)" id="publicProfile{{$savedArtist->artistUser->id}}" data-value="{{route('artist.public.profile',$savedArtist->artistUser->name)}}" onclick="publicProfileSaved({{$savedArtist->artistUser->id}})" id="publicProfileBlank">
+                                                        @if($pos === false)
+                                                            @if(!empty($savedArtist->artistUser->profile))
+                                                                <div class="item-media-content"
+                                                                     style="background-image: url({{URL('/')}}/uploads/profile/{{$savedArtist->artistUser->profile}});"></div>
+                                                            @else
+                                                                <div class="item-media-content"
+                                                                     style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>
+                                                            @endif
+                                                        @elseif($pos == 0)
+                                                            @if(!empty($savedArtist->artistUser->profile))
+                                                                <div class="item-media-content"
+                                                                     style="background-image: url({{$campaign->artistTrack->user->profile}});"></div>
+                                                            @else
+                                                                <div class="item-media-content"
+                                                                     style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>
+                                                            @endif
+                                                        @else
+                                                            <div class="item-media-content"
+                                                                 style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>
+                                                        @endif
+                                                    </a>
+                                                @endif
+                                            </div>
+                                            <div class="item-info text-center">
+                                                <div class="item-title text-ellipsis">
+                                                    <a href="{{route('artist.public.profile',$savedArtist->artistUser->name)}}">{{!empty($savedArtist->artistUser) ? $savedArtist->artistUser->name : '----'}}</a>
+                                                    <div class="text-sm text-muted">{{(!empty($savedArtist->artistUser) && !empty($savedArtist->artistUser->artistTrack)) ? $savedArtist->artistUser->artistTrack->count() : 0 }} Tracks</div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+                                @endforeach
+                            @else
+                                <div class="item-title text-ellipsis">
+                                    <h3 class="white" style="text-align:center;font-size: 15px;">Not Saved Artist Found</h3>
                                 </div>
-                            </div>
+                            @endif
                         </div>
-                        <a href="scroll.author.html" class="btn btn-sm white rounded jscroll-next">Show More</a>
+{{--                        <a href="scroll.author.html" class="btn btn-sm white rounded jscroll-next">Show More</a>--}}
                     </div>
                 </div>
             </div>

@@ -55,4 +55,12 @@ class Campaign extends Model
     {
         return $this->hasOne(CuratorFavoriteTrack::class,'track_id','track_id')->where('user_id',Auth::id());
     }
+
+    /**
+     * @return HasOne
+     */
+    public function curatorFavoriteArtist(): HasOne
+    {
+        return $this->hasOne(CuratorFavoriteArtist::class,'artist_id','user_id')->where('curator_id',Auth::id());
+    }
 }

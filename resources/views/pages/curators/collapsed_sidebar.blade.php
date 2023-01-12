@@ -165,10 +165,18 @@
                   <div class="startCollapse">
                       <div class="d-flex justify-content-between align-items-center">
                           <h3>{{ !empty($campaign->artistTrack) ? $campaign->artistTrack->name : '----'}}</h3>
-                          <a href="javascript:void(0)" class="btn-favorite" data-toggle="tooltip" title="Saved Artist">
-                              {{--                           <i class="far fa-heart text-danger icon-size" aria-hidden="true"></i>--}}
-                              <i class="fa fa-heart-o"></i>
-                          </a>
+
+                          @if(!empty($campaign->curatorFavoriteArtist) && !empty($campaign->artistTrack->user))
+                              <a href="javascript:void(0)" class="btn-favorite" @if($campaign->artistTrack) onclick="favoriteArtist({{$campaign->artistTrack->user->id}})" @endif data-toggle="tooltip" title="Saved Artist">
+                                  <i class=" {{ !empty($campaign->curatorFavoriteTrack) ? 'fa fa-heart colorAdd' : 'fa fa-heart-o' }}"></i>
+                              </a>
+                          @else
+                              @if(empty($campaign->curatorFavoriteArtist) && !empty($campaign->artistTrack->user))
+                                  <a href="javascript:void(0)" class="btn-favorite" @if($campaign->artistTrack) onclick="favoriteArtist({{$campaign->artistTrack->user->id}})" @endif data-toggle="tooltip" title="Saved Artist">
+                                      <i class="fa fa-heart-o"></i>
+                                  </a>
+                              @endif
+                          @endif
                       </div>
                       <div class="d-flex justify-content-between align-items-center p-b-1">
                           <span class="h6 _800 text-white" >Release Kind: <span style="color: #02b875 !important;">{{ !empty($campaign->artistTrack) ? Str::ucfirst($campaign->artistTrack->audio_cover) : '----'}}</span></span>

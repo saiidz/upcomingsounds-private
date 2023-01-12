@@ -40,6 +40,9 @@ Route::get('/rejected', [ArtistSubmissionController::class,'artistRejected'])->n
 // favorite tracks
 Route::get('favorite-track', [ArtistSubmissionController::class,'favoriteTrack'])->name('curator.favorite.track');
 
+// favorite artist
+Route::get('favorite-artist', [ArtistSubmissionController::class,'favoriteArtist'])->name('curator.favorite.artist');
+
 // get cites
 Route::get('get-cites/{id}', [AjaxController::class,'getCities']);
 

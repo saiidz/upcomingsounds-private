@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Curator;
 
 use App\Models\Campaign;
+use App\Models\CuratorFavoriteArtist;
 use App\Models\CuratorFavoriteTrack;
 use App\Models\Option;
 use App\Templates\IFavoriteTrackStatus;
@@ -163,6 +164,47 @@ class ArtistSubmissionController extends Controller
                 return response()->json([
                     'success' => 'Track Updated successfully',
                     'statusTrack'  => $status,
+                ]);
+            }else
+            {
+                return response()->json(['error' => 'Error In Ajax call.']);
+            }
+        }else
+        {
+            return response()->json(['error' => 'Error In Ajax call.']);
+        }
+
+    }
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function favoriteArtist(Request $request)
+    {
+        if($request->ajax()){
+            if ($request->artist_id)
+            {
+                $artist_id = base64_decode($request->artist_id);
+
+                // if record exists in database
+                $curatorFavoriteArtist = CuratorFavoriteArtist::where(['curator_id' => Auth::id(), 'artist_id' => $artist_id])->first();
+                if(!empty($curatorFavoriteArtist))
+                {
+                    $curatorFavoriteArtist->delete();
+                    return response()->json([
+                        'success' => 'Artist Updated successfully',
+                        'reload_page'  => 'reload_page',
+                    ]);
+                }
+
+                CuratorFavoriteArtist::create([
+                    'curator_id'  => Auth::id(),
+                    'artist_id' => $artist_id,
+                ]);
+                return response()->json([
+                    'success' => 'Artist Updated successfully',
+                    'statusArtist'  => true,
                 ]);
             }else
             {

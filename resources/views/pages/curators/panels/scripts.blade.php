@@ -342,6 +342,14 @@
             '_blank' // <- This is what makes it open in a new window.
         );
     }
+    function publicProfileSaved(id)
+    {
+        let url = $('#publicProfile'+id).data('value');
+        window.open(
+            url,
+            '_blank' // <- This is what makes it open in a new window.
+        );
+    }
 </script>
 <script>
     // Change Artist password
@@ -428,6 +436,43 @@
                         );
                     }
 
+                }
+                if (data.error) {
+                    toastr.error(data.error);
+                }
+            },
+        })
+    }
+
+
+    /*--------------------------------------
+            favorite Artist
+      ---------------------------------------*/
+
+    function favoriteArtist(artist_id_)
+    {
+        var artist_id = window.btoa( artist_id_ );
+
+        showLoader();
+        $.ajax({
+            type: "GET",
+            url: '{{route('curator.favorite.artist')}}',
+            data: {artist_id:artist_id},
+            dataType: 'json',
+            success: function (data) {
+                loader();
+                if (data.success) {
+                    toastr.success(data.success);
+
+                    if(data.reload_page == "reload_page")
+                    {
+                        location.reload();
+                    }
+                    if(data.statusArtist == true)
+                    {
+                        window.location.replace('{{route('curator.saved.artists')}}');
+
+                    }
                 }
                 if (data.error) {
                     toastr.error(data.error);
