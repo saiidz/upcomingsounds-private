@@ -8,7 +8,9 @@
 <body>
 <div id="loadings"></div>
 <div class="app dk" id="app">
-
+    <div id="loading">
+        <img id="loading-image" src="{{asset('images/loader.gif')}}" alt="Loading..." />
+    </div>
     <!-- BEGIN: SideNav-->
 @include('pages.curators.panels.sidebar')
 <!-- END: SideNav-->

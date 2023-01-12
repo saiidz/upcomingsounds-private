@@ -66,5 +66,24 @@ success, touch, track, tracks, transparent, united, visibility,
             background-size: cover;
             margin-top: 7px;
         }
+        #loading {
+            position: fixed;
+            display: block;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            text-align: center;
+            opacity: 0.7;
+            background-color: #fff;
+            z-index: 99;
+        }
+
+        #loading-image {
+            z-index: 100;
+            height: 232px;
+            width: 234px;
+            margin-top: 280px;
+        }
     </style>
 </head>

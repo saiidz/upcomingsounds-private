@@ -233,3 +233,8 @@
         document.querySelector('#changePasswordArtist').reset();
     });
 </script>
+<script>
+    $(window).load(function() {
+        $('#loading').hide();
+    });
+</script>
