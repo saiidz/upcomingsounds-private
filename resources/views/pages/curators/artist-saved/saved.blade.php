@@ -71,7 +71,7 @@
                                                         @elseif($pos == 0)
                                                             @if(!empty($savedArtist->artistUser->profile))
                                                                 <div class="item-media-content"
-                                                                     style="background-image: url({{$campaign->artistTrack->user->profile}});"></div>
+                                                                     style="background-image: url({{$savedArtist->artistTrack->user->profile}});"></div>
                                                             @else
                                                                 <div class="item-media-content"
                                                                      style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>
