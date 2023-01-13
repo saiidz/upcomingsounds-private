@@ -4,10 +4,10 @@ namespace App\Templates;
 
 abstract class IPackages
 {
-    const STANDARD          = 'Standard 45 USC';
-    const ADVANCED_FEATURED = 'Advanced 60 USC';
-    const PRO               = 'Pro 80 USC';
-    const PREMIUM           = 'Premium 100 USC';
+    const STANDARD          = 'Standard';
+    const ADVANCED_FEATURED = 'Advanced';
+    const PRO               = 'Pro';
+    const PREMIUM           = 'Premium';
 
     const STANDARD_USC          = '45';
     const ADVANCED_FEATURED_USC = '60';

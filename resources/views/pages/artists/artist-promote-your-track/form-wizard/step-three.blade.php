@@ -7,8 +7,9 @@
     <div class="input__container">
         <div class="selection selection_new selection_standard" id="cStandard" onclick="choosePackage('standard')">
             <div class="descriptionTitle">
-                <h3>{{ App\Templates\IPackages::STANDARD }}  <img class="icon_UP" src="{{asset('images/coin_bg.png')}}"></h3>
+                <h3>{{ App\Templates\IPackages::STANDARD }} </h3>
             </div>
+            <h3>45 USC <img class="icon_UP" src="{{asset('images/coin_bg.png')}}"></h3>
             <div class="item-title bottom text-right form2CheckedBox">
                 <input type="checkbox" class="stepThreeStandard" name="package_name" id="get_standard" value="standard"/>
                 <input type="hidden" class="uscCredit" name="usc_credit" value="">
@@ -16,24 +17,27 @@
         </div>
         <div class="selection selection_new selection_advanced" id="cAdvanced" onclick="choosePackage('advanced')">
             <div class="descriptionTitle">
-                <h3>{{ App\Templates\IPackages::ADVANCED_FEATURED }} <img class="icon_UP" src="{{asset('images/coin_bg.png')}}"></h3>
+                <h3>{{ App\Templates\IPackages::ADVANCED_FEATURED }}</h3>
             </div>
+            <h3>60 USC <img class="icon_UP" src="{{asset('images/coin_bg.png')}}"></h3>
             <div class="item-title bottom text-right form2CheckedBox">
                 <input type="checkbox" class="stepThreeAdvanced" name="package_name" id="get_advanced" value="advanced"/>
             </div>
         </div>
         <div class="selection selection_new selection_pro" id="cPro" onclick="choosePackage('pro')">
             <div class="descriptionTitle">
-                <h3>{{ App\Templates\IPackages::PRO }} <img class="icon_UP" src="{{asset('images/coin_bg.png')}}"></h3>
+                <h3>{{ App\Templates\IPackages::PRO }}</h3>
             </div>
+            <h3>80 USC <img class="icon_UP" src="{{asset('images/coin_bg.png')}}"></h3>
             <div class="item-title bottom text-right form2CheckedBox">
                 <input type="checkbox" class="stepThreePro" name="package_name" id="get_pro" value="pro"/>
             </div>
         </div>
         <div class="selection selection_new selection_premium" id="cPremium" onclick="choosePackage('premium')">
             <div class="descriptionTitle">
-                <h3>{{ App\Templates\IPackages::PREMIUM }} <img class="icon_UP" src="{{asset('images/coin_bg.png')}}"></h3>
+                <h3>{{ App\Templates\IPackages::PREMIUM }}</h3>
             </div>
+            <h3>100 USC <img class="icon_UP" src="{{asset('images/coin_bg.png')}}"></h3>
             <div class="item-title bottom text-right form2CheckedBox">
                 <input type="checkbox" class="stepThreePremium" name="package_name" id="get_premium" value="premium"/>
             </div>

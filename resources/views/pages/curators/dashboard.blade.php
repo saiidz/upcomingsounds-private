@@ -26,7 +26,7 @@
             <div class="con m-b" id="curatorBanner" style="background-color: #000000">
 {{--            <div class="con m-b" id="curatorBanner" style="background: url({{asset(!empty($theme->curator_banner_img) ? $theme->curator_banner_img : 'images/banner_cd.png')}}) center center no-repeat;">--}}
                 <header>
-                    <h1>SITE TITLE</h1>
+{{--                    <h1>SITE TITLE</h1>--}}
                 </header>
                 <section class="main-slider">
                     @if(count($premium_campaigns) > 0)

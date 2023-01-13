@@ -63,12 +63,12 @@
                                 <div class="left__container">
                                     <div class="side__titles">
                                         <div class="title__name">
-                                            <h3>Add your release</h3>
-                                            <p>Step 1. <span id="inProgress">In progress</span></p>
+                                            <h3>My Track</h3>
+                                            <p>Step 1. <span id="inProgress">Add your release</span></p>
                                         </div>
                                         <div class="title__name">
-                                            <h3>Choose a campaign</h3>
-                                            <p>Step 2. <span id="inComplete">Selections</span></p>
+                                            <h3>My Selection</h3>
+                                            <p>Step 2. <span id="inComplete">Choose a campaign</span></p>
                                         </div>
                                         <div class="title__name">
                                             <h3>Activate your campaign</h3>
@@ -824,11 +824,11 @@
 
             if (viewId === 1) {
 
-                document.getElementById('inProgress').innerHTML = 'In progress';
+                // document.getElementById('inProgress').innerHTML = 'In progress';
                 form1.style.display = 'block';
 
                 form2.style.display = 'none';
-                document.getElementById('inComplete').innerHTML = 'Complete'
+                // document.getElementById('inComplete').innerHTML = 'Complete'
 
                 form3.style.display = 'none';
                 // form4.style.display = 'none';
@@ -836,13 +836,13 @@
 
             } else if (viewId === 2) {
 
-                document.getElementById('inProgress').innerHTML = 'Modify'
+                // document.getElementById('inProgress').innerHTML = 'Modify'
                 form1.style.display = 'none';
 
-                document.getElementById('inComplete').innerHTML = 'In progress'
+                // document.getElementById('inComplete').innerHTML = 'In progress'
                 form2.style.display = 'block';
 
-                document.getElementById('myMessage').innerHTML = 'Complete'
+                // document.getElementById('myMessage').innerHTML = 'Complete'
                 form3.style.display = 'none';
 
                 // form4.style.display = 'none';
@@ -851,10 +851,10 @@
             } else if (viewId === 3) {
                 form1.style.display = 'none';
 
-                document.getElementById('inComplete').innerHTML = 'Modify'
+                // document.getElementById('inComplete').innerHTML = 'Modify'
                 form2.style.display = 'none';
 
-                document.getElementById('myMessage').innerHTML = 'In progress'
+                // document.getElementById('myMessage').innerHTML = 'In progress'
                 form3.style.display = 'block';
                 // form4.style.display = 'none';
                 // form5.style.display = 'none';
@@ -862,7 +862,7 @@
                 form1.style.display = 'none';
                 form2.style.display = 'none';
 
-                document.getElementById('myMessage').innerHTML = 'Modify'
+                // document.getElementById('myMessage').innerHTML = 'Modify'
                 form3.style.display = 'none';
 
                 // document.getElementById('myRecap').innerHTML = 'Complete'

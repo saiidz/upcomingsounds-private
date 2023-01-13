@@ -61,7 +61,7 @@
                             <input type="checkbox" class="budgetYes budget_mind" name="pay_now" value="yes" />
                         </div>
                         <div class="item-title text-ellipsis">
-                            <div>Start your campaign.</div>
+                            <div>Start your campaign</div>
                         </div>
                         <div class="item-author text-sm text-ellipsis ">
                             <div class="text-muted">4 coverage plans to choose from</div>

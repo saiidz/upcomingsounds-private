@@ -278,6 +278,7 @@ body{
 
 .selection_new{
     padding: 1.5rem 0.5rem !important;
+    justify-content: space-between !important;
 }
 .selection {
     display: flex;
@@ -536,7 +537,7 @@ body{
     display: flex;
 }
 .imoji img{
-    height: 65px;
+    height: 80px;
 }
 .promoteAddTrack a{
     float: right;
