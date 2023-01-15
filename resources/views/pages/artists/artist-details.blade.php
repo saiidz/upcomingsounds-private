@@ -7,6 +7,11 @@
 {{-- page style --}}
 @section('page-style')
     <link rel="stylesheet" type="text/css" href="{{asset('css/custom/for-curators.css')}}">
+    <style>
+        .tellMeMore {
+            padding: 11px 11px 11px 11px !important;
+        }
+    </style>
 @endsection
 
 {{-- page content --}}
