@@ -613,33 +613,77 @@
                                 <h3 class="white" style="text-align:center;font-size: 15px;">Not Trending Found</h3>
                             </div>
                         @endif
-
-{{--                        <div class="">--}}
-{{--                            <div class="item r" data-id="item-5" data-src="http://streaming.radionomy.com/JamendoLounge">--}}
-{{--                                <div class="item-media item-media-4by3">--}}
-{{--                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b4.jpg');"></a>--}}
-{{--                                    <div class="item-overlay center">--}}
-{{--                                        <button  class="btn-playpause">Play</button>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="item-info">--}}
-{{--                                    <div class="item-overlay bottom text-right">--}}
-{{--                                        <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>--}}
-{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
-{{--                                        <div class="dropdown-menu pull-right black lt"></div>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="item-title text-ellipsis">--}}
-{{--                                        <a href="javascript:void(0)">Live Radio</a>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="item-author text-sm text-ellipsis ">--}}
-{{--                                        <a href="javascript:void(0)" class="text-muted">Radionomy</a>--}}
-{{--                                    </div>--}}
-
-
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
                     </div>
+
+                    {{-- Trendng Handle Admin Side --}}
+                    <h2 class="widget-title h4 m-b">Trending</h2>
+                    <div class="owl-carousel owl-theme owl-dots-center" data-ui-jp="owlCarousel" data-ui-options="{
+					margin: 20,
+					responsiveClass:true,
+				    responsive:{
+				    	0:{
+				    		items: 2
+				    	},
+				        543:{
+				            items: 3
+				        }
+				    }
+				}">
+
+                        @if(count($advance_campaigns) > 0)
+                            @foreach($advance_campaigns as $advance_campaign)
+                                <div class="">
+                                    <div class="item r" data-id="item-{{$advance_campaign->artistTrack->id}}" data-src="{{URL('/')}}/uploads/audio/{{$advance_campaign->artistTrack->audio}}">
+                                        <div class="item-media item-media-4by3">
+                                            @if(!empty($advance_campaign->artistTrack->track_thumbnail))
+                                                <a href="javascript:void(0)" class="item-media-content" onclick="openNav({{$advance_campaign->id}})"
+                                                   style="background-image: url({{asset('uploads/track_thumbnail')}}/{{$advance_campaign->artistTrack->track_thumbnail}});"></a>
+                                            @else
+                                                <a href="javascript:void(0)" onclick="openNav({{$advance_campaign->id}})" class="item-media-content"
+                                                   style="background-image: url({{asset('images/b4.jpg')}});"></a>
+                                            @endif
+
+                                            @if(!empty($advance_campaign->artistTrack->audio))
+                                                <div class="item-overlay center">
+                                                    <button  class="btn-playpause">Play</button>
+                                                </div>
+                                            @endif
+                                        </div>
+                                        <div class="item-info">
+                                            <div class="item-overlay bottom text-right">
+                                                @if(!empty($advance_campaign->curatorFavoriteTrack) && $advance_campaign->curatorFavoriteTrack->status == \App\Templates\IFavoriteTrackStatus::SAVE)
+                                                    <a href="javascript:void(0)" class="btn-favorite" @if($advance_campaign->artistTrack) onclick="favoriteTrack({{$advance_campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>
+                                                        <i class=" {{ !empty($advance_campaign->curatorFavoriteTrack) ? 'fa fa-heart colorAdd' : 'fa fa-heart-o' }}"></i>
+                                                    </a>
+                                                @else
+                                                    @if(empty($advance_campaign->curatorFavoriteTrack))
+                                                        <a href="javascript:void(0)" class="btn-favorite" @if($advance_campaign->artistTrack) onclick="favoriteTrack({{$advance_campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>
+                                                            <i class="fa fa-heart-o"></i>
+                                                        </a>
+                                                    @endif
+                                                @endif
+                                                <a href="javascript:void(0)" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
+                                                <div class="dropdown-menu pull-right black lt"></div>
+                                            </div>
+                                            <div class="item-title text-ellipsis">
+                                                <a href="javascript:void(0)" onclick="openNav({{$advance_campaign->id}})">{{$advance_campaign->artistTrack->name}}</a>
+                                            </div>
+                                            <div class="item-author text-sm text-ellipsis ">
+                                                {{--                                                <a href="javascript:void(0)" class="text-muted">Radionomy</a>--}}
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="item-title text-ellipsis">
+                                <h3 class="white" style="text-align:center;font-size: 15px;">Not Trending Found</h3>
+                            </div>
+                        @endif
+                    </div>
+                    {{-- Trendng Handle Admin Side --}}
 
                     <div class="row">
                         <div class="col-md-12">
