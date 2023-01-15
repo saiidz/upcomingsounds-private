@@ -1,3 +1,4 @@
+$('.slick-dots li button').empty();
 var slideWrapper = $(".main-slider"),
     iframes = slideWrapper.find('.embed-player'),
     lazyImages = slideWrapper.find('.slide-image'),

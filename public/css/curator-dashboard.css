@@ -279,18 +279,18 @@ header nav ul li a:hover {
 }
 .trackThumbnail {
     position: absolute;
-    top: 25%;
-    right: 18%;
+    top: 26%;
+    right: 13%;
     margin: 3px;
     padding: 3px;
-    width: 190px;
-    min-height: 120px;
+    /*width: 190px;*/
+    /*min-height: 120px;*/
 }
 .trackThumbnail .thumbnail {
     float: right;
     /*width: 40%;*/
-    max-width: 100%;
-    height: auto;
+    min-height: 208px;
+    max-width: 258px;
 }
 
 #itemMediaContent {
@@ -891,6 +891,46 @@ header nav ul li a:hover {
           margin: 0 auto;
           display: block;
       }
+
+
+      .outer-right {
+          position: absolute;
+          top: 14%;
+          right: 1%;
+          width: 50%;
+          z-index: 1;
+      }
+      .border_image .border {
+          width: 70%;
+      }
+      .trackThumbnail {
+          position: absolute;
+          top: 25%;
+          right: 13%;
+          margin: 3px;
+          padding: 3px;
+          width: auto;
+      }
+      .trackThumbnail .thumbnail {
+          width: 48%;
+          min-height: auto;
+      }
+      .outer-left {
+          position: absolute;
+          top: 5%;
+          left: 8%;
+          width: 50%;
+      }
+      .outer-left h1.headline.animated.fadeInLeft {
+          font-size: 20px;
+      }
+      .outer-left h3.title.animated.bounceInLeft {
+          font-size: 12px;
+      }
+      .outer-left p.description.animated.fadeInDown.delay-06s {
+          font-size: 5px;
+          margin-bottom: 2px;
+      }
   }
   /*collapse*/
 
@@ -903,3 +943,6 @@ header nav ul li a:hover {
       width: 20px !important;
       height: 15px !important;
   }
+.slick-dots li button {
+    font-size: 0;
+}
