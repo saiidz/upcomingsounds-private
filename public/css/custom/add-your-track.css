@@ -277,7 +277,7 @@ body{
 }
 
 .selection_new{
-    padding: 1.5rem 0.5rem !important;
+    padding: 1.5rem 2.5rem !important;
     justify-content: space-between !important;
 }
 .selection {
@@ -638,7 +638,9 @@ body{
     .prev__btn {
         width: 29%;
     }
-
+    .title__container {
+        justify-content: flex-start;
+    }
 }
 
 /*
@@ -652,5 +654,8 @@ body{
     .nxt__btn,
     .prev__btn {
         width: 30%;
+    }
+    .title__container {
+        justify-content: flex-start;
     }
 }

@@ -51,6 +51,9 @@
                      </li>
                      <li>
                          <a href="{{route('artist.messages')}}" id="artistMessages">
+                              <span class="nav-label">
+                                    <b class="label">0</b>
+                               </span>
                                     <span class="nav-icon">
                                         <i class="fa fa-inbox"></i>
                                     </span>
@@ -160,17 +163,17 @@
                     </li>
                     <li>
                        <a href="{{url('/artist-profile')}}#tracks" class="reloadTrack">
-                       @if(!empty($artist_track_count) && $artist_track_count !== 0)
-                       <span class="nav-label">
-                       <b class="label">{{ $artist_track_count  }}</b>
-                       </span>
-                       @endif
-                       <span class="nav-icon">
-                       <i class="material-icons">
-                       list
-                       </i>
-                       </span>
-                       <span class="nav-text">Tracks</span>
+                           @if(!empty($artist_track_count) && $artist_track_count !== 0)
+                               <span class="nav-label">
+                                    <b class="label">{{ $artist_track_count  }}</b>
+                               </span>
+                           @endif
+                           <span class="nav-icon">
+                               <i class="material-icons">
+                               list
+                               </i>
+                           </span>
+                           <span class="nav-text">Tracks</span>
                        </a>
                     </li>
                     <li>
@@ -295,14 +298,14 @@
                              <span class="nav-text">Alternative</span>
                          </a>
                      </li>
-                     <li>
-                         <a class="dropdown-item" href="{{ route('artist.artists.submissions') }}">
-                                    <span class="nav-icon">
-                                        <i class="fa fa-plus"></i>
-                                    </span>
-                             <span class="nav-text">Artists Submissions</span>
-                         </a>
-                     </li>
+{{--                     <li>--}}
+{{--                         <a class="dropdown-item" href="{{ route('artist.artists.submissions') }}">--}}
+{{--                                    <span class="nav-icon">--}}
+{{--                                        <i class="fa fa-plus"></i>--}}
+{{--                                    </span>--}}
+{{--                             <span class="nav-text">Artists Submissions</span>--}}
+{{--                         </a>--}}
+{{--                     </li>--}}
                      <li>
                          <a class="dropdown-item" href="{{ route('artist.proposition') }}">
                                     <span class="nav-icon">
@@ -326,6 +329,9 @@
                  @if(Request::is('messages') == 'messages')
                      <li>
                          <a href="{{route('artist.messages')}}" id="artistMessages">
+                              <span class="nav-label">
+                                    <b class="label">0</b>
+                               </span>
                             <span class="nav-icon">
                                 <i class="fa fa-inbox"></i>
                             </span>
@@ -343,7 +349,7 @@
                      <li>
                          <a class="dropdown-item" href="{{ route('artist.viewed.messages') }}">
                                     <span class="nav-icon">
-                                        <i class="fa fa-bullseye"></i>
+                                        <i class="fa fa-eye-slash"></i>
                                     </span>
                              <span class="nav-text">Viewed</span>
                          </a>

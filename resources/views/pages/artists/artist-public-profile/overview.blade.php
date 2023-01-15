@@ -87,7 +87,7 @@
         @endforeach
     @else
         <div class="item-title text-ellipsis">
-            <h3 class="white" style="text-align:center;font-size: 15px;">Not Found</h3>
+            <h3 class="white" style="text-align:center;font-size: 15px;">There are not results to show</h3>
         </div>
     @endif
 </div>

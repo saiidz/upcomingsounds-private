@@ -70,7 +70,7 @@ With Option 2, a curator will approach you and submit your release to their medi
                             </a>
                         @else
                             <a href="{{url('/login')}}" class="transparent  tellMeMore">
-                                <span>Start Now</span>
+                                <span>Submit for free now</span>
                             </a>
 
                         @endif
