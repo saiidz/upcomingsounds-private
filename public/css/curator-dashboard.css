@@ -21,8 +21,11 @@ body {
 /*body a:hover {*/
 /*    color: #fff;*/
 /*}*/
-p{
-    color:white;
+/*p{*/
+/*    color:white;*/
+/*}*/
+p.description.animated.fadeInDown.delay-06s {
+    color: #fff;
 }
 .caption, .slick-slide::before, .slick-slide {
     -webkit-backface-visibility: hidden;
