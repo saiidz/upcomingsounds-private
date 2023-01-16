@@ -282,8 +282,8 @@ header nav ul li a:hover {
 }
 .trackThumbnail {
     position: absolute;
-    top: 24%;
-    right: 14%;
+    top: 22%;
+    right: 13%;
     margin: 3px;
     padding: 3px;
     /*width: 190px;*/
@@ -292,7 +292,7 @@ header nav ul li a:hover {
 .trackThumbnail .thumbnail {
     float: right;
     /*width: 40%;*/
-    max-height: 239px;
+    max-height: 255px;
     max-width: 260px;
 }
 
