@@ -253,10 +253,10 @@
                       <div class="campaignBtn">
                           <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn basicbtn">
                              Report</a>
-
-                          <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn basicbtn">
-                              Offer</a>
-
+                          @if (Auth::check() && auth()->user() && auth()->user()->is_verified == 1)
+                              <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn basicbtn">
+                                  Offer</a>
+                          @endif
 {{--                          @if(!empty($campaign->curatorFavoriteTrack) && $campaign->curatorFavoriteTrack->status == \App\Templates\IFavoriteTrackStatus::ACCEPTED)--}}
 {{--                              <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn basicbtn {{ !empty($campaign->curatorFavoriteTrack) ? 'colorBgAdd' : '' }}"--}}
 {{--                                 @if($campaign->artistTrack) onclick="favoriteTrack({{$campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::ACCEPTED}}')" @endif>--}}
