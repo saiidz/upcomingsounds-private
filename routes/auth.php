@@ -158,19 +158,19 @@ Route::post('/artist-signup-step-5', [ArtistSignupController::class, 'postArtist
     ->middleware('auth')
     ->name('artist.signup.step.5.post');
 
-Route::get('/artist-signup-step-6', [ArtistSignupController::class, 'artistSignupStep6'])
+//Route::get('/artist-signup-step-6', [ArtistSignupController::class, 'artistSignupStep6'])
+//    ->middleware('auth')
+//    ->name('artist.signup.step.6');
+//Route::post('/artist-signup-step-6', [ArtistSignupController::class, 'postArtistSignupStep6'])
+//    ->middleware('auth')
+//    ->name('artist.signup.step.6.post');
+
+Route::get('/artist-signup-step-6', [ArtistSignupController::class, 'artistSignupStep7'])
     ->middleware('auth')
     ->name('artist.signup.step.6');
-Route::post('/artist-signup-step-6', [ArtistSignupController::class, 'postArtistSignupStep6'])
+Route::post('/artist-signup-step-6', [ArtistSignupController::class, 'postArtistSignupStep7'])
     ->middleware('auth')
     ->name('artist.signup.step.6.post');
-
-Route::get('/artist-signup-step-7', [ArtistSignupController::class, 'artistSignupStep7'])
-    ->middleware('auth')
-    ->name('artist.signup.step.7');
-Route::post('/artist-signup-step-7', [ArtistSignupController::class, 'postArtistSignupStep7'])
-    ->middleware('auth')
-    ->name('artist.signup.step.7.post');
 // Artist Signup
 
 
@@ -215,19 +215,19 @@ Route::post('/artist-signup-representative-step-6', [ArtistSignupRepresentativeC
     ->middleware('auth')
     ->name('artist.signup.representative.step.6.post');
 //
-Route::get('/artist-signup-representative-step-7', [ArtistSignupRepresentativeController::class, 'artistSignupRepresentativeStep7'])
+//Route::get('/artist-signup-representative-step-7', [ArtistSignupRepresentativeController::class, 'artistSignupRepresentativeStep7'])
+//    ->middleware('auth')
+//    ->name('artist.signup.representative.step.7');
+//Route::post('/artist-signup-representative-step-7', [ArtistSignupRepresentativeController::class, 'postArtistSignupRepresentativeStep7'])
+//    ->middleware('auth')
+//    ->name('artist.signup.representative.step.7.post');
+
+Route::get('/artist-signup-representative-step-7', [ArtistSignupRepresentativeController::class, 'artistSignupRepresentativeStep8'])
     ->middleware('auth')
     ->name('artist.signup.representative.step.7');
-Route::post('/artist-signup-representative-step-7', [ArtistSignupRepresentativeController::class, 'postArtistSignupRepresentativeStep7'])
+Route::post('/artist-signup-representative-step-7', [ArtistSignupRepresentativeController::class, 'postArtistSignupRepresentativeStep8'])
     ->middleware('auth')
     ->name('artist.signup.representative.step.7.post');
-
-Route::get('/artist-signup-representative-step-8', [ArtistSignupRepresentativeController::class, 'artistSignupRepresentativeStep8'])
-    ->middleware('auth')
-    ->name('artist.signup.representative.step.8');
-Route::post('/artist-signup-representative-step-8', [ArtistSignupRepresentativeController::class, 'postArtistSignupRepresentativeStep8'])
-    ->middleware('auth')
-    ->name('artist.signup.representative.step.8.post');
 // Artist Signup Representative
 
 // Artist Create Password

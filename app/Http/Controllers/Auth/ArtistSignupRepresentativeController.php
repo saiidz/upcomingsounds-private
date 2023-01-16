@@ -341,8 +341,8 @@ class ArtistSignupRepresentativeController extends Controller
         $artist_representative_tags = $request->session()->get('artist_representative_tags');
         $released_representative = $request->session()->get('released_representative');
 
-        if(!empty($artist_representative_data) && !empty($artist_artist_data) && !empty($artist_representative_social) && !empty($artist_representative_tags) && !empty($released_representative)){
-            return view('pages.artists.artist-signup-representative.artist-signup-step-8',compact('artist_representative_data','artist_artist_data','artist_representative_social','artist_representative_tags'));
+        if(!empty($artist_representative_data) && !empty($artist_artist_data) && !empty($artist_representative_social) && !empty($artist_representative_tags)){
+            return view('pages.artists.artist-signup-representative.artist-signup-step-8',get_defined_vars());
         }else{
             return redirect()->back();
         }
@@ -361,7 +361,6 @@ class ArtistSignupRepresentativeController extends Controller
         $artist_representative_social = $request->session()->get('artist_representative_social');
         $artist_representative_tags = $request->session()->get('artist_representative_tags');
         $released_representative = $request->session()->get('released_representative');
-
         $auth_id = Auth::user()->id;
 
         $user = User::find($auth_id);

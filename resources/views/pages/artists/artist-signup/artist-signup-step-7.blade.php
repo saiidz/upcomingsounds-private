@@ -48,7 +48,7 @@
                                             <div class="underline"></div>
                                             <div class="row">
                                                 <div class="col s12">
-                                                    <form method="POST" action="{{route('artist.signup.step.7.post')}}"
+                                                    <form method="POST" action="{{route('artist.signup.step.6.post')}}"
                                                           enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="section mt-2" id="faq">
