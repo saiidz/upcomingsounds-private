@@ -420,21 +420,22 @@
                     {
                         location.reload();
                     }
-                    if(data.statusTrack == "SAVE")
-                    {
-                        window.location.replace('{{route('artist.saved')}}');
+                    location.reload();
+                    {{--if(data.statusTrack == "SAVE")--}}
+                    {{--{--}}
+                    {{--    window.location.replace('{{route('artist.saved')}}');--}}
 
-                    }else if(data.statusTrack == 'ACCEPTED'){
-                        window.open(
-                            window.location.origin + '/accepted',
-                            '_self' // <- This is what makes it open in a new window.
-                        );
-                    }else if(data.statusTrack == 'REJECTED'){
-                        window.open(
-                            window.location.origin + '/rejected',
-                            '_self' // <- This is what makes it open in a new window.
-                        );
-                    }
+                    {{--}else if(data.statusTrack == 'ACCEPTED'){--}}
+                    {{--    window.open(--}}
+                    {{--        window.location.origin + '/accepted',--}}
+                    {{--        '_self' // <- This is what makes it open in a new window.--}}
+                    {{--    );--}}
+                    {{--}else if(data.statusTrack == 'REJECTED'){--}}
+                    {{--    window.open(--}}
+                    {{--        window.location.origin + '/rejected',--}}
+                    {{--        '_self' // <- This is what makes it open in a new window.--}}
+                    {{--    );--}}
+                    {{--}--}}
 
                 }
                 if (data.error) {
