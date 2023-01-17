@@ -445,11 +445,21 @@
         })
     }
 
-
     /*--------------------------------------
             favorite Artist
       ---------------------------------------*/
 
+    function offerShowHide()
+    {
+        $('#mySidebarCollapsedShowHide').css('display','none');
+        $('#templateCollapsedShowHide').css('display','block');
+    }
+
+    function backToShowHide()
+    {
+        $('#templateCollapsedShowHide').css('display','none');
+        $('#mySidebarCollapsedShowHide').css('display','block');
+    }
     function favoriteArtist(artist_id_)
     {
         var artist_id = window.btoa( artist_id_ );
