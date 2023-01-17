@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Curator\OfferController;
+use App\Http\Controllers\Curator\OfferTemplateController;
 use App\Http\Controllers\Curator\SavedArtistController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -60,8 +61,12 @@ Route::get('offer-rejected', [OfferController::class,'rejected'])->name('curator
 Route::get('offer-alternative', [OfferController::class,'alternative'])->name('curator.alternative');
 Route::get('offer-artists-submissions', [OfferController::class,'artistsSubmissions'])->name('curator.artists.submissions');
 Route::get('offer-completed', [OfferController::class,'completed'])->name('curator.completed');
-Route::get('offer-proposition', [OfferController::class,'proposition'])->name('curator.proposition');
 // offers routes
+
+// offer templates routes
+Route::get('offer-proposition', [OfferTemplateController::class,'index'])->name('curator.proposition');
+Route::get('create-offer-template', [OfferTemplateController::class,'create'])->name('curator.create.offer.template');
+// offer templates routes
 
 // saved artist routes
 Route::get('saved-artists', [SavedArtistController::class,'savedArtist'])->name('curator.saved.artists');

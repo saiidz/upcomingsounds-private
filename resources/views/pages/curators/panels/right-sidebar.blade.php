@@ -4,7 +4,7 @@
         <div class="row item-list item-list-sm m-b">
             <div class="col-xs-12">
                 <div class="item r" data-id="item-3"
-                     data-src="http://api.soundcloud.com/tracks/79031167/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                     data-src="">
                     <div class="item-media ">
                         <a href="javascript:void(0)" class="item-media-content"
                            style="background-image: url('images/b2.jpg');"></a>
@@ -23,7 +23,7 @@
             </div>
             <div class="col-xs-12">
                 <div class="item r" data-id="item-1"
-                     data-src="http://api.soundcloud.com/tracks/269944843/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                     data-src="">
                     <div class="item-media ">
                         <a href="javascript:void(0)" class="item-media-content"
                            style="background-image: url('images/b0.jpg');"></a>
@@ -42,7 +42,7 @@
             </div>
             <div class="col-xs-12">
                 <div class="item r" data-id="item-12"
-                     data-src="http://api.soundcloud.com/tracks/174495152/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                     data-src="">
                     <div class="item-media ">
                         <a href="javascript:void(0)" class="item-media-content"
                            style="background-image: url('images/b11.jpg');"></a>
@@ -61,7 +61,7 @@
             </div>
             <div class="col-xs-12">
                 <div class="item r" data-id="item-11"
-                     data-src="http://api.soundcloud.com/tracks/218060449/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                     data-src="">
                     <div class="item-media ">
                         <a href="javascript:void(0)" class="item-media-content"
                            style="background-image: url('images/b10.jpg');"></a>
@@ -80,7 +80,7 @@
             </div>
             <div class="col-xs-12">
                 <div class="item r" data-id="item-6"
-                     data-src="http://api.soundcloud.com/tracks/236107824/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                     data-src="">
                     <div class="item-media ">
                         <a href="javascript:void(0)" class="item-media-content"
                            style="background-image: url('images/b5.jpg');"></a>

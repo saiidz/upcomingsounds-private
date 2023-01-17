@@ -72,10 +72,42 @@
         {
             window.location.href = '/dashboard';
         });
+
+
+        // offer template open
         $('#curatorOffers').on('click', function ()
         {
             window.location.href = '/offers';
         });
+        $('#pendingOffers').on('click', function ()
+        {
+            window.location.href = '/offer-pending';
+        });
+        $('#acceptedOffers').on('click', function ()
+        {
+            window.location.href = '/offer-accepted';
+        });
+        $('#rejectedOffers').on('click', function ()
+        {
+            window.location.href = '/offer-rejected';
+        });
+        $('#alternativeOffers').on('click', function ()
+        {
+            window.location.href = '/offer-alternative';
+        });
+        $('#submissionsOffers').on('click', function ()
+        {
+            window.location.href = '/offer-artists-submissions';
+        });
+        $('#propositionOffers').on('click', function ()
+        {
+            window.location.href = '/offer-proposition';
+        });
+        $('#completedOffers').on('click', function ()
+        {
+            window.location.href = '/offer-completed';
+        });
+        // offer template open
     </script>
 @yield('page-script')
 <script>
@@ -350,6 +382,7 @@
             '_blank' // <- This is what makes it open in a new window.
         );
     }
+
 </script>
 <script>
     // Change Artist password

@@ -70,7 +70,11 @@
                     @endif
 
                     @if(Request::is('artist-submission') != 'artist-submission' && Request::is('saved') != 'saved' &&
-                         Request::is('accepted') != 'accepted' && Request::is('rejected') != 'rejected' && Request::is('offers') != 'offers')
+                         Request::is('accepted') != 'accepted' && Request::is('rejected') != 'rejected' && Request::is('offers') != 'offers'
+                         && Request::is('offer-pending') != 'offer-pending' && Request::is('offer-accepted') != 'offer-accepted'
+                          && Request::is('offer-rejected') != 'offer-rejected' && Request::is('offer-alternative') != 'offer-alternative'
+                          && Request::is('offer-artists-submissions') != 'offer-artists-submissions' && Request::is('offer-proposition') != 'offer-proposition'
+                          && Request::is('offer-completed') != 'offer-completed')
                         <li>
                             @if (Auth::check() && auth()->user())
                                 @if (auth()->user()->is_verified == 1)
@@ -299,7 +303,10 @@
                     @endif
 
                     {{-- Offers Pages --}}
-                    @if(Request::is('offers') == 'offers')
+                    @if(Request::is('offers') == 'offers' || Request::is('offer-pending') == 'offer-pending'
+                          || Request::is('offer-accepted') == 'offer-accepted' || Request::is('offer-rejected') == 'offer-rejected'
+                          || Request::is('offer-alternative') == 'offer-alternative' || Request::is('offer-artists-submissions') == 'offer-artists-submissions'
+                          || Request::is('offer-proposition') == 'offer-proposition' || Request::is('offer-completed') == 'offer-completed')
                         <li>
                             @if (Auth::check() && auth()->user())
                                 @if (auth()->user()->is_verified == 1)
@@ -321,7 +328,7 @@
 
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{{ route('curator.pending') }}">
+                            <a class="dropdown-item" href="javascript:void(0)" id="pendingOffers">
                                     <span class="nav-icon">
                                         <i class="fa fa-clock-o"></i>
                                     </span>
@@ -329,7 +336,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{{ route('curator.accepted') }}">
+                            <a class="dropdown-item" href="javascript:void(0)" id="acceptedOffers">
                                     <span class="nav-icon">
                                         <i class="fa fa-thumbs-o-up"></i>
                                     </span>
@@ -337,7 +344,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{{ route('curator.rejected') }}">
+                            <a class="dropdown-item" href="javascript:void(0)" id="rejectedOffers">
                                     <span class="nav-icon">
                                         <i class="fa fa-thumbs-o-down"></i>
                                     </span>
@@ -345,7 +352,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{{ route('curator.alternative') }}">
+                            <a class="dropdown-item" href="javascript:void(0)" id="alternativeOffers">
                                     <span class="nav-icon">
                                         <i class="fa fa-code-fork"></i>
                                     </span>
@@ -353,7 +360,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{{ route('curator.artists.submissions') }}">
+                            <a class="dropdown-item" href="javascript:void(0)" id="submissionsOffers">
                                     <span class="nav-icon">
                                         <i class="fa fa-plus"></i>
                                     </span>
@@ -361,7 +368,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{{ route('curator.proposition') }}">
+                            <a class="dropdown-item" href="javascript:void(0)" id="propositionOffers">
                                     <span class="nav-icon">
                                         <i class="fa fa-edit"></i>
                                     </span>
@@ -369,7 +376,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{{ route('curator.completed') }}">
+                            <a class="dropdown-item" href="javascript:void(0)" id="completedOffers">
                                     <span class="nav-icon">
                                         <i class="fa fa-check-circle-o"></i>
                                     </span>
