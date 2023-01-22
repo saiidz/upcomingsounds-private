@@ -328,7 +328,7 @@
 
                         </li>
                         <li>
-                            <a class="dropdown-item" href="javascript:void(0)" id="pendingOffers">
+                            <a class="dropdown-item" href="{{route('curator.pending')}}" id="pendingOffers">
                                     <span class="nav-icon">
                                         <i class="fa fa-clock-o"></i>
                                     </span>
@@ -336,7 +336,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="javascript:void(0)" id="acceptedOffers">
+                            <a class="dropdown-item" href="{{route('curator.accepted')}}" id="acceptedOffers">
                                     <span class="nav-icon">
                                         <i class="fa fa-thumbs-o-up"></i>
                                     </span>
@@ -344,7 +344,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="javascript:void(0)" id="rejectedOffers">
+                            <a class="dropdown-item" href="{{route('curator.rejected')}}" id="rejectedOffers">
                                     <span class="nav-icon">
                                         <i class="fa fa-thumbs-o-down"></i>
                                     </span>
@@ -352,7 +352,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="javascript:void(0)" id="alternativeOffers">
+                            <a class="dropdown-item" href="{{route('curator.alternative')}}" id="alternativeOffers">
                                     <span class="nav-icon">
                                         <i class="fa fa-code-fork"></i>
                                     </span>
@@ -360,7 +360,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="javascript:void(0)" id="submissionsOffers">
+                            <a class="dropdown-item" href="{{route('curator.artists.submissions')}}" id="submissionsOffers">
                                     <span class="nav-icon">
                                         <i class="fa fa-plus"></i>
                                     </span>
@@ -368,7 +368,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="javascript:void(0)" id="propositionOffers">
+                            <a class="dropdown-item" href="{{route('curator.proposition')}}" id="propositionOffers">
                                     <span class="nav-icon">
                                         <i class="fa fa-edit"></i>
                                     </span>
@@ -376,7 +376,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="javascript:void(0)" id="completedOffers">
+                            <a class="dropdown-item" href="{{route('curator.completed')}}" id="completedOffers">
                                     <span class="nav-icon">
                                         <i class="fa fa-check-circle-o"></i>
                                     </span>
