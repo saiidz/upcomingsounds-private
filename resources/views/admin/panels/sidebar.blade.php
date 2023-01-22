@@ -118,6 +118,24 @@
                             <span data-i18n="List">Curator Features</span>
                         </a>
                     </li>
+                    <li class="{{ Request::is('admin/offers') ? 'active' : '' }}">
+                        <a class="{{ Request::is('admin/offers') ? 'active' : '' }}" href="{{ route('admin.offers') }}">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            <span data-i18n="List">Offers</span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('admin/offer-types*') ? 'active' : '' }}">
+                        <a class="{{ Request::is('admin/offer-types*') ? 'active' : '' }}" href="{{ route('admin.offer-types.index') }}">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            <span data-i18n="List">Offer Types</span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('admin/alternative-options*') ? 'active' : '' }}">
+                        <a class="{{ Request::is('admin/alternative-options*') ? 'active' : '' }}" href="{{ route('admin.alternative-options.index') }}">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            <span data-i18n="List">Alternative Options</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </li>

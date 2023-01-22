@@ -74,6 +74,7 @@
                          && Request::is('offer-pending') != 'offer-pending' && Request::is('offer-accepted') != 'offer-accepted'
                           && Request::is('offer-rejected') != 'offer-rejected' && Request::is('offer-alternative') != 'offer-alternative'
                           && Request::is('offer-artists-submissions') != 'offer-artists-submissions' && Request::is('offer-proposition') != 'offer-proposition'
+                          && Request::is('create-offer-template') != 'create-offer-template'
                           && Request::is('offer-completed') != 'offer-completed')
                         <li>
                             @if (Auth::check() && auth()->user())
@@ -306,7 +307,8 @@
                     @if(Request::is('offers') == 'offers' || Request::is('offer-pending') == 'offer-pending'
                           || Request::is('offer-accepted') == 'offer-accepted' || Request::is('offer-rejected') == 'offer-rejected'
                           || Request::is('offer-alternative') == 'offer-alternative' || Request::is('offer-artists-submissions') == 'offer-artists-submissions'
-                          || Request::is('offer-proposition') == 'offer-proposition' || Request::is('offer-completed') == 'offer-completed')
+                          || Request::is('offer-proposition') == 'offer-proposition' || Request::is('create-offer-template') == 'create-offer-template'
+                          || Request::is('offer-completed') == 'offer-completed')
                         <li>
                             @if (Auth::check() && auth()->user())
                                 @if (auth()->user()->is_verified == 1)

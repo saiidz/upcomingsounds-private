@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\AlternativeOptionController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\OfferTypeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ArtistController;
 use App\Http\Controllers\Admin\OptionController;
@@ -103,6 +105,10 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
 
 //    Route::any('/logout', [AuthenticatedSessionController::class, 'destroy']);
 
+    // Offer Type
+    Route::get('offers',  [OfferTypeController::class, 'offers'])->name('offers');
+    Route::resource('offer-types',  OfferTypeController::class);
+    Route::resource('alternative-options',  AlternativeOptionController::class);
 });
 
 

@@ -48,7 +48,8 @@ class ReferralController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'     => 'required|string|max:255',
+//            'name'     => 'required|string|max:255',
+            'name'     => ($request->type == 'artist') ? 'required|alpha_dash|max:255|unique:users' : 'required|string|max:255',
             'email'    => 'required|string|email|max:255|unique:users',
             'password' => ['required', Rules\Password::defaults()],
         ]);

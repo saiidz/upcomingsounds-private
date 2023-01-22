@@ -308,7 +308,7 @@
                         <div class="col-xs-12">
                             <div class="startCollapse">
                                 <div class="templateBtn text-center">
-                                    <a href="javascript:void(0)" class="btn btn-sm rounded tem_btn basicbtn">
+                                    <a href="{{route('curator.create.offer.template')}}" class="btn btn-sm rounded tem_btn basicbtn">
                                         Setup a new offer template</a>
                                 </div>
                                 <span class="or_">OR</span>
