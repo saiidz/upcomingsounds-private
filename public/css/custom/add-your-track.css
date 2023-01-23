@@ -122,19 +122,34 @@ body{
 }
 
 .progress__bar__container {
-    padding-top: 1.6rem;
+    /*padding-top: 1.6rem;*/
 }
 
 .progress__bar__container ul .active {
-    background-color: var(--secondery-color)
+    /*background-color: var(--secondery-color)*/
 }
 
+.upcomingIcon{
+    position: relative;
+}
+.upcomingIcon img{
+    height: 50px;
+}
+.faUnlock{
+    color: #25CC88;
+}
+.falock{
+    color: red;
+}
+.faPosition{
+    position: absolute;
+}
 .progress__bar__container ul li {
     display: flex;
     align-items: center;
     justify-content: center;
     list-style: none;
-    background: var(--shadow-color);
+    /*background: var(--shadow-color);*/
     padding: 0.5rem 0.6rem;
     margin-bottom: 1.2rem;
     border-radius: 50%;
@@ -143,21 +158,21 @@ body{
     margin-left: 2rem
 }
 
-.progress__bar__container ul li::before {
-    content: '';
-    width: 1px;
-    height: 11vh;
-    position: absolute;
-    background-color: var(--shadow-color)
-}
+/*.progress__bar__container ul li::before {*/
+/*    content: '';*/
+/*    width: 1px;*/
+/*    height: 11vh;*/
+/*    position: absolute;*/
+/*    background-color: var(--shadow-color)*/
+/*}*/
 
-.progress__bar__container ul .active::before {
-    content: '';
-    width: 1px;
-    height: 11vh;
-    position: absolute;
-    background-color: var(--secondery-color)
-}
+/*.progress__bar__container ul .active::before {*/
+/*    content: '';*/
+/*    width: 1px;*/
+/*    height: 11vh;*/
+/*    position: absolute;*/
+/*    background-color: var(--secondery-color)*/
+/*}*/
 
 .right__container {
     width: 65%;

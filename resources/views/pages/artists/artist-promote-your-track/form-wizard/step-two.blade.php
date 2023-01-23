@@ -60,11 +60,19 @@
                         <div class="item-title bottom text-right">
                             <input type="checkbox" class="budgetYes budget_mind" name="pay_now" value="yes" />
                         </div>
-                        <div class="item-title text-ellipsis">
-                            <div>Start your campaign</div>
+                        <div id="rocket">
+                            <span class="nav-icon">
+                                    <i class="fa fa-rocket"></i>
+                                </span>
                         </div>
-                        <div class="item-author text-sm text-ellipsis ">
-                            <div class="text-muted">4 coverage plans to choose from</div>
+                        <div>
+                            <div class="item-title text-ellipsis center">
+                                <div>Start your campaign</div>
+                                <div class="item-author text-sm text-ellipsis text-muted">4 coverage plans to choose from</div>
+                            </div>
+{{--                            <div class="item-author text-sm text-ellipsis ">--}}
+{{--                                <div class="text-muted">4 coverage plans to choose from</div>--}}
+{{--                            </div>--}}
                         </div>
                     </div>
                 </div>

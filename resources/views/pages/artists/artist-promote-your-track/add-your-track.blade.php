@@ -26,6 +26,12 @@
         #selectionSHow h2,h3{
             font-size:22px !important;
         }
+        #rocket span{
+            font-size: 60px;
+            color: red;
+            padding-left: 70px;
+            display: flex;
+        }
 
     </style>
 @endsection
@@ -99,13 +105,29 @@
                                     <div class="progress__bar__container">
                                         <ul>
                                             <li class="active" id="icon1">
-                                                <i class="fa fa-unlock-alt"></i>
+                                                <span class="upcomingIcon">
+                                                    <img src="{{asset('images/upcoming_icon.png')}}">
+                                                </span>
+                                                <div class="faUnlock1 faPosition">
+                                                    <i class="fa fa-unlock faUnlock"></i>
+                                                </div>
+{{--                                                <i class="fa fa-unlock-alt"></i>--}}
                                             </li>
                                             <li id="icon2">
-                                                <i class="fa fa-unlock-alt"></i>
+                                                <span class="upcomingIcon">
+                                                    <img src="{{asset('images/upcoming_icon.png')}}">
+                                                </span>
+                                                <div class="faUnlock2 faPosition">
+                                                    <i class="fa fa-lock falock"></i>
+                                                </div>
                                             </li>
                                             <li id="icon3">
-                                                <i class="fa fa-unlock-alt"></i>
+                                                <span class="upcomingIcon">
+                                                    <img src="{{asset('images/upcoming_icon.png')}}">
+                                                </span>
+                                                <div class="faUnlock3 faPosition">
+                                                    <i class="fa fa-lock falock"></i>
+                                                </div>
                                             </li>
 {{--                                            <li id="icon4">--}}
 {{--                                                <i class="fa fa-unlock-alt"></i>--}}
@@ -792,10 +814,14 @@
             if (viewId === 2) {
                 // alert('viewId2');
                 icon2.classList.add('active');
+                $('.faUnlock2').empty();
+                $('.faUnlock2').html('<i class="fa fa-unlock faUnlock"></i>')
             }
             if (viewId === 3) {
                 // alert('viewId3');
                 icon3.classList.add('active');
+                $('.faUnlock3').empty();
+                $('.faUnlock3').html('<i class="fa fa-unlock faUnlock"></i>')
             }
             if (viewId === 4) {
                 // alert('viewId4');
