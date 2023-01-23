@@ -656,6 +656,10 @@ body{
     .title__container {
         justify-content: flex-start;
     }
+    #rocket span {
+        padding-left: 0;
+        display: block;
+    }
 }
 
 /*
@@ -672,5 +676,9 @@ body{
     }
     .title__container {
         justify-content: flex-start;
+    }
+    #rocket span {
+        padding-left: 0;
+        display: block;
     }
 }
