@@ -6,30 +6,6 @@
 
 @section('page-style')
     <style>
-        .proposition_header {
-            justify-content: space-between !important;
-            align-items: center !important;
-            display: flex !important;
-        }
-
-        .proposition {
-            margin-top: 20px;
-            border-color: #02b875 !important;
-            background-color: #1f1f25;
-            color: white !important;
-            text-align: center !important;
-            padding: 10px 1.5rem 10px 1.5rem !important;
-            white-space: nowrap !important;
-            vertical-align: middle !important;
-            box-shadow: inset 0 0 1px rgb(0 0 0 / 30%) !important;
-            border-radius: 500px !important;
-            margin-left: 10px !important;
-        }
-        .offerAlternative{
-            justify-content: space-between;
-            align-items: center !important;
-            display: flex !important;
-        }
         .Item{
             background-color: rgba(120, 120, 120, 0.1);
         }
