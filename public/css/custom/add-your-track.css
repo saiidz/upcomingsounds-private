@@ -660,6 +660,10 @@ body{
         padding-left: 0 !important;
         display: block !important;
     }
+    .selection_new {
+        padding: 0.5rem 0.5rem !important;
+        justify-content: space-between !important;
+    }
 }
 
 /*
@@ -680,5 +684,9 @@ body{
     #rocket span {
         padding-left: 0 !important;
         display: block !important;
+    }
+    .selection_new {
+        padding: 0.5rem 0.5rem !important;
+        justify-content: space-between !important;
     }
 }
