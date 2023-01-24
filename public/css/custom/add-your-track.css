@@ -657,8 +657,8 @@ body{
         justify-content: flex-start;
     }
     #rocket span {
-        padding-left: 0;
-        display: block;
+        padding-left: 0 !important;
+        display: block !important;
     }
 }
 
@@ -678,7 +678,7 @@ body{
         justify-content: flex-start;
     }
     #rocket span {
-        padding-left: 0;
-        display: block;
+        padding-left: 0 !important;
+        display: block !important;
     }
 }
