@@ -307,10 +307,23 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="startCollapse">
-                                <div class="templateBtn text-center">
-                                    <a href="{{route('curator.create.offer.template')}}" class="btn btn-sm rounded tem_btn basicbtn">
-                                        Setup a new offer template</a>
-                                </div>
+                                @if(!empty($offerTemplates) && (count($offerTemplates) > 0))
+                                    <div class="templateBtn text-center">
+                                        <div class="form-group">
+                                            <select name="type" class="selectOffer">
+                                                <option value="" disabled selected>Select Template</option>
+                                                @foreach($offerTemplates as $offerTemplate)
+                                                    <option value="{{ $offerTemplate->id }}">{{ $offerTemplate->title ?? '----' }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                @else
+                                    <div class="templateBtn text-center">
+                                        <a href="{{route('curator.create.offer.template')}}" class="btn btn-sm rounded tem_btn basicbtn">
+                                            Setup a new offer template</a>
+                                    </div>
+                                @endif
                                 <span class="or_">OR</span>
                                 <div class="offerBtn text-center">
                                     <a href="javascript:void(0)" class="btn btn-sm rounded tem_btn basicbtn">

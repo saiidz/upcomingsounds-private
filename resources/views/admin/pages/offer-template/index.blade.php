@@ -57,7 +57,8 @@
                                                         <th>Offer Type</th>
                                                         <th>Alternative Type</th>
                                                         <th>Created At</th>
-{{--                                                        <th>Action</th>--}}
+                                                        <th>Status</th>
+                                                        <th>View</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
@@ -74,21 +75,22 @@
                                                                 <td>{{!empty($offerTemplate->offerType) ? $offerTemplate->offerType->name : '---' }}</td>
                                                                 <td>{{!empty($offerTemplate->alternativeOption) ? $offerTemplate->alternativeOption->name : '---' }}</td>
                                                                 <td>{{ getDateFormat($offerTemplate->created_at) }}</td>
-{{--                                                                <td>--}}
-{{--                                                                    <div class="action-button">--}}
-{{--                                                                        <a href="{{route('admin.offer-types.edit',$offer_type->id)}}" class="action-button-edit">--}}
-{{--                                                                            <img class="editDell" src="{{asset('images/edit_blue.svg')}}">--}}
-{{--                                                                        </a>--}}
-{{--                                                                        <a class="dropdown-item has-icon delete-confirm" href="javascript:void(0)" data-id={{ $offer_type->id }}>--}}
-{{--                                                                            <img class="editDell" src="{{asset('images/delete_forever.svg')}}">--}}
-{{--                                                                        </a>--}}
-{{--                                                                        <!-- Delete Form -->--}}
-{{--                                                                        <form class="d-none" id="delete_form_{{ $offer_type->id }}" action="{{ route('admin.offer-types.destroy', $offer_type->id) }}" method="POST">--}}
-{{--                                                                            @csrf--}}
-{{--                                                                            @method('DELETE')--}}
-{{--                                                                        </form>--}}
-{{--                                                                    </div>--}}
-{{--                                                                </td>--}}
+                                                                <td>
+                                                                    @if ($offerTemplate->is_approved == 1)
+                                                                        <span class="chip green lighten-5">
+                                                                            <span class="green-text">Approved</span>
+                                                                        </span>
+                                                                    @elseif($offerTemplate->is_rejected == 1)
+                                                                        <span class="chip red lighten-5">
+                                                                            <span class="red-text">Rejected</span>
+                                                                        </span>
+                                                                    @else
+                                                                        <span class="chip red lighten-5">
+                                                                            <span class="red-text">Pending</span>
+                                                                        </span>
+                                                                    @endif
+                                                                </td>
+                                                                <td><a href="{{ route('admin.template-offer', $offerTemplate->id) }}"><i class="material-icons">remove_red_eye</i></a></td>
                                                             </tr>
                                                         @endforeach
                                                     @endif
@@ -103,6 +105,8 @@
                                                         <th>Offer Type</th>
                                                         <th>Alternative Type</th>
                                                         <th>Created At</th>
+                                                        <th>Status</th>
+                                                        <th>View</th>
                                                     </tr>
                                                     </tfoot>
                                                 </table>

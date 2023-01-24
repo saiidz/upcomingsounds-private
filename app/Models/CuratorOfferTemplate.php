@@ -20,6 +20,7 @@ class CuratorOfferTemplate extends Model
         'contribution',
         'alternative_option',
         'is_approved',
+        'is_rejected',
         "deleted_at",
     ];
 

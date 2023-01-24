@@ -22,6 +22,7 @@ class CreateCuratorOfferTemplatesTable extends Migration
             $table->integer('contribution')->nullable();
             $table->foreignId('alternative_option')->constrained('alternative_options')->cascadeOnDelete();
             $table->boolean('is_approved')->default(false);
+            $table->boolean('is_rejected')->default(false);
             $table->softDeletes();
             $table->timestamps();
         });

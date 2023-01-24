@@ -57,7 +57,13 @@
                                     <div class="item r Item" data-id="item-{{$offerTemplate->id}}">
                                         <div class="item-info">
                                             <div class="item bottom text-right">
-                                                <span class="text-primary">Contribution: {{$offerTemplate->contribution ?? 0}} USC</span>
+                                                @if($offerTemplate->is_approved == 1)
+                                                    <span class="text-primary">Approved</span>
+                                                @elseif($offerTemplate->is_rejected == 1)
+                                                    <span class="text-danger">Rejected</span>
+                                                @else
+                                                    <span class="text-danger">Pending</span>
+                                                @endif
                                             </div>
                                             <div class="item-title text-ellipsis">
                                                 <span class="text-muted">{{$offerTemplate->title}}</span>
@@ -70,20 +76,29 @@
                                             </div>
 
                                             <div
-                                                class="item-except visible-list text-sm text-muted h-2x m-t-sm">
+                                                class="item-except visible-list text-sm text-muted m-t-sm">
                                                 {!! $offerTemplate->offer_text ?? '--' !!}
                                             </div>
 
-                                            @if(!empty($offerTemplate->offerType))
-                                                <div class="m-t-sm offerAlternative">
+
+                                            <div class="m-t-sm offerAlternative">
+                                                @if(!empty($offerTemplate->offerType))
                                                     <div>
-                                                        <span>Offer Type: </span><span class="btn btn-xs white">{{$offerTemplate->offerType->name}}</span>
+                                                        <span style="color:#02b875 !important">Contribution: </span><span class="btn btn-xs white">{{$offerTemplate->contribution ?? 0}} USC</span>
                                                     </div>
+                                                @endif
+                                                @if(!empty($offerTemplate->offerType))
                                                     <div>
-                                                        <span>Alternative Option: </span><span class="btn btn-xs white">{{$offerTemplate->alternativeOption->name}}</span>
+                                                        <span style="color:#02b875 !important">Offer Type: </span><span class="btn btn-xs white">{{$offerTemplate->offerType->name}}</span>
                                                     </div>
-                                                </div>
-                                            @endif
+                                                @endif
+                                                @if(!empty($offerTemplate->alternativeOption))
+                                                    <div>
+                                                        <span style="color:#02b875 !important">Alternative Option: </span><span class="btn btn-xs white">{{$offerTemplate->alternativeOption->name}}</span>
+                                                    </div>
+                                                @endif
+                                            </div>
+
 
                                             <div class="item-action visible-list m-t-sm campaignBtn">
                                                 <a href="{{route('curator.edit.offer.template',encrypt($offerTemplate->id))}}" class="btn btn-xs white">Edit</a>

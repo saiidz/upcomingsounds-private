@@ -10,6 +10,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class OfferTypeController extends Controller
@@ -134,5 +135,96 @@ class OfferTypeController extends Controller
     {
         $offerTemplates = CuratorOfferTemplate::all();
         return view('admin.pages.offer-template.index', get_defined_vars());
+    }
+
+    /**
+     * @return Application|Factory|View
+     */
+    public function offerTemplate(CuratorOfferTemplate $offer_template)
+    {
+        return view('admin.pages.offer-template.offer-view', get_defined_vars());
+    }
+
+    /**
+     * @param Request $request
+     * @param CuratorOfferTemplate $offer_template
+     * @return JsonResponse
+     */
+    public function storeApprovedOfferTemplate(Request $request,CuratorOfferTemplate $offer_template)
+    {
+        $validator = Validator::make($request->all(), [
+            'description_details' => "required",
+        ]);
+
+        if ($validator->fails())
+        {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
+
+        if(!empty($offer_template))
+        {
+            $offer_template->update([
+                'is_approved' => 1,
+                'is_rejected' => 0,
+            ]);
+
+            $data['email'] = $offer_template->user->email;
+            $data['username'] = $offer_template->user->name;
+            $data["title"] = "Approved Offer Template Upcoming Sounds";
+            $data['approvedMessage'] = $request->description_details ?? null;
+
+            try {
+                Mail::send('admin.emails.curator_email.send_approved_email_to_curator', $data, function($message)use($data) {
+                    $message->from('gary@upcomingsounds.com');
+                    $message->to($data["email"], $data["email"])
+                        ->subject($data["title"]);
+                });
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+        }
+        return response()->json(['success' => 'Offer Template Approved successfully and send email to Curator.']);
+    }
+
+    /**
+     * @param Request $request
+     * @param CuratorOfferTemplate $offer_template
+     * @return JsonResponse
+     */
+
+    public function storeRejectOfferTemplate(Request $request,CuratorOfferTemplate $offer_template)
+    {
+        $validator = Validator::make($request->all(), [
+            'description_details' => "required",
+        ]);
+
+        if ($validator->fails())
+        {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
+
+        if(!empty($offer_template))
+        {
+            $offer_template->update([
+                'is_approved' => 0,
+                'is_rejected' => 1,
+            ]);
+
+            $data['email'] = $offer_template->user->email;
+            $data['username'] = $offer_template->user->name;
+            $data["title"] = "Reject Offer Template Upcoming Sounds";
+            $data['rejectMessage'] = $request->description_details ?? null;
+
+            try {
+                Mail::send('admin.emails.curator_email.send_reject_email_to_curator', $data, function($message)use($data) {
+                    $message->from('no_reply@upcomingsounds.com');
+                    $message->to($data["email"], $data["email"])
+                        ->subject($data["title"]);
+                });
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+        }
+        return response()->json(['success' => 'Offer Template Reject successfully and send email to Curator.']);
     }
 }

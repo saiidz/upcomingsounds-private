@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Curator;
 use App\Models\Campaign;
 use App\Models\CuratorFavoriteArtist;
 use App\Models\CuratorFavoriteTrack;
+use App\Models\CuratorOfferTemplate;
 use App\Models\Option;
 use App\Templates\IFavoriteTrackStatus;
 use App\Templates\IPackages;
@@ -117,8 +118,11 @@ class ArtistSubmissionController extends Controller
         {
             $campaign = Campaign::find($request->campaign_id);
 
+            // offerTemplate
+            $offerTemplates = CuratorOfferTemplate::where(['user_id' => Auth::id(), 'is_approved' => 1])->latest()->get();
+
             // render Html in collapse
-            $returnHTML = view('pages.curators.collapsed_sidebar')->with('campaign', $campaign)->render();
+            $returnHTML = view('pages.curators.collapsed_sidebar')->with(['campaign' => $campaign, 'offerTemplates' => $offerTemplates])->render();
 
             if($request->ajax()){
                 return response()->json([
