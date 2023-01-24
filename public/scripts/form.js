@@ -461,6 +461,7 @@
         formData.append('description_details',ContentFromEditor);
 
 		var basicbtnhtml=$('.basicbtn').html();
+        showLoader();
 		$.ajax({
 			type: 'POST',
 			url: this.action,
@@ -479,6 +480,7 @@
             {
                 if(response.success)
                 {
+                    hideLoader();
                     console.log(response.success);
                     $('.basicbtn').removeAttr('disabled')
                     Sweet('success',response.success);
@@ -487,6 +489,7 @@
                 }
                 if(response.errors)
                 {
+                    hideLoader();
                     $('.basicbtn').html(basicbtnhtml);
                     $('.basicbtn').removeAttr('disabled')
                     $('.errorarea').show();

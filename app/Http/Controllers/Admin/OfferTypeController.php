@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\CuratorOfferTemplate;
 use App\Models\OfferType;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -131,6 +132,7 @@ class OfferTypeController extends Controller
      */
     public function offers()
     {
-        dd('pending work');
+        $offerTemplates = CuratorOfferTemplate::all();
+        return view('admin.pages.offer-template.index', get_defined_vars());
     }
 }

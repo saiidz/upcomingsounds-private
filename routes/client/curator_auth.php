@@ -66,6 +66,10 @@ Route::get('offer-completed', [OfferController::class,'completed'])->name('curat
 // offer templates routes
 Route::get('offer-proposition', [OfferTemplateController::class,'index'])->name('curator.proposition');
 Route::get('create-offer-template', [OfferTemplateController::class,'create'])->name('curator.create.offer.template');
+Route::post('store-offer-template', [OfferTemplateController::class, 'storeOfferTemplate'])->name('curator.store.offer.template');
+Route::get('edit-offer-template/{offer_template}', [OfferTemplateController::class,'edit'])->name('curator.edit.offer.template');
+Route::post('update-offer-template/{offer_template}', [OfferTemplateController::class, 'updateOfferTemplate'])->name('curator.update.offer.template');
+Route::delete('delete-offer-template/{offer_template}',[OfferTemplateController::class,'destroy']);
 // offer templates routes
 
 // saved artist routes
