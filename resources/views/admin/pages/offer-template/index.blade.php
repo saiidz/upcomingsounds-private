@@ -96,9 +96,13 @@
                                                     <tfoot>
                                                     <tr>
                                                         <th>S#</th>
-                                                        <th>Name</th>
+                                                        <th>Curator Name</th>
+                                                        <th>Title</th>
+                                                        <th>Contribution</th>
+                                                        <th>Offer Text</th>
+                                                        <th>Offer Type</th>
+                                                        <th>Alternative Type</th>
                                                         <th>Created At</th>
-                                                        <th>Action</th>
                                                     </tr>
                                                     </tfoot>
                                                 </table>
