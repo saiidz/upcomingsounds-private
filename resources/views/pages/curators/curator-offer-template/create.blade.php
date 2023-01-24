@@ -100,6 +100,7 @@
                         <div class="form-group modal-footer">
                             <button type="submit" id="updateTrack" class="btn btn-sm rounded add_track basicbtn">
                                 {{ !empty($offer_template) ? "Update" : "Create" }}</button>
+                            <a href="{{route('curator.proposition')}}" class="btn btn-sm rounded add_track basicbtn">Back</a>
                         </div>
                     </form>
                 </div>
