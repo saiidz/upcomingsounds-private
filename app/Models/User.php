@@ -195,6 +195,13 @@ class User extends Authenticatable implements MustVerifyEmail
         });
     }
 
+    /**
+     * @return HasMany
+     */
+    public function curatorOfferTemplate(): HasMany
+    {
+        return $this->hasMany(CuratorOfferTemplate::class,'user_id','id');
+    }
      /**
      * Enter your own logic (e.g. if ($this->id === 1) to
      *   enable this user to be able to add/edit blog posts

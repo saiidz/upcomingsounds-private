@@ -32,8 +32,12 @@
                                 <li class="breadcrumb-item active">Offer Template </li>
                             </ol>
                         </div>
+                        <div class="col s2 m6 l6">
+                            <a class="btn waves-effect waves-light breadcrumbs-btn right" href="{{ route('admin.curator.template-offer',!empty($offer_template->user) ? $offer_template->user->id : '---') }}" data-target="dropdown1">
+                                <span class="hide-on-small-onl">Back</span>
+                            </a>
+                        </div>
                     </div>
-
                 </div>
             </div>
             <div class="col s12">

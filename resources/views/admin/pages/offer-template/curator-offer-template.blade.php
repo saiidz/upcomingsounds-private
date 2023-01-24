@@ -1,7 +1,7 @@
 @extends('admin.layouts.contentLayoutMaster')
 
 {{-- page title --}}
-@section('title','Offer Templates')
+@section('title','Curator Offer Templates')
 
 @section('vendor-style')
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/data-tables/css/jquery.dataTables.min.css')}}">
@@ -25,18 +25,14 @@
                 <div class="container">
                     <div class="row">
                         <div class="col s10 m6 l6">
-                            <h5 class="breadcrumbs-title mt-0 mb-0"><span>Offer Templates</span></h5>
+                            <h5 class="breadcrumbs-title mt-0 mb-0"><span>Curator Offer Templates</span></h5>
                             <ol class="breadcrumbs mb-0">
                                 @include('admin.panels.breadcrumbs')
-                                <li class="breadcrumb-item active">Offer Templates </li>
+                                <li class="breadcrumb-item active">Curator Offer Templates </li>
                             </ol>
                         </div>
-                        <div class="col s2 m6 l6">
-                            <a class="btn waves-effect waves-light breadcrumbs-btn right" href="{{ route('admin.offers') }}" data-target="dropdown1">
-                                <span class="hide-on-small-onl">Back</span>
-                            </a>
-                        </div>
                     </div>
+
                 </div>
             </div>
             <div class="col s12">
@@ -54,45 +50,21 @@
                                                     <thead>
                                                     <tr>
                                                         <th>S#</th>
-{{--                                                        <th>Curator Name</th>--}}
-                                                        <th>Title</th>
-                                                        <th>Contribution</th>
-                                                        <th>Offer Type</th>
-                                                        <th>Alternative Type</th>
-                                                        <th>Created At</th>
-                                                        <th>Status</th>
+                                                        <th>Curator Name</th>
+                                                        <th>Offer Template Count</th>
                                                         <th>View</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                    @if (!empty($offerTemplates))
-                                                        @foreach ($offerTemplates as $offerTemplate)
+                                                    @if (!empty($curatorsOfferTemplates))
+                                                        @foreach ($curatorsOfferTemplates as $curatorsOfferTemplate)
                                                             <tr>
                                                                 <td>{{ $loop->iteration }}</td>
-{{--                                                                <td>--}}
-{{--                                                                    <a href="{{ route('admin.curator.profile', $offerTemplate->user_id) }}">{{ !empty($offerTemplate->user) ? $offerTemplate->user->name : '---' }}</a>--}}
-{{--                                                                </td>--}}
-                                                                <td>{{ $offerTemplate->title ?? '---' }}</td>
-                                                                <td>{{ $offerTemplate->contribution ?? '---' }} USC</td>
-                                                                <td>{{!empty($offerTemplate->offerType) ? $offerTemplate->offerType->name : '---' }}</td>
-                                                                <td>{{!empty($offerTemplate->alternativeOption) ? $offerTemplate->alternativeOption->name : '---' }}</td>
-                                                                <td>{{ getDateFormat($offerTemplate->created_at) }}</td>
                                                                 <td>
-                                                                    @if ($offerTemplate->is_approved == 1)
-                                                                        <span class="chip green lighten-5">
-                                                                            <span class="green-text">Approved</span>
-                                                                        </span>
-                                                                    @elseif($offerTemplate->is_rejected == 1)
-                                                                        <span class="chip red lighten-5">
-                                                                            <span class="red-text">Rejected</span>
-                                                                        </span>
-                                                                    @else
-                                                                        <span class="chip red lighten-5">
-                                                                            <span class="red-text">Pending</span>
-                                                                        </span>
-                                                                    @endif
+                                                                    <a href="{{ route('admin.curator.profile', $curatorsOfferTemplate->id) }}">{{ $curatorsOfferTemplate->name ?? '---' }}</a>
                                                                 </td>
-                                                                <td><a href="{{ route('admin.template-offer', $offerTemplate->id) }}"><i class="material-icons">remove_red_eye</i></a></td>
+                                                                <td>{{ !empty($curatorsOfferTemplate->curatorOfferTemplate) ? $curatorsOfferTemplate->curatorOfferTemplate->count() : '---' }}</td>
+                                                                <td><a href="{{ route('admin.curator.template-offer', $curatorsOfferTemplate->id) }}"><i class="material-icons">remove_red_eye</i></a></td>
                                                             </tr>
                                                         @endforeach
                                                     @endif
@@ -100,13 +72,8 @@
                                                     <tfoot>
                                                     <tr>
                                                         <th>S#</th>
-{{--                                                        <th>Curator Name</th>--}}
-                                                        <th>Title</th>
-                                                        <th>Contribution</th>
-                                                        <th>Offer Type</th>
-                                                        <th>Alternative Type</th>
-                                                        <th>Created At</th>
-                                                        <th>Status</th>
+                                                        <th>Curator Name</th>
+                                                        <th>Offer Template Count</th>
                                                         <th>View</th>
                                                     </tr>
                                                     </tfoot>

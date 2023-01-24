@@ -23,7 +23,7 @@ class OfferTemplateController extends Controller
      */
     public function index()
     {
-        $offerTemplates = CuratorOfferTemplate::all();
+        $offerTemplates = CuratorOfferTemplate::where('user_id',Auth::id())->get();
         return view('pages.curators.curator-offer-template.proposition', get_defined_vars());
     }
 

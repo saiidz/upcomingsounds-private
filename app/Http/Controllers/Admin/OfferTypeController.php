@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\CuratorOfferTemplate;
 use App\Models\OfferType;
+use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -133,7 +134,20 @@ class OfferTypeController extends Controller
      */
     public function offers()
     {
-        $offerTemplates = CuratorOfferTemplate::all();
+        $curatorsOfferTemplates = User::with('curatorOfferTemplate')->whereHas('curatorOfferTemplate', function ($q){
+            $q->whereNotNull('user_id');
+        })->GetApprovedCurators()->latest()->get();
+        return view('admin.pages.offer-template.curator-offer-template', get_defined_vars());
+//        return view('admin.pages.offer-template.index', get_defined_vars());
+    }
+
+    /**
+     * @param User $user
+     * @return Application|Factory|View
+     */
+    public function curatorOfferTemplate(User $user)
+    {
+        $offerTemplates = $user->curatorOfferTemplate;
         return view('admin.pages.offer-template.index', get_defined_vars());
     }
 

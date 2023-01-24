@@ -22,7 +22,7 @@
             </a>
         </li>
 
-        <li class="bold {{ Request::is('admin/artist-approved') || Request::is('admin/artist-pending') || Request::is('admin/artist-profile*') ? 'active open' : '' }}">
+        <li class="bold {{ Request::is('admin/artist-approved') || Request::is('admin/artist-pending') || Request::is('admin/artist-features*') || Request::is('admin/artist-profile*') ? 'active open' : '' }}">
             <a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)">
                 <i class="material-icons">face</i>
                 <span class="menu-title" data-i18n="User">Artists</span>
@@ -87,7 +87,7 @@
 
         <li class="bold {{ Request::is('admin/curator-approved') || Request::is('admin/curator-pending')
         || Request::is('admin/curator-profile*') || Request::is('admin/curator-verification*')
-        || Request::is('admin/curator-features*') || Request::is('admin/curator-sub-feature*') ? 'active open' : '' }}">
+        || Request::is('admin/curator-features*') || Request::is('admin/curator-sub-feature*') || Request::is('admin/offer*') ? 'active open' : '' }}">
             <a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)">
                 <i class="material-icons">face</i>
                 <span class="menu-title" data-i18n="User">Curators</span>
@@ -118,8 +118,8 @@
                             <span data-i18n="List">Curator Features</span>
                         </a>
                     </li>
-                    <li class="{{ Request::is('admin/offers') ? 'active' : '' }}">
-                        <a class="{{ Request::is('admin/offers') ? 'active' : '' }}" href="{{ route('admin.offers') }}">
+                    <li class="{{ Request::is('admin/offers*') ? 'active' : '' }}">
+                        <a class="{{ Request::is('admin/offers*') ? 'active' : '' }}" href="{{ route('admin.offers') }}">
                             <i class="material-icons">radio_button_unchecked</i>
                             <span data-i18n="List">Offers</span>
                         </a>

@@ -32,7 +32,7 @@
 						</ol>
 					</div>
                     <div class="col s2 m6 l6">
-                        <a class="btn dropdown-settings waves-effect waves-light breadcrumbs-btn right" href="{{ route('admin.curator-features.create') }}" data-target="dropdown1">
+                        <a class="btn waves-effect waves-light breadcrumbs-btn right" href="{{ route('admin.curator-features.create') }}" data-target="dropdown1">
                             {{-- <i class="material-icons hide-on-med-and-up">settings</i> --}}
                             <span class="hide-on-small-onl">Add New</span>
                             {{-- <i class="material-icons right">arrow_drop_down</i> --}}

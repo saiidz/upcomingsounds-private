@@ -32,7 +32,7 @@
 						</ol>
 					</div>
                     <div class="col s2 m6 l6">
-                        <a class="btn dropdown-settings waves-effect waves-light breadcrumbs-btn right" href="{{ route('admin.offer-types.create') }}" data-target="dropdown1">
+                        <a class="btn waves-effect waves-light breadcrumbs-btn right" href="{{ route('admin.offer-types.create') }}" data-target="dropdown1">
                             <span class="hide-on-small-onl">Add New</span>
                         </a>
                     </div>

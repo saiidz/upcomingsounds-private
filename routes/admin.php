@@ -107,6 +107,7 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
 
     // Offer Type
     Route::get('offers',  [OfferTypeController::class, 'offers'])->name('offers');
+    Route::get('offer-template-curator/{user}',[OfferTypeController::class,'curatorOfferTemplate'])->name('curator.template-offer');
     Route::get('offer-template/{offer_template}',[OfferTypeController::class,'offerTemplate'])->name('template-offer');
     Route::post('store-approved-offer-template/{offer_template}', [OfferTypeController::class,'storeApprovedOfferTemplate'])->name('store.approved.OfferTemplate');
     Route::post('store-offer-template-reject/{offer_template}',[OfferTypeController::class,'storeRejectOfferTemplate'])->name('store.OfferTemplate.reject');
