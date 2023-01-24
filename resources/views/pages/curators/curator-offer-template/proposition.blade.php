@@ -100,8 +100,12 @@
                                             </div>
 
 
-                                            <div class="item-action visible-list m-t-sm campaignBtn">
-                                                <a href="{{route('curator.edit.offer.template',encrypt($offerTemplate->id))}}" class="btn btn-xs white">Edit</a>
+                                            <div class="m-t-sm campaignBtn" style="display:flex">
+{{--                                                <a href="javascript:void(0)" class="btn btn-xs white" id="offerTemplateEdit">Edit</a>--}}
+                                                <form id="form-offer" action="{{route('curator.edit.offer.template',encrypt($offerTemplate->id))}}">
+                                                    <a href="javascript:void(0)" class="btn btn-xs white" id="offerTemplateEdit">Edit</a>
+                                                </form>
+{{--                                                <a href="{{route('curator.edit.offer.template',encrypt($offerTemplate->id))}}" class="btn btn-xs white">Edit</a>--}}
                                                 <a href="javascript:void(0)" onclick="deleteOfferTemplate({{$offerTemplate->id}})" class="btn btn-xs white" data-toggle="modal"
                                                    data-target="#delete-offer-template-modal">Delete</a>
                                             </div>
@@ -129,6 +133,12 @@
 
 @section('page-script')
     <script>
+        var form = document.getElementById("form-offer");
+
+        document.getElementById("offerTemplateEdit").addEventListener("click", function () {
+            form.submit();
+        });
+
         // Delete Offer Template Model
         function deleteOfferTemplate(offer_template_id){
             $('.deleteOfferTemplate').attr('data-offer_template-id',offer_template_id);
