@@ -53,7 +53,7 @@
                     <div class="row item-list item-list-by m-b">
                         @if(count($offerTemplates) > 0)
                             @foreach($offerTemplates as $offerTemplate)
-                                <div class="col-xs-12 remove_offer" id="remove_offer-{{$offerTemplate->id}}">
+                                <div class="col-xs-12 remove_offer m-b" id="remove_offer-{{$offerTemplate->id}}">
                                     <div class="item r Item" data-id="item-{{$offerTemplate->id}}">
                                         <div class="item-info">
                                             <div class="item bottom text-right">
