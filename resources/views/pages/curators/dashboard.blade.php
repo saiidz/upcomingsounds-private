@@ -23,7 +23,7 @@
     </div>
     <div class="page-content">
         <div class="padding p-b-0">
-            <div class="con m-b" id="curatorBanner" style="background-color: #000000">
+            <div class="con m-b" id="curatorBanner" style="background-color: transparent">
 {{--            <div class="con m-b" id="curatorBanner" style="background: url({{asset(!empty($theme->curator_banner_img) ? $theme->curator_banner_img : 'images/banner_cd.png')}}) center center no-repeat;">--}}
                 <header>
 {{--                    <h1>SITE TITLE</h1>--}}

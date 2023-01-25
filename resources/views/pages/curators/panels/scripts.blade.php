@@ -91,6 +91,10 @@
         {
             window.location.href = '/offer-rejected';
         });
+        $('#expiredOffers').on('click', function ()
+        {
+            window.location.href = '/offer-expired';
+        });
         $('#alternativeOffers').on('click', function ()
         {
             window.location.href = '/offer-alternative';

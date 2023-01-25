@@ -12,6 +12,7 @@ use App\Models\ArtistTrack;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\TrackCategory;
@@ -161,7 +162,7 @@ class ArtistController extends Controller
 
     /**
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     function artistChangePassword(Request $request){
 
@@ -233,6 +234,10 @@ class ArtistController extends Controller
         }
     }
 
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function artistChangeStatusProfile(Request $request)
     {
        $artist_id = Auth::id();

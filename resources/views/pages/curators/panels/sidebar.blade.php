@@ -72,7 +72,7 @@
                     @if(Request::is('artist-submission') != 'artist-submission' && Request::is('saved') != 'saved' &&
                          Request::is('accepted') != 'accepted' && Request::is('rejected') != 'rejected' && Request::is('offers') != 'offers'
                          && Request::is('offer-pending') != 'offer-pending' && Request::is('offer-accepted') != 'offer-accepted'
-                          && Request::is('offer-rejected') != 'offer-rejected' && Request::is('offer-alternative') != 'offer-alternative'
+                          && Request::is('offer-rejected') != 'offer-rejected' && Request::is('offer-expired') != 'offer-expired' && Request::is('offer-alternative') != 'offer-alternative'
                           && Request::is('offer-artists-submissions') != 'offer-artists-submissions' && Request::is('offer-proposition') != 'offer-proposition'
                           && Request::is('create-offer-template') != 'create-offer-template'
                           && Request::is('offer-completed') != 'offer-completed')
@@ -306,6 +306,7 @@
                     {{-- Offers Pages --}}
                     @if(Request::is('offers') == 'offers' || Request::is('offer-pending') == 'offer-pending'
                           || Request::is('offer-accepted') == 'offer-accepted' || Request::is('offer-rejected') == 'offer-rejected'
+                          || Request::is('offer-expired') == 'offer-expired'
                           || Request::is('offer-alternative') == 'offer-alternative' || Request::is('offer-artists-submissions') == 'offer-artists-submissions'
                           || Request::is('offer-proposition') == 'offer-proposition' || Request::is('create-offer-template') == 'create-offer-template'
                           || Request::is('offer-completed') == 'offer-completed')
@@ -348,9 +349,17 @@
                         <li>
                             <a class="dropdown-item" href="{{route('curator.rejected')}}" id="rejectedOffers">
                                     <span class="nav-icon">
-                                        <i class="fa fa-thumbs-o-down"></i>
+                                        <i class="fa fa-clock-o"></i>
                                     </span>
                                 <span class="nav-text">Rejected</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{route('curator.expired')}}" id="expiredOffers">
+                                    <span class="nav-icon">
+                                        <i class="fa fa-thumbs-o-down"></i>
+                                    </span>
+                                <span class="nav-text">Expired</span>
                             </a>
                         </li>
                         <li>

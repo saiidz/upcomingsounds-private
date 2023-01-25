@@ -58,6 +58,7 @@ Route::get('offers', [OfferController::class,'offers'])->name('curator.offers');
 Route::get('offer-pending', [OfferController::class,'pending'])->name('curator.pending');
 Route::get('offer-accepted', [OfferController::class,'accepted'])->name('curator.accepted');
 Route::get('offer-rejected', [OfferController::class,'rejected'])->name('curator.rejected');
+Route::get('offer-expired', [OfferController::class,'expired'])->name('curator.expired');
 Route::get('offer-alternative', [OfferController::class,'alternative'])->name('curator.alternative');
 Route::get('offer-artists-submissions', [OfferController::class,'artistsSubmissions'])->name('curator.artists.submissions');
 Route::get('offer-completed', [OfferController::class,'completed'])->name('curator.completed');
@@ -69,6 +70,7 @@ Route::get('create-offer-template', [OfferTemplateController::class,'create'])->
 Route::post('store-offer-template', [OfferTemplateController::class, 'storeOfferTemplate'])->name('curator.store.offer.template');
 Route::get('edit-offer-template/{offer_template}', [OfferTemplateController::class,'edit'])->name('curator.edit.offer.template');
 Route::post('update-offer-template/{offer_template}', [OfferTemplateController::class, 'updateOfferTemplate'])->name('curator.update.offer.template');
+Route::post('offer/change-status',[OfferTemplateController::class,'offerChangeStatus'])->name('curator.change.status');
 Route::delete('delete-offer-template/{offer_template}',[OfferTemplateController::class,'destroy']);
 // offer templates routes
 

@@ -33,6 +33,12 @@
                                     <div class="item r Item" data-id="item-{{$offerTemplate->id}}">
                                         <div class="item-info">
                                             <div class="item bottom text-right">
+                                                <div id="deMo">
+                                                    <label class="switch">
+                                                        <input type="checkbox" name="demo" onclick="changeActiveStatus({{$offerTemplate->id}})" id="changeActiveStatus{{$offerTemplate->id}}" value="" {{ ($offerTemplate->is_active == 1) ? 'checked' : ''  }}>
+                                                        <span class="slider round switchDemo"></span>
+                                                    </label>
+                                                </div>
                                                 @if($offerTemplate->is_approved == 1)
                                                     <span class="text-primary">Approved</span>
                                                 @elseif($offerTemplate->is_rejected == 1)
@@ -78,8 +84,8 @@
 
                                             <div class="m-t-sm campaignBtn" style="display:flex">
 {{--                                                <a href="javascript:void(0)" class="btn btn-xs white" id="offerTemplateEdit">Edit</a>--}}
-                                                <form id="form-offer" action="{{route('curator.edit.offer.template',encrypt($offerTemplate->id))}}">
-                                                    <a href="javascript:void(0)" class="btn btn-xs white" id="offerTemplateEdit">Edit</a>
+                                                <form id="form-offer{{$offerTemplate->id}}" action="{{route('curator.edit.offer.template',encrypt($offerTemplate->id))}}">
+                                                    <a href="javascript:void(0)" class="btn btn-xs white" onclick="offerTemplateEdit({{$offerTemplate->id}})" id="offerTemplateEdit">Edit</a>
                                                 </form>
 {{--                                                <a href="{{route('curator.edit.offer.template',encrypt($offerTemplate->id))}}" class="btn btn-xs white">Edit</a>--}}
                                                 <a href="javascript:void(0)" onclick="deleteOfferTemplate({{$offerTemplate->id}})" class="btn btn-xs white" data-toggle="modal"
@@ -92,7 +98,7 @@
                             @endforeach
                         @else
                             <div class="item-title text-ellipsis">
-                                <h3 class="white" style="text-align:center">Not Offer Template Found</h3>
+                                <h3 class="white" style="text-align:center">There are no result to show</h3>
                             </div>
                         @endif
                     </div>
@@ -109,11 +115,12 @@
 
 @section('page-script')
     <script>
-        var form = document.getElementById("form-offer");
-
-        document.getElementById("offerTemplateEdit").addEventListener("click", function () {
+        function offerTemplateEdit(id)
+        {
+            var form = document.getElementById("form-offer"+id);
             form.submit();
-        });
+        }
+
 
         // Delete Offer Template Model
         function deleteOfferTemplate(offer_template_id){
@@ -144,4 +151,37 @@
             });
         });
     </script>
+    {{--    Active Display--}}
+    <script>
+        function changeActiveStatus(id)
+        {
+            let checked = $('#changeActiveStatus'+id).is(':checked');
+            if(checked == 'true'){
+                var data = checked;
+            }else{
+                var data = checked;
+            }
+            var url = "{{route('curator.change.status')}}";
+            $.ajax({
+                type: "POST",
+                url: url,
+                data:{
+                    "_token": "{{ csrf_token() }}",
+                    "is_active": data,
+                    "offer_id": id,
+                },
+                success: function (data) {
+                    if(data.success){
+                        $('#snackbar').html(data.success);
+                        $('#snackbar').addClass("show");
+                        setTimeout(function () {
+                            $('#snackbar').removeClass("show");
+                        }, 5000);
+                        location.reload();
+                    }
+                }
+            });
+        }
+    </script>
+    {{--    Active Display--}}
 @endsection

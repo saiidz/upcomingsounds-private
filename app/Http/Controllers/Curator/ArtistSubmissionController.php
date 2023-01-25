@@ -119,7 +119,7 @@ class ArtistSubmissionController extends Controller
             $campaign = Campaign::find($request->campaign_id);
 
             // offerTemplate
-            $offerTemplates = CuratorOfferTemplate::where(['user_id' => Auth::id(), 'is_approved' => 1])->latest()->get();
+            $offerTemplates = CuratorOfferTemplate::where(['user_id' => Auth::id(), 'is_active' => 1, 'is_approved' => 1])->latest()->get();
 
             // render Html in collapse
             $returnHTML = view('pages.curators.collapsed_sidebar')->with(['campaign' => $campaign, 'offerTemplates' => $offerTemplates])->render();

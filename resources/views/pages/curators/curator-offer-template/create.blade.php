@@ -7,9 +7,18 @@
 @section('page-style')
     <style>
         .iconUsc {
-            padding-left: 25px;
-            background: url({{asset('images/coin_bg.png')}}) no-repeat left;
-            background-size: 20px;
+            /*padding-left: 25px;*/
+            {{--background: url({{asset('images/coin_bg.png')}}) no-repeat left;--}}
+            /*background-size: 20px;*/
+            height: 25px;
+            margin-top: 3px;
+        }
+        .coinContribution{
+            display:flex;
+        }
+        .coinContribution .form-control{
+            border-left: 2px solid grey;
+            width: 500px;
         }
         .textOffer{
             justify-content: space-between !important;
@@ -66,7 +75,10 @@
 
 {ARTIST}
 {TITLE}
-{RELEASE_DATE}"><span style="color: #02b875 !important;">{{\App\Templates\IMessageTemplates::PROVIDE_A}}</span></span>
+{RELEASE_DATE}"><span style="color: #02b875 !important;">
+                                        <a href="javascript:void(0)" data-toggle="modal" data-target="#provideModalCenter">
+                    {{\App\Templates\IMessageTemplates::PROVIDE_A}}
+                </a></span></span>
                             </div>
                             <div>
                                    <textarea name="description_details" id="descriptionDetails"
@@ -75,13 +87,33 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label class="control-label form-control-label text-muted">Contribution</label>
-                            <div>
-                                <input type="number" name="contribution" value="{{!empty($offer_template) ? $offer_template->contribution : old('contribution')}}" min="1" data-toggle="tooltip" title="{{ \App\Templates\IMessageTemplates::CONTRIBUTION_TEXT }}"
-                                       class="form-control iconUsc">
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <label class="control-label form-control-label text-muted">Contribution</label>
+                                <div class="coinContribution">
+                                    <img src="{{asset('images/coin_bg.png')}}" class="iconUsc" alt="">
+                                    <input type="number" name="contribution" value="{{!empty($offer_template) ? $offer_template->contribution : old('contribution')}}" min="1" data-toggle="tooltip" title="{{ \App\Templates\IMessageTemplates::CONTRIBUTION_TEXT }}"
+                                           class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="control-label form-control-label text-muted">Is Active</label>
+                                <select class="form-control" name="is_active">
+                                    <option disabled selected>Please Choose</option>
+                                    <option value="1" {{(!empty($offer_template) && $offer_template->is_active == 1) ? 'selected' : '' }}>{{ __('Active') }}</option>
+                                    <option value="0" {{(!empty($offer_template) && $offer_template->is_active == 0) ? 'selected' : '' }}>{{ __('Non Active') }}</option>
+                                </select>
                             </div>
                         </div>
+
+{{--                        <div class="form-group">--}}
+{{--                            <label class="control-label form-control-label text-muted">Contribution</label>--}}
+{{--                            <div class="coinContribution">--}}
+{{--                                <img src="{{asset('images/coin_bg.png')}}" class="iconUsc" alt="">--}}
+{{--                                <input type="number" name="contribution" value="{{!empty($offer_template) ? $offer_template->contribution : old('contribution')}}" min="1" data-toggle="tooltip" title="{{ \App\Templates\IMessageTemplates::CONTRIBUTION_TEXT }}"--}}
+{{--                                       class="form-control">--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
                         <div class="form-group">
                             <label class="control-label form-control-label text-muted">Alternative Option</label>
@@ -99,8 +131,8 @@
 
                         <div class="form-group modal-footer">
                             <button type="submit" id="updateTrack" class="btn btn-sm rounded add_track basicbtn">
-                                {{ !empty($offer_template) ? "Update" : "Create" }}</button>
-                            <a href="{{route('curator.proposition')}}" class="btn btn-sm rounded add_track basicbtn">Back</a>
+                                {{ !empty($offer_template) ? "Submit" : "Submit" }}</button>
+                            <a href="{{route('curator.proposition')}}" class="btn btn-sm rounded add_track">Back</a>
                         </div>
                     </form>
                 </div>
@@ -109,6 +141,28 @@
         </div>
     </div>
     <!-- ############ PAGE END-->
+
+    <!-- Permission Copy Right Modal -->
+    <div id="provideModalCenter" class="modal fade black-overlay" data-backdrop="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Provide a customised experience</h5>
+                </div>
+                <div class="modal-body">
+                    <p>You can personalize your offers by entering the shortcodes below, which will replace campaign specific information when displayed to artists</p>
+
+                    <p>{ARTIST}</p>
+                    <p>{TITLE}</p>
+                    <p>{RELEASE_DATE}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div>
+    </div>
+    <!-- Permission Copy Right Modal -->
 @endsection
 
 @section('page-script')

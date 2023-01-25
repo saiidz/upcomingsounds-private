@@ -75,6 +75,11 @@ class OfferTemplateController extends Controller
         return view('pages.curators.curator-offer-template.create', get_defined_vars());
     }
 
+    /**
+     * @param Request $request
+     * @param $offer_template
+     * @return JsonResponse
+     */
     public function updateOfferTemplate(Request $request, $offer_template)
     {
         $validator = Validator::make($request->all(), [
@@ -109,6 +114,25 @@ class OfferTemplateController extends Controller
         $offer_template->forceDelete();
         return response()->json([
             'success' => 'Offer Template deleted! successfully',
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function offerChangeStatus(Request $request)
+    {
+        $curator_id = Auth::id();
+
+        // update status public profile
+        CuratorOfferTemplate::where(['id' => $request->offer_id, 'user_id' => $curator_id])->update([
+            'is_active' => ($request->is_active == 'true') ? 1 : 0,
+        ]);
+
+        return response()->json([
+            'success' => 'Offer Template status Is Updated',
+            'is_active' => $artist->is_active ?? null,
         ]);
     }
 }

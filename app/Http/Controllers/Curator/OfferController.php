@@ -45,6 +45,14 @@ class OfferController extends Controller
     /**
      * @return Application|Factory|View
      */
+    public function expired()
+    {
+        return view('pages.curators.curator-offers.expired', get_defined_vars());
+    }
+
+    /**
+     * @return Application|Factory|View
+     */
     public function alternative()
     {
         return view('pages.curators.curator-offers.alternative', get_defined_vars());
