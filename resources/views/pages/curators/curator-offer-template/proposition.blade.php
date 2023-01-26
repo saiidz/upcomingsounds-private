@@ -32,7 +32,7 @@
                                 <div class="col-xs-12 remove_offer m-b" id="remove_offer-{{$offerTemplate->id}}">
                                     <div class="item r Item" data-id="item-{{$offerTemplate->id}}">
                                         <div class="item-info">
-                                            <div class="item bottom text-right">
+                                            <div class="bottom text-right">
                                                 <div id="deMo">
                                                     <label class="switch">
                                                         <input type="checkbox" name="demo" onclick="changeActiveStatus({{$offerTemplate->id}})" id="changeActiveStatus{{$offerTemplate->id}}" value="" {{ ($offerTemplate->is_active == 1) ? 'checked' : ''  }}>
