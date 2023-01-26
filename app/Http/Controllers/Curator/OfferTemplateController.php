@@ -44,6 +44,7 @@ class OfferTemplateController extends Controller
     public function storeOfferTemplate(Request $request): JsonResponse
     {
         $validator = Validator::make($request->all(), [
+            'confirm'             => "required",
             'alternative_option'  => "required",
             'contribution'        => "required|numeric",
             'description_details' => "required",
@@ -83,6 +84,7 @@ class OfferTemplateController extends Controller
     public function updateOfferTemplate(Request $request, $offer_template)
     {
         $validator = Validator::make($request->all(), [
+            'confirm'             => "required",
             'alternative_option'  => "required",
             'contribution'        => "required|numeric",
             'description_details' => "required",

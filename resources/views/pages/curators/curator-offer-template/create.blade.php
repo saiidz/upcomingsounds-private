@@ -12,12 +12,13 @@
             /*background-size: 20px;*/
             height: 25px;
             margin-top: 3px;
+            margin-right: 2px;
         }
         .coinContribution{
             display:flex;
         }
         .coinContribution .form-control{
-            border-left: 2px solid grey;
+            /*border-left: 2px solid grey;*/
             width: 500px;
         }
         .textOffer{
@@ -127,6 +128,13 @@
                                     @endif
                                 </select>
                             </div>
+                        </div>
+
+                        <div class="form-group m-t-2">
+                            <label class="control-label form-control-label text-muted">
+                                <input type="checkbox" class="radio permissionCopyright has-value" {{(!empty($offer_template) && $offer_template->confirm == 1) ? 'checked' : ''}} value="1" name="confirm">
+                                As a representative of the organization selected for this offer, by clicking this box I confirm my authority to create, edit, and post offers for the proposal I have created.
+                            </label>
                         </div>
 
                         <div class="form-group modal-footer">

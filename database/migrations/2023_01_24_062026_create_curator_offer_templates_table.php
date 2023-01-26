@@ -24,6 +24,7 @@ class CreateCuratorOfferTemplatesTable extends Migration
             $table->boolean('is_active')->default(false);
             $table->boolean('is_approved')->default(false);
             $table->boolean('is_rejected')->default(false);
+            $table->boolean('confirm')->default(false);
             $table->softDeletes();
             $table->timestamps();
         });

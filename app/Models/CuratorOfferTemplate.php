@@ -22,6 +22,7 @@ class CuratorOfferTemplate extends Model
         'is_active',
         'is_approved',
         'is_rejected',
+        'confirm',
         "deleted_at",
     ];
 
