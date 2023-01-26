@@ -88,8 +88,8 @@
                                                     <a href="javascript:void(0)" class="btn btn-xs white" onclick="offerTemplateEdit({{$offerTemplate->id}})" id="offerTemplateEdit">Edit</a>
                                                 </form>
 {{--                                                <a href="{{route('curator.edit.offer.template',encrypt($offerTemplate->id))}}" class="btn btn-xs white">Edit</a>--}}
-                                                <a href="javascript:void(0)" onclick="deleteOfferTemplate({{$offerTemplate->id}})" class="btn btn-xs white" data-toggle="modal"
-                                                   data-target="#delete-offer-template-modal">Delete</a>
+{{--                                                <a href="javascript:void(0)" onclick="deleteOfferTemplate({{$offerTemplate->id}})" class="btn btn-xs white" data-toggle="modal"--}}
+{{--                                                   data-target="#delete-offer-template-modal">Delete</a>--}}
                                             </div>
                                         </div>
                                     </div>

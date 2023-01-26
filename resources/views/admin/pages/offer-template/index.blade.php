@@ -92,7 +92,17 @@
                                                                         </span>
                                                                     @endif
                                                                 </td>
-                                                                <td><a href="{{ route('admin.template-offer', $offerTemplate->id) }}"><i class="material-icons">remove_red_eye</i></a></td>
+                                                                <td>
+                                                                    <a href="{{ route('admin.template-offer', $offerTemplate->id) }}"><i class="material-icons">remove_red_eye</i></a>
+                                                                    <a class="dropdown-item has-icon delete-confirm" href="javascript:void(0)" data-id={{ $offerTemplate->id }}>
+                                                                        <img class="editDell" src="{{asset('images/delete_forever.svg')}}">
+                                                                    </a>
+                                                                    <!-- Delete Form -->
+                                                                    <form class="d-none" id="delete_form_{{ $offerTemplate->id }}" action="{{ route('admin.curator.delete.offer.template', $offerTemplate->id) }}" method="POST">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                    </form>
+                                                                </td>
                                                             </tr>
                                                         @endforeach
                                                     @endif

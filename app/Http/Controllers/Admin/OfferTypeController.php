@@ -10,6 +10,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -240,5 +241,16 @@ class OfferTypeController extends Controller
             }
         }
         return response()->json(['success' => 'Offer Template Reject successfully and send email to Curator.']);
+    }
+
+    /**
+     * @param CuratorOfferTemplate $offer_template
+     * @return RedirectResponse
+     */
+    public function destroyOfferTemplate(CuratorOfferTemplate $offer_template)
+    {
+        //Offer Template delete
+        $offer_template->forceDelete();
+        return redirect()->back()->with('success','Offer Template deleted! successfully');
     }
 }
