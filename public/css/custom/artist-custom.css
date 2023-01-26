@@ -548,6 +548,9 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
     display: flex !important;
 }
 
+#previewLinkEdit iframe{
+    width: 100%;
+}
 /*Collapse Style*/
 /*.sidebarCollapsed {*/
 /*    height: 100%;*/

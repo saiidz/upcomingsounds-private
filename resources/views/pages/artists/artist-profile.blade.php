@@ -690,7 +690,7 @@
                     $('#trackEditTitle').val(data.artist_track.name);
                     $('#trackEditDescription').val(data.artist_track.description);
                     $('#trackEditPitchDescription').val(data.artist_track.pitch_description);
-
+                    $('.trackEditID').val(data.artist_track.id);
 
                     var path = window.location.origin + '/uploads/track_thumbnail/' + data.artist_track.track_thumbnail;
                     document.getElementById('imgEditTrackPreview').setAttribute('src', path );
@@ -733,7 +733,14 @@
                     }else{
                         $('#displayEditProfile').attr( 'checked', false );
                     }
-                    $('#audioDescription').val(data.artist_track.audio_description);
+
+                    if(data.artist_track.audio_description)
+                    {
+                        $('#audioDescription').val(data.artist_track.audio_description);
+                    }else{
+                        $('#audioDescription').val('Ready to share');
+                    }
+
 
                     $('.audioSingleEdit').prop('checked', false );
                     $('.audioAlbumEdit').prop('checked', false );

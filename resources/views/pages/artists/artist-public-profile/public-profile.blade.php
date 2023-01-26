@@ -35,6 +35,15 @@
         .artist-features ul li::marker {
             color: #02b875;
         }
+        .custom-icon::before {
+            content: "";
+            background-image: url({{asset('/images/artist_us.png')}});
+            width: 22px;
+            height: 22px;
+            display: inline-block;
+            background-size: cover;
+            margin-top: 7px;
+        }
     </style>
 @endsection
 
@@ -181,6 +190,21 @@
                                        style="background-color:#333;" title="Tiktok">
                                         <i class="fab fa-tiktok"></i>
                                         <i class="fab fa-tiktok"></i>
+                                    </a>
+                                @endif
+                                @if($user->is_public_profile == 1)
+                                    <a href="{{route('artist.public.profile',$user->name)}}" target="_blank" id="Public_Profile"
+                                       class="btn btn-icon btn-social rounded btn-social-colored"
+                                       style="background-color:#333 !important;" title="Public Profile">
+                                        <i class="custom-icon"></i>
+                                        <i class="custom-icon"></i>
+                                    </a>
+                                @else
+                                    <a href="{{route('artist.public.profile',$user->name)}}" target="_blank" id="Public_Profile"
+                                       class="btn btn-icon btn-social rounded btn-social-colored"
+                                       style="background-color:#333 !important; display:none;" title="Public Profile">
+                                        <i class="custom-icon"></i>
+                                        <i class="custom-icon"></i>
                                     </a>
                                 @endif
                             </div>

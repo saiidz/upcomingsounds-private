@@ -15,30 +15,22 @@
             class="col-sm-3 form-control-label text-muted">{{ isset($user_artist->email) ? $user_artist->email : ''  }}</div>
     </div>
 </div>
-<div class="form-group row">
-    <div class="col-sm-2 form-control-label text-muted">Public Profile Display:</div>
-    <div class="col-sm-9" id="deMo">
-        <label class="switch">
-            <input type="checkbox" name="demo" id="changePublicProfile" value="" {{ ($user_artist->is_public_profile == 1) ? 'checked' : ''  }}>
-            <span class="slider round switchDemo"></span>
-        </label>
-    </div>
-</div>
+
 @if(!empty($user_artist->artistUser))
     @if($user_artist->artistUser->artist_signup_from == 'artist')
         <input type="hidden" name="artist_signup_from"
                value="{{($user_artist->artistUser) ? $user_artist->artistUser->artist_signup_from : ''}}">
-        <div class="page-title m-b">
-            <h4 class="inline m-a-0 update_profile">Artist Info</h4>
-        </div>
+{{--        <div class="page-title m-b">--}}
+{{--            <h4 class="inline m-a-0 update_profile">Artist Info</h4>--}}
+{{--        </div>--}}
 
     @elseif($user_artist->artistUser->artist_signup_from == 'artist_representative')
         <input type="hidden" name="artist_signup_from"
                value="{{($user_artist->artistUser) ? $user_artist->artistUser->artist_signup_from : ''}}">
-        <div class="page-title m-b">
-            <h4 class="inline m-a-0 update_profile">Artist Representative
-                Info</h4>
-        </div>
+{{--        <div class="page-title m-b">--}}
+{{--            <h4 class="inline m-a-0 update_profile">Artist Representative--}}
+{{--                Info</h4>--}}
+{{--        </div>--}}
 
         <div class="form-group row">
             <div class="col-sm-3 form-control-label text-muted">What kind of
@@ -100,6 +92,16 @@
         <div class="col-sm-9">
             <div
                 class="col-sm-3 form-control-label text-muted">{{isset($user_artist->artistUser) ? $user_artist->artistUser->country->name : ''}}</div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-2 form-control-label text-muted">Public Profile Display:</div>
+        <div class="col-sm-9" id="deMo">
+            <label class="switch">
+                <input type="checkbox" name="demo" id="changePublicProfile" value="" {{ ($user_artist->is_public_profile == 1) ? 'checked' : ''  }}>
+                <span class="slider round switchDemo"></span>
+            </label>
         </div>
     </div>
 

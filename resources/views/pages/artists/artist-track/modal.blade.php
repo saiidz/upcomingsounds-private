@@ -10,7 +10,7 @@
                 <form method="POST" action="" id="track_edit_song"
                       enctype="multipart/form-data" class="basicform_with_reload">
                     @csrf
-
+                    <input type="hidden" name="track_id" class="trackEditID" value="">
                     <div class="form-group">
                         <label class="control-label form-control-label text-muted">Title</label>
                         <div>
@@ -77,7 +77,11 @@
                                    class="form-control release_date">
                         </div>
                     </div>
-
+                    <p class="mb-1">
+                        <label class="text-warning">Not Released Yet?</label>
+                        <input type="text" id="audioDescription" class="form-control" placeholder="e.g. Please do not share this before 31 Dec"
+                               name="audio_description" />
+                    </p>
                     <div class="form-group text-warning">
                         <h6>Insert your embedded player code (from any digital stores: Spotify; Apple Music; Amazon Music; Deezer; Soundcloud; YouTube; Anghami; Bandcamp.)</h6>
                     </div>
@@ -177,10 +181,10 @@
                                     <span class="text-muted">Display on my public profile </span>
                                 </label>
                             </p>
-                            <p class="mb-1">
-                                <input type="text" id="audioDescription" class="form-control" placeholder="e.g. Please do not share this before 31 Dec"
-                                           name="audio_description" />
-                            </p>
+{{--                            <p class="mb-1">--}}
+{{--                                <input type="text" id="audioDescription" class="form-control" placeholder="e.g. Please do not share this before 31 Dec"--}}
+{{--                                           name="audio_description" />--}}
+{{--                            </p>--}}
                             <p class="mb-1">
                                 <p class="text-muted">Is This a Cover or a remix</p>
                                 <div class="remix">
