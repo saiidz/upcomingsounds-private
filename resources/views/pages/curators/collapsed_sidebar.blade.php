@@ -180,8 +180,11 @@
                                 @endif
                             </div>
                             <div class="d-flex justify-content-between align-items-center p-b-1">
-                                <span class="h6 _800 text-white" >Release Kind: <span style="color: #02b875 !important;">{{ !empty($campaign->artistTrack) ? Str::ucfirst($campaign->artistTrack->audio_cover) : '----'}}</span></span>
-                                <span class="h6 _800 text-white">Release Type: <span style="color: #02b875 !important;">{{ !empty($campaign->artistTrack) ? Str::ucfirst($campaign->artistTrack->release_type) : '----'}}</span></span>
+                                <span class="h6 _800 text-white" >Release Type:
+                                    <span style="color: #02b875 !important;">{{ !empty($campaign->artistTrack) ? Str::ucfirst($campaign->artistTrack->audio_cover) .' '. Str::ucfirst($campaign->artistTrack->release_type)  : '----'}}</span>
+                                </span>
+{{--                                <span class="h6 _800 text-white" >Release Kind: <span style="color: #02b875 !important;">{{ !empty($campaign->artistTrack) ? Str::ucfirst($campaign->artistTrack->audio_cover) : '----'}}</span></span>--}}
+{{--                                <span class="h6 _800 text-white">Release Type: <span style="color: #02b875 !important;">{{ !empty($campaign->artistTrack) ? Str::ucfirst($campaign->artistTrack->release_type) : '----'}}</span></span>--}}
                             </div>
                             <div class="d-flex p-b-1">
                                 <span class="h6 _800 text-white" >Release Date: <span style="color: #02b875 !important;">{{ !empty($campaign->artistTrack) ? getDateFormat($campaign->artistTrack->release_date) : '----'}}</span></span>
@@ -190,7 +193,7 @@
                             @if(!empty($campaign->artistTrack) && !empty($campaign->artistTrack->audio_description))
                                 <div class="item-except text-sm text-white">
                                     <p>
-                                        <span class="h6 _800 text-white">Don`t Share: </span>{{ $campaign->artistTrack->audio_description }}
+                                        <span class="h6 _800 text-white" style="color:red !important;">Don`t Share: </span>{{ $campaign->artistTrack->audio_description }}
                                     </p>
                                 </div>
                             @endif
