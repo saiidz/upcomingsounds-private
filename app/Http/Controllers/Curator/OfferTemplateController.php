@@ -66,6 +66,21 @@ class OfferTemplateController extends Controller
 
 
     /**
+     * @param CuratorOfferTemplate $offer_template
+     * @return JsonResponse
+     */
+    public function show(Request $request)
+    {
+        $offer_template = CuratorOfferTemplate::find($request->offer_id);
+        return response()->json([
+            'success' => 'success',
+            'offer_template' => $offer_template,
+            'offer_type' => !empty($offer_template) ? $offer_template->offerType : null,
+            'alternative_option' => !empty($offer_template) ? $offer_template->alternativeOption : null,
+        ]);
+    }
+
+    /**
      * @return Application|Factory|View
      */
     public function edit($offer_template)

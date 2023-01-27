@@ -49,7 +49,7 @@
                                 <div class="col s12 quick-action-btns display-flex justify-content-end align-items-center pt-2">
                                     @if ($offer_template->is_approved == 0)
                                         <a href="#approvedModal" data-id={{ $offer_template->id }} class="btn-small btn-light-indigo dropdown-item has-icon modal-trigger approvedCurator-confirm">
-                                            Approved
+                                            Approve
                                         </a>
                                     @endif
 

@@ -313,8 +313,8 @@
                                 @if(!empty($offerTemplates) && (count($offerTemplates) > 0))
                                     <div class="templateBtn text-center">
                                         <div class="form-group">
-                                            <select name="type" class="selectOffer">
-                                                <option value="" disabled selected>Select Template</option>
+                                            <select name="type" id="selectOffer" class="selectOffer" onchange="selectOfferTemplate(this.value)">
+                                                <option value="Select Template" disabled selected>Select Template</option>
                                                 @foreach($offerTemplates as $offerTemplate)
                                                     <option value="{{ $offerTemplate->id }}">{{ $offerTemplate->title ?? '----' }}</option>
                                                 @endforeach
@@ -338,8 +338,36 @@
                                         Submit Coverage</a>
                                 </div>
                                 <div class="campaignBtn" style="margin-top: 115px; !important;">
-                                    <a href="javascript:void(0)" onclick="backToShowHide()" class="btn btn-sm rounded campaign_btn basicbtn">
+                                    <a href="javascript:void(0)" onclick="backToShowHide('overview')" class="btn btn-sm rounded campaign_btn basicbtn">
                                         Back to Overview</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="offerSendCollapsedShowHide" style="display:none;">
+                <div class="collapsed_list">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="startCollapse">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h3 id="nameOffer_"></h3>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center p-b-1">
+                                    <span class="_800 text-white" >Offer Type: <span style="color: #02b875 !important;" id="typeOffer_"></span></span>
+                                    <span class="_800 text-white">Alternative Option: <span style="color: #02b875 !important;" id="alternativeOffer_"></span></span>
+                                </div>
+                                <div class="d-flex p-b-1">
+                                    <span class="h6 _800 text-white" >Contribution: <span style="color: #02b875 !important;" id="contribution_"></span></span>
+                                </div>
+
+                                <div class="campaignBtn" style="margin-top: 115px; !important;">
+                                    <a href="javascript:void(0)" onclick="backToShowHide('back')" class="btn btn-sm rounded campaign_btn basicbtn">
+                                        Back</a>
+                                    <a href="javascript:void(0)" onclick="sendOffer()" class="btn btn-sm rounded campaign_btn basicbtn">
+                                        Send Offer</a>
                                 </div>
                             </div>
                         </div>

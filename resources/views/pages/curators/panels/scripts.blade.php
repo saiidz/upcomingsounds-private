@@ -489,14 +489,70 @@
     function offerShowHide()
     {
         $('#mySidebarCollapsedShowHide').css('display','none');
+        $('#offerSendCollapsedShowHide').css('display','none');
         $('#templateCollapsedShowHide').css('display','block');
     }
 
-    function backToShowHide()
+    function backToShowHide(value)
     {
-        $('#templateCollapsedShowHide').css('display','none');
-        $('#mySidebarCollapsedShowHide').css('display','block');
+        if(value === "overview")
+        {
+            $('#templateCollapsedShowHide').css('display','none');
+            $('#offerSendCollapsedShowHide').css('display','none');
+            $('#mySidebarCollapsedShowHide').css('display','block');
+        }
+
+        if(value === "back")
+        {
+            $('#selectOffer').val('Select Template').trigger('change');
+            $('#offerSendCollapsedShowHide').css('display','none');
+            $('#mySidebarCollapsedShowHide').css('display','none');
+            $('#templateCollapsedShowHide').css('display','block');
+        }
     }
+
+    function selectOfferTemplate(id)
+    {
+        showLoader();
+        $.ajax({
+            type: "GET",
+            url: '{{route('curator.show.offer.template')}}',
+            data: {offer_id:id},
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                loader();
+
+                if (data.success) {
+                    if(data.offer_template)
+                    {
+                        $('#nameOffer_').html(data.offer_template.title);
+                    }
+                    if(data.offer_template)
+                    {
+                        $('#contribution_').html(data.offer_template.contribution + ' USC');
+                    }
+                    if(data.offer_type)
+                    {
+                        $('#typeOffer_').html(data.offer_type.name);
+                    }
+                    if(data.alternative_option)
+                    {
+                        $('#alternativeOffer_').html(data.alternative_option.name);
+                    }
+
+                }
+                if (data.error) {
+                    toastr.error(data.error);
+                }
+            },
+        });
+
+        $('#templateCollapsedShowHide').css('display','none');
+        $('#mySidebarCollapsedShowHide').css('display','none');
+        $('#offerSendCollapsedShowHide').css('display','block');
+    }
+
     function favoriteArtist(artist_id_)
     {
         var artist_id = window.btoa( artist_id_ );
@@ -528,6 +584,7 @@
             },
         })
     }
+
 </script>
 <script>
     $(window).load(function() {
