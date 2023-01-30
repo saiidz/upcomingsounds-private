@@ -678,6 +678,9 @@ body{
     .prev__btn {
         width: 30%;
     }
+    .right__container {
+        display: block;
+    }
     .title__container {
         justify-content: flex-start;
     }
