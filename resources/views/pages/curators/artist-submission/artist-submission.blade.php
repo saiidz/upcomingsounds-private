@@ -157,4 +157,15 @@
             document.getElementById("app-body").style.marginLeft= "0";
         }
     </script>
+    <script src="{{asset('js/gijgo.min.js')}}"></script>
+    <script>
+        $('#datePickerOfferExpiry').datepicker({
+            iconsLibrary: 'fontawesome',
+            format: "yyyy-mm-dd",
+        });
+        $('#datePickerOfferExpiry').datepicker({
+            iconsLibrary: 'fontawesome',
+            format: "yyyy-mm-dd",
+        });
+    </script>
 @endsection

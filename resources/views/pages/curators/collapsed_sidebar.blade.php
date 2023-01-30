@@ -362,11 +362,30 @@
                                 <div class="d-flex p-b-1">
                                     <span class="h6 _800 text-white" >Contribution: <span style="color: #02b875 !important;" id="contribution_"></span></span>
                                 </div>
-
+                                <div class="item-except text-sm text-white">
+                                    <p>
+                                        <span class="h6 _800 text-white">Offer Text: <span style="color: #02b875 !important;" id="offerText_"></span></span>
+                                    </p>
+                                </div>
+                                <input type="hidden" id="offerTemplateID" value="{{ $campaign->track_id ?? null }}">
+                                <div class="d-flex form-group">
+                                    <label class="control-label form-control-label text-white">Offer Expiry Date:</label>
+                                    <div>
+                                        <input id="datePickerOfferExpiry" value=""
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                <div class="d-flex form-group">
+                                    <label class="control-label form-control-label text-white">Approx Publish Date:</label>
+                                    <div>
+                                        <input id="datePickerPublishDate" value=""
+                                               class="form-control">
+                                    </div>
+                                </div>
                                 <div class="campaignBtn" style="margin-top: 115px; !important;">
                                     <a href="javascript:void(0)" onclick="backToShowHide('back')" class="btn btn-sm rounded campaign_btn basicbtn">
                                         Back</a>
-                                    <a href="javascript:void(0)" onclick="sendOffer()" class="btn btn-sm rounded campaign_btn basicbtn">
+                                    <a href="javascript:void(0)" onclick="sendOffer({{$campaign->user_id}},{{$campaign->track_id}})" class="btn btn-sm rounded campaign_btn basicbtn">
                                         Send Offer</a>
                                 </div>
                             </div>

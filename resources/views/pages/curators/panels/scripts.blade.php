@@ -158,11 +158,6 @@
             input.attr("type", "password");
         }
     });
-
-    $('#datepickerAddTrack').datepicker({
-            iconsLibrary: 'fontawesome',
-            format: "yyyy-mm-dd"
-        });
 </script>
 
 <script>
@@ -526,7 +521,12 @@
                 if (data.success) {
                     if(data.offer_template)
                     {
+                        $('#offerTemplateID').val(data.offer_template.id);
                         $('#nameOffer_').html(data.offer_template.title);
+                    }
+                    if(data.offer_template)
+                    {
+                        $('#offerText_').html(data.offer_template.offer_text.replace(/(<([^>]+)>)/gi, ""));
                     }
                     if(data.offer_template)
                     {
@@ -551,6 +551,20 @@
         $('#templateCollapsedShowHide').css('display','none');
         $('#mySidebarCollapsedShowHide').css('display','none');
         $('#offerSendCollapsedShowHide').css('display','block');
+    }
+
+    // send offer
+    function sendOffer(artist_id,track_id)
+    {
+        console.log(artist_id);
+        console.log(track_id);
+        console.log($('#offerTemplateID').val());
+        console.log($('#datePickerOfferExpiry').val());
+        console.log($('#datePickerPublishDate').val());
+
+        let offerTemplateID = $('#offerTemplateID').val()
+        let datePickerOfferExpiry = $('#datePickerOfferExpiry').val()
+        let datePickerPublishDate = $('#datePickerPublishDate').val()
     }
 
     function favoriteArtist(artist_id_)
