@@ -190,7 +190,8 @@ header nav ul li a:hover {
     border: none;
     cursor: pointer;
     border-radius: 50%;
-    border: 2px solid #fff;
+    border: 2px solid #b58e8e;
+    /*border: 2px solid #fff;*/
     box-shadow: 0 0 0 0 transparent;
     vertical-align: middle;
     color: #fff;
