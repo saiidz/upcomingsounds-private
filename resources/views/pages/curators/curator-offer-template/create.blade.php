@@ -98,13 +98,24 @@
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <label class="control-label form-control-label text-muted">Is Active</label>
-                                <select class="form-control" name="is_active">
+                                <label class="control-label form-control-label text-muted">Alternative Option</label>
+                                <select class="form-control" name="alternative_option">
                                     <option disabled selected>Please Choose</option>
-                                    <option value="1" {{(!empty($offer_template) && $offer_template->is_active == 1) ? 'selected' : '' }}>{{ __('Active') }}</option>
-                                    <option value="0" {{(!empty($offer_template) && $offer_template->is_active == 0) ? 'selected' : '' }}>{{ __('Non Active') }}</option>
+                                    @if(!empty($alternative_options))
+                                        @foreach($alternative_options as $alternative_option)
+                                            <option value="{{$alternative_option->id}}" {{(!empty($offer_template) && $alternative_option->id == $offer_template->alternative_option) ? 'selected' : '' }}>{{$alternative_option->name}}</option>
+                                        @endforeach
+                                    @endif
                                 </select>
                             </div>
+{{--                            <div class="col-sm-6">--}}
+{{--                                <label class="control-label form-control-label text-muted">Is Active</label>--}}
+{{--                                <select class="form-control" name="is_active">--}}
+{{--                                    <option disabled selected>Please Choose</option>--}}
+{{--                                    <option value="1" {{(!empty($offer_template) && $offer_template->is_active == 1) ? 'selected' : '' }}>{{ __('Active') }}</option>--}}
+{{--                                    <option value="0" {{(!empty($offer_template) && $offer_template->is_active == 0) ? 'selected' : '' }}>{{ __('Non Active') }}</option>--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
                         </div>
 
 {{--                        <div class="form-group">--}}
@@ -116,19 +127,19 @@
 {{--                            </div>--}}
 {{--                        </div>--}}
 
-                        <div class="form-group">
-                            <label class="control-label form-control-label text-muted">Alternative Option</label>
-                            <div>
-                                <select class="form-control" name="alternative_option">
-                                    <option disabled selected>Please Choose</option>
-                                    @if(!empty($alternative_options))
-                                        @foreach($alternative_options as $alternative_option)
-                                            <option value="{{$alternative_option->id}}" {{(!empty($offer_template) && $alternative_option->id == $offer_template->alternative_option) ? 'selected' : '' }}>{{$alternative_option->name}}</option>
-                                        @endforeach
-                                    @endif
-                                </select>
-                            </div>
-                        </div>
+{{--                        <div class="form-group">--}}
+{{--                            <label class="control-label form-control-label text-muted">Alternative Option</label>--}}
+{{--                            <div>--}}
+{{--                                <select class="form-control" name="alternative_option">--}}
+{{--                                    <option disabled selected>Please Choose</option>--}}
+{{--                                    @if(!empty($alternative_options))--}}
+{{--                                        @foreach($alternative_options as $alternative_option)--}}
+{{--                                            <option value="{{$alternative_option->id}}" {{(!empty($offer_template) && $alternative_option->id == $offer_template->alternative_option) ? 'selected' : '' }}>{{$alternative_option->name}}</option>--}}
+{{--                                        @endforeach--}}
+{{--                                    @endif--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
                         <div class="form-group m-t-2">
                             <label class="control-label form-control-label text-muted">
