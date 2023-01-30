@@ -11,7 +11,7 @@
         $SelectedTrack =  $_GET['track_id'] ??'';
     @endphp
     <div class="input__container">
-        <div class="row item-list item-list-md m-b">
+        <div class="row item-list item-list-md m-b" id="StepFirst">
             @if(count($artist_tracks) > 0)
                 @foreach($artist_tracks as $track)
                     <div class="col-sm-6 promoteArtist" onclick="artistTrack({{$track->id}})" >

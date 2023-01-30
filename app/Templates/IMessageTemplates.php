@@ -28,4 +28,16 @@ use Illuminate\Support\Facades\Auth;
 
     const OFFER_SUCCESS = "Offer Template Created Successfully";
     const OFFER_UPDATED_SUCCESS = "Offer Template Updated Successfully";
+
+    const PROMOTE_ADD_TRACK = "Your music has been submitted to Upcomingsounds. Thank you
+
+                                After that, what happens?
+
+                                Our team is reviewing your release, and you will be notified by email once it has been accepted or declined. There is a possibility that this process could take up to 48 hours, but it is usually completed in much less time.
+
+                                You will be able to proceed through our payment portal once your application is accepted, and your music will be accessible to content creators
+
+                                The 45 days of exposure to our tastemakers begin as soon as payment has been completed.
+
+                                Your application will be declined if it does not meet our criteria, but we will explain why so that you can re-apply based on the reason.";
  }

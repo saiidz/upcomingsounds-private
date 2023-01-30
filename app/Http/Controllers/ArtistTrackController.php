@@ -178,7 +178,15 @@ class ArtistTrackController extends Controller
             }
         }
 
-        return response()->json(['success' => 'Song Track created successfully. Please wait for approval from admin side.']);
+        if(!empty($request->promote) && $request->promote == "true")
+        {
+            return response()->json([
+                'success' => 'Song Track created successfully. Please wait for approval from admin side.',
+                'promote' => IMessageTemplates::PROMOTE_ADD_TRACK,
+            ]);
+        }else{
+            return response()->json(['success' => 'Song Track created successfully. Please wait for approval from admin side.']);
+        }
 //        return redirect()->back()->with('success', 'Song Track created successfully.');
     }
 
