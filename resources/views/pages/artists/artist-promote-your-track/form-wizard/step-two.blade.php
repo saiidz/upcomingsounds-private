@@ -61,9 +61,10 @@
                             <input type="checkbox" class="budgetYes budget_mind" name="pay_now" value="yes" />
                         </div>
                         <div id="rocket">
-                            <span class="nav-icon">
-                                    <i class="fa fa-rocket"></i>
-                                </span>
+                            <img src="{{asset('images/rocket.png')}}" alt="">
+{{--                            <span class="nav-icon">--}}
+{{--                                <i class="fa fa-rocket"></i>--}}
+{{--                            </span>--}}
                         </div>
                         <div>
                             <div class="item-title text-ellipsis center">

@@ -51,6 +51,22 @@
                     </div>
 
                     <div class="form-group">
+                        <div>
+                            <p class="mb-1">
+                                <p class="text-muted">Is This a Cover or a remix</p>
+                                <div class="remix">
+                                    <label>
+                                        <input type="checkbox" class="radio audioCover" value="original" name="audio_cover" />   Original</label>
+                                    <label>
+                                        <input type="checkbox" class="radio audioCover" value="cover" name="audio_cover" />   Cover</label>
+                                    <label>
+                                        <input type="checkbox" class="radio audioCover" value="remix" name="audio_cover" />   Remix</label>
+                                </div>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="justify-content: space-between !important;align-items: center !important;display: flex !important;">
                         <label class="control-label form-control-label text-muted">Demo(Is it an unfinished song?`)</label>
                         <div id="deMo">
                             <label class="switch">
@@ -167,21 +183,11 @@
                                     <span class="text-muted">Display on my public profile </span>
                                 </label>
                             </p>
-                            <p class="mb-1">
-                                <input type="text" class="form-control" placeholder="e.g. Please do not share this before 31 Dec"
-                                       name="audio_description" />
-                            </p>
-                            <p class="mb-1">
-                                <p class="text-muted">Is This a Cover or a remix</p>
-                                <div class="remix">
-                                    <label>
-                                        <input type="checkbox" class="radio audioCover" value="original" name="audio_cover" />   Original</label>
-                                    <label>
-                                        <input type="checkbox" class="radio audioCover" value="cover" name="audio_cover" />   Cover</label>
-                                    <label>
-                                        <input type="checkbox" class="radio audioCover" value="remix" name="audio_cover" />   Remix</label>
-                                </div>
-                            </p>
+{{--                            <p class="mb-1">--}}
+{{--                                <input type="text" class="form-control" placeholder="e.g. Please do not share this before 31 Dec"--}}
+{{--                                       name="audio_description" />--}}
+{{--                            </p>--}}
+
                         </div>
                     </div>
 

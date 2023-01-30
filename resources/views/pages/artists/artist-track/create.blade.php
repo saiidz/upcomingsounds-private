@@ -59,6 +59,23 @@
             </div>
         </div>
     </div>
+    <div class="form-group row">
+        <div class="col-sm-3 form-control-label text-muted">Is This a Cover or a remix</div>
+        <div class="col-sm-9">
+            <div class="col s12">
+                <p class="mb-1">
+                    <div class="remix">
+                        <label>
+                            <input type="checkbox" class="radio audioCover" value="original" name="audio_cover" />   Original</label>
+                        <label>
+                            <input type="checkbox" class="radio audioCover" value="cover" name="audio_cover" />   Cover</label>
+                        <label>
+                            <input type="checkbox" class="radio audioCover" value="remix" name="audio_cover" />   Remix</label>
+                    </div>
+                </p>
+            </div>
+        </div>
+    </div>
 
     <div class="form-group row">
         <div class="col-sm-3 form-control-label text-muted">Demo(Is it an unfinished song?)</div>
@@ -205,28 +222,28 @@
         </div>
     </div>
 
-    <div class="form-group row">
-        {{-- <div class="col-sm-3 form-control-label text-muted">Unreleased Test</div> --}}
-        <div class="col-sm-9">
-            <div class="col s12">
-                <p class="mb-1">
-                    <input type="text" class="form-control" placeholder="e.g. Please do not share this before 31 Dec"
-                               name="audio_description" />
-                </p>
-                <p class="mb-1">
-                    <p class="text-muted">Is This a Cover or a remix</p>
-                    <div class="remix">
-                        <label>
-                            <input type="checkbox" class="radio audioCover" value="original" name="audio_cover" />   Original</label>
-                        <label>
-                            <input type="checkbox" class="radio audioCover" value="cover" name="audio_cover" />   Cover</label>
-                        <label>
-                            <input type="checkbox" class="radio audioCover" value="remix" name="audio_cover" />   Remix</label>
-                    </div>
-                </p>
-            </div>
-        </div>
-    </div>
+{{--    <div class="form-group row">--}}
+{{--        --}}{{-- <div class="col-sm-3 form-control-label text-muted">Unreleased Test</div> --}}
+{{--        <div class="col-sm-9">--}}
+{{--            <div class="col s12">--}}
+{{--                <p class="mb-1">--}}
+{{--                    <input type="text" class="form-control" placeholder="e.g. Please do not share this before 31 Dec"--}}
+{{--                               name="audio_description" />--}}
+{{--                </p>--}}
+{{--                <p class="mb-1">--}}
+{{--                    <p class="text-muted">Is This a Cover or a remix</p>--}}
+{{--                    <div class="remix">--}}
+{{--                        <label>--}}
+{{--                            <input type="checkbox" class="radio audioCover" value="original" name="audio_cover" />   Original</label>--}}
+{{--                        <label>--}}
+{{--                            <input type="checkbox" class="radio audioCover" value="cover" name="audio_cover" />   Cover</label>--}}
+{{--                        <label>--}}
+{{--                            <input type="checkbox" class="radio audioCover" value="remix" name="audio_cover" />   Remix</label>--}}
+{{--                    </div>--}}
+{{--                </p>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
     <div class="form-group row">
         <div class="col-sm-3 text-muted">Track's lyrics  language(s) (optional)</div>

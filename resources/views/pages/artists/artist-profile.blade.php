@@ -566,13 +566,13 @@
         $('#datepicker').datepicker({
             iconsLibrary: 'fontawesome',
             format: "yyyy-mm-dd",
-            minDate: dateToday
+            // minDate: dateToday
 
         });
         $('#dateEditpicker').datepicker({
             iconsLibrary: 'fontawesome',
             format: "yyyy-mm-dd",
-            minDate: dateToday
+            // minDate: dateToday
         });
     </script>
     <script>

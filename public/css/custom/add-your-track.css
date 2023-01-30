@@ -656,7 +656,7 @@ body{
     .title__container {
         justify-content: flex-start;
     }
-    #rocket span {
+    #rocket img {
         padding-left: 0 !important;
         display: block !important;
     }
@@ -681,7 +681,7 @@ body{
     .title__container {
         justify-content: flex-start;
     }
-    #rocket span {
+    #rocket img {
         padding-left: 0 !important;
         display: block !important;
     }

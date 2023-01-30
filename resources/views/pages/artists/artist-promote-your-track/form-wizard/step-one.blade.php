@@ -57,7 +57,7 @@
             <a class="m-b-md rounded addTrack" data-toggle="modal" data-target="#add-track-promote" href="javascript:void(0)">
                 Submit New Release
             </a>
-            <a class="m-b-md rounded addTrack nxt__btn" id="firstStepBtn" onclick="nextForm('step_one');"> Next</a>
+            <a class="m-b-md rounded addTrack nxt__btn" id="firstStepBtn" onclick="nextForm('step_one');" style="width: 28%;"> Go To Your Campaigns</a>
         </div>
     </div>
 </fieldset>

@@ -193,7 +193,7 @@
                             @if(!empty($campaign->artistTrack) && !empty($campaign->artistTrack->audio_description))
                                 <div class="item-except text-sm text-white">
                                     <p>
-                                        <span class="h6 _800 text-white" style="color:red !important;">Don`t Share: </span>{{ $campaign->artistTrack->audio_description }}
+                                        <span class="h6 _800 text-white" style="color:red !important;">Embargo: </span>{{ $campaign->artistTrack->audio_description }}
                                     </p>
                                 </div>
                             @endif
@@ -210,7 +210,11 @@
                                     </div>
                                 </div>
                             @endif
-
+                            <div class="item-except text-sm text-white">
+                                <p>
+                                    <span class="h6 _800 text-white">Description: </span> {{ !empty($campaign->artistTrack) ? $campaign->artistTrack->description : '-----'}}
+                                </p>
+                            </div>
                             @if(!empty($campaign->artistTrack) && !empty($campaign->artistTrack->pitch_description))
                                 <div class="item-except text-sm text-white">
                                     <p>
@@ -219,11 +223,7 @@
                                 </div>
                             @endif
 
-                            <div class="item-except text-sm text-white">
-                                <p>
-                                    {{ !empty($campaign->artistTrack) ? $campaign->artistTrack->description : '-----'}}
-                                </p>
-                            </div>
+
                             <div class="row" id="camArtTraLink">
                                 @if(count($campaign->artistTrack->artistTrackLinks) > 0)
                                     @foreach($campaign->artistTrack->artistTrackLinks as $link)

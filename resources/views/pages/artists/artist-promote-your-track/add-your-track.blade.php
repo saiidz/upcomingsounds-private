@@ -26,11 +26,12 @@
         #selectionSHow h2,h3{
             font-size:22px !important;
         }
-        #rocket span{
+        #rocket img{
             font-size: 60px;
             color: red;
             padding-left: 70px;
             display: flex;
+            height:80px;
         }
 
     </style>
@@ -924,7 +925,7 @@
         $('#datepickerPromoteDate').datepicker({
             iconsLibrary: 'fontawesome',
             format: "yyyy-mm-dd",
-            minDate: dateToday
+            // minDate: dateToday
         });
     </script>
     <script type="text/javascript">
