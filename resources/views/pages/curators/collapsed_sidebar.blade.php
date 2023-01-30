@@ -193,7 +193,7 @@
                             @if(!empty($campaign->artistTrack) && !empty($campaign->artistTrack->audio_description))
                                 <div class="item-except text-sm text-white">
                                     <p>
-                                        <span class="h6 _800 text-white" style="color:red !important;">Embargo: </span>{{ $campaign->artistTrack->audio_description }}
+                                        <span class="h6 _800 text-white" style="color:red !important;">{{ ($campaign->artistTrack->release_date < \Illuminate\Support\Carbon::now()) ? 'Don`t Share:' : 'Embargo:'}} </span>{{ $campaign->artistTrack->audio_description }}
                                     </p>
                                 </div>
                             @endif
