@@ -199,14 +199,14 @@
                             </a>
                         </li>
 
-                        <li>
-                            <a href="javascript:void(0)">
-                                <span class="nav-icon">
-                                    <i class="fa fa-info-circle"></i>
-                                </span>
-                                <span class="nav-text">Bio</span>
-                            </a>
-                        </li>
+{{--                        <li>--}}
+{{--                            <a href="javascript:void(0)">--}}
+{{--                                <span class="nav-icon">--}}
+{{--                                    <i class="fa fa-info-circle"></i>--}}
+{{--                                </span>--}}
+{{--                                <span class="nav-text">Bio</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
 
                         <li class="nav-header hidden-folded m-t">
                             <span class="text-xs text-muted">Your collection</span>
