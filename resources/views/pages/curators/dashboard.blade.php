@@ -18,9 +18,9 @@
 
 @section('content')
     <!-- ############ PAGE START-->
-    <div id="campaignAddRemove">
-        @include('pages.curators.collapsed_sidebar')
-    </div>
+{{--    <div id="campaignAddRemove">--}}
+{{--        @include('pages.curators.collapsed_sidebar')--}}
+{{--    </div>--}}
     <div class="page-content">
         <div class="padding p-b-0">
             <div class="con m-b" id="curatorBanner" style="background-color: transparent">

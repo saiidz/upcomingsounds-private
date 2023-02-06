@@ -11,6 +11,9 @@
     <div id="loading">
         <img id="loading-image" src="{{asset('images/loader.gif')}}" alt="Loading..." />
     </div>
+    <div id="campaignAddRemove">
+        @include('pages.curators.collapsed_sidebar')
+    </div>
     <!-- BEGIN: SideNav-->
 @include('pages.curators.panels.sidebar')
 <!-- END: SideNav-->
@@ -56,6 +59,7 @@
 </div>
 
 <!-- BEGIN VENDOR JS-->
+
 @include('pages.curators.panels.scripts')
 <!-- END PAGE LEVEL JS-->
 

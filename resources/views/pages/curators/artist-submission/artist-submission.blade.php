@@ -16,9 +16,9 @@
 @endsection
 
 @section('content')
-    <div id="campaignAddRemove">
-        @include('pages.curators.collapsed_sidebar')
-    </div>
+{{--    <div id="campaignAddRemove">--}}
+{{--        @include('pages.curators.collapsed_sidebar')--}}
+{{--    </div>--}}
     <!-- ############ PAGE START-->
         <div class="page-content">
             <div class="row-col">
@@ -156,16 +156,5 @@
             // document.getElementById("mySidebarCollapsed").style.width = "0";
             document.getElementById("app-body").style.marginLeft= "0";
         }
-    </script>
-    <script src="{{asset('js/gijgo.min.js')}}"></script>
-    <script>
-        $('#datePickerOfferExpiry').datepicker({
-            iconsLibrary: 'fontawesome',
-            format: "yyyy-mm-dd",
-        });
-        $('#datePickerOfferExpiry').datepicker({
-            iconsLibrary: 'fontawesome',
-            format: "yyyy-mm-dd",
-        });
     </script>
 @endsection

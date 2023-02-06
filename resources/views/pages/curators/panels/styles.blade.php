@@ -86,4 +86,5 @@ success, touch, track, tracks, transparent, united, visibility,
             margin-top: 280px;
         }
     </style>
+    <link rel="stylesheet" href="{{asset('css/gijgo.min.css')}}" type="text/css" />
 </head>

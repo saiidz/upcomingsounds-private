@@ -3,6 +3,7 @@
 use App\Http\Controllers\Curator\OfferController;
 use App\Http\Controllers\Curator\OfferTemplateController;
 use App\Http\Controllers\Curator\SavedArtistController;
+use App\Http\Controllers\Curator\SendOfferController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AjaxController;
@@ -79,4 +80,7 @@ Route::delete('delete-offer-template/{offer_template}',[OfferTemplateController:
 Route::get('saved-artists', [SavedArtistController::class,'savedArtist'])->name('curator.saved.artists');
 // saved artist routes
 
+// send offer to artist route
+Route::post('send-offer', [SendOfferController::class, 'sendOffer'])->name('curator.send.offer');
+// send offer to artist route
 /***************************************************** Curator Routes *********************************************************/

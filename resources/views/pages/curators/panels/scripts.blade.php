@@ -421,6 +421,7 @@
         document.querySelector('#changePasswordCurator').reset();
     });
 </script>
+<script src="{{asset('js/gijgo.min.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
 <script>
     /*--------------------------------------
@@ -519,6 +520,16 @@
                 loader();
 
                 if (data.success) {
+                    $('.datePickerE').datepicker({
+                        iconsLibrary: 'fontawesome',
+                        format: "yyyy-mm-dd",
+
+                    });
+                    $('.datePickerP').datepicker({
+                        iconsLibrary: 'fontawesome',
+                        format: "yyyy-mm-dd",
+
+                    });
                     if(data.offer_template)
                     {
                         $('#offerTemplateID').val(data.offer_template.id);
@@ -565,6 +576,46 @@
         let offerTemplateID = $('#offerTemplateID').val()
         let datePickerOfferExpiry = $('#datePickerOfferExpiry').val()
         let datePickerPublishDate = $('#datePickerPublishDate').val()
+
+        if(datePickerOfferExpiry == '')
+        {
+            toastr.error('Please Select Expiry Date');
+            return false;
+        }
+        if(datePickerPublishDate == '')
+        {
+            toastr.error('Please Select Publish Date');
+            return false;
+        }
+        if(offerTemplateID == '')
+        {
+            toastr.error('Problem in Offer Template');
+            return false;
+        }
+
+        showLoader();
+        $.ajax({
+            type: "POST",
+            url: '{{route('curator.send.offer')}}',
+            data: {
+                offer_template_ID:offerTemplateID,
+                offer_expiry:datePickerOfferExpiry,
+                offer_publish:datePickerPublishDate,
+                artistID:artist_id,
+                trackID:track_id,
+            },
+            dataType: 'json',
+            success: function (data) {
+                loader();
+                if (data.success) {
+                    toastr.success(data.success);
+                    window.location.replace('{{route('curator.offers')}}');
+                }
+                if (data.error) {
+                    toastr.error(data.error);
+                }
+            },
+        })
     }
 
     function favoriteArtist(artist_id_)
