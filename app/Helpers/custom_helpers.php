@@ -122,6 +122,16 @@ function getDateFormat($date,$days=""): string
 /**
  * @param $date
  * @return string
+ * @author Farhan <farhanakram670@gmail.com>
+ */
+function getDateNewFormat($date,$days=""): string
+{
+    return Carbon::parse($date)->addDays($days)->format('Y-m-d');
+}
+
+/**
+ * @param $date
+ * @return string
  */
 function getExpiryDayCampaign($date): string
 {

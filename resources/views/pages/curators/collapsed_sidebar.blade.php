@@ -371,7 +371,7 @@
                                 <div class="d-flex form-group">
                                     <label class="control-label form-control-label text-white">Offer Expiry Date:</label>
                                     <div>
-                                        <input id="datePickerOfferExpiry" value=""
+                                        <input id="datePickerOfferExpiry" value="{{getDateNewFormat(\Illuminate\Support\Carbon::today(),30)}}"
                                                class="form-control datePickerE" style="background-color:white;">
                                     </div>
                                 </div>
