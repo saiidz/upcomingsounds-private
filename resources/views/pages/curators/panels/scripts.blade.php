@@ -656,3 +656,10 @@
         $('#loading').hide();
     });
 </script>
+<script>
+    function sendOfferShow(id)
+    {
+        var form = document.getElementById("form-offer"+id);
+        form.submit();
+    }
+</script>

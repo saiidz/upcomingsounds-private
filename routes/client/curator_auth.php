@@ -82,5 +82,6 @@ Route::get('saved-artists', [SavedArtistController::class,'savedArtist'])->name(
 
 // send offer to artist route
 Route::post('send-offer', [SendOfferController::class, 'sendOffer'])->name('curator.send.offer');
+Route::get('send-offer/{send_offer}', [SendOfferController::class,'sendOfferShow'])->name('curator.send.offer.show');
 // send offer to artist route
 /***************************************************** Curator Routes *********************************************************/

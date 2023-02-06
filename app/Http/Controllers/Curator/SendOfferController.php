@@ -34,4 +34,10 @@ class SendOfferController extends Controller
             return response()->json(['error' => 'Error In Ajax call.']);
         }
     }
+
+    public function sendOfferShow($send_offer)
+    {
+        $send_offer = SendOffer::find(decrypt($send_offer));
+        return view('pages.curators.curator-offers.send-offer-details', get_defined_vars());
+    }
 }
