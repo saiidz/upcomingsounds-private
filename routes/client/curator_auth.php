@@ -76,6 +76,10 @@ Route::post('offer/change-status',[OfferTemplateController::class,'offerChangeSt
 Route::delete('delete-offer-template/{offer_template}',[OfferTemplateController::class,'destroy']);
 // offer templates routes
 
+// create a offer
+Route::get('offer-template-create', [OfferTemplateController::class,'directCreateOfferTemplate'])->name('curator.direct.create.offer.template');
+// create a offer
+
 // saved artist routes
 Route::get('saved-artists', [SavedArtistController::class,'savedArtist'])->name('curator.saved.artists');
 // saved artist routes

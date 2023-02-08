@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\AlternativeOption;
 use App\Models\CuratorOfferTemplate;
 use App\Models\OfferType;
+use App\Models\User;
 use App\Templates\IMessageTemplates;
+use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -151,5 +153,27 @@ class OfferTemplateController extends Controller
             'success' => 'Offer Template status Is Updated',
             'is_active' => $artist->is_active ?? null,
         ]);
+    }
+
+    /**
+     * @return Application|Factory|View
+     */
+    public function directCreateOfferTemplate(Request $request)
+    {
+        try {
+            if(!empty($request->aid))
+            {
+                $user = User::find(decrypt($request->aid));
+                $offer_types = OfferType::get();
+                $alternative_options = AlternativeOption::get();
+                return view('pages.curators.curator-offer-template.create-a-offer', get_defined_vars());
+            }else{
+                return abort(403);
+            }
+        }catch (DecryptException $exception)
+        {
+            return abort(403);
+        }
+
     }
 }

@@ -90,10 +90,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        @else
-                                            <div class="item-title text-ellipsis">
-                                                <h3 class="white" style="text-align:center;font-size: 15px;">No Active Campaign</h3>
-                                            </div>
                                         @endif
                                     @endforeach
                                 @else
