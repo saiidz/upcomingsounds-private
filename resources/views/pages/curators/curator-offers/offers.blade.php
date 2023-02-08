@@ -3,6 +3,14 @@
 {{-- page title --}}
 @section('title','Offers')
 
+@section('page-style')
+    <style>
+        .Item{
+            background-color: rgba(120, 120, 120, 0.1);
+        }
+    </style>
+@endsection
+
 
 @section('content')
     <!-- ############ PAGE START-->

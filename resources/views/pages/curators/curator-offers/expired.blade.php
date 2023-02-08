@@ -3,6 +3,13 @@
 {{-- page title --}}
 @section('title','Expired')
 
+@section('page-style')
+    <style>
+        .Item{
+            background-color: rgba(120, 120, 120, 0.1);
+        }
+    </style>
+@endsection
 
 @section('content')
     <!-- ############ PAGE START-->

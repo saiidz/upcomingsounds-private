@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Curator;
 
 use App\Http\Controllers\Controller;
 use App\Models\AlternativeOption;
+use App\Models\Campaign;
 use App\Models\CuratorOfferTemplate;
 use App\Models\OfferType;
 use App\Models\User;
 use App\Templates\IMessageTemplates;
+use App\Templates\IOfferTemplateStatus;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -25,7 +27,7 @@ class OfferTemplateController extends Controller
      */
     public function index()
     {
-        $offerTemplates = CuratorOfferTemplate::where('user_id',Auth::id())->get();
+        $offerTemplates = CuratorOfferTemplate::where(['user_id' => Auth::id(), 'type' => IOfferTemplateStatus::TYPE_OFFER])->get();
         return view('pages.curators.curator-offer-template.proposition', get_defined_vars());
     }
 
@@ -61,6 +63,7 @@ class OfferTemplateController extends Controller
 
         $input = $request->all();
         $input['user_id'] = Auth::id();
+        $input['type'] = IOfferTemplateStatus::TYPE_OFFER;
         $input['offer_text'] = $request->description_details ?? null;
         CuratorOfferTemplate::create($input);
         return response()->json(['success' => IMessageTemplates::OFFER_SUCCESS]);
@@ -118,6 +121,7 @@ class OfferTemplateController extends Controller
         $input = $request->all();
 
         $input['user_id'] = Auth::id();
+        $input['type'] = IOfferTemplateStatus::TYPE_OFFER;
         $input['offer_text'] = $request->description_details ?? null;
         $offer_template->update($input);
         return response()->json(['success' => IMessageTemplates::OFFER_UPDATED_SUCCESS]);
@@ -161,9 +165,10 @@ class OfferTemplateController extends Controller
     public function directCreateOfferTemplate(Request $request)
     {
         try {
-            if(!empty($request->aid))
+            if(!empty($request->aid) && !empty($request->cid))
             {
                 $user = User::find(decrypt($request->aid));
+                $campaign = Campaign::find(decrypt($request->cid));
                 $offer_types = OfferType::get();
                 $alternative_options = AlternativeOption::get();
                 return view('pages.curators.curator-offer-template.create-a-offer', get_defined_vars());

@@ -15,6 +15,7 @@ class CuratorOfferTemplate extends Model
 
     protected $fillable = [
         'user_id',
+        'type',
         'title',
         'offer_type',
         'offer_text',

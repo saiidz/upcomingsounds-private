@@ -21,6 +21,7 @@ class SendOffer extends Model
         'expiry_date',
         'publish_date',
         'status',
+        'is_approved',
         'deleted_at',
     ];
 

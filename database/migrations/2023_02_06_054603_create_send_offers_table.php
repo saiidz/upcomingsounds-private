@@ -23,6 +23,7 @@ class CreateSendOffersTable extends Migration
             $table->date('expiry_date')->nullable();
             $table->date('publish_date')->nullable();
             $table->enum('status',['PENDING','ACCEPTED','REJECTED','EXPIRED','ALTERNATIVE','COMPLETED','NEW'])->default('PENDING');
+            $table->boolean('is_approved')->default(false);
             $table->softDeletes();
             $table->timestamps();
         });

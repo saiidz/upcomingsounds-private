@@ -204,9 +204,9 @@
                                         @endif
                                     </div>
                                     {{--View Submission  --}}
-{{--                                    <a href="javascript:void(0)" onclick="openNav({{!empty($user->campaign) ? $user->campaign->id : null}})"--}}
-{{--                                       class="btn btn-sm rounded proposition basicbtn">--}}
-{{--                                        View Submission</a>--}}
+                                    <a href="javascript:void(0)" onclick="openNav({{!empty($campaign) ? $campaign->id : null}})"
+                                       class="btn btn-sm rounded proposition basicbtn">
+                                        View Submission</a>
                                     {{--View Submission  --}}
                                 </div>
                             </div>

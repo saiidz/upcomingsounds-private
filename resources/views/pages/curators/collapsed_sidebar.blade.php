@@ -329,7 +329,7 @@
                                 @endif
                                 <span class="or_">OR</span>
                                 <div class="offerBtn text-center">
-                                    <a href="{{route('curator.direct.create.offer.template',['aid' => !empty($campaign->artistTrack) ? encrypt($campaign->artistTrack->user->id) : null])}}" class="btn btn-sm rounded tem_btn basicbtn">
+                                    <a href="{{route('curator.direct.create.offer.template',['aid' => !empty($campaign->artistTrack) ? encrypt($campaign->artistTrack->user->id) : null,'cid' => encrypt($campaign->id)])}}" class="btn btn-sm rounded tem_btn basicbtn">
                                         Create a Offer</a>
                                 </div>
                                 <span class="or_">OR</span>

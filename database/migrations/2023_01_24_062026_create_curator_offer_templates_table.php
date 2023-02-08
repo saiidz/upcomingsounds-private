@@ -16,6 +16,7 @@ class CreateCuratorOfferTemplatesTable extends Migration
         Schema::create('curator_offer_templates', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->enum('type', ['OFFER','DIRECT_OFFER'])->default('OFFER');
             $table->string('title')->nullable();
             $table->foreignId('offer_type')->constrained('offer_types')->cascadeOnDelete();
             $table->longText('offer_text')->nullable();

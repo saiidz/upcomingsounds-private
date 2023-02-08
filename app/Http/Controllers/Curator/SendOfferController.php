@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Curator;
 
 use App\Http\Controllers\Controller;
+use App\Models\CuratorOfferTemplate;
 use App\Models\SendOffer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,6 +23,7 @@ class SendOfferController extends Controller
                     'campaign_id' => $request->campaign_ID,
                     'expiry_date' => $request->offer_expiry,
                     'publish_date' => $request->offer_publish,
+                    'is_approved' => 1,
                 ]);
                 return response()->json([
                     'success' => 'Offer send successfully',
