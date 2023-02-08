@@ -565,10 +565,18 @@
                 {
                     hideLoader();
                     console.log(response.success);
-                    $('.basicbtn').removeAttr('disabled')
-                    Sweet('success',response.success);
+                    $('.basicbtn').removeAttr('disabled');
                     $('.basicbtn').html(basicbtnhtml);
-                    location.reload();
+                    if(response.directOffer)
+                    {
+                        Sweet('success',response.directOffer);
+                        $('#new_basicform_with_reload_direct')[0].reset();
+                        $('#descriptionDetails').val('');
+                        $('#submitSuccessMessage').html(response.directOffer);
+                    }else {
+                        Sweet('success',response.success);
+                        location.reload();
+                    }
                 }
                 if(response.errors)
                 {

@@ -25,6 +25,7 @@ class CuratorOfferTemplate extends Model
         'is_approved',
         'is_rejected',
         'confirm',
+        'reason_reject',
         "deleted_at",
     ];
 

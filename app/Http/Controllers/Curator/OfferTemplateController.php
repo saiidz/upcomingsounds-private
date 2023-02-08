@@ -7,6 +7,7 @@ use App\Models\AlternativeOption;
 use App\Models\Campaign;
 use App\Models\CuratorOfferTemplate;
 use App\Models\OfferType;
+use App\Models\SendOffer;
 use App\Models\User;
 use App\Templates\IMessageTemplates;
 use App\Templates\IOfferTemplateStatus;
@@ -49,6 +50,8 @@ class OfferTemplateController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'confirm'             => "required",
+            'publish_date'        => (empty($request->publish_date) && !empty($request->directOffer)) ? "required" : '',
+            'expiry_date'         => (empty($request->publish_date) && !empty($request->directOffer)) ? "required" : '',
             'alternative_option'  => "required",
             'contribution'        => "required|numeric",
             'description_details' => "required",
@@ -63,10 +66,34 @@ class OfferTemplateController extends Controller
 
         $input = $request->all();
         $input['user_id'] = Auth::id();
-        $input['type'] = IOfferTemplateStatus::TYPE_OFFER;
+        if(!empty($request->directOffer))
+        {
+            $input['type'] = IOfferTemplateStatus::TYPE_DIRECT_OFFER;
+        }else{
+            $input['type'] = IOfferTemplateStatus::TYPE_OFFER;
+        }
+
         $input['offer_text'] = $request->description_details ?? null;
-        CuratorOfferTemplate::create($input);
-        return response()->json(['success' => IMessageTemplates::OFFER_SUCCESS]);
+        $curatorOfferTemplate = CuratorOfferTemplate::create($input);
+
+        if(!empty($request->directOffer))
+        {
+            $campaign = Campaign::where('id', $request->campaign_id)->first();
+            SendOffer::create([
+                'curator_id'  => Auth::id(),
+                'offer_template_id' => $curatorOfferTemplate->id,
+                'artist_id' => !empty($campaign->user) ? $campaign->user->id : null,
+                'track_id' => !empty($campaign->artistTrack) ? $campaign->artistTrack->id : null,
+                'campaign_id' => $request->campaign_id,
+                'expiry_date' => $request->expiry_date,
+                'publish_date' => $request->publish_date,
+                'is_approved' => 0,
+            ]);
+        }
+        return response()->json([
+            'success' => IMessageTemplates::OFFER_SUCCESS,
+            'directOffer' => !empty($request->directOffer) ? IMessageTemplates::OFFER_DIRECT_SUCCESS : null,
+        ]);
     }
 
 

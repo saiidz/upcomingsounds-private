@@ -255,43 +255,43 @@
                                 @endif
                             </div>
                             <div class="campaignBtn">
-                                <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn basicbtn">
+                                <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn">
                                     Report</a>
                                 @if (Auth::check() && auth()->user() && auth()->user()->is_verified == 1)
-                                    <a href="javascript:void(0)" onclick="offerShowHide()" class="btn btn-sm rounded campaign_btn basicbtn">
+                                    <a href="javascript:void(0)" onclick="offerShowHide()" class="btn btn-sm rounded campaign_btn ">
                                         Offer</a>
                                 @endif
                                 {{--                          @if(!empty($campaign->curatorFavoriteTrack) && $campaign->curatorFavoriteTrack->status == \App\Templates\IFavoriteTrackStatus::ACCEPTED)--}}
-                                {{--                              <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn basicbtn {{ !empty($campaign->curatorFavoriteTrack) ? 'colorBgAdd' : '' }}"--}}
+                                {{--                              <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn  {{ !empty($campaign->curatorFavoriteTrack) ? 'colorBgAdd' : '' }}"--}}
                                 {{--                                 @if($campaign->artistTrack) onclick="favoriteTrack({{$campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::ACCEPTED}}')" @endif>--}}
                                 {{--                                  Offer</a>--}}
                                 {{--                          @else--}}
                                 {{--                              @if(empty($campaign->curatorFavoriteTrack))--}}
-                                {{--                                  <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn basicbtn"--}}
+                                {{--                                  <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn "--}}
                                 {{--                                     @if($campaign->artistTrack) onclick="favoriteTrack({{$campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::ACCEPTED}}')" @endif>--}}
                                 {{--                                      Offer</a>--}}
                                 {{--                              @endif--}}
                                 {{--                          @endif--}}
 
                                 @if(!empty($campaign->curatorFavoriteTrack) && $campaign->curatorFavoriteTrack->status == \App\Templates\IFavoriteTrackStatus::SAVE)
-                                    <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn basicbtn {{ !empty($campaign->curatorFavoriteTrack) ? 'colorBgAdd' : '' }}"
+                                    <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn {{ !empty($campaign->curatorFavoriteTrack) ? 'colorBgAdd' : '' }}"
                                        @if($campaign->artistTrack) onclick="favoriteTrack({{$campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>
                                         Save</a>
                                 @else
                                     @if(empty($campaign->curatorFavoriteTrack))
-                                        <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn basicbtn"
+                                        <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn "
                                            @if($campaign->artistTrack) onclick="favoriteTrack({{$campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>
                                             Save</a>
                                     @endif
                                 @endif
 
                                 @if(!empty($campaign->curatorFavoriteTrack) && $campaign->curatorFavoriteTrack->status == \App\Templates\IFavoriteTrackStatus::REJECTED)
-                                    <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn basicbtn {{ !empty($campaign->curatorFavoriteTrack) ? 'colorBgAdd' : '' }}"
+                                    <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn  {{ !empty($campaign->curatorFavoriteTrack) ? 'colorBgAdd' : '' }}"
                                        @if($campaign->artistTrack) onclick="favoriteTrack({{$campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::REJECTED}}')" @endif>
                                         Decline</a>
                                 @else
                                     @if(empty($campaign->curatorFavoriteTrack))
-                                        <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn basicbtn"
+                                        <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn "
                                            @if($campaign->artistTrack) onclick="favoriteTrack({{$campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::REJECTED}}')" @endif>
                                             Decline</a>
                                     @endif
@@ -323,22 +323,22 @@
                                     </div>
                                 @else
                                     <div class="templateBtn text-center">
-                                        <a href="{{route('curator.create.offer.template')}}" class="btn btn-sm rounded tem_btn basicbtn">
+                                        <a href="{{route('curator.create.offer.template')}}" class="btn btn-sm rounded tem_btn ">
                                             Setup a new offer template</a>
                                     </div>
                                 @endif
                                 <span class="or_">OR</span>
                                 <div class="offerBtn text-center">
-                                    <a href="{{route('curator.direct.create.offer.template',['aid' => !empty($campaign->artistTrack) ? encrypt($campaign->artistTrack->user->id) : null,'cid' => encrypt($campaign->id)])}}" class="btn btn-sm rounded tem_btn basicbtn">
+                                    <a href="{{route('curator.direct.create.offer.template',['aid' => !empty($campaign->artistTrack) ? encrypt($campaign->artistTrack->user->id) : null,'cid' => encrypt($campaign->id)])}}" class="btn btn-sm rounded tem_btn ">
                                         Create a Offer</a>
                                 </div>
                                 <span class="or_">OR</span>
                                 <div class="submitCBtn text-center">
-                                    <a href="javascript:void(0)" class="btn btn-sm rounded tem_btn basicbtn">
+                                    <a href="javascript:void(0)" class="btn btn-sm rounded tem_btn ">
                                         Submit Coverage</a>
                                 </div>
                                 <div class="campaignBtn" style="margin-top: 115px; !important;">
-                                    <a href="javascript:void(0)" onclick="backToShowHide('overview')" class="btn btn-sm rounded campaign_btn basicbtn">
+                                    <a href="javascript:void(0)" onclick="backToShowHide('overview')" class="btn btn-sm rounded campaign_btn ">
                                         Back to Overview</a>
                                 </div>
                             </div>
@@ -384,9 +384,9 @@
                                     </div>
                                 </div>
                                 <div class="campaignBtn" style="margin-top: 115px; !important;">
-                                    <a href="javascript:void(0)" onclick="backToShowHide('back')" class="btn btn-sm rounded campaign_btn basicbtn">
+                                    <a href="javascript:void(0)" onclick="backToShowHide('back')" class="btn btn-sm rounded campaign_btn ">
                                         Back</a>
-                                    <a href="javascript:void(0)" onclick="sendOffer({{$campaign->user_id}},{{$campaign->track_id}})" class="btn btn-sm rounded campaign_btn basicbtn">
+                                    <a href="javascript:void(0)" onclick="sendOffer({{$campaign->user_id}},{{$campaign->track_id}})" class="btn btn-sm rounded campaign_btn ">
                                         Send Offer</a>
                                 </div>
                             </div>

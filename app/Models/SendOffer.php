@@ -22,6 +22,7 @@ class SendOffer extends Model
         'publish_date',
         'status',
         'is_approved',
+        'is_rejected',
         'deleted_at',
     ];
 

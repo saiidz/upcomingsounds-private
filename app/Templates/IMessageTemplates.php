@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\Auth;
     const PROVIDE_A = "Provide a customised experience";
 
     const OFFER_SUCCESS = "Offer Template Created Successfully";
+    const OFFER_DIRECT_SUCCESS = "Offer Created Successfully and send to admin for approval. Admin will contact you soon. Admin will send to artist if approved.";
     const OFFER_UPDATED_SUCCESS = "Offer Template Updated Successfully";
 
     const PROMOTE_ADD_TRACK = "Your music has been submitted to Upcomingsounds. Thank you
