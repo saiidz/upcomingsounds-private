@@ -504,6 +504,7 @@
             $('#offerSendCollapsedShowHide').css('display','none');
             $('#mySidebarCollapsedShowHide').css('display','none');
             $('#templateCollapsedShowHide').css('display','block');
+            $('#datePickerPublishDate').val('');
         }
     }
 
@@ -567,13 +568,9 @@
     // send offer
     function sendOffer(artist_id,track_id)
     {
-        console.log(artist_id);
-        console.log(track_id);
-        console.log($('#offerTemplateID').val());
-        console.log($('#datePickerOfferExpiry').val());
-        console.log($('#datePickerPublishDate').val());
 
         let offerTemplateID = $('#offerTemplateID').val()
+        let campaign_ID = $('#campaign_ID').val()
         let datePickerOfferExpiry = $('#datePickerOfferExpiry').val()
         let datePickerPublishDate = $('#datePickerPublishDate').val()
 
@@ -592,6 +589,11 @@
             toastr.error('Problem in Offer Template');
             return false;
         }
+        if(campaign_ID == '')
+        {
+            toastr.error('Problem in Offer Template');
+            return false;
+        }
 
         showLoader();
         $.ajax({
@@ -603,6 +605,7 @@
                 offer_publish:datePickerPublishDate,
                 artistID:artist_id,
                 trackID:track_id,
+                campaign_ID:campaign_ID,
             },
             dataType: 'json',
             success: function (data) {

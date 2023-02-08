@@ -140,6 +140,7 @@
                     if (data.success) {
                         $('#campaignAddRemove').empty();
                         $('#campaignAddRemove').html(data.campaign);
+                        $('#campaign_ID').val(data.campaign_id);
                         $('#mySidebarCollapsed').addClass('mySidebarCollapsed');
                         // document.getElementById("mySidebarCollapsed").style.width = "490px";
                         document.getElementById("app-body").style.marginLeft = "490px";

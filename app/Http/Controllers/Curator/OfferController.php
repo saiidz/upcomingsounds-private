@@ -31,7 +31,7 @@ class OfferController extends Controller
      */
     public function offers()
     {
-        $sendOffers = $this->sendOffer->where('curator_id',Auth::id())->get();
+        $sendOffers = $this->sendOffer->where('curator_id',Auth::id())->latest()->get();
         return view('pages.curators.curator-offers.offers', get_defined_vars());
     }
 
@@ -40,7 +40,7 @@ class OfferController extends Controller
      */
     public function pending()
     {
-        $sendOffers = $this->sendOffer->where(['curator_id' => Auth::id(), 'status' => IOfferTemplateStatus::PENDING])->get();
+        $sendOffers = $this->sendOffer->where(['curator_id' => Auth::id(), 'status' => IOfferTemplateStatus::PENDING])->latest()->get();
         return view('pages.curators.curator-offers.pending', get_defined_vars());
     }
 
@@ -49,7 +49,7 @@ class OfferController extends Controller
      */
     public function accepted()
     {
-        $sendOffers = $this->sendOffer->where(['curator_id' => Auth::id(), 'status' => IOfferTemplateStatus::ACCEPTED])->get();
+        $sendOffers = $this->sendOffer->where(['curator_id' => Auth::id(), 'status' => IOfferTemplateStatus::ACCEPTED])->latest()->get();
         return view('pages.curators.curator-offers.accepted', get_defined_vars());
     }
 
@@ -58,7 +58,7 @@ class OfferController extends Controller
      */
     public function rejected()
     {
-        $sendOffers = $this->sendOffer->where(['curator_id' => Auth::id(), 'status' => IOfferTemplateStatus::REJECTED])->get();
+        $sendOffers = $this->sendOffer->where(['curator_id' => Auth::id(), 'status' => IOfferTemplateStatus::REJECTED])->latest()->get();
         return view('pages.curators.curator-offers.rejected', get_defined_vars());
     }
 
@@ -67,7 +67,7 @@ class OfferController extends Controller
      */
     public function expired()
     {
-        $sendOffers = $this->sendOffer->where(['curator_id' => Auth::id(), 'status' => IOfferTemplateStatus::EXPIRED])->get();
+        $sendOffers = $this->sendOffer->where(['curator_id' => Auth::id(), 'status' => IOfferTemplateStatus::EXPIRED])->latest()->get();
         return view('pages.curators.curator-offers.expired', get_defined_vars());
     }
 
@@ -92,7 +92,7 @@ class OfferController extends Controller
      */
     public function completed()
     {
-        $sendOffers = $this->sendOffer->where(['curator_id' => Auth::id(), 'status' => IOfferTemplateStatus::COMPLETED])->get();
+        $sendOffers = $this->sendOffer->where(['curator_id' => Auth::id(), 'status' => IOfferTemplateStatus::COMPLETED])->latest()->get();
         return view('pages.curators.curator-offers.completed', get_defined_vars());
     }
 }

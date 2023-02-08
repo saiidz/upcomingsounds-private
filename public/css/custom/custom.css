@@ -605,6 +605,12 @@ svg.svg-inline--fa {
 }
 
 
+#socialView_S{
+    justify-content: space-between !important;
+    align-items: center !important;
+    display: flex !important;
+}
+
 
 
 

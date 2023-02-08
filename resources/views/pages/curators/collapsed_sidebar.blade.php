@@ -330,7 +330,7 @@
                                 <span class="or_">OR</span>
                                 <div class="offerBtn text-center">
                                     <a href="javascript:void(0)" class="btn btn-sm rounded tem_btn basicbtn">
-                                        Select an offer</a>
+                                        Create a offer</a>
                                 </div>
                                 <span class="or_">OR</span>
                                 <div class="submitCBtn text-center">
@@ -368,6 +368,7 @@
                                     </p>
                                 </div>
                                 <input type="hidden" id="offerTemplateID" value="">
+                                <input type="hidden" id="campaign_ID" value="">
                                 <div class="d-flex form-group">
                                     <label class="control-label form-control-label text-white">Offer Expiry Date:</label>
                                     <div>

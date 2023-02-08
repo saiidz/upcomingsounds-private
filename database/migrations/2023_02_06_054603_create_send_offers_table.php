@@ -19,6 +19,7 @@ class CreateSendOffersTable extends Migration
             $table->foreignId('offer_template_id')->constrained('curator_offer_templates')->cascadeOnDelete();
             $table->foreignId('artist_id')->constrained('users')->cascadeOnDelete();
             $table->foreignId('track_id')->constrained('artist_tracks')->cascadeOnDelete();
+            $table->foreignId('campaign_id')->constrained('campaigns')->cascadeOnDelete();
             $table->date('expiry_date')->nullable();
             $table->date('publish_date')->nullable();
             $table->enum('status',['PENDING','ACCEPTED','REJECTED','EXPIRED','ALTERNATIVE','COMPLETED','NEW'])->default('PENDING');

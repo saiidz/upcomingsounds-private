@@ -17,6 +17,7 @@ class SendOffer extends Model
         'offer_template_id',
         'artist_id',
         'track_id',
+        'campaign_id',
         'expiry_date',
         'publish_date',
         'status',
@@ -53,5 +54,13 @@ class SendOffer extends Model
     public function artistTrack(): BelongsTo
     {
         return $this->belongsTo(ArtistTrack::class,'track_id');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function campaign(): BelongsTo
+    {
+        return $this->belongsTo(Campaign::class,'campaign_id');
     }
 }

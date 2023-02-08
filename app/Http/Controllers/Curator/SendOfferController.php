@@ -19,6 +19,7 @@ class SendOfferController extends Controller
                     'offer_template_id' => $request->offer_template_ID,
                     'artist_id' => $request->artistID,
                     'track_id' => $request->trackID,
+                    'campaign_id' => $request->campaign_ID,
                     'expiry_date' => $request->offer_expiry,
                     'publish_date' => $request->offer_publish,
                 ]);
@@ -38,6 +39,7 @@ class SendOfferController extends Controller
     public function sendOfferShow($send_offer)
     {
         $send_offer = SendOffer::find(decrypt($send_offer));
+//        dd($send_offer->campaign);
         return view('pages.curators.curator-offers.send-offer-details', get_defined_vars());
     }
 }

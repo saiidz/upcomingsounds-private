@@ -128,6 +128,7 @@ class ArtistSubmissionController extends Controller
                 return response()->json([
                     'success' => 'Campaign Found successfully',
                     'campaign'      => $returnHTML,
+                    'campaign_id'      => $campaign->id,
                 ]);
             }
         }else
