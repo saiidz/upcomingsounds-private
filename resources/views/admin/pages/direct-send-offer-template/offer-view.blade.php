@@ -119,6 +119,17 @@
 
                                                 </td>
                                             </tr>
+                                            <tr>
+                                                <td>Offer Status:</td>
+                                                <td>
+                                                    @if (!empty($offer_template->sendOffer))
+                                                        <span class="chip  lighten-5">
+                                                            <span class="">{{$offer_template->sendOffer->status}}</span>
+                                                        </span>
+                                                    @endif
+
+                                                </td>
+                                            </tr>
                                             </tbody>
                                         </table>
                                     </div>

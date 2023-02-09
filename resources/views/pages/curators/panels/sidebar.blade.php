@@ -349,7 +349,7 @@
                         <li>
                             <a class="dropdown-item" href="{{route('curator.rejected')}}" id="rejectedOffers">
                                     <span class="nav-icon">
-                                        <i class="fa fa-clock-o"></i>
+                                        <i class="fa fa-thumbs-o-down"></i>
                                     </span>
                                 <span class="nav-text">Rejected</span>
                             </a>
@@ -357,7 +357,7 @@
                         <li>
                             <a class="dropdown-item" href="{{route('curator.expired')}}" id="expiredOffers">
                                     <span class="nav-icon">
-                                        <i class="fa fa-thumbs-o-down"></i>
+                                        <i class="fa fa-clock-o"></i>
                                     </span>
                                 <span class="nav-text">Expired</span>
                             </a>

@@ -56,6 +56,7 @@
                                                         <th>Alternative Type</th>
                                                         <th>Created At</th>
                                                         <th>Status</th>
+                                                        <th>Offer Status</th>
                                                         <th>View</th>
                                                     </tr>
                                                     </thead>
@@ -81,6 +82,13 @@
                                                                     @else
                                                                         <span class="chip red lighten-5">
                                                                             <span class="red-text">Pending</span>
+                                                                        </span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    @if (!empty($offerTemplate->sendOffer))
+                                                                        <span class="chip  lighten-5">
+                                                                            <span class="">{{$offerTemplate->sendOffer->status}}</span>
                                                                         </span>
                                                                     @endif
                                                                 </td>
