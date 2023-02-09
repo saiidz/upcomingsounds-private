@@ -13,5 +13,6 @@ interface IOfferTemplateStatus
     const NEW = 'NEW';
     const TYPE_OFFER = 'OFFER';
     const TYPE_DIRECT_OFFER = 'DIRECT_OFFER';
+    const IS_ACTIVE = 1;
 
 }

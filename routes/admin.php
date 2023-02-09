@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AlternativeOptionController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\OfferTypeController;
+use App\Http\Controllers\Admin\SendDirectOfferController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ArtistController;
 use App\Http\Controllers\Admin\OptionController;
@@ -114,6 +115,12 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
     Route::post('store-offer-template-reject/{offer_template}',[OfferTypeController::class,'storeRejectOfferTemplate'])->name('store.OfferTemplate.reject');
     Route::resource('offer-types',  OfferTypeController::class);
     Route::resource('alternative-options',  AlternativeOptionController::class);
+
+    // send direct offers
+    Route::get('send-direct-offer',[SendDirectOfferController::class,'sendDirectOffer'])->name('curator.send.direct.offer');
+    Route::get('send-direct-offer/{offer_template}',[SendDirectOfferController::class,'detailSendOfferTemplate'])->name('curator.send.direct.detail-offer');
+    Route::post('send-direct-approved-offer/{offer_template}', [SendDirectOfferController::class,'storeDirectApprovedOfferTemplate'])->name('store.direct.approved.OfferTemplate');
+    Route::post('send-direct-offer-reject/{offer_template}',[SendDirectOfferController::class,'storeDirectRejectOfferTemplate'])->name('store.direct.OfferTemplate.reject');
 });
 
 

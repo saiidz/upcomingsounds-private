@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\CuratorOfferTemplate;
 use App\Models\OfferType;
 use App\Models\User;
+use App\Templates\IOfferTemplateStatus;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -148,7 +149,7 @@ class OfferTypeController extends Controller
      */
     public function curatorOfferTemplate(User $user)
     {
-        $offerTemplates = $user->curatorOfferTemplate;
+        $offerTemplates = CuratorOfferTemplate::where('type', IOfferTemplateStatus::TYPE_OFFER)->latest()->get();
         return view('admin.pages.offer-template.index', get_defined_vars());
     }
 
@@ -253,4 +254,5 @@ class OfferTypeController extends Controller
         $offer_template->forceDelete();
         return redirect()->back()->with('success','Offer Template deleted! successfully');
     }
+
 }

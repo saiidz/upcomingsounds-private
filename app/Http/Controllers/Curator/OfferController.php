@@ -43,7 +43,7 @@ class OfferController extends Controller
      */
     public function pending()
     {
-        $sendOffers = $this->sendOffer->where(['curator_id' => Auth::id(), 'status' => IOfferTemplateStatus::PENDING,'is_approved' => self::APPROVED])->latest()->get();
+        $sendOffers = $this->sendOffer->where(['curator_id' => Auth::id(), 'status' => IOfferTemplateStatus::PENDING])->latest()->get();
         return view('pages.curators.curator-offers.pending', get_defined_vars());
     }
 

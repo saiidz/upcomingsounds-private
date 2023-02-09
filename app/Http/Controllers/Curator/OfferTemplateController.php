@@ -72,7 +72,7 @@ class OfferTemplateController extends Controller
         }else{
             $input['type'] = IOfferTemplateStatus::TYPE_OFFER;
         }
-
+        $input['is_active'] = IOfferTemplateStatus::IS_ACTIVE;
         $input['offer_text'] = $request->description_details ?? null;
         $curatorOfferTemplate = CuratorOfferTemplate::create($input);
 

@@ -33,7 +33,7 @@
                             </ol>
                         </div>
                         <div class="col s2 m6 l6">
-                            <a class="btn waves-effect waves-light breadcrumbs-btn right" href="{{ route('admin.curator.template-offer',!empty($offer_template->user) ? $offer_template->user->id : '---') }}" data-target="dropdown1">
+                            <a class="btn waves-effect waves-light breadcrumbs-btn right" href="{{ route('admin.curator.send.direct.offer') }}" data-target="dropdown1">
                                 <span class="hide-on-small-onl">Back</span>
                             </a>
                         </div>
@@ -153,7 +153,7 @@
         </div>
     </div>
     <!-- END: Page Main-->
-    @include('admin.pages.offer-template.offer-modal')
+    @include('admin.pages.direct-send-offer-template.offer-modal')
 
 @endsection
 
