@@ -238,3 +238,10 @@
         $('#loading').hide();
     });
 </script>
+<script>
+    function OfferShow(id)
+    {
+        var form = document.getElementById("form-offer"+id);
+        form.submit();
+    }
+</script>

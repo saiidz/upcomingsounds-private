@@ -79,6 +79,10 @@ Route::get('new-offer', [OfferController::class,'new'])->name('artist.new');
 Route::get('proposition-offer', [OfferController::class,'proposition'])->name('artist.proposition');
 // offers routes
 
+// offer detail route
+Route::get('curator-offer/{send_offer}', [OfferController::class,'offerShow'])->name('artist.offer.show');
+// offer detail route
+
 // messages routes
 Route::get('messages', [MessageController::class,'messages'])->name('artist.messages');
 Route::get('new-messages', [MessageController::class,'new'])->name('artist.new.messages');

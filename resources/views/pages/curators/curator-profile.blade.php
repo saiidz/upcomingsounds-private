@@ -69,7 +69,7 @@
                 <div>
                     @if (!empty($user_curator->curatorUser->curator_bio))
                         <div class="page-title m-b">
-                            <h4 class="inline m-a-0 biO" style="font-size: ">Bio</h4>
+                            <h4 class="inline m-a-0 biO">Bio</h4>
                         </div>
                         <p id="bioInfo" class="text-muted">{{Str::limit($user_curator->curatorUser->curator_bio, 50)}}</p>
                         <a href="javascript:void(0)" class="seeMoreBio" onclick="seeMoreBio()">See more</a>

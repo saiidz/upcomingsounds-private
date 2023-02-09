@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Artist;
 
 use App\Http\Controllers\Controller;
 use App\Models\SendOffer;
+use App\Templates\IOfferTemplateStatus;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 
 class OfferController extends Controller
 {
+    const APPROVED = 1;
 
     /**
      * @var SendOffer
@@ -31,7 +33,7 @@ class OfferController extends Controller
      */
     public function offers()
     {
-        $sendOffers = $this->sendOffer->where('artist_id',Auth::id())->get();
+        $sendOffers = $this->sendOffer->where(['artist_id' => Auth::id(), 'is_approved' => self::APPROVED])->get();
         return view('pages.artists.artist-offers.offers', get_defined_vars());
     }
 
@@ -40,6 +42,7 @@ class OfferController extends Controller
      */
     public function pending()
     {
+        $sendOffers = $this->sendOffer->where(['artist_id' => Auth::id(), 'status' => IOfferTemplateStatus::PENDING, 'is_approved' => self::APPROVED])->latest()->get();
         return view('pages.artists.artist-offers.pending', get_defined_vars());
     }
 
@@ -48,6 +51,7 @@ class OfferController extends Controller
      */
     public function accepted()
     {
+        $sendOffers = $this->sendOffer->where(['artist_id' => Auth::id(), 'status' => IOfferTemplateStatus::ACCEPTED,'is_approved' => self::APPROVED])->latest()->get();
         return view('pages.artists.artist-offers.accepted', get_defined_vars());
     }
 
@@ -56,6 +60,7 @@ class OfferController extends Controller
      */
     public function rejected()
     {
+        $sendOffers = $this->sendOffer->where(['artist_id' => Auth::id(), 'status' => IOfferTemplateStatus::REJECTED, 'is_approved' => self::APPROVED])->latest()->get();
         return view('pages.artists.artist-offers.rejected', get_defined_vars());
     }
 
@@ -80,6 +85,7 @@ class OfferController extends Controller
      */
     public function completed()
     {
+        $sendOffers = $this->sendOffer->where(['artist_id' => Auth::id(), 'status' => IOfferTemplateStatus::COMPLETED,'is_approved' => self::APPROVED])->latest()->get();
         return view('pages.artists.artist-offers.completed', get_defined_vars());
     }
 
@@ -97,5 +103,15 @@ class OfferController extends Controller
     public function proposition()
     {
         return view('pages.artists.artist-offers.proposition', get_defined_vars());
+    }
+
+    /**
+     * @param $send_offer
+     * @return Application|Factory|View
+     */
+    public function offerShow($send_offer)
+    {
+        $send_offer = SendOffer::find(decrypt($send_offer));
+        return view('pages.artists.artist-offers.curator-offer-details', get_defined_vars());
     }
 }

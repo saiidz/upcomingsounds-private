@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Curator;
 use App\Http\Controllers\Controller;
 use App\Models\CuratorOfferTemplate;
 use App\Models\SendOffer;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -38,10 +41,13 @@ class SendOfferController extends Controller
         }
     }
 
+    /**
+     * @param $send_offer
+     * @return Application|Factory|View
+     */
     public function sendOfferShow($send_offer)
     {
         $send_offer = SendOffer::find(decrypt($send_offer));
-//        dd($send_offer->artistTrack);
         return view('pages.curators.curator-offers.send-offer-details', get_defined_vars());
     }
 }
