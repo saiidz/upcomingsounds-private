@@ -40,7 +40,11 @@
                      </li>
                  @endif
 
-                 @if(Request::is('artist-offers') != 'artist-offers' && Request::is('messages') != 'messages')
+                 @if(Request::is('artist-offers') != 'artist-offers' && Request::is('pending-offer') != 'pending-offer'
+                          && Request::is('accepted-offer') != 'accepted-offer' && Request::is('rejected-offer') != 'rejected-offer'
+                          && Request::is('alternative-offer') != 'alternative-offer' && Request::is('completed-offer') != 'completed-offer'
+                          && Request::is('new-offer') != 'new-offer' && Request::is('proposition-offer') != 'proposition-offer'
+                           && Request::is('messages') != 'messages')
                      <li>
                          <a href="{{route('artist.offers')}}" id="artistOffers">
                             <span class="nav-icon">
@@ -249,7 +253,10 @@
                     </li>
                  @endif
                  {{-- Offers Pages --}}
-                 @if(Request::is('artist-offers') == 'artist-offers')
+                 @if(Request::is('artist-offers') == 'artist-offers' || Request::is('pending-offer') == 'pending-offer'
+                          || Request::is('accepted-offer') == 'accepted-offer' || Request::is('rejected-offer') == 'rejected-offer'
+                          || Request::is('alternative-offer') == 'alternative-offer' || Request::is('completed-offer') == 'completed-offer'
+                          || Request::is('new-offer') == 'new-offer' || Request::is('proposition-offer') == 'proposition-offer')
                      <li>
                          <a href="{{route('artist.offers')}}" id="artistOffers">
                         <span class="nav-icon">
@@ -259,7 +266,7 @@
                          </a>
                      </li>
                      <li>
-                         <a class="dropdown-item" href="{{ route('artist.new') }}">
+                         <a class="dropdown-item" href="{{ route('artist.new') }}" id="newOfferArtist">
                                     <span class="nav-icon">
                                         <i class="fa fa-bullseye"></i>
                                     </span>
@@ -267,7 +274,7 @@
                          </a>
                      </li>
                      <li>
-                         <a class="dropdown-item" href="{{ route('artist.pending') }}">
+                         <a class="dropdown-item" href="{{ route('artist.pending') }}" id="pendingOfferArtist">
                                     <span class="nav-icon">
                                         <i class="fa fa-clock-o"></i>
                                     </span>
@@ -275,7 +282,7 @@
                          </a>
                      </li>
                      <li>
-                         <a class="dropdown-item" href="{{ route('artist.accepted') }}">
+                         <a class="dropdown-item" href="{{ route('artist.accepted') }}" id="acceptedOfferArtist">
                                     <span class="nav-icon">
                                         <i class="fa fa-thumbs-o-up"></i>
                                     </span>
@@ -283,7 +290,7 @@
                          </a>
                      </li>
                      <li>
-                         <a class="dropdown-item" href="{{ route('artist.rejected') }}">
+                         <a class="dropdown-item" href="{{ route('artist.rejected') }}" id="rejectedOfferArtist">
                                     <span class="nav-icon">
                                         <i class="fa fa-thumbs-o-down"></i>
                                     </span>
@@ -291,7 +298,7 @@
                          </a>
                      </li>
                      <li>
-                         <a class="dropdown-item" href="{{ route('artist.alternative') }}">
+                         <a class="dropdown-item" href="{{ route('artist.alternative') }}" id="alternativeOfferArtist">
                                     <span class="nav-icon">
                                         <i class="fa fa-code-fork"></i>
                                     </span>
@@ -307,7 +314,7 @@
 {{--                         </a>--}}
 {{--                     </li>--}}
                      <li>
-                         <a class="dropdown-item" href="{{ route('artist.proposition') }}">
+                         <a class="dropdown-item" href="{{ route('artist.proposition') }}" id="propositionOfferArtist">
                                     <span class="nav-icon">
                                         <i class="fa fa-edit"></i>
                                     </span>
@@ -315,7 +322,7 @@
                          </a>
                      </li>
                      <li>
-                         <a class="dropdown-item" href="{{ route('artist.completed') }}">
+                         <a class="dropdown-item" href="{{ route('artist.completed') }}" id="completedOfferArtist">
                                     <span class="nav-icon">
                                         <i class="fa fa-check-square-o"></i>
                                     </span>

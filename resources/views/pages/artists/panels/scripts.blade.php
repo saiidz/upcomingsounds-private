@@ -190,6 +190,39 @@
         window.location.href = '/artist-offers';
     });
 
+    // offer template open
+    $('#newOfferArtist').on('click', function ()
+    {
+        window.location.href = '/new-offer';
+    });
+    $('#pendingOfferArtist').on('click', function ()
+    {
+        window.location.href = '/pending-offer';
+    });
+    $('#acceptedOfferArtist').on('click', function ()
+    {
+        window.location.href = '/accepted-offer';
+    });
+    $('#rejectedOfferArtist').on('click', function ()
+    {
+        window.location.href = '/rejected-offer';
+    });
+
+    $('#alternativeOfferArtist').on('click', function ()
+    {
+        window.location.href = '/alternative-offer';
+    });
+
+    $('#propositionOfferArtist').on('click', function ()
+    {
+        window.location.href = '/proposition-offer';
+    });
+    $('#completedOfferArtist').on('click', function ()
+    {
+        window.location.href = '/completed-offer';
+    });
+    // offer template open
+
     $('#artistMessages').on('click', function ()
     {
         window.location.href = '/messages';
