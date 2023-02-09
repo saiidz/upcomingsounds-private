@@ -542,7 +542,7 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
     border-radius: 500px !important;
     margin-left: 10px !important;
 }
-.offerAlternative, #pendingOfferBtn{
+.offerAlternative, #curatorOfferBtn{
     justify-content: space-between;
     align-items: center !important;
     display: flex !important;

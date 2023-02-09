@@ -60,7 +60,7 @@
                                                     <span style="color:#02b875 !important">Publish Date: </span><span class="btn btn-xs white">{{($sendOffer->publish_date) ? \Carbon\Carbon::parse($sendOffer->publish_date)->format('M d Y') : ''}}</span>
                                                 </div>
                                             </div>
-                                            <div class="m-t-sm campaignBtn" id="pendingOfferBtn">
+                                            <div class="m-t-sm campaignBtn" id="curatorOfferBtn">
                                                 <div>
                                                     <form id="form-offer{{$sendOffer->id}}" action="{{route('curator.send.offer.show',encrypt($sendOffer->id))}}">
                                                         <a href="javascript:void(0)" class="btn btn-xs white" onclick="sendOfferShow({{$sendOffer->id}})" id="offerTemplateEdit">Open View</a>

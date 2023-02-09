@@ -61,10 +61,24 @@
                                                     <span style="color:#02b875 !important">Publish Date: </span><span class="btn btn-xs white">{{($sendOffer->publish_date) ? \Carbon\Carbon::parse($sendOffer->publish_date)->format('M d Y') : ''}}</span>
                                                 </div>
                                             </div>
-                                            <div class="m-t-sm campaignBtn" style="display:flex">
-                                                <form id="form-offer{{$sendOffer->id}}" action="{{route('curator.send.offer.show',encrypt($sendOffer->id))}}">
-                                                    <a href="javascript:void(0)" class="btn btn-xs white" onclick="sendOfferShow({{$sendOffer->id}})" id="offerTemplateEdit">Open View</a>
-                                                </form>
+                                            <div class="m-t-sm campaignBtn" id="curatorOfferBtn">
+                                                <div>
+                                                    <form id="form-offer{{$sendOffer->id}}" action="{{route('curator.send.offer.show',encrypt($sendOffer->id))}}">
+                                                        <a href="javascript:void(0)" class="btn btn-xs white" onclick="sendOfferShow({{$sendOffer->id}})" id="offerTemplateEdit">Open View</a>
+                                                    </form>
+                                                </div>
+                                                @if(!empty($sendOffer->curatorOfferTemplate) && $sendOffer->curatorOfferTemplate->type == \App\Templates\IOfferTemplateStatus::TYPE_DIRECT_OFFER && !empty($sendOffer->curatorOfferTemplate->reason_reject))
+                                                    <div>
+                                                        <span id="mgAdmin{{$sendOffer->curatorOfferTemplate->id}}" style="display:none">{!! $sendOffer->curatorOfferTemplate->reason_reject !!}</span>
+                                                        <a href="javascript:void(0)" class="btn btn-xs white"  onclick="adminMsgModalCenter({{$sendOffer->curatorOfferTemplate->id}})">
+                                                            Admin Message
+                                                        </a>
+                                                    </div>
+                                                @else
+                                                    @if(!empty($sendOffer->curatorOfferTemplate) && $sendOffer->curatorOfferTemplate->type == \App\Templates\IOfferTemplateStatus::TYPE_DIRECT_OFFER && empty($sendOffer->curatorOfferTemplate->reason_reject))
+                                                        <span class="text-danger">Waiting For Admin Approval</span>
+                                                    @endif
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
