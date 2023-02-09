@@ -305,7 +305,14 @@
                                 class="col-sm-12 form-control-label text-muted">{!! !empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->offer_text : '----' !!}</div>
                         </div>
                     </div>
-
+                    <div class="" id="curatorOfferBtn">
+                        <a href="javascript:void(0)"  class="btn btn-sm rounded add_track decLine" style="background-color: #ED4F32 !important; ">
+                            Decline</a>
+                        <a href="javascript:void(0)"  class="btn btn-sm rounded add_track ">
+                            Choose Free Alternative</a>
+                        <a href="javascript:void(0)"  class="btn btn-sm rounded add_track ">
+                            Pay {{!empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->contribution : 0}} USC</a>
+                    </div>
                 </div>
             </div>
             @include('pages.curators.panels.right-sidebar')

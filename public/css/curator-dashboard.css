@@ -754,7 +754,14 @@ header nav ul li a:hover {
       margin-top: 15px;
       border-top: 1px solid #4a5158 !important;
   }
-
+#curatorOfferBtn{
+    justify-content: space-between;
+    align-items: center !important;
+    display: flex !important;
+}
+.decLine:hover{
+    box-shadow: none !important;
+}
   .campaign_btn {
       margin-top: 20px;
       border-color: #02b875 !important;
