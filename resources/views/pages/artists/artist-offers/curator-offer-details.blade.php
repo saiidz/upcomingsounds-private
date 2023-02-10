@@ -221,11 +221,13 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-sm-2 form-control-label">Status:</div>
+                            <div class="col-sm-2 form-control-label">Offer Status:</div>
                             <div class="col-sm-9">
                                 <div
                                     class="col-sm-3 form-control-label text-muted">
                                     @if($send_offer->status == \App\Templates\IOfferTemplateStatus::PENDING)
+                                        <span class="text-danger">{{$send_offer->status}}</span>
+                                    @elseif($send_offer->status == \App\Templates\IOfferTemplateStatus::REJECTED)
                                         <span class="text-danger">{{$send_offer->status}}</span>
                                     @else
                                         <span class="text-primary">{{$send_offer->status}}</span>
