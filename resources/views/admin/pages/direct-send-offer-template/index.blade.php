@@ -49,7 +49,7 @@
                                                     <thead>
                                                     <tr>
                                                         <th>S#</th>
-{{--                                                        <th>Curator Name</th>--}}
+                                                        <th>Curator Name</th>
                                                         <th>Title</th>
                                                         <th>Contribution</th>
                                                         <th>Offer Type</th>
@@ -65,6 +65,13 @@
                                                         @foreach ($offerTemplates as $offerTemplate)
                                                             <tr>
                                                                 <td>{{ $loop->iteration }}</td>
+                                                                <td>
+                                                                    @if(!empty($offerTemplate->user))
+                                                                        <a href="{{ route('admin.curator.profile', $offerTemplate->user->id) }}">
+                                                                            {{ $offerTemplate->user->name }}
+                                                                        </a>
+                                                                    @endif
+                                                                </td>
                                                                 <td>{{ $offerTemplate->title ?? '---' }}</td>
                                                                 <td>{{ $offerTemplate->contribution ?? '---' }} USC</td>
                                                                 <td>{{!empty($offerTemplate->offerType) ? $offerTemplate->offerType->name : '---' }}</td>

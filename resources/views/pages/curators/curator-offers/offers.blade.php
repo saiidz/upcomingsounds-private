@@ -25,7 +25,7 @@
                     <div class="row item-list item-list-by m-b">
                         @if(!empty($sendOffers) && count($sendOffers) > 0)
                             @foreach($sendOffers as $sendOffer)
-                                <div class="col-xs-12 remove_offer m-b" id="remove_offer-{{$sendOffer->id}}">
+                                <div class="col-xs-12 remove_offer m-b" id="remove_offer-{{$sendOffer->curatorOfferTemplate->id}}">
                                     <div class="item r Item" data-id="item-{{$sendOffer->id}}">
                                         <div class="item-info">
                                             <div class="bottom text-right">
@@ -76,6 +76,12 @@
                                                             Admin Message
                                                         </a>
                                                     </div>
+                                                    @if($sendOffer->curatorOfferTemplate->is_rejected == 1)
+                                                        <div>
+                                                            <a href="javascript:void(0)" onclick="deleteOfferTemplate({{$sendOffer->curatorOfferTemplate->id}})" class="btn btn-xs white" data-toggle="modal"
+                                                               data-target="#delete-offer-template-modal">Delete</a>
+                                                        </div>
+                                                    @endif
                                                 @else
                                                     @if(!empty($sendOffer->curatorOfferTemplate) && $sendOffer->curatorOfferTemplate->type == \App\Templates\IOfferTemplateStatus::TYPE_DIRECT_OFFER && empty($sendOffer->curatorOfferTemplate->reason_reject))
                                                         <span class="text-danger">Waiting For Admin Approval</span>
@@ -101,3 +107,4 @@
     <!-- ############ PAGE END-->
     @include('pages.curators.curator-offers.modal')
 @endsection
+

@@ -161,7 +161,8 @@ class OfferTemplateController extends Controller
     public function destroy(CuratorOfferTemplate $offer_template)
     {
         //Offer Template delete
-        $offer_template->forceDelete();
+        $offer_template->delete();
+        $offer_template->sendOffer->delete();
         return response()->json([
             'success' => 'Offer Template deleted! successfully',
         ]);
