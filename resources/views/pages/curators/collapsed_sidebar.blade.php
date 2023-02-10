@@ -377,7 +377,7 @@
                                     </div>
                                 </div>
                                 <div class="d-flex form-group">
-                                    <label class="control-label form-control-label text-white">Approx Publish Date:</label>
+                                    <label class="control-label form-control-label text-white">Approx Approximate Publish Date:</label>
                                     <div>
                                         <input id="datePickerPublishDate" value=""
                                                class="form-control datePickerP" style="background-color:white;">

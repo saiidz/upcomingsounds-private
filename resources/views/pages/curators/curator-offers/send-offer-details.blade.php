@@ -224,7 +224,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-sm-2 form-control-label">Publish Date:</div>
+                            <div class="col-sm-2 form-control-label">Approximate Publish Date:</div>
                             <div class="col-sm-9">
                                 <div
                                     class="col-sm-3 form-control-label text-muted">{{!empty($send_offer) ? getDateFormat($send_offer->publish_date) : '----'}}</div>
@@ -244,7 +244,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-sm-2 form-control-label">Offer Template Name:</div>
+                            <div class="col-sm-2 form-control-label">Offer Type:</div>
                             <div class="col-sm-9">
                                 <div
                                     class="col-sm-3 form-control-label text-muted">{{!empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->title : '----'}}</div>

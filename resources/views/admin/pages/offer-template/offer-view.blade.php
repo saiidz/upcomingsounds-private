@@ -100,7 +100,7 @@
                                                     <td class="users-view-latest-activity">{{ getDateFormat($offer_template->sendOffer->expiry_date) }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Publish Date:</td>
+                                                    <td>Approximate Publish Date:</td>
                                                     <td class="users-view-latest-activity">{{getDateFormat($offer_template->sendOffer->publish_date)}}</td>
                                                 </tr>
                                             @endif

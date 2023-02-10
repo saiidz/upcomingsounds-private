@@ -51,19 +51,19 @@
 
                                             <div class="m-t-sm offerAlternative">
                                                 <div>
-                                                    <span style="color:#02b875 !important">Offer Template Name: </span><span class="btn btn-xs white">{{!empty($sendOffer->curatorOfferTemplate) ? $sendOffer->curatorOfferTemplate->title : '----'}}</span>
+                                                    <span style="color:#02b875 !important">Offer Type: </span><span class="btn btn-xs white">{{!empty($sendOffer->curatorOfferTemplate) ? $sendOffer->curatorOfferTemplate->title : '----'}}</span>
                                                 </div>
                                                 <div>
                                                     <span style="color:#02b875 !important">Expiry Date: </span><span class="btn btn-xs white">{{($sendOffer->expiry_date) ? \Carbon\Carbon::parse($sendOffer->expiry_date)->format('M d Y') : ''}}</span>
                                                 </div>
                                                 <div>
-                                                    <span style="color:#02b875 !important">Publish Date: </span><span class="btn btn-xs white">{{($sendOffer->publish_date) ? \Carbon\Carbon::parse($sendOffer->publish_date)->format('M d Y') : ''}}</span>
+                                                    <span style="color:#02b875 !important">Approximate Publish Date: </span><span class="btn btn-xs white">{{($sendOffer->publish_date) ? \Carbon\Carbon::parse($sendOffer->publish_date)->format('M d Y') : ''}}</span>
                                                 </div>
                                             </div>
                                             <div class="m-t-sm campaignBtn" id="cOfferBtn">
                                                 <div>
                                                     <form id="form-offer{{$sendOffer->id}}" action="{{route('curator.send.offer.show',encrypt($sendOffer->id))}}">
-                                                        <a href="javascript:void(0)" class="btn btn-xs white" onclick="sendOfferShow({{$sendOffer->id}})" id="offerTemplateEdit">Open View</a>
+                                                        <a href="javascript:void(0)" class="btn btn-xs white" onclick="sendOfferShow({{$sendOffer->id}})" id="offerTemplateEdit">View Offer</a>
                                                     </form>
                                                 </div>
                                                 @if(!empty($sendOffer->curatorOfferTemplate) && $sendOffer->curatorOfferTemplate->type == \App\Templates\IOfferTemplateStatus::TYPE_DIRECT_OFFER && !empty($sendOffer->curatorOfferTemplate->reason_reject))

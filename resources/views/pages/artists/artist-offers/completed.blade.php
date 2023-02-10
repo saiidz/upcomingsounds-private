@@ -52,13 +52,13 @@
                                         <div class="item-info">
                                             <div class="bottom text-right">
                                                 @if($sendOffer->status == \App\Templates\IOfferTemplateStatus::PENDING)
-                                                    <span class="text-danger">{{$sendOffer->status}}</span>
+                                                    <span style="color:#02b875 !important">Offer Status: </span><span class="text-danger">{{$sendOffer->status}}</span>
                                                 @else
-                                                    <span class="text-primary">{{$sendOffer->status}}</span>
+                                                    <span style="color:#02b875 !important">Offer Status: </span><span class="text-primary">{{$sendOffer->status}}</span>
                                                 @endif
                                             </div>
                                             <div class="item-title text-ellipsis">
-                                                <span class="text-muted">{{!empty($sendOffer->artistTrack) ? $sendOffer->artistTrack->name : '----'}}</span>
+                                                <span class="text-muted">{{!empty($sendOffer->userCurator) ? $sendOffer->userCurator->name : '----'}}</span>
                                             </div>
                                             <div class="item-author text-sm text-ellipsis hide">
                                             </div>
@@ -68,18 +68,18 @@
 
                                             <div class="m-t-sm offerAlternative">
                                                 <div>
-                                                    <span style="color:#02b875 !important">Offer Template Name: </span><span class="btn btn-xs white">{{!empty($sendOffer->curatorOfferTemplate) ? $sendOffer->curatorOfferTemplate->title : '----'}}</span>
+                                                    <span style="color:#02b875 !important">Offer Type: </span><span class="btn btn-xs white">{{!empty($sendOffer->curatorOfferTemplate->offerType) ? $sendOffer->curatorOfferTemplate->offerType->name : '----'}}</span>
                                                 </div>
                                                 <div>
                                                     <span style="color:#02b875 !important">Expiry Date: </span><span class="btn btn-xs white">{{($sendOffer->expiry_date) ? \Carbon\Carbon::parse($sendOffer->expiry_date)->format('M d Y') : ''}}</span>
                                                 </div>
                                                 <div>
-                                                    <span style="color:#02b875 !important">Publish Date: </span><span class="btn btn-xs white">{{($sendOffer->publish_date) ? \Carbon\Carbon::parse($sendOffer->publish_date)->format('M d Y') : ''}}</span>
+                                                    <span style="color:#02b875 !important">Approximate Publish Date: </span><span class="btn btn-xs white">{{($sendOffer->publish_date) ? \Carbon\Carbon::parse($sendOffer->publish_date)->format('M d Y') : ''}}</span>
                                                 </div>
                                             </div>
                                             <div class="m-t-sm campaignBtn" style="display:flex">
                                                 <form id="form-offer{{$sendOffer->id}}" action="{{route('artist.offer.show',encrypt($sendOffer->id))}}">
-                                                    <a href="javascript:void(0)" class="btn btn-xs white" onclick="OfferShow({{$sendOffer->id}})" id="offerTemplateEdit">Open View</a>
+                                                    <a href="javascript:void(0)" class="btn btn-xs white" onclick="OfferShow({{$sendOffer->id}})" id="offerTemplateEdit">View Offer</a>
                                                 </form>
                                             </div>
                                         </div>
