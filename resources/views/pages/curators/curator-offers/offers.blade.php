@@ -36,9 +36,11 @@
 {{--                                                    </label>--}}
 {{--                                                </div>--}}
                                                 @if($sendOffer->status == \App\Templates\IOfferTemplateStatus::PENDING)
-                                                    <span class="text-danger">{{$sendOffer->status}}</span>
+                                                    <span style="color:#02b875 !important">Offer Status: </span><span class="text-danger">{{$sendOffer->status}}</span>
+                                                @elseif($sendOffer->status == \App\Templates\IOfferTemplateStatus::REJECTED)
+                                                    <span style="color:#02b875 !important">Offer Status: </span><span class="text-danger">{{$sendOffer->status}}</span>
                                                 @else
-                                                    <span class="text-primary">{{$sendOffer->status}}</span>
+                                                    <span style="color:#02b875 !important">Offer Status: </span><span class="text-primary">{{$sendOffer->status}}</span>
                                                 @endif
                                             </div>
                                             <div class="item-title text-ellipsis">
@@ -52,7 +54,7 @@
 
                                             <div class="m-t-sm offerAlternative">
                                                 <div>
-                                                    <span style="color:#02b875 !important">Offer Type: </span><span class="btn btn-xs white">{{!empty($sendOffer->curatorOfferTemplate) ? $sendOffer->curatorOfferTemplate->title : '----'}}</span>
+                                                    <span style="color:#02b875 !important">Offer Template Name: </span><span class="btn btn-xs white">{{!empty($sendOffer->curatorOfferTemplate) ? $sendOffer->curatorOfferTemplate->title : '----'}}</span>
                                                 </div>
                                                 <div>
                                                     <span style="color:#02b875 !important">Expiry Date: </span><span class="btn btn-xs white">{{($sendOffer->expiry_date) ? \Carbon\Carbon::parse($sendOffer->expiry_date)->format('M d Y') : ''}}</span>
@@ -97,4 +99,5 @@
     </div>
 
     <!-- ############ PAGE END-->
+    @include('pages.curators.curator-offers.modal')
 @endsection

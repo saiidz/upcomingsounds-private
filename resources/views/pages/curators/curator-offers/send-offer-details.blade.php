@@ -324,6 +324,24 @@
                         </div>
                     </div>
 
+                    @if(!empty($send_offer) && $send_offer->status == \App\Templates\IOfferTemplateStatus::REJECTED)
+                        <div class="row">
+                            <div class="col-sm-12 text-muted">
+                                <h4 style="color:#ED4F32 !important; text-align:center">This Offer has been declined.</h4>
+                            </div>
+                        </div>
+                        <div class="padding p-y-0 m-b-md m-t-3">
+                            <div class="page-title m-b">
+                                <h4 class="inline m-a-0 update_profile">Decline Message</h4>
+                            </div>
+                            <div class="form-group row">
+                                <div
+                                    class="col-sm-12 form-control-label text-muted" style="color:#ED4F32 !important;">{!! !empty($send_offer->message) ? $send_offer->message : '----' !!}</div>
+                            </div>
+                        </div>
+                    @else
+
+                    @endif
                 </div>
             </div>
             @include('pages.curators.panels.right-sidebar')

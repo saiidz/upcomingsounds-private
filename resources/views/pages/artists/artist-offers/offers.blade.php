@@ -60,6 +60,8 @@
                                             <div class="bottom text-right">
                                                 @if($sendOffer->status == \App\Templates\IOfferTemplateStatus::PENDING)
                                                     <span style="color:#02b875 !important">Offer Status: </span><span class="text-danger">{{$sendOffer->status}}</span>
+                                                @elseif($sendOffer->status == \App\Templates\IOfferTemplateStatus::REJECTED)
+                                                    <span style="color:#02b875 !important">Offer Status: </span><span class="text-danger">{{$sendOffer->status}}</span>
                                                 @else
                                                     <span style="color:#02b875 !important">Offer Status: </span><span class="text-primary">{{$sendOffer->status}}</span>
                                                 @endif

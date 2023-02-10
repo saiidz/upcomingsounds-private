@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+        #loadings {
+            background: rgba(255, 255, 255, .4) url({{asset('images/loader.gif')}}) no-repeat center center !important;
+        }
         svg.svg-inline--fa {
             font-size: inherit !important;
         }
@@ -303,14 +306,33 @@
                                 class="col-sm-12 form-control-label text-muted">{!! !empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->offer_text : '----' !!}</div>
                         </div>
                     </div>
-                    <div class="" id="curatorOfferBtn">
-                        <a href="javascript:void(0)"  class="btn btn-sm rounded add_track decLine" style="background-color: #ED4F32 !important; ">
-                            Decline</a>
-                        <a href="javascript:void(0)"  class="btn btn-sm rounded add_track ">
-                            Choose Free Alternative</a>
-                        <a href="javascript:void(0)"  class="btn btn-sm rounded add_track ">
-                            Pay {{!empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->contribution : 0}} USC</a>
-                    </div>
+                    @if(!empty($send_offer) && $send_offer->status == \App\Templates\IOfferTemplateStatus::REJECTED)
+                        <div class="row">
+                            <div class="col-sm-12 text-muted">
+                                <h4 style="color:#ED4F32 !important; text-align:center">This Offer has been declined.</h4>
+                            </div>
+                        </div>
+                        <div class="padding p-y-0 m-b-md m-t-3">
+                            <div class="page-title m-b">
+                                <h4 class="inline m-a-0 update_profile">Decline Message</h4>
+                            </div>
+                            <div class="form-group row">
+                                <div
+                                    class="col-sm-12 form-control-label text-muted" style="color:#ED4F32 !important;">{!! !empty($send_offer->message) ? $send_offer->message : '----' !!}</div>
+                            </div>
+                        </div>
+                    @else
+                        <div class="" id="curatorOfferBtn">
+                            <a href="javascript:void(0)" data-toggle="modal"
+                               data-target="#declineOffer" class="btn btn-sm rounded add_track decLine" style="background-color: #ED4F32 !important; ">
+                                Decline</a>
+                            <a href="javascript:void(0)"  class="btn btn-sm rounded add_track ">
+                                Choose Free Alternative</a>
+                            <a href="javascript:void(0)"  class="btn btn-sm rounded add_track ">
+                                Pay {{!empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->contribution : 0}} USC</a>
+                        </div>
+                    @endif
+
                 </div>
             </div>
             @include('pages.curators.panels.right-sidebar')
@@ -318,10 +340,21 @@
     </div>
 
     <!-- ############ PAGE END-->
+
+    @include('pages.artists.artist-offers.modal.modal')
 @endsection
 
 
 @section('page-script')
+    <script src="{{asset('app-assets/js/artist/artist.js')}}"></script>
+    <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $('.ckeditor').ckeditor();
+
+        });
+    </script>
     <script>
         var preload = document.getElementById("loadings");
         function loader(){

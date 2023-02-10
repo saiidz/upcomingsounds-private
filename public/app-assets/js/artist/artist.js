@@ -19,6 +19,7 @@
             formData.append('description_details',ContentFromEditor);
 
             var basicbtnhtml=$('.basicbtn').html();
+            showLoader();
             $.ajax({
                 type: 'POST',
                 url: this.action,
@@ -37,6 +38,7 @@
                 {
                     if(response.success)
                     {
+                        hideLoader();
                         console.log(response.success);
                         $('.basicbtn').removeAttr('disabled')
                         Sweet('success',response.success);
@@ -45,6 +47,7 @@
                     }
                     if(response.errors)
                     {
+                        hideLoader();
                         $('.basicbtn').html(basicbtnhtml);
                         $('.basicbtn').removeAttr('disabled')
                         $('.errorarea').show();
@@ -114,6 +117,21 @@
 
 
         });
+
+    /*--------------------------------------
+          Loader
+    ---------------------------------------*/
+
+    var preload = document.getElementById('loadings');
+    function hideLoader()
+    {
+        preload.style.display = "none";
+    }
+
+    function showLoader()
+    {
+        preload.style.display = "block";
+    }
 
 	/*--------------------------------------
       		Sweet Alert Active

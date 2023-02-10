@@ -23,6 +23,7 @@ class SendOffer extends Model
         'status',
         'is_approved',
         'is_rejected',
+        'message',
         'deleted_at',
     ];
 

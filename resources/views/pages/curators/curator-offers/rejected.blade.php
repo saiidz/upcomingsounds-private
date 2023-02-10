@@ -35,9 +35,11 @@
                                                 {{--                                                    </label>--}}
                                                 {{--                                                </div>--}}
                                                 @if($sendOffer->status == \App\Templates\IOfferTemplateStatus::PENDING)
-                                                    <span class="text-danger">{{$sendOffer->status}}</span>
+                                                    <span style="color:#02b875 !important">Offer Status: </span><span class="text-danger">{{$sendOffer->status}}</span>
+                                                @elseif($sendOffer->status == \App\Templates\IOfferTemplateStatus::REJECTED)
+                                                    <span style="color:#02b875 !important">Offer Status: </span><span class="text-danger">{{$sendOffer->status}}</span>
                                                 @else
-                                                    <span class="text-primary">{{$sendOffer->status}}</span>
+                                                    <span style="color:#02b875 !important">Offer Status: </span><span class="text-primary">{{$sendOffer->status}}</span>
                                                 @endif
                                             </div>
                                             <div class="item-title text-ellipsis">
@@ -51,7 +53,7 @@
 
                                             <div class="m-t-sm offerAlternative">
                                                 <div>
-                                                    <span style="color:#02b875 !important">Offer Type: </span><span class="btn btn-xs white">{{!empty($sendOffer->curatorOfferTemplate) ? $sendOffer->curatorOfferTemplate->title : '----'}}</span>
+                                                    <span style="color:#02b875 !important">Offer Template Name: </span><span class="btn btn-xs white">{{!empty($sendOffer->curatorOfferTemplate) ? $sendOffer->curatorOfferTemplate->title : '----'}}</span>
                                                 </div>
                                                 <div>
                                                     <span style="color:#02b875 !important">Expiry Date: </span><span class="btn btn-xs white">{{($sendOffer->expiry_date) ? \Carbon\Carbon::parse($sendOffer->expiry_date)->format('M d Y') : ''}}</span>
@@ -60,10 +62,20 @@
                                                     <span style="color:#02b875 !important">Approximate Publish Date: </span><span class="btn btn-xs white">{{($sendOffer->publish_date) ? \Carbon\Carbon::parse($sendOffer->publish_date)->format('M d Y') : ''}}</span>
                                                 </div>
                                             </div>
-                                            <div class="m-t-sm campaignBtn" style="display:flex">
-                                                <form id="form-offer{{$sendOffer->id}}" action="{{route('curator.send.offer.show',encrypt($sendOffer->id))}}">
-                                                    <a href="javascript:void(0)" class="btn btn-xs white" onclick="sendOfferShow({{$sendOffer->id}})" id="offerTemplateEdit">View Offer</a>
-                                                </form>
+                                            <div class="m-t-sm campaignBtn" id="cOfferBtn">
+                                                <div>
+                                                    <form id="form-offer{{$sendOffer->id}}" action="{{route('curator.send.offer.show',encrypt($sendOffer->id))}}">
+                                                        <a href="javascript:void(0)" class="btn btn-xs white" onclick="sendOfferShow({{$sendOffer->id}})" id="offerTemplateEdit">View Offer</a>
+                                                    </form>
+                                                </div>
+                                                @if(!empty($sendOffer) && $sendOffer->status == \App\Templates\IOfferTemplateStatus::REJECTED && !empty($sendOffer->message))
+                                                    <div>
+                                                        <span id="mgAdmin{{$sendOffer->id}}" style="display:none">{!! $sendOffer->message !!}</span>
+                                                        <a href="javascript:void(0)" class="btn btn-xs white"  onclick="declineOfferMsgModal({{$sendOffer->id}})">
+                                                            Offer Decline Message
+                                                        </a>
+                                                    </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -82,5 +94,6 @@
     </div>
 
     <!-- ############ PAGE END-->
+    @include('pages.curators.curator-offers.modal')
 @endsection
 

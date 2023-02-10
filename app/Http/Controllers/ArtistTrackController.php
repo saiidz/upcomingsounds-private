@@ -489,11 +489,9 @@ class ArtistTrackController extends Controller
     }
 
     /**
-     * requestTrackEdit function
-     *
-     * @return void
+     * @param Request $request
+     * @return JsonResponse
      */
-
     public function requestTrackEdit(Request $request)
     {
         $validator = Validator::make($request->all(), [

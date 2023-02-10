@@ -35,9 +35,9 @@
                                                 {{--                                                    </label>--}}
                                                 {{--                                                </div>--}}
                                                 @if($sendOffer->status == \App\Templates\IOfferTemplateStatus::PENDING)
-                                                    <span class="text-danger">{{$sendOffer->status}}</span>
+                                                    <span style="color:#02b875 !important">Offer Status: </span><span class="text-danger">{{$sendOffer->status}}</span>
                                                 @else
-                                                    <span class="text-primary">{{$sendOffer->status}}</span>
+                                                    <span style="color:#02b875 !important">Offer Status: </span><span class="text-primary">{{$sendOffer->status}}</span>
                                                 @endif
                                             </div>
                                             <div class="item-title text-ellipsis">
@@ -51,7 +51,7 @@
 
                                             <div class="m-t-sm offerAlternative">
                                                 <div>
-                                                    <span style="color:#02b875 !important">Offer Type: </span><span class="btn btn-xs white">{{!empty($sendOffer->curatorOfferTemplate) ? $sendOffer->curatorOfferTemplate->title : '----'}}</span>
+                                                    <span style="color:#02b875 !important">Offer Template Name: </span><span class="btn btn-xs white">{{!empty($sendOffer->curatorOfferTemplate) ? $sendOffer->curatorOfferTemplate->title : '----'}}</span>
                                                 </div>
                                                 <div>
                                                     <span style="color:#02b875 !important">Expiry Date: </span><span class="btn btn-xs white">{{($sendOffer->expiry_date) ? \Carbon\Carbon::parse($sendOffer->expiry_date)->format('M d Y') : ''}}</span>
@@ -96,34 +96,6 @@
     </div>
 
     <!-- ############ PAGE END-->
+@include('pages.curators.curator-offers.modal')
 
-    <!-- Permission Copy Right Modal -->
-    <div id="adminMsgModalCenter" class="modal fade black-overlay" data-backdrop="false">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Admin Message Against Offer</h5>
-                </div>
-                <div class="modal-body">
-                    <p id="msgAdmin"></p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div>
-    </div>
-    <!-- Permission Copy Right Modal -->
-@endsection
-
-@section('page-script')
-    <script>
-        function adminMsgModalCenter(id)
-        {
-            let msg = $('#mgAdmin'+id).html();
-            $('#msgAdmin').html(msg);
-            $('#adminMsgModalCenter').modal('show');
-
-        }
-    </script>
 @endsection

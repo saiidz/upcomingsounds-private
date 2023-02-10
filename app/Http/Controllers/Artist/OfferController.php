@@ -8,8 +8,11 @@ use App\Templates\IOfferTemplateStatus;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 
 class OfferController extends Controller
 {
@@ -113,5 +116,46 @@ class OfferController extends Controller
     {
         $send_offer = SendOffer::find(decrypt($send_offer));
         return view('pages.artists.artist-offers.curator-offer-details', get_defined_vars());
+    }
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function declineOffer(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'description_details' => "required",
+        ]);
+
+        if ($validator->fails())
+        {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
+        $sendOffer = SendOffer::where('id', decrypt($request->send_offer_id))->first();
+        if(!empty($sendOffer))
+        {
+            $sendOffer->update([
+                'status' => IOfferTemplateStatus::REJECTED,
+                'message' => $request->description_details ?? null,
+            ]);
+
+            $data['email'] = $sendOffer->userCurator->email;
+            $data['username'] = $sendOffer->userCurator->name;
+            $data["title"] = "Decline Offer Upcoming Sounds";
+            $data['rejectMessage'] = $request->description_details ?? null;
+
+            try {
+                Mail::send('admin.emails.curator_email.send_reject_email_to_curator', $data, function($message)use($data) {
+                    $message->from('no_reply@upcomingsounds.com');
+                    $message->to($data["email"], $data["email"])
+                        ->subject($data["title"]);
+                });
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+
+        }
+        return response()->json(['success' => 'Email and notify send successfully to taste maker']);
     }
 }
