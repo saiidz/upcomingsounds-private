@@ -329,7 +329,7 @@
                     @if(!empty($send_offer) && $send_offer->status == \App\Templates\IOfferTemplateStatus::REJECTED)
                         <div class="row">
                             <div class="col-sm-12 text-muted">
-                                <h4 style="color:#ED4F32 !important; text-align:center">This Offer has been declined.</h4>
+                                <h4 style="color:#ED4F32 !important; text-align:center">This offer was declined by the artist.</h4>
                             </div>
                         </div>
                         <div class="padding p-y-0 m-b-md m-t-3">
