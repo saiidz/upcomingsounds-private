@@ -138,7 +138,6 @@ class OfferTypeController extends Controller
     {
         $curatorsOfferTemplates = User::with('curatorOfferTemplate')->whereHas('curatorOfferTemplate', function ($q){
             $q->where('type', IOfferTemplateStatus::TYPE_OFFER);
-            $q->whereNotNull('user_id');
         })->GetApprovedCurators()->latest()->get();
         return view('admin.pages.offer-template.curator-offer-template', get_defined_vars());
 //        return view('admin.pages.offer-template.index', get_defined_vars());
