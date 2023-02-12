@@ -336,7 +336,8 @@
                             <a href="javascript:void(0)" data-toggle="modal"
                                data-target="#declineOffer" class="btn btn-sm rounded add_track decLine" style="background-color: #ED4F32 !important; ">
                                 Decline</a>
-                            <a href="javascript:void(0)"  class="btn btn-sm rounded add_track ">
+                            <a href="javascript:void(0)" data-toggle="modal"
+                               data-target="#freeAlternativeOffer"  class="btn btn-sm rounded add_track ">
                                 Choose Free Alternative</a>
                             <a href="javascript:void(0)"  class="btn btn-sm rounded add_track ">
                                 Pay {{!empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->contribution : 0}} USC</a>
