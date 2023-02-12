@@ -63,7 +63,7 @@
                                                                 <td>
                                                                     <a href="{{ route('admin.curator.profile', $curatorsOfferTemplate->id) }}">{{ $curatorsOfferTemplate->name ?? '---' }}</a>
                                                                 </td>
-                                                                <td>{{ !empty($curatorsOfferTemplate->curatorOfferTemplate) ? $curatorsOfferTemplate->curatorOfferTemplate->where('type', \App\Templates\IOfferTemplateStatus::TYPE_OFFER)->count() : '---' }}</td>
+                                                                <td>{{ !empty($curatorsOfferTemplate->curatorOfferTemplate) ? $curatorsOfferTemplate->curatorOfferTemplate->count() : '---' }}</td>
                                                                 <td><a href="{{ route('admin.curator.template-offer', $curatorsOfferTemplate->id) }}"><i class="material-icons">remove_red_eye</i></a></td>
                                                             </tr>
                                                         @endforeach
