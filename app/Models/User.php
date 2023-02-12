@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Templates\IOfferTemplateStatus;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -202,14 +201,6 @@ class User extends Authenticatable implements MustVerifyEmail
     public function curatorOfferTemplate(): HasMany
     {
         return $this->hasMany(CuratorOfferTemplate::class,'user_id','id');
-    }
-
-    /**
-     * @return HasMany
-     */
-    public function curatorOfferTemplateOffer(): HasMany
-    {
-        return $this->hasMany(CuratorOfferTemplate::class,'user_id','id')->where('type',IOfferTemplateStatus::TYPE_OFFER);
     }
      /**
      * Enter your own logic (e.g. if ($this->id === 1) to
