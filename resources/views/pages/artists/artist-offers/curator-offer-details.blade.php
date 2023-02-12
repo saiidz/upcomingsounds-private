@@ -286,15 +286,23 @@
                         <div class="form-group row">
                             <div class="col-sm-2 form-control-label">Description:</div>
                             <div class="col-sm-9">
-                                <div
-                                    class="col-sm-12 form-control-label text-muted">{{ !empty($send_offer->artistTrack->description) ? $send_offer->artistTrack->description : '-----'}}</div>
+                                <div class="col-sm-12 form-control-label text-muted">
+                                    <div id="desInfo">
+                                        {{ !empty($send_offer->artistTrack->description) ? Str::limit($send_offer->artistTrack->description, 100) : '-----'}}
+                                        <a href="javascript:void(0)" class="seeMoreBio" onclick="seeMoreDes()">Read more</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-2 form-control-label">Pitch:</div>
                             <div class="col-sm-9">
-                                <div
-                                    class="col-sm-12 form-control-label text-muted">{{ !empty($send_offer->artistTrack->pitch_description) ? $send_offer->artistTrack->pitch_description : '-----'}}</div>
+                                <div class="col-sm-12 form-control-label text-muted">
+                                    <div id="pitchInfo">
+                                        {{ !empty($send_offer->artistTrack->pitch_description) ? Str::limit($send_offer->artistTrack->pitch_description, 100) : '-----'}}
+                                        <a href="javascript:void(0)" class="seeMoreBio" onclick="seeMorePitch()">Read more</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -383,6 +391,26 @@
                 // }
                 $('#bioInfo').empty();
                 $('#bioInfo').html(curator_bio);
+            }
+        }
+
+        var track_des = {!! !empty($send_offer->artistTrack->description) ? json_encode($send_offer->artistTrack->description) : null !!};
+        if(track_des)
+        {
+            function seeMoreDes()
+            {
+                $('#desInfo').empty();
+                $('#desInfo').html(track_des);
+            }
+        }
+
+        var track_pitch = {!! !empty($send_offer->artistTrack->pitch_description) ? json_encode($send_offer->artistTrack->pitch_description) : null !!};
+        if(track_pitch)
+        {
+            function seeMorePitch()
+            {
+                $('#pitchInfo').empty();
+                $('#pitchInfo').html(track_pitch);
             }
         }
     </script>
