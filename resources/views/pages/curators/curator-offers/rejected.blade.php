@@ -71,6 +71,7 @@
                                                 @if(!empty($sendOffer) && $sendOffer->status == \App\Templates\IOfferTemplateStatus::REJECTED && !empty($sendOffer->message))
                                                     <div>
                                                         <span id="mgAdmin{{$sendOffer->id}}" style="display:none">{!! $sendOffer->message !!}</span>
+                                                        <span id="mgDeclineOffer{{$sendOffer->id}}" style="display:none">{{ !empty($sendOffer->offer_check) ? $sendOffer->offer_check : '----' }}</span>
                                                         <a href="javascript:void(0)" class="btn btn-xs white"  onclick="declineOfferMsgModal({{$sendOffer->id}})">
                                                             Offer Decline Message
                                                         </a>

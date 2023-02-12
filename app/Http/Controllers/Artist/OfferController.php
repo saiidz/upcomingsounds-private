@@ -125,6 +125,7 @@ class OfferController extends Controller
     public function declineOffer(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'offer_check' => "required",
             'description_details' => "required",
         ]);
 
@@ -136,8 +137,9 @@ class OfferController extends Controller
         if(!empty($sendOffer))
         {
             $sendOffer->update([
-                'status' => IOfferTemplateStatus::REJECTED,
-                'message' => $request->description_details ?? null,
+                'status'      => IOfferTemplateStatus::REJECTED,
+                'message'     => $request->description_details ?? null,
+                'offer_check' => $request->offer_check ?? null,
             ]);
 
             $data['email'] = $sendOffer->userCurator->email;

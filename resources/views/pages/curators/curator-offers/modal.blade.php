@@ -24,6 +24,7 @@
                 <h5 class="modal-title">Artist Message Decline Offer</h5>
             </div>
             <div class="modal-body">
+                <p id="msgOffer_D"></p>
                 <p id="msgDeclineArtist"></p>
             </div>
             <div class="modal-footer">
@@ -68,6 +69,8 @@
         function declineOfferMsgModal(id)
         {
             let msg = $('#mgAdmin'+id).html();
+            let msgOffer = $('#mgDeclineOffer'+id).html();
+            $('#msgOffer_D').html(msgOffer);
             $('#msgDeclineArtist').html(msg);
             $('#declineMsgModalCenter').modal('show');
 

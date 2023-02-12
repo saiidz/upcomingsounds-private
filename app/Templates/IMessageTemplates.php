@@ -26,6 +26,14 @@ use Illuminate\Support\Facades\Auth;
     const CONTRIBUTION_TEXT = "Whenever a contribution is requested from artists, a free alternative is now required. If artists are presented with your offer and your request for contributions, they can choose the free alternative instead of paying.It helps our artists get some free exposure if they can't afford the full offer. Free alternatives are designed for you to complete as quickly and easily as possible, and you'll know which variant of your offer the artist chooses from the offer pop-up.";
     const PROVIDE_A = "Provide a customised experience";
 
+    const DECLINE_MESSAGE_ONE = "Please let us know why you chose this free alternative offer so that curators can gain insight into your decision";
+    const DECLINE_MESSAGE = "Please share some more details with this curator below:";
+
+    const DECLINE_1 = "The offer seems confusing to me";
+     const DECLINE_2 = "The content presented does not interest me. I'm looking for something else";
+     const DECLINE_3 = "The price of the offer is too high for me";
+     const DECLINE_4 = "I've reached my budget limit on other offers";
+     const DECLINE_5 = "Please describe any other reason";
     const OFFER_SUCCESS = "Offer Template Created Successfully";
     const OFFER_DIRECT_SUCCESS = "Offer Created Successfully and send to admin for approval. Admin will contact you soon. Admin will send to artist if approved.";
     const OFFER_UPDATED_SUCCESS = "Offer Template Updated Successfully";

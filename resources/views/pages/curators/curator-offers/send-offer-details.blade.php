@@ -338,6 +338,10 @@
                             </div>
                             <div class="form-group row">
                                 <div
+                                    class="col-sm-12 form-control-label text-muted" style="color:#ED4F32 !important;">{{ !empty($send_offer->offer_check) ? $send_offer->offer_check : '----' }}</div>
+                            </div>
+                            <div class="form-group row">
+                                <div
                                     class="col-sm-12 form-control-label text-muted" style="color:#ED4F32 !important;">{!! !empty($send_offer->message) ? $send_offer->message : '----' !!}</div>
                             </div>
                         </div>

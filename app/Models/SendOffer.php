@@ -24,6 +24,7 @@ class SendOffer extends Model
         'is_approved',
         'is_rejected',
         'message',
+        'offer_check',
         'deleted_at',
     ];
 

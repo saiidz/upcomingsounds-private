@@ -16,6 +16,7 @@ class AddColumnReasonSendOffersTable extends Migration
         Schema::table('send_offers', function (Blueprint $table) {
             $table->after('is_rejected', function ($table){
                 $table->longText('message')->nullable();
+                $table->longText('offer_check')->nullable();
             });
         });
     }
