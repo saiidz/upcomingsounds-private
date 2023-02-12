@@ -114,7 +114,7 @@
                             <div class="page-title m-b">
                                 <h6 class="inline m-a-0">{{\App\Templates\IMessageTemplates::DECLINE_MESSAGE}}</h6>
                             </div>
-                            <textarea class="form-control ckeditor" name="description_details" id="descriptionApprovedDetails" required></textarea>
+                            <textarea class="form-control " name="" id="descriptionApprovedDetails" required></textarea>
                         </div>
                     </div>
                 </div>
