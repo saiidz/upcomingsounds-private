@@ -7,6 +7,7 @@ use App\Models\CuratorFavoriteArtist;
 use App\Models\CuratorFavoriteTrack;
 use App\Models\CuratorOfferTemplate;
 use App\Models\Option;
+use App\Models\SendOffer;
 use App\Templates\IFavoriteTrackStatus;
 use App\Templates\IPackages;
 use Illuminate\Contracts\Foundation\Application;
@@ -51,6 +52,11 @@ class ArtistSubmissionController extends Controller
         if(!empty($user) && $user->is_verified == 1)
         {
             $campaigns = Campaign::whereNotNull('track_id')->latest()->get();
+            $campaigns = $campaigns->reject(function ($campaign){
+                $sendOffer =  SendOffer::where(['curator_id' => Auth::id(), 'campaign_id' => $campaign->id])->first();
+                return $sendOffer == true;
+            })->flatten();
+
             return view('pages.curators.artist-submission.artist-submission', get_defined_vars());
         }else{
             return abort(403, "Restricted Access!");

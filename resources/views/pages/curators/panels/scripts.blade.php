@@ -612,7 +612,7 @@
                 loader();
                 if (data.success) {
                     toastr.success(data.success);
-                    window.location.replace('{{route('curator.offers')}}');
+                    window.location.replace('{{route('artist.submission')}}');
                 }
                 if (data.error) {
                     toastr.error(data.error);

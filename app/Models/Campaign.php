@@ -63,4 +63,12 @@ class Campaign extends Model
     {
         return $this->hasOne(CuratorFavoriteArtist::class,'artist_id','user_id')->where('curator_id',Auth::id());
     }
+
+    /**
+     * @return hasOne
+     */
+    public function sendOffer(): hasOne
+    {
+        return $this->hasOne(SendOffer::class, 'campaign_id', 'id');
+    }
 }
