@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Country;
 use App\Models\TransactionHistory;
 use App\Models\TransactionUserInfo;
+use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
@@ -79,6 +81,17 @@ class ArtistWalletController extends Controller
      */
     public function artistCheckout(Request $request)
     {
+        if(!empty($request->status) && !empty($request->send_offer_id) && !empty($request->contribution))
+        {
+            try {
+                $status = $request->status;
+                $send_offer_id = decrypt($request->send_offer_id);
+                $contribution = decrypt($request->contribution);
+            }catch (DecryptException $exception)
+            {
+                abort('403');
+            }
+        }
         $countries = Country::all();
         $purchase_data = $request->session()->get('purchase_data');
 

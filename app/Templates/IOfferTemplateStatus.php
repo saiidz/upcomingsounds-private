@@ -15,4 +15,7 @@ interface IOfferTemplateStatus
     const TYPE_DIRECT_OFFER = 'DIRECT_OFFER';
     const IS_ACTIVE = 1;
 
+    const PAID = 'PAID';
+    const REFUND = 'REFUND';
+
 }

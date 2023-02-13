@@ -331,6 +331,13 @@
                                     class="col-sm-12 form-control-label text-muted" style="color:#ED4F32 !important;">{!! !empty($send_offer->message) ? $send_offer->message : '----' !!}</div>
                             </div>
                         </div>
+                    @elseif(!empty($send_offer) && $send_offer->status == \App\Templates\IOfferTemplateStatus::ACCEPTED)
+                        <div class="row">
+                            <div class="col-sm-12 text-muted">
+                                <h4 style="color:#02b875 !important; text-align:center">This Offer has been Accepted.</h4>
+                            </div>
+                        </div>
+
                     @else
                         <div class="" id="curatorOfferBtn">
                             <a href="javascript:void(0)" data-toggle="modal"
@@ -339,8 +346,11 @@
                             <a href="javascript:void(0)" data-toggle="modal"
                                data-target="#freeAlternativeOffer"  class="btn btn-sm rounded add_track ">
                                 Choose Free Alternative</a>
-                            <a href="javascript:void(0)"  class="btn btn-sm rounded add_track ">
+                            <a href="{{route('checkout.artist',['send_offer_id' => encrypt(!empty($send_offer) ? $send_offer->id : null), 'contribution' => encrypt(!empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->contribution : 0) , 'status' => true ])}}" class="btn btn-sm rounded add_track">
                                 Pay {{!empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->contribution : 0}} USC</a>
+{{--                            <a href="javascript:void(0)" class="btn btn-sm rounded add_track" data-toggle="modal"--}}
+{{--                               data-target="#confirmPayUSCModal">--}}
+{{--                                Pay {{!empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->contribution : 0}} USC</a>--}}
                         </div>
                     @endif
 
@@ -414,5 +424,37 @@
                 $('#pitchInfo').html(track_pitch);
             }
         }
+    </script>
+    <script>
+        $('#payUSCOffer').click(function (event) {
+            event.preventDefault();
+            var send_offer_id = "{!! encrypt(!empty($send_offer) ? $send_offer->id : null) !!}";
+            var contribution = $('.UscOfferPay').attr('data-contribution');
+            var url= "{{route('artist.offer.pay')}}";
+            showLoader()
+            $.ajax({
+                type: "POST",
+                url: url,
+                data:{
+                    "_token": "{{ csrf_token() }}",
+                    "send_offer_id": send_offer_id,
+                    "contribution": contribution,
+                },
+                success: function (data) {
+                    loader();
+                    if(data.success){
+                        toastr.success(data.success);
+                        window.location = '{{ URL::to('/accepted-offer') }}';
+                    }
+                    if (data.error_wallet) {
+                        toastr.error(data.error_wallet);
+                        window.open('{{ URL::to('/wallet') }}', '_blank');
+                    }
+                    if(data.error){
+                        toastr.error(data.error)
+                    }
+                }
+            });
+        });
     </script>
 @endsection

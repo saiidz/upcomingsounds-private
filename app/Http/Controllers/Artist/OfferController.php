@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Artist;
 
 use App\Http\Controllers\Controller;
 use App\Models\SendOffer;
+use App\Models\SendOfferTransaction;
+use App\Models\User;
 use App\Templates\IOfferTemplateStatus;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -11,6 +13,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
@@ -160,4 +163,60 @@ class OfferController extends Controller
         }
         return response()->json(['success' => 'Email and notify send successfully to taste maker']);
     }
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function payUSCeOffer(Request $request)
+    {
+        if(empty($request->send_offer_id))
+        {
+            return response()->json(['error' => 'We are facing problem in your offer']);
+        }
+
+        // check artist balance
+        $balance = User::artistBalance();
+        $contribution = decrypt($request->contribution);
+        if ($contribution > $balance)
+        {
+            return response()->json(['error_wallet' => 'You have insufficient '.$balance.'USC credits, please go to wallet and purchased credits']);
+        }
+
+        $sendOffer = SendOffer::where('id', decrypt($request->send_offer_id))->first();
+        if(!empty($sendOffer))
+        {
+            $sendOffer->update([
+                'status'      => IOfferTemplateStatus::ACCEPTED,
+            ]);
+
+            // save pay offer transaction
+            $sendOfferTransaction = SendOfferTransaction::create([
+                'send_offer_id' => $sendOffer->id,
+                'artist_id'     => $sendOffer->userArtist->id,
+                'contribution'  => $contribution,
+                'status'        => IOfferTemplateStatus::PAID,
+            ]);
+            Log::info('sendOfferTransaction');
+            Log::info(json_encode($sendOfferTransaction));
+
+            $data['email'] = $sendOffer->userCurator->email;
+            $data['username'] = $sendOffer->userCurator->name;
+            $data["title"] = "Accepted Offer Upcoming Sounds";
+            $data['rejectMessage'] = "Your offer has been accepted. Please submit work and admin send you money in your wallet.";
+
+            try {
+                Mail::send('admin.emails.curator_email.send_reject_email_to_curator', $data, function($message)use($data) {
+                    $message->from('no_reply@upcomingsounds.com');
+                    $message->to($data["email"], $data["email"])
+                        ->subject($data["title"]);
+                });
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+
+        }
+        return response()->json(['success' => 'Payment USC successfully Paid and Email send successfully to taste maker']);
+    }
+
 }

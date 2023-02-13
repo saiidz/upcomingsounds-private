@@ -146,6 +146,14 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
      * @return HasMany
      */
+    public function sendOfferTransaction(): HasMany
+    {
+        return $this->hasMany(SendOfferTransaction::class, 'artist_id');
+    }
+
+    /**
+     * @return HasMany
+     */
     public function campaign(): HasMany
     {
         return $this->hasMany(Campaign::class, 'user_id');
@@ -263,5 +271,12 @@ class User extends Authenticatable implements MustVerifyEmail
         //     return false;
         // }
 
+    }
+
+    public static function artistBalance()
+    {
+        $user = Auth::user();
+        if(!empty($user))
+            return !empty($user->TransactionUserInfo) ? $user->TransactionUserInfo->transactionHistory->sum('credits') - (!empty($user->campaign) ? $user->campaign->sum('usc_credit') : 0) - (!empty($user->sendOfferTransaction) ? $user->sendOfferTransaction->sum('contribution') : 0) : 0;
     }
 }

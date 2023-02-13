@@ -7,6 +7,16 @@
 @section('page-style')
     <link rel="stylesheet" type="text/css" href="{{asset('css/custom/wallet.css')}}">
     <style>
+        #loadings {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            z-index: 999999;
+        }
+        #loadings {
+            background: rgba(255, 255, 255, .4) url({{asset('images/loader.gif')}}) no-repeat center center !important;
+        }
         .custom-radio svg.svg-inline--fa {
             color: #212121;
             font-size: 15px;
@@ -16,6 +26,7 @@
 
 {{-- page content --}}
 @section('content')
+    <div id="loadings"></div>
     <div class="{{Auth::check() ? 'app-bodynew' : 'app-body'}}">
 {{--{{dd($artist_billing_info)}}--}}
         <!-- ############ PAGE START-->
@@ -140,33 +151,50 @@
                            </div>
                        </div>
 
-                       <div class="card">
-                           <div class="card-body billing_address">
-                               <h5 class="card-title">Payment options</h5>
-                               <p class="card-text">How would you like to pay?</p>
-                               <div class="row m-t-sm">
-                                   <div class="col-md-12 mb-3">
-                                       <div class="custom-control custom-radio">
-                                           <input id="credit" class="stripeChanged" onchange="stripeChanged()" name="paymentMethod" type="radio" checked required>
-                                           <label class="custom-control-label" for="credit"><i class="fab fa-cc-stripe"></i> PAY WITH CARD</label>
-                                       </div>
-                                       <div class="custom-control custom-radio">
-                                           <input id="paypal" class="paypalChanged" onchange="paypalChanged()" name="paymentMethod" type="radio" required>
-                                           <label class="custom-control-label" for="paypal"><i class="fab fa-paypal"></i> PAY WITH PAYPAL</label>
-                                       </div>
+                       @if(!empty($status) && $send_offer_id)
+                           <div class="card">
+                               <div class="card-body billing_address">
+                                   <h5 class="card-title">Payment</h5>
+                                   <div class="form-group modal-footer">
+                                       <a href="{{ url()->previous() }}"
+                                          class="btn btn-dark stripePayment rounded">
+                                           Back</a>
+                                       <a href="javascript:void(0)" class="btn btn-dark stripePayment rounded" data-toggle="modal"
+                                          data-target="#confirmPayUSCModal">
+                                           Pay {{!empty($contribution) ? $contribution : 0}} USC</a>
                                    </div>
                                </div>
-
-                               @if(isset($artist_billing_info))
-                                   {{--  Stripe Form --}}
-                                   @include('pages.artists.artist-wallet.stripe-payment')
-
-                                   {{--  Paypal Form --}}
-                                   @include('pages.artists.artist-wallet.paypal-payment')
-                               @endif
-                               <p class="byMaking">By making a payment you are agreeing to our <a href="{{url('/term-of-service')}}" class="terMs" target="_blank">terms and conditions</a></p>
                            </div>
-                       </div>
+                           @include('pages.artists.artist-wallet.modal')
+                       @else
+                           <div class="card">
+                               <div class="card-body billing_address">
+                                   <h5 class="card-title">Payment options</h5>
+                                   <p class="card-text">How would you like to pay?</p>
+                                   <div class="row m-t-sm">
+                                       <div class="col-md-12 mb-3">
+                                           <div class="custom-control custom-radio">
+                                               <input id="credit" class="stripeChanged" onchange="stripeChanged()" name="paymentMethod" type="radio" checked required>
+                                               <label class="custom-control-label" for="credit"><i class="fab fa-cc-stripe"></i> PAY WITH CARD</label>
+                                           </div>
+                                           <div class="custom-control custom-radio">
+                                               <input id="paypal" class="paypalChanged" onchange="paypalChanged()" name="paymentMethod" type="radio" required>
+                                               <label class="custom-control-label" for="paypal"><i class="fab fa-paypal"></i> PAY WITH PAYPAL</label>
+                                           </div>
+                                       </div>
+                                   </div>
+
+                                   @if(isset($artist_billing_info))
+                                       {{--  Stripe Form --}}
+                                       @include('pages.artists.artist-wallet.stripe-payment')
+
+                                       {{--  Paypal Form --}}
+                                       @include('pages.artists.artist-wallet.paypal-payment')
+                                   @endif
+                                   <p class="byMaking">By making a payment you are agreeing to our <a href="{{url('/term-of-service')}}" class="terMs" target="_blank">terms and conditions</a></p>
+                               </div>
+                           </div>
+                       @endif
                    </div>
                    <div class="col-md-4 order-md-2 mb-4">
                        <ul class="list-group mb-3">
@@ -176,7 +204,10 @@
                                        <img class="icon_UP_check" src="{{asset('images/coin_bg.png')}}">
                                    </div>
                                    <div class="m-t-sm">
-                                       <span class="buyUCS">{{!empty($purchase_data['package']) ? $purchase_data['package'] : ''}}</span>
+                                       @if(!empty($status) && $send_offer_id)
+                                       @else
+                                            <span class="buyUCS">{{!empty($purchase_data['package']) ? $purchase_data['package'] : ''}}</span>
+                                       @endif
                                    </div>
 
 {{--                                   <div class="dropdownCurrency">--}}
@@ -195,41 +226,56 @@
                                <span class="credit_right">
                                     <div class="tw-relative">
                                         <div class="tw-flex tw-items-center">
-                                            <span class="amount">{{!empty(Auth::user()->TransactionUserInfo) ? number_format(Auth::user()->TransactionUserInfo->transactionHistory->sum('credits')) : 0}} UCS</span>
+                                            <span class="amount">{{\App\Models\User::artistBalance()}} UCS</span>
+{{--                                            <span class="amount">{{!empty(Auth::user()->TransactionUserInfo) ? number_format(Auth::user()->TransactionUserInfo->transactionHistory->sum('credits')) : 0}} UCS</span>--}}
                                             <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
                                         </div>
                                     </div>
                                 </span>
                            </li>
                            <li class="list-group-item d-flex justify-content-between lh-condensed">
-                               <span class="available_credit">Amount of USC purchased in credits</span>
-                               <span class="credit_right">
-                                    <div class="tw-relative">
-                                        <div class="tw-flex tw-items-center">
-                                            <span class="amount">{{!empty($purchase_data['contacts']) ? $purchase_data['contacts'] : ''}}</span>
+                               @if(!empty($status) && $send_offer_id)
+                                   <span class="available_credit">Amount of USC Pay</span>
+                                   <span class="credit_right">
+                                        <div class="tw-relative">
+                                            <div class="tw-flex tw-items-center">
+                                                <span class="amount">{{!empty($contribution) ? $contribution : 0}} USC</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </span>
+                                    </span>
+                               @else
+                                   <span class="available_credit">Amount of USC purchased in credits</span>
+                                   <span class="credit_right">
+                                        <div class="tw-relative">
+                                            <div class="tw-flex tw-items-center">
+                                                <span class="amount">{{!empty($purchase_data['contacts']) ? $purchase_data['contacts'] : ''}}</span>
+                                            </div>
+                                        </div>
+                                    </span>
+                               @endif
                            </li>
-                           <li class="list-group-item d-flex justify-content-between lh-condensed">
-                               <span class="total_UP">Total</span>
+                           @if(!empty($status) && $send_offer_id)
+                           @else
+                               <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                   <span class="total_UP">Total</span>
 
-                               <span class="total_UP_price text-muted">
-                                   <strong>
-                                       @if(!empty($purchase_data['currency'] == 'gbp'))
-                                            <span class="currencySymbol">£</span>{{!empty($purchase_data['price']) ? $purchase_data['price'] : ''}}
-                                       @elseif(!empty($purchase_data['currency'] == 'cad'))
-                                            <span class="currencySymbol">$</span>{{!empty($purchase_data['price']) ? $purchase_data['price'] : ''}}
-                                       @elseif(!empty($purchase_data['currency'] == 'aud'))
-                                           <span class="currencySymbol">$</span>{{!empty($purchase_data['price']) ? $purchase_data['price'] : ''}}
-                                       @elseif(!empty($purchase_data['currency'] == 'usd'))
-                                           <span class="currencySymbol">$</span>{{!empty($purchase_data['price']) ? $purchase_data['price'] : ''}}
-                                       @else
-                                           {{!empty($purchase_data['price']) ? $purchase_data['price'] : ''}}<span class="currencySymbol">€</span>
-                                       @endif
-                                   </strong>
-                               </span>
-                           </li>
+                                   <span class="total_UP_price text-muted">
+                                       <strong>
+                                           @if(!empty($purchase_data['currency'] == 'gbp'))
+                                                <span class="currencySymbol">£</span>{{!empty($purchase_data['price']) ? $purchase_data['price'] : ''}}
+                                           @elseif(!empty($purchase_data['currency'] == 'cad'))
+                                                <span class="currencySymbol">$</span>{{!empty($purchase_data['price']) ? $purchase_data['price'] : ''}}
+                                           @elseif(!empty($purchase_data['currency'] == 'aud'))
+                                               <span class="currencySymbol">$</span>{{!empty($purchase_data['price']) ? $purchase_data['price'] : ''}}
+                                           @elseif(!empty($purchase_data['currency'] == 'usd'))
+                                               <span class="currencySymbol">$</span>{{!empty($purchase_data['price']) ? $purchase_data['price'] : ''}}
+                                           @else
+                                               {{!empty($purchase_data['price']) ? $purchase_data['price'] : ''}}<span class="currencySymbol">€</span>
+                                           @endif
+                                       </strong>
+                                   </span>
+                               </li>
+                           @endif
                            <li class="list-group-item d-flex justify-content-between">
 
                            </li>
@@ -401,4 +447,46 @@
         }
     </script>
     <script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_SANDBOX_CLIENT_ID') }}"></script>
+{{--    payment for offer send--}}
+    <script>
+        var preload = document.getElementById("loadings");
+        function loader(){
+            preload.style.display='none';
+        }
+        function showLoader(){
+            preload.style.display='block';
+        }
+
+        $('#payUSCOffer').click(function (event) {
+            event.preventDefault();
+            var send_offer_id = $('.UscOfferPay').attr('data-send-offer-id');
+            var contribution = $('.UscOfferPay').attr('data-contribution');
+            var url= "{{route('artist.offer.pay')}}";
+            showLoader();
+            $.ajax({
+                type: "POST",
+                url: url,
+                data:{
+                    "_token": "{{ csrf_token() }}",
+                    "send_offer_id": send_offer_id,
+                    "contribution": contribution,
+                },
+                success: function (data) {
+                    loader();
+                    if(data.success){
+                        toastr.success(data.success);
+                        window.location = '{{ URL::to('/accepted-offer') }}';
+                    }
+                    if (data.error_wallet) {
+                        toastr.error(data.error_wallet);
+                        window.open('{{ URL::to('/wallet') }}', '_blank');
+                    }
+                    if(data.error){
+                        toastr.error(data.error)
+                    }
+                }
+            });
+        });
+    </script>
+{{--    payment for offer send--}}
 @endsection

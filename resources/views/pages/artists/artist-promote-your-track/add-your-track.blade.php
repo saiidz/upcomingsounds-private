@@ -51,7 +51,8 @@
                                 <div class="separatortrack">
                                     <div class="promoteAddTrack">
                                         <a class="m-b-md" href="{{ url('/wallet') }}">
-                                            <span class="amount">{{!empty(Auth::user()->TransactionUserInfo) ? Auth::user()->TransactionUserInfo->transactionHistory->sum('credits') - (!empty(Auth::user()->campaign) ? Auth::user()->campaign->sum('usc_credit') : 0) : 0}} USC</span>
+                                            <span class="amount">{{\App\Models\User::artistBalance()}} USC</span>
+{{--                                            <span class="amount">{{!empty(Auth::user()->TransactionUserInfo) ? Auth::user()->TransactionUserInfo->transactionHistory->sum('credits') - (!empty(Auth::user()->campaign) ? Auth::user()->campaign->sum('usc_credit') : 0) : 0}} USC</span>--}}
                                             <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
                                         </a>
                                     </div>

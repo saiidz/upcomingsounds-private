@@ -45,7 +45,7 @@ Route::post('track-add-store', [PromoteYourTrackController::class, 'storeAddTrac
 // Wallet Shop Route
 Route::get('/wallet',[ArtistWalletController::class,'wallet']);
 Route::post('/checkout',[ArtistWalletController::class,'checkout']);
-Route::get('/artist-checkout',[ArtistWalletController::class,'artistCheckout']);
+Route::get('/artist-checkout',[ArtistWalletController::class,'artistCheckout'])->name('checkout.artist');
 Route::post('/artist-billing-info',[ArtistWalletController::class,'artistBillingInfo']);
 
 // Stripe Route
@@ -87,6 +87,10 @@ Route::get('curator-offer/{send_offer}', [OfferController::class,'offerShow'])->
 // offer decline route
 Route::post('offer-decline', [OfferController::class,'declineOffer'])->name('artist.offer.decline');
 // offer decline route
+//
+/// // offer pay usc route
+Route::post('offer-pay', [OfferController::class,'payUSCeOffer'])->name('artist.offer.pay');
+// offer pay usc route
 
 // messages routes
 Route::get('messages', [MessageController::class,'messages'])->name('artist.messages');
