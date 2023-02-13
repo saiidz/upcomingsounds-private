@@ -36,7 +36,7 @@ class OfferController extends Controller
      */
     public function offers()
     {
-        $sendOffers = $this->sendOffer->where(['artist_id' => Auth::id(), 'is_approved' => self::APPROVED])->get();
+        $sendOffers = $this->sendOffer->where(['artist_id' => Auth::id(), 'is_approved' => self::APPROVED])->latest()->get();
         return view('pages.artists.artist-offers.offers', get_defined_vars());
     }
 
