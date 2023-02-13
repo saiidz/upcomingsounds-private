@@ -73,6 +73,14 @@ class ArtistSubmissionController extends Controller
         if(!empty($user) && $user->is_verified == 1)
         {
             $saved = CuratorFavoriteTrack::where(['user_id' => Auth::id(), 'status' => IFavoriteTrackStatus::SAVE])->latest()->get();
+            $saved = $saved->reject(function ($saved){
+                if(!empty($saved->campaign))
+                {
+                    $sendOffer =  SendOffer::where(['curator_id' => Auth::id(), 'campaign_id' => $saved->campaign->id])->first();
+                    return $sendOffer == true;
+                }
+            })->flatten();
+
             return view('pages.curators.artist-submission.artist-saved', get_defined_vars());
         }else{
             return abort(403, "Restricted Access!");
@@ -103,6 +111,13 @@ class ArtistSubmissionController extends Controller
         if(!empty($user) && $user->is_verified == 1)
         {
             $rejected = CuratorFavoriteTrack::where(['user_id' => Auth::id(), 'status' => IFavoriteTrackStatus::REJECTED])->latest()->get();
+            $rejected = $rejected->reject(function ($rejected){
+                if(!empty($rejected->campaign))
+                {
+                    $sendOffer =  SendOffer::where(['curator_id' => Auth::id(), 'campaign_id' => $rejected->campaign->id])->first();
+                    return $sendOffer == true;
+                }
+            })->flatten();
             return view('pages.curators.artist-submission.artist-rejected', get_defined_vars());
         }else{
             return abort(403, "Restricted Access!");
