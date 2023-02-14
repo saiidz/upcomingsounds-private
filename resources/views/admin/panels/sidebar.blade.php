@@ -88,7 +88,8 @@
         <li class="bold {{ Request::is('admin/curator-approved') || Request::is('admin/curator-pending')
         || Request::is('admin/curator-profile*') || Request::is('admin/curator-verification*')
         || Request::is('admin/curator-features*') || Request::is('admin/curator-sub-feature*')
-        || Request::is('admin/offer*') || Request::is('admin/send-direct-offer*') ? 'active open' : '' }}">
+        || Request::is('admin/offer*') || Request::is('admin/send-direct-offer*')
+        || Request::is('admin/curator-submit-work*') ? 'active open' : '' }}">
             <a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)">
                 <i class="material-icons">face</i>
                 <span class="menu-title" data-i18n="User">Curators</span>
@@ -131,8 +132,8 @@
                             <span data-i18n="List">Send Direct Offers</span>
                         </a>
                     </li>
-                    <li class="{{ Request::is('admin/send-direct-offer*') ? 'active' : '' }}">
-                        <a class="{{ Request::is('admin/send-direct-offer*') ? 'active' : '' }}" href="{{ route('admin.curator.send.direct.offer') }}">
+                    <li class="{{ Request::is('admin/curator-submit-work*') ? 'active' : '' }}">
+                        <a class="{{ Request::is('admin/curator-submit-work*') ? 'active' : '' }}" href="{{ route('admin.curator.submit.work') }}">
                             <i class="material-icons">radio_button_unchecked</i>
                             <span data-i18n="List">Submit Work</span>
                         </a>

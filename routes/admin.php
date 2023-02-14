@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AlternativeOptionController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\OfferTypeController;
 use App\Http\Controllers\Admin\SendDirectOfferController;
+use App\Http\Controllers\Admin\SubmitWorkController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ArtistController;
 use App\Http\Controllers\Admin\OptionController;
@@ -109,6 +110,11 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
     Route::get('send-direct-offer/{offer_template}',[SendDirectOfferController::class,'detailSendOfferTemplate'])->name('curator.send.direct.detail-offer');
     Route::post('send-direct-approved-offer/{offer_template}', [SendDirectOfferController::class,'storeDirectApprovedOfferTemplate'])->name('store.direct.approved.OfferTemplate');
     Route::post('send-direct-offer-reject/{offer_template}',[SendDirectOfferController::class,'storeDirectRejectOfferTemplate'])->name('store.direct.OfferTemplate.reject');
+
+    // submit work offer
+    Route::get('curator-submit-work', [SubmitWorkController::class,'submitWork'])->name('curator.submit.work');
+    Route::get('curator-submit-work/{submitWork}', [SubmitWorkController::class,'detailSubmitWork'])->name('curator.submit.work.detail');
+    // submit work offer
 });
 
 
