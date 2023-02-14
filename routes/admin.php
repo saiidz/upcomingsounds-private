@@ -93,18 +93,6 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
 
     // banner routes
     Route::resource('banners',BannerController::class);
-//
-//    // Bidders route
-//    Route::resource('bidders',  BidderController::class);
-//    Route::get('view-bidder',  [BidderController::class,'viewBidder'])->name('viewBidder');
-//    Route::get('suspend-bidders',  [BidderController::class,'suspendBidders'])->name('suspendBidders');
-//    Route::get('block-bidders',  [BidderController::class,'blockBidders'])->name('blockBidders');
-//    // System Users route
-//    Route::resource('system-users',  SystemUserController::class);
-//    Route::get('view-system-user',  [SystemUserController::class,'viewSystemUser'])->name('viewSystemUser');
-
-
-//    Route::any('/logout', [AuthenticatedSessionController::class, 'destroy']);
 
     // Offer Type
     Route::get('offers',  [OfferTypeController::class, 'offers'])->name('offers');

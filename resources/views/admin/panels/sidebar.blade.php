@@ -131,6 +131,12 @@
                             <span data-i18n="List">Send Direct Offers</span>
                         </a>
                     </li>
+                    <li class="{{ Request::is('admin/send-direct-offer*') ? 'active' : '' }}">
+                        <a class="{{ Request::is('admin/send-direct-offer*') ? 'active' : '' }}" href="{{ route('admin.curator.send.direct.offer') }}">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            <span data-i18n="List">Submit Work</span>
+                        </a>
+                    </li>
                     <li class="{{ Request::is('admin/offer-types*') ? 'active' : '' }}">
                         <a class="{{ Request::is('admin/offer-types*') ? 'active' : '' }}" href="{{ route('admin.offer-types.index') }}">
                             <i class="material-icons">radio_button_unchecked</i>
