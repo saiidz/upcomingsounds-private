@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+        #loadings {
+            background: rgba(255, 255, 255, .4) url({{asset('images/loader.gif')}}) no-repeat center center !important;
+        }
         svg.svg-inline--fa {
             font-size: inherit !important;
         }
@@ -43,7 +46,9 @@
             background-size: cover;
             margin-top: 7px;
         }
-
+        .addMoreLinks {
+            width: 100% !important;
+        }
     </style>
 @endsection
 
@@ -354,15 +359,25 @@
                             </div>
                         </div>
                     @elseif(!empty($send_offer) && $send_offer->status == \App\Templates\IOfferTemplateStatus::ACCEPTED)
-                        <div class="row">
-                            <div class="col-sm-12 text-muted">
-                                <h4 style="color:#02b875 !important; text-align:center">This Offer has been Accepted.</h4>
+                        @if(!empty($send_offer->submitWork))
+                            <div class="row">
+                                <div class="col-sm-12 text-muted">
+                                    <h4 style="color:#02b875 !important; text-align:center">Submit Work successfully. Please wait for approval from admin side.</h4>
+                                </div>
                             </div>
-                        </div>
-                        <div class="" id="curatorOfferBtn">
-                            <a href="javascript:void(0)" class="btn btn-sm rounded add_track">
-                                Submit Work</a>
-                        </div>
+                        @else
+                            <div class="row">
+                                <div class="col-sm-12 text-muted">
+                                    <h4 style="color:#02b875 !important; text-align:center">This offer has been approved by the artist.</h4>
+                                </div>
+                            </div>
+                            <div class="" id="curatorOfferBtn">
+                                <a href="javascript:void(0)" data-toggle="modal"
+                                   data-target="#submitWorkOffer" class="btn btn-sm rounded add_track">
+                                    Submit Work</a>
+                            </div>
+                        @endif
+
                     @else
 
                     @endif
@@ -373,6 +388,7 @@
     </div>
 
     <!-- ############ PAGE END-->
+    @include('pages.curators.curator-offers.submit-wok-modal')
 @endsection
 
 
@@ -438,5 +454,45 @@
             // document.getElementById("mySidebarCollapsed").style.width = "0";
             document.getElementById("app-body").style.marginLeft= "0";
         }
+    </script>
+    <script type="text/javascript">
+
+
+
+        $(document).ready(function(){
+
+            var counter = 2;
+
+            $("#addLinkButton").click(function () {
+
+                if(counter>5){
+                    alert("Only 5 Links allow");
+                    return false;
+                }
+
+                var newTextBoxDiv = $(document.createElement('div'))
+                    .attr("id", 'TextBoxDiv' + counter);
+
+                newTextBoxDiv.after().html('<div class="col-sm-12 m-b"> <div class="addEmbeded"><div class="addMoreLinks"><input type="text" class="form-control moreLinks" name="link[]" id="textbox' + counter + '" value="" placeholder="Please Add Completion Url"></div></div></div>');
+
+                newTextBoxDiv.appendTo("#TextBoxesGroup");
+
+
+                counter++;
+            });
+
+            $("#removeButton").click(function () {
+                if(counter==2){
+                    alert("No more textbox to remove");
+                    return false;
+                }
+
+                counter--;
+
+                $("#TextBoxDiv" + counter).remove();
+
+            });
+
+        });
     </script>
 @endsection

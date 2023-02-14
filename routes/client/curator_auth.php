@@ -4,6 +4,7 @@ use App\Http\Controllers\Curator\OfferController;
 use App\Http\Controllers\Curator\OfferTemplateController;
 use App\Http\Controllers\Curator\SavedArtistController;
 use App\Http\Controllers\Curator\SendOfferController;
+use App\Http\Controllers\Curator\SubmitWorkController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AjaxController;
@@ -76,9 +77,13 @@ Route::post('offer/change-status',[OfferTemplateController::class,'offerChangeSt
 Route::delete('delete-offer-template/{offer_template}',[OfferTemplateController::class,'destroy']);
 // offer templates routes
 
-// create a offer
+// create an offer
 Route::get('offer-template-create', [OfferTemplateController::class,'directCreateOfferTemplate'])->name('curator.direct.create.offer.template');
-// create a offer
+// create an offer
+
+// submit work offer
+Route::post('submit-work', [SubmitWorkController::class,'submitWork'])->name('curator.submit.work');
+// submit work offer
 
 // saved artist routes
 Route::get('saved-artists', [SavedArtistController::class,'savedArtist'])->name('curator.saved.artists');

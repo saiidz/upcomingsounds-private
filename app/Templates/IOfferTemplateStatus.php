@@ -4,6 +4,7 @@ namespace App\Templates;
 
 interface IOfferTemplateStatus
 {
+    const APPROVED = 'APPROVED';
     const PENDING = 'PENDING';
     const ACCEPTED = 'ACCEPTED';
     const REJECTED = 'REJECTED';

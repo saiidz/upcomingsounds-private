@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\Curator\SubmitWork;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class SendOffer extends Model
@@ -66,5 +68,13 @@ class SendOffer extends Model
     public function campaign(): BelongsTo
     {
         return $this->belongsTo(Campaign::class,'campaign_id');
+    }
+
+    /**
+     * @return HasOne
+     */
+    public function submitWork(): HasOne
+    {
+        return $this->hasOne(SubmitWork::class,'send_offer_id');
     }
 }
