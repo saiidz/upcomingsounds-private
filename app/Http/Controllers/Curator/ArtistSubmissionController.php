@@ -9,6 +9,7 @@ use App\Models\CuratorOfferTemplate;
 use App\Models\Option;
 use App\Models\SendOffer;
 use App\Templates\IFavoriteTrackStatus;
+use App\Templates\IOfferTemplateStatus;
 use App\Templates\IPackages;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -140,7 +141,7 @@ class ArtistSubmissionController extends Controller
             $campaign = Campaign::find($request->campaign_id);
 
             // offerTemplate
-            $offerTemplates = CuratorOfferTemplate::where(['user_id' => Auth::id(), 'is_active' => 1, 'is_approved' => 1])->latest()->get();
+            $offerTemplates = CuratorOfferTemplate::where(['user_id' => Auth::id(),'type' => IOfferTemplateStatus::TYPE_OFFER ,'is_active' => 1, 'is_approved' => 1])->latest()->get();
 
             // render Html in collapse
             $returnHTML = view('pages.curators.collapsed_sidebar')->with(['campaign' => $campaign, 'offerTemplates' => $offerTemplates])->render();

@@ -33,7 +33,7 @@ class OfferController extends Controller
      */
     public function offers()
     {
-        $sendOffers = $this->sendOffer->where(['curator_id' => Auth::id(),'is_approved' => self::APPROVED])->latest()->get();
+        $sendOffers = $this->sendOffer->where(['curator_id' => Auth::id()])->latest()->get();
 //        dd($sendOffers);
         return view('pages.curators.curator-offers.offers', get_defined_vars());
     }
