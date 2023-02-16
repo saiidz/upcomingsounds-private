@@ -63,7 +63,7 @@
                                         @endif
 
                                         @if ($submitWork->status == \App\Templates\IOfferTemplateStatus::PENDING)
-                                            <a href="#rejectModal" data-id="{{ $submitWork->id }}" class="btn-small btn-light-red dropdown-item has-icon modal-trigger reject-curator-confirm">
+                                            <a href="#rejectSubmitModal" data-id="{{ $submitWork->id }}" class="btn-small btn-light-red dropdown-item has-icon modal-trigger reject-SUBMIT-confirm">
                                             Reject
                                             </a>
                                         @endif
@@ -231,7 +231,7 @@
     <script src="{{asset('app-assets/js/curator/curator.js')}}"></script>
     <script>
         $(function () {
-            $('.reject-curator-confirm').on('click', function () {
+            $('.reject-SUBMIT-confirm').on('click', function () {
                 $(".modal").modal(),
                     $("#modal3").modal("open"),
                     $("#modal3").modal("close")

@@ -22,7 +22,7 @@
 {{--  Approved Modal --}}
 
 {{-- Reject Modal  --}}
-<div id="rejectModal" class="modal">
+<div id="rejectSubmitModal" class="modal">
     <form class="new_basicform_reject_with_reload" action="{{ route('admin.store.curator.submitWork.reject', $submitWork->id) }}" id="rejectCuratorForm" method="post">
         @csrf
         <div class="modal-content">
