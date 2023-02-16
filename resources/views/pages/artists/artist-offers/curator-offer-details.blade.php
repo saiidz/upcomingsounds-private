@@ -337,7 +337,12 @@
                                 <h4 style="color:#02b875 !important; text-align:center">This Offer has been Accepted.</h4>
                             </div>
                         </div>
-
+                    @elseif(!empty($send_offer) && $send_offer->status == \App\Templates\IOfferTemplateStatus::COMPLETED)
+                        <div class="row">
+                            <div class="col-sm-12 text-muted">
+                                <h4 style="color:#02b875 !important; text-align:center">This offer is completed.</h4>
+                            </div>
+                        </div>
                     @else
                         <div class="" id="curatorOfferBtn">
                             <a href="javascript:void(0)" data-toggle="modal"

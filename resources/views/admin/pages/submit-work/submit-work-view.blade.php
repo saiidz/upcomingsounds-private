@@ -47,17 +47,27 @@
                         <div class="card-panel">
                             <div class="row">
                                 <div class="col s12 quick-action-btns display-flex justify-content-end align-items-center pt-2">
-                                    @if ($submitWork->status == \App\Templates\IOfferTemplateStatus::PENDING)
-                                        <a href="#approvedModal" data-id={{ $submitWork->id }} class="btn-small btn-light-indigo dropdown-item has-icon modal-trigger approvedCurator-confirm">
+                                  @if($submitWork->status == \App\Templates\IOfferTemplateStatus::REJECTED && !empty($submitWork->sendOffer->sendOfferTransaction)
+                                        && $submitWork->sendOffer->sendOfferTransaction->status == \App\Templates\IOfferTemplateStatus::PAID)
+                                        <div>
+                                            <a href="#refundArtistModal" data-id="{{ $submitWork->id }}" class="btn-small has-icon modal-trigger refundArtist-confirm">
+                                                Artist Refund
+                                            </a>
+                                        </div>
+                                  @endif
+                                    <div>
+                                        @if ($submitWork->status == \App\Templates\IOfferTemplateStatus::PENDING)
+                                            <a href="#approvedModal" data-id="{{ $submitWork->id }}" class="btn-small btn-light-indigo dropdown-item has-icon modal-trigger approvedCurator-confirm">
                                             Approve
-                                        </a>
-                                    @endif
+                                            </a>
+                                        @endif
 
-                                    @if ($submitWork->status == \App\Templates\IOfferTemplateStatus::PENDING)
-                                        <a href="#rejectModal" data-id={{ $submitWork->id }} class="btn-small btn-light-red dropdown-item has-icon modal-trigger reject-curator-confirm">
+                                        @if ($submitWork->status == \App\Templates\IOfferTemplateStatus::PENDING)
+                                            <a href="#rejectModal" data-id="{{ $submitWork->id }}" class="btn-small btn-light-red dropdown-item has-icon modal-trigger reject-curator-confirm">
                                             Reject
-                                        </a>
-                                    @endif
+                                            </a>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -107,16 +117,17 @@
                                             <tr>
                                                 <td>Is Approved:</td>
                                                 <td>
-                                                    @if ($submitWork->sendOffer->curatorOfferTemplate->is_approved == 1)
-                                                        <span class=" users-view-status chip green lighten-5 green-text">Approved</span>
-                                                    @elseif($submitWork->sendOffer->curatorOfferTemplate->is_rejected == 1)
-                                                        <span class="chip red lighten-5">
-                                                            <span class="red-text">Rejected</span>
-                                                        </span>
-                                                    @else
-                                                        <span class=" users-view-status chip red lighten-5 red-text">Pending</span>
-                                                    @endif
-
+                                                    <span class="chip lighten-5">
+                                                            <span class="">{{$submitWork->status}}</span>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Artist USC Credit Status:</td>
+                                                <td>
+                                                    <span class="chip lighten-5">
+                                                            <span class="">{{!empty($submitWork->sendOffer->sendOfferTransaction) ? $submitWork->sendOffer->sendOfferTransaction->status : '----'}}</span>
+                                                    </span>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -202,7 +213,7 @@
         </div>
     </div>
     <!-- END: Page Main-->
-{{--    @include('admin.pages.direct-send-offer-template.offer-modal')--}}
+    @include('admin.pages.submit-work.submit-work-modal')
 
 @endsection
 
@@ -228,6 +239,13 @@
         });
         $(function () {
             $('.approvedCurator-confirm').on('click', function () {
+                $(".modal").modal(),
+                    $("#modal3").modal("open"),
+                    $("#modal3").modal("close")
+            });
+        });
+        $(function () {
+            $('.refundArtist-confirm').on('click', function () {
                 $(".modal").modal(),
                     $("#modal3").modal("open"),
                     $("#modal3").modal("close")

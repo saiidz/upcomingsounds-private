@@ -78,7 +78,7 @@
                             <span class="credit_right">
                                 <div class="tw-relative">
                                     <div class="tw-flex tw-items-center">
-                                        <span class="amount text-black">0 UCS</span>
+                                        <span class="amount text-black">{{\App\Models\User::curatorBalance()}} UCS</span>
                                         <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
                                     </div>
                                 </div>

@@ -3,6 +3,21 @@
 
 
 
+    /*--------------------------------------
+      		Loader
+    	---------------------------------------*/
+
+    var preload = document.getElementById('loadings');
+    function hideLoader()
+    {
+        preload.style.display = "none";
+    }
+
+    function showLoader()
+    {
+        preload.style.display = "block";
+    }
+
 /*--------------------------------------
       		New basicform submit With Reload
     	---------------------------------------*/
@@ -19,6 +34,7 @@
             formData.append('description_details',ContentFromEditor);
 
             var basicbtnhtml=$('.basicbtn').html();
+            // showLoader();
             $.ajax({
                 type: 'POST',
                 url: this.action,
@@ -35,6 +51,7 @@
                 },
                 success:function(response)
                 {
+                    hideLoader();
                     if(response.success)
                     {
                         console.log(response.success);

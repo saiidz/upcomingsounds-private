@@ -18,7 +18,11 @@ class CreateSendOfferTransactionsTable extends Migration
             $table->foreignId('send_offer_id')->constrained('send_offers')->cascadeOnDelete();
             $table->foreignId('artist_id')->constrained('users')->cascadeOnDelete();
             $table->integer('contribution')->nullable();
+            $table->foreignId('curator_id')->constrained('users')->cascadeOnDelete();
+            $table->boolean('is_approved')->default(false);
+            $table->boolean('is_rejected')->default(false);
             $table->enum('status',['PAID','REFUND'])->default('PAID');
+            $table->longText('refund_message')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

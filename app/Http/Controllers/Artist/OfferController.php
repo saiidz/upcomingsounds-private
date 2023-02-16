@@ -193,8 +193,11 @@ class OfferController extends Controller
             // save pay offer transaction
             $sendOfferTransaction = SendOfferTransaction::create([
                 'send_offer_id' => $sendOffer->id,
-                'artist_id'     => $sendOffer->userArtist->id,
+                'artist_id'     => $sendOffer->artist_id,
                 'contribution'  => $contribution,
+                'curator_id'    => $sendOffer->curator_id,
+                'is_approved'   => 0,
+                'is_rejected'   => 0,
                 'status'        => IOfferTemplateStatus::PAID,
             ]);
             Log::info('sendOfferTransaction');

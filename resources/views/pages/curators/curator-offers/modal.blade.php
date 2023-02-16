@@ -35,6 +35,25 @@
 </div>
 <!-- Permission Copy Right Modal -->
 
+
+<!-- Completed Modal -->
+<div id="completedMsgModalCenter" class="modal fade black-overlay" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Admin Message Completed Offer</h5>
+            </div>
+            <div class="modal-body">
+                <p id="msgCompletedCurator"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
+</div>
+<!-- Completed Modal -->
+
 <!-- Delete Campaign Modal -->
 <div id="delete-offer-template-modal" class="modal fade animate black-overlay" data-backdrop="false">
     <div class="row-col h-v">
@@ -73,6 +92,14 @@
             $('#msgOffer_D').html(msgOffer);
             $('#msgDeclineArtist').html(msg);
             $('#declineMsgModalCenter').modal('show');
+
+        }
+
+        function completedOfferMsgModal(id)
+        {
+            let msg = $('#mgAdmin'+id).html();
+            $('#msgCompletedCurator').html(msg);
+            $('#completedMsgModalCenter').modal('show');
 
         }
     </script>

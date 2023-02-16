@@ -114,6 +114,9 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
     // submit work offer
     Route::get('curator-submit-work', [SubmitWorkController::class,'submitWork'])->name('curator.submit.work');
     Route::get('curator-submit-work/{submitWork}', [SubmitWorkController::class,'detailSubmitWork'])->name('curator.submit.work.detail');
+    Route::post('curator-submit-work-approved-offer/{submitWork}', [SubmitWorkController::class,'storeApprovedSubmitWork'])->name('store.curator.approved.submitWork');
+    Route::post('curator-submit-work-reject/{submitWork}',[SubmitWorkController::class,'storeRejectSubmitWork'])->name('store.curator.submitWork.reject');
+    Route::post('artist-refund-wallet/{submitWork}',[SubmitWorkController::class,'artistRefundWaller'])->name('artist.refund.waller');
     // submit work offer
 });
 

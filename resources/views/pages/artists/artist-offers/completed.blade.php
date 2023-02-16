@@ -77,10 +77,40 @@
                                                     <span style="color:#02b875 !important">Approximate Publish Date: </span><span class="btn btn-xs white">{{($sendOffer->publish_date) ? \Carbon\Carbon::parse($sendOffer->publish_date)->format('M d Y') : ''}}</span>
                                                 </div>
                                             </div>
-                                            <div class="m-t-sm campaignBtn" style="display:flex">
-                                                <form id="form-offer{{$sendOffer->id}}" action="{{route('artist.offer.show',encrypt($sendOffer->id))}}">
-                                                    <a href="javascript:void(0)" class="btn btn-xs white" onclick="OfferShow({{$sendOffer->id}})" id="offerTemplateEdit">View Offer</a>
-                                                </form>
+                                            <div class="m-t-sm campaignBtn" id="cOfferBtn">
+                                                <div>
+                                                    <form id="form-offer{{$sendOffer->id}}" action="{{route('artist.offer.show',encrypt($sendOffer->id))}}">
+                                                        <a href="javascript:void(0)" class="btn btn-xs white" onclick="OfferShow({{$sendOffer->id}})" id="offerTemplateEdit">View Offer</a>
+                                                    </form>
+                                                </div>
+                                                @if(!empty($sendOffer) && $sendOffer->status == \App\Templates\IOfferTemplateStatus::COMPLETED
+                                                && !empty($sendOffer->sendOfferTransaction) && $sendOffer->sendOfferTransaction->status == \App\Templates\IOfferTemplateStatus::REFUND)
+                                                    <div>
+                                                        <span id="mgAdmin{{$sendOffer->id}}" style="display:none">{!! $sendOffer->sendOfferTransaction->refund_message !!}</span>
+                                                        <a href="javascript:void(0)" class="btn btn-xs white"  onclick="completedOfferMsgModal({{$sendOffer->id}})">
+                                                            Refund Offer Completed Message
+                                                        </a>
+                                                    </div>
+                                                @endif
+{{--                                                @if(!empty($sendOffer) && $sendOffer->status == \App\Templates\IOfferTemplateStatus::COMPLETED--}}
+{{--                                                && !empty($sendOffer->sendOfferTransaction) && $sendOffer->sendOfferTransaction->status == \App\Templates\IOfferTemplateStatus::PAID)--}}
+{{--                                                    <div>--}}
+{{--                                                        <span id="mgAdmin{{$sendOffer->id}}" style="display:none">{!! $sendOffer->message !!}</span>--}}
+{{--                                                        <a href="javascript:void(0)" class="btn btn-xs white"  onclick="completedOfferMsgModal({{$sendOffer->id}})">--}}
+{{--                                                            Offer Completed Message--}}
+{{--                                                        </a>--}}
+{{--                                                    </div>--}}
+{{--                                                @elseif(!empty($sendOffer) && $sendOffer->status == \App\Templates\IOfferTemplateStatus::COMPLETED--}}
+{{--                                                       && !empty($sendOffer->sendOfferTransaction) && $sendOffer->sendOfferTransaction->status == \App\Templates\IOfferTemplateStatus::REFUND)--}}
+{{--                                                    <div>--}}
+{{--                                                        <span id="mgAdmin{{$sendOffer->id}}" style="display:none">{!! $sendOffer->message !!}</span>--}}
+{{--                                                        <a href="javascript:void(0)" class="btn btn-xs white"  onclick="completedOfferMsgModal({{$sendOffer->id}})">--}}
+{{--                                                            Refund Offer Completed Message--}}
+{{--                                                        </a>--}}
+{{--                                                    </div>--}}
+{{--                                                @else--}}
+{{--                                                    --}}
+{{--                                                @endif--}}
                                             </div>
                                         </div>
                                     </div>
@@ -99,5 +129,33 @@
     </div>
 
     <!-- ############ PAGE END-->
+
+    <!-- Completed Modal -->
+    <div id="completedMsgModalCenter" class="modal fade black-overlay" data-backdrop="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Refund Message Completed Offer</h5>
+                </div>
+                <div class="modal-body">
+                    <p id="msgCompletedCurator"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div>
+    </div>
+    <!-- Completed Modal -->
 @endsection
 
+@section('page-script')
+    <script>
+        function completedOfferMsgModal(id)
+        {
+            let msg = $('#mgAdmin'+id).html();
+            $('#msgCompletedCurator').html(msg);
+            $('#completedMsgModalCenter').modal('show');
+        }
+    </script>
+@endsection

@@ -77,4 +77,12 @@ class SendOffer extends Model
     {
         return $this->hasOne(SubmitWork::class,'send_offer_id');
     }
+
+    /**
+     * @return HasOne
+     */
+    public function sendOfferTransaction(): HasOne
+    {
+        return $this->hasOne(SendOfferTransaction::class,'send_offer_id');
+    }
 }

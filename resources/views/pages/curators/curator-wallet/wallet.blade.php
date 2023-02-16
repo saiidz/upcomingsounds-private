@@ -78,7 +78,8 @@
                                         <span class="text">
                                             <div class="tw-relative">
                                                 <div class="tw-flex tw-items-center">
-                                                    <span class="amount">{{!empty(Auth::user()->TransactionUserInfo) ? number_format(Auth::user()->TransactionUserInfo->transactionHistory->sum('credits')) : 0}} UCS</span>
+                                                    <span class="amount">{{\App\Models\User::curatorBalance()}} USC</span>
+{{--                                                    <span class="amount">{{!empty(Auth::user()->TransactionUserInfo) ? number_format(Auth::user()->TransactionUserInfo->transactionHistory->sum('credits')) : 0}} UCS</span>--}}
                                                     <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
                                                 </div>
                                             </div>

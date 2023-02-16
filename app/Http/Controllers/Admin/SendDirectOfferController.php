@@ -131,4 +131,5 @@ class SendDirectOfferController extends Controller
         }
 
         return response()->json(['success' => 'Offer Reject successfully and send email to Curator and send to artist offer']);
-    }}
+    }
+}

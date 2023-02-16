@@ -293,8 +293,8 @@
     @include('welcome-panels.welcome-footer')
 @endsection
 
+
 @section('page-script')
-    <script src="https://js.stripe.com/v3/"></script>
     <script>
         $.ajaxSetup({
             headers: {
@@ -331,6 +331,51 @@
 
     </script>
 
+    @if(!empty($status) && $send_offer_id)
+        {{--    payment for offer send--}}
+        <script>
+            var preload = document.getElementById("loadings");
+            function loader(){
+                preload.style.display='none';
+            }
+            function showLoader(){
+                preload.style.display='block';
+            }
+
+            $('#payUSCOffer').click(function (event) {
+                event.preventDefault();
+                var send_offer_id = $('.UscOfferPay').attr('data-send-offer-id');
+                var contribution = $('.UscOfferPay').attr('data-contribution');
+                var url= "{{route('artist.offer.pay')}}";
+                showLoader();
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data:{
+                        "_token": "{{ csrf_token() }}",
+                        "send_offer_id": send_offer_id,
+                        "contribution": contribution,
+                    },
+                    success: function (data) {
+                        loader();
+                        if(data.success){
+                            toastr.success(data.success);
+                            window.location = '{{ URL::to('/accepted-offer') }}';
+                        }
+                        if (data.error_wallet) {
+                            toastr.error(data.error_wallet);
+                            window.open('{{ URL::to('/wallet') }}', '_blank');
+                        }
+                        if(data.error){
+                            toastr.error(data.error)
+                        }
+                    }
+                });
+            });
+        </script>
+        {{--    payment for offer send--}}
+    @else
+    <script src="https://js.stripe.com/v3/"></script>
     <script>
 
         $('#submit-paypal').click(function (){
@@ -447,46 +492,5 @@
         }
     </script>
     <script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_SANDBOX_CLIENT_ID') }}"></script>
-{{--    payment for offer send--}}
-    <script>
-        var preload = document.getElementById("loadings");
-        function loader(){
-            preload.style.display='none';
-        }
-        function showLoader(){
-            preload.style.display='block';
-        }
-
-        $('#payUSCOffer').click(function (event) {
-            event.preventDefault();
-            var send_offer_id = $('.UscOfferPay').attr('data-send-offer-id');
-            var contribution = $('.UscOfferPay').attr('data-contribution');
-            var url= "{{route('artist.offer.pay')}}";
-            showLoader();
-            $.ajax({
-                type: "POST",
-                url: url,
-                data:{
-                    "_token": "{{ csrf_token() }}",
-                    "send_offer_id": send_offer_id,
-                    "contribution": contribution,
-                },
-                success: function (data) {
-                    loader();
-                    if(data.success){
-                        toastr.success(data.success);
-                        window.location = '{{ URL::to('/accepted-offer') }}';
-                    }
-                    if (data.error_wallet) {
-                        toastr.error(data.error_wallet);
-                        window.open('{{ URL::to('/wallet') }}', '_blank');
-                    }
-                    if(data.error){
-                        toastr.error(data.error)
-                    }
-                }
-            });
-        });
-    </script>
-{{--    payment for offer send--}}
+    @endif
 @endsection
