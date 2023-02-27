@@ -313,6 +313,11 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $user = Auth::user();
         if(!empty($user))
-            return !empty($user->curatorSendOfferTransactions) ? $user->curatorSendOfferTransactions->sum('contribution') : 0;
+        {
+            $balance = !empty($user->curatorSendOfferTransactions) ? $user->curatorSendOfferTransactions->sum('contribution')
+                - (!empty($user->curatorSendOfferTransactions) ? $user->curatorSendOfferTransactions->sum('usc_fee_commission') : 0): 0;
+            return $balance;
+        }
+
     }
 }

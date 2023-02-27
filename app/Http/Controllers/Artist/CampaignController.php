@@ -30,7 +30,8 @@ class CampaignController extends Controller
     public function destroy(Campaign $campaign)
     {
         //campaign delete
-        $campaign->forceDelete();
+        $campaign->delete();
+//        $campaign->forceDelete();
         return response()->json([
             'success' => 'Campaign deleted! successfully',
         ]);

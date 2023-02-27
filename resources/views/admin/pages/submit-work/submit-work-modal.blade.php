@@ -46,7 +46,7 @@
 
 {{-- Refund Artost Modal  --}}
 <div id="refundArtistModal" class="modal">
-    <form class="new_basicform_reject_with_reload" action="{{ route('admin.artist.refund.waller', $submitWork->id) }}" id="rejectCuratorForm" method="post">
+    <form class="new_basicform_refund_artist_with_reload" action="{{ route('admin.artist.refund.waller', $submitWork->id) }}" id="rejectCuratorForm" method="post">
         @csrf
         <div class="modal-content">
             <div class="modal-header">
@@ -55,7 +55,7 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="message-text" class="col-form-label">Message:</label>
-                    <textarea class="form-control ckeditor" name="description_details" id="descriptionRejectDetails" required></textarea>
+                    <textarea class="form-control ckeditor" name="description_details" id="descriptionRefundArtistDetails" required></textarea>
                 </div>
             </div>
         </div>

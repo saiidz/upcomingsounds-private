@@ -140,7 +140,7 @@
                         $('#snackbar').addClass("show");
                         setTimeout(function () {
                             $('#snackbar').removeClass("show");
-
+                            location.reload();
                         }, 5000);
                     }
                 }

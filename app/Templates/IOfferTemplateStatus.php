@@ -19,4 +19,6 @@ interface IOfferTemplateStatus
     const PAID = 'PAID';
     const REFUND = 'REFUND';
 
+    const USC_FEE_COMMISSION_ADMIN = 2;
+
 }

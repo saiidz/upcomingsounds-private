@@ -15,6 +15,7 @@ class SendOfferTransaction extends Model
         'send_offer_id',
         'artist_id',
         'contribution',
+        'usc_fee_commission',
         'curator_id',
         'is_approved',
         'is_rejected',

@@ -351,11 +351,11 @@
                             <a href="javascript:void(0)" data-toggle="modal"
                                data-target="#freeAlternativeOffer"  class="btn btn-sm rounded add_track ">
                                 Choose Free Alternative</a>
-                            <a href="{{route('checkout.artist',['send_offer_id' => encrypt(!empty($send_offer) ? $send_offer->id : null), 'contribution' => encrypt(!empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->contribution : 0) , 'status' => true ])}}" class="btn btn-sm rounded add_track">
-                                Pay {{!empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->contribution : 0}} USC</a>
-{{--                            <a href="javascript:void(0)" class="btn btn-sm rounded add_track" data-toggle="modal"--}}
-{{--                               data-target="#confirmPayUSCModal">--}}
+{{--                            <a href="{{route('checkout.artist',['send_offer_id' => encrypt(!empty($send_offer) ? $send_offer->id : null), 'contribution' => encrypt(!empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->contribution : 0) , 'status' => true ])}}" class="btn btn-sm rounded add_track">--}}
 {{--                                Pay {{!empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->contribution : 0}} USC</a>--}}
+                            <a href="javascript:void(0)" class="btn btn-sm rounded add_track" data-toggle="modal"
+                               data-target="#confirmPayUSCModal">
+                                Pay {{!empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->contribution : 0}} USC</a>
                         </div>
                     @endif
 
