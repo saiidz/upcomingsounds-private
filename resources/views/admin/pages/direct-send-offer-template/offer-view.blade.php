@@ -48,13 +48,13 @@
                             <div class="row">
                                 <div class="col s12 quick-action-btns display-flex justify-content-end align-items-center pt-2">
                                     @if ($offer_template->is_approved == 0)
-                                        <a href="#approvedModal" data-id={{ $offer_template->id }} class="btn-small btn-light-indigo dropdown-item has-icon modal-trigger approvedCurator-confirm">
+                                        <a href="#approvedModal" data-id="{{ $offer_template->id }}" class="btn-small btn-light-indigo dropdown-item has-icon modal-trigger approvedCurator-confirm">
                                             Approve
                                         </a>
                                     @endif
 
                                     @if ($offer_template->is_approved == 0 && $offer_template->is_rejected == 0)
-                                        <a href="#rejectModal" data-id={{ $offer_template->id }} class="btn-small btn-light-red dropdown-item has-icon modal-trigger reject-curator-confirm">
+                                        <a href="#rejectModal" data-id="{{ $offer_template->id }}" class="btn-small btn-light-red dropdown-item has-icon modal-trigger reject-curator-confirm">
                                             Reject
                                         </a>
                                     @endif
