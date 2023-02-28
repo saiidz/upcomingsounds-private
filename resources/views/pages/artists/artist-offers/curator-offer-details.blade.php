@@ -343,6 +343,53 @@
                                 <h4 style="color:#02b875 !important; text-align:center">This offer is completed.</h4>
                             </div>
                         </div>
+                        @if(!empty($send_offer->submitWork))
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="padding p-y-0 m-b-md m-t-3">
+                                        <div class="page-title m-b">
+                                            <h4 class="inline m-a-0 update_profile">Submit Work Link</h4>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-12 form-control-label">
+                                                @if(!empty($send_offer->submitWork->submitWorkLinks))
+                                                    @foreach($send_offer->submitWork->submitWorkLinks as $link)
+                                                        <a href="{{$link->link}}" target="_blank" style="float:left !important;"
+                                                           class="btn btn-sm rounded add_track">
+                                                            View Completed Work</a>
+                                                    @endforeach
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="padding p-y-0 m-b-md m-t-3">
+                                        <div class="page-title m-b">
+                                            <h4 class="inline m-a-0 update_profile">Submit Work Images</h4>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-12 form-control-label">
+                                                @if(!empty($send_offer->submitWork->submitWorkImages))
+                                                    @foreach($send_offer->submitWork->submitWorkImages as $image)
+                                                        <div class="" id="">
+                                                            <a href="{{asset('uploads/submit_work_images')}}/{{$image->path}}" target="_blank" style="float:left !important;"
+                                                               class="btn btn-sm">
+                                                                <img src="{{asset('uploads/submit_work_images')}}/{{$image->path}}" alt="" style="height: 50px;">
+                                                            </a>
+                                                        </div>
+                                                    @endforeach
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+
                     @else
                         <div class="" id="curatorOfferBtn">
                             <a href="javascript:void(0)" data-toggle="modal"
