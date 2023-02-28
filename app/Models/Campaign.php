@@ -29,6 +29,7 @@ class Campaign extends Model
         'artist_name',
         'track_thumbnail',
         'audio',
+        'link',
         'deleted_at',
     ];
 

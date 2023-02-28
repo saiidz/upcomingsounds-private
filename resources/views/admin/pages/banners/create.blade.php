@@ -75,9 +75,13 @@
                                             <audio controls="" src="{{ asset(!empty($banner->audio) ? 'uploads/audio/'.$banner->audio : '') }}" type="audio/mp3" controlslist="nodownload" id="audioTrackPreview"></audio>
                                         </div>
                                     </div>
-                                    <div class="input-field col s12">
+                                    <div class="input-field col s6">
                                         {!! Form::text('track_name',$banner->track_name ?? null,['placeholder'=>'Classic','class'=>"validate", 'id' => 'artist_name', 'required'=>false]) !!}
                                         <label for="track_name">Track Name</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        {!! Form::url('link',$banner->link ?? null,['placeholder'=>'link','class'=>"validate", 'id' => 'link', 'required'=>false]) !!}
+                                        <label for="link">Url Link(https only link allow)</label>
                                     </div>
                                     <div class="input-field col s12">
                                         {!! Form::textarea('track_description',$banner->track_description ?? null,['class'=>"materialize-textarea", 'required'=>false]) !!}
