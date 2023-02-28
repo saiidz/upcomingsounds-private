@@ -169,6 +169,8 @@ return [
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
         Srmklive\PayPal\Providers\PayPalServiceProvider::class,
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
+        Buglinjo\LaravelWebp\WebpServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -235,7 +237,8 @@ return [
         'ReCaptcha' => Biscolab\ReCaptcha\Facades\ReCaptcha::class,
         'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
         'PayPal' => Srmklive\PayPal\Facades\PayPal::class,
-        'Image' => Intervention\Image\Facades\Image::class
+        'Image' => Intervention\Image\Facades\Image::class,
+        'Webp' => Buglinjo\LaravelWebp\Facades\Webp::class,
     ],
 
 ];
