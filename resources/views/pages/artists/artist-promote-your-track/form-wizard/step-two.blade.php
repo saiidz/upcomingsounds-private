@@ -82,15 +82,29 @@
                 <div class="item r" id="budgetMindNot" data-id="item-5">
                     <div class="item-info">
                         <div class="item-title bottom text-right">
-                            <input type="checkbox" class="budgetNot budget_mind" name="budget_not" value="not" />
+                            <input type="checkbox" class="budgetYes budget_mind" name="pay_now" value="yes" />
                         </div>
-                        <div class="item-title text-ellipsis">
-                            <div>No, I don't have a specific budget in mind</div>
+                        <div id="rocket">
+                            <img src="{{asset('images/three_man.png')}}" alt="">
                         </div>
-                        <div class="item-author text-sm text-ellipsis ">
-                            <div class="text-muted">I'll see where the wind takes me</div>
+                        <div>
+                            <div class="item-title text-ellipsis center" style="top: 10%;">
+                                <div>Choose verified content creator / curator</div>
+                                <div class="item-author text-sm text-ellipsis text-muted">Your choice of this option may result in a much higher cost than an automated campaign</div>
+                            </div>
                         </div>
                     </div>
+{{--                    <div class="item-info">--}}
+{{--                        <div class="item-title bottom text-right">--}}
+{{--                            <input type="checkbox" class="budgetNot budget_mind" name="budget_not" value="not" />--}}
+{{--                        </div>--}}
+{{--                        <div class="item-title text-ellipsis">--}}
+{{--                            <div>No, I don't have a specific budget in mind</div>--}}
+{{--                        </div>--}}
+{{--                        <div class="item-author text-sm text-ellipsis ">--}}
+{{--                            <div class="text-muted">I'll see where the wind takes me</div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                 </div>
             </div>
         </div>
