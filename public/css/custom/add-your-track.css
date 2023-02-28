@@ -664,6 +664,11 @@ body{
         padding: 0.5rem 0.5rem !important;
         justify-content: space-between !important;
     }
+    .item .center {
+        position: revert;
+        margin-top: 0;
+        margin-left: 0;
+    }
 }
 
 /*
@@ -692,4 +697,20 @@ body{
         padding: 0.5rem 0.5rem !important;
         justify-content: space-between !important;
     }
-}
+    .item .center {
+        position: revert;
+        margin-top: 0;
+        margin-left: 0;
+    }
+    .buttons {
+        display: inline-grid;
+    }
+    .nxt__btn {
+        width: auto !important;
+    }
+    .prev__btn {
+        width: auto !important;
+    }
+
+
+    }
