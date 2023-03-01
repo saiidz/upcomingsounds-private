@@ -132,6 +132,10 @@ header nav ul li a:hover {
     opacity: 0;
     visibility: hidden;
 }
+.slick-slide .iframe-entity {
+    width: 100%;
+    height:100%;
+}
 .slick-slide .loading {
     position: absolute;
     top: 44%;
