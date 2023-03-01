@@ -111,7 +111,7 @@ header nav ul li a:hover {
 }
 .slick-slide iframe {
     position: relative;
-    pointer-events: none;
+    /*pointer-events: none;*/
 }
 .slick-slide figure {
     position: relative;
@@ -119,6 +119,13 @@ header nav ul li a:hover {
 }
 .slick-slide .slide-image {
     opacity: 0;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.8s ease;
+}
+.slick-slide .iframe {
+    opacity: 1;
     height: 100%;
     background-size: cover;
     background-position: center;

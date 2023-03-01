@@ -109,7 +109,7 @@
                                                 $videoCode = explode('v=',$premium_campaign->link);
                                             @endphp
 
-                                            <div class="slide-image slide-media" >
+                                            <div class="slide-iframe slide-media" >
                                                 <iframe class="iframe-entity" width="560" height="315"  src="https://www.youtube-nocookie.com/embed/{{$videoCode[1]}}?autoplay=1&controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                             </div>
                                         @else
