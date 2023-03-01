@@ -110,7 +110,7 @@ header nav ul li a:hover {
     transform: translate(-50%, -50%);
 }
 .slick-slide iframe {
-    position: relative;
+    /*position: relative;*/
     /*pointer-events: none;*/
 }
 .slick-slide figure {
