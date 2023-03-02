@@ -209,7 +209,7 @@
                                         @endif
                                     </div>
                                 {{--View Submission  --}}
-                                    <a href="javascript:void(0)" onclick="openNav({{!empty($send_offer->campaign) ? $send_offer->campaign->id : null}})"
+                                    <a href="javascript:void(0)" onclick="openNav({{!empty($send_offer->campaign) ? $send_offer->campaign->id : null}},'{{ \App\Templates\IMessageTemplates::VIEW_SUBMISSION }}')"
                                        class="btn btn-sm rounded proposition basicbtn">
                                         View Submission</a>
                                 {{--View Submission  --}}
@@ -448,6 +448,27 @@
                                 </div>
                             </div>
                         @endif
+
+
+                        @if(!empty($send_offer->campaign))
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="padding p-y-0 m-b-md m-t-3">
+                                        <div class="page-title m-b">
+                                            <h4 class="inline m-a-0 update_profile">Make Another Offer</h4>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-12 form-control-label">
+                                                <a href="javascript:void(0)" class="btn btn-sm rounded add_track" style="float:left !important;" onclick="openNav({{$send_offer->campaign->id}},'{{ \App\Templates\IMessageTemplates::MAKE_ANOTHER_OFFER}}')">
+                                                    Make Another Offer
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+
                     @else
 
                     @endif
@@ -493,7 +514,7 @@
         }
     </script>
     <script>
-        function openNav(campaign_id) {
+        function openNav(campaign_id, request) {
             showLoader();
             //send ajax
             $.ajax({
@@ -504,13 +525,32 @@
                 success: function (data) {
                     loader();
                     if (data.success) {
-                        $('#campaignAddRemove').empty();
-                        $('#campaignAddRemove').html(data.campaign);
-                        $('#campaign_ID').val(data.campaign_id);
-                        $('.campaignBtn').remove();
-                        $('#mySidebarCollapsed').addClass('mySidebarCollapsed');
-                        // document.getElementById("mySidebarCollapsed").style.width = "490px";
-                        document.getElementById("app-body").style.marginLeft = "490px";
+                        // view submission
+                        if(request === "view_submission")
+                        {
+                            $('#campaignAddRemove').empty();
+                            $('#campaignAddRemove').html(data.campaign);
+                            $('#campaign_ID').val(data.campaign_id);
+                            $('.campaignBtn').remove();
+                            $('#mySidebarCollapsed').addClass('mySidebarCollapsed');
+                            // document.getElementById("mySidebarCollapsed").style.width = "490px";
+                            document.getElementById("app-body").style.marginLeft = "490px";
+                        }
+                        // make another offer
+                        if(request === "make_another_offer")
+                        {
+                            $('#campaignAddRemove').empty();
+                            $('#campaignAddRemove').html(data.campaign);
+                            $('#campaign_ID').val(data.campaign_id);
+                            $('#mySidebarCollapsedShowHide').remove();
+                            $('#backToOverview').css('display','none');
+                            $('#templateCollapsedShowHide').css('display','block');
+
+                            $('#mySidebarCollapsed').addClass('mySidebarCollapsed');
+                            // document.getElementById("mySidebarCollapsed").style.width = "490px";
+                            document.getElementById("app-body").style.marginLeft = "490px";
+                        }
+
                     }
                     if (data.error) {
                         toastr.error(data.error);

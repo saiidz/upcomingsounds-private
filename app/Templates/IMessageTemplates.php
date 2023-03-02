@@ -38,7 +38,8 @@ use Illuminate\Support\Facades\Auth;
     const OFFER_SUCCESS = "Offer Template Created Successfully";
     const OFFER_DIRECT_SUCCESS = "Offer Created Successfully and send to admin for approval. Admin will contact you soon. Admin will send to artist if approved.";
     const OFFER_UPDATED_SUCCESS = "Offer Template Updated Successfully";
-
+    const VIEW_SUBMISSION = "view_submission";
+    const MAKE_ANOTHER_OFFER = "make_another_offer";
     const PROMOTE_ADD_TRACK = "Your music has been submitted to Upcomingsounds. Thank you
 
                                 After that, what happens?

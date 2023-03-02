@@ -5,7 +5,7 @@
             <div class="modal-header">
                 <h5 class="modal-title">Decline Offer send To {{!empty($send_offer->userCurator) ? $send_offer->userCurator->name : ''}}</h5>
             </div>
-            <form class="new_basicform_approved_with_reload" action="{{route('artist.offer.decline',)}}" method="post">
+            <form class="new_basicform_declined_send_offer_with_reload" action="{{route('artist.offer.decline',)}}" method="post">
                 @csrf
                 <input type="hidden" name="send_offer_id" class="sendOfferID" value="{{!empty($send_offer) ? encrypt($send_offer->id) : ''}}">
                 <div class="modal-content">
@@ -49,7 +49,7 @@
                             <div class="page-title m-b">
                                 <h6 class="inline m-a-0">{{\App\Templates\IMessageTemplates::DECLINE_MESSAGE}}</h6>
                             </div>
-                            <textarea class="form-control ckeditor" name="description_details" id="descriptionApprovedDetails" required></textarea>
+                            <textarea class="form-control ckeditor" name="description_details" id="descriptionDeclinedSendOfferDetails" required></textarea>
                         </div>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
             <div class="modal-header">
                 <h5 class="modal-title">Choose Free Alternative</h5>
             </div>
-            <form class="new_basicform_approved_with_reload" action="{{route('artist.offer.free.alternative',)}}" method="post">
+            <form class="new_basicform_alternative_send_offer_with_reload" action="{{route('artist.offer.free.alternative',)}}" method="post">
                 @csrf
                 <input type="hidden" name="send_offer_id" class="sendOfferID" value="{{!empty($send_offer) ? encrypt($send_offer->id) : ''}}">
                 <div class="modal-content">
@@ -114,7 +114,7 @@
                             <div class="page-title m-b">
                                 <h6 class="inline m-a-0">{{\App\Templates\IMessageTemplates::DECLINE_MESSAGE}}</h6>
                             </div>
-                            <textarea class="form-control ckeditor" name="description_details" id="descriptionApprovedDetails" required></textarea>
+                            <textarea class="form-control ckeditor" name="description_details" id="descriptionAlternativeSendOfferDetails" required></textarea>
                         </div>
                     </div>
                 </div>

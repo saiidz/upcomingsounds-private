@@ -338,7 +338,7 @@
                                         Submit Coverage</a>
                                 </div>
                                 <div class="campaignBtn" style="margin-top: 115px; !important;">
-                                    <a href="javascript:void(0)" onclick="backToShowHide('overview')" class="btn btn-sm rounded campaign_btn ">
+                                    <a href="javascript:void(0)" id="backToOverview" onclick="backToShowHide('overview')" class="btn btn-sm rounded campaign_btn ">
                                         Back to Overview</a>
                                 </div>
                             </div>

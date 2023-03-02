@@ -145,7 +145,7 @@
         formData.append('description_details',ContentFromEditor);
 
         var basicbtnhtml=$('.basicbtn').html();
-        // showLoader();
+        showLoader();
         $.ajax({
             type: 'POST',
             url: this.action,
