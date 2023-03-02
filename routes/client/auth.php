@@ -87,6 +87,11 @@ Route::get('curator-offer/{send_offer}', [OfferController::class,'offerShow'])->
 // offer decline route
 Route::post('offer-decline', [OfferController::class,'declineOffer'])->name('artist.offer.decline');
 // offer decline route
+
+// offer decline route
+Route::post('offer-free-alternative', [OfferController::class,'freeAlternativeOffer'])->name('artist.offer.free.alternative');
+// offer decline route
+
 //
 /// // offer pay usc route
 Route::post('offer-pay', [OfferController::class,'payUSCeOffer'])->name('artist.offer.pay');

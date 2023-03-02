@@ -75,6 +75,7 @@ class OfferController extends Controller
      */
     public function alternative()
     {
+        $sendOffers = $this->sendOffer->where(['artist_id' => Auth::id(), 'status' => IOfferTemplateStatus::ALTERNATIVE, 'is_approved' => self::APPROVED])->latest()->get();
         return view('pages.artists.artist-offers.alternative', get_defined_vars());
     }
 
@@ -148,6 +149,50 @@ class OfferController extends Controller
             $data['email'] = $sendOffer->userCurator->email;
             $data['username'] = $sendOffer->userCurator->name;
             $data["title"] = "Decline Offer Upcoming Sounds";
+            $data['rejectMessage'] = $request->description_details ?? null;
+
+            try {
+                Mail::send('admin.emails.curator_email.send_reject_email_to_curator', $data, function($message)use($data) {
+                    $message->from('no_reply@upcomingsounds.com');
+                    $message->to($data["email"], $data["email"])
+                        ->subject($data["title"]);
+                });
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+
+        }
+        return response()->json(['success' => 'Email and notify send successfully to taste maker']);
+    }
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function freeAlternativeOffer(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'offer_check' => "required",
+            'description_details' => "required",
+        ]);
+
+        if ($validator->fails())
+        {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
+        $sendOffer = SendOffer::where('id', decrypt($request->send_offer_id))->first();
+
+        if(!empty($sendOffer))
+        {
+            $sendOffer->update([
+                'status'      => IOfferTemplateStatus::ALTERNATIVE,
+                'message'     => $request->description_details ?? null,
+                'offer_check' => $request->offer_check ?? null,
+            ]);
+
+            $data['email'] = $sendOffer->userCurator->email;
+            $data['username'] = $sendOffer->userCurator->name;
+            $data["title"] = "Free Alternative Offer Upcoming Sounds";
             $data['rejectMessage'] = $request->description_details ?? null;
 
             try {

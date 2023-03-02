@@ -16,7 +16,7 @@
 </div>
 <!-- Permission Copy Right Modal -->
 
-<!-- Permission Copy Right Modal -->
+<!-- Decline Right Modal -->
 <div id="declineMsgModalCenter" class="modal fade black-overlay" data-backdrop="false">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -33,7 +33,26 @@
         </div><!-- /.modal-content -->
     </div>
 </div>
-<!-- Permission Copy Right Modal -->
+<!-- Decline Modal -->
+
+<!-- Free Alternative Modal -->
+<div id="freeAlternativeMsgModalCenter" class="modal fade black-overlay" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Artist Message Decline Offer</h5>
+            </div>
+            <div class="modal-body">
+                <p id="msgAlternativeOffer_D"></p>
+                <p id="msgFreeAlternativeArtist"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
+</div>
+<!-- Free Alternative Modal -->
 
 
 <!-- Completed Modal -->
@@ -92,6 +111,16 @@
             $('#msgOffer_D').html(msgOffer);
             $('#msgDeclineArtist').html(msg);
             $('#declineMsgModalCenter').modal('show');
+
+        }
+
+        function FreeAlternativeOfferMsgModal(id)
+        {
+            let msg = $('#mgAdmin'+id).html();
+            let msgOffer = $('#mgFreeAlternativeOffer'+id).html();
+            $('#msgAlternativeOffer_D').html(msgOffer);
+            $('#msgFreeAlternativeArtist').html(msg);
+            $('#freeAlternativeMsgModalCenter').modal('show');
 
         }
 

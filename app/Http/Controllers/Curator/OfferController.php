@@ -79,6 +79,7 @@ class OfferController extends Controller
      */
     public function alternative()
     {
+        $sendOffers = $this->sendOffer->where(['curator_id' => Auth::id(), 'status' => IOfferTemplateStatus::ALTERNATIVE,'is_approved' => self::APPROVED])->latest()->get();
         return view('pages.curators.curator-offers.alternative', get_defined_vars());
     }
 

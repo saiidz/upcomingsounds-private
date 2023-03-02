@@ -70,7 +70,7 @@
             <div class="modal-header">
                 <h5 class="modal-title">Choose Free Alternative</h5>
             </div>
-            <form class="new_basicform_approved_with_reload" action="" method="post">
+            <form class="new_basicform_approved_with_reload" action="{{route('artist.offer.free.alternative',)}}" method="post">
                 @csrf
                 <input type="hidden" name="send_offer_id" class="sendOfferID" value="{{!empty($send_offer) ? encrypt($send_offer->id) : ''}}">
                 <div class="modal-content">
@@ -114,7 +114,7 @@
                             <div class="page-title m-b">
                                 <h6 class="inline m-a-0">{{\App\Templates\IMessageTemplates::DECLINE_MESSAGE}}</h6>
                             </div>
-                            <textarea class="form-control " name="" id="descriptionApprovedDetails" required></textarea>
+                            <textarea class="form-control ckeditor" name="description_details" id="descriptionApprovedDetails" required></textarea>
                         </div>
                     </div>
                 </div>
