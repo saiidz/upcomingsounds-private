@@ -2,7 +2,7 @@
     <div class="padding" style="bottom: 60px;" data-ui-jp="stick_in_parent">
         <div class="row item-list item-list-sm m-b">
             <div class="col-xs-12">
-                @if(!empty($send_offer->sendOfferTransaction) && $send_offer->status == \App\Templates\IOfferTemplateStatus::COMPLETED && $send_offer->sendOfferTransaction->status == \App\Templates\IOfferTemplateStatus::PAID)
+                @if(!empty($send_offer->sendOfferTransaction) && $send_offer->status == \App\Templates\IOfferTemplateStatus::COMPLETED || $send_offer->status == \App\Templates\IOfferTemplateStatus::ACCEPTED && $send_offer->sendOfferTransaction->status == \App\Templates\IOfferTemplateStatus::PAID)
                     <div class="bgGradient">
                         <h6 class="text text-muted">Artist Completed Payment</h6>
                         <h6 class="text text-muted">{{getDateFormat($send_offer->sendOfferTransaction->created_at)}}</h6>
