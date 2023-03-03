@@ -6,6 +6,7 @@
 @section('page-style')
     <link rel="stylesheet" href="{{ asset('css/curator-dashboard.css') }}">
     <link rel="stylesheet" href="{{asset('css/custom/custom.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{asset('css/custom/chat.css')}}" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
@@ -57,7 +58,7 @@
 
     <div class="page-content">
         <div class="row-col">
-            <div class="col-lg-9 b-r no-border-md">
+            <div class="col-lg-7 b-r no-border-md">
                 <div class="padding">
                     <div class="page-title m-b proposition_header">
                         <h1 class="inline m-a-0">Send Offer Details</h1>
@@ -329,6 +330,47 @@
                         </div>
                     </div>
 
+                    @if(!empty($send_offer->artistTrack->track_thumbnail))
+                        <div class="padding p-y-0 m-b-md m-t-3">
+                            <div class="page-title m-b">
+                                <h4 class="inline m-a-0 update_profile">Artist Track Thumbnail</h4>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12 form-control-label">
+                                    <a href="{{URL('/')}}/uploads/track_thumbnail/{{$send_offer->artistTrack->track_thumbnail}}" target="_blank" style="float:left !important;">
+                                        <img src="{{URL('/')}}/uploads/track_thumbnail/{{$send_offer->artistTrack->track_thumbnail}}" style="height: 255px;width: 380px">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+
+                    @if(!empty($send_offer->artistTrack->artistTrackImages) && (count($send_offer->artistTrack->artistTrackImages) > 0))
+                        <div class="padding p-y-0 m-b-md m-t-3">
+                            <div class="page-title m-b">
+                                <h4 class="inline m-a-0 update_profile">Artist Track Document</h4>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12 form-control-label">
+                                    @foreach($send_offer->artistTrack->artistTrackImages as $path)
+                                        @if(!empty($path->type == 'pdf'))
+                                            <div class="col-lg-4" style="display:inline-block">
+                                                <iframe width=100% height="255" src="{{URL('/')}}/uploads/track_images/{{$path->path}}" allow=accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture allowfullscreen></iframe>
+                                            </div>
+                                        @else
+                                            <div class="col-lg-4" style="display:inline-block">
+                                                <a href="{{URL('/')}}/uploads/track_images/{{$path->path}}" target="_blank" style="float:left !important;">
+                                                    <img src="{{URL('/')}}/uploads/track_images/{{$path->path}}" alt="{{$path->type}}" style="height: 255px;width: 100%;">
+                                                </a>
+
+                                            </div>
+                                        @endif
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+
                     <div class="padding p-y-0 m-b-md m-t-3">
                         <div class="page-title m-b">
                             <h4 class="inline m-a-0 update_profile">Offer Description</h4>
@@ -407,7 +449,7 @@
                                 <div class="col-sm-12">
                                     <div class="padding p-y-0 m-b-md m-t-3">
                                         <div class="page-title m-b">
-                                            <h4 class="inline m-a-0 update_profile">Submit Work Link</h4>
+                                            <h4 class="inline m-a-0 update_profile">View Submit Work</h4>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-12 form-control-label">
@@ -418,6 +460,11 @@
                                                             View Completed Work</a>
                                                     @endforeach
                                                 @endif
+                                                @if(!empty($send_offer->campaign))
+                                                    <a href="javascript:void(0)" class="btn btn-sm rounded add_track" style="float:left !important;" onclick="openNav({{$send_offer->campaign->id}},'{{ \App\Templates\IMessageTemplates::MAKE_ANOTHER_OFFER}}')">
+                                                        Make Another Offer
+                                                    </a>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -427,9 +474,6 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="padding p-y-0 m-b-md m-t-3">
-                                        <div class="page-title m-b">
-                                            <h4 class="inline m-a-0 update_profile">Submit Work Images</h4>
-                                        </div>
                                         <div class="form-group row">
                                             <div class="col-sm-12 form-control-label">
                                                 @if(!empty($send_offer->submitWork->submitWorkImages))
@@ -450,31 +494,31 @@
                         @endif
 
 
-                        @if(!empty($send_offer->campaign))
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="padding p-y-0 m-b-md m-t-3">
-                                        <div class="page-title m-b">
-                                            <h4 class="inline m-a-0 update_profile">Make Another Offer</h4>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-12 form-control-label">
-                                                <a href="javascript:void(0)" class="btn btn-sm rounded add_track" style="float:left !important;" onclick="openNav({{$send_offer->campaign->id}},'{{ \App\Templates\IMessageTemplates::MAKE_ANOTHER_OFFER}}')">
-                                                    Make Another Offer
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
+{{--                        @if(!empty($send_offer->campaign))--}}
+{{--                            <div class="row">--}}
+{{--                                <div class="col-sm-12">--}}
+{{--                                    <div class="padding p-y-0 m-b-md m-t-3">--}}
+{{--                                        <div class="page-title m-b">--}}
+{{--                                            <h4 class="inline m-a-0 update_profile">Make Another Offer</h4>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="form-group row">--}}
+{{--                                            <div class="col-sm-12 form-control-label">--}}
+{{--                                                <a href="javascript:void(0)" class="btn btn-sm rounded add_track" style="float:left !important;" onclick="openNav({{$send_offer->campaign->id}},'{{ \App\Templates\IMessageTemplates::MAKE_ANOTHER_OFFER}}')">--}}
+{{--                                                    Make Another Offer--}}
+{{--                                                </a>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        @endif--}}
 
                     @else
 
                     @endif
                 </div>
             </div>
-            @include('pages.curators.panels.right-sidebar')
+            @include('pages.chat.right-sidebar-chat')
         </div>
     </div>
 
@@ -484,6 +528,14 @@
 
 
 @section('page-script')
+    <script>
+        $('.chat-input input').keyup(function(e) {
+            if ($(this).val() == '')
+                $(this).removeAttr('good');
+            else
+                $(this).attr('good', '');
+        });
+    </script>
     <script>
         var track_des = {!! !empty($send_offer->artistTrack->description) ? json_encode($send_offer->artistTrack->description) : null !!};
         if(track_des)

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class SendOfferTransaction extends Model
@@ -23,4 +24,12 @@ class SendOfferTransaction extends Model
         'refund_message',
         'deleted_at',
     ];
+
+    /**
+     * @return BelongsTo
+     */
+    public function userArtist(): BelongsTo
+    {
+        return $this->belongsTo(User::class,'artist_id');
+    }
 }
