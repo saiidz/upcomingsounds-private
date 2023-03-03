@@ -418,6 +418,11 @@
                                 <div
                                     class="col-sm-12 form-control-label text-muted" style="color:#ED4F32 !important;">{!! !empty($send_offer->message) ? $send_offer->message : '----' !!}</div>
                             </div>
+                            <div class="" id="curatorOfferBtn">
+                                <a href="javascript:void(0)" data-toggle="modal"
+                                   data-target="#completeWorkAlternativeOffer" class="btn btn-sm rounded add_track">
+                                    Complete Work</a>
+                            </div>
                         </div>
                     @elseif(!empty($send_offer) && $send_offer->status == \App\Templates\IOfferTemplateStatus::ACCEPTED)
                         @if(!empty($send_offer->submitWork))

@@ -6,14 +6,20 @@ use App\Http\Controllers\Controller;
 use App\Models\Curator\SubmitWork;
 use App\Models\Curator\SubmitWorkImage;
 use App\Models\Curator\SubmitWorkLink;
+use App\Models\SendOffer;
 use App\Templates\IOfferTemplateStatus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class SubmitWorkController extends Controller
 {
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function submitWork(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -80,5 +86,31 @@ class SubmitWorkController extends Controller
         }
 
         return response()->json(['success' => 'Submit Work created successfully. Please wait for approval from admin side.']);
+    }
+
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function completeAlternativeWork(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'send_offer_id' => 'required',
+        ]);
+
+        if ($validator->fails())
+        {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
+
+        $sendOffer = SendOffer::where('id', decrypt($request->send_offer_id))->first();
+        if(!empty($sendOffer))
+        {
+            $sendOffer->update([
+                'status'      => IOfferTemplateStatus::COMPLETED,
+            ]);
+        }
+        return response()->json(['success' => 'Offer is completed']);
     }
 }

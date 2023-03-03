@@ -89,6 +89,10 @@ Route::post('submit-work', [SubmitWorkController::class,'submitWork'])->name('cu
 Route::get('saved-artists', [SavedArtistController::class,'savedArtist'])->name('curator.saved.artists');
 // saved artist routes
 
+// complete alternative work offer
+Route::post('complete-alternative-work', [SubmitWorkController::class,'completeAlternativeWork'])->name('curator.complete.alternative.work');
+// complete alternative work offer
+
 // send offer to artist route
 Route::post('send-offer', [SendOfferController::class, 'sendOffer'])->name('curator.send.offer');
 Route::get('send-offer/{send_offer}', [SendOfferController::class,'sendOfferShow'])->name('curator.send.offer.show');

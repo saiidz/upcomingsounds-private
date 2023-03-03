@@ -1,4 +1,4 @@
-<!-- Offer Decline Modal -->
+<!-- submitWorkOffer Modal -->
 <div id="submitWorkOffer" class="modal fade black-overlay" data-backdrop="false">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -64,4 +64,33 @@
         </div><!-- /.modal-content -->
     </div>
 </div>
-<!-- Offer Decline Modal -->
+<!-- submitWorkOffer Modal -->
+
+<!-- Complete Work Modal -->
+<div id="completeWorkAlternativeOffer" class="modal fade black-overlay" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Free Alternative Offer</h5>
+            </div>
+            <form class="basicform_with_reload" enctype="multipart/form-data" action="{{route('curator.complete.alternative.work')}}" method="post">
+                @csrf
+                <input type="hidden" name="send_offer_id" class="sendOfferID" value="{{!empty($send_offer) ? encrypt($send_offer->id) : ''}}">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="page-title m-b">
+                                <h6 class="inline m-a-0">Once you've completed your work. Please submit complete work.</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-sm rounded add_track">Submit</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div>
+</div>
+<!-- Complete Work Modal -->
