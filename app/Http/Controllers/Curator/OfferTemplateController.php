@@ -150,6 +150,7 @@ class OfferTemplateController extends Controller
         $input['user_id'] = Auth::id();
         $input['type'] = IOfferTemplateStatus::TYPE_OFFER;
         $input['offer_text'] = $request->description_details ?? null;
+        $input['is_approved'] = 0;
         $offer_template->update($input);
         return response()->json(['success' => IMessageTemplates::OFFER_UPDATED_SUCCESS]);
     }
