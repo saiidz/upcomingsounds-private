@@ -352,6 +352,12 @@
                                 <h4 style="color:#02b875 !important; text-align:center">This Offer has been Accepted.</h4>
                             </div>
                         </div>
+                    @elseif(!empty($send_offer) && $send_offer->status == \App\Templates\IOfferTemplateStatus::EXPIRED)
+                        <div class="row">
+                            <div class="col-sm-12 text-muted">
+                                <h4 style="color:#ED4F32 !important; text-align:center">This offer is Expired.</h4>
+                            </div>
+                        </div>
                     @elseif(!empty($send_offer) && $send_offer->status == \App\Templates\IOfferTemplateStatus::COMPLETED)
                         <div class="row">
                             <div class="col-sm-12 text-muted">
