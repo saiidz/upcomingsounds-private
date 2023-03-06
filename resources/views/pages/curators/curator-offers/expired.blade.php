@@ -37,7 +37,7 @@
                                                 @if($sendOffer->status == \App\Templates\IOfferTemplateStatus::PENDING)
                                                     <span style="color:#02b875 !important">Offer Status: </span> <span class="text-danger">{{$sendOffer->status}}</span>
                                                 @else
-                                                    <span style="color:#02b875 !important">Offer Status: </span> <span class="text-primary">{{$sendOffer->status}}</span>
+                                                    <span style="color:#02b875 !important">Offer Status: </span> <span class="text-danger">{{$sendOffer->status}}</span>
                                                 @endif
                                             </div>
                                             <div class="item-title text-ellipsis">

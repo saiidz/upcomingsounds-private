@@ -12,6 +12,11 @@
                             </div>
                         </div>
                     </div>
+                @else
+                    <div class="bgGradient">
+                        <h6 class="text text-muted">Completed Date</h6>
+                        <h6 class="text text-muted">{{getDateFormat($send_offer->expiry_date)}}</h6>
+                    </div>
                 @endif
             </div>
         </div>

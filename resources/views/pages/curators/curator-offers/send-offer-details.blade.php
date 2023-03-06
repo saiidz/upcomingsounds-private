@@ -245,6 +245,8 @@
                                         <span class="text-danger">{{$send_offer->status}}</span>
                                     @elseif($send_offer->status == \App\Templates\IOfferTemplateStatus::REJECTED)
                                         <span class="text-danger">{{$send_offer->status}}</span>
+                                    @elseif($send_offer->status == \App\Templates\IOfferTemplateStatus::EXPIRED)
+                                        <span class="text-danger">{{$send_offer->status}}</span>
                                     @else
                                         <span class="text-primary">{{$send_offer->status}}</span>
                                     @endif
@@ -517,13 +519,22 @@
 {{--                                </div>--}}
 {{--                            </div>--}}
 {{--                        @endif--}}
-
+                    @elseif(!empty($send_offer) && $send_offer->status == \App\Templates\IOfferTemplateStatus::EXPIRED)
+                        <div class="row">
+                            <div class="col-sm-12 text-muted">
+                                <h4 style="color:#ED4F32 !important; text-align:center">This offer is Expired.</h4>
+                            </div>
+                        </div>
                     @else
 
                     @endif
                 </div>
             </div>
-            @include('pages.chat.right-sidebar-chat')
+            @if($send_offer->status == \App\Templates\IOfferTemplateStatus::EXPIRED)
+                @include('pages.curators.panels.right-sidebar')
+            @else
+                @include('pages.chat.right-sidebar-chat')
+            @endif
         </div>
     </div>
 
