@@ -78,4 +78,9 @@ Route::group(['middleware' => ['try_catch']], function() {
     Route::prefix('')->group(base_path('routes/client/no_auth.php'));
 });
 
+Route::get('/t', function () {
+    event(new \App\Events\RealTimeNotification());
+    dd('Event Run Successfully.');
+});
+
 Route::any('{url?}/{sub_url?}', [Helper::class, 'fallback']);
