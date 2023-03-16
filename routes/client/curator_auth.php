@@ -5,6 +5,7 @@ use App\Http\Controllers\Curator\OfferTemplateController;
 use App\Http\Controllers\Curator\SavedArtistController;
 use App\Http\Controllers\Curator\SendOfferController;
 use App\Http\Controllers\Curator\SubmitWorkController;
+use App\Http\Controllers\MessengerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AjaxController;
@@ -96,5 +97,7 @@ Route::post('complete-alternative-work', [SubmitWorkController::class,'completeA
 // send offer to artist route
 Route::post('send-offer', [SendOfferController::class, 'sendOffer'])->name('curator.send.offer');
 Route::get('send-offer/{send_offer}', [SendOfferController::class,'sendOfferShow'])->name('curator.send.offer.show');
+//Route::get('send-offer/{send_offer}', [SendOfferController::class,'sendOfferShow'])->name('curator.send.offer.show');
 // send offer to artist route
+
 /***************************************************** Curator Routes *********************************************************/

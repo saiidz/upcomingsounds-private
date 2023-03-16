@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Curator\SendOfferController;
+use App\Http\Controllers\MessengerController;
 use App\Models\Option;
 use App\Helpers\Helper;
 use Twilio\Rest\Client;
@@ -73,6 +75,15 @@ Route::group(['middleware' => ['try_catch']], function() {
     Route::group(['middleware' => ['auth','verify_if_curator','create_curator_password','verified','verified_phone_number_curator','curator_signup','approved_curator_admin','re_apply','rejected_curator_admin']], function() {
         Route::prefix('')->group(base_path('routes/client/curator_auth.php'));
     });
+
+    /***************************************************** Curators Routes *********************************************************/
+    Route::group(['middleware' => ['auth']], function () {
+        Route::get('get-chat', [MessengerController::class,'getChat'])->name('get.chat');
+        Route::get('get-customer-chat', [MessengerController::class,'getCustomerChat'])->name('get.customer.chat');
+        Route::post('save-message', [MessengerController::class,'saveMessage'])->name('save.messsage');
+//        Route::get('send-offer/{send_offer}', [SendOfferController::class,'sendOfferShow'])->name('curator.send.offer.show');
+    });
+
 
 
     Route::prefix('')->group(base_path('routes/client/no_auth.php'));

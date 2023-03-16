@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Curator;
 
+use App\Events\RealTimeNotification;
 use App\Models\User;
 use App\Models\Country;
 use Illuminate\Http\Request;
@@ -41,6 +42,7 @@ class CuratorController extends Controller
                                     ->groupBy('curatorFeature.name');
 
         $curator_features = CuratorFeature::all();
+        event(new RealTimeNotification());
         // dd($curator_featuress);
         return view('pages.curators.curator-profile',get_defined_vars());
     }

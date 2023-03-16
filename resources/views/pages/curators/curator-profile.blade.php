@@ -409,4 +409,21 @@
 </script>
 <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
 
+<script>
+    window.laravel_echo_port='{{env("LARAVEL_ECHO_PORT")}}';
+</script>
+<script src="http://localhost:{{env('LARAVEL_ECHO_PORT')}}/socket.io/socket.io.js"></script>
+<script src="{{ url('/js/laravel-echo-setup.js') }}" type="text/javascript"></script>
+
+<script type="text/javascript">
+    // $('#notificationShow').append('aaaaa');
+    var i = 0;
+    window.Echo.channel('user-channel')
+        .listen('.server.created', (data) => {
+            console.log('aaa');
+            console.log(data);
+            i++;
+            $("#notificationShow").append('<div class="alert alert-success">'+i+'.'+data.title+'</div>');
+        });
+</script>
 @endsection

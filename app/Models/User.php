@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Templates\IMessageTemplates;
 use App\Templates\IOfferTemplateStatus;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -319,5 +320,24 @@ class User extends Authenticatable implements MustVerifyEmail
             return $balance;
         }
 
+    }
+
+    /**
+     * @return string|void
+     */
+    public function getUserType()
+    {
+        // this is for send offer
+        if (Auth::check() && Auth::user())
+        {
+            if(Auth::user()->type == IMessageTemplates::CURATOR)
+            {
+                $type = IMessageTemplates::ARTIST;
+            }elseif (Auth::user()->type == IMessageTemplates::ARTIST){
+
+                $type = IMessageTemplates::CURATOR;
+            }
+            return ucfirst($type);
+        }
     }
 }

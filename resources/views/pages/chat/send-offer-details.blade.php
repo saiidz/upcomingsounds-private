@@ -209,11 +209,11 @@
                                             </a>
                                         @endif
                                     </div>
-                                {{--View Submission  --}}
+                                    {{--View Submission  --}}
                                     <a href="javascript:void(0)" onclick="openNav({{!empty($send_offer->campaign) ? $send_offer->campaign->id : null}},'{{ \App\Templates\IMessageTemplates::VIEW_SUBMISSION }}')"
                                        class="btn btn-sm rounded proposition basicbtn">
                                         View Submission</a>
-                                {{--View Submission  --}}
+                                    {{--View Submission  --}}
                                 </div>
                             </div>
                         </div>
@@ -501,24 +501,24 @@
                         @endif
 
 
-{{--                        @if(!empty($send_offer->campaign))--}}
-{{--                            <div class="row">--}}
-{{--                                <div class="col-sm-12">--}}
-{{--                                    <div class="padding p-y-0 m-b-md m-t-3">--}}
-{{--                                        <div class="page-title m-b">--}}
-{{--                                            <h4 class="inline m-a-0 update_profile">Make Another Offer</h4>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="form-group row">--}}
-{{--                                            <div class="col-sm-12 form-control-label">--}}
-{{--                                                <a href="javascript:void(0)" class="btn btn-sm rounded add_track" style="float:left !important;" onclick="openNav({{$send_offer->campaign->id}},'{{ \App\Templates\IMessageTemplates::MAKE_ANOTHER_OFFER}}')">--}}
-{{--                                                    Make Another Offer--}}
-{{--                                                </a>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        @endif--}}
+                        {{--                        @if(!empty($send_offer->campaign))--}}
+                        {{--                            <div class="row">--}}
+                        {{--                                <div class="col-sm-12">--}}
+                        {{--                                    <div class="padding p-y-0 m-b-md m-t-3">--}}
+                        {{--                                        <div class="page-title m-b">--}}
+                        {{--                                            <h4 class="inline m-a-0 update_profile">Make Another Offer</h4>--}}
+                        {{--                                        </div>--}}
+                        {{--                                        <div class="form-group row">--}}
+                        {{--                                            <div class="col-sm-12 form-control-label">--}}
+                        {{--                                                <a href="javascript:void(0)" class="btn btn-sm rounded add_track" style="float:left !important;" onclick="openNav({{$send_offer->campaign->id}},'{{ \App\Templates\IMessageTemplates::MAKE_ANOTHER_OFFER}}')">--}}
+                        {{--                                                    Make Another Offer--}}
+                        {{--                                                </a>--}}
+                        {{--                                            </div>--}}
+                        {{--                                        </div>--}}
+                        {{--                                    </div>--}}
+                        {{--                                </div>--}}
+                        {{--                            </div>--}}
+                        {{--                        @endif--}}
                     @elseif(!empty($send_offer) && $send_offer->status == \App\Templates\IOfferTemplateStatus::EXPIRED)
                         <div class="row">
                             <div class="col-sm-12 text-muted">
@@ -544,6 +544,132 @@
 
 
 @section('page-script')
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <script>
+        $( document ).ready(function() {
+            var conversation_default = {!! json_encode($conversation_default) !!};
+            var messages      = {!! json_encode($messages) !!};
+
+            if(conversation_default)
+            {
+                initFirebase(conversation_default.id,messages)
+            }
+
+            if(messages)
+            {
+                // $('.render-messages').empty()
+                $('.render-messages').html(messages);
+                scrollChat();
+            }
+            scrollChat();
+        })
+    </script>
+    <script>
+        var config = {
+            apiKey: "{{config('services.firebase.api_key')}}",
+            authDomain: "{{config('services.firebase.auth_domain')}}",
+            databaseURL: "{{config('services.firebase.database_url')}}",
+            projectId: "{{config('services.firebase.project_id')}}",
+            storageBucket: "{{config('services.firebase.storage_bucket')}}",
+            messagingSenderId: "{{config('services.firebase.messaging_sender_id')}}"
+        };
+        firebase.initializeApp(config);
+
+        function initFirebase(convo_id,messages)
+        {
+            firebase.database().ref("/messages").orderByChild("conversation_id").equalTo(convo_id).on("value", function(snapshot) {
+                reloadConversation(messages);
+            });
+        }
+
+        function reloadConversation(messages)
+        {
+            var cover_id =  $('#convo_id').val();
+            if(cover_id)
+            {
+                $.get("{{ route('get.customer.chat') }}?cover_id="+cover_id, function(messages){
+                    $('.render-messages').html(messages);
+                    scrollChat();
+                });
+            }
+        }
+
+        $("#btnSend").click(function(e) {
+
+            var self = $(this);
+            var message = $('#message').val();
+            var conversation_id = $('#convo_id').val();
+            var receiver_id = $('#receiver_id').val();
+            if(message == '')
+            {
+                alert('Enter message please');
+                return false;
+            }
+            else if (/^[0-9]+(\.[0-9]+)?$/.test(message))
+            {
+                alert('Numbmer sharing is not allowed!');
+                return false;
+            }
+
+
+
+            self.attr('disabled', true);
+
+
+            $.ajax({
+                url: '{{ route("save.messsage") }}',
+                data: {
+                    message: message,
+                    con_id: conversation_id,
+                    receiver_id: receiver_id,
+                },
+                method: 'post',
+                headers: {
+                    'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                },
+                success: function(response) {
+// console.log(response);
+                    self.attr('disabled', false);
+                    $('#message').val('');
+                    initFirebase(response.con_id,response.messages);
+                    reloadConversation(response.messages);
+                    scrollChat();
+
+                }
+            });
+        });
+        // initFirebase();
+        // reloadConversation();
+    </script>
+
+    <script>
+        var scrollChat = function()
+        {
+            var objDiv = document.getElementById("render-messages");
+            objDiv.scrollTop = objDiv.scrollHeight;
+        }
+    </script>
+
+    <script>
+        var input = document.getElementById("message");
+
+        input.addEventListener("keyup", function(event) {
+
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById("btnSend").click();
+            }
+        });
+    </script>
+
+    <script>
+        $('.chat-input input').keyup(function(e) {
+            if ($(this).val() == '')
+                $(this).removeAttr('good');
+            else
+                $(this).attr('good', '');
+        });
+    </script>
     <script>
         var track_des = {!! !empty($send_offer->artistTrack->description) ? json_encode($send_offer->artistTrack->description) : null !!};
         if(track_des)

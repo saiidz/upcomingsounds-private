@@ -1,5 +1,5 @@
 {
-	"authHost": "y",
+	"authHost": "http://localhost",
 	"authEndpoint": "/broadcasting/auth",
 	"clients": [],
 	"database": "redis",
@@ -11,7 +11,7 @@
 	},
 	"devMode": true,
 	"host": null,
-	"port": "y",
+	"port": "6001",
 	"protocol": "http",
 	"socketio": {},
 	"secureOptions": 67108864,

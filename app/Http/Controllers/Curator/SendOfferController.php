@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Curator;
 
 use App\Http\Controllers\Controller;
+use App\Models\Conversation;
 use App\Models\CuratorOfferTemplate;
+use App\Models\Message;
 use App\Models\SendOffer;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -48,6 +50,46 @@ class SendOfferController extends Controller
     public function sendOfferShow($send_offer)
     {
         $send_offer = SendOffer::find(decrypt($send_offer));
-        return view('pages.curators.curator-offers.send-offer-details', get_defined_vars());
+
+        if(Auth::user()->type == "curator")
+        {
+            $receiver_id = $send_offer->artist_id;
+        }elseif (Auth::user()->type == "artist"){
+            $receiver_id = $send_offer->curator_id;
+        }
+
+        // create conversation
+        $conversation_id = Conversation::where('sender_id', Auth::Id())->where('receiver_id', $receiver_id)->pluck('id')->first();
+
+        if(is_null($conversation_id))
+        {
+            $conversation_id = Conversation::where('receiver_id', Auth::Id())->where('sender_id', $receiver_id)->pluck('id')->first();
+        }
+
+        if(is_null($conversation_id))
+        {
+            $conversation_id = Conversation::create([
+                'sender_id' => Auth::Id(),
+                'receiver_id' => $receiver_id
+            ]);
+
+            $conversation_id = $conversation_id->id;
+        }
+
+        $conversation_default = Conversation::where('sender_id', Auth::Id())->where('receiver_id',$receiver_id)->first();
+
+        if(isset($conversation_default))
+        {
+            // get default chat
+            $messages = Message::where('conversation_id', $conversation_default->id)->get();
+            $messages = view('pages.chat.render_messages')->with('messages' , $messages)->render();
+        }
+
+        if(Auth::user()->type == "curator")
+        {
+            return view('pages.curators.curator-offers.send-offer-details', get_defined_vars());
+        }else{
+            return view('pages.artists.artist-offers.curator-offer-details', get_defined_vars());
+        }
     }
 }

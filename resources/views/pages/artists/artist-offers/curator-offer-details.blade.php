@@ -6,6 +6,7 @@
 @section('page-style')
     <link rel="stylesheet" href="{{ asset('css/curator-dashboard.css') }}">
     <link rel="stylesheet" href="{{asset('css/custom/custom.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{asset('css/custom/chat.css')}}" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
@@ -51,7 +52,7 @@
 
     <div class="page-content">
         <div class="row-col">
-            <div class="col-lg-9 b-r no-border-md">
+            <div class="col-lg-7 b-r no-border-md">
                 <div class="padding">
                     <div class="page-title m-b proposition_header">
                         <h1 class="inline m-a-0">Curator Offer Details</h1>
@@ -429,7 +430,11 @@
 
                 </div>
             </div>
-            @include('pages.curators.panels.right-sidebar')
+            @if($send_offer->status == \App\Templates\IOfferTemplateStatus::EXPIRED)
+                @include('pages.curators.panels.right-sidebar')
+            @else
+                @include('pages.chat.right-sidebar-chat')
+            @endif
         </div>
     </div>
 

@@ -153,3 +153,28 @@ function UC_FIRST($name): string
 {
     return Str::ucfirst($name);
 }
+
+function getProfileImage($user)
+{
+    $mystring = $user->profile;
+    $findhttps   = 'https';
+    $findhttp   = 'http';
+    $poshttps = strpos($mystring, $findhttps);
+
+    $poshttp = strpos($mystring, $findhttp);
+    if($poshttps != false){
+        $pos = $poshttps;
+    }else{
+        $pos = $poshttp;
+    }
+
+    if($pos === false)
+    {
+        $profile = url('uploads/profile').'/'.$mystring;
+    }elseif($pos == 0){
+        $profile = $mystring;
+    }else{
+        $profile = "//gravatar.com/avatar/00034587632094500000000000000000?d=retro";
+    }
+    return $profile;
+}

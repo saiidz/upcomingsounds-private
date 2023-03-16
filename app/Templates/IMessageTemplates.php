@@ -29,7 +29,8 @@ use Illuminate\Support\Facades\Auth;
      const FREE_ALTERNATIVE_MESSAGE = "Please let us know why you chose this free alternative offer so that curators can gain insight into your decision";
     const DECLINE_MESSAGE_ONE = "Please let us know why you chose this decline this offer so that curators can gain insight into your decision";
     const DECLINE_MESSAGE = "Please share some more details with this curator below:";
-
+    const CURATOR = "curator";
+    const ARTIST = "artist";
     const DECLINE_1 = "The offer seems confusing to me";
      const DECLINE_2 = "The content presented does not interest me. I'm looking for something else";
      const DECLINE_3 = "The price of the offer is too high for me";

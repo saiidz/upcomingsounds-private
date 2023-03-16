@@ -52,7 +52,7 @@
                                         <div class="item-info">
                                             <div class="item bottom text-right">
                                                 @if(getExpiryDayCampaign($campaign->created_at) == 'false')
-                                                    <span class="text-danger">Closed</span>
+                                                    <span class="text-primary">Completed</span>
                                                 @else
                                                     <span class="text-primary">{{getExpiryDayCampaign($campaign->created_at)}}</span>
                                                 @endif

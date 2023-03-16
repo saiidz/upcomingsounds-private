@@ -108,7 +108,8 @@
     margin-top: 8px;
 }
 .timestamp {
-    color: #02b875;
+    color: black;
+    /*color: #02b875;*/
     /*color: rgba(0,0,0,.38);*/
     font-size: 8pt;
     margin-bottom: 10px;

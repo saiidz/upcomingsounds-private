@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Artist;
 
 use App\Http\Controllers\Controller;
+use App\Models\Conversation;
+use App\Models\Message;
 use App\Models\SendOffer;
 use App\Models\SendOfferTransaction;
 use App\Models\User;
@@ -119,6 +121,34 @@ class OfferController extends Controller
     public function offerShow($send_offer)
     {
         $send_offer = SendOffer::find(decrypt($send_offer));
+
+        // create conversation
+        $conversation_id = Conversation::where('sender_id', Auth::Id())->where('receiver_id', $send_offer->artist_id)->pluck('id')->first();
+
+        if(is_null($conversation_id))
+        {
+            $conversation_id = Conversation::where('receiver_id', Auth::Id())->where('sender_id', $send_offer->artist_id)->pluck('id')->first();
+        }
+
+        if(is_null($conversation_id))
+        {
+            $conversation_id = Conversation::create([
+                'sender_id' => Auth::Id(),
+                'receiver_id' => $send_offer->artist_id
+            ]);
+
+            $conversation_id = $conversation_id->id;
+        }
+
+        $conversation_default = Conversation::where('sender_id', Auth::Id())->where('receiver_id',$send_offer->artist_id)->first();
+
+        if(isset($conversation_default))
+        {
+            // get default chat
+            $messages = Message::where('conversation_id', $conversation_default->id)->get();
+            $messages = view('pages.chat.render_messages')->with('messages' , $messages)->render();
+        }
+
         return view('pages.artists.artist-offers.curator-offer-details', get_defined_vars());
     }
 

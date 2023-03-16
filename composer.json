@@ -23,7 +23,7 @@
         "laravel/tinker": "^2.5",
         "laravelcollective/html": "^6.3",
         "pragmarx/countries": "^0.7.2",
-        "predis/predis": "^2.0",
+        "predis/predis": "^2.1",
         "ralphjsmit/laravel-seo": "^1.0",
         "ramsey/uuid": "^4.3",
         "sendgrid/sendgrid": "^7.9",
