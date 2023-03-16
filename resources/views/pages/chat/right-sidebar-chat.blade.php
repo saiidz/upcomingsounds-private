@@ -41,6 +41,7 @@
                             </button>
                         </form>
                         <input type="hidden" value="{{ !empty($conversation_id) ? $conversation_id : '' }}" id="convo_id" name="convo_id">
+                        <input type="hidden" value="{{ !empty($send_offer) ? $send_offer->id : '' }}" id="send_offerID" name="send_offerID">
                     </section>
                 </div>
             </div>
@@ -76,6 +77,7 @@
         firebase.initializeApp(config);
 
         var convo_id = {{ $conversation_id }};
+        var send_offerID = {{ !empty($send_offer) ? $send_offer->id : '' }};
 
 
         var initFirebase = function(){
@@ -88,7 +90,7 @@
 
 
         var reloadConversation = function(){
-            $.get("{{ route('get.customer.chat') }}?id="+convo_id, function(messages){
+            $.get("{{ route('get.customer.chat') }}?id="+convo_id+"&send_offerID="+send_offerID, function(messages){
                 $('.render-messages').html(messages);
                 scrollChat();
             });
@@ -97,6 +99,7 @@
             showLoader();
             var self = $(this);
             var message = $('#message').val();
+            var send_offerID = $('#send_offerID').val();
 
             if(message == '')
             {
@@ -115,6 +118,7 @@
                 url: '{{ route("save.messsage") }}',
                 data: {
                     message: message,
+                    send_offerID: send_offerID,
                     con_id: {{ $conversation_id }},
                     receiver_id: {{ $receiver_id }},
                 },

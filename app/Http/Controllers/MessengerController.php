@@ -48,11 +48,12 @@ class MessengerController extends Controller
         $m->conversation_id = $req->con_id;
         $m->user_id = Auth::Id();
         $m->message = $req->message;
+        $m->send_offer_id = $req->send_offerID;
         $m->ip = $req->ip();
         $m->save();
 
         // customer messages
-        $messages = Message::where('conversation_id', $req->con_id)->get();
+        $messages = Message::where('conversation_id', $req->con_id)->where('send_offer_id',$req->send_offerID)->get();
         $messages = view('pages.chat.render_messages')->with('messages', $messages)->render();
 
         return response()->json([
@@ -65,7 +66,7 @@ class MessengerController extends Controller
     {
         if(!empty($request->id))
         {
-            $messages = Message::where('conversation_id', $request->id)->get();
+            $messages = Message::where('conversation_id', $request->id)->where('send_offer_id',$request->send_offerID)->get();
             return view('pages.chat.render_messages', get_defined_vars());
         }
 

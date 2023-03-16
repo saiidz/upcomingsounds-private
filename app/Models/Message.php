@@ -16,6 +16,7 @@ class Message extends Model
         'conversation_id',
         'user_id',
         'message',
+        'send_offer_id',
         'ip',
         'file',
     ];
