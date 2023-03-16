@@ -62,24 +62,24 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
-//    'firebase' => [
-//        'api_key' => 'AIzaSyDnmxZsLMDafaI88IXOoGjM2DK2j1HtY04',
-//        'auth_domain' => 'upcomingsounds.firebaseapp.com',
-//        'database_url' => 'https://upcomingsounds-default-rtdb.firebaseio.com/',
-//        'secret' => 'lFxem0KyJvbKhIWnlWDp3LWGaYFdip937opricEd',
-//        'storage_bucket' => 'upcomingsounds.appspot.com',
-//        'project_id' => 'upcomingsounds',
-//        'messaging_sender_id' => '936754145543'
-//    ],
-
     'firebase' => [
-        'api_key' => 'AIzaSyAFAG0STRC3knHuMsk6rs0WNbpqtsfrCJA',
-        'auth_domain' => 'toontutor.firebaseapp.com',
-        'database_url' => 'https://toontutor-default-rtdb.firebaseio.com/',
-        'secret' => 'n6iw1beLejVZNEd5UVqtuX7bMzgWyOC2wmb4sVk8',
-        'storage_bucket' => 'toontutor.appspot.com',
-        'project_id' => 'toontutor',
-        'messaging_sender_id' => '191310619833'
+        'api_key' => 'AIzaSyDnmxZsLMDafaI88IXOoGjM2DK2j1HtY04',
+        'auth_domain' => 'upcomingsounds.firebaseapp.com',
+        'database_url' => 'https://upcomingsounds-default-rtdb.firebaseio.com/',
+        'secret' => 'lFxem0KyJvbKhIWnlWDp3LWGaYFdip937opricEd',
+        'storage_bucket' => 'upcomingsounds.appspot.com',
+        'project_id' => 'upcomingsounds',
+        'messaging_sender_id' => '936754145543'
     ],
+
+//    'firebase' => [
+//        'api_key' => 'AIzaSyAFAG0STRC3knHuMsk6rs0WNbpqtsfrCJA',
+//        'auth_domain' => 'toontutor.firebaseapp.com',
+//        'database_url' => 'https://toontutor-default-rtdb.firebaseio.com/',
+//        'secret' => 'n6iw1beLejVZNEd5UVqtuX7bMzgWyOC2wmb4sVk8',
+//        'storage_bucket' => 'toontutor.appspot.com',
+//        'project_id' => 'toontutor',
+//        'messaging_sender_id' => '191310619833'
+//    ],
 
 ];
