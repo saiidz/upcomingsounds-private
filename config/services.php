@@ -62,6 +62,16 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+//    'firebase' => [
+//        'api_key' => 'AIzaSyB1t3A3Wsypmiw7X2XEjuhYg1EEaUwVByI',
+//        'auth_domain' => 'testing-fa666.firebaseapp.com',
+//        'database_url' => 'https://testing-fa666-default-rtdb.firebaseio.com/',
+//        'secret' => 'lFxem0KyJvbKhIWnlWDp3LWGaYFdip937opricEd',
+//        'storage_bucket' => 'testing-fa666.appspot.com',
+//        'project_id' => 'testing-fa666',
+//        'messaging_sender_id' => '250434995581',
+//        'appId' => '1:250434995581:web:56053413df18e6f7cab814'
+//    ],
     'firebase' => [
         'api_key' => 'AIzaSyDnmxZsLMDafaI88IXOoGjM2DK2j1HtY04',
         'auth_domain' => 'upcomingsounds.firebaseapp.com',
