@@ -430,6 +430,10 @@
 
                 </div>
             </div>
+
+            @include('pages.artists.artist-offers.modal.modal')
+
+
             @if($send_offer->status == \App\Templates\IOfferTemplateStatus::EXPIRED)
                 @include('pages.curators.panels.right-sidebar')
             @else
@@ -439,8 +443,6 @@
     </div>
 
     <!-- ############ PAGE END-->
-
-    @include('pages.artists.artist-offers.modal.modal')
 @endsection
 
 

@@ -49,7 +49,7 @@
     </div>
 </div>
 
-@section('page-script')
+@section('chat-script')
     <script>
         var preload = document.getElementById("loadings");
         function loader(){

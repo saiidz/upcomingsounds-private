@@ -710,6 +710,9 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
     {
         width: 480px !important;
     }
+    .offerAlternative, #cOfferBtn{
+        display: inline-block !important;
+    }
 }
 
 /*
@@ -733,5 +736,12 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
     }
     .proposition_header {
         display: block !important;
+    }
+    .offerAlternative, #cOfferBtn{
+        display: inline-block !important;
+    }
+    .artist_update,
+    .add_track{
+        padding: 10px 0.5rem 10px 0.5rem !important;
     }
 }

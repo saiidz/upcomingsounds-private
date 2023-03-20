@@ -79,7 +79,7 @@
                                                             <div class="dropdown-menu pull-right black lt"></div>
                                                         </div>
                                                         <div class="item-title text-ellipsis">
-                                                            <a href="javascript:void(0)" onclick="openNav({{$campaign->id}})">{{$campaign->artistTrack->name}}</a>
+                                                            <a href="javascript:void(0)" onclick="openNav({{$campaign->id}})">{{$campaign->artistTrack->name}} ({{!empty($campaign->user) ? $campaign->user->name : '---'}})</a>
                                                         </div>
                                                         <div class="item-author text-ellipsis">
                                                             <span class="text-muted">Release Date: {{ getDateFormat($campaign->artistTrack->created_at) }}</span>

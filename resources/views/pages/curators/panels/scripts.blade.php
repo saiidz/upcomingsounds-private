@@ -114,6 +114,7 @@
         // offer template open
     </script>
 @yield('page-script')
+@yield('chat-script')
 <script>
     var preload = document.getElementById("loadings");
     function loader(){
