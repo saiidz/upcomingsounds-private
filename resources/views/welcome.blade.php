@@ -80,7 +80,7 @@
                     <div class="row-col">
                         <div class="col-lg-12 welcome_video">
 {{--                            <video id="welcome_video" autoplay="true" loop="true" muted="true" playsinline="true">--}}
-{{--                                <source src="{{asset('video/upcomingsounds_home.mp4')}}" type="video/mp4">--}}
+{{--                                <source src="https://us-east-vpc.s3.us-east-2.amazonaws.com/upcomingsounds_home.mp4" type="video/mp4">--}}
 {{--                            </video>--}}
                             <video id="welcome_video" preload="metadata" autoplay loop muted playsinline>
                                 <source src="{{asset('video/upcomingsounds_home.mp4')}}">
