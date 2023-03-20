@@ -7,6 +7,7 @@ use App\Models\Conversation;
 use App\Models\CuratorOfferTemplate;
 use App\Models\Message;
 use App\Models\SendOffer;
+use App\Notifications\SendNotification;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -20,7 +21,7 @@ class SendOfferController extends Controller
         if($request->ajax()){
             if ($request->offer_template_ID)
             {
-                SendOffer::create([
+                $sendOffer = SendOffer::create([
                     'curator_id'  => Auth::id(),
                     'offer_template_id' => $request->offer_template_ID,
                     'artist_id' => $request->artistID,
@@ -30,6 +31,25 @@ class SendOfferController extends Controller
                     'publish_date' => $request->offer_publish,
                     'is_approved' => 1,
                 ]);
+
+                // send notification
+                $data   =   [
+                    'title' =>  Auth::user()->name.' (New Offer)',
+                    'link'  =>  url("/artist-offers"),
+                    'date'  =>  getDateFormat($sendOffer->created_at),
+                ];
+
+                $params =   [
+                    'channel_name'  =>  'offer_notification',
+                    'data'          =>  $data,
+                ];
+
+                $user = !empty($sendOffer->userArtist) ? $sendOffer->userArtist : null;
+                if(!empty($user))
+                {
+                    $user->notify(new SendNotification($params));
+                }
+
                 return response()->json([
                     'success' => 'Offer send successfully',
                 ]);

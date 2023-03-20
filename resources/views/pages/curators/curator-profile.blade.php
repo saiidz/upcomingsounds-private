@@ -22,6 +22,9 @@
             background-color: red !important;
             color: white !important;
         }
+        .ItemNotify{
+            background-color: rgba(120, 120, 120, 0.1);
+        }
     </style>
 @endsection
 
@@ -229,7 +232,7 @@
                         </li>
                         <li class="nav-item m-r inline">
                             <a class="nav-link RemoveUpload" href="#" data-toggle="tab"
-                               data-target="#notification-center">Notification Center</a>
+                               data-target="#notification-center">Notification Center ({{$unReadNotifications->count()}})</a>
                         </li>
                         <li class="nav-item m-r inline" id="EditProfileTapShow" style="display:none;">
                             <a class="nav-link"  id="EditProfile" href="#" data-toggle="tab"
@@ -426,4 +429,38 @@
             $("#notificationShow").append('<div class="alert alert-success">'+i+'.'+data.title+'</div>');
         });
 </script>
+
+{{--    Notification Display--}}
+<script>
+    function sendMarkRequest(id = null) {
+        return $.ajax("{{ route('curator.markNotification') }}", {
+            method: 'POST',
+
+            data: {
+                _token: '{{ csrf_token() }}',
+                id
+            }
+        });
+    }
+    $('.mark-as-read').click(function() {
+        let request = sendMarkRequest($(this).data('id'));
+        request.done(() => {
+            location.reload();
+            // $(this).parents('div.alert').remove();
+        });
+    });
+    $('#mark-all').click(function() {
+        let request = sendMarkRequest();
+        request.done(() => {
+            location.reload();
+        })
+    });
+
+    function sendNotifySubmit()
+    {
+        var form = document.getElementById("form-notification");
+        form.submit();
+    }
+</script>
+{{--    Notification Display--}}
 @endsection

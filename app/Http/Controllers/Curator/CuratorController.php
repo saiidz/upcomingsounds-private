@@ -12,7 +12,9 @@ use App\Models\CuratorFeatureTag;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use App\Templates\IMessageTemplates;
+use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -42,8 +44,10 @@ class CuratorController extends Controller
                                     ->groupBy('curatorFeature.name');
 
         $curator_features = CuratorFeature::all();
-        event(new RealTimeNotification());
+//        event(new RealTimeNotification());
         // dd($curator_featuress);
+        $notifications = auth()->user()->notifications()->latest()->get();
+        $unReadNotifications = auth()->user()->unreadNotifications()->latest()->get();
         return view('pages.curators.curator-profile',get_defined_vars());
     }
 
@@ -231,5 +235,21 @@ class CuratorController extends Controller
                 return response()->json(['status'=>1,'msg'=>'Your password has been changed successfully']);
             }
         }
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function markNotification(Request $request)
+    {
+        auth()->user()
+            ->unreadNotifications
+            ->when($request->input('id'), function ($query) use ($request) {
+                return $query->where('id', $request->input('id'));
+            })
+            ->markAsRead();
+
+        return response()->noContent();
     }
 }

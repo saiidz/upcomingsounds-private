@@ -30,9 +30,9 @@
                             <form id="form-notification" action="{{!empty($notification->data['data']['link']) ? $notification->data['data']['link'] : '----'}}">
                                 <a href="javascript:void(0)" class="btn btn-xs white" onclick="sendNotifySubmit()">View Offer</a>
                             </form>
-{{--                            <div>--}}
-{{--                                <a href="{{!empty($notification->data['data']['link']) ? $notification->data['data']['link'] : '----'}}" class="btn btn-xs white">View</a>--}}
-{{--                            </div>--}}
+                            {{--                            <div>--}}
+                            {{--                                <a href="{{!empty($notification->data['data']['link']) ? $notification->data['data']['link'] : '----'}}" class="btn btn-xs white">View</a>--}}
+                            {{--                            </div>--}}
                             {{--                            <div>--}}
                             {{--                                <a href="javascript:void(0)" data-id="{{ $notification->id }}" class="btn btn-xs white mark-as-read">Delete</a>--}}
                             {{--                            </div>--}}

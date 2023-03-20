@@ -100,4 +100,8 @@ Route::get('send-offer/{send_offer}', [SendOfferController::class,'sendOfferShow
 //Route::get('send-offer/{send_offer}', [SendOfferController::class,'sendOfferShow'])->name('curator.send.offer.show');
 // send offer to artist route
 
+#Notification mark as Read
+
+Route::post('/curator-mark-as-read',[CuratorController::class, 'markNotification'])->name('curator.markNotification');
+
 /***************************************************** Curator Routes *********************************************************/

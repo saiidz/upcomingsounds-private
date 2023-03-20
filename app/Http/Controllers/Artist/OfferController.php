@@ -8,6 +8,7 @@ use App\Models\Message;
 use App\Models\SendOffer;
 use App\Models\SendOfferTransaction;
 use App\Models\User;
+use App\Notifications\SendNotification;
 use App\Templates\IOfferTemplateStatus;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -291,6 +292,24 @@ class OfferController extends Controller
                 });
             } catch (\Throwable $th) {
                 //throw $th;
+            }
+
+            // send notification
+            $data   =   [
+                'title' =>  Auth::user()->name.' (Paid Offer)',
+                'link'  =>  route('curator.send.offer.show',encrypt($sendOffer->id)),
+                'date'  =>  getDateFormat($sendOffer->created_at),
+            ];
+
+            $params =   [
+                'channel_name'  =>  'paid_offer_notification',
+                'data'          =>  $data,
+            ];
+
+            $user = !empty($sendOffer->userCurator) ? $sendOffer->userCurator : null;
+            if(!empty($user))
+            {
+                $user->notify(new SendNotification($params));
             }
 
         }

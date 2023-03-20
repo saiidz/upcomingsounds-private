@@ -34,6 +34,9 @@
             background-size: cover;
             margin-top: 7px;
         }
+        .ItemNotify{
+            background-color: rgba(120, 120, 120, 0.1);
+        }
     </style>
 @endsection
 
@@ -253,6 +256,10 @@
                                         <a class="nav-link RemoveUpload" id="AddTrack" href="#" data-toggle="tab"
                                            data-target="#add-track">Add a Track</a>
                                     </li>
+                                    <li class="nav-item m-r inline">
+                                        <a class="nav-link RemoveUpload" href="#" data-toggle="tab"
+                                           data-target="#notification-center">Notification Center ({{$unReadNotifications->count()}})</a>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="tab-content">
@@ -463,6 +470,12 @@
                                     @include('pages.artists.artist-track.create')
                                     {{--               Artist Update Profile                     --}}
                                 </div>
+
+                                {{--               Curator Notification Center                     --}}
+                                <div class="tab-pane" id="notification-center">
+                                    @include('pages.artists.artist-profile-panels.artist-notification-center')
+                                </div>
+                                {{--               Curator Notification Center                     --}}
                             </div>
                         </div>
                     </div>
@@ -1179,4 +1192,38 @@
         });
     </script>
 {{--    Public Profile Display--}}
+
+    {{--    Notification Display--}}
+    <script>
+        function sendMarkRequest(id = null) {
+            return $.ajax("{{ route('artist.markNotification') }}", {
+                method: 'POST',
+
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    id
+                }
+            });
+        }
+        $('.mark-as-read').click(function() {
+            let request = sendMarkRequest($(this).data('id'));
+            request.done(() => {
+                location.reload();
+                // $(this).parents('div.alert').remove();
+            });
+        });
+        $('#mark-all').click(function() {
+            let request = sendMarkRequest();
+            request.done(() => {
+                location.reload();
+            })
+        });
+        function sendNotifySubmit()
+        {
+            var form = document.getElementById("form-notification");
+            form.submit();
+        }
+    </script>
+    {{--    Notification Display--}}
+
 @endsection

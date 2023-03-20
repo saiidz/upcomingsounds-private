@@ -58,6 +58,8 @@ class ArtistController extends Controller
         $curator_features = CuratorFeature::all();
         $languages = Language::all();
         $artist_tracks = ArtistTrack::where('user_id',$user_artist->id)->orderBy('id','desc')->get();
+        $notifications = auth()->user()->notifications()->latest()->get();
+        $unReadNotifications = auth()->user()->unreadNotifications()->latest()->get();
         return view('pages.artists.artist-profile', get_defined_vars());
     }
     // Artist Update Profile

@@ -7,6 +7,7 @@ use App\Models\CuratorFeatureTag;
 use App\Models\User;
 use App\Models\Language;
 use App\Models\ArtistTrack;
+use App\Notifications\SendNotification;
 use App\Templates\IMessageTemplates;
 use App\Templates\IPackages;
 use Illuminate\Contracts\Foundation\Application;
@@ -90,7 +91,8 @@ class PromoteYourTrackController extends Controller
             $input['add_remove_banner'] = IPackages::ADD_BANNER;
         }
 
-        Campaign::create($input);
+        $campaign = Campaign::create($input);
+
         return response()->json(['success' => 'Campaign created successfully.']);
     }
 

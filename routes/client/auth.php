@@ -106,4 +106,8 @@ Route::get('viewed-messages', [MessageController::class,'viewed'])->name('artist
 Route::get('responses-messages', [MessageController::class,'responses'])->name('artist.responses.messages');
 // messages routes
 
+#Notification mark as Read
+
+Route::post('/mark-as-read',[DashboardController::class, 'markNotification'])->name('artist.markNotification');
+
 /***************************************************** Artist Routes *********************************************************/
