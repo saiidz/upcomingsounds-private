@@ -36,11 +36,14 @@ class PlaylistCuratorSignupController extends Controller
 
         if(!empty($curator_data) && !empty($curator_signup) && !empty($playlist_data)){
             if($playlist_data['share_music'] == 'playlist_spotify'){
-                return view('pages.curators.curator-playlist-signup.playlist-spotify-details',compact('curator_data','curator_signup'));
+                return view('pages.curators.curator-signup.social-media',compact('curator_data','curator_signup'));
+//                return view('pages.curators.curator-playlist-signup.playlist-spotify-details',compact('curator_data','curator_signup'));
             }elseif ($playlist_data['share_music'] == 'playlist_deezer'){
-                return view('pages.curators.curator-playlist-signup.playlist-deezer-details',compact('curator_data','curator_signup'));
+                return view('pages.curators.curator-signup.social-media',compact('curator_data','curator_signup'));
+//                return view('pages.curators.curator-playlist-signup.playlist-deezer-details',compact('curator_data','curator_signup'));
             }elseif ($playlist_data['share_music'] == 'playlist_apple'){
-                return view('pages.curators.curator-playlist-signup.playlist-apple-details',compact('curator_data','curator_signup'));
+                return view('pages.curators.curator-signup.social-media',compact('curator_data','curator_signup'));
+//                return view('pages.curators.curator-playlist-signup.playlist-apple-details',compact('curator_data','curator_signup'));
             }
         }else{
             return redirect()->back();

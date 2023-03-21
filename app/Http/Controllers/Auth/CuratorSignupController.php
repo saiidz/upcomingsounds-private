@@ -126,10 +126,35 @@ class CuratorSignupController extends Controller
                 ->withInput();
         }
 
-        $request->session()->get('curator_signup');
+//        $request->session()->get('curator_signup');
+        $curator_signup = $request->session()->get('curator_signup');
         $request->session()->put('curator_data', $request->all());
 
-        return redirect()->route('curator.signup.step.3');
+        if ($curator_signup == 'influencer'){
+            return view('pages.curators.curator-influencer-signup.influencer-share-music',get_defined_vars());
+        }elseif ($curator_signup == 'playlist_curator'){
+            return view('pages.curators.curator-playlist-signup.playlist-share-music',get_defined_vars());
+        }elseif ($curator_signup == 'youtube_channel'){
+            return view('pages.curators.curator-youtube-signup.youtube-share-music',get_defined_vars());
+        }elseif ($curator_signup == 'radio_tv'){
+            return view('pages.curators.curator-signup.social-media',get_defined_vars());
+        }elseif ($curator_signup == 'label_manager'){
+            return view('pages.curators.curator-signup.social-media',get_defined_vars());
+        }elseif ($curator_signup == 'media'){
+            return view('pages.curators.curator-signup.social-media',get_defined_vars());
+        }elseif ($curator_signup == 'monitor_publisher_synch'){
+            return view('pages.curators.curator-signup.social-media',get_defined_vars());
+        }elseif ($curator_signup == 'journalist_media'){
+            return view('pages.curators.curator-signup.social-media',get_defined_vars());
+        }elseif ($curator_signup == 'brooker_booking'){
+            return view('pages.curators.curator-signup.social-media',get_defined_vars());
+        }elseif ($curator_signup == 'sound_expert_producer'){
+            return view('pages.curators.curator-signup.social-media',get_defined_vars());
+        }else{
+            return redirect()->back();
+        }
+
+//        return redirect()->route('curator.signup.step.3');
     }
 
     /**
@@ -200,11 +225,14 @@ class CuratorSignupController extends Controller
 
         if(!empty($curator_data) && !empty($curator_signup) && !empty($influencer_data)){
             if($influencer_data['share_music'] == 'influencer_instagram'){
-                return view('pages.curators.curator-influencer-signup.influencer-instgram-details',compact('curator_data','curator_signup'));
+                return view('pages.curators.curator-signup.social-media',compact('curator_data','curator_signup'));
+//                return view('pages.curators.curator-influencer-signup.influencer-instgram-details',compact('curator_data','curator_signup'));
             }elseif ($influencer_data['share_music'] == 'influencer_tiktok'){
-                return view('pages.curators.curator-influencer-signup.influencer-tiltok-details',compact('curator_data','curator_signup'));
+                return view('pages.curators.curator-signup.social-media',compact('curator_data','curator_signup'));
+//                return view('pages.curators.curator-influencer-signup.influencer-tiltok-details',compact('curator_data','curator_signup'));
             }elseif ($influencer_data['share_music'] == 'influencer_soundcloud'){
-                return view('pages.curators.curator-influencer-signup.influencer-soundcloud-details',compact('curator_data','curator_signup'));
+                return view('pages.curators.curator-signup.social-media',compact('curator_data','curator_signup'));
+//                return view('pages.curators.curator-influencer-signup.influencer-soundcloud-details',compact('curator_data','curator_signup'));
             }
         }else{
             return redirect()->back();

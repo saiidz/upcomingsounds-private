@@ -37,7 +37,8 @@ class YoutubeCuratorSignupController extends Controller
 
         if(!empty($curator_data) && !empty($curator_signup) && !empty($youtuber_data)){
             if($youtuber_data['share_music'] == 'youtube'){
-                return view('pages.curators.curator-youtube-signup.youtube-details',compact('curator_data','curator_signup'));
+                return view('pages.curators.curator-signup.social-media',compact('curator_data','curator_signup'));
+//                return view('pages.curators.curator-youtube-signup.youtube-details',compact('curator_data','curator_signup'));
             }
         }else{
             return redirect()->back();
