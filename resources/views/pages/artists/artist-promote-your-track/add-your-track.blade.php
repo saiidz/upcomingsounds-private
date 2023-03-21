@@ -322,6 +322,7 @@
             $('#oneTrackSelected_'+id).prop('checked', true);
 
             $('#firstStepBtn').addClass('firstStepBtn');
+            $('#firstStepBtn').html('Promote Your TracK');
         }
         $(document).ready(function(){
             $('.oneTrackSelected').click(function() {
