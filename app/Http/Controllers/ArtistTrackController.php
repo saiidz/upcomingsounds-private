@@ -505,10 +505,9 @@ class ArtistTrackController extends Controller
         $artist_track = ArtistTrack::where('id', $request->track_id)->first();
         if(!empty($artist_track))
         {
-//            $artist_track->update([
-//                'is_approved' => 1,
-//                'is_rejected' => 0,
-//            ]);
+            $artist_track->update([
+                'request_edit_des' => $request->description_details ?? null,
+            ]);
 
             $data['trackID'] = $artist_track->id;
             $data['email'] = $artist_track->user->email;

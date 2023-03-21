@@ -35,6 +35,8 @@ class ArtistTrack extends Model
         'demo',
         'release_type',
         'permission_copyright',
+        'is_locked',
+        'request_edit_des',
         'favorite',
         'add_queque',
         'add_playlist',

@@ -85,6 +85,18 @@
                     </div>
                     </div>
                     <!-- users view media object ends -->
+                    @if(!empty($artist_track->request_edit_des))
+                        <div class="card-panel">
+                            <div class="row">
+                                <div class="col s12">
+                                    <div class=" media">
+                                        <span>Request Edit Track: </span>&nbsp;&nbsp;<span>{!! $artist_track->request_edit_des !!}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+
                     <!-- users view card data start -->
                     <div class="card">
                         <div class="card-content">

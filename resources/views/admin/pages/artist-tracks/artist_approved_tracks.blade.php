@@ -54,6 +54,7 @@
                                                     <th>Artist Name</th>
                                                     <th>Created At</th>
                                                     <th>Status</th>
+                                                    <th>Request Edit Track</th>
                                                     <th>View</th>
                                                   </tr>
                                                 </thead>
@@ -73,6 +74,15 @@
                                                                         <span class="chip green lighten-5">
                                                                             <span class="green-text">Approved</span>
                                                                         </span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    @if(!empty($approved_track->request_edit_des))
+                                                                        <a href="{{ route('admin.artist.track.detail', $approved_track->id) }}">
+                                                                            <span class="green-text">YES</span>
+                                                                        </a>
+                                                                    @else
+                                                                        NO
                                                                     @endif
                                                                 </td>
                                                                 <td><a href="{{ route('admin.artist.track.detail', $approved_track->id) }}"><i class="material-icons">remove_red_eye</i></a></td>

@@ -29,8 +29,10 @@
 
                         </div>
                         <div class="item bottom text-right">
-                            @if ($track->is_approved == 1)
+                            @if ($track->is_approved == 1 && $track->is_rejected == 0)
                                 <span class="text-primary">Approved</span>
+                            @elseif($track->is_rejected == 1 && $track->is_approved == 0)
+                                <span class="text-danger">Rejected</span>
                             @else
                                 <span class="text-danger">Pending</span>
                             @endif

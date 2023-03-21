@@ -245,6 +245,7 @@ class ArtistController extends Controller
             $artist_track->update([
                 'is_approved' => 0,
                 'is_rejected' => 1,
+                'request_edit_des' => null,
             ]);
 
             $data['email'] = $artist_track->user->email;
