@@ -519,7 +519,7 @@ class ArtistTrackController extends Controller
             try {
                 Mail::send('pages.artists.emails.send_request_to_edit_email_admin', $data, function($message)use($data) {
                     $message->from($data["email"], $data["email"]);
-                    $message->to('admin@edmrekords.com')
+                    $message->to('admin@upcomigspunds.com')
                         ->subject($data["title"]);
                 });
             } catch (\Throwable $th) {

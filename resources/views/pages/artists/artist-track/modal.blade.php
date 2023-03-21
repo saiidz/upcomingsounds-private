@@ -320,7 +320,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Request To Admin For Edit Track</h5>
+                <h5 class="modal-title">To request edits to a track, contact the administrator and provide a reason</h5>
             </div>
             <form class="new_basicform_approved_with_reload" action="{{route('request.edit.track',)}}" method="post">
                 @csrf
