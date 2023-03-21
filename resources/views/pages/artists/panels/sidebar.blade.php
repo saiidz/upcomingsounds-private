@@ -53,17 +53,17 @@
                              <span class="nav-text">Offers</span>
                          </a>
                      </li>
-                     <li>
-                         <a href="{{route('artist.messages')}}" id="artistMessages">
-                              <span class="nav-label">
-                                    <b class="label">0</b>
-                               </span>
-                                    <span class="nav-icon">
-                                        <i class="fa fa-inbox"></i>
-                                    </span>
-                             <span class="nav-text">Messages</span>
-                         </a>
-                     </li>
+{{--                     <li>--}}
+{{--                         <a href="{{route('artist.messages')}}" id="artistMessages">--}}
+{{--                              <span class="nav-label">--}}
+{{--                                    <b class="label">0</b>--}}
+{{--                               </span>--}}
+{{--                                    <span class="nav-icon">--}}
+{{--                                        <i class="fa fa-inbox"></i>--}}
+{{--                                    </span>--}}
+{{--                             <span class="nav-text">Messages</span>--}}
+{{--                         </a>--}}
+{{--                     </li>--}}
     {{--                <li>--}}
     {{--                   <a href="javascript:void(0)">--}}
     {{--                   <span class="nav-icon">--}}

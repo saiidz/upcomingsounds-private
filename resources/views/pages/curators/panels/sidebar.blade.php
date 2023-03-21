@@ -190,14 +190,14 @@
                                 <span class="nav-text">Search</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <span class="nav-icon">
-                                    <i class="fa fa-inbox"></i>
-                                </span>
-                                <span class="nav-text">Messages</span>
-                            </a>
-                        </li>
+{{--                        <li>--}}
+{{--                            <a href="javascript:void(0)">--}}
+{{--                                <span class="nav-icon">--}}
+{{--                                    <i class="fa fa-inbox"></i>--}}
+{{--                                </span>--}}
+{{--                                <span class="nav-text">Messages</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
 
 {{--                        <li>--}}
 {{--                            <a href="javascript:void(0)">--}}
