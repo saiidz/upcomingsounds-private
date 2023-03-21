@@ -33,6 +33,10 @@
             display: flex;
             height:80px;
         }
+        .iframeDesign iframe {
+            width: 100%;
+        }
+
 
     </style>
 @endsection

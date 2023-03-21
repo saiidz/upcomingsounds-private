@@ -92,7 +92,7 @@
 
                     <div class="form-group" id="previewLinkBlock" style="display: none">
                         <div class="col-sm-12">
-                            <div id="previewLink"></div>
+                            <div id="previewLink" class="iframeDesign"></div>
                         </div>
                     </div>
 
@@ -148,10 +148,18 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label form-control-label text-muted">Track Images/Pdf</label>
+                        <label class="control-label form-control-label text-muted">Track Images</label>
                         <div>
                             <input type='file' class="form-control" id="multipleImageEditTrackUpload" name="track_images[]" multiple="multiple"
-                                   accept=".png, .jpg, .jpeg, .pdf" />
+                                   required accept=".png, .jpg, .jpeg" />
+                            <label for="multipleImageEditTrackUpload"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label form-control-label text-muted">Track Pdf</label>
+                        <div>
+                            <input type='file' class="form-control" id="multipleImageEditTrackUpload" name="track_pdf[]" multiple="multiple"
+                                   accept=".pdf" />
                             <label for="multipleImageEditTrackUpload"></label>
                         </div>
                     </div>

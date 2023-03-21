@@ -143,6 +143,22 @@ class ArtistTrackController extends Controller
             }
         }
 
+        if ($request->hasFile('track_pdf')) {
+            foreach ($request->file('track_pdf') as $file){
+                $type = explode('/',$file->getClientMimeType());
+
+                $name = str_replace(' ', '', $file->getClientOriginalName());
+                $image_path = 'default_'.time().$name;
+                $file->move(public_path() . '/uploads/track_images/', $image_path);
+                //store image file into directory and db
+                $input['artist_track_id'] = $track->id;
+                $input['path'] = $image_path;
+                $input['type'] = !empty($type[1]) ? $type[1] : null;
+
+                $track->artistTrackImages()->create($input);
+            }
+        }
+
 
         // create artist track links
         if(!empty($request->link))

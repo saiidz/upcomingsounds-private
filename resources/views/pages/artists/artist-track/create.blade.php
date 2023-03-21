@@ -176,10 +176,18 @@
     </div>
 
     <div class="form-group row">
-        <div class="col-sm-3 form-control-label text-muted">Track Images/Pdf</div>
+        <div class="col-sm-3 form-control-label text-muted">Track Images</div>
         <div class="col-sm-9">
             <input type='file' class="form-control" id="multipleImageTrackUpload" name="track_images[]" multiple="multiple"
-                   accept=".png, .jpg, .jpeg, .pdf" />
+                   required accept=".png, .jpg, .jpeg" />
+            <label for="multipleImageTrackUpload"></label>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-3 form-control-label text-muted">Track Pdf</div>
+        <div class="col-sm-9">
+            <input type='file' class="form-control" id="multipleImageTrackUpload" name="track_pdf[]" multiple="multiple"
+                   accept=".pdf" />
             <label for="multipleImageTrackUpload"></label>
         </div>
     </div>
