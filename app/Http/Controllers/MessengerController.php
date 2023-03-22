@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Conversation;
 use App\Models\Message;
+use App\Models\SendOffer;
 use App\Models\User;
+use App\Notifications\SendNotification;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -41,9 +44,12 @@ class MessengerController extends Controller
 
     }
 
+    /**
+     * @param Request $req
+     * @return JsonResponse
+     */
     public function saveMessage(Request $req)
     {
-
         $m = new Message();
         $m->conversation_id = $req->con_id;
         $m->user_id = Auth::Id();
@@ -55,6 +61,31 @@ class MessengerController extends Controller
         // customer messages
         $messages = Message::where('conversation_id', $req->con_id)->where('send_offer_id',$req->send_offerID)->get();
         $messages = view('pages.chat.render_messages')->with('messages', $messages)->render();
+
+        // send notification
+        if(Auth::user()->type == "curator")
+        {
+            $link = route('artist.offer.show',encrypt($req->send_offerID));
+        }elseif (Auth::user()->type == "artist"){
+            $link = route('curator.send.offer.show',encrypt($req->send_offerID));
+        }
+
+        $data   =   [
+            'title' =>  Auth::user()->name.' (Received Message)',
+            'link'  =>  !empty($link) ? $link : null,
+            'date'  =>  getDateFormat($m->created_at),
+        ];
+
+        $params =   [
+            'channel_name'  =>  'send_message_notification',
+            'data'          =>  $data,
+        ];
+
+        $user = User::find($req->receiver_id);
+        if(!empty($user))
+        {
+            $user->notify(new SendNotification($params));
+        }
 
         return response()->json([
             'success'  => 'sent',

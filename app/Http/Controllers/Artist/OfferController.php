@@ -192,6 +192,24 @@ class OfferController extends Controller
                 //throw $th;
             }
 
+            // send notification
+            $data   =   [
+                'title' =>  Auth::user()->name.' (Decline Offer)',
+                'link'  =>  route('curator.send.offer.show',encrypt($sendOffer->id)),
+                'date'  =>  getDateFormat($sendOffer->created_at),
+            ];
+
+            $params =   [
+                'channel_name'  =>  'decline_offer_notification',
+                'data'          =>  $data,
+            ];
+
+            $user = !empty($sendOffer->userCurator) ? $sendOffer->userCurator : null;
+            if(!empty($user))
+            {
+                $user->notify(new SendNotification($params));
+            }
+
         }
         return response()->json(['success' => 'Email and notify send successfully to taste maker']);
     }
@@ -234,6 +252,24 @@ class OfferController extends Controller
                 });
             } catch (\Throwable $th) {
                 //throw $th;
+            }
+
+            // send notification
+            $data   =   [
+                'title' =>  Auth::user()->name.' (Free Alternative Offer)',
+                'link'  =>  route('curator.send.offer.show',encrypt($sendOffer->id)),
+                'date'  =>  getDateFormat($sendOffer->created_at),
+            ];
+
+            $params =   [
+                'channel_name'  =>  'free_alternative_offer_notification',
+                'data'          =>  $data,
+            ];
+
+            $user = !empty($sendOffer->userCurator) ? $sendOffer->userCurator : null;
+            if(!empty($user))
+            {
+                $user->notify(new SendNotification($params));
             }
 
         }
