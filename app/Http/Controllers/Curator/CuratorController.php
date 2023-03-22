@@ -172,8 +172,8 @@ class CuratorController extends Controller
     // forCurators
     public function forCurators()
     {
-        $classifiedImg = public_path('images/curator-header.jpg');
-        Image::make($classifiedImg)->encode('webp', 90)->save(public_path('images/'  .  'curator-header.webp'));
+//        $classifiedImg = public_path('images/curator-header.jpg');
+//        Image::make($classifiedImg)->encode('webp', 90)->save(public_path('images/'  .  'curator-header.webp'));
 
         return view('pages.curators.curator-details');
     }
