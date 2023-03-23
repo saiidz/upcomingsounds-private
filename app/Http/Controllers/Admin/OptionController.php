@@ -47,9 +47,9 @@ class OptionController extends Controller
             return response()->json(['errors' => $validator->errors()->all()]);
         }
 
-        $webp = Webp::make($request->file('artist_banner'))->quality(70);
-        $webp->save(public_path('images/artist-header.webp'));
-        dd($webp,$request->all());
+//        $webp = Webp::make($request->file('artist_banner'))->quality(70);
+//        $webp->save(public_path('images/artist-header.webp'));
+//        dd($webp,$request->all());
         // logo check
         if ($request->hasFile('logo')) {
             $logo = $request->file('logo');
