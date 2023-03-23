@@ -23,7 +23,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
-use Intervention\Image\Facades\Image;
+
+use Image;
 use PragmaRX\Countries\Package\Countries;
 
 class ArtistController extends Controller
@@ -216,8 +217,8 @@ class ArtistController extends Controller
     public function forArtists()
     {
         $classifiedImg = public_path('images/artist-header.jpg');
-        $image = Image::make($classifiedImg);
-dd($classifiedImg);
+        $image = Image::make($classifiedImg)->encode('webp', 90)->save(public_path('images/'  .  'artist-header.webp'));
+
         return view('pages.artists.artist-details');
     }
 
