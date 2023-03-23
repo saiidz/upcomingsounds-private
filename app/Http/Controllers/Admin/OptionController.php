@@ -51,22 +51,31 @@ class OptionController extends Controller
 
 
         // logo check
-        if ($request->hasFile('logo')) {
-            $logo = $request->file('logo');
-            $logo_name = 'logo.png';
-            $logo_path = 'uploads/';
-            $logo_new_path = $logo_path.$logo_name;
-            $logo->move($logo_path, $logo_name);
+        if ($request->hasFile('logo'))
+        {
+            $logo = Webp::make($request->file('logo'))->quality(70);
+            $logo->save(public_path('uploads/logo.webp'));
+            $logo_new_path = "uploads/logo.webp";
+
+//            $logo = $request->file('logo');
+//            $logo_name = 'logo.png';
+//            $logo_path = 'uploads/';
+//            $logo_new_path = $logo_path.$logo_name;
+//            $logo->move($logo_path, $logo_name);
 
         }
 
         if ($request->hasFile('favicon'))
         {
-            $favicon = $request->file('favicon');
-            $favicon_name = 'favicon.ico';
-            $favicon_path = 'uploads/';
-            $favicon_new_path = $favicon_path.$favicon_name;
-            $favicon->move($favicon_path, $favicon_name);
+            $favicon = Webp::make($request->file('favicon'))->quality(70);
+            $favicon->save(public_path('uploads/favicon.webp'));
+            $favicon_new_path = "uploads/favicon.webp";
+
+//            $favicon = $request->file('favicon');
+//            $favicon_name = 'favicon.ico';
+//            $favicon_path = 'uploads/';
+//            $favicon_new_path = $favicon_path.$favicon_name;
+//            $favicon->move($favicon_path, $favicon_name);
         }
 
         if ($request->hasFile('artist_banner'))
