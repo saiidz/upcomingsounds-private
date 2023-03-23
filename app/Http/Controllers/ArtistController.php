@@ -216,8 +216,8 @@ class ArtistController extends Controller
     public function forArtists()
     {
         $classifiedImg = public_path('images/artist-header.jpg');
-        $image = Image::make($classifiedImg)->encode('webp', 90)->save(public_path('images/'  .  'artist-header.webp'));
-
+        $image = Image::make($classifiedImg)->save(public_path('images/'  .  'artist-header.webp'));
+dd($image);
         return view('pages.artists.artist-details');
     }
 
