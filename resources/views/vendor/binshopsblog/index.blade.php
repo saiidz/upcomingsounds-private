@@ -28,7 +28,14 @@
             </div>
         @endif
 
-        <div class="hero-wrap js-fullheight" style="background-image:url({{asset('images/blog-bg.jpg')}}); height: 700px;background-position: 50% 0px;"
+        @php
+            $theme = \App\Models\Option::where('key', 'theme_settings')->first();
+            if(!empty($theme))
+            {
+                $theme = json_decode($theme->value);
+            }
+        @endphp
+        <div class="hero-wrap js-fullheight" style="background-image:url({{asset(!empty($theme->blog_banner) ? $theme->blog_banner : 'images/blog-bg.jpg')}}); height: 700px;background-position: 50% 0px;"
              data-stellar-background-ratio="0.5">
             <div class="overlay"></div>
             <div class="container">

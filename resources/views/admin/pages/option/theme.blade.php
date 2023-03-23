@@ -85,6 +85,16 @@
                                             <img class=" ml-3 img-fluid" src="{{ asset(!empty($theme->curator_banner) ? $theme->curator_banner : 'images/logo.png') }}" alt="" height="30" style="object-fit: contain">
                                         </div>
                                     </div>
+
+                                    <div class="col m6 s12 file-field input-field">
+                                        <div class="btn float-right">
+                                            <span>Blog Banner</span>
+                                            <input type="file" name="blog_banner" accept="image/*">
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <img class=" ml-3 img-fluid" src="{{ asset(!empty($theme->blog_banner) ? $theme->blog_banner : 'images/blog-bg.jpg') }}" alt="" height="30" style="object-fit: contain">
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="row">

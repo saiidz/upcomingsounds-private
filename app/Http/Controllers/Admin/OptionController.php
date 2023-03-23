@@ -75,9 +75,16 @@ class OptionController extends Controller
             $artist_banner_webp->save(public_path('images/artist-header.webp'));
         }
 
-        if ($request->hasFile('curator_banner')) {
+        if ($request->hasFile('curator_banner'))
+        {
             $curator_banner_webp = Webp::make($request->file('curator_banner'))->quality(70);
             $curator_banner_webp->save(public_path('images/curator-header.webp'));
+        }
+
+        if ($request->hasFile('blog_banner'))
+        {
+            $blog_banner_webp = Webp::make($request->file('blog_banner'))->quality(70);
+            $blog_banner_webp->save(public_path('images/blog-bg.webp'));
         }
 
 
@@ -93,6 +100,7 @@ class OptionController extends Controller
             'favicon'            => !empty($favicon_new_path) ? "$favicon_new_path" : $theme_favicon,
             'artist_banner'      => !empty($artist_banner_webp) ? "images/artist-header.webp" : "images/artist-header.jpg",
             'curator_banner'     => !empty($curator_banner_webp) ? "images/curator-header.webp" : "images/curator-header.jpg",
+            'blog_banner'        => !empty($blog_banner_webp) ? "images/blog-bg.webp" : "images/blog-bg.jpg",
             'facebook_icon'      => $request->facebook_icon,
             'facebook_link'      => $request->facebook_link,
             'instagram_icon'     => $request->instagram_icon,
