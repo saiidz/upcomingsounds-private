@@ -19,7 +19,7 @@ return [
     | This is a default image processing driver. Available: ['cwebp', 'php-gd']
     |
     */
-    'default_driver' => 'php-gd',
+    'default_driver' => 'cwebp',
 
     /*
     |--------------------------------------------------------------------------
