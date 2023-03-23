@@ -67,6 +67,18 @@
                                 </div>
 
                                 <div class="row">
+                                    <div class="col m6 s12 file-field input-field">
+                                        <div class="btn float-right">
+                                            <span>Artist Banner</span>
+                                            <input type="file" name="artist_banner" accept="image/*">
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <img class=" ml-3 img-fluid" src="{{ asset(!empty($theme->artist_banner) ? $theme->artist_banner : 'images/logo.png') }}" alt="" height="30" style="object-fit: contain">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
                                     <div class="input-field col m6 s12">
                                         <input id="facebook_icon" name="facebook_icon" type="text" value="{{ !empty($theme->facebook_icon) ? $theme->facebook_icon : null }}">
                                         <label for="facebook_icon">Facebook Icon</label>

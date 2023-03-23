@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Option;
+use Buglinjo\LaravelWebp\Webp;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -46,6 +47,9 @@ class OptionController extends Controller
             return response()->json(['errors' => $validator->errors()->all()]);
         }
 
+        $webp = Webp::make($request->file('artist_banner'));
+        $webp->save(public_path('images/artist-header.webp'));
+        dd($webp,$request->all());
         // logo check
         if ($request->hasFile('logo')) {
             $logo = $request->file('logo');
