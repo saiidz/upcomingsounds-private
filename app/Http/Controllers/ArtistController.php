@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
-use Image;
+use Intervention\Image\Image;
 use PragmaRX\Countries\Package\Countries;
 
 class ArtistController extends Controller
