@@ -24,7 +24,7 @@
                 <main class="col-lg-12 no-padding" id="main-content">
                     <div id="landing-page">
                         <div id="landing-header" class="full-landing">
-                            <img src="{{asset('images/artist-header.jpg')}}"><h1 class="full-landing-text container">
+                            <img src="{{asset(!empty($theme->artist_banner) ? $theme->artist_banner : 'images/artist-header.jpg')}}"><h1 class="full-landing-text container">
                                 <span>For artists</span>
                             </h1>
                         </div>

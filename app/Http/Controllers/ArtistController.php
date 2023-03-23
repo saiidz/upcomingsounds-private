@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Option;
 use App\Models\User;
 use App\Models\Country;
 use App\Models\Feature;
@@ -217,6 +218,11 @@ class ArtistController extends Controller
     {
 //        $classifiedImg = public_path('images/artist-header.jpg');
 //        $image = Image::make($classifiedImg)->encode('webp', 90)->save(public_path('images/'  .  'artist-header.webp'));
+        $theme = Option::where('key', 'theme_settings')->first();
+        if(!empty($theme))
+        {
+            $theme = json_decode($theme->value);
+        }
 
         return view('pages.artists.artist-details');
     }

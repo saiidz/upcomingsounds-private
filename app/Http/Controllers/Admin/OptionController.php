@@ -38,6 +38,8 @@ class OptionController extends Controller
             'spotify_icon'       => 'required',
             'instagram_icon'     => 'required',
             'facebook_icon'      => 'required',
+            'curator_banner'     => 'mimes:png,jpg',
+            'artist_banner'      => 'mimes:png,jpg',
             'favicon'            => 'mimes:png,jpg',
             'logo'               => 'mimes:png,jpg',
         ]);
@@ -47,9 +49,7 @@ class OptionController extends Controller
             return response()->json(['errors' => $validator->errors()->all()]);
         }
 
-        $webp = Webp::make($request->file('artist_banner'))->quality(70);
-        $webp->save(public_path('images/artist-header.webp'));
-        dd($webp,$request->all());
+
         // logo check
         if ($request->hasFile('logo')) {
             $logo = $request->file('logo');
@@ -68,6 +68,12 @@ class OptionController extends Controller
             $favicon->move($favicon_path, $favicon_name);
         }
 
+        $artist_banner_webp = Webp::make($request->file('artist_banner'))->quality(70);
+        $artist_banner_webp->save(public_path('images/artist-header.webp'));
+
+        $curator_banner_webp = Webp::make($request->file('curator_banner'))->quality(70);
+        $curator_banner_webp->save(public_path('images/curator-header.webp'));
+
         $theme = Option::where('key','theme_settings')->first();
 
         if(!empty($theme))
@@ -77,7 +83,9 @@ class OptionController extends Controller
         }
         $data = [
             'logo'               => !empty($logo_new_path) ? $logo_new_path : $theme_logo,
-            'favicon'            => !empty($favicon_new_path) ? $favicon_new_path : $theme_favicon,
+            'favicon'            => !empty($favicon_new_path) ? "$favicon_new_path" : $theme_favicon,
+            'artist_banner'      => !empty($artist_banner_webp) ? "images/artist-header.webp" : "images/artist-header.jpg",
+            'curator_banner'     => !empty($curator_banner_webp) ? "images/curator-header.webp" : "images/curator-header.jpg",
             'facebook_icon'      => $request->facebook_icon,
             'facebook_link'      => $request->facebook_link,
             'instagram_icon'     => $request->instagram_icon,

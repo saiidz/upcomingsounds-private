@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Curator;
 
 use App\Events\RealTimeNotification;
+use App\Models\Option;
 use App\Models\User;
 use App\Models\Country;
 use Illuminate\Http\Request;
@@ -174,6 +175,11 @@ class CuratorController extends Controller
     {
 //        $classifiedImg = public_path('images/curator-header.jpg');
 //        Image::make($classifiedImg)->encode('webp', 90)->save(public_path('images/'  .  'curator-header.webp'));
+        $theme = Option::where('key', 'theme_settings')->first();
+        if(!empty($theme))
+        {
+            $theme = json_decode($theme->value);
+        }
 
         return view('pages.curators.curator-details');
     }
