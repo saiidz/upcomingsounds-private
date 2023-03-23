@@ -60,7 +60,8 @@ class OptionController extends Controller
 
         }
 
-        if ($request->hasFile('favicon')) {
+        if ($request->hasFile('favicon'))
+        {
             $favicon = $request->file('favicon');
             $favicon_name = 'favicon.ico';
             $favicon_path = 'uploads/';
@@ -68,11 +69,17 @@ class OptionController extends Controller
             $favicon->move($favicon_path, $favicon_name);
         }
 
-        $artist_banner_webp = Webp::make($request->file('artist_banner'))->quality(70);
-        $artist_banner_webp->save(public_path('images/artist-header.webp'));
+        if ($request->hasFile('artist_banner'))
+        {
+            $artist_banner_webp = Webp::make($request->file('artist_banner'))->quality(70);
+            $artist_banner_webp->save(public_path('images/artist-header.webp'));
+        }
 
-        $curator_banner_webp = Webp::make($request->file('curator_banner'))->quality(70);
-        $curator_banner_webp->save(public_path('images/curator-header.webp'));
+        if ($request->hasFile('curator_banner')) {
+            $curator_banner_webp = Webp::make($request->file('curator_banner'))->quality(70);
+            $curator_banner_webp->save(public_path('images/curator-header.webp'));
+        }
+
 
         $theme = Option::where('key','theme_settings')->first();
 

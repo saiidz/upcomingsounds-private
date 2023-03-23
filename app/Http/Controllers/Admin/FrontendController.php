@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Option;
+use Buglinjo\LaravelWebp\Webp;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -217,36 +218,57 @@ class FrontendController extends Controller
             return response()->json(['errors' => $validator->errors()->all()]);
         }
 
-        if ($request->hasFile('banner')) {
-            $banner = $request->file('banner');
-            $banner_name = 'banner.png';
-            $banner_path = 'uploads/aboutsection/';
-            $banner_new_path = $banner_path.$banner_name;
-            $banner->move($banner_path, $banner_name);
+        if ($request->hasFile('banner'))
+        {
+            $banner = Webp::make($request->file('banner'))->quality(70);
+            $banner->save(public_path('uploads/aboutsection/banner.webp'));
+            $banner_new_path = "uploads/aboutsection/banner.webp";
         }
 
-        if ($request->hasFile('banner_one')) {
-            $banner_one = $request->file('banner_one');
-            $banner_one_name = 'banner_one.png';
-            $banner_one_path = 'uploads/aboutsection/';
-            $banner_one_new_path = $banner_one_path.$banner_one_name;
-            $banner_one->move($banner_one_path, $banner_one_name);
+//        if ($request->hasFile('banner')) {
+//            $banner = $request->file('banner');
+//            $banner_name = 'banner.png';
+//            $banner_path = 'uploads/aboutsection/';
+//            $banner_new_path = $banner_path.$banner_name;
+//            $banner->move($banner_path, $banner_name);
+//        }
+
+        if ($request->hasFile('banner_one'))
+        {
+            $banner_one = Webp::make($request->file('banner_one'))->quality(70);
+            $banner_one->save(public_path('uploads/aboutsection/banner_one.webp'));
+            $banner_one_new_path = "uploads/aboutsection/banner_one.webp";
+//            $banner_one = $request->file('banner_one');
+//            $banner_one_name = 'banner_one.png';
+//            $banner_one_path = 'uploads/aboutsection/';
+//            $banner_one_new_path = $banner_one_path.$banner_one_name;
+//            $banner_one->move($banner_one_path, $banner_one_name);
         }
 
-        if ($request->hasFile('banner_two')) {
-            $banner_two = $request->file('banner_two');
-            $banner_two_name = 'banner_two.png';
-            $banner_two_path = 'uploads/aboutsection/';
-            $banner_two_new_path = $banner_two_path.$banner_two_name;
-            $banner_two->move($banner_two_path, $banner_two_name);
+        if ($request->hasFile('banner_two'))
+        {
+            $banner_two = Webp::make($request->file('banner_two'))->quality(70);
+            $banner_two->save(public_path('uploads/aboutsection/banner_two.webp'));
+            $banner_two_new_path = "uploads/aboutsection/banner_two.webp";
+
+//            $banner_two = $request->file('banner_two');
+//            $banner_two_name = 'banner_two.png';
+//            $banner_two_path = 'uploads/aboutsection/';
+//            $banner_two_new_path = $banner_two_path.$banner_two_name;
+//            $banner_two->move($banner_two_path, $banner_two_name);
         }
 
-        if ($request->hasFile('banner_three')) {
-            $banner_three = $request->file('banner_three');
-            $banner_three_name = 'banner_three.png';
-            $banner_three_path = 'uploads/aboutsection/';
-            $banner_three_new_path = $banner_three_path.$banner_three_name;
-            $banner_three->move($banner_three_path, $banner_three_name);
+        if ($request->hasFile('banner_three'))
+        {
+            $banner_three = Webp::make($request->file('banner_three'))->quality(70);
+            $banner_three->save(public_path('uploads/aboutsection/banner_three.webp'));
+            $banner_three_new_path = "uploads/aboutsection/banner_three.webp";
+
+//            $banner_three = $request->file('banner_three');
+//            $banner_three_name = 'banner_three.png';
+//            $banner_three_path = 'uploads/aboutsection/';
+//            $banner_three_new_path = $banner_three_path.$banner_three_name;
+//            $banner_three->move($banner_three_path, $banner_three_name);
         }
 
 
