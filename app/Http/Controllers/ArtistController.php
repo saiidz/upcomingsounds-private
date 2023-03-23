@@ -216,7 +216,7 @@ class ArtistController extends Controller
     public function forArtists()
     {
         $classifiedImg = public_path('images/artist-header.jpg');
-//        $image = Image::make($classifiedImg);
+        $image = Image::make($classifiedImg);
 dd($classifiedImg);
         return view('pages.artists.artist-details');
     }
