@@ -75,35 +75,61 @@ class FrontendController extends Controller
             return response()->json(['errors' => $validator->errors()->all()]);
         }
 
-        if ($request->hasFile('banner_one')) {
-            $banner_one = $request->file('banner_one');
-            $banner_one_name = 'banner_one.png';
-            $banner_one_path = 'uploads/homesection/';
-            $banner_one_new_path = $banner_one_path.$banner_one_name;
-            $banner_one->move($banner_one_path, $banner_one_name);
+        if ($request->hasFile('banner_one'))
+        {
+            $banner_one = Webp::make($request->file('banner_one'))->quality(70);
+            $banner_one->save(public_path('uploads/homesection/banner_one.webp'));
+            $banner_one_new_path = "uploads/homesection/banner_one.webp";
         }
 
-        if ($request->hasFile('banner_two')) {
-            $banner_two = $request->file('banner_two');
-            $banner_two_name = 'banner_two.png';
-            $banner_two_path = 'uploads/homesection/';
-            $banner_two_new_path = $banner_two_path.$banner_two_name;
-            $banner_two->move($banner_two_path, $banner_two_name);
+        if ($request->hasFile('banner_two'))
+        {
+            $banner_two = Webp::make($request->file('banner_two'))->quality(70);
+            $banner_two->save(public_path('uploads/homesection/banner_two.webp'));
+            $banner_two_new_path = "uploads/homesection/banner_two.webp";
         }
 
-        if ($request->hasFile('banner_three')) {
-            $banner_three = $request->file('banner_three');
-            $banner_three_name = 'banner_three.png';
-            $banner_three_path = 'uploads/homesection/';
-            $banner_three_new_path = $banner_three_path.$banner_three_name;
-            $banner_three->move($banner_three_path, $banner_three_name);
+        if ($request->hasFile('banner_three'))
+        {
+            $banner_three = Webp::make($request->file('banner_three'))->quality(70);
+            $banner_three->save(public_path('uploads/homesection/banner_three.webp'));
+            $banner_three_new_path = "uploads/homesection/banner_three.webp";
         }
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $image_name = 'image.png';
-            $image_path = 'uploads/homesection/';
-            $image_new_path = $image_path.$image_name;
-            $image->move($image_path, $image_name);
+
+//        if ($request->hasFile('banner_one')) {
+//            $banner_one = $request->file('banner_one');
+//            $banner_one_name = 'banner_one.png';
+//            $banner_one_path = 'uploads/homesection/';
+//            $banner_one_new_path = $banner_one_path.$banner_one_name;
+//            $banner_one->move($banner_one_path, $banner_one_name);
+//        }
+
+//        if ($request->hasFile('banner_two')) {
+//            $banner_two = $request->file('banner_two');
+//            $banner_two_name = 'banner_two.png';
+//            $banner_two_path = 'uploads/homesection/';
+//            $banner_two_new_path = $banner_two_path.$banner_two_name;
+//            $banner_two->move($banner_two_path, $banner_two_name);
+//        }
+
+//        if ($request->hasFile('banner_three')) {
+//            $banner_three = $request->file('banner_three');
+//            $banner_three_name = 'banner_three.png';
+//            $banner_three_path = 'uploads/homesection/';
+//            $banner_three_new_path = $banner_three_path.$banner_three_name;
+//            $banner_three->move($banner_three_path, $banner_three_name);
+//        }
+        if ($request->hasFile('image'))
+        {
+            $image = Webp::make($request->file('image'))->quality(70);
+            $image->save(public_path('uploads/homesection/image.webp'));
+            $image_new_path = "uploads/homesection/image.webp";
+
+//            $image = $request->file('image');
+//            $image_name = 'image.png';
+//            $image_path = 'uploads/homesection/';
+//            $image_new_path = $image_path.$image_name;
+//            $image->move($image_path, $image_name);
         }
 
         $theme = Option::where('key','home_settings')->first();
