@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use App\Models\Option;
 use App\Models\User;
 use App\Models\Country;
@@ -22,7 +23,9 @@ use App\Models\CuratorFeatureTag;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
 use PragmaRX\Countries\Package\Countries;
@@ -132,6 +135,12 @@ class ArtistController extends Controller
      */
     public function uploadArtistProfile(Request $request)
     {
+//        dd($request->all());
+
+//        $path = storage_path('public/' . $request->file('file'));
+//        $contents = Storage::disk('s3')->get($path);
+//        dd($contents);
+//        Storage::disk('s3')->put('path/to/file.ext', 'some-content');
 //        $validator = Validator::make($request->all(), [
 //            'file' => 'required|mimes:jpeg,jpg,png|max:2048',
 //        ]);
@@ -151,6 +160,8 @@ class ArtistController extends Controller
             $file = $request->file('file');
             $name = $file->getClientOriginalName();
             $image_path = 'default_' . time() . $name;
+//            $filePath = 'artistProfile/' . $image_path;
+//            Helper::S3_UPLOAD($filePath,$file);
             $file->move(public_path() . '/uploads/profile/', $image_path);
             //store image file into directory and db
             $input['profile'] = $image_path;

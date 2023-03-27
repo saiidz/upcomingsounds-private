@@ -3,6 +3,8 @@
 namespace App\Helpers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use SendGrid\Mail\Mail;
 use Twilio\Rest\Client;
@@ -32,6 +34,22 @@ class Helper
             'body' => $msg
         ]);
     }
+
+    /**
+     * @param $filePath
+     * @param $file
+     * @return bool|string
+     */
+    public static function S3_UPLOAD($filePath = null, $file)
+    {
+        Log::info('S3 Image Response');
+        Log::info(json_encode($filePath));
+        Log::info(json_encode($file));
+
+        return Storage::disk('s3')->put($filePath, file_get_contents($file));
+    }
+
+
 //    public function sendEmailViaSendGrid($to, $subject, $htmlBody, $textBody = '')
 //    {
 //        $email = new Mail();
