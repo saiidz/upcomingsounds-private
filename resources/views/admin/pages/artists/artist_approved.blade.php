@@ -75,7 +75,17 @@
                                                                         </span>
                                                                     @endif
                                                                 </td>
-                                                                <td><a href="{{ route('admin.artist.profile', $approved_artist->id) }}"><i class="material-icons">remove_red_eye</i></a></td>
+                                                                <td>
+                                                                    <a href="{{ route('admin.artist.profile', $approved_artist->id) }}"><i class="material-icons">remove_red_eye</i></a>
+                                                                    <a class="dropdown-item has-icon delete-confirm" href="javascript:void(0)" data-id={{ $approved_artist->id }}>
+                                                                        <img class="editDell" src="{{asset('images/delete_forever.svg')}}">
+                                                                    </a>
+                                                                    <!-- Delete Form -->
+                                                                    <form class="d-none" id="delete_form_{{ $approved_artist->id }}" action="{{ route('admin.artist.destroy', $approved_artist->id) }}" method="POST">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                    </form>
+                                                                </td>
                                                           </tr>
                                                         @endforeach
                                                     @endif

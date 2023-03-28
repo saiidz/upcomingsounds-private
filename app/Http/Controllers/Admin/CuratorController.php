@@ -38,6 +38,16 @@ class CuratorController extends Controller
     }
 
     /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function deleteCurator($id)
+    {
+        User::where('id',$id)->delete();
+        return redirect()->back()->with('success','Curator deleted successfully');
+    }
+
+    /**
      * profileCurator function
      *
      * @return void

@@ -43,6 +43,16 @@ class ArtistController extends Controller
     }
 
     /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function deleteArtist($id)
+    {
+        User::where('id',$id)->delete();
+        return redirect()->back()->with('success','Artist deleted successfully');
+    }
+
+    /**
      * profileArtist function
      *
      * @return void

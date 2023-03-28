@@ -50,6 +50,7 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
     Route::get('track-details/{artist_track}',[ArtistController::class,'trackDetails'])->name('artist.track.detail');
     Route::post('store-approved-track/{artist_track}', [ArtistController::class,'storeApprovedTrack'])->name('store.approved.track');
     Route::post('store-track-reject/{artist_track}',[ArtistController::class,'storeRejectTrack'])->name('store.track.reject');
+    Route::delete('artist/{id}/destroy', [ArtistController::class,'deleteArtist'])->name('artist.destroy');
 
     // Curator Route
     Route::get('curator-approved', [CuratorController::class,'approvedCurator'])->name('approved.curator');
@@ -58,6 +59,7 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
     Route::get('curator-verification', [CuratorController::class,'verificationCurator'])->name('verification.curator');
     Route::post('store-approved-curator/{user}', [CuratorController::class,'storeApprovedCurator'])->name('store.approved.curator');
     Route::post('store-curator-reject/{user}',[CuratorController::class,'storeRejectCurator'])->name('store.curator.reject');
+    Route::delete('curator/{id}/destroy', [CuratorController::class,'deleteCurator'])->name('curator.destroy');
 
     // curator verification form
     Route::get('curator-verification/{user}',[CuratorController::class,'curatorVerifcationShow'])->name('curator.verification.show');
