@@ -49,7 +49,8 @@ class ReferralController extends Controller
     {
         $request->validate([
 //            'name'     => 'required|string|max:255',
-            'name'     => ($request->type == 'artist') ? 'required|alpha_dash|max:255|unique:users' : 'required|string|max:255',
+            'name'     => 'required|alpha_dash|max:255|unique:users',
+//            'name'     => ($request->type == 'artist') ? 'required|alpha_dash|max:255|unique:users' : 'required|string|max:255',
             'email'    => 'required|string|email|max:255|unique:users',
             'password' => ['required', Rules\Password::defaults()],
         ]);
@@ -58,7 +59,8 @@ class ReferralController extends Controller
             'name'     => $request->name,
             'email'    => $request->email,
             'password' => Hash::make($request->password),
-            'type'     => ($request->type == 'artist') ? 'artist' : 'curator',
+            'type'     => 'artist',
+//            'type'     => ($request->type == 'artist') ? 'artist' : 'curator',
         ]);
 
         event(new Registered($user));
@@ -74,12 +76,14 @@ class ReferralController extends Controller
 
         Auth::login($user);
 
-        if($request->type == 'artist')
-        {
-            return redirect(RouteServiceProvider::HOME);
-        }else{
-            return redirect(RouteServiceProvider::CURATOR);
-        }
+        return redirect(RouteServiceProvider::HOME);
+
+//        if($request->type == 'artist')
+//        {
+//            return redirect(RouteServiceProvider::HOME);
+//        }else{
+//            return redirect(RouteServiceProvider::CURATOR);
+//        }
 
 
     }

@@ -12,6 +12,7 @@
         "biscolab/laravel-recaptcha": "^5.1",
         "buglinjo/laravel-webp": "^2.3",
         "czpechy/instagramprofilecrawler": "^1.0",
+        "doctrine/dbal": "^3.6",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.4",

@@ -5,6 +5,7 @@ namespace App\Listeners;
 use App\Models\User;
 use App\Events\UserReferred;
 use App\Models\ReferralLink;
+use App\Templates\IStatus;
 use Illuminate\Support\Carbon;
 use App\Models\CuratorTransfer;
 use App\Models\TransactionHistory;
@@ -74,7 +75,8 @@ class RewardUser
                             'user_type'           => 'curator',
                             'transaction_user_id' => $transactionUser->id,
                             'credits'             => '10',
-                            'payment_status'      => 'completed',
+                            'payment_status'      => IStatus::PENDING,
+//                            'payment_status'      => 'completed',
                             'paid_at'             => Carbon::now(),
                         ]);
                     }

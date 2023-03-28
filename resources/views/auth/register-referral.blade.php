@@ -15,14 +15,15 @@
                     <form method="POST" action="{{ url('/referral/register') }}" autocomplete="off">
                         @csrf
                         <input type="hidden" name="ref" value="{{ !empty($ref) ? $ref : '' }}">
-                        <div class="form-group">
-                            <select name="type" id="registerValue" required class="form-control">
-                                <option value="" disabled selected>Please Select Signup</option>
-                                <option value="artist">Artist</option>
-                                <option value="curator">Curator</option>
-                            </select>
-                        </div>
-                        <div class="form-group" id="name" style="display: none">
+                        <input type="text" class="form-control" value="Please Signup As Artist" readonly disabled>
+{{--                        <div class="form-group">--}}
+{{--                            <select name="type" id="registerValue" required class="form-control">--}}
+{{--                                <option value="" disabled selected>Please Select Signup</option>--}}
+{{--                                <option value="artist">Artist</option>--}}
+{{--                                <option value="curator">Curator</option>--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
+                        <div class="form-group" id="name">
                             <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" placeholder="Username" required>
                             @error('name')
                                 <small class="red-text ml-10" role="alert">
@@ -30,7 +31,7 @@
                                 </small>
                             @enderror
                         </div>
-                        <div class="form-group" id="email" style="display: none">
+                        <div class="form-group" id="email">
                             <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="Email" required>
                             @error('email')
                                 <small class="red-text ml-10" role="alert">
@@ -38,7 +39,7 @@
                                 </small>
                             @enderror
                         </div>
-                        <div class="form-group createPassword" id="password_block" style="display: none">
+                        <div class="form-group createPassword" id="password_block">
                               <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required
                                 autocomplete="new-password" placeholder="Password">
                             @error('password')
@@ -52,21 +53,21 @@
 							<img src="{{asset('images/show-pas_black.svg')}}" alt="" class="password-toggle hide" />
 									</span>
                         </div>
-                        <div class="form-group" id="address" style="display: none">
-                            <input type="text" name="address" id="addressField"  class="form-control @error('address') is-invalid @enderror" value="{{ old('address') }}" placeholder="Address">
-                            @error('address')
-                                <small class="red-text ml-10" role="alert">
-                                    {{ $message }}
-                                </small>
-                            @enderror
-                        </div>
+{{--                        <div class="form-group" id="address">--}}
+{{--                            <input type="text" name="address" id="addressField"  class="form-control @error('address') is-invalid @enderror" value="{{ old('address') }}" placeholder="Address">--}}
+{{--                            @error('address')--}}
+{{--                                <small class="red-text ml-10" role="alert">--}}
+{{--                                    {{ $message }}--}}
+{{--                                </small>--}}
+{{--                            @enderror--}}
+{{--                        </div>--}}
                         <div class="m-b-md text-sm">
                             <span class="text-muted">By clicking Sign Up, I agree to the</span>
                             <a href="{{url('/term-of-service')}}">Terms of service</a>
                             <span class="text-muted">and</span>
                             <a href="{{url('/privacy-policy')}}">Policy Privacy.</a>
                         </div>
-                        <button type="submit" id="buttonRegister" style="display: none" class="btn circle btn-outline b-primary p-x-md auth_btn Rigister">Sign Up</button>
+                        <button type="submit" id="buttonRegister" class="btn circle btn-outline b-primary p-x-md auth_btn Rigister">Sign Up</button>
                     </form>
                 </div>
             </div>
