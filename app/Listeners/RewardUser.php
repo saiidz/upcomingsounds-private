@@ -39,7 +39,7 @@ class RewardUser
         {
             $referral = ReferralLink::find($event->referralId);
             if (!is_null($referral)) {
-                ReferralRelationship::create(['referral_link_id' => $referral->id, 'user_id' => $event->user->id]);
+                $referralRelationship = ReferralRelationship::create(['referral_link_id' => $referral->id, 'user_id' => $event->user->id]);
 
                 // Example...
                 if ($referral->program->name === 'Sign-up Bonus') {
@@ -50,34 +50,43 @@ class RewardUser
                     {
 
                     // check record is already exists
-                    $curator_billing_info_exist = TransactionUserInfo::where('user_id',Auth::id())->first();
-
-                        if(isset($curator_billing_info_exist))
-                        {
-
-                            $transactionUser = $curator_billing_info_exist->update([
-                                'user_id'      => $curator_billing_info_exist->id,
-                                'first_name'   => $curator_billing_info_exist->name,
-                                'phone_number' => $curator_billing_info_exist->phone_number,
-                                'address'      => $curator_billing_info_exist->address,
-                            ]);
-                        }else{
-                            $transactionUser = TransactionUserInfo::create([
-                                'user_id'      => $provider->id,
-                                'first_name'   => $provider->name,
-                                'phone_number' => $provider->phone_number,
-                                'address'      => $provider->address,
-                            ]);
-                        }
+                        $transactionUser = TransactionUserInfo::updateOrCreate([
+                            'user_id' => $referral->user_id,
+                        ],[
+                            'user_id'      => $provider->id,
+                            'first_name'   => $provider->name,
+                            'phone_number' => $provider->phone_number,
+                            'address'      => $provider->address,
+                        ]);
+//                    $curator_billing_info_exist = TransactionUserInfo::where('user_id',Auth::id())->first();
+//
+//                        if(isset($curator_billing_info_exist))
+//                        {
+//
+//                            $transactionUser = $curator_billing_info_exist->update([
+//                                'user_id'      => $curator_billing_info_exist->id,
+//                                'first_name'   => $curator_billing_info_exist->name,
+//                                'phone_number' => $curator_billing_info_exist->phone_number,
+//                                'address'      => $curator_billing_info_exist->address,
+//                            ]);
+//                        }else{
+//                            $transactionUser = TransactionUserInfo::create([
+//                                'user_id'      => $provider->id,
+//                                'first_name'   => $provider->name,
+//                                'phone_number' => $provider->phone_number,
+//                                'address'      => $provider->address,
+//                            ]);
+//                        }
 
                         TransactionHistory::create([
                             'user_id'             => $transactionUser->user_id,
                             'user_type'           => 'curator',
                             'transaction_user_id' => $transactionUser->id,
-                            'credits'             => '10',
+                            'credits'             => IStatus::CREDIT_FOR_CURATOR,
                             'payment_status'      => IStatus::PENDING,
 //                            'payment_status'      => 'completed',
                             'paid_at'             => Carbon::now(),
+                            'referral_relationship_id'  => $referralRelationship->id,
                         ]);
                     }
                     // $provider->addCredits(15);

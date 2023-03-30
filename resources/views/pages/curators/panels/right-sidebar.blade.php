@@ -111,7 +111,6 @@
                 @endif
             @if (!empty(auth()->user()->getReferrals()))
                 @forelse(auth()->user()->getReferrals() as $referral)
-
                 <div class="bgGradient">
                     <h6 class="text text-muted">Referral Program</h6>
                     <div class="form-group row">
@@ -127,8 +126,21 @@
                             <input id="tastemaker_name" class="form-control" value="{{ $referral->link }}">
                         </div>
                     </div>
+                    @php
+                    $relationships = \App\Models\ReferralRelationship::where('referral_link_id',$referral->id)->get();
+                    $count = 0;
+                    foreach ($relationships as $key => $relationship)
+                    {
+                        $key = 1;
+                        if(!empty($relationship->campaign))
+                        {
+                            $count+= $key;
+                        }
+                    }
+                    @endphp
                     <p>
-                        Number of referred users: {{ $referral->relationships()->count() }}
+                        Number of referred users: {{ $count }}
+{{--                        Number of referred users: {{ $referral->relationships()->count() }}--}}
                     </p>
                     <p>*Earning potential based on referrals depending on the artist membership package purchased.</p>
                 </div>

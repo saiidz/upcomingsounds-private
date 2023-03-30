@@ -26,6 +26,7 @@ class TransactionHistory extends Model
         'transaction_id',
         'customer_id',
         'gateway_transaction_id',
+        'referral_relationship_id',
         'deleted_at',
     ];
     // Transactions belongs to User

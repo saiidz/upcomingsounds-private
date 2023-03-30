@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Campaign;
 use App\Models\CuratorFeatureTag;
+use App\Models\ReferralRelationship;
+use App\Models\TransactionHistory;
 use App\Models\User;
 use App\Models\Language;
 use App\Models\ArtistTrack;
 use App\Notifications\SendNotification;
 use App\Templates\IMessageTemplates;
 use App\Templates\IPackages;
+use App\Templates\IStatus;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -93,6 +96,17 @@ class PromoteYourTrackController extends Controller
 
         $campaign = Campaign::create($input);
 
+        // update curator credit if artist signup from curator referral
+        $referral = ReferralRelationship::where('user_id',Auth::id())->first();
+        if(!empty($referral))
+        {
+            $curatorTransaction = TransactionHistory::where('user_id',$referral->referralLink->user_id)
+                ->where('referral_relationship_id',$referral->id)->first();
+            if(!empty($curatorTransaction))
+                $curatorTransaction->update([
+                    'payment_status' => IStatus::COMPLETED,
+                ]);
+        }
         return response()->json(['success' => 'Campaign created successfully.']);
     }
 
