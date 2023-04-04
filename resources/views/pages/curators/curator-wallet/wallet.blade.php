@@ -8,9 +8,9 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/custom/wallet.css')}}">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <style>
-        #loadings {
-            background: rgba(255, 255, 255, .4) url({{asset('images/loader.gif')}}) no-repeat center center !important;
-        }
+        {{--#loadings {--}}
+        {{--    background: rgba(255, 255, 255, .4) url({{asset('images/loader.gif')}}) no-repeat center center !important;--}}
+        {{--}--}}
         #curatorHistory .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
             color: white !important;
         }
@@ -189,14 +189,14 @@
                 var request = this.value;
 
             var url = '{{ route('curator.wallet.history') }}';
-            showLoader();
+            // showLoader();
             $.ajax({
                 type: "GET",
                 url: url,
                 data: {requestFrom:request},
                 dataType: 'json',
                 success: function (data) {
-                    hideLoader();
+                    // hideLoader();
                     if(data.requestFrom === '{!! \App\Templates\IStatus::HISTORY_WITHDRAWAL !!}')
                     {
                         $('#curatorOfferPayments_wrapper').css('display', 'none');

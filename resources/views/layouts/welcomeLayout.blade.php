@@ -6,7 +6,7 @@
 <!-- END: Head-->
 
 <body>
-<div id="loadings"></div>
+
 <div class="app dk" id="app">
     <div id="loading">
         <img id="loading-image" src="{{asset('images/USW_GIF.gif')}}" alt="Loading..." />
