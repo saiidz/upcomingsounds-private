@@ -52,7 +52,7 @@
 {{-- page content --}}
 @section('content')
     <div class="{{Auth::check() ? 'app-bodynew' : 'app-body'}}">
-
+        <div id="loadings"></div>
         <!-- ############ PAGE START-->
 
         <section class="wallet">
