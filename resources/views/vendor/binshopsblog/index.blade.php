@@ -65,9 +65,10 @@
         {{-- Post Code --}}
         <section class="ftco-section bg-light">
             <div class="container">
-                <div class="row d-flex">
+                <div class="row display-grid">
+{{--                <div class="row d-flex">--}}
                     @forelse($posts as $post)
-                        <div class="col-md-4 d-flex ftco-animate">
+                        <div class="col-md-4 display-grid ftco-animate">
                             <div class="blog-entry justify-content-end">
                                 <?=$post->image_tag("medium", true, 'postImg'); ?>
                                 <div class="text p-4 float-right d-block">

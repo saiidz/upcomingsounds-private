@@ -314,14 +314,34 @@ br.br {
 #myHistory #historyWallet_filter{
     color: white;
 }
+
 #myHistory #historyWallet_wrapper{
     margin-top:15px;
 }
 #myHistory .table-responsive{
     display: inline-table !important;
 }
+
+#curatorHistory #historyCuratorWallet_length,
+#curatorHistory #historyCuratorWallet_length select,
+#curatorHistory #historyCuratorWallet_info,
+#curatorHistory .previous,
+#curatorHistory .next,
+#curatorHistory #historyCuratorWallet_filter{
+    color: white;
+}
+
+#curatorHistory #historyCuratorWallet_wrapper{
+    margin-top:15px;
+}
+#curatorHistory .table-responsive{
+    display: inline-table !important;
+}
 @media (min-width: 320px) and (max-width: 600px) {
     #myHistory .table-responsive{
+        display: block !important;
+    }
+    #curatorHistory .table-responsive{
         display: block !important;
     }
 }
