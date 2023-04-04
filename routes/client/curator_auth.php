@@ -29,6 +29,8 @@ Route::post('curator-change-password', [CuratorController::class, 'curatorChange
 
 // Wallet Shop Route
 Route::get('/taste-maker-wallet',[CuratorWalletController::class,'wallet'])->name('curator.wallet');
+#Curator Wallet History
+Route::get('/curator-wallet-history',[CuratorWalletController::class, 'curatorWalletHistory'])->name('curator.wallet.history');
 
 // Wallet Transfer Route
 Route::post('curator-transfer',[CuratorWalletController::class,'curatorTransfer'])->name('curator.transfer');
@@ -101,7 +103,6 @@ Route::get('send-offer/{send_offer}', [SendOfferController::class,'sendOfferShow
 // send offer to artist route
 
 #Notification mark as Read
-
 Route::post('/curator-mark-as-read',[CuratorController::class, 'markNotification'])->name('curator.markNotification');
 
 /***************************************************** Curator Routes *********************************************************/

@@ -119,7 +119,33 @@
             //Normally set in the title tag of your page.
             document.title='Curator History';
             // DataTable initialisation
-            $('#historyCuratorWallet').DataTable(
+            $('#historyCuratorWithdrawal').DataTable(
+                {
+                    "paging": true,
+                    "buttons": [
+                        'colvis',
+                        'copyHtml5',
+                        'csvHtml5',
+                        'excelHtml5',
+                        'pdfHtml5',
+                        'print'
+                    ]
+                }
+            );
+            $('#curatorOfferPayments').DataTable(
+                {
+                    "paging": true,
+                    "buttons": [
+                        'colvis',
+                        'copyHtml5',
+                        'csvHtml5',
+                        'excelHtml5',
+                        'pdfHtml5',
+                        'print'
+                    ]
+                }
+            );
+            $('#curatorReferralPayments').DataTable(
                 {
                     "paging": true,
                     "buttons": [
@@ -135,6 +161,62 @@
         });
     </script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        });
+
+        $(window).load(function() {
+            $('#historyCuratorWithdrawal_wrapper').css('display', 'none');
+            $('#curatorOfferPayments_wrapper').css('display', 'none');
+            $('#curatorReferralPayments_wrapper').css('display', 'none');
+        });
+
+        $('#curatorHistoryWallet').on('change', function (){
+
+            if(this.value === '{!! \App\Templates\IStatus::HISTORY_WITHDRAWAL !!}')
+                var request = this.value;
+            else if(this.value === '{!! \App\Templates\IStatus::OFFER_PAYMENTS !!}')
+                var request = this.value;
+            else if(this.value === '{!! \App\Templates\IStatus::REFERRAL_PAYMENTS !!}')
+                var request = this.value;
+
+            var url = '{{ route('curator.wallet.history') }}';
+            $.ajax({
+                type: "GET",
+                url: url,
+                data: {requestFrom:request},
+                dataType: 'json',
+                success: function (data) {
+                    if(data.requestFrom === '{!! \App\Templates\IStatus::HISTORY_WITHDRAWAL !!}')
+                    {
+                        $('#curatorOfferPayments_wrapper').css('display', 'none');
+                        $('#curatorReferralPayments_wrapper').css('display', 'none');
+                        $('#historyCuratorWithdrawal_wrapper').css('display', 'block');
+
+                    }
+                    else if(data.requestFrom === '{!! \App\Templates\IStatus::OFFER_PAYMENTS !!}')
+                    {
+                        $('#historyCuratorWithdrawal_wrapper').css('display', 'none');
+                        $('#curatorReferralPayments_wrapper').css('display', 'none');
+                        $('#curatorOfferPayments_wrapper').css('display', 'block');
+                    }
+                    else if(data.requestFrom === '{!! \App\Templates\IStatus::REFERRAL_PAYMENTS !!}')
+                    {
+                        $('#historyCuratorWithdrawal_wrapper').css('display', 'none');
+                        $('#curatorOfferPayments_wrapper').css('display', 'none');
+                        $('#curatorReferralPayments_wrapper').css('display', 'block');
+                    }
+
+                }
+
+            });
+
+
+        });
+    </script>
     <script>
         $(document).ready(function () {
             $('#transferCuratorForm').validate({ // initialize the plugin
@@ -153,12 +235,6 @@
                     amount: "The amount field is required",
                 }
             });
-        });
-
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-            }
         });
         $('#country_name').change(function () {
             var cid = $(this).val();

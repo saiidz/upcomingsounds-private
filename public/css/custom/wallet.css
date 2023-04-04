@@ -322,16 +322,32 @@ br.br {
     display: inline-table !important;
 }
 
-#curatorHistory #historyCuratorWallet_length,
-#curatorHistory #historyCuratorWallet_length select,
-#curatorHistory #historyCuratorWallet_info,
+#curatorHistory #historyCuratorWithdrawal_length,
+#curatorHistory #historyCuratorWithdrawal_length select,
+#curatorHistory #historyCuratorWithdrawal_info,
 #curatorHistory .previous,
 #curatorHistory .next,
-#curatorHistory #historyCuratorWallet_filter{
+#curatorHistory #historyCuratorWithdrawal_filter,
+#curatorHistory #curatorOfferPayments_length,
+#curatorHistory #curatorOfferPayments_length select,
+#curatorHistory #curatorOfferPayments_info,
+#curatorHistory .previous,
+#curatorHistory .next,
+#curatorHistory #curatorOfferPayments_filter,
+#curatorHistory #curatorReferralPayments_length,
+#curatorHistory #curatorReferralPayments_length select,
+#curatorHistory #curatorReferralPayments_info,
+#curatorHistory .previous,
+#curatorHistory .next,
+#curatorHistory #curatorReferralPayments_filter
+{
     color: white;
 }
 
-#curatorHistory #historyCuratorWallet_wrapper{
+#curatorHistory #historyCuratorWithdrawal_wrapper,
+#curatorHistory #curatorOfferPayments_wrapper,
+#curatorHistory #curatorReferralPayments_wrapper
+{
     margin-top:15px;
 }
 #curatorHistory .table-responsive{

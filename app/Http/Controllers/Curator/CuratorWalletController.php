@@ -5,7 +5,13 @@ namespace App\Http\Controllers\Curator;
 use App\Http\Controllers\Controller;
 use App\Models\Country;
 use App\Models\CuratorTransfer;
+use App\Models\TransactionUserInfo;
 use App\Models\User;
+use App\Templates\IStatus;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -14,12 +20,38 @@ use Illuminate\Support\Facades\Validator;
 class CuratorWalletController extends Controller
 {
     /**
-     * shop
+     * @return Application|Factory|View
      */
     public function wallet()
     {
         $countries = Country::all();
         return view('pages.curators.curator-wallet.wallet',get_defined_vars());
+    }
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function curatorWalletHistory(Request $request)
+    {
+        $curator_transaction_user = TransactionUserInfo::where('user_id',Auth::id())->first();
+
+        if($request->requestFrom == IStatus::HISTORY_WITHDRAWAL)
+        {
+            $renderHtml = view('pages.curators.curator-wallet.__history_withdrawal')->with('historyWithdrawal', $curator_transaction_user)->render();
+        }elseif ($request->requestFrom == IStatus::OFFER_PAYMENTS)
+        {
+            $renderHtml = view('pages.curators.curator-wallet.__offer_payments')->with('historyWithdrawal', $curator_transaction_user)->render();
+        }elseif ($request->requestFrom == IStatus::REFERRAL_PAYMENTS)
+        {
+            $renderHtml = view('pages.curators.curator-wallet.__referral_payments')->with('historyWithdrawal', $curator_transaction_user)->render();
+        }
+
+        return response()->json([
+            'renderHtml'  => $renderHtml,
+            'requestFrom' => $request->requestFrom,
+            'success'     => 'Success',
+        ]);
     }
 
     /**
