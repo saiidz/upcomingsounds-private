@@ -9,13 +9,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <style>
         #loadings {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            width: 100%;
-            z-index: 9999999;
-            background: rgba(255, 255, 255, .4) url({{asset('images/USW_GIF.gif')}}) no-repeat center center !important;
+            background: rgba(255, 255, 255, .4) url({{asset('images/loader.gif')}}) no-repeat center center !important;
         }
         #curatorHistory .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
             color: white !important;
@@ -162,6 +156,17 @@
     </script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script>
+        var preload = document.getElementById('loadings');
+        function hideLoader()
+        {
+            preload.style.display = "none";
+        }
+
+        function showLoader()
+        {
+            preload.style.display = "block";
+        }
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
@@ -174,8 +179,8 @@
             $('#curatorReferralPayments_wrapper').css('display', 'none');
         });
 
-        $('#curatorHistoryWallet').on('change', function (){
-
+        $('#curatorHistoryWallet').on('change', function (e){
+            e.preventDefault();
             if(this.value === '{!! \App\Templates\IStatus::HISTORY_WITHDRAWAL !!}')
                 var request = this.value;
             else if(this.value === '{!! \App\Templates\IStatus::OFFER_PAYMENTS !!}')
@@ -184,12 +189,14 @@
                 var request = this.value;
 
             var url = '{{ route('curator.wallet.history') }}';
+            showLoader();
             $.ajax({
                 type: "GET",
                 url: url,
                 data: {requestFrom:request},
                 dataType: 'json',
                 success: function (data) {
+                    hideLoader();
                     if(data.requestFrom === '{!! \App\Templates\IStatus::HISTORY_WITHDRAWAL !!}')
                     {
                         $('#curatorOfferPayments_wrapper').css('display', 'none');
