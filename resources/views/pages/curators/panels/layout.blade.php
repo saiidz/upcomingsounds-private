@@ -7,6 +7,7 @@
 
 <body>
 <div class="app dk" id="app">
+    <div id="loadings"></div>
     <div id="loading">
         <img id="loading-image" src="{{asset('images/loader.gif')}}" alt="Loading..." />
     </div>
