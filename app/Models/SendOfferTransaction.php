@@ -25,6 +25,15 @@ class SendOfferTransaction extends Model
         'deleted_at',
     ];
 
+
+    /**
+     * @return BelongsTo
+     */
+    public function sendOffer(): BelongsTo
+    {
+        return $this->belongsTo(SendOffer::class,'send_offer_id');
+    }
+
     /**
      * @return BelongsTo
      */

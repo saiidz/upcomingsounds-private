@@ -66,7 +66,8 @@ class CuratorController extends Controller
 
     public function verificationCurator()
     {
-        $user_curators = User::with('curatorVerificationForm')->where('is_approved',1)->where('type','curator')->get();
+        $user_curators = User::with('curatorVerificationForm')->where('is_approved',1)->where('type','curator')
+            ->latest()->get();
         // $verification_curators = CuratorVerificationForm::latest()->get();;
         return view('admin.pages.curators.curator_verification', get_defined_vars());
     }
