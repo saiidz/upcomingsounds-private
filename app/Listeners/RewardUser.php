@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Events\UserReferred;
 use App\Models\ReferralLink;
 use App\Templates\IStatus;
+use App\Templates\IUserType;
 use Illuminate\Support\Carbon;
 use App\Models\CuratorTransfer;
 use App\Models\TransactionHistory;
@@ -80,7 +81,7 @@ class RewardUser
 
                         TransactionHistory::create([
                             'user_id'             => $transactionUser->user_id,
-                            'user_type'           => 'curator',
+                            'user_type'           => IUserType::CURATOR,
                             'transaction_user_id' => $transactionUser->id,
                             'credits'             => IStatus::CREDIT_FOR_CURATOR,
                             'payment_status'      => IStatus::PENDING,

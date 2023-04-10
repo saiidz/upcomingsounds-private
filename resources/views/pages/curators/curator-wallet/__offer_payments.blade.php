@@ -5,7 +5,7 @@
             <th>#</th>
             <th>Offer Title</th>
             <th>Artist Name</th>
-            <th>Amount</th>
+            <th>Credit</th>
             <th>Fee Offer</th>
             <th>Status</th>
             <th>Created At</th>
@@ -15,7 +15,7 @@
         @foreach($offer_payments as $offer_payment)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{!empty($offer_payment->sendOffer->curatorOfferTemplate) ? $offer_payment->sendOffer->curatorOfferTemplate->title : '----'}}</td>
+                <td><a href="{{route('curator.send.offer.show',encrypt($offer_payment->sendOffer->id))}}">{{!empty($offer_payment->sendOffer->curatorOfferTemplate) ? $offer_payment->sendOffer->curatorOfferTemplate->title : '----'}}</a></td>
                 <td>{{!empty($offer_payment->userArtist) ? $offer_payment->userArtist->name : '----'}}</td>
                 <td>{{ $offer_payment->contribution - $offer_payment->usc_fee_commission .' USC' }}</td>
                 <td>{{!empty($offer_payment->usc_fee_commission) ? $offer_payment->usc_fee_commission .' USC' : '----'}}</td>

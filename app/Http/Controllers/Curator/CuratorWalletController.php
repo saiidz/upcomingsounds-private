@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Country;
 use App\Models\CuratorTransfer;
 use App\Models\SendOfferTransaction;
+use App\Models\TransactionHistory;
 use App\Models\TransactionUserInfo;
 use App\Models\User;
 use App\Templates\IOfferTemplateStatus;
@@ -27,8 +28,14 @@ class CuratorWalletController extends Controller
     public function wallet()
     {
         $countries = Country::all();
-        //__offer_payments
-        $offer_payments = SendOfferTransaction::where(['curator_id' => Auth::id(),'is_approved' => IOfferTemplateStatus::IS_APPROVED,'status' => IOfferTemplateStatus::PAID])->latest()->get();
+        #__offer_payments
+        $offer_payments = SendOfferTransaction::where(['curator_id' => Auth::id(),'is_approved' => IOfferTemplateStatus::IS_APPROVED,'status' => IOfferTemplateStatus::PAID])
+            ->latest()->get();
+
+        #__referral_payments
+        $referral_payments = TransactionHistory::where(['user_id' => Auth::id(),'payment_status' => IStatus::COMPLETED])
+            ->whereNotNull('referral_relationship_id')->latest()->get();
+
         return view('pages.curators.curator-wallet.wallet',get_defined_vars());
     }
 

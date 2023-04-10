@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Templates\IMessageTemplates;
 use App\Templates\IOfferTemplateStatus;
+use App\Templates\IStatus;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -291,6 +292,14 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * @return HasMany
+     */
+    public function curatorReferralTransactionHistory(): HasMany
+    {
+        return $this->hasMany(TransactionHistory::class, 'user_id')->where('payment_status', IStatus::COMPLETED)->whereNotNull('referral_relationship_id');
+    }
+
+    /**
      * @return int|void
      */
     public static function artistBalance()
@@ -316,7 +325,9 @@ class User extends Authenticatable implements MustVerifyEmail
         if(!empty($user))
         {
             $balance = !empty($user->curatorSendOfferTransactions) ? $user->curatorSendOfferTransactions->sum('contribution')
-                - (!empty($user->curatorSendOfferTransactions) ? $user->curatorSendOfferTransactions->sum('usc_fee_commission') : 0): 0;
+                - (!empty($user->curatorSendOfferTransactions) ? $user->curatorSendOfferTransactions->sum('usc_fee_commission') : 0)
+                + (!empty($user->curatorReferralTransactionHistory) ? $user->curatorReferralTransactionHistory->sum('credits') : 0)
+                : 0;
             return $balance;
         }
 

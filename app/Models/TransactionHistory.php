@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,13 +30,28 @@ class TransactionHistory extends Model
         'referral_relationship_id',
         'deleted_at',
     ];
-    // Transactions belongs to User
-    public function user(){
+
+    /**
+     * @return BelongsTo
+     */
+    public function user(): BelongsTo
+    {
         return $this->belongsTo(User::class);
     }
 
-    // User belongto TransactionUserInfo
-    public function transactionUserInfo(){
+    /**
+     * @return BelongsTo
+     */
+    public function transactionUserInfo(): BelongsTo
+    {
         return $this->belongsTo(TransactionUserInfo::class);
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function referralRelationship(): BelongsTo
+    {
+        return $this->belongsTo(ReferralRelationship::class,'referral_relationship_id');
     }
 }
