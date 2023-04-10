@@ -51,7 +51,7 @@ class ArtistSubmissionController extends Controller
         $user = Auth::user();
         if(!empty($user) && $user->is_verified == 1)
         {
-            $campaigns = Campaign::whereNotNull('track_id')->latest()->get();
+            $campaigns = Campaign::whereNotNull('track_id')->doesntHave('curatorFavoriteTrack')->latest()->get();
             $campaigns = $campaigns->reject(function ($campaign){
                 $sendOffer =  SendOffer::where(['curator_id' => Auth::id(), 'campaign_id' => $campaign->id])->first();
                 return $sendOffer == true;
