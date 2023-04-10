@@ -40,6 +40,7 @@
                                     <h3 class="white" style="text-align:center;font-size: 15px;">Not Active Campaign Found</h3>
                                 </div>
                             @else
+                                {{dd('aa')}}
                                 <div class="item image">
                                     <span class="loading">Loading...</span>
                                     <div class="outer-left">
