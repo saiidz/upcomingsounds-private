@@ -28,7 +28,7 @@
                 <header>
 {{--                    <h1>SITE TITLE</h1>--}}
                 </header>
-                <section class="main-slider">
+                <section class="">
                     @if(count($premium_campaigns) > 0)
                         @foreach($premium_campaigns as $key => $premium_campaign)
                             @php
