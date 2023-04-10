@@ -58,9 +58,10 @@
                         </h3>
                         <div class="mrg-bottom-30">
                             <h5>
-                                <span>Signup >>> 2-Submit your Release >>> 3- Once your release is approved, Choose and activate your 45-day campaign (curators will offer publishing/coverage or select individual curators). </span>
+                                <span>Signup >>> 2-Submit your Release >>> 3- Once your release is approved,</span>
                             </h5>
                             <span>
+                                <p class="text-muted text-md">Choose and activate your 45-day campaign (curators will offer publishing/coverage or select individual curators). </p>
                                 <p class="text-muted text-md">We work to benefit artists. Music submissions can be made in 3 different ways.</p>
                                 <p class="text-muted text-md">In option one, we will handle all the overwhelming music submissions and music coverage, as well as all the hard work dealing with and communicating with music publishers, so once you decide to go with that option,</p>
 
