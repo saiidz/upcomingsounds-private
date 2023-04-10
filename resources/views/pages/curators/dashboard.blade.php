@@ -30,13 +30,15 @@
                 </header>
                 <section class="main-slider">
                     @if(count($premium_campaigns) > 0)
-                        {{dd($premium_campaigns)}}
                         @foreach($premium_campaigns as $key => $premium_campaign)
                             @php
                                 $days = \Illuminate\Support\Carbon::parse($premium_campaign->updated_at)->addDays($premium_campaign->add_days);
                                 $date = \Illuminate\Support\Carbon::today();
                             @endphp
                             @if($date >= $days)
+                                <div class="item-title text-ellipsis">
+                                    <h3 class="white" style="text-align:center;font-size: 15px;">Not Active Campaign Found</h3>
+                                </div>
                             @else
                                 <div class="item image">
                                     <span class="loading">Loading...</span>
