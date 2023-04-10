@@ -58,15 +58,27 @@
                         </h3>
                         <div class="mrg-bottom-30">
                             <h5>
-                                <span>1- Signup   >>>   2-Uploud your song  >>>    3- Select curators and send your song. </span>
+                                <span>Signup >>> 2-Submit your Release >>> 3- Once your release is approved, Choose and activate your 45-day campaign (curators will offer publishing/coverage or select individual curators). </span>
                             </h5>
                             <span>
-                                <p class="text-muted text-md">We work in ways that benefit the artist. We offer two different ways to submit music.</p>
-                                <p class="text-muted text-md">As an option 1, you can choose each curator and send each release separately.
+                                <p class="text-muted text-md">We work to benefit artists. Music submissions can be made in 3 different ways.</p>
+                                <p class="text-muted text-md">In option one, we will handle all the overwhelming music submissions and music coverage, as well as all the hard work dealing with and communicating with music publishers, so once you decide to go with that option,</p>
 
-With Option 2, a curator will approach you and submit your release to their media platforms when you launch an automatic campaign</p>
-                                <p class="text-muted text-md">With UpcomingSounds, you can easily send your music to curators,  by purchasing USC Coins "credits".  There are three levels of curators: curators, tastemakers, and pros. Curators require 2 USCs, Verified curators, tastemakers, and pros require 4 to 50 USCs, depending on their level.</p>
-                                <p class="text-muted text-md">It doesn't matter if you are just starting and sending demos or if your work is already established and ready to be shown, we are here to help. Generally, your submissions will be evaluated within 96 hours of submission (some curators / pros may take less or more time to evaluate). You will be able to stay on top of industry trends by getting exposure through curators, blogs, journalists, and other professionals. Our guarantee is that you will receive feedback for every track that you submit. Sometimes even feedback when a submission is declined will be helpful.</p>
+                                <p class="text-muted text-md">You'll automatically receive offers for (free and paid contributors) for a specific coverage type from each curator/blogger or content creator selected and approved, and credited to provide results by Upcoming Sounds.</p>
+                                <p class="text-muted text-md">Campaigns Type:</p>
+                                <p class="text-muted text-md">A 45-day campaign runs continuously (all types of campaigns).</p>
+                                <p class="text-muted text-md">4 different exposure plans (more details will appear after your release has been approved).</p>
+                                <p class="text-muted text-md">Your music is only offered if the curators love it, and if you don't receive any offers, you will be refunded with USC credits.</p>
+                                <p class="text-muted text-md">As option two, you can send music only to verified curators as well as content creators.</p>
+                                <p class="text-muted text-md">Verification badges appear on content creators/bloggers, playlist curators, and media publishers who have been tested for providing exposure and real results.</p>
+                                <p class="text-muted text-md">You can easily send your music to curators, by purchasing USC Coins "credits" starting from 2 USC coins.</p>
+                                <p class="text-muted text-md">It is expected that the curator/content curator will send the publication within ten to twelve days (a refund will be issued if the curator fails to deliver)</p>
+                                <p class="text-muted text-md">As for the third way, In addition, we have designed a special dashboard for artists and curators to support each other at the same time, making this unique dashboard better and more effective, as it is completely free, but can only be activated with active campaign status. Moreover, we are also working with passionate content creators and influencers to promote artist music and receive compensation.</p>
+                                <p class="text-muted text-md">The artists will receive significant exposure through upcoming and approved (low follower count) content curators on their social platforms and playlists</p>
+                                <p class="text-muted text-md">Curators will also give artists proof of publication</p>
+                                <p class="text-muted text-md">Content creators, curators, and influencers receive compensation based on how many tiers they achieve each week</p>
+                                <p class="text-muted text-md">It doesn't matter if you are just starting and sending demos or if your work is already established and ready to be shown, we are here to help. Generally, your submissions will be evaluated within 48 hours of submission.</p>
+                                <p class="text-muted text-md">You will be able to stay on top of industry trends by getting exposure through curators, blogs, journalists, and other professionals.</p>
                             </span>
                         </div>
                         @if(Auth::check() && Auth::user()->type == 'artist')
