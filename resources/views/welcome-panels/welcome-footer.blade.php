@@ -83,6 +83,13 @@
                             <i class="{{ !empty($theme->reddit_icon) ? $theme->reddit_icon : 'fa fa-reddit' }}"></i>
                             <i class="{{ !empty($theme->reddit_icon) ? $theme->reddit_icon : 'fa fa-reddit' }}"></i>
                         </a>
+
+                        <a href="https://discord.com/invite/DHDChvkpny" target="_blank"
+                           class="btn btn-icon btn-social btn-social-colored social_color"
+                           title="Reddit">
+                            <i class="fab fa-discord"></i>
+                            <i class="fab fa-discord"></i>
+                        </a>
 {{--                        <a href="https://www.tiktok.com/@upcomingsounds_" target="_blank"--}}
 {{--                           class="btn btn-icon btn-social btn-social-colored social_color tiktok_footer"--}}
 {{--                           title="Tiktok">--}}

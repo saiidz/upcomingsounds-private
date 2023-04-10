@@ -2,7 +2,7 @@
     <section class="m-t-lg">
         <div class="container-fluid">
             <div class="py-5 text-center">
-                <h2>Please Select Wallet</h2>
+                <h2>Wallet</h2>
             </div>
             <div class="row">
                 <div class="col-md-8 order-md-1">
@@ -10,9 +10,9 @@
                         <div class="col-md-6">
                             <select class="custom-select d-block w-100" id="curatorHistoryWallet" name="status"><sup>*</sup>
                                 <option value="" disabled selected>Choose Wallet</option>
-                                <option value="{{\App\Templates\IStatus::HISTORY_WITHDRAWAL}}">History Withdrawal</option>
-                                <option value="{{\App\Templates\IStatus::OFFER_PAYMENTS}}">Offer Payments</option>
-                                <option value="{{\App\Templates\IStatus::REFERRAL_PAYMENTS}}">Referral Payment</option>
+                                <option value="{{\App\Templates\IStatus::HISTORY_WITHDRAWAL}}">Withdraw History</option>
+                                <option value="{{\App\Templates\IStatus::OFFER_PAYMENTS}}">Offers</option>
+                                <option value="{{\App\Templates\IStatus::REFERRAL_PAYMENTS}}">Referrals</option>
                             </select>
                         </div>
                     </div>
