@@ -46,9 +46,10 @@
                         <div class="row">
                             <div class="col-md-7">
                                 <div class="text">
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                                        there live the blind texts. Separated they live in Bookmarksgrove right at the coast of
-                                        the Semantics, a large language ocean.</p>
+                                    <p>We cover the latest trends and developments in the world of music for both die-hard music fans and casual listeners alike. Get all the latest updates and insights into music's ever-evolving world at Upcomingsounds.com.</p>
+{{--                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,--}}
+{{--                                        there live the blind texts. Separated they live in Bookmarksgrove right at the coast of--}}
+{{--                                        the Semantics, a large language ocean.</p>--}}
                                     <div class="mouse">
                                         <a href="#" class="mouse-icon">
                                             <div class="mouse-wheel"><i class="fa fa-arrow-down"></i></div>
