@@ -3,7 +3,7 @@
         <div class="container">
             <div class="py-5 text-center">
                 <h2>Withdrawal</h2>
-                <p class="lead">Choose and activate your 45-day campaign (curators will offer publishing/coverage or select individual curators). </p>
+                <p class="lead" style="color:#02b875 !important">Choose and activate your 45-day campaign (curators will offer publishing/coverage or select individual curators). </p>
             </div>
             <div class="row">
                 <div class="col-md-8 order-md-1">
