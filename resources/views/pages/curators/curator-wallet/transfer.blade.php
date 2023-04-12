@@ -76,13 +76,13 @@
                         <li class="list-group-item d-flex justify-content-between lh-condensed">
                             <span class="available_credit text-black">Available credits</span>
                             <span class="credit_right">
-                                <div class="tw-relative">
-                                    <div class="tw-flex tw-items-center">
-                                        <span class="amount text-black">{{\App\Models\User::curatorBalance()}} UCS</span>
-                                        <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
+                                    <div class="tw-relative">
+                                       <div class="tw-flex tw-items-center">
+                                            <span class="amount text-black">{{\App\Models\User::curatorBalance()}} UCS</span>
+                                            <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
+                                        </div>
                                     </div>
-                                </div>
-                            </span>
+                                </span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between lh-condensed">
                             <span class="available_credit text-black">Transfer</span>

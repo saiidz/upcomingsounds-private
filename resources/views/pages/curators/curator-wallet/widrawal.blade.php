@@ -1,6 +1,11 @@
 <div class="tab-pane animated fadeIn text-muted" id="Widrawal">
     <section class="m-t-lg">
         <div class="container">
+            <div class="alert-warning py-3 mx-3">
+                <marquee width="100%" direction="right" height="20px">
+                    <b>Attention ! &nbsp;&nbsp; if you have at least 50 USC in your wallet then,You can use withdrawal request</b>
+                </marquee>
+            </div>
             <div class="py-5 text-center">
                 <h2>Withdrawal</h2>
                 <p class="lead" style="color:#02b875 !important">Choose and activate your 45-day campaign (curators will offer publishing/coverage or select individual curators). </p>
@@ -11,27 +16,27 @@
                         <div class="card-body billing_address">
                             <h5 class="card-title">Beneficiary</h5>
                             <p class="card-text text-black">Asking for withdrawal requires a professional status.
-                                If it's not your case please contact us at influencers@upcomingsounds.co</p>
+                                If it's not your case please contact us at influencers@upcomingsounds.com</p>
                             <form class="form-contact"
                                   method="POST" action="" autocomplete="off"
                                   id="checkoutForm" novalidate>
                                 @csrf
                                 <div class="row m-t-sm">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="city" class="text-black">Status</label>
-                                        <select class="custom-select d-block w-100" id="status" name="status" required><sup>*</sup>
-                                            <option value="" disabled selected>Choose Status</option>
-                                            <option value="">Independent Contractor</option>
-                                            <option value="">Company</option>
-                                            <option value="">Association</option>
-                                        </select>
-                                        @error('status')
-                                        <small class="red-text" role="alert">
-                                            {{ $message }}
-                                        </small>
-                                        @enderror
-                                    </div>
-                                    <div class="col-md-6 mb-3">
+{{--                                    <div class="col-md-6 mb-3">--}}
+{{--                                        <label for="city" class="text-black">Status</label>--}}
+{{--                                        <select class="custom-select d-block w-100" id="status" name="status" required><sup>*</sup>--}}
+{{--                                            <option value="" disabled selected>Choose Status</option>--}}
+{{--                                            <option value="">Independent Contractor</option>--}}
+{{--                                            <option value="">Company</option>--}}
+{{--                                            <option value="">Association</option>--}}
+{{--                                        </select>--}}
+{{--                                        @error('status')--}}
+{{--                                        <small class="red-text" role="alert">--}}
+{{--                                            {{ $message }}--}}
+{{--                                        </small>--}}
+{{--                                        @enderror--}}
+{{--                                    </div>--}}
+                                    <div class="col-md-12 mb-3">
                                         <label for="firstName" class="text-black">Entity</label>
                                         <input type="text" class="form-control @error('entity') is-invalid @enderror" name="entity" id="entity" placeholder="Enter Entity" value="" required>
                                         @error('entity')
@@ -252,16 +257,16 @@
                                     <img class="icon_UP_check" src="{{asset('images/coin_bg.png')}}">
                                 </div>
                                 <div class="m-t-sm">
-                                    <span class="buyUCS">dddfa</span>
+                                    <span class="buyUCS">Summary</span>
                                 </div>
                             </div>
                         </li>
                         <li class="list-group-item d-flex justify-content-between lh-condensed">
-                            <span class="available_credit">Available credits</span>
+                            <span class="available_credit text-black">Available credits</span>
                             <span class="credit_right">
                                     <div class="tw-relative">
-                                        <div class="tw-flex tw-items-center">
-                                            <span class="amount">11 UCS</span>
+                                       <div class="tw-flex tw-items-center">
+                                            <span class="amount text-black">{{\App\Models\User::curatorBalance()}} UCS</span>
                                             <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
                                         </div>
                                     </div>
