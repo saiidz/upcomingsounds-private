@@ -7,6 +7,7 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Models\Config;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
+use App\Templates\IUserType;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -180,7 +181,6 @@ class AuthenticatedSessionController extends Controller
      */
     public function blogStore(LoginRequest $request)
     {
-        // dd($request->all());
         $user_type = User::where('email', $request->email)->first();
 
         if(isset($user_type)){
@@ -193,10 +193,16 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        if(Auth::user()->type == 'admin' && Auth::user()->is_blog != 1){
-            return redirect()->route('admin.dashboard');
-        }else{
+        if(Auth::user()->type == IUserType::BLOG){
             return redirect('/blog_admin');
+        }else{
+            return redirect('/login');
         }
+
+//        if(Auth::user()->type == 'admin' && Auth::user()->is_blog != 1){
+//            return redirect()->route('admin.dashboard');
+//        }else{
+//            return redirect('/blog_admin');
+//        }
     }
 }

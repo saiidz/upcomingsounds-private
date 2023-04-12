@@ -154,6 +154,23 @@
             </div>
         </li>
 
+        <li class="bold {{ Request::is('admin/blog-users*') ? 'active open' : '' }}">
+            <a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)">
+                <i class="material-icons">face</i>
+                <span class="menu-title" data-i18n="User">Blogs</span>
+            </a>
+            <div class="collapsible-body">
+                <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+                    <li class="{{ Request::is('admin/blog-users*') ? 'active' : '' }}">
+                        <a class="{{ Request::is('admin/blog-users*') ? 'active' : '' }}" href="{{ route('admin.blog-users.index') }}">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            <span data-i18n="List">Blog Users</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+
         <li class="bold">
             <a class="waves-effect waves-cyan {{Request::is('admin/tickets') || Request::is('admin/ticket*') ? 'active' : ''}}" href="{{route('admin.help.ticket')}}">
                 <i class="material-icons">help_outline</i>
