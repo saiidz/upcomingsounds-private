@@ -103,12 +103,13 @@ class ArtistWalletController extends Controller
 
         // get billing info if exists
         $artist_billing_info = TransactionUserInfo::where('user_id',Auth::id())->latest()->first();
-        $artist_billing_info = isset($artist_billing_info) ? $artist_billing_info : null;
+        $artist_billing_info = $artist_billing_info ?? null;
         return view('pages.artists.artist-wallet.checkout', get_defined_vars());
     }
 
     /**
-     * artistBillingInfo
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function artistBillingInfo(Request $request)
     {

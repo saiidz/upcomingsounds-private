@@ -11,6 +11,8 @@ use App\Models\TransactionUserInfo;
 use App\Models\User;
 use App\Templates\IOfferTemplateStatus;
 use App\Templates\IStatus;
+use App\Templates\IUserType;
+use Carbon\Carbon;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -28,6 +30,10 @@ class CuratorWalletController extends Controller
     public function wallet()
     {
         $countries = Country::all();
+        # Withdrawal History
+        $withdrawal_histories = TransactionHistory::where(['user_id' => Auth::id(),'user_type' => IUserType::CURATOR, 'type' => IUserType::WITHDRAWAL])
+            ->latest()->get();
+
         #__offer_payments
         $offer_payments = SendOfferTransaction::where(['curator_id' => Auth::id(),'is_approved' => IOfferTemplateStatus::IS_APPROVED,'status' => IOfferTemplateStatus::PAID])
             ->latest()->get();
@@ -36,7 +42,110 @@ class CuratorWalletController extends Controller
         $referral_payments = TransactionHistory::where(['user_id' => Auth::id(),'payment_status' => IStatus::COMPLETED])
             ->whereNotNull('referral_relationship_id')->latest()->get();
 
+        // get billing info if exists
+        $curator_billing_info = TransactionUserInfo::where('user_id',Auth::id())->latest()->first();
+        $curator_billing_info = $curator_billing_info ?? null;
+
         return view('pages.curators.curator-wallet.wallet',get_defined_vars());
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function curatorBillingInfo(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'first_name'           => 'required|string',
+            'last_name'            => 'required|string',
+            'phone_number'         => 'required|numeric',
+            'address'              => 'required',
+            'country_name'         => 'required',
+            'city_name'            => 'required',
+            'postal_code'          => 'required|numeric',
+            'g-recaptcha-response' => 'required|captcha',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $input = $request->all();
+
+        // check record is already exists
+        $curator_billing_info_exist = TransactionUserInfo::where('id',$request->get('transaction_user_infos_id'))
+            ->where('user_id',Auth::id())->first();
+        if(isset($curator_billing_info_exist)){
+
+            $input['city_id'] = $request->get('city_name');
+            $curator_billing_info_exist->update($input);
+
+            return redirect()->back()->with('success', 'Billing Info updated successfully.');
+        }
+
+        $input['user_id'] = Auth::id();
+        $input['city_id'] = $request->get('city_name');
+
+        TransactionUserInfo::create($input);
+
+        return redirect()->back()->with('success', 'Billing Info created successfully.');
+    }
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function curatorWithdrawalRequest(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'amount' => 'required|numeric',
+        ]);
+
+        if ($validator->fails())
+        {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
+
+        $user = Auth::user();
+
+        # check curator balance
+        $balance = User::curatorBalance();
+        $amount = $request->amount;
+        if($amount > $balance)
+        {
+            return response()->json(['error' => 'You have insufficient balance in your wallet']);
+        }
+
+        # withdrawal request
+        TransactionHistory::create([
+            'user_id'             => $user->id,
+            'user_type'           => $user->type,
+            'type'                => IUserType::WITHDRAWAL,
+            'transaction_user_id' => $request->transaction_user_infos_id,
+            'amount'              => $amount,
+            'payment_status'      => IStatus::PENDING,
+            'paid_at'             => Carbon::now(),
+        ]);
+
+//        $data['trackID'] = $artist_track->id;
+//        $data['email'] = $artist_track->user->email;
+//        $data['username'] = $artist_track->user->name;
+//        $data["title"] = "Request to Withdrawal Admin";
+//        $data['requestEditTrackAdmin'] = $request->description_details ?? null;
+//
+//        try {
+//            Mail::send('pages.artists.emails.send_request_to_edit_email_admin', $data, function($message)use($data) {
+//                $message->from($data["email"], $data["email"]);
+//                $message->to('admin@upcomigspunds.com')
+//                    ->subject($data["title"]);
+//            });
+//        } catch (\Throwable $th) {
+//            //throw $th;
+//        }
+
+        return response()->json(['success' => 'Withdrawal request created successfully. Please wait for approval from admin side.']);
     }
 
     /**

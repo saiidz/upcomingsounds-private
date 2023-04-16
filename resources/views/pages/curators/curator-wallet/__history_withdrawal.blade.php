@@ -1,4 +1,4 @@
-@if(!empty($offer_payments))
+@if(!empty($withdrawal_histories))
     <table id="historyCuratorWithdrawal" class="table table-responsive" cellspacing="0" width="100%">
         <thead>
         <tr>
@@ -10,13 +10,13 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($offer_payments as $offer_payment)
+        @foreach($withdrawal_histories as $withdrawal_history)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>10 USC</td>
-                <td>Withdrawal</td>
-                <td>PAID</td>
-                <td>09 Apr 2023</td>
+                <td>{{$withdrawal_history->amount}} USC</td>
+                <td>{{ $withdrawal_history->type }}</td>
+                <td>{{ $withdrawal_history->payment_status }}</td>
+                <td>{{getDateFormat($withdrawal_history->created_at)}}</td>
             </tr>
         @endforeach
         </tbody>

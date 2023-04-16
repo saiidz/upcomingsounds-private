@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AlternativeOptionController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\CuratorWithdrawalRequest;
 use App\Http\Controllers\Admin\OfferTypeController;
 use App\Http\Controllers\Admin\SendDirectOfferController;
 use App\Http\Controllers\Admin\SubmitWorkController;
@@ -124,6 +125,10 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
 
     // Blog Route
     Route::resource('blog-users',  BlogController::class);
+
+
+    # Curator Withdrawal Request
+    Route::get('curator-withdrawal-request', [CuratorWithdrawalRequest::class,'curatorWithdrawalRequest'])->name('request.withdrawal.curator');
 });
 
 

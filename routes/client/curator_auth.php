@@ -29,6 +29,9 @@ Route::post('curator-change-password', [CuratorController::class, 'curatorChange
 
 // Wallet Shop Route
 Route::get('/taste-maker-wallet',[CuratorWalletController::class,'wallet'])->name('curator.wallet');
+Route::post('/curator-billing-info',[CuratorWalletController::class,'curatorBillingInfo'])->name('curator.billing.info');
+Route::post('/curator-withdrawal-request',[CuratorWalletController::class,'curatorWithdrawalRequest'])->name('curator.withdrawal.request');
+
 #Curator Wallet History
 Route::get('/curator-wallet-history',[CuratorWalletController::class, 'curatorWalletHistory'])->name('curator.wallet.history');
 

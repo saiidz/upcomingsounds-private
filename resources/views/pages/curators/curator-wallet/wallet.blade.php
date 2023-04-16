@@ -11,6 +11,15 @@
         {{--#loadings {--}}
         {{--    background: rgba(255, 255, 255, .4) url({{asset('images/loader.gif')}}) no-repeat center center !important;--}}
         {{--}--}}
+        #loadings {
+            background: rgba(255, 255, 255, .4) url({{asset('images/loader.gif')}}) no-repeat center center !important;
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            /*background: #fff url(../images/loader.gif) no-repeat center center;*/
+            z-index: 999999;
+        }
         #curatorHistory .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
             color: white !important;
         }
@@ -52,6 +61,7 @@
 {{-- page content --}}
 @section('content')
     <div class="{{Auth::check() ? 'app-bodynew' : 'app-body'}}">
+        <div id="loadings"></div>
 {{--        <div id="loadings"></div>--}}
         <!-- ############ PAGE START-->
 

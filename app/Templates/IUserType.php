@@ -9,4 +9,7 @@ interface IUserType
     const ADMIN = 'admin';
     const BLOG = 'blog';
     const IS_BLOG = 1;
+
+    const DEPOSIT = 'DEPOSIT';
+    const WITHDRAWAL = 'WITHDRAWAL';
 }

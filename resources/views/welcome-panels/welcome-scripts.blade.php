@@ -4,6 +4,8 @@
 <!-- Bootstrap -->
 <script src="{{asset('libs/tether/dist/js/tether.min.js')}}"></script>
 <script src="{{asset('libs/bootstrap/dist/js/bootstrap.js')}}"></script>
+<script src="{{asset('scripts/form.js')}}"></script>
+
 <!-- core -->
 <script src="{{asset('libs/jQuery-Storage-API/jquery.storageapi.min.js')}}"></script>
 <script src="{{asset('libs/jquery.stellar/jquery.stellar.min.js')}}"></script>
@@ -15,6 +17,7 @@
 <script src="{{asset('libs/mediaelement/build/mediaelement-and-player.min.js')}}"></script>
 <script src="{{asset('libs/mediaelement/build/mep.js')}}"></script>
 <script src="{{asset('scripts/player.js')}}"></script>
+
 
 <script src="{{asset('scripts/config.lazyload.js')}}"></script>
 <script src="{{asset('scripts/ui-load.js')}}"></script>
@@ -31,9 +34,13 @@
 <script src="{{asset('scripts/site.js')}}"></script>
 <script src="{{asset('scripts/ajax.js')}}"></script>
 <script src="{{asset('js/swiper-bundle.min.js')}}"></script>
+<script src="{{ asset('app-assets/vendors/sweetalert/sweetalert.min.js') }}"></script>
 <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>--}}
 @yield('page-script')

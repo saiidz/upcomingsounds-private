@@ -14,4 +14,5 @@ interface IStatus
     const HISTORY_WITHDRAWAL = 'history_withdrawal';
     const OFFER_PAYMENTS = 'offer_payments';
     const REFERRAL_PAYMENTS = 'referral_payments';
+
 }

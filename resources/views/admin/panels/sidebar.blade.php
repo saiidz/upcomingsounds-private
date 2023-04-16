@@ -120,6 +120,12 @@
                             <span data-i18n="List">Curator Features</span>
                         </a>
                     </li>
+                    <li class="{{ Request::is('admin/curator-withdrawal-request') ? 'active' : '' }}">
+                        <a class="{{ Request::is('admin/curator-withdrawal-request') ? 'active' : '' }}" href="{{ route('admin.request.withdrawal.curator') }}">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            <span data-i18n="List">Withdrawal Requests</span>
+                        </a>
+                    </li>
                     <li class="{{ Request::is('admin/offers*') || Request::is('admin/offer-template-curator*') ? 'active' : '' }}">
                         <a class="{{ Request::is('admin/offers*') || Request::is('admin/offer-template-curator*') ? 'active' : '' }}" href="{{ route('admin.offers') }}">
                             <i class="material-icons">radio_button_unchecked</i>
