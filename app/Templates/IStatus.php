@@ -15,4 +15,6 @@ interface IStatus
     const OFFER_PAYMENTS = 'offer_payments';
     const REFERRAL_PAYMENTS = 'referral_payments';
 
+    const PAYPAL = 'paypal';
+    const WISE = 'wise';
 }

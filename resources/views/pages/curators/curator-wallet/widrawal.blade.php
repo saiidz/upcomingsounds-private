@@ -143,7 +143,53 @@
                                                   method="POST" action="{{route('curator.withdrawal.request')}}">
                                                 @csrf
                                                 <input type="hidden" name="transaction_user_infos_id" value="{{isset($curator_billing_info) ? $curator_billing_info->id : ''}}">
-                                                <div class="row">
+                                                <div class="row m-t-sm m-b-sm">
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="withdrawal_method" class="text-black">Withdrawal Method</label>
+                                                        <select class="custom-select d-block w-100" id="withdrawalMethod" name="withdrawal_request" required><sup>*</sup>
+                                                            <option value="" disabled selected>Choose Method</option>
+                                                            <option value="{{\App\Templates\IStatus::PAYPAL}}">Paypal Transfer</option>
+                                                            <option value="{{\App\Templates\IStatus::WISE}}">Wise Transfer</option>
+                                                        </select>
+                                                        @error('withdrawal_method')
+                                                        <small class="red-text" role="alert">
+                                                            {{ $message }}
+                                                        </small>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="row m-t-sm" id="paypalWithdrawal" style="display:none;">
+                                                    <div class="col-sm-12 m-b-sm">
+                                                        <p class="card-text text-black">We use the Business / Services option. PayPal may apply a fee when receiving your funds, depending on where you are located in the world. For a breakdown of fees,</p>
+                                                    </div>
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="email" class="text-black">Paypal Email</label>
+                                                        <input type="email" name="paypal_email" class="form-control" id="paypal_email" placeholder="Enter Paypal Email" value="">
+                                                        @error('paypal_email')
+                                                        <small class="red-text ml-10" role="alert">
+                                                            {{ $message }}
+                                                        </small>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="row m-t-sm" id="emailWise" style="display:none;">
+                                                    <div class="col-sm-12 m-b-sm">
+                                                        <p class="card-text text-black">We use the Business / Services option. PayPal may apply a fee when receiving your funds, depending on where you are located in the world. For a breakdown of fees,</p>
+                                                    </div>
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="email" class="text-black">Wise Email</label>
+                                                        <input type="email" name="wise_email" class="form-control" id="wise_email" placeholder="Enter Wise Email" value="">
+                                                        @error('wise_email')
+                                                        <small class="red-text ml-10" role="alert">
+                                                            {{ $message }}
+                                                        </small>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="row m-t-sm">
                                                     <div class="col-md-6">
                                                         <label for="amount" class="text-black">Amount</label>
                                                         <input type="number" name="amount" class="form-control @error('amount') is-invalid @enderror" id="amount" placeholder="Enter Amount" min="50" value="" required>
@@ -224,7 +270,7 @@
 {{--                                            </div>--}}
 {{--                                        </div>--}}
 
-{{--                                        --}}{{--wise email--}}
+{{--                                        wise email--}}
 {{--                                        <div class="row m-t-lg" id="emailWise" style="display:none;">--}}
 {{--                                            <div class="col-sm-12 m-b-sm">--}}
 {{--                                                <p class="card-text text-black">We use the Business / Services option. PayPal may apply a fee when receiving your funds, depending on where you are located in the world. For a breakdown of fees,</p>--}}
@@ -239,9 +285,9 @@
 {{--                                                @enderror--}}
 {{--                                            </div>--}}
 {{--                                        </div>--}}
-{{--                                        --}}{{--wise email--}}
+{{--                                        wise email--}}
 
-{{--                                        --}}{{--wise account detail--}}
+{{--                                        wise account detail--}}
 {{--                                        <div class="row m-t-lg" id="accountDetailWise" style="display:none;">--}}
 {{--                                            <div class="col-sm-12 m-b-sm">--}}
 {{--                                                <p class="card-text text-black">We use the Business / Services option. PayPal may apply a fee when receiving your funds, depending on where you are located in the world. For a breakdown of fees,</p>--}}
@@ -278,7 +324,7 @@
 {{--                                                <p class="card-text text-black">required if your account is located in a EU country other than France</p>--}}
 {{--                                            </div>--}}
 {{--                                        </div>--}}
-{{--                                        --}}{{--wise account detail--}}
+{{--                                        wise account detail--}}
 
 {{--                                        <hr class="mb-4">--}}
 {{--                                        <button class="btn circle btn-outline b-primary p-x-md auth_btn Rigister billingInfo" type="submit">Add this withdrawal method</button>--}}

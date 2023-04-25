@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Templates\IMessageTemplates;
 use App\Templates\IOfferTemplateStatus;
 use App\Templates\IStatus;
+use App\Templates\IUserType;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -294,6 +295,14 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
      * @return HasMany
      */
+    public function curatorWithdrawalRequestApproved(): HasMany
+    {
+        return $this->hasMany(TransactionHistory::class, 'user_id')->where('payment_status', IStatus::COMPLETED)->where('type',IUserType::WITHDRAWAL);
+    }
+
+    /**
+     * @return HasMany
+     */
     public function curatorReferralTransactionHistory(): HasMany
     {
         return $this->hasMany(TransactionHistory::class, 'user_id')->where('payment_status', IStatus::COMPLETED)->whereNotNull('referral_relationship_id');
@@ -326,6 +335,7 @@ class User extends Authenticatable implements MustVerifyEmail
         {
             $balance = !empty($user->curatorSendOfferTransactions) ? $user->curatorSendOfferTransactions->sum('contribution')
                 - (!empty($user->curatorSendOfferTransactions) ? $user->curatorSendOfferTransactions->sum('usc_fee_commission') : 0)
+                - (!empty($user->curatorWithdrawalRequestApproved) ? $user->curatorWithdrawalRequestApproved->sum('amount') : 0)
                 + (!empty($user->curatorReferralTransactionHistory) ? $user->curatorReferralTransactionHistory->sum('credits') : 0)
                 : 0;
             return $balance;

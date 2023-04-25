@@ -129,6 +129,9 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
 
     # Curator Withdrawal Request
     Route::get('curator-withdrawal-request', [CuratorWithdrawalRequest::class,'curatorWithdrawalRequest'])->name('request.withdrawal.curator');
+    Route::get('curator-withdrawal-request/{transactionHistory}', [CuratorWithdrawalRequest::class,'detailTransactionHistory'])->name('request.withdrawal.curator.detail');
+    Route::post('curator-withdrawal-request-approved-offer/{transactionHistory}', [CuratorWithdrawalRequest::class,'storeApprovedTransactionHistory'])->name('store.curator.approved.withdrawal');
+    Route::post('curator-withdrawal-request-reject/{transactionHistory}',[CuratorWithdrawalRequest::class,'storeRejectTransactionHistory'])->name('store.curator.withdrawal.reject');
 });
 
 

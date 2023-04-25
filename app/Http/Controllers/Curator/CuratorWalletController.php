@@ -99,7 +99,13 @@ class CuratorWalletController extends Controller
      */
     public function curatorWithdrawalRequest(Request $request)
     {
+        if(empty($request->paypal_email) && ($request->withdrawal_request == IStatus::PAYPAL))
+            $requiredEmail = 'required|email';
+        elseif(empty($request->wise_email) && ($request->withdrawal_request == IStatus::WISE))
+            $requiredEmail = 'required|email';
+
         $validator = Validator::make($request->all(), [
+            'email'  => !empty($requiredEmail) ? $requiredEmail : '',
             'amount' => 'required|numeric',
         ]);
 
@@ -118,6 +124,12 @@ class CuratorWalletController extends Controller
             return response()->json(['error' => 'You have insufficient balance in your wallet']);
         }
 
+        $details = [
+            'withdrawal_request' => $request->withdrawal_request,
+            'paypal_email'       => $request->paypal_email ?? null,
+            'wise_email'         => $request->wise_email ?? null,
+        ];
+
         # withdrawal request
         TransactionHistory::create([
             'user_id'             => $user->id,
@@ -127,6 +139,7 @@ class CuratorWalletController extends Controller
             'amount'              => $amount,
             'payment_status'      => IStatus::PENDING,
             'paid_at'             => Carbon::now(),
+            'details'             => json_encode($details),
         ]);
 
 //        $data['trackID'] = $artist_track->id;

@@ -89,7 +89,7 @@
         || Request::is('admin/curator-profile*') || Request::is('admin/curator-verification*')
         || Request::is('admin/curator-features*') || Request::is('admin/curator-sub-feature*')
         || Request::is('admin/offer*') || Request::is('admin/offer-template-curator*') || Request::is('admin/send-direct-offer*')
-        || Request::is('admin/curator-submit-work*') ? 'active open' : '' }}">
+        || Request::is('admin/curator-submit-work*') || Request::is('admin/curator-withdrawal-request*') ? 'active open' : '' }}">
             <a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)">
                 <i class="material-icons">face</i>
                 <span class="menu-title" data-i18n="User">Curators</span>
@@ -120,8 +120,8 @@
                             <span data-i18n="List">Curator Features</span>
                         </a>
                     </li>
-                    <li class="{{ Request::is('admin/curator-withdrawal-request') ? 'active' : '' }}">
-                        <a class="{{ Request::is('admin/curator-withdrawal-request') ? 'active' : '' }}" href="{{ route('admin.request.withdrawal.curator') }}">
+                    <li class="{{ Request::is('admin/curator-withdrawal-request*') ? 'active' : '' }}">
+                        <a class="{{ Request::is('admin/curator-withdrawal-request*') ? 'active' : '' }}" href="{{ route('admin.request.withdrawal.curator') }}">
                             <i class="material-icons">radio_button_unchecked</i>
                             <span data-i18n="List">Withdrawal Requests</span>
                         </a>

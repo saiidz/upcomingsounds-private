@@ -55,6 +55,10 @@
         .dataTables_wrapper .dataTables_filter input {
             color: white !important;
         }
+        #withdrawalAdminBTn:hover
+        {
+            color:white;
+        }
     </style>
 @endsection
 
@@ -288,15 +292,16 @@
             var withdrawMethod = this.value;
             if(withdrawMethod == 'paypal')
             {
-                document.getElementById('wiseWithdrawal').style.display = 'none';
+                // document.getElementById('wiseWithdrawal').style.display = 'none';
                 document.getElementById('emailWise').style.display = 'none';
-                document.getElementById('accountDetailWise').style.display = 'none';
+                // document.getElementById('accountDetailWise').style.display = 'none';
                 document.getElementById('paypalWithdrawal').style.display = 'block';
 // alert('paypal');
             }else if(withdrawMethod == 'wise')
             {
                 document.getElementById('paypalWithdrawal').style.display = 'none';
-                document.getElementById('wiseWithdrawal').style.display = 'block';
+                document.getElementById('emailWise').style.display = 'block';
+                // document.getElementById('wiseWithdrawal').style.display = 'block';
                 // alert('wise');
             }
         });
@@ -324,5 +329,14 @@
         $('#AmountTransfer').keyup(function (){
             $('.amount_transfer_display').html(this.value+' UCS');
         })
+    </script>
+
+    <script>
+        function adminWithdrawalMsgModalCenter(id)
+        {
+            let msg = $('#mgAdminWithdrawalCurator'+id).html();
+            $('#msgAdminWithdrawal').html(msg);
+            $('#adminWithdrawalMsgModalCenter').modal('show');
+        }
     </script>
 @endsection

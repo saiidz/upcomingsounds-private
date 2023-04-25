@@ -296,6 +296,122 @@
 
         });
 
+    /*--------------------------------------
+          New basicform transaction history With Reload
+    ---------------------------------------*/
+    $(".new_basicform_withdrawal_approved_with_reload").on('submit', function(e){
+        e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        var ContentFromEditor = CKEDITOR.instances.descriptionWithdrawalApprovedDetails.getData();
+
+        let formData = new FormData(this);
+        formData.append('description_details',ContentFromEditor);
+
+        var basicbtnhtml=$('.basicbtn').html();
+        // showLoader();
+        $.ajax({
+            type: 'POST',
+            url: this.action,
+            data: formData,
+            dataType: 'json',
+            contentType: false,
+            cache: false,
+            processData:false,
+            beforeSend: function() {
+
+                $('.basicbtn').html('<div class="spinner-border text-light spinner-border-sm" role="status"><span class="sr-only">Loading...</span></div> Please Wait....');
+                $('.basicbtn').attr('disabled','');
+
+            },
+            success:function(response)
+            {
+                hideLoader();
+                if(response.success)
+                {
+                    console.log(response.success);
+                    $('.basicbtn').removeAttr('disabled')
+                    Sweet('success',response.success);
+                    $('.basicbtn').html(basicbtnhtml);
+                    location.reload();
+                }
+                if(response.errors)
+                {
+                    $('.basicbtn').html(basicbtnhtml);
+                    $('.basicbtn').removeAttr('disabled')
+                    $('.errorarea').show();
+                    $.each(response.errors, function (key, item)
+                    {
+                        Sweet('error',item)
+                        $("#errors").html("<li class='text-danger'>"+item+"</li>");
+                    });
+                }
+            }
+        })
+
+
+    });
+
+
+    $(".new_basicform_withdrawal_reject_with_reload").on('submit', function(e){
+        e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        var ContentFromEditor = CKEDITOR.instances.descriptionWithdrawalRejectDetails.getData();
+
+        let formData = new FormData(this);
+        formData.append('description_details',ContentFromEditor);
+
+        var basicbtnhtml=$('.basicbtn').html();
+        $.ajax({
+            type: 'POST',
+            url: this.action,
+            data: formData,
+            dataType: 'json',
+            contentType: false,
+            cache: false,
+            processData:false,
+            beforeSend: function() {
+
+                $('.basicbtn').html('<div class="spinner-border text-light spinner-border-sm" role="status"><span class="sr-only">Loading...</span></div> Please Wait....');
+                $('.basicbtn').attr('disabled','');
+
+            },
+            success:function(response)
+            {
+                if(response.success)
+                {
+                    console.log(response.success);
+                    $('.basicbtn').removeAttr('disabled')
+                    Sweet('success',response.success);
+                    $('.basicbtn').html(basicbtnhtml);
+                    location.reload();
+                }
+                if(response.errors)
+                {
+                    $('.basicbtn').html(basicbtnhtml);
+                    $('.basicbtn').removeAttr('disabled')
+                    $('.errorarea').show();
+                    $.each(response.errors, function (key, item)
+                    {
+                        Sweet('error',item)
+                        $("#errors").html("<li class='text-danger'>"+item+"</li>");
+                    });
+                }
+            }
+        })
+
+
+    });
+
+
+
 	/*--------------------------------------
       		Sweet Alert Active
     	---------------------------------------*/
