@@ -21,7 +21,7 @@
                     $withdrawal_request = json_decode($withdrawal_history->details);
                 @endphp
                 <td>{{ !empty($withdrawal_request->withdrawal_request) ? ucfirst($withdrawal_request->withdrawal_request) : '-----' }}</td>
-                <td>{{ !empty($withdrawal_request->withdrawal_request == \App\Templates\IStatus::PAYPAL) ? $withdrawal_request->paypal_email : $withdrawal_request->wise_email }}</td>
+                <td>{{ !empty($withdrawal_request->withdrawal_request == \App\Templates\IStatus::PAYPAL) ? $withdrawal_request->paypal_email : (!empty($withdrawal_request->wise_email) ? $withdrawal_request->wise_email : '-----') }}</td>
                 <td>{{ $withdrawal_history->type }}</td>
                 <td>{{ ucfirst($withdrawal_history->payment_status) }}</td>
                 <td>
