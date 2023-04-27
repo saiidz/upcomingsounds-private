@@ -292,16 +292,40 @@
             var withdrawMethod = this.value;
             if(withdrawMethod == 'paypal')
             {
-                // document.getElementById('wiseWithdrawal').style.display = 'none';
+                document.getElementById('wiseWithdrawal').style.display = 'none';
                 document.getElementById('emailWise').style.display = 'none';
-                // document.getElementById('accountDetailWise').style.display = 'none';
+                document.getElementById('accountDetailWise').style.display = 'none';
                 document.getElementById('paypalWithdrawal').style.display = 'block';
+                $('#wise_email').val('');
+                $('#amount').val('');
+                $('#wise_account_holder_inside').val('');
+                $('#wise_account_number_inside').val('');
+                $('#wise_sort_code_inside').val('');
+                $('#wise_iban_inside').val('');
+                $('#wise_address_inside').val('');
+                $('#wise_account_holder_outside').val('');
+                $('#wise_account_number_outside').val('');
+                $('#wise_bic_swift_outside').val('');
+                $('#wise_iban_outside').val('');
+                $('#wise_address_outside').val('');
 // alert('paypal');
             }else if(withdrawMethod == 'wise')
             {
                 document.getElementById('paypalWithdrawal').style.display = 'none';
-                document.getElementById('emailWise').style.display = 'block';
-                // document.getElementById('wiseWithdrawal').style.display = 'block';
+                // document.getElementById('emailWise').style.display = 'block';
+                document.getElementById('wiseWithdrawal').style.display = 'block';
+                $('#paypal_email').val('');
+                $('#amount').val('');
+                $('#wise_account_holder_inside').val('');
+                $('#wise_account_number_inside').val('');
+                $('#wise_sort_code_inside').val('');
+                $('#wise_iban_inside').val('');
+                $('#wise_address_inside').val('');
+                $('#wise_account_holder_outside').val('');
+                $('#wise_account_number_outside').val('');
+                $('#wise_bic_swift_outside').val('');
+                $('#wise_iban_outside').val('');
+                $('#wise_address_outside').val('');
                 // alert('wise');
             }
         });
@@ -314,14 +338,45 @@
             {
                 document.getElementById('accountDetailWise').style.display = 'none';
                 document.getElementById('emailWise').style.display = 'block';
+                $('#wise_account_holder_inside').val('');
+                $('#wise_account_number_inside').val('');
+                $('#wise_sort_code_inside').val('');
+                $('#wise_iban_inside').val('');
+                $('#wise_address_inside').val('');
+                $('#wise_account_holder_outside').val('');
+                $('#wise_account_number_outside').val('');
+                $('#wise_bic_swift_outside').val('');
+                $('#wise_iban_outside').val('');
+                $('#wise_address_outside').val('');
                 // alert('email');
             }else if(wiseMethod == 'account_add')
             {
                 document.getElementById('emailWise').style.display = 'none';
                 document.getElementById('accountDetailWise').style.display = 'block';
+                $('#wise_email').val('');
                 // alert('account_add');
             }
         });
+
+        function UK(uk)
+        {
+            if(uk == 'inside')
+            {
+                $('#wise_account_holder_outside').val('');
+                $('#wise_account_number_outside').val('');
+                $('#wise_bic_swift_outside').val('');
+                $('#wise_iban_outside').val('');
+                $('#wise_address_outside').val('');
+            }
+            if(uk == 'outside')
+            {
+                $('#wise_account_holder_inside').val('');
+                $('#wise_account_number_inside').val('');
+                $('#wise_sort_code_inside').val('');
+                $('#wise_iban_inside').val('');
+                $('#wise_address_inside').val('');
+            }
+        }
     </script>
 
 {{--    transfer script--}}

@@ -1,11 +1,16 @@
 <div class="tab-pane animated fadeIn text-muted" id="Widrawal">
     <section class="m-t-lg">
         <div class="container">
-            <div class="alert-warning py-3 mx-3">
-                <marquee width="100%" direction="right" height="20px">
-                    <b>Attention ! &nbsp;&nbsp; if you have at least 50 USC in your wallet then,You can use withdrawal request</b>
-                </marquee>
-            </div>
+            @php
+                $balance = \App\Models\User::curatorBalance()
+            @endphp
+            @if($balance <= 50)
+                <div class="alert-warning py-3 mx-3">
+                    <marquee width="100%" direction="right" height="20px">
+                        <b>Attention ! &nbsp;&nbsp; if you have at least 50 USC in your wallet then,You can use withdrawal request</b>
+                    </marquee>
+                </div>
+            @endif
             <div class="py-5 text-center m-t-lg">
                 <h2>Withdrawal</h2>
                 <p class="lead" style="color:#02b875 !important">Choose and activate your 45-day campaign (curators will offer publishing/coverage or select individual curators). </p>
@@ -174,6 +179,25 @@
                                                     </div>
                                                 </div>
 
+                                                <div class="row m-t-sm m-b-sm" id="wiseWithdrawal" style="display:none;">
+                                                    <div class="col-sm-12 m-b-sm">
+                                                        <p class="card-text text-black">We use TransferWise to process the transfer. A cashout fee may be applied by TransferWise when withdrawing your funds, depending on the country in which you're located. As an indicator, on March 13th 2021, the fee for a bank transfer towards any European country was fixed at €0.41 whatever the amount cashed out is. More details on the current amount of fees are available on TransferWise website.</p>
+                                                    </div>
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="withdrawal_method" class="text-black">Wise Method</label>
+                                                        <select class="custom-select d-block w-100" id="wiseMethod" name="wise_method" required><sup>*</sup>
+                                                            <option value="1" disabled selected>Choose Method</option>
+                                                            <option value="email">Email</option>
+                                                            <option value="account_add">Add Account</option>
+                                                        </select>
+                                                        @error('wise_method')
+                                                        <small class="red-text" role="alert">
+                                                            {{ $message }}
+                                                        </small>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
                                                 <div class="row m-t-sm" id="emailWise" style="display:none;">
                                                     <div class="col-sm-12 m-b-sm">
                                                         <p class="card-text text-black">We use the Business / Services option. PayPal may apply a fee when receiving your funds, depending on where you are located in the world. For a breakdown of fees,</p>
@@ -186,6 +210,123 @@
                                                             {{ $message }}
                                                         </small>
                                                         @enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="row m-t-lg" id="accountDetailWise" style="display:none;">
+                                                    <div class="b-b b-primary nav-active-primary">
+                                                        <ul class="nav nav-tabs">
+                                                            <li class="nav-item">
+                                                                <a class="nav-link active" href="#" data-toggle="tab" data-target="#insideUk" onclick="UK('inside')" style="color: black !important;">Inside the UK</a>
+                                                            </li>
+                                                            <li class="nav-item">
+                                                                <a class="nav-link" href="#" data-toggle="tab" data-target="#outsideUk" onclick="UK('outside')" style="color: black !important;;">Outside the UK</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="tab-content m-b-md">
+                                                        {{--  Inside UK --}}
+                                                        <div class="tab-pane animated fadeIn text-muted active" id="insideUk">
+                                                            <input type="hidden" name="insideUK" value="inside">
+                                                            <section class="m-t-lg">
+                                                                <div class="col-md-6 mb-3">
+                                                                    <label for="wise_account_holder_inside" class="text-black">Account Holder</label>
+                                                                    <input type="text" name="wise_account_holder_inside" class="form-control" id="wise_account_holder_inside" placeholder="Edm Rekords Limited" value="">
+                                                                    @error('wise_account_holder')
+                                                                    <small class="red-text ml-10" role="alert">
+                                                                        {{ $message }}
+                                                                    </small>
+                                                                    @enderror
+                                                                </div>
+                                                                <div class="col-md-6 mb-3">
+                                                                    <label for="wise_account_number_inside" class="text-black">Account Number</label>
+                                                                    <input type="text" name="wise_account_number_inside" class="form-control" id="wise_account_number_inside" placeholder="76064219" value="">
+                                                                    @error('wise_account_holder')
+                                                                    <small class="red-text ml-10" role="alert">
+                                                                        {{ $message }}
+                                                                    </small>
+                                                                    @enderror
+                                                                </div>
+                                                                <div class="col-md-6 mb-3">
+                                                                    <label for="wise_sort_code" class="text-black">Sort Code</label>
+                                                                    <input type="text" name="wise_sort_code_inside" class="form-control" id="wise_sort_code_inside" placeholder="23-14-70" value="">
+                                                                    @error('wise_sort_code')
+                                                                    <small class="red-text ml-10" role="alert">
+                                                                        {{ $message }}
+                                                                    </small>
+                                                                    @enderror
+                                                                </div>
+                                                                <div class="col-md-6 mb-3">
+                                                                    <label for="wise_iban" class="text-black">IBAN</label>
+                                                                    <input type="text" name="wise_iban_inside" class="form-control " id="wise_iban_inside" placeholder="IBAN" value="">
+                                                                    @error('wise_iban')
+                                                                    <small class="red-text ml-10" role="alert">
+                                                                        {{ $message }}
+                                                                    </small>
+                                                                    @enderror
+                                                                </div>
+                                                                <div class="col-md-6 mb-3">
+                                                                    <label for="wise_address" class="text-black">Address</label>
+                                                                    <input type="text" name="wise_address_inside" class="form-control" id="wise_address_inside" placeholder="London" value="">
+                                                                    @error('wise_iban')
+                                                                    <small class="red-text ml-10" role="alert">
+                                                                        {{ $message }}
+                                                                    </small>
+                                                                    @enderror
+                                                                </div>
+                                                            </section>
+                                                        </div>
+                                                        {{--  Outside UK --}}
+                                                        <div class="tab-pane animated fadeIn text-muted" id="outsideUk">
+                                                            <input type="hidden" name="outsideUK" value="outside">
+                                                            <section class="m-t-lg">
+                                                                <div class="col-md-6 mb-3">
+                                                                    <label for="wise_account_holder_outside" class="text-black">Account Holder</label>
+                                                                    <input type="text" name="wise_account_holder_outside" class="form-control" id="wise_account_holder_outside" placeholder="Edm Rekords Limited" value="">
+                                                                    @error('wise_account_holder')
+                                                                    <small class="red-text ml-10" role="alert">
+                                                                        {{ $message }}
+                                                                    </small>
+                                                                    @enderror
+                                                                </div>
+                                                                <div class="col-md-6 mb-3">
+                                                                    <label for="wise_account_number_outside" class="text-black">Account Number</label>
+                                                                    <input type="text" name="wise_account_number_outside" class="form-control" id="wise_account_number_outside" placeholder="76064219" value="">
+                                                                    @error('wise_account_holder')
+                                                                    <small class="red-text ml-10" role="alert">
+                                                                        {{ $message }}
+                                                                    </small>
+                                                                    @enderror
+                                                                </div>
+                                                                <div class="col-md-6 mb-3">
+                                                                    <label for="wise_bic_swift" class="text-black">BIC/Swift</label>
+                                                                    <input type="text" name="wise_bic_swift_outside" class="form-control" id="wise_bic_swift_outside" placeholder="BIC/Swift" value="">
+                                                                    @error('wise_bic_swift')
+                                                                    <small class="red-text ml-10" role="alert">
+                                                                        {{ $message }}
+                                                                    </small>
+                                                                    @enderror
+                                                                </div>
+                                                                <div class="col-md-6 mb-3">
+                                                                    <label for="wise_iban" class="text-black">IBAN</label>
+                                                                    <input type="text" name="wise_iban_outside" class="form-control" id="wise_iban_outside" placeholder="IBAN" value="">
+                                                                    @error('wise_iban')
+                                                                    <small class="red-text ml-10" role="alert">
+                                                                        {{ $message }}
+                                                                    </small>
+                                                                    @enderror
+                                                                </div>
+                                                                <div class="col-md-6 mb-3">
+                                                                    <label for="wise_address" class="text-black">Address</label>
+                                                                    <input type="text" name="wise_address_outside" class="form-control" id="wise_address_outside" placeholder="London" value="">
+                                                                    @error('wise_iban')
+                                                                    <small class="red-text ml-10" role="alert">
+                                                                        {{ $message }}
+                                                                    </small>
+                                                                    @enderror
+                                                                </div>
+                                                            </section>
+                                                        </div>
                                                     </div>
                                                 </div>
 

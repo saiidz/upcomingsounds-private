@@ -76,7 +76,7 @@
 
                                                                 <td>{{ $withdrawal_curator->amount }} USC</td>
                                                                 <td>{{ !empty($withdrawal_request->withdrawal_request) ? ucfirst($withdrawal_request->withdrawal_request) : '-----' }}</td>
-                                                                <td>{{ !empty($withdrawal_request->withdrawal_request == \App\Templates\IStatus::PAYPAL) ? $withdrawal_request->paypal_email : $withdrawal_request->wise_email }}</td>
+                                                                <td>{{ !empty($withdrawal_request->withdrawal_request == \App\Templates\IStatus::PAYPAL) ? $withdrawal_request->paypal_email : (!empty($withdrawal_request->wise_email) ? $withdrawal_request->wise_email : '-----') }}</td>
                                                                 <td>{{ getDateFormat($withdrawal_curator->created_at) }}</td>
                                                                 <td>
                                                                     @if ($withdrawal_curator->payment_status == \App\Templates\IStatus::PENDING)

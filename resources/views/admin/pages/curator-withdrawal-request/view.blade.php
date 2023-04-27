@@ -67,7 +67,7 @@
                         <div class="card">
                             <div class="card-content">
                                 <div class="row">
-                                    <div class="col s12 m4">
+                                    <div class="col s4 m4">
                                         <table class="striped">
                                             <tbody>
                                             <tr>
@@ -96,8 +96,12 @@
                                                 <td class="users-view-latest-activity">{{ !empty($withdrawalRequest->withdrawal_request) ? ucfirst($withdrawalRequest->withdrawal_request) : '-----' }}</td>
                                             </tr>
                                             <tr>
-                                                <td>Account Email:</td>
-                                                <td class="users-view-latest-activity">{{ !empty($withdrawalRequest->withdrawal_request == \App\Templates\IStatus::PAYPAL) ? $withdrawalRequest->paypal_email : $withdrawalRequest->wise_email }}</td>
+                                                <td>Paypal Email:</td>
+                                                <td class="users-view-latest-activity">{{ !empty($withdrawalRequest->paypal_email) ? $withdrawalRequest->paypal_email : '-----' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Wise Email:</td>
+                                                <td class="users-view-latest-activity">{{ !empty($withdrawalRequest->wise_email) ? $withdrawalRequest->wise_email : '-----' }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Is Status:</td>
@@ -120,6 +124,68 @@
                                             </tbody>
                                         </table>
                                     </div>
+
+                                    <div class="col s4 m4">
+                                        <table class="striped">
+                                            <tbody>
+                                            <tr>
+                                                <td style="text-align:center">Inside The UK</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Wise Account Holder:</td>
+                                                <td>{{ !empty($withdrawalRequest->wise_account_holder_inside) ? $withdrawalRequest->wise_account_holder_inside : '-----' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Wise Account Number:</td>
+                                                <td>{{ !empty($withdrawalRequest->wise_account_number_inside) ? $withdrawalRequest->wise_account_number_inside : '-----' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Wise Sort Code:</td>
+                                                <td>{{ !empty($withdrawalRequest->wise_sort_code_inside) ? $withdrawalRequest->wise_sort_code_inside : '-----' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Wise IBAN:</td>
+                                                <td>{{ !empty($withdrawalRequest->wise_iban_inside) ? $withdrawalRequest->wise_iban_inside : '-----' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Wise Address:</td>
+                                                <td>{{ !empty($withdrawalRequest->wise_address_inside) ? $withdrawalRequest->wise_address_inside : '-----' }}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="col s4 m4">
+                                        <table class="striped">
+                                            <tbody>
+                                            <tr>
+                                                <td style="text-align:center">Outside The UK</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Wise Account Holder:</td>
+                                                <td>{{ !empty($withdrawalRequest->wise_account_holder_outside) ? $withdrawalRequest->wise_account_holder_outside : '-----' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Wise Account Number:</td>
+                                                <td>{{ !empty($withdrawalRequest->wise_account_number_outside) ? $withdrawalRequest->wise_account_number_outside : '-----' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Wise Bic Swift:</td>
+                                                <td>{{ !empty($withdrawalRequest->wise_bic_swift_outside) ? $withdrawalRequest->wise_bic_swift_outside : '-----' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Wise IBAN:</td>
+                                                <td>{{ !empty($withdrawalRequest->wise_iban_outside) ? $withdrawalRequest->wise_iban_outside : '-----' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Wise Address:</td>
+                                                <td>{{ !empty($withdrawalRequest->wise_address_outside) ? $withdrawalRequest->wise_address_outside : '-----' }}</td>
+                                            </tr>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

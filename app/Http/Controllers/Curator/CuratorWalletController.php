@@ -102,7 +102,7 @@ class CuratorWalletController extends Controller
         if(empty($request->paypal_email) && ($request->withdrawal_request == IStatus::PAYPAL))
             $requiredEmail = 'required|email';
         elseif(empty($request->wise_email) && ($request->withdrawal_request == IStatus::WISE))
-            $requiredEmail = 'required|email';
+//            $requiredEmail = 'required|email';
 
         $validator = Validator::make($request->all(), [
             'email'  => !empty($requiredEmail) ? $requiredEmail : '',
@@ -125,9 +125,21 @@ class CuratorWalletController extends Controller
         }
 
         $details = [
-            'withdrawal_request' => $request->withdrawal_request,
-            'paypal_email'       => $request->paypal_email ?? null,
-            'wise_email'         => $request->wise_email ?? null,
+            'withdrawal_request'          => $request->withdrawal_request,
+            'paypal_email'                => $request->paypal_email ?? null,
+            'wise_email'                  => $request->wise_email ?? null,
+            'insideUK'                    => $request->insideUK ?? null,
+            'wise_account_holder_inside'  => $request->wise_account_holder_inside ?? null,
+            'wise_account_number_inside'  => $request->wise_account_number_inside ?? null,
+            'wise_sort_code_inside'       => $request->wise_sort_code_inside ?? null,
+            'wise_iban_inside'            => $request->wise_iban_inside ?? null,
+            'wise_address_inside'         => $request->wise_address_inside ?? null,
+            'outsideUK'                   => $request->outsideUK ?? null,
+            'wise_account_holder_outside' => $request->wise_account_holder_outside ?? null,
+            'wise_account_number_outside' => $request->wise_account_number_outside ?? null,
+            'wise_bic_swift_outside'      => $request->wise_bic_swift_outside ?? null,
+            'wise_iban_outside'           => $request->wise_iban_outside ?? null,
+            'wise_address_outside'        => $request->wise_address_outside ?? null,
         ];
 
         # withdrawal request
