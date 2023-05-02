@@ -32,6 +32,7 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
     Route::post('curator-sub-feature/{id}/update', [CuratorFeatureController::class,'updateSubFeature']);
     Route::delete('curator-sub-feature/{id}/delete', [CuratorFeatureController::class,'deleteSubFeature']);
 
+
     // Artists Features
     Route::resource('artist-features',  ArtistFeatureController::class);
     Route::get('artist-sub-feature/{id}',[ArtistFeatureController::class,'subFeature']);
@@ -98,6 +99,7 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
 
     // banner routes
     Route::resource('banners',BannerController::class);
+    Route::post('thumbnail-remove', [BannerController::class,'destroyThumbnail'])->name('banner.thumbnail.remove');
 
     // Offer Type
     Route::get('offers',  [OfferTypeController::class, 'offers'])->name('offers');

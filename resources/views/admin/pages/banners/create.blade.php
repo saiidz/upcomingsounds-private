@@ -57,15 +57,22 @@
                                         {!! Form::text('artist_name',$banner->artist_name ?? null,['placeholder'=>'Farhan','class'=>"validate", 'id' => 'artist_name', 'required'=>false]) !!}
                                         <label for="artist_title">Artist Name</label>
                                     </div>
-                                    <div class="col m6 s12 file-field input-field">
+                                    <div class="col m6 s12 file-field">
+{{--                                    <div class="col m6 s12 file-field input-field">--}}
                                         <div class="btn float-right">
                                             <span>Track Thumbnail</span>
                                             {!! Form::file('track_thumbnail',['placeholder'=>'Farhan','accept' => 'image/*','class'=>"validate", 'id' => 'artist_name', 'required'=>false]) !!}
                                         </div>
+
                                         <div class="file-path-wrapper">
                                             <img class=" ml-3 img-fluid" src="{{ asset(!empty($banner->track_thumbnail) ? 'uploads/track_thumbnail/'.$banner->track_thumbnail : 'images/logo.png') }}" alt="" height="50" style="object-fit: contain">
                                         </div>
                                     </div>
+                                    @if(!empty($banner))
+                                        <a href="javascript:void(0)" data-id="{{ $banner->id }}" class="dropdown-item has-icon remove_thumbnail">
+                                            Remove Thumbnail
+                                        </a>
+                                    @endif
                                     <div class="col m6 s12 file-field input-field">
                                         <div class="btn float-right">
                                             <span>Track Audio</span>
@@ -107,3 +114,28 @@
     <!-- END: Page Main-->
 @endsection
 
+{{-- page scripts --}}
+@section('page-script')
+    <script>
+        /*-------------------------------
+        Remove Banner Alert
+      -----------------------------------*/
+        $('.remove_thumbnail').on('click', function(event) {
+            const id = $(this).data('id');
+            console.log(id);
+
+            $.ajax({
+                type: "POST",
+                url: '{{ route("admin.banner.thumbnail.remove") }}',
+                data: {
+                    'campaign_id': id,
+                    _token: '{{ csrf_token() }}'
+                },
+                dataType: 'json',
+                success: function (data) {
+                    location.reload();
+                }
+            });
+        });
+    </script>
+@endsection

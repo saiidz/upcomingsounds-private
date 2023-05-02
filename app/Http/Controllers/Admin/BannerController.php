@@ -44,7 +44,8 @@ class BannerController extends Controller
             'link'              => 'required|url',
             'track_name'        => 'required',
             'audio'             => 'file|mimes:mp3|max:15000',
-            'track_thumbnail'   => 'required|mimes:jpeg,jpg,png',
+            'track_thumbnail'   => 'mimes:jpeg,jpg,png',
+//            'track_thumbnail'   => 'required|mimes:jpeg,jpg,png',
             'artist_name'       => 'required',
         ]);
 
@@ -53,9 +54,9 @@ class BannerController extends Controller
             return response()->json(['errors' => $validator->errors()->all()]);
         }
 
-        $input             = $request->all();
-        $input['user_id']  = Auth::id();
-        $input['track_id'] = NULL;
+        $input                      = $request->all();
+        $input['user_id']           = Auth::id();
+        $input['track_id']          = NULL;
         $input['package_name']      = IPackages::PREMIUM_NAME;
         $input['add_days']          = IPackages::ADD_DAYS;
         $input['add_remove_banner'] = IPackages::ADD_BANNER;
@@ -211,5 +212,29 @@ class BannerController extends Controller
             $banner->forceDelete();
 
         return redirect()->back()->with('success','Banner deleted Successfully');
+    }
+
+    /**
+     * @param $id
+     * @return RedirectResponse
+     */
+    public function destroyThumbnail(Request $request)
+    {
+        $banner = Campaign::where('id', $request->campaign_id)->first();
+        if(!empty($banner))
+            //track_thumbnail delete
+            if(!empty($banner->track_thumbnail))
+            {
+                $image = public_path('uploads/track_thumbnail/' . $banner->track_thumbnail);
+                if(file_exists($image)) {
+                    unlink($image);
+                }
+            }
+
+            $banner->update([
+                'track_thumbnail' => null
+            ]);
+
+        return response()->json(['success' => 'Thumbnail deleted Successfully.']);
     }
 }

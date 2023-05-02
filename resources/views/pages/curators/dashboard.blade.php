@@ -13,6 +13,12 @@
         #loadings {
             background: rgba(255, 255, 255, .4) url({{asset('images/loader.gif')}}) no-repeat center center !important;
         }
+        .slide-iframe iframe button .ytp-large-play-button-red-bg {
+            display: none !important;
+        }
+        iframe .ytp-cued-thumbnail-overlay .ytp-large-play-button {
+            display: none !important;
+        }
     </style>
 @endsection
 
@@ -100,9 +106,9 @@
                                                     <img class="thumbnail" src="{{asset('uploads/track_thumbnail')}}/{{$premium_campaign->track_thumbnail}}" alt="" />
                                                 </div>
                                             @else
-                                                <div class="trackThumbnail">
-                                                    <img class="thumbnail" src="{{asset('images/banner_cd.png')}}" alt="" />
-                                                </div>
+{{--                                                <div class="trackThumbnail">--}}
+{{--                                                    <img class="thumbnail" src="{{asset('images/banner_cd.png')}}" alt="" />--}}
+{{--                                                </div>--}}
                                             @endif
                                         </div>
                                     </div>
