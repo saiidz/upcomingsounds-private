@@ -56,6 +56,7 @@
 													<tr>
 														<th>S#</th>
 														<th>Name</th>
+                                                        <th>Profile</th>
 														<th>Email</th>
 														<th>Type</th>
 														<th>Created At</th>
@@ -68,6 +69,13 @@
                                                             <tr>
                                                                 <td>{{ $loop->iteration }}</td>
                                                                 <td>{{ $blogUser->name }}</td>
+                                                                <td>
+                                                                    @if(!empty($blogUser->profile))
+                                                                        <img style="height:40px" src="{{asset('uploads/user_profile')}}/{{$blogUser->profile}}">
+                                                                    @else
+                                                                        {{__('-----------')}}
+                                                                    @endif
+                                                                </td>
                                                                 <td>{{ $blogUser->email }}</td>
                                                                 <td>{{ __('Blog') }}</td>
                                                                 <td>{{ getDateFormat($blogUser->created_at) }}</td>
