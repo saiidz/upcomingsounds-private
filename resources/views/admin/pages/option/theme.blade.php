@@ -107,7 +107,7 @@
                                         <div class="file-path-wrapper">
                                             <label class="switch">
                                                 <input type="checkbox" name="curator_border" {{ !empty($theme->curator_border) && ($theme->curator_border == 'on') ? 'checked' : null }}>
-                                                <span class="slider round switchDemo" style="height: 1px !important;"></span>
+                                                <span class="slider switchDemo" style="height: 1px !important;"></span>
                                             </label>
                                         </div>
                                     </div>
