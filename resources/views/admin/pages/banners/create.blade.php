@@ -82,6 +82,12 @@
                                             <audio controls="" src="{{ asset(!empty($banner->audio) ? 'uploads/audio/'.$banner->audio : '') }}" type="audio/mp3" controlslist="nodownload" id="audioTrackPreview"></audio>
                                         </div>
                                     </div>
+                                    <br>
+                                    @if(!empty($banner))
+                                        <a href="javascript:void(0)" data-id="{{ $banner->id }}" class="dropdown-item has-icon remove_audio">
+                                            Remove Audio
+                                        </a>
+                                    @endif
                                     <div class="input-field col s6">
                                         {!! Form::text('track_name',$banner->track_name ?? null,['placeholder'=>'Classic','class'=>"validate", 'id' => 'artist_name', 'required'=>false]) !!}
                                         <label for="track_name">Track Name</label>
@@ -127,6 +133,22 @@
             $.ajax({
                 type: "POST",
                 url: '{{ route("admin.banner.thumbnail.remove") }}',
+                data: {
+                    'campaign_id': id,
+                    _token: '{{ csrf_token() }}'
+                },
+                dataType: 'json',
+                success: function (data) {
+                    location.reload();
+                }
+            });
+        });
+
+        $('.remove_audio').on('click', function(event) {
+            const id = $(this).data('id');
+            $.ajax({
+                type: "POST",
+                url: '{{ route("admin.banner.audio.remove") }}',
                 data: {
                     'campaign_id': id,
                     _token: '{{ csrf_token() }}'

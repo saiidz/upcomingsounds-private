@@ -100,6 +100,7 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
     // banner routes
     Route::resource('banners',BannerController::class);
     Route::post('thumbnail-remove', [BannerController::class,'destroyThumbnail'])->name('banner.thumbnail.remove');
+    Route::post('audio-remove', [BannerController::class,'destroyAudio'])->name('banner.audio.remove');
 
     // Offer Type
     Route::get('offers',  [OfferTypeController::class, 'offers'])->name('offers');

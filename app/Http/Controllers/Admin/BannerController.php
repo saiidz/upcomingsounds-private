@@ -224,6 +224,30 @@ class BannerController extends Controller
         $banner = Campaign::where('id', $request->campaign_id)->first();
         if(!empty($banner))
             //track_thumbnail delete
+            if(!empty($banner->audio))
+            {
+                $audio = public_path('uploads/audio/' . $banner->audio);
+                if(file_exists($audio)) {
+                    unlink($audio);
+                }
+            }
+
+            $banner->update([
+                'track_thumbnail' => null
+            ]);
+
+        return response()->json(['success' => 'Thumbnail deleted Successfully.']);
+    }
+
+    /**
+     * @param $id
+     * @return RedirectResponse
+     */
+    public function destroyAudio(Request $request)
+    {
+        $banner = Campaign::where('id', $request->campaign_id)->first();
+        if(!empty($banner))
+            //track_thumbnail delete
             if(!empty($banner->track_thumbnail))
             {
                 $image = public_path('uploads/track_thumbnail/' . $banner->track_thumbnail);
@@ -233,9 +257,9 @@ class BannerController extends Controller
             }
 
             $banner->update([
-                'track_thumbnail' => null
+                'audio' => null
             ]);
 
-        return response()->json(['success' => 'Thumbnail deleted Successfully.']);
+        return response()->json(['success' => 'Audio deleted Successfully.']);
     }
 }
