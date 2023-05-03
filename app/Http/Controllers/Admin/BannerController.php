@@ -40,13 +40,14 @@ class BannerController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'track_description' => 'required',
-            'link'              => 'required|url',
-            'track_name'        => 'required',
+//            'track_description' => 'required',
+            'link'              => 'url',
+//            'link'              => 'required|url',
+//            'track_name'        => 'required',
             'audio'             => 'file|mimes:mp3|max:15000',
             'track_thumbnail'   => 'mimes:jpeg,jpg,png',
 //            'track_thumbnail'   => 'required|mimes:jpeg,jpg,png',
-            'artist_name'       => 'required',
+//            'artist_name'       => 'required',
         ]);
 
         if ($validator->fails())
@@ -116,11 +117,11 @@ class BannerController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'track_description' => 'required',
-            'track_name'        => 'required',
+//            'track_description' => 'required',
+//            'track_name'        => 'required',
             'audio'             => 'file|mimes:mp3|max:15000',
             'track_thumbnail'   => 'mimes:jpeg,jpg,png',
-            'artist_name'       => 'required',
+//            'artist_name'       => 'required',
         ]);
 
         if ($validator->fails())
