@@ -231,7 +231,7 @@
                                                             <section class="m-t-lg">
                                                                 <div class="col-md-6 mb-3">
                                                                     <label for="wise_account_holder_inside" class="text-black">Account Holder</label>
-                                                                    <input type="text" name="wise_account_holder_inside" class="form-control" id="wise_account_holder_inside" placeholder="Edm Rekords Limited" value="">
+                                                                    <input type="text" name="wise_account_holder_inside" class="form-control" id="wise_account_holder_inside" placeholder="Company Limited" value="">
                                                                     @error('wise_account_holder')
                                                                     <small class="red-text ml-10" role="alert">
                                                                         {{ $message }}
@@ -240,7 +240,7 @@
                                                                 </div>
                                                                 <div class="col-md-6 mb-3">
                                                                     <label for="wise_account_number_inside" class="text-black">Account Number</label>
-                                                                    <input type="text" name="wise_account_number_inside" class="form-control" id="wise_account_number_inside" placeholder="76064219" value="">
+                                                                    <input type="text" name="wise_account_number_inside" class="form-control" id="wise_account_number_inside" placeholder="42916677" value="">
                                                                     @error('wise_account_holder')
                                                                     <small class="red-text ml-10" role="alert">
                                                                         {{ $message }}
@@ -282,7 +282,7 @@
                                                             <section class="m-t-lg">
                                                                 <div class="col-md-6 mb-3">
                                                                     <label for="wise_account_holder_outside" class="text-black">Account Holder</label>
-                                                                    <input type="text" name="wise_account_holder_outside" class="form-control" id="wise_account_holder_outside" placeholder="Edm Rekords Limited" value="">
+                                                                    <input type="text" name="wise_account_holder_outside" class="form-control" id="wise_account_holder_outside" placeholder="Company Limited" value="">
                                                                     @error('wise_account_holder')
                                                                     <small class="red-text ml-10" role="alert">
                                                                         {{ $message }}
@@ -291,7 +291,7 @@
                                                                 </div>
                                                                 <div class="col-md-6 mb-3">
                                                                     <label for="wise_account_number_outside" class="text-black">Account Number</label>
-                                                                    <input type="text" name="wise_account_number_outside" class="form-control" id="wise_account_number_outside" placeholder="76064219" value="">
+                                                                    <input type="text" name="wise_account_number_outside" class="form-control" id="wise_account_number_outside" placeholder="42916677" value="">
                                                                     @error('wise_account_holder')
                                                                     <small class="red-text ml-10" role="alert">
                                                                         {{ $message }}
