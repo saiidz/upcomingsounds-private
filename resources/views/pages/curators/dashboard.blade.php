@@ -42,6 +42,10 @@
                                 $date = \Illuminate\Support\Carbon::today();
                             @endphp
                             @if($date >= $days)
+                                @php
+                                    $remove_banner = \App\Models\Campaign::where('id',$premium_campaign->id)->first();
+                                    $remove_banner->update(['add_remove_banner' => 0]);
+                                @endphp
                                 <div class="item-title text-ellipsis">
                                     <h3 class="white" style="text-align:center;font-size: 15px;">Not Active Campaign Found</h3>
                                 </div>
