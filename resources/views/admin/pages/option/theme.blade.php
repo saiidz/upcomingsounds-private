@@ -9,6 +9,9 @@
         #loadings {
             background: rgba(255, 255, 255, .4) url({{asset('images/loader.gif')}}) no-repeat center center !important;
         }
+        .switchDemo{
+            height:25px !important;
+        }
     </style>
 @endsection
 
@@ -93,6 +96,19 @@
                                         </div>
                                         <div class="file-path-wrapper">
                                             <img class=" ml-3 img-fluid" src="{{ asset(!empty($theme->blog_banner) ? $theme->blog_banner : 'images/blog-bg.jpg') }}" alt="" height="30" style="object-fit: contain">
+                                        </div>
+                                    </div>
+
+                                    <div class="col m6 s12 file-field input-field">
+                                        <div class="float-left">
+                                            <span>Curator Border Hide Show</span>
+
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <label class="switch">
+                                                <input type="checkbox" name="curator_border" {{ !empty($theme->curator_border) && ($theme->curator_border == 'on') ? 'checked' : null }}>
+                                                <span class="slider round switchDemo" style="height: 1px !important;"></span>
+                                            </label>
                                         </div>
                                     </div>
                                 </div>

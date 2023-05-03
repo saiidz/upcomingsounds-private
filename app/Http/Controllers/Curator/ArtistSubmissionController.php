@@ -37,9 +37,11 @@ class ArtistSubmissionController extends Controller
                                             ->whereNotNull('track_id')->latest()->get();
         $theme = Option::where('key', 'curators_settings')->first();
         if(!empty($theme))
-        {
             $theme = json_decode($theme->value);
-        }
+
+        $theme_settings = Option::where('key', 'theme_settings')->first();
+        if(!empty($theme_settings))
+            $theme_settings = json_decode($theme_settings->value);
         return view('pages.curators.dashboard', get_defined_vars());
     }
 

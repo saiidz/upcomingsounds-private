@@ -125,6 +125,7 @@ class OptionController extends Controller
             'reddit_icon'        => $request->reddit_icon,
             'reddit_link'        => $request->reddit_link,
             'footer_description' => $request->footer_description,
+            'curator_border'     => $request->curator_border ?? null,
         ];
 
 

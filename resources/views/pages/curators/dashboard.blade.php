@@ -101,7 +101,10 @@
                                         </div>
                                         <div class="outer-right">
                                             <div class="border_image">
-                                                <img class="border" src="{{asset('images/border.png')}}" alt="" />
+                                                @if(!empty($theme_settings->curator_border) && $theme_settings->curator_border == 'on')
+                                                    <img class="border" src="{{asset('images/border.png')}}" alt="" />
+                                                @endif
+
                                                 @if(!empty($premium_campaign->artistTrack) && !empty($premium_campaign->artistTrack->track_thumbnail))
                                                     <div class="trackThumbnail">
                                                         <img class="thumbnail" src="{{asset('uploads/track_thumbnail')}}/{{$premium_campaign->artistTrack->track_thumbnail}}" alt="" />
