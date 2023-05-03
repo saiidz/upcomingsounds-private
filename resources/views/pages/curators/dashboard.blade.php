@@ -50,89 +50,92 @@
                                     <h3 class="white" style="text-align:center;font-size: 15px;">Not Active Campaign Found</h3>
                                 </div>
                             @else
-                                <div class="item image">
-                                    <span class="loading">Loading...</span>
-                                    <div class="outer-left">
-                                        <h1 class="headline animated fadeInLeft">
-                                            {{ !empty($premium_campaign->artistTrack) ? $premium_campaign->artistTrack->name : (!empty($premium_campaign->track_name) ? $premium_campaign->track_name : '') }}<br />
-                                        </h1>
-                                        <h3 class="title animated bounceInLeft" @if($premium_campaign->artistTrack) onclick="openNav({{$premium_campaign->id}})" style="cursor:pointer" @endif>
-                                            {{ !empty($premium_campaign->artistTrack) ? $premium_campaign->artistTrack->user->name : (!empty($premium_campaign->artist_name) ? $premium_campaign->artist_name : '') }}
-                                        </h3>
-                                        <p class="description animated fadeInDown delay-06s">
-                                            {{ !empty($premium_campaign->artistTrack) ? \Illuminate\Support\Str::limit($premium_campaign->artistTrack->description, 400, $end='...') : (!empty($premium_campaign->track_description) ? $premium_campaign->track_description : '') }}
-                                        </p>
-                                        @if(!empty($premium_campaign->artistTrack) && !empty($premium_campaign->artistTrack->audio))
-                                            <div class="item r" data-id="item-{{$premium_campaign->artistTrack->id}}" data-src="{{URL('/')}}/uploads/audio/{{$premium_campaign->artistTrack->audio}}">
-                                                <div class="item-media">
-                                                    <div class="item-media-content" id="itemMediaContent"></div>
-                                                    <div class="">
-                                                        <button class="btn-playpause">Play</button>
+                                @if($premium_campaign->add_remove_banner == 1)
+                                    <div class="item image">
+                                        <span class="loading">Loading...</span>
+                                        <div class="outer-left">
+                                            <h1 class="headline animated fadeInLeft">
+                                                {{ !empty($premium_campaign->artistTrack) ? $premium_campaign->artistTrack->name : (!empty($premium_campaign->track_name) ? $premium_campaign->track_name : '') }}<br />
+                                            </h1>
+                                            <h3 class="title animated bounceInLeft" @if($premium_campaign->artistTrack) onclick="openNav({{$premium_campaign->id}})" style="cursor:pointer" @endif>
+                                                {{ !empty($premium_campaign->artistTrack) ? $premium_campaign->artistTrack->user->name : (!empty($premium_campaign->artist_name) ? $premium_campaign->artist_name : '') }}
+                                            </h3>
+                                            <p class="description animated fadeInDown delay-06s">
+                                                {{ !empty($premium_campaign->artistTrack) ? \Illuminate\Support\Str::limit($premium_campaign->artistTrack->description, 400, $end='...') : (!empty($premium_campaign->track_description) ? $premium_campaign->track_description : '') }}
+                                            </p>
+                                            @if(!empty($premium_campaign->artistTrack) && !empty($premium_campaign->artistTrack->audio))
+                                                <div class="item r" data-id="item-{{$premium_campaign->artistTrack->id}}" data-src="{{URL('/')}}/uploads/audio/{{$premium_campaign->artistTrack->audio}}">
+                                                    <div class="item-media">
+                                                        <div class="item-media-content" id="itemMediaContent"></div>
+                                                        <div class="">
+                                                            <button class="btn-playpause">Play</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item-info" style="display:none;">
+                                                        <div class="item-title text-ellipsis">
+                                                            <a href="javascript:void(0)">
+                                                                {{ !empty($premium_campaign->artistTrack) ? $premium_campaign->artistTrack->user->name : (!empty($premium_campaign->artist_name) ? $premium_campaign->artist_name : '') }}
+                                                            </a>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="item-info" style="display:none;">
-                                                    <div class="item-title text-ellipsis">
-                                                        <a href="javascript:void(0)">
-                                                            {{ !empty($premium_campaign->artistTrack) ? $premium_campaign->artistTrack->user->name : (!empty($premium_campaign->artist_name) ? $premium_campaign->artist_name : '') }}
-                                                        </a>
+                                            @elseif(empty($premium_campaign->artistTrack) && !empty($premium_campaign->audio))
+                                                <div class="item r" data-id="item-{{$premium_campaign->id}}" data-src="{{URL('/')}}/uploads/audio/{{$premium_campaign->audio}}">
+                                                    <div class="item-media">
+                                                        <div class="item-media-content" id="itemMediaContent"></div>
+                                                        <div class="">
+                                                            <button  class="btn-playpause">Play</button>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        @elseif(empty($premium_campaign->artistTrack) && !empty($premium_campaign->audio))
-                                            <div class="item r" data-id="item-{{$premium_campaign->id}}" data-src="{{URL('/')}}/uploads/audio/{{$premium_campaign->audio}}">
-                                                <div class="item-media">
-                                                    <div class="item-media-content" id="itemMediaContent"></div>
-                                                    <div class="">
-                                                        <button  class="btn-playpause">Play</button>
+                                                    <div class="item-info" style="display:none;">
+                                                        <div class="item-title text-ellipsis">
+                                                            <a href="javascript:void(0)">
+                                                                {{ !empty($premium_campaign->artistTrack) ? $premium_campaign->artistTrack->user->name : (!empty($premium_campaign->artist_name) ? $premium_campaign->artist_name : '') }}
+                                                            </a>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="item-info" style="display:none;">
-                                                    <div class="item-title text-ellipsis">
-                                                        <a href="javascript:void(0)">
-                                                            {{ !empty($premium_campaign->artistTrack) ? $premium_campaign->artistTrack->user->name : (!empty($premium_campaign->artist_name) ? $premium_campaign->artist_name : '') }}
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @else
-                                        @endif
-
-                                    </div>
-                                    <div class="outer-right">
-                                        <div class="border_image">
-                                            <img class="border" src="{{asset('images/border.png')}}" alt="" />
-                                            @if(!empty($premium_campaign->artistTrack) && !empty($premium_campaign->artistTrack->track_thumbnail))
-                                                <div class="trackThumbnail">
-                                                    <img class="thumbnail" src="{{asset('uploads/track_thumbnail')}}/{{$premium_campaign->artistTrack->track_thumbnail}}" alt="" />
-                                                </div>
-                                            @elseif(empty($premium_campaign->artistTrack) && !empty($premium_campaign->track_thumbnail))
-                                                <div class="trackThumbnail">
-                                                    <img class="thumbnail" src="{{asset('uploads/track_thumbnail')}}/{{$premium_campaign->track_thumbnail}}" alt="" />
                                                 </div>
                                             @else
-{{--                                                <div class="trackThumbnail">--}}
-{{--                                                    <img class="thumbnail" src="{{asset('images/banner_cd.png')}}" alt="" />--}}
-{{--                                                </div>--}}
                                             @endif
-                                        </div>
-                                    </div>
-                                    <figure>
-                                        @if(!empty($premium_campaign->link))
-                                            @php
-                                                $videoCode = explode('v=',$premium_campaign->link);
-                                            @endphp
 
-                                            <div class="slide-iframe slide-media" style="background-image:url({{asset(!empty($theme->curator_banner_img) ? $theme->curator_banner_img : 'images/banner_cd.png')}});">
-                                                <iframe class="iframe-entity" width="560" height="315"  src="https://www.youtube.com/embed/{{$videoCode[1]}}?rel0&autoplay=1&loop=1" frameborder="0" allow="accelerometer; autoplay; modestbranding; encrypted-media; gyroscope; picture-in-picture"></iframe>
-{{--                                                <iframe class="iframe-entity" width="560" height="315"  src="https://www.youtube-nocookie.com/embed/{{$videoCode[1]}}?rel0&autoplay=1&controls=0&loop=1" frameborder="0" allow="accelerometer; autoplay; modestbranding; encrypted-media; gyroscope; picture-in-picture"></iframe>--}}
+                                        </div>
+                                        <div class="outer-right">
+                                            <div class="border_image">
+                                                <img class="border" src="{{asset('images/border.png')}}" alt="" />
+                                                @if(!empty($premium_campaign->artistTrack) && !empty($premium_campaign->artistTrack->track_thumbnail))
+                                                    <div class="trackThumbnail">
+                                                        <img class="thumbnail" src="{{asset('uploads/track_thumbnail')}}/{{$premium_campaign->artistTrack->track_thumbnail}}" alt="" />
+                                                    </div>
+                                                @elseif(empty($premium_campaign->artistTrack) && !empty($premium_campaign->track_thumbnail))
+                                                    <div class="trackThumbnail">
+                                                        <img class="thumbnail" src="{{asset('uploads/track_thumbnail')}}/{{$premium_campaign->track_thumbnail}}" alt="" />
+                                                    </div>
+                                                @else
+                                                    {{--                                                <div class="trackThumbnail">--}}
+                                                    {{--                                                    <img class="thumbnail" src="{{asset('images/banner_cd.png')}}" alt="" />--}}
+                                                    {{--                                                </div>--}}
+                                                @endif
                                             </div>
-                                        @else
-                                            <div class="slide-image slide-media" style="background-image:url({{asset(!empty($theme->curator_banner_img) ? $theme->curator_banner_img : 'images/banner_cd.png')}});">
-                                                <img data-lazy="{{asset(!empty($theme->curator_banner_img) ? $theme->curator_banner_img : 'images/banner_cd.png')}}" class="image-entity" />
-                                            </div>
-                                        @endif
-                                    </figure>
-                                </div>
+                                        </div>
+                                        <figure>
+                                            @if(!empty($premium_campaign->link))
+                                                @php
+                                                    $videoCode = explode('v=',$premium_campaign->link);
+                                                @endphp
+
+                                                <div class="slide-iframe slide-media" style="background-image:url({{asset(!empty($theme->curator_banner_img) ? $theme->curator_banner_img : 'images/banner_cd.png')}});">
+                                                    <iframe class="iframe-entity" width="560" height="315"  src="https://www.youtube.com/embed/{{$videoCode[1]}}?rel0&autoplay=1&loop=1" frameborder="0" allow="accelerometer; autoplay; modestbranding; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                                                    {{--                                                <iframe class="iframe-entity" width="560" height="315"  src="https://www.youtube-nocookie.com/embed/{{$videoCode[1]}}?rel0&autoplay=1&controls=0&loop=1" frameborder="0" allow="accelerometer; autoplay; modestbranding; encrypted-media; gyroscope; picture-in-picture"></iframe>--}}
+                                                </div>
+                                            @else
+                                                <div class="slide-image slide-media" style="background-image:url({{asset(!empty($theme->curator_banner_img) ? $theme->curator_banner_img : 'images/banner_cd.png')}});">
+                                                    <img data-lazy="{{asset(!empty($theme->curator_banner_img) ? $theme->curator_banner_img : 'images/banner_cd.png')}}" class="image-entity" />
+                                                </div>
+                                            @endif
+                                        </figure>
+                                    </div>
+                                @endif
+
                             @endif
                         @endforeach
                     @else
