@@ -60,6 +60,18 @@
                                             {!! Form::input('password', 'password', null, ['class' => 'validate']) !!}
                                             <label for="icon_prefix2">Password</label>
                                         </div>
+                                        <div class="input-field col m10 s12">
+                                            <div class="col m6 s12 file-field">
+                                                <div class="btn float-right">
+                                                    <span>Profile</span>
+                                                    {!! Form::file('profile',['placeholder'=>'Farhan','accept' => 'image/*','class'=>"validate", 'id' => 'artist_name', 'required'=>false]) !!}
+                                                </div>
+
+                                                <div class="file-path-wrapper">
+                                                    <img class=" ml-3 img-fluid" src="{{ asset(!empty($blogUser->profile) ? 'uploads/user_profile/'.$blogUser->profile : 'images/logo.png') }}" alt="" height="50" style="object-fit: contain">
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="input-field col m4 s12">
                                             <div class="input-field col s12">
                                                 <button class="btn cyan waves-effect waves-light basicbtn" type="submit">{{ isset($blogUser) ? 'Update' : 'Save' }}</button>

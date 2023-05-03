@@ -49,7 +49,7 @@
                                                 <img class="img-circle" src="{{ asset('images/author.jpg') }}" alt="">
                                             @endif
                                         </a>
-                                        By <a href="javascript:void(0)"><span class="author-name font-weight-bold">{{ $post->post->author->name }}</span></a>
+                                        By <a href="javascript:void(0)"><span class="author-name font-weight-bold">{{ !empty($post->post->author) ? $post->post->author->name : 'Blog User' }}</span></a>
                                     @else
                                         <a class="author-avatar" href="javascript:void(0)">
                                             <img class="img-circle" src="{{ asset('images/author.jpg') }}" alt="">

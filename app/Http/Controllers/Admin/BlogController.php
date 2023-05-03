@@ -59,6 +59,16 @@ class BlogController extends Controller
         $input['type']              = IUserType::BLOG;
         $input['is_blog']           = IUserType::IS_BLOG;
 
+        // upload audio song
+        if ($request->file('profile')) {
+            $file = $request->file('profile');
+            $name = str_replace(' ', '', $file->getClientOriginalName());
+            $profile_path = 'default_'.time().$name;
+            $file->move(public_path() . '/uploads/user_profile/', $profile_path);
+            //store audio file into directory and db
+            $input['profile'] = $profile_path;
+        }
+
         User::create($input);
 
         return response()->json(['success' => 'Blog User created successfully.']);
@@ -110,6 +120,19 @@ class BlogController extends Controller
         $input['email_verified_at'] = Carbon::now();
         $input['type']              = IUserType::BLOG;
         $input['is_blog']           = IUserType::IS_BLOG;
+
+        // upload audio song
+        if ($request->file('profile')) {
+            $file = $request->file('profile');
+            $name = str_replace(' ', '', $file->getClientOriginalName());
+            $profile_path = 'default_'.time().$name;
+            $file->move(public_path() . '/uploads/user_profile/', $profile_path);
+            //store audio file into directory and db
+            $input['profile'] = $profile_path;
+        }else
+        {
+            $input['profile'] = $blogUser->profile;
+        }
 
         $blogUser->update($input);
 
