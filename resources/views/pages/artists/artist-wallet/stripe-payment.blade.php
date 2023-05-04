@@ -24,7 +24,7 @@
         </div>
         <div class="form-group modal-footer">
             <a href="{{ url()->previous() }}"
-               class="btn btn-dark stripePayment rounded">
+               class="btn btn-dark stripePayment rounded backPage">
                 Back</a>
             <button class="btn btn-dark stripePayment {{empty($artist_billing_info) ? 'disabled no-click' : ''}}" type="button" data-secret="" id="submit-stripe">Pay
                 @if(!empty($purchase_data['currency']))

@@ -17,6 +17,9 @@
             z-index: 9999999;
             background: rgba(255, 255, 255, .4) url({{asset('images/USW_GIF.gif')}}) no-repeat center center !important;
         }
+        #walletLoadings {
+            background: rgba(255, 255, 255, .4) url({{asset('images/loader.gif')}}) no-repeat center center !important;
+        }
         #myHistory .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
             color: white !important;
         }
@@ -37,9 +40,9 @@
         #myHistory tr.even {
             color: black;
         }
-        input.has-value {
-            color: white !important;
-        }
+        /*input.has-value {*/
+        /*    color: white !important;*/
+        /*}*/
         .dataTables_wrapper .dataTables_filter input {
             color: white !important;
         }
@@ -186,6 +189,18 @@
         <div class="wantUP">
             <div class="mainParentContainer">
                 <span class="wantBUCS">Want to buy Upcoming Sounds<br class="br"> by unit?</span>
+                <span class="wantPUCS">You can purchase between 1 and 1000 | USC credits</span>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="purchase_credit_wallet">
+                            <img class="icon_UP_check_wallet" src="{{asset('images/coin_bg.png')}}">
+                            <input type="number" min="1" class="form-control" name="amountUSC" id="amountUSC" placeholder="Enter Credits" value="" required>
+                            <a href="javascript:void(0)" class="buyNow_P_C buyOneUSCNow" id="buyOneUSCNow" onclick="buyOneUSCNow()" data-one-usc-package="1 USC" data-one-usc-contacts="1" data-one-usc-currency="gbp" data-one-usc-price="@isset($one_usc_products){{number_format($one_usc_products['data'][0]['unit_amount'] / 100, 2)}} @endisset">Buy now</a>
+                        </div>
+                    </div>
+                </div>
+
                 <span class="text-black possibleUCS">It's possible! All you have to do is start a campaign.<br class="tw-block"> When you send your campaign, you will be able to buy the exact number of Upcoming Sounds required to send your campaign</span>
                 <span class="text-muted pleaseNoteUCS">Please note that by buying credits individually, you do not benefit from the discounts offered by the packs.</span>
                 <a href="{{url('welcome-your-track')}}" class="startCampaign">Start a campaign</a>
@@ -803,6 +818,50 @@
             // document.getElementById('package_name').value = plantinum_package;
         }
 
+
+        // one usc purchase credit js
+        function buyOneUSCNow()
+        {
+            let amount_USC = $('#amountUSC').val();
+            if(amountUSC === '')
+            {
+                toastr.error('Please Add Credits');
+                return false;
+            }
+
+            // $('.buyOneUSCNow').prop('disabled', true);
+            //  button disabled
+            document.getElementById('buyOneUSCNow').style.pointerEvents="none";
+            document.getElementById('buyOneUSCNow').style.cursor="default";
+
+            var one_usc_price = $('.buyOneUSCNow').attr('data-one-usc-price');
+            var one_usc_currency = $('.buyOneUSCNow').attr('data-one-usc-currency');
+            var one_usc_contacts = $('.buyOneUSCNow').attr('data-one-usc-contacts');
+            var one_usc_package = $('.buyOneUSCNow').attr('data-one-usc-package');
+
+            // showLoaderWallet();
+            $.ajax({
+                type: 'POST',
+                url: '{{url('checkout')}}',
+                data: {
+                    requestFrom: 'oneUSC',
+                    amount_USC: amount_USC,
+                    price: amount_USC,
+                    // price: one_usc_price,
+                    currency: one_usc_currency,
+                    contacts: amount_USC,
+                    // contacts: one_usc_contacts,
+                    package: one_usc_package,
+                },
+                success:function (data){
+                    document.getElementById('buyOneUSCNow').style.pointerEvents="auto";
+                    document.getElementById('buyOneUSCNow').style.cursor="pointer";
+                    // loaderWallet();
+                    // $('.buyOneUSCNow').prop('disabled', false);
+                    window.location.href = "/artist-checkout";
+                },
+            });
+        }
 
         // document.getElementById('closeStripe').addEventListener('click', function (){
         //     card.clear();

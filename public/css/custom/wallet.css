@@ -99,6 +99,24 @@
     display: flex;
     justify-content: center;
 }
+.purchase_credit_wallet{
+    display: flex;
+    padding-bottom: 15px;
+}
+.icon_UP_check_wallet{
+    height: 60px;
+    padding-right: 15px;
+}
+.buyNow_P_C{
+    background-color: #02b875;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 700;
+    padding: 0.75em 1.5em;
+    text-decoration: none;
+    margin-left: 15px;
+}
 .available_credit,
 .total_UP{
     font-weight: bold!important;
@@ -182,9 +200,16 @@ option {
     display: block;
 }
 .wantBUCS{
-    margin-bottom: 24px;
+    margin-bottom: 15px;
     display: block;
     font-size: 1.5rem;
+    font-weight: 700;
+    color:#02b875;
+}
+.wantPUCS{
+    margin-bottom: 24px;
+    display: block;
+    font-size: 1rem;
     font-weight: 700;
     color:#02b875;
 }

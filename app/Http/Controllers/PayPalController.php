@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\TransactionHistory;
+use App\Templates\IStatus;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
@@ -102,7 +103,7 @@ class PayPalController extends Controller
                 'package_name'           => $package_name,
                 'amount'                 => isset($response['purchase_units']) ? $response['purchase_units'][0]['payments']['captures'][0]['amount']['value'] : null,
                 'credits'                => $contacts,
-                'payment_status'         => 'completed',
+                'payment_status'         => IStatus::COMPLETED,
                 'payment_method'         => 'paypal',
                 'payment_response'       => $payment_response,
                 'paid_at'                => Carbon::now(),

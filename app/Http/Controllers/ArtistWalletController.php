@@ -6,8 +6,10 @@ use App\Models\Country;
 use App\Models\TransactionHistory;
 use App\Models\TransactionUserInfo;
 use App\Models\User;
+use App\Templates\IStatus;
 use Carbon\Carbon;
 use Illuminate\Contracts\Encryption\DecryptException;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
@@ -27,6 +29,9 @@ class ArtistWalletController extends Controller
 
         $stripe = new StripeClient(Config('services.stripe.secret'));
 
+        /**
+         *Sandbox Products Stripe
+         */
         // Standard package
         $standard_products =  $stripe->prices->all(['product' => 'prod_L1zUPPaOgM1c6X']);
 
@@ -42,6 +47,12 @@ class ArtistWalletController extends Controller
         // Platinum package
         $platinum_products =  $stripe->prices->all(['product' => 'prod_L21JVzBAJvcxEH']);
 
+        # 1 USC package product
+        $one_usc_products =  $stripe->prices->all(['product' => 'prod_NMz9kAFKIx11X2']);
+//dd($one_usc_products);
+        /**
+         *Sandbox Products Stripe
+         */
 
         Stripe::setApiKey(Config::get('services.stripe.secret'));
 
@@ -57,7 +68,8 @@ class ArtistWalletController extends Controller
     }
 
     /**
-     * checkout
+     * @param Request $request
+     * @return JsonResponse
      */
     public function checkout(Request $request)
     {
@@ -65,6 +77,8 @@ class ArtistWalletController extends Controller
         $currency = $request->get('currency');
         $contacts = $request->get('contacts');
         $package = $request->get('package');
+        if(!empty($request->requestFrom))
+            $requestFrom = $request->get('amount_USC');
 
         $request->session()->put('purchase_data', $request->all());
 
@@ -74,6 +88,7 @@ class ArtistWalletController extends Controller
             'currency'  => $currency,
             'contacts'  => $contacts,
             'package'   => $package,
+            'amountUSC'   => !empty($requestFrom) ? $requestFrom : null,
         ]);
     }
     /**
@@ -197,7 +212,7 @@ class ArtistWalletController extends Controller
             'package_name'           => $request->package_name,
             'amount'                 => ($charges->amount) ? $charges->amount/100 : null,
             'credits'                => $request->contacts,
-            'payment_status'         => 'completed',
+            'payment_status'         => IStatus::COMPLETED,
             'payment_method'         => 'stripe',
             'payment_response'       => $payment_response,
             'paid_at'                => Carbon::now(),

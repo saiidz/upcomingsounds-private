@@ -9,7 +9,7 @@
         <input type="hidden" id="package_name" name="package_name" value="{{!empty($purchase_data['package']) ? $purchase_data['package'] : ''}}">
         <div class="form-group modal-footer">
             <a href="{{ url()->previous() }}"
-               class="btn btn-dark stripePayment rounded">
+               class="btn btn-dark stripePayment rounded backPage">
                 Back</a>
             <button class="btn btn-dark paypalPayment {{empty($artist_billing_info) ? 'disabled no-click' : ''}}" type="button" data-secret="" id="submit-paypal">Pay
                 @if(!empty($purchase_data['currency']))

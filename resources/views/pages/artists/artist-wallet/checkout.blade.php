@@ -382,6 +382,9 @@
             $('#submit-paypal').prop('disabled', true);
             $('#submit-paypal').addClass('no-click');
 
+            $('.backPage').prop('disabled', true);
+            $('.backPage').addClass('no-click');
+
             $('.billingInfo').prop('disabled', true);
             $('.billingInfo').addClass('no-click');
 
@@ -454,6 +457,9 @@
                         stripeTokenHandler(result.setupIntent.payment_method);
                         $('#submit-stripe').prop('disabled', true);
                         $('#submit-stripe').addClass('no-click');
+
+                        $('.backPage').prop('disabled', true);
+                        $('.backPage').addClass('no-click');
 
                         $('.billingInfo').prop('disabled', true);
                         $('.billingInfo').addClass('no-click');
