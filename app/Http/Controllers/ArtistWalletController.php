@@ -96,6 +96,11 @@ class ArtistWalletController extends Controller
      */
     public function artistCheckout(Request $request)
     {
+        $purchase_data = $request->session()->get('purchase_data');
+
+        if(empty($purchase_data))
+            return abort(403);
+
         if(!empty($request->status) && !empty($request->send_offer_id) && !empty($request->contribution))
         {
             try {
@@ -108,7 +113,6 @@ class ArtistWalletController extends Controller
             }
         }
         $countries = Country::all();
-        $purchase_data = $request->session()->get('purchase_data');
 
         Stripe::setApiKey(Config::get('services.stripe.secret'));
 
