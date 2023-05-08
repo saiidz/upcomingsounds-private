@@ -823,7 +823,7 @@
         function buyOneUSCNow()
         {
             let amount_USC = $('#amountUSC').val();
-            if(amountUSC === '')
+            if(amount_USC === "")
             {
                 toastr.error('Please Add Credits');
                 return false;
