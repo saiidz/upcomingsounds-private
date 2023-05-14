@@ -30,6 +30,8 @@ class Campaign extends Model
         'track_thumbnail',
         'audio',
         'link',
+        'banner_img',
+        'banner_img_status',
         'deleted_at',
     ];
 

@@ -61,6 +61,7 @@ class BannerController extends Controller
         $input['package_name']      = IPackages::PREMIUM_NAME;
         $input['add_days']          = IPackages::ADD_DAYS;
         $input['add_remove_banner'] = IPackages::ADD_BANNER;
+        $input['banner_img_status'] = $request->banner_img_status;
 
         // upload audio song
         if ($request->file('audio')) {
@@ -79,6 +80,15 @@ class BannerController extends Controller
             $file->move(public_path() . '/uploads/track_thumbnail/', $image_path);
             //store image file into directory and db
             $input['track_thumbnail'] = $image_path;
+        }
+
+        if ($request->file('banner_img')) {
+            $file = $request->file('banner_img');
+            $name = str_replace(' ', '', $file->getClientOriginalName());
+            $image_path = 'default_'.time().$name;
+            $file->move(public_path() . '/uploads/banner_img/', $image_path);
+            //store image file into directory and db
+            $input['banner_img'] = $image_path;
         }
 
         Campaign::create($input);
@@ -137,6 +147,7 @@ class BannerController extends Controller
         $input['package_name']      = IPackages::PREMIUM_NAME;
         $input['add_days']          = IPackages::ADD_DAYS;
         $input['add_remove_banner'] = IPackages::ADD_BANNER;
+        $input['banner_img_status'] = $request->banner_img_status;
 
         // upload audio song
         if ($request->hasfile('audio')) {
@@ -179,6 +190,26 @@ class BannerController extends Controller
             $input['track_thumbnail'] = $banner->track_thumbnail;
         }
 
+        if ($request->file('banner_img')) {
+            // delete thumbnail previous
+            if(!empty($banner->banner_img))
+            {
+                $image = public_path('uploads/banner_img/' . $banner->banner_img);
+                if(file_exists($image)) {
+                    unlink($image);
+                }
+            }
+
+            $file = $request->file('banner_img');
+            $name = str_replace(' ', '', $file->getClientOriginalName());
+            $image_path = 'default_'.time().$name;
+            $file->move(public_path() . '/uploads/banner_img/', $image_path);
+            //store image file into directory and db
+            $input['banner_img'] = $image_path;
+        }else{
+            $input['banner_img'] = $banner->banner_img;
+        }
+
         $banner->update($input);
 
         return response()->json(['success' => 'Banner updated successfully.']);
@@ -210,30 +241,64 @@ class BannerController extends Controller
                 }
             }
 
+            //audio delete
+            if(!empty($banner->banner_img))
+            {
+                $banner_img = public_path('uploads/banner_img/' . $banner->banner_img);
+                if(file_exists($banner_img)) {
+                    unlink($banner_img);
+                }
+            }
+
             $banner->forceDelete();
 
         return redirect()->back()->with('success','Banner deleted Successfully');
     }
 
     /**
-     * @param $id
-     * @return RedirectResponse
+     * @param Request $request
+     * @return JsonResponse
      */
     public function destroyThumbnail(Request $request)
     {
         $banner = Campaign::where('id', $request->campaign_id)->first();
         if(!empty($banner))
             //track_thumbnail delete
-            if(!empty($banner->audio))
+            if(!empty($banner->track_thumbnail))
             {
-                $audio = public_path('uploads/audio/' . $banner->audio);
-                if(file_exists($audio)) {
-                    unlink($audio);
+                $image = public_path('uploads/track_thumbnail/' . $banner->track_thumbnail);
+                if(file_exists($image)) {
+                    unlink($image);
                 }
             }
 
             $banner->update([
                 'track_thumbnail' => null
+            ]);
+
+        return response()->json(['success' => 'Thumbnail deleted Successfully.']);
+    }
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function destroyBannerImg(Request $request)
+    {
+        $banner = Campaign::where('id', $request->campaign_id)->first();
+        if(!empty($banner))
+            //track_thumbnail delete
+            if(!empty($banner->banner_img))
+            {
+                $banner_img = public_path('uploads/banner_img/' . $banner->banner_img);
+                if(file_exists($banner_img)) {
+                    unlink($banner_img);
+                }
+            }
+
+            $banner->update([
+                'banner_img' => null,
+                'banner_img_status' => 0
             ]);
 
         return response()->json(['success' => 'Thumbnail deleted Successfully.']);
@@ -248,14 +313,13 @@ class BannerController extends Controller
         $banner = Campaign::where('id', $request->campaign_id)->first();
         if(!empty($banner))
             //track_thumbnail delete
-            if(!empty($banner->track_thumbnail))
+            if(!empty($banner->audio))
             {
-                $image = public_path('uploads/track_thumbnail/' . $banner->track_thumbnail);
-                if(file_exists($image)) {
-                    unlink($image);
+                $audio = public_path('uploads/audio/' . $banner->audio);
+                if(file_exists($audio)) {
+                    unlink($audio);
                 }
             }
-
             $banner->update([
                 'audio' => null
             ]);
