@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\Artist\CampaignController;
+use App\Http\Controllers\Artist\CoverageController;
 use App\Http\Controllers\Artist\MessageController;
 use App\Http\Controllers\Artist\OfferController;
 use App\Http\Controllers\ArtistController;
@@ -60,6 +61,10 @@ Route::get('cancel-transaction', [PayPalController::class, 'cancelTransaction'])
 // active campaign routes
 Route::get('campaigns', [CampaignController::class,'activeCampaign'])->name('active.campaign');
 Route::delete('delete-campaign/{campaign}',[CampaignController::class,'destroy'])->name('delete.campaign');
+
+// coverage routes
+Route::get('coverages', [CoverageController::class,'coverage'])->name('artist.coverage');
+Route::get('coverage-details', [CoverageController::class,'coverageDetails'])->name('artist.coverage.details');
 
 // get cites
 Route::get('get-cites-artist/{id}', [AjaxController::class,'getCities']);

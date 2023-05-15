@@ -95,6 +95,14 @@
     {{--                   </a>--}}
     {{--                </li>--}}
                      <li>
+                       <a href="{{route('artist.coverage')}}">
+                           <span class="nav-icon">
+                                <i class="fa fa-rocket"></i>
+                           </span>
+                           <span class="nav-text">Coverage</span>
+                       </a>
+                    </li>
+                     <li>
                        <a href="{{route('active.campaign')}}">
                            <span class="nav-icon">
                                 <i class="fa fa-bullhorn"></i>
