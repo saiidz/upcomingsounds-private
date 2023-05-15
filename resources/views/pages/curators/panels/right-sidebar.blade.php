@@ -1,101 +1,35 @@
-<div class="col-lg-3 w-xxl w-auto-md">
+<div class="col-lg-4 w-xxl w-auto-md">
     <div class="padding" style="bottom: 60px;" data-ui-jp="stick_in_parent">
-        <h6 class="text text-muted">5 Likes</h6>
-        <div class="row item-list item-list-sm m-b">
-            <div class="col-xs-12">
-                <div class="item r" data-id="item-3"
-                     data-src="">
-                    <div class="item-media ">
-                        <a href="javascript:void(0)" class="item-media-content"
-                           style="background-image: url('images/b2.jpg');"></a>
+        <div id="coverageCurator" class="m-b" style="background-color: #373a3c;">
+            <div class="padding">
+                <h6 class="text-center text-white">Your Monthly Activity</h6>
+                <span class="text">
+                    <div class="text-center text-white">
+                        <span class="amount">0 USC</span>
+                        <img class="icon_UP" style="width:25px; height:25px;" src="{{asset('images/coin_bg.png')}}">
                     </div>
-                    <div class="item-info">
-                        <div class="item-title text-ellipsis">
-                            <a href="javascript:void(0)">I Wanna Be In the Cavalry</a>
-                        </div>
-                        <div class="item-author text-sm text-ellipsis ">
-                            <a href="javascript:void(0)" class="text-muted">Jeremy Scott</a>
-                        </div>
+                </span>
+{{--                <div class="row item-list item-list-sm m-b">--}}
+{{--                    <div class="col-xs-12">--}}
+{{--                        <div class="item r" data-id="item-3"--}}
+{{--                             data-src="">--}}
+{{--                            <div class="item-media ">--}}
+{{--                                <a href="javascript:void(0)" class="item-media-content"--}}
+{{--                                   style="background-image: url('images/b2.jpg');"></a>--}}
+{{--                            </div>--}}
+{{--                            <div class="item-info">--}}
+{{--                                <div class="item-title text-ellipsis">--}}
+{{--                                    <a href="javascript:void(0)">I Wanna Be In the Cavalry</a>--}}
+{{--                                </div>--}}
+{{--                                <div class="item-author text-sm text-ellipsis ">--}}
+{{--                                    <a href="javascript:void(0)" class="text-muted">Jeremy Scott</a>--}}
+{{--                                </div>--}}
 
 
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12">
-                <div class="item r" data-id="item-1"
-                     data-src="">
-                    <div class="item-media ">
-                        <a href="javascript:void(0)" class="item-media-content"
-                           style="background-image: url('images/b0.jpg');"></a>
-                    </div>
-                    <div class="item-info">
-                        <div class="item-title text-ellipsis">
-                            <a href="javascript:void(0)">Pull Up</a>
-                        </div>
-                        <div class="item-author text-sm text-ellipsis ">
-                            <a href="javascript:void(0)" class="text-muted">Summerella</a>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12">
-                <div class="item r" data-id="item-12"
-                     data-src="">
-                    <div class="item-media ">
-                        <a href="javascript:void(0)" class="item-media-content"
-                           style="background-image: url('images/b11.jpg');"></a>
-                    </div>
-                    <div class="item-info">
-                        <div class="item-title text-ellipsis">
-                            <a href="javascript:void(0)">Happy ending</a>
-                        </div>
-                        <div class="item-author text-sm text-ellipsis ">
-                            <a href="javascript:void(0)" class="text-muted">Postiljonen</a>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12">
-                <div class="item r" data-id="item-11"
-                     data-src="">
-                    <div class="item-media ">
-                        <a href="javascript:void(0)" class="item-media-content"
-                           style="background-image: url('images/b10.jpg');"></a>
-                    </div>
-                    <div class="item-info">
-                        <div class="item-title text-ellipsis">
-                            <a href="javascript:void(0)">Spring</a>
-                        </div>
-                        <div class="item-author text-sm text-ellipsis ">
-                            <a href="javascript:void(0)" class="text-muted">Pablo Nouvelle</a>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12">
-                <div class="item r" data-id="item-6"
-                     data-src="">
-                    <div class="item-media ">
-                        <a href="javascript:void(0)" class="item-media-content"
-                           style="background-image: url('images/b5.jpg');"></a>
-                    </div>
-                    <div class="item-info">
-                        <div class="item-title text-ellipsis">
-                            <a href="javascript:void(0)">Body on me</a>
-                        </div>
-                        <div class="item-author text-sm text-ellipsis ">
-                            <a href="javascript:void(0)" class="text-muted">Rita Ora</a>
-                        </div>
-
-
-                    </div>
-                </div>
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
         </div>
 
