@@ -37,7 +37,7 @@
 
     <div class="page-content">
         <div class="row-col">
-            <div class="col-lg-9 b-r no-border-md">
+            <div class="col-lg-8 b-r no-border-md">
                 <div class="padding">
                     <div class="page-title m-b proposition_header">
                         <h1 class="inline m-a-0">{{ !empty($offer_template) ? "Update Offer Template" : "Offer Template" }}</h1>

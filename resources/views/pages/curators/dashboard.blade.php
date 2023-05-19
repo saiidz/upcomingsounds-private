@@ -362,7 +362,7 @@
                                 <h3 class="white" style="text-align:center;font-size: 15px;">Not Campaign Found</h3>
                             </div>
                         @endif
-{{--                        <div class="item r" data-id="item-115" data-src="http://api.soundcloud.com/tracks/239793212/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">--}}
+{{--                        <div class="item r" data-id="item-115" data-src="">--}}
 {{--                            <div class="item-media primary">--}}
 {{--                                <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/c1.jpg');"></a>--}}
 {{--                                <div class="item-overlay center">--}}
@@ -383,7 +383,7 @@
 {{--                                </div>--}}
 {{--                            </div>--}}
 {{--                        </div>--}}
-{{--                        <div class="item r" data-id="item-116" data-src="http://api.soundcloud.com/tracks/260682299/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">--}}
+{{--                        <div class="item r" data-id="item-116" data-src="">--}}
 {{--                            <div class="item-media info">--}}
 {{--                                <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/c2.jpg');"></a>--}}
 {{--                                <div class="item-overlay center">--}}
@@ -404,7 +404,7 @@
 {{--                                </div>--}}
 {{--                            </div>--}}
 {{--                        </div>--}}
-{{--                        <div class="item r" data-id="item-117" data-src="http://api.soundcloud.com/tracks/232886537/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">--}}
+{{--                        <div class="item r" data-id="item-117" data-src="">--}}
 {{--                            <div class="item-media accent">--}}
 {{--                                <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/c3.jpg');"></a>--}}
 {{--                                <div class="item-overlay center">--}}
@@ -479,7 +479,7 @@
                     </div>
                 @endif
 {{--                <div class="col-sm-3 col-xs-6">--}}
-{{--                    <div class="item r" data-id="item-1" data-src="http://api.soundcloud.com/tracks/269944843/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">--}}
+{{--                    <div class="item r" data-id="item-1" data-src="">--}}
 {{--                        <div class="item-media ">--}}
 {{--                            <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b0.jpg');"></a>--}}
 {{--                            <div class="item-overlay center">--}}
@@ -504,7 +504,7 @@
 {{--                    </div>--}}
 {{--                </div>--}}
 {{--                <div class="col-sm-3 col-xs-6">--}}
-{{--                    <div class="item r" data-id="item-2" data-src="http://api.soundcloud.com/tracks/259445397/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">--}}
+{{--                    <div class="item r" data-id="item-2" data-src="">--}}
 {{--                        <div class="item-media ">--}}
 {{--                            <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b1.jpg');"></a>--}}
 {{--                            <div class="item-overlay center">--}}
@@ -554,7 +554,7 @@
 {{--                    </div>--}}
 {{--                </div>--}}
 {{--                <div class="col-sm-3 col-xs-6">--}}
-{{--                    <div class="item r" data-id="item-4" data-src="http://api.soundcloud.com/tracks/230791292/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">--}}
+{{--                    <div class="item r" data-id="item-4" data-src="">--}}
 {{--                        <div class="item-media ">--}}
 {{--                            <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b3.jpg');"></a>--}}
 {{--                            <div class="item-overlay center">--}}
@@ -873,7 +873,7 @@
                             </div>
                         </div>
                         <div class="col-xs-4 col-sm-4 col-md-3">
-                            <div class="item r" data-id="item-6" data-src="http://api.soundcloud.com/tracks/236107824/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                            <div class="item r" data-id="item-6" data-src="">
                                 <div class="item-media ">
                                     <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b5.jpg');"></a>
                                     <div class="item-overlay center">
@@ -923,7 +923,7 @@
                             </div>
                         </div>
                         <div class="col-xs-4 col-sm-4 col-md-3">
-                            <div class="item r" data-id="item-12" data-src="http://api.soundcloud.com/tracks/174495152/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                            <div class="item r" data-id="item-12" data-src="">
                                 <div class="item-media ">
                                     <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b11.jpg');"></a>
                                     <div class="item-overlay center">
@@ -948,7 +948,7 @@
                             </div>
                         </div>
                         <div class="col-xs-4 col-sm-4 col-md-3">
-                            <div class="item r" data-id="item-4" data-src="http://api.soundcloud.com/tracks/230791292/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                            <div class="item r" data-id="item-4" data-src="">
                                 <div class="item-media ">
                                     <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b3.jpg');"></a>
                                     <div class="item-overlay center">
@@ -973,7 +973,7 @@
                             </div>
                         </div>
                         <div class="col-xs-4 col-sm-4 col-md-3">
-                            <div class="item r" data-id="item-11" data-src="http://api.soundcloud.com/tracks/218060449/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                            <div class="item r" data-id="item-11" data-src="">
                                 <div class="item-media ">
                                     <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b10.jpg');"></a>
                                     <div class="item-overlay center">
@@ -998,7 +998,7 @@
                             </div>
                         </div>
                         <div class="col-xs-4 col-sm-4 col-md-3">
-                            <div class="item r" data-id="item-2" data-src="http://api.soundcloud.com/tracks/259445397/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                            <div class="item r" data-id="item-2" data-src="">
                                 <div class="item-media ">
                                     <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b1.jpg');"></a>
                                     <div class="item-overlay center">
@@ -1051,7 +1051,7 @@
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="item r" data-id="item-2" data-src="http://api.soundcloud.com/tracks/259445397/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                            <div class="item r" data-id="item-2" data-src="">
                                 <div class="item-media ">
                                     <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b1.jpg');"></a>
                                     <div class="item-overlay center">
@@ -1076,7 +1076,7 @@
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="item r" data-id="item-11" data-src="http://api.soundcloud.com/tracks/218060449/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                            <div class="item r" data-id="item-11" data-src="">
                                 <div class="item-media ">
                                     <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b10.jpg');"></a>
                                     <div class="item-overlay center">
@@ -1101,7 +1101,7 @@
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="item r" data-id="item-1" data-src="http://api.soundcloud.com/tracks/269944843/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                            <div class="item r" data-id="item-1" data-src="">
                                 <div class="item-media ">
                                     <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
                                     <div class="item-overlay center">
@@ -1126,7 +1126,7 @@
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="item r" data-id="item-12" data-src="http://api.soundcloud.com/tracks/174495152/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
+                            <div class="item r" data-id="item-12" data-src="">
                                 <div class="item-media ">
                                     <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b11.jpg');"></a>
                                     <div class="item-overlay center">

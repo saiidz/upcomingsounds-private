@@ -16,7 +16,7 @@
 
     <div class="page-content">
         <div class="row-col">
-            <div class="col-lg-9 b-r no-border-md">
+            <div class="col-lg-8 b-r no-border-md">
                 <div class="padding">
                     <div class="page-title m-b m-t-2">
                         <h1 class="inline m-a-0">Expired</h1>

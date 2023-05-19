@@ -9,6 +9,50 @@
                         <img class="icon_UP" style="width:25px; height:25px;" src="{{asset('images/coin_bg.png')}}">
                     </div>
                 </span>
+                <div class="row item-list item-list-sm m-b">
+                    <div class="col-xs-12">
+                        <div class="item r">
+                            <div class="progress" style="overflow: unset !important;">
+                                <div style="justify-content: space-between !important;align-items: center !important;display: flex !important;">
+                                    <div>
+                                        <span class="text-white">0</span>
+                                        <img class="icon_UP" style="width:20px; height:20px;" src="{{asset('images/coin_bg.png')}}">
+                                    </div>
+                                    <div>
+                                        <span class="text-white">25</span>
+                                        <img class="icon_UP" style="width:20px; height:20px;" src="{{asset('images/coin_bg.png')}}">
+                                    </div>
+                                    <div>
+                                        <span class="text-white">45</span>
+                                        <img class="icon_UP" style="width:20px; height:20px;" src="{{asset('images/coin_bg.png')}}">
+                                    </div>
+                                    <div>
+                                        <span class="text-white">63</span>
+                                        <img class="icon_UP" style="width:20px; height:20px;" src="{{asset('images/coin_bg.png')}}">
+                                    </div>
+                                    <div>
+                                        <span class="text-white">79</span>
+                                        <img class="icon_UP" style="width:20px; height:20px;" src="{{asset('images/coin_bg.png')}}">
+                                    </div>
+                                    <div>
+                                        <span class="text-white">91</span>
+                                        <img class="icon_UP" style="width:20px; height:20px;" src="{{asset('images/coin_bg.png')}}">
+                                    </div>
+
+                                </div>
+                                <div class="progress-bar primary" style="width: 20%; height:30px !important; padding-top: 5px;">25%</div>
+                                <div class="progress-bar danger" style="width: 20%; height:30px !important; padding-top: 5px;">45%</div>
+                                <div class="progress-bar primary" style="width: 20%; height:30px !important; padding-top: 5px;">63%</div>
+                                <div class="progress-bar info" style="width: 20%; height:30px !important; padding-top: 5px;">79%</div>
+                                <div class="progress-bar primary" style="width: 20%; height:30px !important; padding-top: 5px;">91%</div>
+                            </div>
+                            <div class="text-white m-t-3">
+                                <p>You are 0% to your next pay level</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 {{--                <div class="row item-list item-list-sm m-b">--}}
 {{--                    <div class="col-xs-12">--}}
 {{--                        <div class="item r" data-id="item-3"--}}
@@ -30,6 +74,7 @@
 {{--                        </div>--}}
 {{--                    </div>--}}
 {{--                </div>--}}
+
             </div>
         </div>
 

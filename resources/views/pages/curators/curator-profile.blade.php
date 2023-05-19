@@ -210,7 +210,7 @@
     </div>
 
     <div class="row-col">
-        <div class="col-lg-9 b-r no-border-md">
+        <div class="col-lg-8 b-r no-border-md">
             <div class="padding p-y-0 m-b-md">
                 <div class="nav-active-border b-primary bottom m-b-md m-t">
                     <ul class="nav l-h-2x" data-ui-jp="taburl">
