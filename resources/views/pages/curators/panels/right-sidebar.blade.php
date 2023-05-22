@@ -1,82 +1,89 @@
-<div class="col-lg-4 w-xxl w-auto-md">
+<div class="col-lg-{{(Request::is('dashboard') == 'true') ? 5 : 3}} w-xxl w-auto-md">
     <div class="padding" style="bottom: 60px;" data-ui-jp="stick_in_parent">
-        <div id="coverageCurator" class="m-b" style="background-color: #373a3c;">
-            <div class="padding">
-                <h6 class="text-center text-white">Your Monthly Activity</h6>
-                <span class="text">
+        @if(Request::is('dashboard') == 'true')
+            <div id="coverageCurator" class="m-b" style="background-color: #373a3c;">
+                <div class="padding">
+                    <h6 class="text-center text-white">Your Monthly Activity</h6>
+                    <span class="text">
                     <div class="text-center text-white">
                         <span class="amount">0 USC</span>
                         <img class="icon_UP" style="width:25px; height:25px;" src="{{asset('images/coin_bg.png')}}">
                     </div>
                 </span>
-                <div class="row item-list item-list-sm m-b">
-                    <div class="col-xs-12">
-                        <div class="item r">
-                            <div class="progress" style="overflow: unset !important;">
-                                <div style="justify-content: space-between !important;align-items: center !important;display: flex !important;">
-                                    <div>
-                                        <span class="text-white">0</span>
-                                        <img class="icon_UP" style="width:20px; height:20px;" src="{{asset('images/coin_bg.png')}}">
-                                    </div>
-                                    <div>
-                                        <span class="text-white">25</span>
-                                        <img class="icon_UP" style="width:20px; height:20px;" src="{{asset('images/coin_bg.png')}}">
-                                    </div>
-                                    <div>
-                                        <span class="text-white">45</span>
-                                        <img class="icon_UP" style="width:20px; height:20px;" src="{{asset('images/coin_bg.png')}}">
-                                    </div>
-                                    <div>
-                                        <span class="text-white">63</span>
-                                        <img class="icon_UP" style="width:20px; height:20px;" src="{{asset('images/coin_bg.png')}}">
-                                    </div>
-                                    <div>
-                                        <span class="text-white">79</span>
-                                        <img class="icon_UP" style="width:20px; height:20px;" src="{{asset('images/coin_bg.png')}}">
-                                    </div>
-                                    <div>
-                                        <span class="text-white">100</span>
-                                        <img class="icon_UP" style="width:20px; height:20px;" src="{{asset('images/coin_bg.png')}}">
-                                    </div>
+                    <div class="row item-list item-list-sm m-b">
+                        <div class="col-xs-12">
+                            <div class="item r">
+                                <div class="progress" style="overflow: unset !important;">
+                                    <div style="justify-content: space-between !important;align-items: center !important;display: flex !important;">
+                                        <div>
+                                            <span class="text-white">0</span>
+                                            <img class="icon_UP" style="width:10px; height:10px;" src="{{asset('images/coin_bg.png')}}">
+                                        </div>
+                                        <div>
+                                            <span class="text-white">25</span>
+                                            <img class="icon_UP" style="width:10px; height:10px;" src="{{asset('images/coin_bg.png')}}">
+                                        </div>
+                                        <div>
+                                            <span class="text-white">45</span>
+                                            <img class="icon_UP" style="width:10px; height:10px;" src="{{asset('images/coin_bg.png')}}">
+                                        </div>
+                                        <div>
+                                            <span class="text-white">63</span>
+                                            <img class="icon_UP" style="width:10px; height:10px;" src="{{asset('images/coin_bg.png')}}">
+                                        </div>
+                                        <div>
+                                            <span class="text-white">79</span>
+                                            <img class="icon_UP" style="width:10px; height:10px;" src="{{asset('images/coin_bg.png')}}">
+                                        </div>
+                                        <div>
+                                            <span class="text-white">91</span>
+                                            <img class="icon_UP" style="width:10px; height:10px;" src="{{asset('images/coin_bg.png')}}">
+                                        </div>
 
+                                    </div>
+{{--                                    primary
+danger
+primary
+info--}}
+                                    <div class="progress-bar progressBar grey-50" style="width: 19%; height:30px !important;margin-right: 2px; padding-top: 5px;">25%</div>
+                                    <div class="progress-bar progressBar grey-50" style="width: 19%; height:30px !important;margin-right: 2px; padding-top: 5px;">45%</div>
+                                    <div class="progress-bar progressBar grey-50" style="width: 19%; height:30px !important;margin-right: 2px; padding-top: 5px;">63%</div>
+                                    <div class="progress-bar progressBar grey-50" style="width: 19%; height:30px !important;margin-right: 2px; padding-top: 5px;">79%</div>
+                                    <div class="progress-bar progressBar grey-50" style="width: 19%; height:30px !important;margin-right: 2px; padding-top: 5px;">91%</div>
                                 </div>
-                                <div class="progress-bar primary" style="width: 20%; height:30px !important; padding-top: 5px;">25%</div>
-                                <div class="progress-bar danger" style="width: 20%; height:30px !important; padding-top: 5px;">45%</div>
-                                <div class="progress-bar primary" style="width: 20%; height:30px !important; padding-top: 5px;">63%</div>
-                                <div class="progress-bar info" style="width: 20%; height:30px !important; padding-top: 5px;">79%</div>
-                                <div class="progress-bar primary" style="width: 20%; height:30px !important; padding-top: 5px;">100%</div>
-                            </div>
-                            <div class="text-white m-t-3">
-                                <p>You are 0% to your next pay level</p>
+                                <div class="text-white m-t-3">
+                                    <p>You are 0% to your next pay level</p>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    {{--                <div class="row item-list item-list-sm m-b">--}}
+                    {{--                    <div class="col-xs-12">--}}
+                    {{--                        <div class="item r" data-id="item-3"--}}
+                    {{--                             data-src="">--}}
+                    {{--                            <div class="item-media ">--}}
+                    {{--                                <a href="javascript:void(0)" class="item-media-content"--}}
+                    {{--                                   style="background-image: url('images/b2.jpg');"></a>--}}
+                    {{--                            </div>--}}
+                    {{--                            <div class="item-info">--}}
+                    {{--                                <div class="item-title text-ellipsis">--}}
+                    {{--                                    <a href="javascript:void(0)">I Wanna Be In the Cavalry</a>--}}
+                    {{--                                </div>--}}
+                    {{--                                <div class="item-author text-sm text-ellipsis ">--}}
+                    {{--                                    <a href="javascript:void(0)" class="text-muted">Jeremy Scott</a>--}}
+                    {{--                                </div>--}}
+
+
+                    {{--                            </div>--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
+                    {{--                </div>--}}
+
                 </div>
-
-{{--                <div class="row item-list item-list-sm m-b">--}}
-{{--                    <div class="col-xs-12">--}}
-{{--                        <div class="item r" data-id="item-3"--}}
-{{--                             data-src="">--}}
-{{--                            <div class="item-media ">--}}
-{{--                                <a href="javascript:void(0)" class="item-media-content"--}}
-{{--                                   style="background-image: url('images/b2.jpg');"></a>--}}
-{{--                            </div>--}}
-{{--                            <div class="item-info">--}}
-{{--                                <div class="item-title text-ellipsis">--}}
-{{--                                    <a href="javascript:void(0)">I Wanna Be In the Cavalry</a>--}}
-{{--                                </div>--}}
-{{--                                <div class="item-author text-sm text-ellipsis ">--}}
-{{--                                    <a href="javascript:void(0)" class="text-muted">Jeremy Scott</a>--}}
-{{--                                </div>--}}
-
-
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
             </div>
-        </div>
+        @endif
+
 
         @if (Auth::check() && auth()->user())
                 @if (auth()->user()->is_verified == 1)

@@ -911,6 +911,9 @@ header nav ul li a:hover {
           margin: 0 auto;
           display: block;
       }
+      .progressBar{
+          margin-right : 0px !important;
+      }
   }
 
   @media (min-width: 320px) and (max-width: 480px) {
@@ -994,6 +997,9 @@ header nav ul li a:hover {
       .outer-left p.description.animated.fadeInDown.delay-06s {
           font-size: 5px;
           margin-bottom: 2px;
+      }
+      .progressBar{
+          margin-right : 0px !important;
       }
   }
   /*collapse*/
