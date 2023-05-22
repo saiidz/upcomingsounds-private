@@ -35,7 +35,7 @@
                                         <img class="icon_UP" style="width:20px; height:20px;" src="{{asset('images/coin_bg.png')}}">
                                     </div>
                                     <div>
-                                        <span class="text-white">91</span>
+                                        <span class="text-white">100</span>
                                         <img class="icon_UP" style="width:20px; height:20px;" src="{{asset('images/coin_bg.png')}}">
                                     </div>
 
@@ -44,7 +44,7 @@
                                 <div class="progress-bar danger" style="width: 20%; height:30px !important; padding-top: 5px;">45%</div>
                                 <div class="progress-bar primary" style="width: 20%; height:30px !important; padding-top: 5px;">63%</div>
                                 <div class="progress-bar info" style="width: 20%; height:30px !important; padding-top: 5px;">79%</div>
-                                <div class="progress-bar primary" style="width: 20%; height:30px !important; padding-top: 5px;">91%</div>
+                                <div class="progress-bar primary" style="width: 20%; height:30px !important; padding-top: 5px;">100%</div>
                             </div>
                             <div class="text-white m-t-3">
                                 <p>You are 0% to your next pay level</p>
