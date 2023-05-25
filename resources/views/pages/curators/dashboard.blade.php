@@ -1332,5 +1332,91 @@
             // document.getElementById("mySidebarCollapsed").style.width = "0";
             document.getElementById("app-body").style.marginLeft= "0";
         }
+
+        // submit coverage work start
+        function submitCoverage()
+        {
+            $('#camArtTraLink').css('display','none');
+            $('#artistTrackTagsHideShow').css('display','none');
+            $('#campaignBtnHideShow').css('display','none');
+
+            $('#submitCoverageShowHide').css('display','block');
+        }
+
+        function backToSubmitCoverageShowHide()
+        {
+            $('#submitCoverageShowHide').css('display','none');
+
+            $('#camArtTraLink').css('display','block');
+            $('#artistTrackTagsHideShow').css('display','block');
+            $('#campaignBtnHideShow').css('display','block');
+        }
+
+        function finalSubmitCoverage(track_id)
+        {
+            let campaign_ID = $('#campaign_ID').val()
+            let typeSubmitCoverage = $('#typeSubmitCoverage').val()
+            let messageSubmitCoverage = $('#messageSubmitCoverage').val()
+            var linksSubmitCoverage = $("input[name='completion_url[]']")
+                .map(function(){return $(this).val();}).get();
+            // console.log(linksSubmitCoverage);
+            // console.log(campaign_ID);
+            // console.log(typeSubmitCoverage);
+            // console.log(messageSubmitCoverage);
+            if(typeSubmitCoverage == '')
+            {
+                toastr.error('Please Select Type');
+                return false;
+            }
+
+            if(linksSubmitCoverage == '')
+            {
+                toastr.error('Please Add Links');
+                return false;
+            }
+            if(messageSubmitCoverage == '')
+            {
+                toastr.error('Please Add Message');
+                return false;
+            }
+
+            console.log(track_id);
+        }
+        // submit coverage work start
+    </script>
+    <script type="text/javascript">
+
+        var counter = 2;
+
+        function addLinkButton()
+        {
+            if(counter>5){
+                alert("Only 5 Links allow");
+                return false;
+            }
+
+            var newTextBoxDiv = $(document.createElement('div'))
+                .attr("id", 'TextBoxDiv' + counter);
+
+            newTextBoxDiv.after().html('<div class="addEmbeded m-b" style="display: block !important;"><div class="addMoreLinks" style="width: 100% !important;"><input type="text" class="form-control moreLinks" name="completion_url[]" id="textbox' + counter + '" value="" placeholder="Please Add Completion Url"></div></div>');
+
+            newTextBoxDiv.appendTo("#TextBoxesGroup");
+
+
+            counter++;
+        }
+
+        function removeAddButton()
+        {
+            if(counter==2){
+                alert("No more textbox to remove");
+                return false;
+            }
+
+            counter--;
+
+            $("#TextBoxDiv" + counter).remove();
+        }
+
     </script>
 @endsection

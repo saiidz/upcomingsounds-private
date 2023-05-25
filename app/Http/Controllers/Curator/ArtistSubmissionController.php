@@ -6,6 +6,7 @@ use App\Models\Campaign;
 use App\Models\CuratorFavoriteArtist;
 use App\Models\CuratorFavoriteTrack;
 use App\Models\CuratorOfferTemplate;
+use App\Models\OfferType;
 use App\Models\Option;
 use App\Models\SendOffer;
 use App\Templates\IFavoriteTrackStatus;
@@ -144,8 +145,11 @@ class ArtistSubmissionController extends Controller
             // offerTemplate
             $offerTemplates = CuratorOfferTemplate::where(['user_id' => Auth::id(),'type' => IOfferTemplateStatus::TYPE_OFFER ,'is_active' => 1, 'is_approved' => 1])->latest()->get();
 
+            //offer_types
+            $offer_types = OfferType::get();
+
             // render Html in collapse
-            $returnHTML = view('pages.curators.collapsed_sidebar')->with(['campaign' => $campaign, 'offerTemplates' => $offerTemplates])->render();
+            $returnHTML = view('pages.curators.collapsed_sidebar')->with(['campaign' => $campaign, 'offerTemplates' => $offerTemplates, 'offer_types' => $offer_types])->render();
 
             if($request->ajax()){
                 return response()->json([

@@ -228,6 +228,11 @@
     {
         window.location.href = '/messages';
     });
+
+    $('#artistCampaign').on('click', function ()
+    {
+        window.location.href = '/campaigns';
+    });
 </script>
 <script>
     // Change Artist password

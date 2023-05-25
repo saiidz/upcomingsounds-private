@@ -103,7 +103,7 @@
                        </a>
                     </li>
                      <li>
-                       <a href="{{route('active.campaign')}}">
+                       <a href="{{route('active.campaign')}}" id="artistCampaign">
                            <span class="nav-icon">
                                 <i class="fa fa-bullhorn"></i>
                            </span>
