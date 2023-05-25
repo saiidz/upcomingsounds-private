@@ -257,8 +257,13 @@
                             <div class="campaignBtn">
                                 <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn">
                                     Report</a>
+                                {{-- It is for curator dashboard--}}
+                                <a href="javascript:void(0)" style="display:none;" id="submitCoverage" class="btn btn-sm rounded campaign_btn">
+                                    Submit Coverage</a>
+                                {{-- It is for curator dashboard--}}
+
                                 @if (Auth::check() && auth()->user() && auth()->user()->is_verified == 1)
-                                    <a href="javascript:void(0)" onclick="offerShowHide()" class="btn btn-sm rounded campaign_btn ">
+                                    <a href="javascript:void(0)" id="hideShowOffer" onclick="offerShowHide()" class="btn btn-sm rounded campaign_btn ">
                                         Offer</a>
                                 @endif
                                 {{--                          @if(!empty($campaign->curatorFavoriteTrack) && $campaign->curatorFavoriteTrack->status == \App\Templates\IFavoriteTrackStatus::ACCEPTED)--}}

@@ -1313,6 +1313,10 @@
                         $('#campaignAddRemove').html(data.campaign);
                         $('#campaign_ID').val(data.campaign_id);
                         $('#mySidebarCollapsed').addClass('mySidebarCollapsed');
+                        // remove offer on curator dashboard
+                        $('#hideShowOffer').remove()
+                        // show submit coverage
+                        $('#submitCoverage').css('display', 'inline-block');
                         // document.getElementById("mySidebarCollapsed").style.width = "490px";
                         document.getElementById("app-body").style.marginLeft = "490px";
                     }
