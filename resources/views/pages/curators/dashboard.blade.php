@@ -1391,7 +1391,8 @@
         function addLinkButton()
         {
             if(counter>5){
-                alert("Only 5 Links allow");
+                toastr.error('Only 5 Links allow');
+                // alert("Only 5 Links allow");
                 return false;
             }
 
@@ -1409,7 +1410,8 @@
         function removeAddButton()
         {
             if(counter==2){
-                alert("No more textbox to remove");
+                toastr.error('No more textbox to remove');
+                // alert("No more textbox to remove");
                 return false;
             }
 
