@@ -81,12 +81,12 @@
                     </div>
                 </div>
             </div>
-            @include('pages.artists.panels.right-sidebar')
+            @include('pages.curators.panels.right-sidebar')
         </div>
     </div>
 
     <!-- ############ PAGE END-->
-    @include('pages.artists.artist-coverage.modal')
+    @include('pages.curators.curator-coverage.modal')
 
 @endsection
 
