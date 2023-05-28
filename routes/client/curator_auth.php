@@ -4,6 +4,7 @@ use App\Http\Controllers\Curator\OfferController;
 use App\Http\Controllers\Curator\OfferTemplateController;
 use App\Http\Controllers\Curator\SavedArtistController;
 use App\Http\Controllers\Curator\SendOfferController;
+use App\Http\Controllers\Curator\SubmitCoverageController;
 use App\Http\Controllers\Curator\SubmitWorkController;
 use App\Http\Controllers\MessengerController;
 use Illuminate\Http\Request;
@@ -108,4 +109,7 @@ Route::get('send-offer/{send_offer}', [SendOfferController::class,'sendOfferShow
 #Notification mark as Read
 Route::post('/curator-mark-as-read',[CuratorController::class, 'markNotification'])->name('curator.markNotification');
 
+#Submit Coverage Route
+Route::get('submit-coverage', [SubmitCoverageController::class, 'submitCoverage'])->name('curator.submit.coverage');
+Route::post('store-submit-coverage', [SubmitCoverageController::class, 'sendSubmitCoverage'])->name('curator.store.submit.coverage');
 /***************************************************** Curator Routes *********************************************************/

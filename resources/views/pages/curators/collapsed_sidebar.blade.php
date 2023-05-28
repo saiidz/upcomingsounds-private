@@ -314,7 +314,7 @@
                                                     <label class="control-label form-control-label text-white">Coverage Type:</label>
                                                     <div>
                                                         <select class="form-control" name="offer_type" id="typeSubmitCoverage">
-                                                            <option disabled selected>Please Choose Submit Coverage</option>
+                                                            <option disabled selected value="">Please Choose Submit Coverage</option>
                                                             @if(!empty($offer_types))
                                                                 @foreach($offer_types as $offer_type)
                                                                     <option value="{{$offer_type->id}}" {{(!empty($offer_template) && $offer_type->id == $offer_template->offer_type) ? 'selected' : '' }}>{{$offer_type->name}}</option>

@@ -168,7 +168,14 @@
                                 <span class="nav-text">Saved Artist</span>
                             </a>
                         </li>
-
+                        <li>
+                            <a href="{{route('curator.submit.coverage')}}">
+                           <span class="nav-icon">
+                                <i class="fa fa-rocket"></i>
+                           </span>
+                                <span class="nav-text">Submit Coverage</span>
+                            </a>
+                        </li>
                         <li>
                             <a href="javascript:void(0)">
                                 <span class="nav-icon">

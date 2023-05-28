@@ -1351,18 +1351,18 @@
             $('#artistTrackTagsHideShow').css('display','block');
             $('#campaignBtnHideShow').css('display','block');
         }
-
-        function finalSubmitCoverage(track_id)
+        function validateURL(url) {
+            var reurl = /^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/;
+            return reurl.test(url);
+        }
+        function finalSubmitCoverage(artist_id,track_id)
         {
             let campaign_ID = $('#campaign_ID').val()
-            let typeSubmitCoverage = $('#typeSubmitCoverage').val()
+            var typeSubmitCoverage = $('#typeSubmitCoverage option').filter(':selected').val();
             let messageSubmitCoverage = $('#messageSubmitCoverage').val()
             var linksSubmitCoverage = $("input[name='completion_url[]']")
                 .map(function(){return $(this).val();}).get();
-            // console.log(linksSubmitCoverage);
-            // console.log(campaign_ID);
-            // console.log(typeSubmitCoverage);
-            // console.log(messageSubmitCoverage);
+
             if(typeSubmitCoverage == '')
             {
                 toastr.error('Please Select Type');
@@ -1374,13 +1374,53 @@
                 toastr.error('Please Add Links');
                 return false;
             }
+
+            $("input[name='completion_url[]']").each(function(){
+                isValid = validateURL($(this).val());
+                return isValid;
+            });
+
+            if (!isValid){
+                toastr.error('Please enter a valid URL, remember including http://');
+                return false;
+            }
+
             if(messageSubmitCoverage == '')
             {
                 toastr.error('Please Add Message');
                 return false;
             }
 
-            console.log(track_id);
+            if(campaign_ID == '')
+            {
+                toastr.error('Problem in Offer Template');
+                return false;
+            }
+
+            showLoader();
+            $.ajax({
+                type: "POST",
+                url: '{{route('curator.store.submit.coverage')}}',
+                data: {
+                    offer_type_id:typeSubmitCoverage,
+                    links:linksSubmitCoverage,
+                    message:messageSubmitCoverage,
+                    artistID:artist_id,
+                    trackID:track_id,
+                    campaign_ID:campaign_ID,
+                },
+                dataType: 'json',
+                success: function (data) {
+                    loader();
+                    if (data.success) {
+                        toastr.success(data.success);
+                        window.location.replace('{{route('curator.submit.coverage')}}');
+                    }
+                    if (data.error) {
+                        toastr.error(data.error);
+                    }
+                },
+            })
         }
         // submit coverage work start
     </script>
