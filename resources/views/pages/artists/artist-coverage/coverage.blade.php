@@ -55,8 +55,13 @@
                                                 @else
                                                     <span style="color:#02b875 !important">Coverage Status: </span><span class="text-primary">{{$submitCoverage->status}}</span>
                                                 @endif
+{{--                                                <div class="item-action visible-list m-t-lg">--}}
+{{--                                                    <a href="{{route('artist.view.submit.coverage',encrypt($submitCoverage->id))}}" onclick="" class="btn btn-xs black">View Coverage Details</a>--}}
+{{--                                                </div>--}}
                                                 <div class="item-action visible-list m-t-lg">
-                                                    <a href="{{route('artist.view.submit.coverage',encrypt($submitCoverage->id))}}" onclick="" class="btn btn-xs black">View Coverage Details</a>
+                                                    <form id="form-submit-coverage{{$submitCoverage->id}}" action="{{route('artist.view.submit.coverage',encrypt($submitCoverage->id))}}">
+                                                        <a href="javascript:void(0)" class="btn btn-xs black" onclick="coverageShow({{$submitCoverage->id}})">View Coverage Details</a>
+                                                    </form>
                                                 </div>
                                             </div>
                                             <div class="item-title text-ellipsis">
@@ -139,4 +144,11 @@
         }
     </script>
     {{--    Promote to track redirect and checked track--}}
+    <script>
+        function coverageShow(id)
+        {
+            var form = document.getElementById("form-submit-coverage"+id);
+            form.submit();
+        }
+    </script>
 @endsection

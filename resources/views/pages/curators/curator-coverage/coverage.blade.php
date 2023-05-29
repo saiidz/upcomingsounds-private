@@ -59,7 +59,9 @@
                                                     <span style="color:#02b875 !important">Coverage Status: </span><span class="text-primary">{{$submitCoverage->status}}</span>
                                                 @endif
                                                 <div class="item-action visible-list m-t-lg">
-                                                    <a href="{{route('curator.view.submit.coverage',encrypt($submitCoverage->id))}}" onclick="" class="btn btn-xs black">View Coverage Details</a>
+                                                    <form id="form-coverage{{$submitCoverage->id}}" action="{{route('curator.view.submit.coverage',encrypt($submitCoverage->id))}}">
+                                                        <a href="javascript:void(0)" class="btn btn-xs black" onclick="submitCoverageShow({{$submitCoverage->id}})">View Coverage Details</a>
+                                                    </form>
                                                 </div>
                                             </div>
                                             <div class="item-title text-ellipsis">
@@ -139,6 +141,13 @@
                 window.location.origin + '/promote-your-track/?track_id='+track_id,
                 '_self' // <- This is what makes it open in a new window.
             );
+        }
+    </script>
+    <script>
+        function submitCoverageShow(id)
+        {
+            var form = document.getElementById("form-coverage"+id);
+            form.submit();
         }
     </script>
     {{--    Promote to track redirect and checked track--}}
