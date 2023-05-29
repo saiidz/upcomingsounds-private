@@ -233,6 +233,10 @@
     {
         window.location.href = '/campaigns';
     });
+    $('#artistSubmitCoverage').on('click', function ()
+    {
+        window.location.href = '/coverages';
+    });
 </script>
 <script>
     // Change Artist password

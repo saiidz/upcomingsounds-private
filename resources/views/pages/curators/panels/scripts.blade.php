@@ -79,6 +79,10 @@
         {
             window.location.href = '/offers';
         });
+        $('#curatorSubmitCoverage').on('click', function ()
+        {
+            window.location.href = '/submit-coverage';
+        });
         $('#pendingOffers').on('click', function ()
         {
             window.location.href = '/offer-pending';

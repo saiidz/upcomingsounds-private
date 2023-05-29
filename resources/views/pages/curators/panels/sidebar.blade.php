@@ -169,7 +169,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('curator.submit.coverage')}}">
+                            <a href="{{route('curator.submit.coverage')}}" id="curatorSubmitCoverage">
                            <span class="nav-icon">
                                 <i class="fa fa-rocket"></i>
                            </span>

@@ -95,7 +95,7 @@
     {{--                   </a>--}}
     {{--                </li>--}}
                      <li>
-                       <a href="{{route('artist.coverage')}}">
+                       <a href="{{route('artist.coverage')}}" id="artistSubmitCoverage">
                            <span class="nav-icon">
                                 <i class="fa fa-rocket"></i>
                            </span>
