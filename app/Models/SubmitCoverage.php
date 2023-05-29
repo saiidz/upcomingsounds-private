@@ -57,4 +57,12 @@ class SubmitCoverage extends Model
     {
         return $this->belongsTo(Campaign::class,'campaign_id');
     }
+
+    /**
+     * @return BelongsTo
+     */
+    public function offerType(): BelongsTo
+    {
+        return $this->belongsTo(OfferType::class,'offer_type_id');
+    }
 }

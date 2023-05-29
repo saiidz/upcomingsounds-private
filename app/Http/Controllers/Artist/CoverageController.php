@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Artist;
 
 use App\Http\Controllers\Controller;
 use App\Models\SubmitCoverage;
+use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -18,15 +19,22 @@ class CoverageController extends Controller
      */
     public function coverage()
     {
-        $submitCoverage = SubmitCoverage::where('artist_id', Auth::id())->get();
+        $submitCoverages = SubmitCoverage::where('artist_id', Auth::id())->latest()->get();
         return view('pages.artists.artist-coverage.coverage',get_defined_vars());
     }
 
     /**
-     * @return Application|Factory|View
+     * @param $submitCoverage
+     * @return Application|Factory|View|void
      */
-    public function coverageDetails()
+    public function viewSubmitCoverageDetails($submitCoverage)
     {
-        return view('pages.artists.artist-coverage.coverage-details',get_defined_vars());
+        try {
+            $submitCoverage = SubmitCoverage::find(decrypt($submitCoverage));
+            return view('pages.artists.artist-coverage.submit-coverage-details', get_defined_vars());
+        }catch (DecryptException $exception)
+        {
+            abort('403');
+        }
     }
 }

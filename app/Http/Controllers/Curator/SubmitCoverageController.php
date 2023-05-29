@@ -7,6 +7,7 @@ use App\Models\SubmitCoverage;
 use App\Notifications\SendNotification;
 use App\Templates\IOfferTemplateStatus;
 use Carbon\Carbon;
+use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -21,7 +22,7 @@ class SubmitCoverageController extends Controller
      */
     public function submitCoverage()
     {
-        $submitCoverage = SubmitCoverage::where('curator_id', Auth::id())->get();
+        $submitCoverages = SubmitCoverage::where('curator_id', Auth::id())->latest()->get();
         return view('pages.curators.curator-coverage.coverage',get_defined_vars());
     }
 
@@ -68,6 +69,21 @@ class SubmitCoverageController extends Controller
         }else
         {
             return response()->json(['error' => 'Error In Ajax call.']);
+        }
+    }
+
+    /**
+     * @param $submitCoverage
+     * @return Application|Factory|View|void
+     */
+    public function viewSubmitCoverage($submitCoverage)
+    {
+        try {
+            $submitCoverage = SubmitCoverage::find(decrypt($submitCoverage));
+            return view('pages.curators.curator-coverage.submit-coverage-details', get_defined_vars());
+        }catch (DecryptException $exception)
+        {
+            abort('403');
         }
     }
 }

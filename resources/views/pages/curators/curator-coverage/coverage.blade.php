@@ -17,6 +17,9 @@
         .item-list .item-info:after {
             border-bottom: none !important;
         }
+        .Item {
+            background-color: rgba(120, 120, 120, 0.1);
+        }
     </style>
 @endsection
 
@@ -30,54 +33,61 @@
                         <h2 class="widget-title inline m-a-0">Submit Coverages</h2>
                     </div>
                     <div class="row item-list item-list-by m-b">
-                        <div class="col-xs-12 remove_campaign" id="remove_campaign-">
-                            <div class="item r" data-id="item-" data-src="">
-                                <div class="item-media mediaItem">
-                                    <a href="javascript:void(0)" class="item-media-content"
-                                       style="background-image: url({{asset('images/b9.jpg')}});"></a>
+                        @if(!empty($submitCoverages) && count($submitCoverages) > 0)
+                            @foreach($submitCoverages as $submitCoverage)
+                                <div class="col-xs-12 remove_offer m-b">
+                                    <div class="item r Item" data-id="item-{{$submitCoverage->id}}"  @if(!empty($submitCoverage->artistTrack->audio)) data-src="{{URL('/')}}/uploads/audio/{{$submitCoverage->artistTrack->audio}}" @endif>
+                                        <div class="item-media">
+                                            @if(!empty($submitCoverage->artistTrack->track_thumbnail))
+                                                <a href="javascript:void(0)" class="item-media-content"
+                                                   style="background-image: url({{asset('uploads/track_thumbnail')}}/{{$submitCoverage->artistTrack->track_thumbnail}});"></a>
+                                            @else
+                                                <a href="javascript:void(0)" class="item-media-content"
+                                                   style="background-image: url({{asset('images/b9.jpg')}});"></a>
+                                            @endif
+                                            @if(!empty($submitCoverage->artistTrack->audio))
+                                                <div class="item-overlay center">
+                                                    <button  class="btn-playpause">Play</button>
+                                                </div>
+                                            @endif
+                                        </div>
+                                        <div class="item-info">
+                                            <div class="bottom text-right">
+                                                @if($submitCoverage->status == \App\Templates\IOfferTemplateStatus::PENDING)
+                                                    <span style="color:#02b875 !important">Coverage Status: </span><span class="text-danger">{{$submitCoverage->status}}</span>
+                                                @else
+                                                    <span style="color:#02b875 !important">Coverage Status: </span><span class="text-primary">{{$submitCoverage->status}}</span>
+                                                @endif
+                                                <div class="item-action visible-list m-t-lg">
+                                                    <a href="{{route('curator.view.submit.coverage',encrypt($submitCoverage->id))}}" onclick="" class="btn btn-xs black">View Coverage Details</a>
+                                                </div>
+                                            </div>
+                                            <div class="item-title text-ellipsis">
+                                                <span class="text-muted">{{!empty($submitCoverage->artistTrack) ? $submitCoverage->artistTrack->name : '----'}}</span>
+                                            </div>
+                                            <div class="item-author text-sm text-ellipsis hide">
+                                            </div>
+                                            <div class="item-meta text-sm text-muted">
+                                                <span class="item-meta-date text-xs">{{($submitCoverage->created_at) ? \Carbon\Carbon::parse($submitCoverage->created_at)->format('M d Y') : ''}}</span>
+                                            </div>
+                                            <div class="item-except visible-list text-sm text-muted h-2x m-t-sm">
+                                                {!! $submitCoverage->message ?? '----' !!}}
+                                            </div>
 
-                                    <div class="item-overlay center">
-                                        <button  class="btn-playpause">Play</button>
-                                    </div>
-                                </div>
-                                <div class="item-info">
-                                    <div class="item bottom text-right">
-                                        <span class="text-primary">Completed</span>
-                                        <div class="item-action visible-list m-t-lg">
-                                            <a href="javascript:void(0)" onclick="" class="btn btn-xs black">View Coverage</a>
+                                            <div class="m-t-sm offerAlternative">
+                                                <div>
+                                                    <span style="color:#02b875 !important">Coverage Type: </span><span class="btn btn-xs white">{{!empty($submitCoverage->offerType) ? $submitCoverage->offerType->name : '----'}}</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="item-title text-ellipsis">
-                                        <a href="javascript:void(0)">Test Coverage <span class="text-muted">(Medium)</span></a>
-                                    </div>
-                                    <div class="item-author text-sm text-ellipsis hide">
-                                        <a href="javascript:void(0)" class="text-muted">Farhan</a>
-                                    </div>
-                                    <div class="item-meta text-sm text-muted">
-                                        <span class="item-meta-date text-xs">{{\Carbon\Carbon::now()}}</span>
-                                    </div>
-
-                                    <div
-                                        class="item-except visible-list text-sm text-muted h-2x m-t-sm">
-                                        Test Des
-                                    </div>
-
-                                    <div class="item-action visible-list m-t-sm">
-                                        <div>
-                                            <span class="btn btn-xs white">Tags</span>
-                                            <span class="btn btn-xs white">Tags</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="item-action visible-list m-t-sm">
-{{--                                        <a href="javascript:void(0)" onclick="" class="btn btn-xs white">Resubmit Your Track</a>--}}
-                                        <a href="javascript:void(0)" onclick="" class="btn btn-xs white" data-toggle="modal"
-                                           data-target="#delete-campaign-modal">Delete</a>
-                                    </div>
-
                                 </div>
+                            @endforeach
+                        @else
+                            <div class="item-title text-ellipsis">
+                                <h3 class="white" style="text-align:center">There are no result to show</h3>
                             </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
