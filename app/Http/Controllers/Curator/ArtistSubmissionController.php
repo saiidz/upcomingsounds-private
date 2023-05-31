@@ -9,6 +9,7 @@ use App\Models\CuratorOfferTemplate;
 use App\Models\OfferType;
 use App\Models\Option;
 use App\Models\SendOffer;
+use App\Models\SubmitCoverage;
 use App\Templates\IFavoriteTrackStatus;
 use App\Templates\IOfferTemplateStatus;
 use App\Templates\IPackages;
@@ -43,6 +44,9 @@ class ArtistSubmissionController extends Controller
         $theme_settings = Option::where('key', 'theme_settings')->first();
         if(!empty($theme_settings))
             $theme_settings = json_decode($theme_settings->value);
+
+        # submit coverage
+        $submitCoverages = SubmitCoverage::where('curator_id', Auth::id())->latest()->get();
         return view('pages.curators.dashboard', get_defined_vars());
     }
 

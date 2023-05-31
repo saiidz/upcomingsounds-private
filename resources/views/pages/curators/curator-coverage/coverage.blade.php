@@ -69,7 +69,7 @@
                                             </div>
                                             <div class="item-author text-sm text-ellipsis hide">
                                             </div>
-                                            <div class="item-meta text-sm text-muted">
+                                            <div class="item-meta text-sm">
                                                 <span class="item-meta-date text-xs">{{($submitCoverage->created_at) ? \Carbon\Carbon::parse($submitCoverage->created_at)->format('M d Y') : ''}}</span>
                                             </div>
                                             <div class="item-except visible-list text-sm text-muted h-2x m-t-sm">
