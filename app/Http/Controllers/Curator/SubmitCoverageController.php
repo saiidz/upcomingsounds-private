@@ -42,7 +42,6 @@ class SubmitCoverageController extends Controller
                 'offer_type_id' => $request->offer_type_id,
                 'links'         => json_encode($request->links),
                 'message'       => $request->message,
-                'tiers'         => ITiers::TEARS_ONE,
                 'submit_at'     => Carbon::now(),
                 'status'        => IOfferTemplateStatus::COMPLETED,
             ]);

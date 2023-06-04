@@ -4,9 +4,73 @@
             <div id="coverageCurator" class="m-b" style="background-color: #373a3c;">
                 <div class="padding">
                     <h6 class="text-center text-white">Your Monthly Activity</h6>
+                    @php
+                        $countSubmitCoverages = !empty($submitCoverages) ? $submitCoverages->count() : 0;
+//                                                                $countSubmitCoverages = \App\Templates\ITiers::T_ONE;
+
+                        // tier one
+                        $tiersOne = \App\Templates\ITiers::TEARS_ONE;
+                        $tOne = rtrim(floatval(round($tiersOne/3)), '.0'); // Output: 167
+//                        dump($tOne);
+
+                        // tier two
+                        $tiersTwo = \App\Templates\ITiers::TEARS_TWO;
+                        $tTwo = rtrim(floatval(round($tiersTwo/3)), '.0'); // Output: 133
+//                                        dump($tTwo);
+
+                        // tier three
+                        $tiersThree = \App\Templates\ITiers::TEARS_THREE;
+                        $tThree = $tiersThree/3; // Output: 100
+//                                        dump($tThree);
+
+                        // tier four
+                        $tiersFour = \App\Templates\ITiers::TEARS_FOUR;
+                        $tFour = rtrim(floatval(round($tiersFour/3)), '.0'); // Output: 67
+//                                        dump($tFour);
+
+                        // tier five
+                        $tiersFive = \App\Templates\ITiers::TEARS_FIVE;
+                        $tFive = $tiersFive/3; // Output: 50
+//                                        dump($tFive);
+
+                        //$sum = 34 + 33 + 33;
+
+                    @endphp
                     <span class="text">
                     <div class="text-center text-white">
-                        <span class="amount">0 USC</span>
+                        @if($countSubmitCoverages <= \App\Templates\ITiers::TEARS_ONE)
+                            @if($countSubmitCoverages >= 500)
+                                <span class="amount activeAmount" >25 USC</span> {{--25--}}
+                            @else
+                                <span class="amount">0 USC</span>
+                            @endif
+                        @elseif($countSubmitCoverages <= 900)
+                            @if($countSubmitCoverages >= 900)
+                                <span class="amount activeAmount" >45 USC</span> {{--25+20=45--}}
+                            @else
+                                <span class="amount">0 USC</span>
+                            @endif
+                        @elseif($countSubmitCoverages <= 1200)
+                            @if($countSubmitCoverages >= 1200)
+                                <span class="amount activeAmount" >63 USC</span> {{--25+20+18=63--}}
+                            @else
+                                <span class="amount">0 USC</span>
+                            @endif
+                        @elseif($countSubmitCoverages <= 1400)
+                            @if($countSubmitCoverages >= 1400)
+                                <span class="amount activeAmount" >79 USC</span> {{--25+20+18+16=79--}}
+                            @else
+                                <span class="amount">0 USC</span>
+                            @endif
+                        @elseif($countSubmitCoverages <= 1550)
+                            @if($countSubmitCoverages >= 1550)
+                                <span class="amount activeAmount" >91 USC</span> {{--25+20+18+16+12=91--}}
+                            @else
+                                <span class="amount">0 USC</span>
+                            @endif
+                        @else
+                            <span class="amount">0 USC</span>
+                        @endif
                         <img class="icon_UP" style="width:25px; height:25px;" src="{{asset('images/coin_bg.png')}}">
                     </div>
                 </span>
@@ -48,66 +112,184 @@
                                         </div>
 
                                     </div>
-                                    {{--                                    primary
-                                    danger
-                                    primary
-                                    info--}}
-                                    @php
-                                        $count = !empty($submitCoverages) ? $submitCoverages->count() : 0;
 
-                                        // tier one
-                                        $tiersOne = \App\Templates\ITiers::TEARS_ONE;
-                                        $tOne = rtrim(floatval(round($tiersOne/3)), '.0'); // Output: 167
-//                                        dump($tOne);
-
-                                        // tier two
-                                        $tiersTwo = \App\Templates\ITiers::TEARS_TWO;
-                                        $tTwo = rtrim(floatval(round($tiersTwo/3)), '.0'); // Output: 133
-//                                        dump($tTwo);
-
-                                        // tier three
-                                        $tiersThree = \App\Templates\ITiers::TEARS_THREE;
-                                        $tThree = $tiersThree/3; // Output: 100
-//                                        dump($tThree);
-
-                                        // tier four
-                                        $tiersFour = \App\Templates\ITiers::TEARS_FOUR;
-                                        $tFour = rtrim(floatval(round($tiersFour/3)), '.0'); // Output: 67
-//                                        dump($tFour);
-
-                                        // tier five
-                                        $tiersFive = \App\Templates\ITiers::TEARS_FIVE;
-                                        $tFive = $tiersFive/3; // Output: 50
-//                                        dd($tFive);
-
-                                        //$sum = 34 + 33 + 33;
-
-                                    @endphp
-
+                                    {{-- First Tiers --}}
                                     <div class="progress-bar progressBar grey-50"
                                          style="width: 19%; height:30px !important;margin-right: 2px;">
-                                        <div class="yellow"
-                                             style="width: 34%; height:30px !important; padding-top: 5px;"></div>
+                                        @if($countSubmitCoverages <= \App\Templates\ITiers::TEARS_ONE)
+                                            @if($countSubmitCoverages >= $tOne && $countSubmitCoverages <= 334)
+                                                <div class="yellow"
+                                                     style="width: 25%; height:30px !important; padding-top: 5px;"></div>
+                                            @elseif($countSubmitCoverages >= 334 && $countSubmitCoverages != 500) {{-- 167+167=334 --}}
+                                                <div class="red"
+                                                     style="width: 75%; height:30px !important; padding-top: 5px;"></div>
+                                            @elseif($countSubmitCoverages >= 500) {{-- 167+167+166=500 --}}
+                                                <div class="green"
+                                                     style="width: 100%; height:30px !important; padding-top: 5px;"></div>
+                                            @else
+                                                <div class="grey-50"
+                                                     style="width: 25%; height:30px !important; padding-top: 5px;"></div>
+                                            @endif
+                                        @else
+                                            <div class="green"
+                                                 style="width: 100%; height:30px !important; padding-top: 5px;"></div>
+                                        @endif
                                     </div>
+
+                                    {{-- Second Tiers --}}
                                     <div class="progress-bar progressBar grey-50"
                                          style="width: 19%; height:30px !important;margin-right: 2px;">
-                                        <div class="grey-50" style="height:30px !important;padding-top: 5px;"></div>
+                                        @if($countSubmitCoverages <= 900) {{-- 500+400 =900 --}}
+                                            @if($countSubmitCoverages >= 633 && $countSubmitCoverages <= 766)
+                                                <div class="yellow"
+                                                     style="width: 25%; height:30px !important; padding-top: 5px;"></div>
+                                            @elseif($countSubmitCoverages >= 766 && $countSubmitCoverages != 900) {{-- 500+400=334 --}}
+                                                <div class="red"
+                                                     style="width: 75%; height:30px !important; padding-top: 5px;"></div>
+                                            @elseif($countSubmitCoverages >= 900) {{-- 500+400=900 --}}
+                                                <div class="green"
+                                                     style="width: 100%; height:30px !important; padding-top: 5px;"></div>
+                                            @else
+                                                <div class="grey-50"
+                                                     style="width: 25%; height:30px !important; padding-top: 5px;"></div>
+                                            @endif
+                                        @else
+                                            <div class="green"
+                                                 style="width: 100%; height:30px !important; padding-top: 5px;"></div>
+                                        @endif
                                     </div>
+
+                                    {{-- Third Tiers --}}
                                     <div class="progress-bar progressBar grey-50"
                                          style="width: 19%; height:30px !important;margin-right: 2px;">
-                                        <div class="grey-50" style="height:30px !important;padding-top: 5px;"></div>
+                                        @if($countSubmitCoverages <= 1200) {{-- 900+300 =1200 --}}
+                                            @if($countSubmitCoverages >= 1000 && $countSubmitCoverages <= 1100)
+                                                <div class="yellow"
+                                                     style="width: 25%; height:30px !important; padding-top: 5px;"></div>
+                                            @elseif($countSubmitCoverages >= 1100 && $countSubmitCoverages != 1200) {{-- 167+167=334 --}}
+                                            <div class="red"
+                                                 style="width: 75%; height:30px !important; padding-top: 5px;"></div>
+                                            @elseif($countSubmitCoverages >= 1200) {{-- 167+167+166=500 --}}
+                                            <div class="green"
+                                                 style="width: 100%; height:30px !important; padding-top: 5px;"></div>
+                                            @else
+                                                <div class="grey-50"
+                                                     style="width: 25%; height:30px !important; padding-top: 5px;"></div>
+                                            @endif
+                                        @else
+                                            <div class="green"
+                                                 style="width: 100%; height:30px !important; padding-top: 5px;"></div>
+                                        @endif
                                     </div>
+
+                                    {{-- Four Tiers --}}
                                     <div class="progress-bar progressBar grey-50"
                                          style="width: 19%; height:30px !important;margin-right: 2px;">
-                                        <div class="grey-50" style="height:30px !important;padding-top: 5px;"></div>
+                                        @if($countSubmitCoverages <= 1400) {{-- 1200+200 =1400 --}}
+                                            @if($countSubmitCoverages >= 1267 && $countSubmitCoverages <= 1334)
+                                                <div class="yellow"
+                                                     style="width: 25%; height:30px !important; padding-top: 5px;"></div>
+                                            @elseif($countSubmitCoverages >= 1334 && $countSubmitCoverages != 1400) {{-- 1200+200 =1400 --}}
+                                                <div class="red"
+                                                     style="width: 75%; height:30px !important; padding-top: 5px;"></div>
+                                            @elseif($countSubmitCoverages >= 1400) {{-- 1200+200 =1400 --}}
+                                                <div class="green"
+                                                     style="width: 100%; height:30px !important; padding-top: 5px;"></div>
+                                            @else
+                                                <div class="grey-50"
+                                                     style="width: 25%; height:30px !important; padding-top: 5px;"></div>
+                                            @endif
+                                        @else
+                                            <div class="green"
+                                                 style="width: 100%; height:30px !important; padding-top: 5px;"></div>
+                                        @endif
                                     </div>
+
+                                    {{-- Five Tiers --}}
                                     <div class="progress-bar progressBar grey-50"
                                          style="width: 19%; height:30px !important;margin-right: 2px;">
-                                        <div class="grey-50" style="height:30px !important;padding-top: 5px;"></div>
+                                        @if($countSubmitCoverages <= 1550) {{-- 1400+150 =1550 --}}
+                                            @if($countSubmitCoverages >= 1450 && $countSubmitCoverages <= 1500)
+                                                <div class="yellow"
+                                                     style="width: 25%; height:30px !important; padding-top: 5px;"></div>
+                                            @elseif($countSubmitCoverages >= 1500 && $countSubmitCoverages != 1550) {{-- 1400+150 =1550 --}}
+                                            <div class="red"
+                                                 style="width: 75%; height:30px !important; padding-top: 5px;"></div>
+                                            @elseif($countSubmitCoverages >= 1550) {{-- 1400+150 =1550 --}}
+                                            <div class="green"
+                                                 style="width: 100%; height:30px !important; padding-top: 5px;"></div>
+                                            @else
+                                                <div class="grey-50"
+                                                     style="width: 25%; height:30px !important; padding-top: 5px;"></div>
+                                            @endif
+                                        @else
+                                            <div class="green"
+                                                 style="width: 100%; height:30px !important; padding-top: 5px;"></div>
+                                        @endif
                                     </div>
                                 </div>
+
+                                {{-- Percentage tiers--}}
                                 <div class="text-white m-t-3">
-                                    <p>You are 0% to your next pay level</p>
+                                    {{-- First Tiers Percentage--}}
+                                    @if($countSubmitCoverages <= \App\Templates\ITiers::TEARS_ONE)
+                                        @if($countSubmitCoverages >= $tOne && $countSubmitCoverages <= 334)
+                                            <p>You are 25% to your next pay level</p>
+                                        @elseif($countSubmitCoverages >= 334 && $countSubmitCoverages != 500) {{-- 167+167=334 --}}
+                                             <p>You are 75% to your next pay level</p>
+                                        @elseif($countSubmitCoverages >= 500) {{-- 167+167+166=500 --}}
+                                            <p>You are 100% to your next pay level</p>
+                                        @else
+                                            <p>You are 0% to your next pay level</p>
+                                        @endif
+                                     {{-- Second Tiers Percentage--}}
+                                    @elseif($countSubmitCoverages <= 900)
+                                        @if($countSubmitCoverages >= 633 && $countSubmitCoverages <= 766)
+                                            <p>You are 25% to your next pay level</p>
+                                        @elseif($countSubmitCoverages >= 766 && $countSubmitCoverages != 900) {{-- 167+167=334 --}}
+                                            <p>You are 75% to your next pay level</p>
+                                        @elseif($countSubmitCoverages >= 900) {{-- 167+167+166=500 --}}
+                                            <p>You are 100% to your next pay level</p>
+                                        @else
+                                            <p>You are 0% to your next pay level</p>
+                                        @endif
+                                    {{-- Third Tiers Percentage--}}
+                                    @elseif($countSubmitCoverages <= 1200)
+                                        @if($countSubmitCoverages >= 1000 && $countSubmitCoverages <= 1100)
+                                            <p>You are 25% to your next pay level</p>
+                                        @elseif($countSubmitCoverages >= 1100 && $countSubmitCoverages != 1200) {{-- 167+167=334 --}}
+                                            <p>You are 75% to your next pay level</p>
+                                        @elseif($countSubmitCoverages >= 1200) {{-- 167+167+166=500 --}}
+                                            <p>You are 100% to your next pay level</p>
+                                        @else
+                                            <p>You are 0% to your next pay level</p>
+                                        @endif
+                                    {{-- Four Tiers Percentage--}}
+                                    @elseif($countSubmitCoverages <= 1400)
+                                        @if($countSubmitCoverages >= 1267 && $countSubmitCoverages <= 1334)
+                                            <p>You are 25% to your next pay level</p>
+                                        @elseif($countSubmitCoverages >= 1334 && $countSubmitCoverages != 1400) {{-- 1200+200 =1400 --}}
+                                            <p>You are 75% to your next pay level</p>
+                                        @elseif($countSubmitCoverages >= 1400) {{-- 167+167+166=500 --}}
+                                            <p>You are 100% to your next pay level</p>
+                                        @else
+                                            <p>You are 0% to your next pay level</p>
+                                        @endif
+                                    {{-- Five Tiers Percentage--}}
+                                    @elseif($countSubmitCoverages <= 1550) {{-- 1400+150 =1550 --}}
+                                        @if($countSubmitCoverages >= 1450 && $countSubmitCoverages <= 1500)
+                                            <p>You are 25% to your next pay level</p>
+                                        @elseif($countSubmitCoverages >= 1500 && $countSubmitCoverages != 1550) {{-- 1400+150 =1550 --}}
+                                            <p>You are 75% to your next pay level</p>
+                                        @elseif($countSubmitCoverages >= 1550) {{-- 1400+150 =1550 --}}
+                                            <p>You are 100% to your next pay level</p>
+                                        @else
+                                            <p>You are 0% to your next pay level</p>
+                                        @endif
+                                    @else
+                                        <p>You are 100% to your next pay level</p>
+                                    @endif
+
                                 </div>
                             </div>
                         </div>
