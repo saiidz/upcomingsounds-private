@@ -22,6 +22,7 @@ class CreateSubmitCoveragesTable extends Migration
             $table->foreignId('offer_type_id')->constrained('offer_types')->cascadeOnDelete();
             $table->json('links')->nullable();
             $table->longText('message')->nullable();
+            $table->string('tiers')->nullable();
             $table->date('submit_at')->nullable();
             $table->enum('status',['PENDING','COMPLETED'])->default('PENDING');
             $table->softDeletes();

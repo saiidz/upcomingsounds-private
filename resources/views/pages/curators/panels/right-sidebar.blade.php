@@ -14,42 +14,97 @@
                         <div class="col-xs-12">
                             <div class="item r">
                                 <div class="progress" style="overflow: unset !important;">
-                                    <div style="justify-content: space-between !important;align-items: center !important;display: flex !important;">
+                                    <div
+                                        style="justify-content: space-between !important;align-items: center !important;display: flex !important;">
                                         <div>
                                             <span class="text-white">0</span>
-                                            <img class="icon_UP" style="width:10px; height:10px;" src="{{asset('images/coin_bg.png')}}">
+                                            <img class="icon_UP" style="width:10px; height:10px;"
+                                                 src="{{asset('images/coin_bg.png')}}">
                                         </div>
                                         <div>
                                             <span class="text-white">25</span>
-                                            <img class="icon_UP" style="width:10px; height:10px;" src="{{asset('images/coin_bg.png')}}">
+                                            <img class="icon_UP" style="width:10px; height:10px;"
+                                                 src="{{asset('images/coin_bg.png')}}">
                                         </div>
                                         <div>
                                             <span class="text-white">45</span>
-                                            <img class="icon_UP" style="width:10px; height:10px;" src="{{asset('images/coin_bg.png')}}">
+                                            <img class="icon_UP" style="width:10px; height:10px;"
+                                                 src="{{asset('images/coin_bg.png')}}">
                                         </div>
                                         <div>
                                             <span class="text-white">63</span>
-                                            <img class="icon_UP" style="width:10px; height:10px;" src="{{asset('images/coin_bg.png')}}">
+                                            <img class="icon_UP" style="width:10px; height:10px;"
+                                                 src="{{asset('images/coin_bg.png')}}">
                                         </div>
                                         <div>
                                             <span class="text-white">79</span>
-                                            <img class="icon_UP" style="width:10px; height:10px;" src="{{asset('images/coin_bg.png')}}">
+                                            <img class="icon_UP" style="width:10px; height:10px;"
+                                                 src="{{asset('images/coin_bg.png')}}">
                                         </div>
                                         <div>
                                             <span class="text-white">91</span>
-                                            <img class="icon_UP" style="width:10px; height:10px;" src="{{asset('images/coin_bg.png')}}">
+                                            <img class="icon_UP" style="width:10px; height:10px;"
+                                                 src="{{asset('images/coin_bg.png')}}">
                                         </div>
 
                                     </div>
-{{--                                    primary
-danger
-primary
-info--}}
-                                    <div class="progress-bar progressBar grey-50" style="width: 19%; height:30px !important;margin-right: 2px; padding-top: 5px;">25%</div>
-                                    <div class="progress-bar progressBar grey-50" style="width: 19%; height:30px !important;margin-right: 2px; padding-top: 5px;">45%</div>
-                                    <div class="progress-bar progressBar grey-50" style="width: 19%; height:30px !important;margin-right: 2px; padding-top: 5px;">63%</div>
-                                    <div class="progress-bar progressBar grey-50" style="width: 19%; height:30px !important;margin-right: 2px; padding-top: 5px;">79%</div>
-                                    <div class="progress-bar progressBar grey-50" style="width: 19%; height:30px !important;margin-right: 2px; padding-top: 5px;">91%</div>
+                                    {{--                                    primary
+                                    danger
+                                    primary
+                                    info--}}
+                                    @php
+                                        $count = !empty($submitCoverages) ? $submitCoverages->count() : 0;
+
+                                        // tier one
+                                        $tiersOne = \App\Templates\ITiers::TEARS_ONE;
+                                        $tOne = rtrim(floatval(round($tiersOne/3)), '.0'); // Output: 167
+//                                        dump($tOne);
+
+                                        // tier two
+                                        $tiersTwo = \App\Templates\ITiers::TEARS_TWO;
+                                        $tTwo = rtrim(floatval(round($tiersTwo/3)), '.0'); // Output: 133
+//                                        dump($tTwo);
+
+                                        // tier three
+                                        $tiersThree = \App\Templates\ITiers::TEARS_THREE;
+                                        $tThree = $tiersThree/3; // Output: 100
+//                                        dump($tThree);
+
+                                        // tier four
+                                        $tiersFour = \App\Templates\ITiers::TEARS_FOUR;
+                                        $tFour = rtrim(floatval(round($tiersFour/3)), '.0'); // Output: 67
+//                                        dump($tFour);
+
+                                        // tier five
+                                        $tiersFive = \App\Templates\ITiers::TEARS_FIVE;
+                                        $tFive = $tiersFive/3; // Output: 50
+//                                        dd($tFive);
+
+                                        //$sum = 34 + 33 + 33;
+
+                                    @endphp
+
+                                    <div class="progress-bar progressBar grey-50"
+                                         style="width: 19%; height:30px !important;margin-right: 2px;">
+                                        <div class="yellow"
+                                             style="width: 34%; height:30px !important; padding-top: 5px;"></div>
+                                    </div>
+                                    <div class="progress-bar progressBar grey-50"
+                                         style="width: 19%; height:30px !important;margin-right: 2px;">
+                                        <div class="grey-50" style="height:30px !important;padding-top: 5px;"></div>
+                                    </div>
+                                    <div class="progress-bar progressBar grey-50"
+                                         style="width: 19%; height:30px !important;margin-right: 2px;">
+                                        <div class="grey-50" style="height:30px !important;padding-top: 5px;"></div>
+                                    </div>
+                                    <div class="progress-bar progressBar grey-50"
+                                         style="width: 19%; height:30px !important;margin-right: 2px;">
+                                        <div class="grey-50" style="height:30px !important;padding-top: 5px;"></div>
+                                    </div>
+                                    <div class="progress-bar progressBar grey-50"
+                                         style="width: 19%; height:30px !important;margin-right: 2px;">
+                                        <div class="grey-50" style="height:30px !important;padding-top: 5px;"></div>
+                                    </div>
                                 </div>
                                 <div class="text-white m-t-3">
                                     <p>You are 0% to your next pay level</p>
@@ -86,50 +141,53 @@ info--}}
 
 
         @if (Auth::check() && auth()->user())
-                @if (auth()->user()->is_verified == 1)
-{{--                    <div class="getVerified">--}}
-{{--                        <span class="btn btn-sm rounded primary m-b-2 text-white">get verified</span>--}}
-{{--                    </div>--}}
-                @else
-                    <div class="getVerified" id="getNoVerified" style="display: none;">
-                        <a class="btn btn-sm rounded primary m-b-2 text-white" href="{{ route('curator.get.verified') }}">get verified</a>
-                    </div>
-                @endif
+            @if (auth()->user()->is_verified == 1)
+                {{--                    <div class="getVerified">--}}
+                {{--                        <span class="btn btn-sm rounded primary m-b-2 text-white">get verified</span>--}}
+                {{--                    </div>--}}
+            @else
+                <div class="getVerified" id="getNoVerified" style="display: none;">
+                    <a class="btn btn-sm rounded primary m-b-2 text-white" href="{{ route('curator.get.verified') }}">get
+                        verified</a>
+                </div>
+            @endif
             @if (!empty(auth()->user()->getReferrals()))
                 @forelse(auth()->user()->getReferrals() as $referral)
-                <div class="bgGradient">
-                    <h6 class="text text-muted">Referral Program</h6>
-                    <div class="form-group row">
-                        <div class="col-sm-12">
-                            <p>BE A PART OF THE GROWTH OF OUR COMMUNITY!
-                                By referring artists to our platform, you will be able to help them develop their career program and earn 10 USC or the equivalent in British pounds per sign-up.
-                                You can help them sign up by sending them this link:</p>
+                    <div class="bgGradient">
+                        <h6 class="text text-muted">Referral Program</h6>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <p>BE A PART OF THE GROWTH OF OUR COMMUNITY!
+                                    By referring artists to our platform, you will be able to help them develop their
+                                    career program and earn 10 USC or the equivalent in British pounds per sign-up.
+                                    You can help them sign up by sending them this link:</p>
+                            </div>
                         </div>
-                    </div>
-                    <h6 class="text text-muted">Referral Link</h6>
-                    <div class="form-group row">
-                        <div class="col-sm-12">
-                            <input id="tastemaker_name" class="form-control" value="{{ $referral->link }}">
+                        <h6 class="text text-muted">Referral Link</h6>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <input id="tastemaker_name" class="form-control" value="{{ $referral->link }}">
+                            </div>
                         </div>
+                        @php
+                            $relationships = \App\Models\ReferralRelationship::where('referral_link_id',$referral->id)->get();
+                            $count = 0;
+                            foreach ($relationships as $key => $relationship)
+                            {
+                                $key = 1;
+                                if(!empty($relationship->campaign))
+                                {
+                                    $count+= $key;
+                                }
+                            }
+                        @endphp
+                        <p>
+                            Number of referred users: {{ $count }}
+                            {{--                        Number of referred users: {{ $referral->relationships()->count() }}--}}
+                        </p>
+                        <p>*Earning potential based on referrals depending on the artist membership package
+                            purchased.</p>
                     </div>
-                    @php
-                    $relationships = \App\Models\ReferralRelationship::where('referral_link_id',$referral->id)->get();
-                    $count = 0;
-                    foreach ($relationships as $key => $relationship)
-                    {
-                        $key = 1;
-                        if(!empty($relationship->campaign))
-                        {
-                            $count+= $key;
-                        }
-                    }
-                    @endphp
-                    <p>
-                        Number of referred users: {{ $count }}
-{{--                        Number of referred users: {{ $referral->relationships()->count() }}--}}
-                    </p>
-                    <p>*Earning potential based on referrals depending on the artist membership package purchased.</p>
-                </div>
                 @empty
                     No referrals
                 @endforelse

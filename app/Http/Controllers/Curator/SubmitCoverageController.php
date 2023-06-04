@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\SubmitCoverage;
 use App\Notifications\SendNotification;
 use App\Templates\IOfferTemplateStatus;
+use App\Templates\ITiers;
 use Carbon\Carbon;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Contracts\Foundation\Application;
@@ -41,6 +42,7 @@ class SubmitCoverageController extends Controller
                 'offer_type_id' => $request->offer_type_id,
                 'links'         => json_encode($request->links),
                 'message'       => $request->message,
+                'tiers'         => ITiers::TEARS_ONE,
                 'submit_at'     => Carbon::now(),
                 'status'        => IOfferTemplateStatus::COMPLETED,
             ]);

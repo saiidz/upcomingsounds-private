@@ -47,6 +47,7 @@ class ArtistSubmissionController extends Controller
 
         # submit coverage
         $submitCoverages = SubmitCoverage::where('curator_id', Auth::id())->latest()->get();
+//        dd($submitCoverages);
         return view('pages.curators.dashboard', get_defined_vars());
     }
 
