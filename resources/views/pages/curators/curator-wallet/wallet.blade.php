@@ -166,6 +166,19 @@
                     ]
                 }
             );
+            $('#curatorSubmitCoverageHistory').DataTable(
+                {
+                    "paging": true,
+                    "buttons": [
+                        'colvis',
+                        'copyHtml5',
+                        'csvHtml5',
+                        'excelHtml5',
+                        'pdfHtml5',
+                        'print'
+                    ]
+                }
+            );
         });
     </script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
@@ -191,6 +204,7 @@
             $('#historyCuratorWithdrawal_wrapper').css('display', 'none');
             $('#curatorOfferPayments_wrapper').css('display', 'none');
             $('#curatorReferralPayments_wrapper').css('display', 'none');
+            $('#curatorSubmitCoverageHistory_wrapper').css('display', 'none');
         });
 
         $('#curatorHistoryWallet').on('change', function (e){
@@ -200,6 +214,8 @@
             else if(this.value === '{!! \App\Templates\IStatus::OFFER_PAYMENTS !!}')
                 var request = this.value;
             else if(this.value === '{!! \App\Templates\IStatus::REFERRAL_PAYMENTS !!}')
+                var request = this.value;
+            else if(this.value === '{!! \App\Templates\IStatus::Submit_Coverage_History !!}')
                 var request = this.value;
 
             var url = '{{ route('curator.wallet.history') }}';
@@ -215,6 +231,7 @@
                     {
                         $('#curatorOfferPayments_wrapper').css('display', 'none');
                         $('#curatorReferralPayments_wrapper').css('display', 'none');
+                        $('#curatorSubmitCoverageHistory_wrapper').css('display', 'none');
                         $('#historyCuratorWithdrawal_wrapper').css('display', 'block');
 
                     }
@@ -222,13 +239,21 @@
                     {
                         $('#historyCuratorWithdrawal_wrapper').css('display', 'none');
                         $('#curatorReferralPayments_wrapper').css('display', 'none');
+                        $('#curatorSubmitCoverageHistory_wrapper').css('display', 'none');
                         $('#curatorOfferPayments_wrapper').css('display', 'block');
                     }
                     else if(data.requestFrom === '{!! \App\Templates\IStatus::REFERRAL_PAYMENTS !!}')
                     {
                         $('#historyCuratorWithdrawal_wrapper').css('display', 'none');
                         $('#curatorOfferPayments_wrapper').css('display', 'none');
+                        $('#curatorSubmitCoverageHistory_wrapper').css('display', 'none');
                         $('#curatorReferralPayments_wrapper').css('display', 'block');
+                    } else if(data.requestFrom === '{!! \App\Templates\IStatus::Submit_Coverage_History !!}')
+                    {
+                        $('#historyCuratorWithdrawal_wrapper').css('display', 'none');
+                        $('#curatorOfferPayments_wrapper').css('display', 'none');
+                        $('#curatorReferralPayments_wrapper').css('display', 'none');
+                        $('#curatorSubmitCoverageHistory_wrapper').css('display', 'block');
                     }
 
                 }

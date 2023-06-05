@@ -1461,4 +1461,32 @@
         }
 
     </script>
+
+    {{--Claim USC --}}
+    <script>
+        function addToWalletUSC()
+        {
+            let usc_wallet = $('.activeAmount').html();
+            showLoader();
+            $.ajax({
+                type: "POST",
+                url: '{{route('curator.store.usc.submit.coverage')}}',
+                data: {
+                    usc_wallet:usc_wallet,
+                },
+                dataType: 'json',
+                success: function (data) {
+                    loader();
+                    if (data.success) {
+                        toastr.success(data.success);
+                        location.reload();
+                    }
+                    if (data.error) {
+                        toastr.error(data.error);
+                    }
+                },
+            })
+        }
+    </script>
+    {{--Claim USC --}}
 @endsection

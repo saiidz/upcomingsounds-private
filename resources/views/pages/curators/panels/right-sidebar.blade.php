@@ -38,33 +38,33 @@
                     @endphp
                     <span class="text">
                     <div class="text-center text-white">
-                        @if($countSubmitCoverages <= \App\Templates\ITiers::TEARS_ONE)
+                        @if($countSubmitCoverages >= \App\Templates\ITiers::TEARS_ONE && $countSubmitCoverages < 900)
                             @if($countSubmitCoverages >= 500)
-                                <span class="amount activeAmount" >25 USC</span> {{--25--}}
+                                <span class="amount activeAmount" >25</span> USC {{--25--}}
                             @else
                                 <span class="amount">0 USC</span>
                             @endif
-                        @elseif($countSubmitCoverages <= 900)
+                        @elseif($countSubmitCoverages >= 900 && $countSubmitCoverages < 1200)
                             @if($countSubmitCoverages >= 900)
-                                <span class="amount activeAmount" >45 USC</span> {{--25+20=45--}}
+                                <span class="amount activeAmount" >45</span> USC {{--25+20=45--}}
                             @else
                                 <span class="amount">0 USC</span>
                             @endif
-                        @elseif($countSubmitCoverages <= 1200)
+                        @elseif($countSubmitCoverages >= 1200 && $countSubmitCoverages < 1400)
                             @if($countSubmitCoverages >= 1200)
                                 <span class="amount activeAmount" >63 USC</span> {{--25+20+18=63--}}
                             @else
                                 <span class="amount">0 USC</span>
                             @endif
-                        @elseif($countSubmitCoverages <= 1400)
+                        @elseif($countSubmitCoverages >= 1400 && $countSubmitCoverages < 1550)
                             @if($countSubmitCoverages >= 1400)
-                                <span class="amount activeAmount" >79 USC</span> {{--25+20+18+16=79--}}
+                                <span class="amount activeAmount" >79</span> USC {{--25+20+18+16=79--}}
                             @else
                                 <span class="amount">0 USC</span>
                             @endif
                         @elseif($countSubmitCoverages <= 1550)
                             @if($countSubmitCoverages >= 1550)
-                                <span class="amount activeAmount" >91 USC</span> {{--25+20+18+16+12=91--}}
+                                <span class="amount activeAmount" >91</span> USC {{--25+20+18+16+12=91--}}
                             @else
                                 <span class="amount">0 USC</span>
                             @endif
@@ -234,61 +234,95 @@
                                     {{-- First Tiers Percentage--}}
                                     @if($countSubmitCoverages <= \App\Templates\ITiers::TEARS_ONE)
                                         @if($countSubmitCoverages >= $tOne && $countSubmitCoverages <= 334)
-                                            <p>You are 25% to your next pay level</p>
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_25}}</p>
                                         @elseif($countSubmitCoverages >= 334 && $countSubmitCoverages != 500) {{-- 167+167=334 --}}
-                                             <p>You are 75% to your next pay level</p>
+                                             <p>{{\App\Templates\ITiers::PERCENTAGE_75}}l</p>
                                         @elseif($countSubmitCoverages >= 500) {{-- 167+167+166=500 --}}
-                                            <p>You are 100% to your next pay level</p>
+                                            <p>You {{\App\Templates\ITiers::PERCENTAGE_100}}</p>
                                         @else
-                                            <p>You are 0% to your next pay level</p>
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_0}}</p>
                                         @endif
                                      {{-- Second Tiers Percentage--}}
                                     @elseif($countSubmitCoverages <= 900)
                                         @if($countSubmitCoverages >= 633 && $countSubmitCoverages <= 766)
-                                            <p>You are 25% to your next pay level</p>
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_25}}</p>
                                         @elseif($countSubmitCoverages >= 766 && $countSubmitCoverages != 900) {{-- 167+167=334 --}}
-                                            <p>You are 75% to your next pay level</p>
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_75}}</p>
                                         @elseif($countSubmitCoverages >= 900) {{-- 167+167+166=500 --}}
-                                            <p>You are 100% to your next pay level</p>
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_100}}</p>
                                         @else
-                                            <p>You are 0% to your next pay level</p>
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_0}}</p>
                                         @endif
                                     {{-- Third Tiers Percentage--}}
                                     @elseif($countSubmitCoverages <= 1200)
                                         @if($countSubmitCoverages >= 1000 && $countSubmitCoverages <= 1100)
-                                            <p>You are 25% to your next pay level</p>
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_25}}</p>
                                         @elseif($countSubmitCoverages >= 1100 && $countSubmitCoverages != 1200) {{-- 167+167=334 --}}
-                                            <p>You are 75% to your next pay level</p>
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_75}}</p>
                                         @elseif($countSubmitCoverages >= 1200) {{-- 167+167+166=500 --}}
-                                            <p>You are 100% to your next pay level</p>
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_100}}</p>
                                         @else
-                                            <p>You are 0% to your next pay level</p>
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_0}}</p>
                                         @endif
                                     {{-- Four Tiers Percentage--}}
                                     @elseif($countSubmitCoverages <= 1400)
                                         @if($countSubmitCoverages >= 1267 && $countSubmitCoverages <= 1334)
-                                            <p>You are 25% to your next pay level</p>
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_25}}</p>
                                         @elseif($countSubmitCoverages >= 1334 && $countSubmitCoverages != 1400) {{-- 1200+200 =1400 --}}
-                                            <p>You are 75% to your next pay level</p>
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_75}}</p>
                                         @elseif($countSubmitCoverages >= 1400) {{-- 167+167+166=500 --}}
-                                            <p>You are 100% to your next pay level</p>
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_100}}</p>
                                         @else
-                                            <p>You are 0% to your next pay level</p>
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_0}}</p>
                                         @endif
                                     {{-- Five Tiers Percentage--}}
                                     @elseif($countSubmitCoverages <= 1550) {{-- 1400+150 =1550 --}}
                                         @if($countSubmitCoverages >= 1450 && $countSubmitCoverages <= 1500)
-                                            <p>You are 25% to your next pay level</p>
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_25}}</p>
                                         @elseif($countSubmitCoverages >= 1500 && $countSubmitCoverages != 1550) {{-- 1400+150 =1550 --}}
-                                            <p>You are 75% to your next pay level</p>
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_75}}</p>
                                         @elseif($countSubmitCoverages >= 1550) {{-- 1400+150 =1550 --}}
-                                            <p>You are 100% to your next pay level</p>
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_100}}</p>
                                         @else
-                                            <p>You are 0% to your next pay level</p>
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_0}}</p>
                                         @endif
                                     @else
                                         <p>You are 100% to your next pay level</p>
                                     @endif
+
+                                    {{-- Claim Button show --}}
+                                    @if($countSubmitCoverages >= \App\Templates\ITiers::TEARS_ONE && $countSubmitCoverages < 900)
+                                        @if($countSubmitCoverages >= 500)
+                                            <div class="getVerified">
+                                                <a class="btn btn-sm rounded primary text-white" onclick="addToWalletUSC()" href="javascript:void(0)">Add to USC</a>
+                                            </div>
+                                        @endif
+                                    @elseif($countSubmitCoverages >= 900 && $countSubmitCoverages < 1200)
+                                        @if($countSubmitCoverages >= 900)
+                                            <div class="getVerified">
+                                                <a class="btn btn-sm rounded primary text-white" onclick="addToWalletUSC()" href="javascript:void(0)">Add to USC</a>
+                                            </div>
+                                        @endif
+                                    @elseif($countSubmitCoverages >= 1200 && $countSubmitCoverages < 1400)
+                                        @if($countSubmitCoverages >= 1200)
+                                            <div class="getVerified">
+                                                <a class="btn btn-sm rounded primary text-white" onclick="addToWalletUSC()" href="javascript:void(0)">Add to USC</a>
+                                            </div>
+                                        @endif
+                                    @elseif($countSubmitCoverages >= 1400 && $countSubmitCoverages < 1550)
+                                        @if($countSubmitCoverages >= 1400)
+                                            <div class="getVerified">
+                                                <a class="btn btn-sm rounded primary text-white" onclick="addToWalletUSC()" href="javascript:void(0)">Add to USC</a>
+                                            </div>
+                                        @endif
+                                    @elseif($countSubmitCoverages <= 1550)
+                                        @if($countSubmitCoverages >= 1550)
+                                            <div class="getVerified">
+                                                <a class="btn btn-sm rounded primary text-white" onclick="addToWalletUSC()" href="javascript:void(0)">Add to USC</a>
+                                            </div>
+                                        @endif
+                                    @endif
+                                    {{-- Claim Button show --}}
 
                                 </div>
                             </div>

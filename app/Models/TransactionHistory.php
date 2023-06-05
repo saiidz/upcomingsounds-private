@@ -29,6 +29,7 @@ class TransactionHistory extends Model
         'customer_id',
         'gateway_transaction_id',
         'referral_relationship_id',
+        'submit_coverage',
         'details',
         'deleted_at',
     ];

@@ -13,6 +13,7 @@
                                 <option value="{{\App\Templates\IStatus::HISTORY_WITHDRAWAL}}">Withdraw History</option>
                                 <option value="{{\App\Templates\IStatus::OFFER_PAYMENTS}}">Offers</option>
                                 <option value="{{\App\Templates\IStatus::REFERRAL_PAYMENTS}}">Referrals</option>
+                                <option value="{{\App\Templates\IStatus::Submit_Coverage_History}}">Submit Coverage History</option>
                             </select>
                         </div>
                     </div>
@@ -29,4 +30,7 @@
 
     {{--  __referral_payments --}}
     @include('pages.curators.curator-wallet.__referral_payments')
+
+    {{--  __submit_coverage_history --}}
+    @include('pages.curators.curator-wallet.__submit_coverage_history')
 </div>

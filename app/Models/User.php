@@ -317,6 +317,15 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * @return HasMany
+     */
+    public function curatorSubmitCoverageTransactionHistory(): HasMany
+    {
+        return $this->hasMany(TransactionHistory::class, 'user_id')->where('payment_status', IStatus::COMPLETED)
+            ->where(['submit_coverage' => 1, 'type' => IUserType::DEPOSIT]);
+    }
+
+    /**
      * @return int|void
      */
     public static function artistBalance()
@@ -346,6 +355,7 @@ class User extends Authenticatable implements MustVerifyEmail
                 - (!empty($user->curatorWithdrawalRequestPending) ? $user->curatorWithdrawalRequestPending->sum('amount') : 0)
                 - (!empty($user->curatorWithdrawalRequestApproved) ? $user->curatorWithdrawalRequestApproved->sum('amount') : 0)
                 + (!empty($user->curatorReferralTransactionHistory) ? $user->curatorReferralTransactionHistory->sum('credits') : 0)
+                + (!empty($user->curatorSubmitCoverageTransactionHistory) ? $user->curatorSubmitCoverageTransactionHistory->sum('amount') : 0)
                 : 0;
             return $balance;
         }

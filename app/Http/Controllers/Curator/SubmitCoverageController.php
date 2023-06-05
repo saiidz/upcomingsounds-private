@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Curator;
 
 use App\Http\Controllers\Controller;
 use App\Models\SubmitCoverage;
+use App\Models\TransactionHistory;
 use App\Notifications\SendNotification;
 use App\Templates\IOfferTemplateStatus;
+use App\Templates\IStatus;
 use App\Templates\ITiers;
+use App\Templates\IUserType;
 use Carbon\Carbon;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Contracts\Foundation\Application;
@@ -85,6 +88,36 @@ class SubmitCoverageController extends Controller
         }catch (DecryptException $exception)
         {
             abort('403');
+        }
+    }
+
+    public function storeUscSubmitCoverage(Request $request)
+    {
+        if($request->ajax()){
+            if($request->usc_wallet)
+            {
+                $user = Auth::user();
+                TransactionHistory::create([
+                    'user_id'             => $user->id,
+                    'user_type'           => $user->type,
+                    'type'                => IUserType::DEPOSIT,
+                    'transaction_user_id' => !empty($user->transactionUserInfo) ? $user->transactionUserInfo->id : null,
+                    'amount'              => $request->usc_wallet,
+                    'payment_status'      => IStatus::COMPLETED,
+                    'paid_at'             => Carbon::now(),
+                    'submit_coverage'     => 1,
+                    'details'             => json_encode($request->usc_wallet),
+                ]);
+            }
+
+            // delete submit coverage
+            SubmitCoverage::where('curator_id',$user->id)->delete();
+            return response()->json([
+                'success' => 'Add to Wallet send successfully',
+            ]);
+        }else
+        {
+            return response()->json(['error' => 'Error In Ajax call.']);
         }
     }
 }

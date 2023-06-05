@@ -113,4 +113,5 @@ Route::post('/curator-mark-as-read',[CuratorController::class, 'markNotification
 Route::get('submit-coverage', [SubmitCoverageController::class, 'submitCoverage'])->name('curator.submit.coverage');
 Route::post('store-submit-coverage', [SubmitCoverageController::class, 'sendSubmitCoverage'])->name('curator.store.submit.coverage');
 Route::get('view-submit-coverage/{submitCoverage}', [SubmitCoverageController::class, 'viewSubmitCoverage'])->name('curator.view.submit.coverage');
+Route::post('add-usc-submit-coverage', [SubmitCoverageController::class, 'storeUscSubmitCoverage'])->name('curator.store.usc.submit.coverage');
 /***************************************************** Curator Routes *********************************************************/

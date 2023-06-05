@@ -27,6 +27,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
         $schedule->command('newsletter:subscription')->monthly();
         $schedule->command('sendOffer:expired')->daily();
+        $schedule->command('submitCoverage:clear')->monthly();
     }
 
     /**

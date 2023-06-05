@@ -42,6 +42,10 @@ class CuratorWalletController extends Controller
         $referral_payments = TransactionHistory::where(['user_id' => Auth::id(),'payment_status' => IStatus::COMPLETED])
             ->whereNotNull('referral_relationship_id')->latest()->get();
 
+         #__submit_coverage_history
+        $submit_coverage_histories = TransactionHistory::where(['user_id' => Auth::id(),'payment_status' => IStatus::COMPLETED,
+            'submit_coverage' => 1, 'type' => IUserType::DEPOSIT])->latest()->get();
+
         // get billing info if exists
         $curator_billing_info = TransactionUserInfo::where('user_id',Auth::id())->latest()->first();
         $curator_billing_info = $curator_billing_info ?? null;
@@ -190,6 +194,9 @@ class CuratorWalletController extends Controller
         }elseif ($request->requestFrom == IStatus::REFERRAL_PAYMENTS)
         {
             $renderHtml = view('pages.curators.curator-wallet.__referral_payments')->with('historyWithdrawal', $curator_transaction_user)->render();
+        }elseif ($request->requestFrom == IStatus::Submit_Coverage_History)
+        {
+            $renderHtml = view('pages.curators.curator-wallet.__submit_coverage_history')->with('historyWithdrawal', $curator_transaction_user)->render();
         }
 
         return response()->json([
