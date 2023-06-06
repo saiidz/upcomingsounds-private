@@ -49,7 +49,7 @@ class ClearMonthlySubmitCoverage extends Command
         $submit_coverages = SubmitCoverage::get()->groupBy('curator_id');
         foreach ($submit_coverages as $key => $submit_coverage)
         {
-            $countSubmitCoverages = 900;
+            $countSubmitCoverages = $submit_coverage->count();
             $amount = 0;
             if($countSubmitCoverages > 0)
             {
