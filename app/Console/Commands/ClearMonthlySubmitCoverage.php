@@ -12,6 +12,7 @@ use http\Client\Curl\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class ClearMonthlySubmitCoverage extends Command
 {
@@ -47,6 +48,9 @@ class ClearMonthlySubmitCoverage extends Command
     public function handle()
     {
         $submit_coverages = SubmitCoverage::get()->groupBy('curator_id');
+        Log::info('Submit Coverage Collection Group By');
+        Log::info(json_encode($submit_coverages));
+
         foreach ($submit_coverages as $key => $submit_coverage)
         {
             $countSubmitCoverages = $submit_coverage->count();
@@ -89,7 +93,7 @@ class ClearMonthlySubmitCoverage extends Command
                 if($amount > 0)
                 {
                     $user = \App\Models\User::where('id',$key)->first();
-                    TransactionHistory::create([
+                    $transactionHistory = TransactionHistory::create([
                         'user_id'             => !empty($user) ? $user->id : null,
                         'user_type'           => !empty($user) ? $user->type : null,
                         'type'                => IUserType::DEPOSIT,
@@ -100,11 +104,15 @@ class ClearMonthlySubmitCoverage extends Command
                         'submit_coverage'     => 1,
                         'details'             => json_encode($amount),
                     ]);
+                    Log::info('Transaction History Submit Coverage Created');
+                    Log::info(json_encode($transactionHistory));
                 }
             }
         }
         // all done submit coverage delete
         $submit_coverages = SubmitCoverage::pluck('curator_id')->toArray();
+        Log::info('Submit Coverage Deleted IDs');
+        Log::info(json_encode($submit_coverages));
         SubmitCoverage::whereIn('curator_id',$submit_coverages)->delete();
     }
 }

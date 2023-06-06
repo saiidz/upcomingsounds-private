@@ -52,7 +52,8 @@ class ExpiredSendOffer extends Command
             foreach ($send_offers as $send_offer)
             {
                 $date = date("Y-m-d");
-                $expiredDate = "2023-03-05";
+                $expiredDate = $send_offer->expiry_date;
+//                $expiredDate = "2023-03-05";
 
                 if($date > $expiredDate)
                 {
