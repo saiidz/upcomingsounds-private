@@ -89,6 +89,15 @@ Route::group(['middleware' => ['try_catch']], function() {
     Route::prefix('')->group(base_path('routes/client/no_auth.php'));
 });
 
+Route::get('welcome-new', function () {
+    $theme_home = Option::where('key', 'home_settings')->first();
+    if(!empty($theme_home))
+    {
+        $theme_home = json_decode($theme_home->value);
+    }
+    return view('welcome-new', get_defined_vars());
+});
+
 Route::get('/t', function () {
     event(new \App\Events\RealTimeNotification());
     dd('Event Run Successfully.');
