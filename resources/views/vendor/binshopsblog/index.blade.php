@@ -7,6 +7,37 @@
         .svgCOlor {
             color: #02b875 !important;
         }
+        .editDell{
+            height: 24px;
+        }
+
+        .cookiealert
+        {
+            padding: 15px;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: 0.25rem;
+            text-align: center;
+            display: block!important;
+        }
+        .btn.acceptcookies:not([disabled]):hover, .btn.acceptcookies:not([disabled]):focus, .btn.acceptcookies:not([disabled]).active {
+            box-shadow: inset 0 -10rem 0px rgb(158 158 158 / 10%);
+        }
+        .cookiealert .acceptcookies {
+            margin-left: 10px;
+            vertical-align: baseline;
+        }
+        .acceptcookies {
+            background-color: #1f1f25 !important;
+        }
+        .p-x-md {
+            padding-right: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        .rounded, .circle {
+            border-radius: 500px;
+        }
+
     </style>
 @endsection
 
