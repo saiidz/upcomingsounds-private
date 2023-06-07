@@ -178,3 +178,10 @@ function getProfileImage($user)
     }
     return $profile;
 }
+function limitText($text, $limit) {
+    if (strlen($text) > $limit) {
+        $text = substr($text, 0, $limit);
+        $text = substr($text, 0, strrpos($text, ' ')) . '...';
+    }
+    return $text;
+}
