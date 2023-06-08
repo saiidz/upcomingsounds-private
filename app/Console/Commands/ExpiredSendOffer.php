@@ -43,6 +43,7 @@ class ExpiredSendOffer extends Command
     {
         // get all offers
         $send_offers = SendOffer::where('status' , IOfferTemplateStatus::PENDING)->get();
+        Log::info('date expired check');
 
         if(!empty($send_offers))
         {
