@@ -80,7 +80,7 @@
                 </div>
 
                 <section class="padding-110px-tb xs-padding-60px-tb bg-white builder-bg" id="content-section13">
-                    <div class="container">
+                    <div class="container circleCall">
                         <div class="row equalize xs-equalize-auto equalize-display-inherit">
                             <!-- content details -->
                             <div class="col-md-6 col-sm-6 xs-12 xs-text-center xs-margin-nineteen-bottom display-table" style="">
@@ -351,7 +351,7 @@
         });
         $("#upClick").click(function() {
             $('html, body').animate({
-                scrollTop: $(".owl-carousel").offset().top
+                scrollTop: $(".circleCall").offset().top
             }, 1500);
         });
     </script>

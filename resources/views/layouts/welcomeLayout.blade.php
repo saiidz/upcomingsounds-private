@@ -19,7 +19,7 @@
     <!-- content -->
     <div id="content" class="app-content" role="main">
 
-        <div class="app-header navbar-md black box-shadow-z1">
+        <div class="app-header navbar-md black box-shadow-z1 @if(Request::is('welcome-new') == 'true') weLcoMeHeaderHide @endif">
             <div class="navbar" data-pjax>
                 {{-- <a data-toggle="collapse" data-target="#navbar"
                    class="navbar-item pull-right hidden-md-up m-r-0 m-l">
