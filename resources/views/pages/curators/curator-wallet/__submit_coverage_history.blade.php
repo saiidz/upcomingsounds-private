@@ -13,7 +13,8 @@
         @foreach($submit_coverage_histories as $submit_coverage_history)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{$submit_coverage_history->type}}</td>
+                <td>{{__('Tier Activity')}}</td>
+{{--                <td>{{$submit_coverage_history->type}}</td>--}}
                 <td>{{ $submit_coverage_history->amount .' USC' }}</td>
                 <td>{{$submit_coverage_history->payment_status}}</td>
                 <td>{{getDateFormat($submit_coverage_history->created_at)}}</td>

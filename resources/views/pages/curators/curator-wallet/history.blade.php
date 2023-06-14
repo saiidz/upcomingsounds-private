@@ -13,7 +13,7 @@
                                 <option value="{{\App\Templates\IStatus::HISTORY_WITHDRAWAL}}">Withdraw History</option>
                                 <option value="{{\App\Templates\IStatus::OFFER_PAYMENTS}}">Offers</option>
                                 <option value="{{\App\Templates\IStatus::REFERRAL_PAYMENTS}}">Referrals</option>
-                                <option value="{{\App\Templates\IStatus::Submit_Coverage_History}}">Submit Coverage History</option>
+                                <option value="{{\App\Templates\IStatus::Submit_Coverage_History}}">Monthly Activity</option>
                             </select>
                         </div>
                     </div>

@@ -294,31 +294,31 @@
                                     @if($countSubmitCoverages >= \App\Templates\ITiers::TEARS_ONE && $countSubmitCoverages < 900)
                                         @if($countSubmitCoverages >= 500)
                                             <div class="getVerified">
-                                                <a class="btn btn-sm rounded primary text-white" onclick="addToWalletUSC()" href="javascript:void(0)">Add to USC</a>
+                                                <a class="btn btn-sm rounded primary text-white" onclick="addToWalletUSC()" href="javascript:void(0)">Claim USC</a>
                                             </div>
                                         @endif
                                     @elseif($countSubmitCoverages >= 900 && $countSubmitCoverages < 1200)
                                         @if($countSubmitCoverages >= 900)
                                             <div class="getVerified">
-                                                <a class="btn btn-sm rounded primary text-white" onclick="addToWalletUSC()" href="javascript:void(0)">Add to USC</a>
+                                                <a class="btn btn-sm rounded primary text-white" onclick="addToWalletUSC()" href="javascript:void(0)">Claim USC</a>
                                             </div>
                                         @endif
                                     @elseif($countSubmitCoverages >= 1200 && $countSubmitCoverages < 1400)
                                         @if($countSubmitCoverages >= 1200)
                                             <div class="getVerified">
-                                                <a class="btn btn-sm rounded primary text-white" onclick="addToWalletUSC()" href="javascript:void(0)">Add to USC</a>
+                                                <a class="btn btn-sm rounded primary text-white" onclick="addToWalletUSC()" href="javascript:void(0)">Claim USC</a>
                                             </div>
                                         @endif
                                     @elseif($countSubmitCoverages >= 1400 && $countSubmitCoverages < 1550)
                                         @if($countSubmitCoverages >= 1400)
                                             <div class="getVerified">
-                                                <a class="btn btn-sm rounded primary text-white" onclick="addToWalletUSC()" href="javascript:void(0)">Add to USC</a>
+                                                <a class="btn btn-sm rounded primary text-white" onclick="addToWalletUSC()" href="javascript:void(0)">Claim USC</a>
                                             </div>
                                         @endif
                                     @elseif($countSubmitCoverages <= 1550)
                                         @if($countSubmitCoverages >= 1550)
                                             <div class="getVerified">
-                                                <a class="btn btn-sm rounded primary text-white" onclick="addToWalletUSC()" href="javascript:void(0)">Add to USC</a>
+                                                <a class="btn btn-sm rounded primary text-white" onclick="addToWalletUSC()" href="javascript:void(0)">Claim USC</a>
                                             </div>
                                         @endif
                                     @endif
