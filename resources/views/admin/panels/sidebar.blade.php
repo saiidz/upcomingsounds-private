@@ -185,6 +185,7 @@
         </li>
 
         <li class="bold {{ Request::is('admin/frontend/settings/home-section')
+        || Request::is('admin/frontend/settings/home-section-new')
         || Request::is('admin/frontend/settings/about-section')
         || Request::is('admin/frontend/settings/curators')
         || Request::is('admin/banners*')
