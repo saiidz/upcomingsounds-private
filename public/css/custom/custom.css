@@ -452,7 +452,7 @@ img.center_icons {
 
 .app-header ~ .app-body,
 .app-header ~ .app-bodynew{
-    padding-bottom: 3.5rem !important;
+    /*padding-bottom: 3.5rem !important;*/
 }
 .app-header ~ .app-bodynew {
     padding-top: 3.5rem;
@@ -993,7 +993,7 @@ svg.svg-inline--fa {
     }
     .app-header ~ .app-body,
     .app-header ~ .app-bodynew{
-        padding-bottom: 0.5rem !important;
+        /*padding-bottom: 0.5rem !important;*/
     }
     .app-header ~ .app-body {
         /*padding-top: 7rem;*/
