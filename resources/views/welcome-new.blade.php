@@ -11,7 +11,7 @@
             flex-wrap: wrap;
             align-items: center;
             width: 100%;
-            min-height: 100vh;
+            min-height: 89vh;
             overflow: hidden;
             background-color: #000;
         }
@@ -97,7 +97,10 @@
                                             Our platform will deal with marketing and promoting your music with our efficient methods, pushing out your track/album/ep to playlists, blogs, and various curators to help your sound reach its full potential and exposure.
                                         </p>
                                     </div>
-                                    <a class="btn-medium btn-circle btn border-2-dark-aqua btn-border text-dark-aqua propClone" href="{{ url('/for-artists') }}"><span class="tz-text">Submit Your music now  (100 % Free)</span><i class="fa fa-long-arrow-right icon-extra-small tz-icon-color"></i></a>
+                                    <a class="btn-circle border-2-dark-aqua btn-border text-dark-aqua propClone nav-link" href="{{ url('/for-artists') }}">
+                                        <span class="tz-text btn btn-sm rounded primary _600">Submit Your music now  (100 % Free)</span>
+{{--                                        <i class="fa fa-long-arrow-right icon-extra-small tz-icon-color"></i>--}}
+                                    </a>
                                 </div>
                             </div>
                             <!-- end content details -->
@@ -122,8 +125,10 @@
                                                 <div class="title-extra-large-6 line-height-75 font-weight-700 text-white slider-title margin-seven-bottom tz-text" id="tz-slider-text1">NEW LEVEL<br>OF SOUND EXPERIENCE.</div>
                                                 <div class="text-light-gray text-extra-large text-white main-font font-weight-600 slider-text margin-ten-bottom tz-text width-80 xs-width-100" id="tz-slider-text2">Lorem Ipsum is simply dummy text of printing and industry. Lorem Ipsum the industry's dummy text ever since.</div>
                                                 <div class="btn-dual">
-                                                    <a class="btn btn-medium propClone bg-white text-dark-gray btn-circle xs-margin-ten-bottom" href="#feature-section32"><span class="tz-text">PURCHASE NOW</span><i class="fa fa-angle-right icon-extra-small tz-icon-color"></i></a>
-                                                    <a class="btn btn-medium propClone highlight-button-white-border btn-circle xs-margin-ten-bottom" href="#content-section13"><span class="tz-text">READ MORE</span><i class="fa fa-angle-right icon-extra-small tz-icon-color"></i></a>
+                                                    <a class="btn btn-medium propClone bg-white text-dark-gray btn-circle xs-margin-ten-bottom" href="#feature-section32">
+                                                        <span class="tz-text">PURCHASE NOW</span>
+                                                        </a>
+                                                    <a class="btn btn-medium propClone highlight-button-white-border btn-circle xs-margin-ten-bottom" href="#content-section13"><span class="tz-text">READ MORE</span></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -142,8 +147,8 @@
                                                 <div class="title-extra-large-6 line-height-75 font-weight-700 text-white slider-title margin-seven-bottom tz-text" id="tz-slider-text5">FRESH, BEAUTIFUL, INNOVATIVE.</div>
                                                 <div class="text-light-gray text-extra-large text-white main-font font-weight-600 slider-text margin-ten-bottom tz-text width-80 xs-width-100" id="tz-slider-text6">Lorem Ipsum is simply dummy text of printing and industry. Lorem Ipsum the industry's dummy text ever since.</div>
                                                 <div class="btn-dual">
-                                                    <a class="btn btn-medium propClone bg-white text-dark-gray btn-circle xs-margin-ten-bottom" href="#feature-section32"><span class="tz-text">PURCHASE NOW</span><i class="fa fa-angle-right icon-extra-small tz-icon-color"></i></a>
-                                                    <a class="btn btn-medium propClone highlight-button-white-border btn-circle xs-margin-ten-bottom" href="#content-section13"><span class="tz-text">READ MORE</span><i class="fa fa-angle-right icon-extra-small tz-icon-color"></i></a>
+                                                    <a class="btn btn-medium propClone bg-white text-dark-gray btn-circle xs-margin-ten-bottom" href="#feature-section32"><span class="tz-text">PURCHASE NOW</span></a>
+                                                    <a class="btn btn-medium propClone highlight-button-white-border btn-circle xs-margin-ten-bottom" href="#content-section13"><span class="tz-text">READ MORE</span></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -162,8 +167,8 @@
                                                 <div class="title-extra-large-6 line-height-75 font-weight-700 text-white slider-title margin-seven-bottom tz-text" id="tz-slider-text9">THE PRODUCT OF THE FUTURE</div>
                                                 <div class="text-light-gray text-extra-large text-white main-font font-weight-600 slider-text margin-ten-bottom tz-text width-80 xs-width-100" id="tz-slider-text10">Lorem Ipsum is simply dummy text of printing and industry. Lorem Ipsum the industry's dummy text ever since.</div>
                                                 <div class="btn-dual">
-                                                    <a class="btn btn-medium propClone bg-white text-dark-gray btn-circle xs-margin-ten-bottom" href="#feature-section32"><span class="tz-text">PURCHASE NOW</span><i class="fa fa-angle-right icon-extra-small tz-icon-color"></i></a>
-                                                    <a class="btn btn-medium propClone highlight-button-white-border btn-circle xs-margin-ten-bottom" href="#content-section13"><span class="tz-text">READ MORE</span><i class="fa fa-angle-right icon-extra-small tz-icon-color"></i></a>
+                                                    <a class="btn btn-medium propClone bg-white text-dark-gray btn-circle xs-margin-ten-bottom" href="#feature-section32"><span class="tz-text">PURCHASE NOW</span></a>
+                                                    <a class="btn btn-medium propClone highlight-button-white-border btn-circle xs-margin-ten-bottom" href="#content-section13"><span class="tz-text">READ MORE</span></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -191,7 +196,9 @@
                                     </h2>
                                     <div class="text-extra-large tz-text width-90 sm-width-100 margin-five-bottom sm-margin-ten-bottom">Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has survived not only five centuries.</div>
                                     <div class="text-medium tz-text width-90 sm-width-100 margin-ten-bottom sm-margin-ten-bottom xs-margin-twenty-bottom"><p>Lorem Ipsum has been the industry's standard dummy text ever since the when an unknown printer took a galley of type scrambled it to make a type specimen book. Lorem Ipsum has been the industry's standard dummy text ever since the when an unknown printer took a galley of type scrambled.</p></div>
-                                    <a class="btn-medium btn-circle btn border-2-dark-aqua btn-border text-dark-aqua propClone" href="{{url('/for-curators')}}"><span class="tz-text">Join Our Family</span><i class="fa fa-long-arrow-right icon-extra-small tz-icon-color"></i></a>
+                                    <a class="btn-medium btn-circle btn border-2-dark-aqua btn-border text-dark-aqua propClone" href="{{url('/for-curators')}}"><span class="tz-text">Join Our Family</span>
+{{--                                        <i class="fa fa-long-arrow-right icon-extra-small tz-icon-color"></i>--}}
+                                    </a>
                                 </div>
                             </div>
                             <!-- end content details -->
