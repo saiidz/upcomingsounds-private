@@ -15,15 +15,22 @@ use Illuminate\Support\Facades\Validator;
 class FrontendController extends Controller
 {
 
-     /**
-     * homeSection function
-     *
-     * @return void
+    /**
+     * @return Application|Factory|View
      */
     public function homeSection()
     {
         $theme = Option::where('key', 'home_settings')->first();
         return view('admin.pages.frontend.home', get_defined_vars());
+    }
+
+    /**
+     * @return Application|Factory|View
+     */
+    public function homeSectionNew()
+    {
+        $theme = Option::where('key', 'home_settings')->first();
+        return view('admin.pages.frontend.home-new', get_defined_vars());
     }
 
     /**
