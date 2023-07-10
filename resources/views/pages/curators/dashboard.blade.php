@@ -582,7 +582,7 @@
         </div>
 
         <div class="row-col">
-            <div class="col-lg-7 b-r no-border-md">
+            <div class="col-lg-8 b-r no-border-md">
                 <div class="padding">
                     <h2 class="widget-title h4 m-b">Trending</h2>
                     <div class="owl-carousel owl-theme owl-dots-center" data-ui-jp="owlCarousel" data-ui-options="{

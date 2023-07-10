@@ -1,4 +1,4 @@
-<div class="col-lg-{{(Request::is('dashboard') == 'true') ? 5 : 3}} w-xxl w-auto-md">
+<div class="col-lg-{{(Request::is('dashboard') == 'true') ? 4 : 3}} w-xxl w-auto-md">
     <div class="padding" style="bottom: 60px;" data-ui-jp="stick_in_parent">
         @if(Request::is('dashboard') == 'true')
             <div id="coverageCurator" class="m-b" style="background-color: #373a3c;">
