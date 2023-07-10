@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Option;
+use Buglinjo\LaravelWebp\Exceptions\CwebpShellExecutionFailed;
+use Buglinjo\LaravelWebp\Exceptions\DriverIsNotSupportedException;
+use Buglinjo\LaravelWebp\Exceptions\ImageMimeNotSupportedException;
 use Buglinjo\LaravelWebp\Webp;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -29,15 +32,81 @@ class FrontendController extends Controller
      */
     public function homeSectionNew()
     {
-        $theme = Option::where('key', 'home_settings')->first();
+        $theme = Option::where('key', 'home_new_settings')->first();
         return view('admin.pages.frontend.home-new', get_defined_vars());
     }
 
     /**
-     * homeSectionUpdate function
-     *
      * @param Request $request
-     * @return void
+     * @return JsonResponse
+     * @throws CwebpShellExecutionFailed
+     * @throws DriverIsNotSupportedException
+     * @throws ImageMimeNotSupportedException
+     */
+    public function homeNewSectionUpdate(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'artist_image'                  => 'mimes:png,jpg',
+            'artist_btn_link'               => 'required',
+            'artist_btn_text'               => 'required',
+            'artist_description_two'        => 'required',
+            'artist_description'            => 'required',
+            'artist_title'                  => 'required',
+        ]);
+
+        if ($validator->fails())
+        {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
+
+        if ($request->hasFile('artist_image'))
+        {
+            $artist_image = Webp::make($request->file('artist_image'))->quality(70);
+            $artist_image->save(public_path('uploads/homesection/artist_image.webp'));
+            $artist_image_new_path = "uploads/homesection/artist_image.webp";
+        }
+
+        $theme = Option::where('key','home_new_settings')->first();
+
+        if(!empty($theme))
+        {
+            $artist_image_new = json_decode($theme->value)->artist_image;
+        }
+
+        $data = [
+            'artist_image'                  => !empty($artist_image_new_path) ? $artist_image_new_path : $artist_image_new,
+            'artist_btn_link'               => $request->artist_btn_link,
+            'artist_btn_text'               => $request->artist_btn_text,
+            'artist_description_two'        => $request->artist_description,
+            'artist_description'            => $request->artist_description,
+            'artist_title'                  => $request->artist_title,
+        ];
+
+
+
+        if(!empty($theme))
+        {
+            Option::where(['id' => $theme->id, 'key' => $theme->key])->update([
+                'key'   => 'home_new_settings',
+                'value' => json_encode($data),
+            ]);
+
+        }else{
+            Option::create([
+                'key'   => 'home_new_settings',
+                'value' => json_encode($data),
+            ]);
+        }
+
+        return response()->json(['success' => 'Home Settings Updated!.']);
+    }
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     * @throws CwebpShellExecutionFailed
+     * @throws DriverIsNotSupportedException
+     * @throws ImageMimeNotSupportedException
      */
     public function homeSectionUpdate(Request $request)
     {

@@ -43,7 +43,7 @@
                     <div id="Form-advance" class="card card card-default scrollspy">
                         <div class="card-content">
 
-                            <form method="post" class="basicform_with_reload" action="{{route('admin.home.section.store')}}" enctype="multipart/form-data">
+                            <form method="post" class="basicform_with_reload" action="{{route('admin.home.new.section.store')}}" enctype="multipart/form-data">
                                 @csrf
                               @php
                                 $theme = !empty($theme) ? json_decode($theme->value) : '';
@@ -58,6 +58,21 @@
                                     <div class="input-field col s12">
                                         <textarea id="artist_description" class="materialize-textarea" name="artist_description">{{ $theme->artist_description ?? null }}</textarea>
                                         <label for="message">Artist Description</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <textarea id="artist_description_two" class="materialize-textarea" name="artist_description_two">{{ $theme->artist_description_two ?? null }}</textarea>
+                                        <label for="message">Artist Description Two</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col m6 s12 file-field input-field">
+                                        <div class="btn float-right">
+                                            <span>Artist Image</span>
+                                            <input type="file" name="artist_image" accept="image/*">
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <img class=" ml-3 img-fluid" src="{{ asset(!empty($theme->artist_image) ? $theme->artist_image : 'images/logo.png') }}" alt="" height="100" style="object-fit: contain">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">

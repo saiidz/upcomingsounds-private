@@ -106,7 +106,7 @@
                             <!-- end content details -->
                             <div class="col-md-6 col-sm-6 col-xs-12 display-table text-right xs-margin-lr-auto xs-fl-none xs-no-padding-bottom">
                                 <div class="display-table-cell-vertical-middle">
-                                    <img src="{{ asset('welcome-home-page/images/music.png') }}" data-img-size="(W)800px X (H)828px" alt="">
+                                    <img src="{{ asset('welcome-home-page/images/music.webp') }}" data-img-size="(W)800px X (H)828px" alt="">
                                 </div>
                             </div>
                         </div>
@@ -185,7 +185,7 @@
                         <div class="row equalize xs-equalize-auto equalize-display-inherit">
                             <div class="col-md-6 col-sm-6 xs-12 xs-text-center display-table" style="">
                                 <div class="display-table-cell-vertical-middle">
-                                    <img alt="" src="{{asset('welcome-home-page/images/curator_music.png')}}" data-img-size="(W)800px X (H)681px">
+                                    <img alt="" src="{{asset('welcome-home-page/images/curator_music.webp')}}" data-img-size="(W)800px X (H)681px">
                                 </div>
                             </div>
                             <!-- content details -->
