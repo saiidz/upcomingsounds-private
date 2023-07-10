@@ -10,7 +10,7 @@ interface ITiers
     const TEARS_FOUR = 200;
     const TEARS_FIVE = 150;
 
-    const T_ONE = 167;
+    const T_ONE =167;
     const T_TWO = 133;
     const T_THREE = 100;
     const T_FOUR = 67;
