@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AlternativeOptionController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CuratorWithdrawalRequest;
+use App\Http\Controllers\Admin\HomeSliderController;
 use App\Http\Controllers\Admin\OfferTypeController;
 use App\Http\Controllers\Admin\SendDirectOfferController;
 use App\Http\Controllers\Admin\SubmitWorkController;
@@ -92,6 +93,9 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
     Route::post('theme/settings-for-artists-store', [FrontendController::class,'forArtistsSectionUpdate'])->name('for.artists.section.store');
     Route::get('frontend/settings/curators', [FrontendController::class,'curatorsSection'])->name('curators.settings');
     Route::post('theme/settings-curators', [FrontendController::class,'curatorsSettingUpdate'])->name('curators.store');
+
+    #Slider Home Page
+    Route::resource('home-sliders',HomeSliderController::class);
 
     // active campaign artist
     Route::get('active-campaign', [ArtistController::class,'activeCampaign'])->name('campaign.active');

@@ -202,6 +202,12 @@
                             <span data-i18n="List">Home Page New</span>
                         </a>
                     </li>
+                    <li class="{{Request::is('admin/frontend/settings/home-section-new') ? 'active' : ''}}">
+                        <a class="{{Request::is('admin/frontend/settings/home-section-new') ? 'active' : ''}}" href="{{ route('admin.home.new.settings') }}">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            <span data-i18n="List">Slider Home Page</span>
+                        </a>
+                    </li>
                     <li class="{{Request::is('admin/frontend/settings/home-section') ? 'active' : ''}}">
                         <a class="{{Request::is('admin/frontend/settings/home-section') ? 'active' : ''}}" href="{{ route('admin.home.settings') }}">
                             <i class="material-icons">radio_button_unchecked</i>
