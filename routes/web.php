@@ -90,7 +90,7 @@ Route::group(['middleware' => ['try_catch']], function() {
 });
 
 Route::get('welcome-new', function () {
-    $theme_home = Option::where('key', 'home_settings')->first();
+    $theme_home = Option::where('key', 'home_new_settings')->first();
     if(!empty($theme_home))
     {
         $theme_home = json_decode($theme_home->value);

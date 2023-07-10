@@ -86,19 +86,18 @@
                             <div class="col-md-6 col-sm-6 xs-12 xs-text-center xs-margin-nineteen-bottom display-table" style="">
                                 <div class="display-table-cell-vertical-middle">
                                     <h2 class="alt-font title-extra-large sm-title-large xs-section-title-large text-dark-gray width-90 letter-spacing-minus-1 sm-width-100 margin-eight-bottom tz-text sm-margin-ten-bottom sm-margin-ten-top">
-                                        For Artists, Labels, Managers
+                                        {{ !empty($theme_home->artist_title) ? $theme_home->artist_title : 'For Artists, Labels, Manager' }}
                                     </h2>
                                     <div class="text-extra-large tz-text width-90 sm-width-100 margin-five-bottom sm-margin-ten-bottom">
-                                        Don't stress about pushing out your music to the world,
-                                        Upcoming Sounds has you covered!
+                                        {{ !empty($theme_home->artist_description) ? $theme_home->artist_description : 'Don`t stress about pushing out your music to the world,Upcoming Sounds has you covered!' }}
                                     </div>
                                     <div class="text-medium tz-text width-90 sm-width-100 margin-ten-bottom sm-margin-ten-bottom xs-margin-twenty-bottom">
                                         <p>
-                                            Our platform will deal with marketing and promoting your music with our efficient methods, pushing out your track/album/ep to playlists, blogs, and various curators to help your sound reach its full potential and exposure.
+                                            {{ !empty($theme_home->artist_description_two) ? $theme_home->artist_description_two : 'Our platform will deal with marketing and promoting your music with our efficient methods, pushing out your track/album/ep to playlists, blogs, and various curators to help your sound reach its full potential and exposure.' }}
                                         </p>
                                     </div>
-                                    <a class="btn-circle border-2-dark-aqua btn-border text-dark-aqua propClone nav-link" href="{{ url('/for-artists') }}">
-                                        <span class="tz-text btn btn-sm rounded primary _600">Submit Your music now  (100 % Free)</span>
+                                    <a class="btn-circle border-2-dark-aqua btn-border text-dark-aqua propClone nav-link" href="{{url(!empty($theme_home->artist_btn_link) ? $theme_home->artist_btn_link : '/for-artists')}} }}">
+                                        <span class="tz-text btn btn-sm rounded primary _600">{{ !empty($theme_home->artist_btn_text) ? $theme_home->artist_btn_text : 'Submit Your music now  (100 % Free)' }}</span>
 {{--                                        <i class="fa fa-long-arrow-right icon-extra-small tz-icon-color"></i>--}}
                                     </a>
                                 </div>
@@ -106,7 +105,7 @@
                             <!-- end content details -->
                             <div class="col-md-6 col-sm-6 col-xs-12 display-table text-right xs-margin-lr-auto xs-fl-none xs-no-padding-bottom">
                                 <div class="display-table-cell-vertical-middle">
-                                    <img src="{{ asset('welcome-home-page/images/music.webp') }}" data-img-size="(W)800px X (H)828px" alt="">
+                                    <img src="{{asset(!empty($theme_home->artist_image) ? $theme_home->artist_image : 'welcome-home-page/images/music.webp')}}" data-img-size="(W)800px X (H)828px" alt="">
                                 </div>
                             </div>
                         </div>
