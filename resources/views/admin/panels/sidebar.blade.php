@@ -189,12 +189,13 @@
         || Request::is('admin/frontend/settings/about-section')
         || Request::is('admin/frontend/settings/curators')
         || Request::is('admin/banners*')
+        || Request::is('admin/home-sliders*')
         || Request::is('admin/frontend/settings/contact-section') ? 'active open' : '' }}">
             <a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)">
                 <i class="material-icons">face</i>
                 <span class="menu-title" data-i18n="User">Frontend Settings</span>
             </a>
-            <div class="collapsible-body">
+            <div class="collapsible-body" @if(Request::is('admin/home-sliders*') || Request::is('admin/banners*')) style="display: block" @endif>
                 <ul class="collapsible collapsible-sub" data-collapsible="accordion">
                     <li class="{{Request::is('admin/frontend/settings/home-section-new') ? 'active' : ''}}">
                         <a class="{{Request::is('admin/frontend/settings/home-section-new') ? 'active' : ''}}" href="{{ route('admin.home.new.settings') }}">
@@ -202,8 +203,8 @@
                             <span data-i18n="List">Home Page New</span>
                         </a>
                     </li>
-                    <li class="{{Request::is('admin/frontend/settings/home-section-new') ? 'active' : ''}}">
-                        <a class="{{Request::is('admin/frontend/settings/home-section-new') ? 'active' : ''}}" href="{{ route('admin.home.new.settings') }}">
+                    <li class="{{Request::is('admin/home-sliders*') ? 'active' : ''}}">
+                        <a class="{{Request::is('admin/home-sliders*') ? 'active' : ''}}" href="{{ route('admin.home-sliders.index') }}">
                             <i class="material-icons">radio_button_unchecked</i>
                             <span data-i18n="List">Slider Home Page</span>
                         </a>

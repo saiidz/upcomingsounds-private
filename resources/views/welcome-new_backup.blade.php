@@ -115,32 +115,66 @@
                 <section id="home" class="no-padding slider-style1 border-none">
                     <div class="owl-slider-full owl-carousel light-pagination owl-without-next-pre-arrow">
                         <!-- slider item -->
-                        @if(!empty($homeSliders))
-                            @foreach($homeSliders as $homeSlider)
-                                <div class="item owl-bg-img tz-builder-bg-image cover-background bg-img-one" id="tz-bg-1" style="background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) repeat scroll 0% 0%, transparent url({{asset('uploads/home_slider/'. $homeSlider->image)}}) repeat scroll 0% 0%;" data-img-size="(W)1920px X (H)994px">
-                                    <div class="container one-sixth-screen xs-one-third-screen position-relative">
-                                        <div class="col-md-12 col-sm-12 col-xs-12 slider-typography text-left">
-                                            <div class="slider-text-middle-main">
-                                                <div class="slider-text-middle">
-                                                    <div class="col-md-7 col-sm-10 col-xs-12 no-padding alt-font slider-content sm-no-margin-top">
-                                                        <div class="title-extra-large-6 line-height-75 font-weight-700 text-white slider-title margin-seven-bottom tz-text" id="tz-slider-text1">{{$homeSlider->title ?? null}}</div>
-                                                        <div class="text-light-gray text-extra-large text-white main-font font-weight-600 slider-text margin-ten-bottom tz-text width-80 xs-width-100" id="tz-slider-text2">
-                                                            {{$homeSlider->details ?? null}}
-                                                        </div>
-                                                        <div class="btn-dual">
-                                                            <a class="btn btn-medium propClone bg-white text-dark-gray btn-circle xs-margin-ten-bottom" href="{{$homeSlider->button_one_link ?? null}}">
-                                                                <span class="tz-text">{{$homeSlider->button_one_text ?? null}}</span>
-                                                            </a>
-                                                            <a class="btn btn-medium propClone highlight-button-white-border btn-circle xs-margin-ten-bottom" href="{{$homeSlider->button_two_link ?? null}}"><span class="tz-text">{{$homeSlider->button_two_text ?? null}}</span></a>
-                                                        </div>
-                                                    </div>
+                        <div class="item owl-bg-img tz-builder-bg-image cover-background bg-img-one" id="tz-bg-1" style="background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) repeat scroll 0% 0%, transparent url({{asset('welcome-home-page/images/bg-image/agency-slider-01.jpg')}}) repeat scroll 0% 0%;" data-img-size="(W)1920px X (H)994px">
+                            <div class="container one-sixth-screen xs-one-third-screen position-relative">
+                                <div class="col-md-12 col-sm-12 col-xs-12 slider-typography text-left">
+                                    <div class="slider-text-middle-main">
+                                        <div class="slider-text-middle">
+                                            <div class="col-md-7 col-sm-10 col-xs-12 no-padding alt-font slider-content sm-no-margin-top">
+                                                <div class="title-extra-large-6 line-height-75 font-weight-700 text-white slider-title margin-seven-bottom tz-text" id="tz-slider-text1">NEW LEVEL<br>OF SOUND EXPERIENCE.</div>
+                                                <div class="text-light-gray text-extra-large text-white main-font font-weight-600 slider-text margin-ten-bottom tz-text width-80 xs-width-100" id="tz-slider-text2">Lorem Ipsum is simply dummy text of printing and industry. Lorem Ipsum the industry's dummy text ever since.</div>
+                                                <div class="btn-dual">
+                                                    <a class="btn btn-medium propClone bg-white text-dark-gray btn-circle xs-margin-ten-bottom" href="#feature-section32">
+                                                        <span class="tz-text">PURCHASE NOW</span>
+                                                        </a>
+                                                    <a class="btn btn-medium propClone highlight-button-white-border btn-circle xs-margin-ten-bottom" href="#content-section13"><span class="tz-text">READ MORE</span></a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            @endforeach
-                        @endif
+                            </div>
+                        </div>
+                        <!-- end slider item -->
+                        <!-- slider item -->
+                        <div class="item owl-bg-img tz-builder-bg-image cover-background bg-img-two" id="tz-bg-2" style="background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) repeat scroll 0% 0%, transparent url({{asset('welcome-home-page/images/bg-image/agency-slider-02.jpg')}}) repeat scroll 0% 0%;">
+                            <div class="container one-sixth-screen xs-one-third-screen position-relative">
+                                <div class="col-md-12 col-sm-10 col-xs-12 slider-typography text-left">
+                                    <div class="slider-text-middle-main">
+                                        <div class="slider-text-middle">
+                                            <div class="col-md-7 col-sm-12 col-xs-12 no-padding alt-font slider-content sm-no-margin-top">
+                                                <div class="title-extra-large-6 line-height-75 font-weight-700 text-white slider-title margin-seven-bottom tz-text" id="tz-slider-text5">FRESH, BEAUTIFUL, INNOVATIVE.</div>
+                                                <div class="text-light-gray text-extra-large text-white main-font font-weight-600 slider-text margin-ten-bottom tz-text width-80 xs-width-100" id="tz-slider-text6">Lorem Ipsum is simply dummy text of printing and industry. Lorem Ipsum the industry's dummy text ever since.</div>
+                                                <div class="btn-dual">
+                                                    <a class="btn btn-medium propClone bg-white text-dark-gray btn-circle xs-margin-ten-bottom" href="#feature-section32"><span class="tz-text">PURCHASE NOW</span></a>
+                                                    <a class="btn btn-medium propClone highlight-button-white-border btn-circle xs-margin-ten-bottom" href="#content-section13"><span class="tz-text">READ MORE</span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end slider item -->
+                        <!-- slider item -->
+                        <div class="item owl-bg-img tz-builder-bg-image cover-background bg-img-three" id="tz-bg-3" style="background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) repeat scroll 0% 0%, transparent url({{asset('welcome-home-page/images/bg-image/agency-slider-03.jpg')}}) repeat scroll 0% 0%;">
+                            <div class="container one-sixth-screen xs-one-third-screen position-relative">
+                                <div class="col-md-12 col-sm-12 col-xs-12 slider-typography text-left">
+                                    <div class="slider-text-middle-main">
+                                        <div class="slider-text-middle">
+                                            <div class="col-md-7 col-sm-12 col-xs-12 no-padding alt-font slider-content sm-no-margin-top">
+                                                <div class="title-extra-large-6 line-height-75 font-weight-700 text-white slider-title margin-seven-bottom tz-text" id="tz-slider-text9">THE PRODUCT OF THE FUTURE</div>
+                                                <div class="text-light-gray text-extra-large text-white main-font font-weight-600 slider-text margin-ten-bottom tz-text width-80 xs-width-100" id="tz-slider-text10">Lorem Ipsum is simply dummy text of printing and industry. Lorem Ipsum the industry's dummy text ever since.</div>
+                                                <div class="btn-dual">
+                                                    <a class="btn btn-medium propClone bg-white text-dark-gray btn-circle xs-margin-ten-bottom" href="#feature-section32"><span class="tz-text">PURCHASE NOW</span></a>
+                                                    <a class="btn btn-medium propClone highlight-button-white-border btn-circle xs-margin-ten-bottom" href="#content-section13"><span class="tz-text">READ MORE</span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <!-- end slider item -->
                     </div>
                 </section>
@@ -150,7 +184,7 @@
                         <div class="row equalize xs-equalize-auto equalize-display-inherit">
                             <div class="col-md-6 col-sm-6 xs-12 xs-text-center display-table" style="">
                                 <div class="display-table-cell-vertical-middle">
-                                    <img alt="" src="{{asset('welcome-home-page/images/curator_music.png')}}" data-img-size="(W)800px X (H)681px">
+                                    <img alt="" src="{{asset('welcome-home-page/images/curator_music.webp')}}" data-img-size="(W)800px X (H)681px">
                                 </div>
                             </div>
                             <!-- content details -->

@@ -1,7 +1,7 @@
 @extends('admin.layouts.contentLayoutMaster')
 
 {{-- page title --}}
-@section('title','Banners')
+@section('title','Home Sliders')
 
 @section('vendor-style')
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/data-tables/css/jquery.dataTables.min.css')}}">
@@ -25,15 +25,15 @@
                 <div class="container">
                     <div class="row">
                         <div class="col s10 m6 l6">
-                            <h5 class="breadcrumbs-title mt-0 mb-0"><span>Banners</span></h5>
+                            <h5 class="breadcrumbs-title mt-0 mb-0"><span>Home Sliders</span></h5>
                             <ol class="breadcrumbs mb-0">
                                 @include('admin.panels.breadcrumbs')
-                                <li class="breadcrumb-item active">Banners </li>
+                                <li class="breadcrumb-item active">Home Sliders </li>
                             </ol>
                         </div>
                         <div class="col s2 m6 l6">
-                            <a class="btn dropdown-settings waves-effect waves-light breadcrumbs-btn right" href="{{ route('admin.banners.create') }}" data-target="dropdown1">
-                                <span class="hide-on-small-onl">Add New Banner</span>
+                            <a class="btn dropdown-settings waves-effect waves-light breadcrumbs-btn right" href="{{ route('admin.home-sliders.create') }}" data-target="dropdown1">
+                                <span class="hide-on-small-onl">Add New Slider</span>
                             </a>
                         </div>
                     </div>
@@ -55,70 +55,40 @@
                                                     <thead>
                                                     <tr>
                                                         <th>S#</th>
-                                                        <th>Artist Name</th>
-                                                        <th>Artist Thumbnail</th>
-                                                        <th>Track Name</th>
-                                                        <th>Track Description</th>
+                                                        <th>Title</th>
+                                                        <th>Image</th>
+                                                        <th>Description</th>
                                                         <th>Created At</th>
-                                                        <th>Add Days</th>
+                                                        <th>Status</th>
                                                         <th>Action</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                    @if (!empty($banners))
-                                                        @foreach ($banners as $banner)
+                                                    @if (!empty($homeSliders))
+                                                        @foreach ($homeSliders as $homeSlider)
                                                             <tr>
                                                                 <td>{{ $loop->iteration }}</td>
-                                                                <td>{{ $banner->artist_name ?? '----' }}</td>
+                                                                <td>{{ $homeSlider->title ?? '----' }}</td>
                                                                 <td>
-                                                                    <a href="{{asset('uploads/track_thumbnail')}}/{{$banner->track_thumbnail}}" target="_blank">
-                                                                        <img style="height:40px" src="{{asset('uploads/track_thumbnail')}}/{{$banner->track_thumbnail}}">
+                                                                    <a href="{{asset('uploads/home_slider')}}/{{$homeSlider->image}}" target="_blank">
+                                                                        <img style="height:40px" src="{{asset('uploads/home_slider')}}/{{$homeSlider->image}}">
                                                                     </a>
                                                                 </td>
-                                                                <td>{{ $banner->track_name ?? '----' }}</td>
-                                                                <td>{{ Str::limit($banner->track_description,50) ?? '----' }}</td>
-                                                                <td>{{ getDateFormat($banner->created_at) }}</td>
-                                                                <td>
-                                                                    <form action="{{route('admin.add-days',$banner->id)}}" method="POST" class="basicform_with_reload">
-                                                                        @csrf
-                                                                        <input type="number" min="1" name="add_days" value="{{!empty($banner->add_days) ? $banner->add_days : \App\Templates\IPackages::ADD_DAYS}}" style="width:70%">
-                                                                        <button type="submit" class="btn-floating mb-1 btn-sm waves-effect waves-light mr-1">
-                                                                            <i class="material-icons">add</i>
-                                                                        </button>
-                                                                    </form>
-                                                                </td>
+                                                                <td>{{ Str::limit($homeSlider->details,50) ?? '----' }}</td>
+                                                                <td>{{ getDateFormat($homeSlider->created_at) }}</td>
+                                                                <td>{{ ($homeSlider->status == 1) ? 'Active' : 'InActive' }}</td>
                                                                 <td>
                                                                     <div class="action-button">
-                                                                        <a href="{{route('admin.banners.edit',$banner->id)}}" class="action-button-edit">
+                                                                        <a href="{{route('admin.home-sliders.edit',$homeSlider->id)}}" class="action-button-edit">
                                                                             <img class="editDell" src="{{asset('images/edit_blue.svg')}}">
                                                                         </a>
-                                                                        <a class="dropdown-item has-icon delete-confirm" href="javascript:void(0)" data-id={{ $banner->id }}>
+                                                                        <a class="dropdown-item has-icon delete-confirm" href="javascript:void(0)" data-id={{ $homeSlider->id }}>
                                                                             <img class="editDell" src="{{asset('images/delete_forever.svg')}}">
                                                                         </a>
                                                                         <!-- Delete Form -->
-                                                                        <form class="d-none" id="delete_form_{{ $banner->id }}" action="{{ route('admin.banners.destroy', $banner->id) }}" method="POST">
+                                                                        <form class="d-none" id="delete_form_{{ $homeSlider->id }}" action="{{ route('admin.home-sliders.destroy', $homeSlider->id) }}" method="POST">
                                                                             @csrf
                                                                             @method('DELETE')
-                                                                        </form>
-                                                                        @if($banner->add_remove_banner == \App\Templates\IPackages::REMOVE_BANNER)
-                                                                            <a href="javascript:void(0)" data-id={{ $banner->id }} class="waves-effect waves-light btn-small gradient-45deg-green-teal box-shadow-none border-round mr-1 mb-1 add_banner">
-                                                                            Add Banner
-                                                                            </a>
-                                                                        @endif
-                                                                        @if($banner->add_remove_banner == \App\Templates\IPackages::ADD_BANNER)
-                                                                            <a class="waves-effect waves-light btn-small gradient-45deg-red-pink box-shadow-none border-round mr-1 mb-1 remove_banner" data-id={{ $banner->id }} href="javascript:void(0)" data-id={{ $banner->id }}>
-                                                                                Remove Banner
-                                                                            </a>
-                                                                        @endif
-                                                                        <!-- add banner Form -->
-                                                                        <form class="d-none" id="add_banner_form_{{ $banner->id }}" action="{{route('admin.banner-add',$banner->id)}}" method="POST">
-                                                                            @csrf
-                                                                            <input type="hidden" name="add_remove_banner" value="{{ \App\Templates\IPackages::ADD_BANNER }}">
-                                                                        </form>
-                                                                        <!-- remove banner Form -->
-                                                                        <form class="d-none" id="remove_form_{{ $banner->id }}" action="{{route('admin.banner-remove',$banner->id)}}" method="POST">
-                                                                            @csrf
-                                                                            <input type="hidden" name="add_remove_banner" value="{{ \App\Templates\IPackages::REMOVE_BANNER }}">
                                                                         </form>
                                                                     </div>
                                                                 </td>

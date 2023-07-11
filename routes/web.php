@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Curator\SendOfferController;
 use App\Http\Controllers\MessengerController;
+use App\Models\HomeSlider;
 use App\Models\Option;
 use App\Helpers\Helper;
 use Twilio\Rest\Client;
@@ -91,6 +92,8 @@ Route::group(['middleware' => ['try_catch']], function() {
 
 Route::get('welcome-new', function () {
     $theme_home = Option::where('key', 'home_new_settings')->first();
+    $homeSliders = HomeSlider::where('status',1)->latest()->get();
+
     if(!empty($theme_home))
     {
         $theme_home = json_decode($theme_home->value);
