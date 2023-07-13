@@ -157,7 +157,7 @@
                                 <div class="row">
                                     <div class="col m6 s12 file-field input-field">
                                         <div class="btn float-right">
-                                            <span>Background Image</span>
+                                            <span>UpcomingSounds Image</span>
                                             <input type="file" name="image" accept="image/*">
                                         </div>
                                         <div class="file-path-wrapper">

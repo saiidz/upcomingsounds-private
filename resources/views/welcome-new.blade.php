@@ -215,11 +215,11 @@
                                         <div class="col-md-2 col-sm-2 xs-float-none font-weight-600 content-box title-extra-large line-height-40 alt-font text-dark-gray tz-text">01.</div>
                                         <div class="col-md-10 col-sm-10 xs-no-margin xs-no-padding xs-width-100 xs-clear-both">
                                             <h3 class="title-medium margin-two-bottom text-dark-gray tz-text alt-font">
-                                                Demo, Unreleased or a mastered track already in stores.
+                                                {{ !empty($theme_home->title_one_end_section) ? $theme_home->title_one_end_section : 'Demo, Unreleased or a mastered track already in stores.'}}
                                             </h3>
                                             <div class="text-medium text-dark-gray tz-text">
                                                 <p>
-                                                    You can send your masterpiece anytime whether you need some advice, or help or you're ready to share it globally.
+                                                    {{ !empty($theme_home->description_one_end_section) ? $theme_home->description_one_end_section : 'You can send your masterpiece anytime whether you need some advice, or help or you`re ready to share it globally.'}}
                                                 </p>
                                             </div>
                                         </div>
@@ -228,12 +228,11 @@
                                         <div class="col-md-2 col-sm-2 xs-float-none font-weight-600 content-box title-extra-large line-height-40 alt-font text-dark-gray tz-text">02.</div>
                                         <div class="col-md-10 col-sm-10 xs-no-margin xs-no-padding xs-width-100 xs-clear-both">
                                             <h3 class="title-medium margin-two-bottom text-dark-gray tz-text alt-font">
-                                                All in one place
+                                                {{ !empty($theme_home->title_two_end_section) ? $theme_home->title_two_end_section : 'All in one place'}}
                                             </h3>
                                             <div class="text-medium text-dark-gray tz-text">
                                                 <p>
-                                                    Upcomingsounds.com save you hours of productive
-                                                    wasted on sending emails or searching for contacts.
+                                                    {{ !empty($theme_home->description_two_end_section) ? $theme_home->description_two_end_section : 'Upcomingsounds.com save you hours of productive wasted on sending emails or searching for contacts.'}}
                                                 </p>
                                             </div>
                                         </div>
@@ -242,12 +241,11 @@
                                         <div class="col-md-2 col-sm-2 xs-float-none font-weight-600 content-box title-extra-large line-height-40 alt-font text-dark-gray tz-text">03.</div>
                                         <div class="col-md-10 col-sm-10 xs-no-margin xs-no-padding xs-width-100 xs-clear-both">
                                             <h3 class="title-medium margin-two-bottom text-dark-gray tz-text alt-font">
-                                                Professional Review and Feedback
+                                                {{ !empty($theme_home->title_three_end_section) ? $theme_home->title_three_end_section : 'Professional Review and Feedback'}}
                                             </h3>
                                             <div class="text-medium text-dark-gray tz-text">
                                                 <p class="no-margin">
-                                                    Get constructive feedback from a music critic or maybe a good
-                                                    hint for a better-sounding product.
+                                                    {{ !empty($theme_home->description_three_end_section) ? $theme_home->description_three_end_section : 'Get constructive feedback from a music critic or maybe a good hint for a better-sounding product.'}}
                                                 </p>
                                             </div>
                                         </div>
@@ -256,7 +254,7 @@
                             </div>
                             <!-- end details -->
                             <!-- content images -->
-                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 no-padding xs-no-padding-15 bg-gray tz-builder-bg-image cover-background xs-height-300-px bg-img-four" data-img-size="(W)1000px X (H)800px" style="background: linear-gradient(transparent, transparent) repeat scroll 0% 0%, transparent url({{asset('welcome-home-page/images/upcomingSounds.png')}}) repeat scroll 0% 0%;"></div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 no-padding xs-no-padding-15 bg-gray tz-builder-bg-image cover-background xs-height-300-px bg-img-four" data-img-size="(W)1000px X (H)800px" style="background: linear-gradient(transparent, transparent) repeat scroll 0% 0%, transparent url({{asset(!empty($theme_home->image) ? $theme_home->image : 'welcome-home-page/images/upcomingSounds.png')}}) repeat scroll 0% 0%;"></div>
                             <!-- end content images -->
                         </div>
                     </div>

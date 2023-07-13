@@ -46,22 +46,29 @@ class FrontendController extends Controller
     public function homeNewSectionUpdate(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'upcoming_sound_content_one'           => 'required',
-            'upcoming_sound_content_two'           => 'required',
-            'upcoming_sound_content_three'      => 'required',
-            'award_image'             => 'mimes:png,jpg',
-            'curator_image'           => 'mimes:png,jpg',
-            'curator_btn_link'        => 'required',
-            'curator_btn_text'        => 'required',
-            'curator_description_two' => 'required',
-            'curator_description'     => 'required',
-            'curator_title'           => 'required',
-            'artist_image'            => 'mimes:png,jpg',
-            'artist_btn_link'         => 'required',
-            'artist_btn_text'         => 'required',
-            'artist_description_two'  => 'required',
-            'artist_description'      => 'required',
-            'artist_title'            => 'required',
+            'description_three_end_section'=> 'required',
+            'title_three_end_section'      => 'required',
+            'description_two_end_section'  => 'required',
+            'title_two_end_section'        => 'required',
+            'description_one_end_section'  => 'required',
+            'title_one_end_section'        => 'required',
+            'image'                        => 'mimes:png,jpg',
+            'upcoming_sound_content_one'   => 'required',
+            'upcoming_sound_content_two'   => 'required',
+            'upcoming_sound_content_three' => 'required',
+            'award_image'                  => 'mimes:png,jpg',
+            'curator_image'                => 'mimes:png,jpg',
+            'curator_btn_link'             => 'required',
+            'curator_btn_text'             => 'required',
+            'curator_description_two'      => 'required',
+            'curator_description'          => 'required',
+            'curator_title'                => 'required',
+            'artist_image'                 => 'mimes:png,jpg',
+            'artist_btn_link'              => 'required',
+            'artist_btn_text'              => 'required',
+            'artist_description_two'       => 'required',
+            'artist_description'           => 'required',
+            'artist_title'                 => 'required',
         ]);
 
         if ($validator->fails())
@@ -90,6 +97,13 @@ class FrontendController extends Controller
             $award_image_new_path = "uploads/homesection/award_image.webp";
         }
 
+        if ($request->hasFile('image'))
+        {
+            $image = Webp::make($request->file('image'))->quality(70);
+            $image->save(public_path('uploads/homesection/image.webp'));
+            $image_new_path = "uploads/homesection/image.webp";
+        }
+
         $theme = Option::where('key','home_new_settings')->first();
 
         if(!empty($theme))
@@ -97,9 +111,17 @@ class FrontendController extends Controller
             $artist_image_new = !empty(json_decode($theme->value)->artist_image) ? json_decode($theme->value)->artist_image : null;
             $curator_image_new = !empty(json_decode($theme->value)->curator_image) ? json_decode($theme->value)->curator_image : null;
             $award_image_new = !empty(json_decode($theme->value)->award_image) ? json_decode($theme->value)->award_image : null;
+            $image_new = !empty(json_decode($theme->value)->image) ? json_decode($theme->value)->image : null;
         }
 
         $data = [
+            'description_three_end_section' => $request->description_three_end_section,
+            'title_three_end_section'       => $request->title_three_end_section,
+            'description_two_end_section'   => $request->description_two_end_section,
+            'title_two_end_section'         => $request->title_two_end_section,
+            'description_one_end_section'   => $request->description_one_end_section,
+            'title_one_end_section'         => $request->title_one_end_section,
+            'image'                         => !empty($image_new_path) ? $image_new_path : $image_new,
             'upcoming_sound_content_one'    => $request->upcoming_sound_content_one,
             'upcoming_sound_content_two'    => $request->upcoming_sound_content_two,
             'upcoming_sound_content_three'  => $request->upcoming_sound_content_three,
