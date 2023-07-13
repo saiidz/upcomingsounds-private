@@ -46,12 +46,18 @@ class FrontendController extends Controller
     public function homeNewSectionUpdate(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'artist_image'                  => 'mimes:png,jpg',
-            'artist_btn_link'               => 'required',
-            'artist_btn_text'               => 'required',
-            'artist_description_two'        => 'required',
-            'artist_description'            => 'required',
-            'artist_title'                  => 'required',
+            'curator_image'           => 'mimes:png,jpg',
+            'curator_btn_link'        => 'required',
+            'curator_btn_text'        => 'required',
+            'curator_description_two' => 'required',
+            'curator_description'     => 'required',
+            'curator_title'           => 'required',
+            'artist_image'            => 'mimes:png,jpg',
+            'artist_btn_link'         => 'required',
+            'artist_btn_text'         => 'required',
+            'artist_description_two'  => 'required',
+            'artist_description'      => 'required',
+            'artist_title'            => 'required',
         ]);
 
         if ($validator->fails())
@@ -66,14 +72,28 @@ class FrontendController extends Controller
             $artist_image_new_path = "uploads/homesection/artist_image.webp";
         }
 
+        if ($request->hasFile('curator_image'))
+        {
+            $curator_image = Webp::make($request->file('curator_image'))->quality(70);
+            $curator_image->save(public_path('uploads/homesection/curator_image.webp'));
+            $curator_image_new_path = "uploads/homesection/curator_image.webp";
+        }
+
         $theme = Option::where('key','home_new_settings')->first();
 
         if(!empty($theme))
         {
-            $artist_image_new = json_decode($theme->value)->artist_image;
+            $artist_image_new = !empty(json_decode($theme->value)->artist_image) ? json_decode($theme->value)->artist_image : null;
+            $curator_image_new = !empty(json_decode($theme->value)->curator_image) ? json_decode($theme->value)->curator_image : null;
         }
 
         $data = [
+            'curator_image'                 => !empty($curator_image_new_path) ? $curator_image_new_path : $curator_image_new,
+            'curator_btn_link'              => $request->curator_btn_link,
+            'curator_btn_text'              => $request->curator_btn_text,
+            'curator_description_two'       => $request->curator_description_two,
+            'curator_description'           => $request->curator_description,
+            'curator_title'                 => $request->curator_title,
             'artist_image'                  => !empty($artist_image_new_path) ? $artist_image_new_path : $artist_image_new,
             'artist_btn_link'               => $request->artist_btn_link,
             'artist_btn_text'               => $request->artist_btn_text,

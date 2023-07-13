@@ -45,9 +45,9 @@
 
                             <form method="post" class="basicform_with_reload" action="{{route('admin.home.new.section.store')}}" enctype="multipart/form-data">
                                 @csrf
-                              @php
-                                $theme = !empty($theme) ? json_decode($theme->value) : '';
-                              @endphp
+                                  @php
+                                    $theme = !empty($theme) ? json_decode($theme->value) : '';
+                                  @endphp
                                 <h4 class="card-title">For Artists</h4>
 
                                 <div class="row">
@@ -95,6 +95,10 @@
                                         <textarea id="curator_description" class="materialize-textarea" name="curator_description">{{ $theme->curator_description ?? null }}</textarea>
                                         <label for="curator_description">Curator Description</label>
                                     </div>
+                                    <div class="input-field col s12">
+                                        <textarea id="curator_description" class="materialize-textarea" name="curator_description_two">{{ $theme->curator_description_two ?? null }}</textarea>
+                                        <label for="curator_description">Curator Description Two</label>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col m6 s12">
@@ -104,6 +108,17 @@
                                     <div class="input-field col m6 s12">
                                         <input id="curator_btn_link" type="text" name="curator_btn_link" value="{{ !empty($theme->curator_btn_link) ? $theme->curator_btn_link : null }}">
                                         <label for="curator_btn_link">Curator Button Link</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col m6 s12 file-field input-field">
+                                        <div class="btn float-right">
+                                            <span>Curator Image</span>
+                                            <input type="file" name="curator_image" accept="image/*">
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <img class=" ml-3 img-fluid" src="{{ asset(!empty($theme->curator_image) ? $theme->curator_image : 'images/logo.png') }}" alt="" height="100" style="object-fit: contain">
+                                        </div>
                                     </div>
                                 </div>
                                 <h4 class="card-title">Home Page Slider</h4>

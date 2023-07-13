@@ -96,7 +96,7 @@
                                             {{ !empty($theme_home->artist_description_two) ? $theme_home->artist_description_two : 'Our platform will deal with marketing and promoting your music with our efficient methods, pushing out your track/album/ep to playlists, blogs, and various curators to help your sound reach its full potential and exposure.' }}
                                         </p>
                                     </div>
-                                    <a class="btn-circle border-2-dark-aqua btn-border text-dark-aqua propClone nav-link" href="{{url(!empty($theme_home->artist_btn_link) ? $theme_home->artist_btn_link : '/for-artists')}} }}">
+                                    <a class="btn-circle border-2-dark-aqua btn-border text-dark-aqua propClone nav-link" href="{{url(!empty($theme_home->artist_btn_link) ? $theme_home->artist_btn_link : '/for-artists')}}">
                                         <span class="tz-text btn btn-sm rounded primary _600">{{ !empty($theme_home->artist_btn_text) ? $theme_home->artist_btn_text : 'Submit Your music now  (100 % Free)' }}</span>
 {{--                                        <i class="fa fa-long-arrow-right icon-extra-small tz-icon-color"></i>--}}
                                     </a>
@@ -150,20 +150,25 @@
                         <div class="row equalize xs-equalize-auto equalize-display-inherit">
                             <div class="col-md-6 col-sm-6 xs-12 xs-text-center display-table" style="">
                                 <div class="display-table-cell-vertical-middle">
-                                    <img alt="" src="{{asset('welcome-home-page/images/curator_music.png')}}" data-img-size="(W)800px X (H)681px">
+                                    <img alt="" src="{{asset(!empty($theme_home->curator_image) ? $theme_home->curator_image : 'welcome-home-page/images/curator_music.png')}}" data-img-size="(W)800px X (H)681px">
                                 </div>
                             </div>
                             <!-- content details -->
                             <div class="col-md-6 col-sm-6 xs-12 xs-text-center xs-margin-nineteen-bottom display-table" style="">
                                 <div class="display-table-cell-vertical-middle">
                                     <h2 class="alt-font title-extra-large sm-title-large xs-section-title-large text-dark-gray width-90 sm-width-100 letter-spacing-minus-1 margin-eight-bottom tz-text sm-margin-ten-bottom sm-margin-ten-top">
-                                        For Curators, Bloggers, Content Creators, Media & Influences.
+                                        {{ !empty($theme_home->curator_title) ? $theme_home->curator_title : ' For Curators, Bloggers, Content Creators, Media & Influences.' }}
                                     </h2>
-                                    <div class="text-extra-large tz-text width-90 sm-width-100 margin-five-bottom sm-margin-ten-bottom">Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has survived not only five centuries.</div>
-                                    <div class="text-medium tz-text width-90 sm-width-100 margin-ten-bottom sm-margin-ten-bottom xs-margin-twenty-bottom"><p>Lorem Ipsum has been the industry's standard dummy text ever since the when an unknown printer took a galley of type scrambled it to make a type specimen book. Lorem Ipsum has been the industry's standard dummy text ever since the when an unknown printer took a galley of type scrambled.</p></div>
-                                    <a class="btn-medium btn-circle btn border-2-dark-aqua btn-border text-dark-aqua propClone" href="{{url('/for-curators')}}"><span class="tz-text">Join Our Family</span>
-{{--                                        <i class="fa fa-long-arrow-right icon-extra-small tz-icon-color"></i>--}}
+                                    <div class="text-extra-large tz-text width-90 sm-width-100 margin-five-bottom sm-margin-ten-bottom">{{ !empty($theme_home->curator_description) ? $theme_home->curator_description : ' Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has survived not only five centuries.' }}</div>
+                                    <div class="text-medium tz-text width-90 sm-width-100 margin-ten-bottom sm-margin-ten-bottom xs-margin-twenty-bottom">
+                                        <p><div class="text-extra-large tz-text width-90 sm-width-100 margin-five-bottom sm-margin-ten-bottom">{{ !empty($theme_home->curator_description_two) ? $theme_home->curator_description_two : ' Lorem Ipsum is simply dummy text of the printing and typesetting industry. It has survived not only five centuries.' }}</div></p>
+                                    </div>
+                                    <a class="btn-circle border-2-dark-aqua btn-border text-dark-aqua propClone nav-link" href="{{url(!empty($theme_home->curator_btn_link) ? $theme_home->curator_btn_link : '/for-curators')}}">
+                                        <span class="tz-text btn btn-sm rounded primary _600">{{ !empty($theme_home->curator_btn_text) ? $theme_home->curator_btn_text : 'Join Our Family' }}</span>
                                     </a>
+{{--                                    <a class="btn-circle border-2-dark-aqua btn-border text-dark-aqua propClone nav-link" href="{{url(!empty($theme_home->artist_btn_link) ? $theme_home->artist_btn_link : '/for-artists')}}">--}}
+{{--                                        <span class="tz-text btn btn-sm rounded primary _600">{{ !empty($theme_home->artist_btn_text) ? $theme_home->artist_btn_text : 'Submit Your music now  (100 % Free)' }}</span>--}}
+{{--                                    </a>--}}
                                 </div>
                             </div>
                             <!-- end content details -->
