@@ -46,6 +46,10 @@ class FrontendController extends Controller
     public function homeNewSectionUpdate(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'upcoming_sound_content_one'           => 'required',
+            'upcoming_sound_content_two'           => 'required',
+            'upcoming_sound_content_three'      => 'required',
+            'award_image'             => 'mimes:png,jpg',
             'curator_image'           => 'mimes:png,jpg',
             'curator_btn_link'        => 'required',
             'curator_btn_text'        => 'required',
@@ -79,15 +83,27 @@ class FrontendController extends Controller
             $curator_image_new_path = "uploads/homesection/curator_image.webp";
         }
 
+        if ($request->hasFile('award_image'))
+        {
+            $award_image = Webp::make($request->file('award_image'))->quality(70);
+            $award_image->save(public_path('uploads/homesection/award_image.webp'));
+            $award_image_new_path = "uploads/homesection/award_image.webp";
+        }
+
         $theme = Option::where('key','home_new_settings')->first();
 
         if(!empty($theme))
         {
             $artist_image_new = !empty(json_decode($theme->value)->artist_image) ? json_decode($theme->value)->artist_image : null;
             $curator_image_new = !empty(json_decode($theme->value)->curator_image) ? json_decode($theme->value)->curator_image : null;
+            $award_image_new = !empty(json_decode($theme->value)->award_image) ? json_decode($theme->value)->award_image : null;
         }
 
         $data = [
+            'upcoming_sound_content_one'    => $request->upcoming_sound_content_one,
+            'upcoming_sound_content_two'    => $request->upcoming_sound_content_two,
+            'upcoming_sound_content_three'  => $request->upcoming_sound_content_three,
+            'award_image'                   => !empty($award_image_new_path) ? $award_image_new_path : $award_image_new,
             'curator_image'                 => !empty($curator_image_new_path) ? $curator_image_new_path : $curator_image_new,
             'curator_btn_link'              => $request->curator_btn_link,
             'curator_btn_text'              => $request->curator_btn_text,

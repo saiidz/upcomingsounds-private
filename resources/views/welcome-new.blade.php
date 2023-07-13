@@ -180,7 +180,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-                                <a href="#"><img class="" alt="" src="{{asset('welcome-home-page/images/award.png')}}" data-img-size="(W)743px X (H)110px"></a>
+                                <a href="#"><img class="" alt="" src="{{asset(!empty($theme_home->award_image) ? $theme_home->award_image : 'welcome-home-page/images/award.png')}}" data-img-size="(W)743px X (H)110px"></a>
                             </div>
                         </div>
                         <div class="row-col">
