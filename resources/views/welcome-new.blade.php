@@ -154,7 +154,7 @@
                                 </div>
                             </div>
                             <!-- content details -->
-                            <div class="col-md-6 col-sm-6 xs-12 xs-text-center xs-margin-nineteen-bottom display-table" style="">
+                            <div class="col-md-6 col-sm-6 xs-12 xs-text-center xs-margin-nineteen-bottom display-table" style="padding-left: 100px">
                                 <div class="display-table-cell-vertical-middle">
                                     <h2 class="alt-font title-extra-large sm-title-large xs-section-title-large text-dark-gray width-90 sm-width-100 letter-spacing-minus-1 margin-eight-bottom tz-text sm-margin-ten-bottom sm-margin-ten-top">
                                         {{ !empty($theme_home->curator_title) ? $theme_home->curator_title : ' For Curators, Bloggers, Content Creators, Media & Influences.' }}
