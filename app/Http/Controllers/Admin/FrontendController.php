@@ -56,7 +56,7 @@ class FrontendController extends Controller
             'upcoming_sound_content_one'   => 'required',
             'upcoming_sound_content_two'   => 'required',
             'upcoming_sound_content_three' => 'required',
-            'award_image'                  => 'mimes:png,jpg',
+//            'award_image'                  => 'mimes:png,jpg',
             'curator_image'                => 'mimes:png,jpg',
             'curator_btn_link'             => 'required',
             'curator_btn_text'             => 'required',
