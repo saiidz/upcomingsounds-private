@@ -126,10 +126,10 @@
                                     <div class="col m6 s12 file-field input-field">
                                         <div class="btn float-right">
                                             <span>Award Winning Sounds Image</span>
-                                            <input type="file" name="award_image" accept="image/*">
+                                            <input type="file" name="award_image_upcoming" accept="image/*">
                                         </div>
                                         <div class="file-path-wrapper">
-                                            <img class=" ml-3 img-fluid" src="{{ asset(!empty($theme->award_image) ? $theme->award_image : 'images/logo.png') }}" alt="" height="100" style="object-fit: contain">
+                                            <img class=" ml-3 img-fluid" src="{{ asset(!empty($theme->award_image_upcoming) ? $theme->award_image_upcoming : 'images/logo.png') }}" alt="" height="100" style="object-fit: contain">
                                         </div>
                                     </div>
                                 </div>

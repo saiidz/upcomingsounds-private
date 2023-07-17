@@ -90,11 +90,11 @@ class FrontendController extends Controller
             $curator_image_new_path = "uploads/homesection/curator_image.webp";
         }
 
-        if ($request->hasFile('award_image'))
+        if ($request->hasFile('award_image_upcoming'))
         {
-            $award_image = Webp::make($request->file('award_image'))->quality(70);
-            $award_image->save(public_path('uploads/homesection/award_image.webp'));
-            $award_image_new_path = "uploads/homesection/award_image.webp";
+            $award_image = Webp::make($request->file('award_image_upcoming'))->quality(70);
+            $award_image->save(public_path('uploads/homesection/award_image_upcoming.webp'));
+            $award_image_new_path = "uploads/homesection/award_image_upcoming.webp";
         }
 
         if ($request->hasFile('image_upcoming'))
@@ -125,7 +125,7 @@ class FrontendController extends Controller
             'upcoming_sound_content_one'    => $request->upcoming_sound_content_one ?? null,
             'upcoming_sound_content_two'    => $request->upcoming_sound_content_two ?? null,
             'upcoming_sound_content_three'  => $request->upcoming_sound_content_three ?? null,
-            'award_image'                   => !empty($award_image_new_path) ? $award_image_new_path : (!empty($award_image_new) ? $award_image_new : null),
+            'award_image_upcoming'          => !empty($award_image_new_path) ? $award_image_new_path : (!empty($award_image_new) ? $award_image_new : null),
             'curator_image'                 => !empty($curator_image_new_path) ? $curator_image_new_path : (!empty($curator_image_new) ? $curator_image_new : null),
             'curator_btn_link'              => $request->curator_btn_link ?? null,
             'curator_btn_text'              => $request->curator_btn_text ?? null,
