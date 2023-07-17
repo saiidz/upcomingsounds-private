@@ -5,6 +5,7 @@ use App\Http\Controllers\MessengerController;
 use App\Models\HomeSlider;
 use App\Models\Option;
 use App\Helpers\Helper;
+use App\Models\Testimonial;
 use Twilio\Rest\Client;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
@@ -93,6 +94,7 @@ Route::group(['middleware' => ['try_catch']], function() {
 Route::get('welcome-new', function () {
     $theme_home = Option::where('key', 'home_new_settings')->first();
     $homeSliders = HomeSlider::where('status',1)->latest()->get();
+    $testimonials = Testimonial::where('status',1)->latest()->get();
 
     if(!empty($theme_home))
     {
