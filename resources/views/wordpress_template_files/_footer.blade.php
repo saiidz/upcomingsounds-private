@@ -154,3 +154,4 @@
         </div>
     </div>
 </div>
+@include('welcome-panels.welcome-scripts')
