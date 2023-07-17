@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AjaxController;
+use App\Http\Controllers\Api\DefaultController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Helpers\Helper;
@@ -18,6 +19,7 @@ use App\Helpers\Helper;
 Route::get('get-states/{id}', [AjaxController::class,'getStates']);
 Route::get('get-cites/{id}', [AjaxController::class,'getCities']);
 
+Route::get('get-header', [DefaultController::class,'_header']);
 Route::group(['middleware' => ['try_catch']], function() {
 
     /***************************************************** Front *********************************************************/
