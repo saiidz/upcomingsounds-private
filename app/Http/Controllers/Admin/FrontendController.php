@@ -175,7 +175,7 @@ class FrontendController extends Controller
             'title_two_end_section'         => 'required',
             'description_one_end_section'   => 'required',
             'title_one_end_section'         => 'required',
-            'image'                         => 'mimes:png,jpg',
+//            'image'                         => 'mimes:png,jpg',
             'upcoming_sound_content_three'  => 'required',
             'upcoming_sound_content_two'    => 'required',
             'upcoming_sound_content_one'    => 'required',
@@ -255,9 +255,9 @@ class FrontendController extends Controller
 //        }
         if ($request->hasFile('image'))
         {
-            $image = Webp::make($request->file('image'))->quality(70);
-            $image->save(public_path('uploads/homesection/image.webp'));
-            $image_new_path = "uploads/homesection/image.webp";
+//            $image = Webp::make($request->file('image'))->quality(70);
+//            $image->save(public_path('uploads/homesection/image.webp'));
+//            $image_new_path = "uploads/homesection/image.webp";
 
 //            $image = $request->file('image');
 //            $image_name = 'image.png';
@@ -270,7 +270,7 @@ class FrontendController extends Controller
 
         if(!empty($theme))
         {
-            $theme_image = json_decode($theme->value)->image;
+//            $theme_image = json_decode($theme->value)->image;
             $theme_banner_three = json_decode($theme->value)->banner_three;
             $theme_banner_two = json_decode($theme->value)->banner_two;
             $theme_banner_one = json_decode($theme->value)->banner_one;
@@ -283,7 +283,7 @@ class FrontendController extends Controller
             'title_two_end_section'         => $request->title_two_end_section,
             'description_one_end_section'   => $request->description_one_end_section,
             'title_one_end_section'         => $request->title_one_end_section,
-            'image'                         => !empty($image_new_path) ? $image_new_path : $theme_image,
+//            'image'                         => !empty($image_new_path) ? $image_new_path : $theme_image,
             'upcoming_sound_content_three'  => $request->upcoming_sound_content_three,
             'upcoming_sound_content_two'    => $request->upcoming_sound_content_two,
             'upcoming_sound_content_one'    => $request->upcoming_sound_content_one,
