@@ -795,7 +795,7 @@
                     </div>
                 </section>
 
-                <section class="builder-bg border-none" style="background-color: #46eff0;" id="content-section17">
+                <section class="builder-bg border-none" style="background-color: #dfa6a5;" id="content-section17">
                     <div class="container-fluid">
                         <div class="row equalize">
                             <!-- details -->
