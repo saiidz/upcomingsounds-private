@@ -158,10 +158,10 @@
                                     <div class="col m6 s12 file-field input-field">
                                         <div class="btn float-right">
                                             <span>UpcomingSounds Image</span>
-                                            <input type="file" name="image" accept="image/*">
+                                            <input type="file" name="image_upcoming" accept="image/*">
                                         </div>
                                         <div class="file-path-wrapper">
-                                            <img class=" ml-3 img-fluid" src="{{ asset(!empty($theme->image) ? $theme->image : 'images/logo.png') }}" alt="" height="100" style="object-fit: contain; background-color: black;">
+                                            <img class=" ml-3 img-fluid" src="{{ asset(!empty($theme->image_upcoming) ? $theme->image_upcoming : 'images/logo.png') }}" alt="" height="100" style="object-fit: contain; background-color: black;">
                                         </div>
                                     </div>
                                     <div class="col s12 file-field input-field">
