@@ -209,53 +209,53 @@
                                 </div>
                                 <h4 class="card-title">Home Page End Section</h4>
 
-                                <div class="row">
-                                    <div class="col m6 s12 file-field input-field">
-                                        <div class="btn float-right">
-                                            <span>Background Image</span>
-                                            <input type="file" name="image" accept="image/*">
-                                        </div>
-                                        <div class="file-path-wrapper">
-                                            <img class=" ml-3 img-fluid" src="{{ asset(!empty($theme->image) ? $theme->image : 'images/logo.png') }}" alt="" height="100" style="object-fit: contain; background-color: black;">
-                                        </div>
-                                    </div>
-                                    <div class="col s12 file-field input-field">
-                                        <input id="title_one_end_section" type="text" name="title_one_end_section" value="{{ !empty($theme->title_one_end_section) ? $theme->title_one_end_section : null }}">
-                                        <label for="title_one_end_section">Title One</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <textarea id="description_one_end_section" class="materialize-textarea" name="description_one_end_section">{{ $theme->description_one_end_section ?? null }}</textarea>
-                                        <label for="description_one_end_section">Description One End Section</label>
-                                    </div>
-                                </div>
+{{--                                <div class="row">--}}
+{{--                                    <div class="col m6 s12 file-field input-field">--}}
+{{--                                        <div class="btn float-right">--}}
+{{--                                            <span>Background Image</span>--}}
+{{--                                            <input type="file" name="image" accept="image/*">--}}
+{{--                                        </div>--}}
+{{--                                        <div class="file-path-wrapper">--}}
+{{--                                            <img class=" ml-3 img-fluid" src="{{ asset(!empty($theme->image) ? $theme->image : 'images/logo.png') }}" alt="" height="100" style="object-fit: contain; background-color: black;">--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col s12 file-field input-field">--}}
+{{--                                        <input id="title_one_end_section" type="text" name="title_one_end_section" value="{{ !empty($theme->title_one_end_section) ? $theme->title_one_end_section : null }}">--}}
+{{--                                        <label for="title_one_end_section">Title One</label>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="row">--}}
+{{--                                    <div class="input-field col s12">--}}
+{{--                                        <textarea id="description_one_end_section" class="materialize-textarea" name="description_one_end_section">{{ $theme->description_one_end_section ?? null }}</textarea>--}}
+{{--                                        <label for="description_one_end_section">Description One End Section</label>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
 
-                                <div class="row">
-                                    <div class="col s12 file-field input-field">
-                                        <input id="title_two_end_section" type="text" name="title_two_end_section" value="{{ !empty($theme->title_two_end_section) ? $theme->title_two_end_section : null }}">
-                                        <label for="title_two_end_section">Title Two</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <textarea id="description_two_end_section" class="materialize-textarea" name="description_two_end_section">{{ $theme->description_two_end_section ?? null }}</textarea>
-                                        <label for="description_two_end_section">Description Two End Section</label>
-                                    </div>
-                                </div>
+{{--                                <div class="row">--}}
+{{--                                    <div class="col s12 file-field input-field">--}}
+{{--                                        <input id="title_two_end_section" type="text" name="title_two_end_section" value="{{ !empty($theme->title_two_end_section) ? $theme->title_two_end_section : null }}">--}}
+{{--                                        <label for="title_two_end_section">Title Two</label>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="row">--}}
+{{--                                    <div class="input-field col s12">--}}
+{{--                                        <textarea id="description_two_end_section" class="materialize-textarea" name="description_two_end_section">{{ $theme->description_two_end_section ?? null }}</textarea>--}}
+{{--                                        <label for="description_two_end_section">Description Two End Section</label>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
 
-                                <div class="row">
-                                    <div class="col s12 file-field input-field">
-                                        <input id="title_three_end_section" type="text" name="title_three_end_section" value="{{ !empty($theme->title_three_end_section) ? $theme->title_three_end_section : null }}">
-                                        <label for="title_three_end_section">Title Three</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <textarea id="description_three_end_section" class="materialize-textarea" name="description_three_end_section">{{ $theme->description_three_end_section ?? null }}</textarea>
-                                        <label for="description_three_end_section">Description Three End Section</label>
-                                    </div>
-                                </div>
+{{--                                <div class="row">--}}
+{{--                                    <div class="col s12 file-field input-field">--}}
+{{--                                        <input id="title_three_end_section" type="text" name="title_three_end_section" value="{{ !empty($theme->title_three_end_section) ? $theme->title_three_end_section : null }}">--}}
+{{--                                        <label for="title_three_end_section">Title Three</label>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="row">--}}
+{{--                                    <div class="input-field col s12">--}}
+{{--                                        <textarea id="description_three_end_section" class="materialize-textarea" name="description_three_end_section">{{ $theme->description_three_end_section ?? null }}</textarea>--}}
+{{--                                        <label for="description_three_end_section">Description Three End Section</label>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
 
                                 <div class="row">
                                     <div class="row">
