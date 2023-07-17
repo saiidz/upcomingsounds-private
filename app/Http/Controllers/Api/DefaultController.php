@@ -83,6 +83,7 @@ class DefaultController extends Controller
 
     public function _header()
     {
-        return 'hello i am here';
+        $header = view('wordpress_template_files._header')->render();
+        return $header;
     }
 }
