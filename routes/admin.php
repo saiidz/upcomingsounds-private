@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\HomeSliderController;
 use App\Http\Controllers\Admin\OfferTypeController;
 use App\Http\Controllers\Admin\SendDirectOfferController;
 use App\Http\Controllers\Admin\SubmitWorkController;
+use App\Http\Controllers\Admin\TestimonialController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ArtistController;
 use App\Http\Controllers\Admin\OptionController;
@@ -96,6 +97,9 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
 
     #Slider Home Page
     Route::resource('home-sliders',HomeSliderController::class);
+
+    #Testimonials
+    Route::resource('testimonials',TestimonialController::class);
 
     // active campaign artist
     Route::get('active-campaign', [ArtistController::class,'activeCampaign'])->name('campaign.active');
