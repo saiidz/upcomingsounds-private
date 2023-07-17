@@ -121,9 +121,6 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{url('/for-curators')}}">For Curators / Tastmakers </a>
                             </li>
-                            {{--                            <li class="nav-item">--}}
-                            {{--                                <a class="nav-link" href="https://www.instagram.com/upcomingsounds_">Help</a>--}}
-                            {{--                            </li>--}}
                             <li class="nav-item">
                                 <a class="nav-link" href="{{url('/how-to-help')}}">Help</a>
                             </li>
