@@ -89,6 +89,14 @@ class DefaultController extends Controller
         return view('wordpress_template_files._header')->render();
     }
 
+    /**
+     * @return string
+     */
+    public function _footer()
+    {
+        return view('wordpress_template_files._footer')->render();
+    }
+
 
     /**
      * @return string
