@@ -83,6 +83,9 @@ class DefaultController extends Controller
 
     public function _header()
     {
-        return 'hello i am here';
+        return response()->json([
+            'success' => true,
+            'data' => 'hello i am here',
+        ]);
     }
 }
