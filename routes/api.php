@@ -20,6 +20,7 @@ Route::get('get-states/{id}', [AjaxController::class,'getStates']);
 Route::get('get-cites/{id}', [AjaxController::class,'getCities']);
 
 Route::get('get-header', [DefaultController::class,'_header']);
+Route::get('get-style', [DefaultController::class,'_style']);
 Route::group(['middleware' => ['try_catch']], function() {
 
     /***************************************************** Front *********************************************************/

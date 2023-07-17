@@ -81,9 +81,20 @@ class DefaultController extends Controller
         }
     }
 
+    /**
+     * @return string
+     */
     public function _header()
     {
-        $header = view('wordpress_template_files._header')->render();
-        return $header;
+        return view('wordpress_template_files._header')->render();
+    }
+
+
+    /**
+     * @return string
+     */
+    public function _style()
+    {
+        return view('wordpress_template_files._head')->render();
     }
 }
