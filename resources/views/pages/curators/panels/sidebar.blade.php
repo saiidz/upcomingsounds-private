@@ -14,9 +14,9 @@
             <nav class="scroll nav-stacked nav-active-primary">
 
                 <ul class="nav" data-ui-nav>
-                    <li class="nav-header hidden-folded">
-                        <span class="text-xs text-muted">Main</span>
-                    </li>
+{{--                    <li class="nav-header hidden-folded">--}}
+{{--                        <span class="text-xs text-muted">Main</span>--}}
+{{--                    </li>--}}
                     {{-- <li>
                         <a href="{{ route('artist.submission') }}">
                             <span class="nav-icon">
@@ -215,8 +215,9 @@
 {{--                            </a>--}}
 {{--                        </li>--}}
 
-                        <li class="nav-header hidden-folded m-t">
-                            <span class="text-xs text-muted">Your collection</span>
+                        <li class="nav-header hidden-folded m-t m-b" style="border-bottom: 1px solid grey;">
+{{--                            <span class="text-xs text-muted"></span>--}}
+{{--                            <span class="text-xs text-muted">Your collection</span>--}}
                         </li>
                         <li>
                             <a href="{{url('/taste-maker-profile')}}#profile" class="reloadProfile">
@@ -412,7 +413,11 @@
                     <div class="nav-fold dropup">
                         <a data-toggle="dropdown">
                       <span class="pull-left">
-                        <img src="{{asset('images/a3.jpg')}}" alt="..." class="w-32 img-circle">
+                          @if(!empty($user_curator->profile))
+                              <img src="{{URL('/')}}/uploads/profile/{{$user_curator->profile}}" alt="..." class="w-32 img-circle">
+                          @else
+                              <img src="{{asset('images/a3.jpg')}}" alt="..." class="w-32 img-circle">
+                          @endif
                       </span>
                             <span class="clear hidden-folded p-x p-y-xs">
                         <span class="block _500 text-ellipsis">{{($user_curator) ? $user_curator->name : ''}}</span>

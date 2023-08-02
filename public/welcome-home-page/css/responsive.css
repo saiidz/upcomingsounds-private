@@ -2508,6 +2508,9 @@
     .curatorHomePage{
         padding-left: 0px !important;
     }
+    .welcome_UpcomingSounds{
+        padding: 2rem !important;
+    }
 }
 
 @media (max-width: 419px) {
@@ -2527,6 +2530,9 @@
     .curatorHomePage{
         padding-left: 0px !important;
     }
+    .welcome_UpcomingSounds{
+        padding: 2rem !important;
+    }
 }
 
 @media (max-width: 380px) {
@@ -2542,6 +2548,9 @@
     .curatorHomePage{
         padding-left: 0px !important;
     }
+    .welcome_UpcomingSounds{
+        padding: 2rem !important;
+    }
 }
 @media screen and (max-width: 320px) {
     .curatorHomePage{
@@ -2554,6 +2563,12 @@
     }
     .app-header ~ .app-body {
         padding-top: 0!important;
+    }
+    .curatorHomePage{
+        padding-left: 0px !important;
+    }
+    .welcome_UpcomingSounds{
+        padding: 2rem !important;
     }
 }
 
