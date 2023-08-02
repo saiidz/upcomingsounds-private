@@ -2505,6 +2505,9 @@
     .xs-text-white {color: #fff !important;}
     .xs-text-black {color: #000 !important;}
     .xs-bg-white {background: #fff;}
+    .curatorHomePage{
+        padding-left: 0px !important;
+    }
 }
 
 @media (max-width: 419px) {
@@ -2521,6 +2524,9 @@
     .app-header ~ .app-body {
         padding-top: 0!important;
     }
+    .curatorHomePage{
+        padding-left: 0px !important;
+    }
 }
 
 @media (max-width: 380px) {
@@ -2533,8 +2539,14 @@
     .app-header ~ .app-body {
         padding-top: 0!important;
     }
+    .curatorHomePage{
+        padding-left: 0px !important;
+    }
 }
 @media screen and (max-width: 320px) {
+    .curatorHomePage{
+        padding-left: 0px !important;
+    }
      /*  navigation  */
     /*.shrink-nav .navbar-collapse { max-height: 420px; }*/
     .weLcoMeHeaderHide{
