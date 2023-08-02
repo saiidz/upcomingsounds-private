@@ -13,17 +13,20 @@
     flex-direction: column;
     overflow: hidden;
     box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+    border: black;
 }
 .chat-window {
     flex: auto;
     max-height: calc(100% - 60px);
-    background: #363c43;
+    background: #ffff;
+    /*background: #363c43;*/
     overflow: auto;
 }
 .chat-input {
     flex: 0 0 auto;
     height: 60px;
-    background: #40434e;
+    background: #99ffcc;
+    /*background: #40434e;*/
     border-top: 1px solid #2671ff;
     box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
 }
@@ -37,13 +40,15 @@
     text-indent: 10px;
     font-size: 12pt;
     padding: 0;
-    background: #40434e;
+    background: #E1E1E1;
+    /*background: #40434e;*/
 }
 .chat-input button {
     float: right;
     outline: 0 none;
     border: none;
-    background: rgba(255,255,255,.25);
+    background: #99ffcc;
+    /*background: rgba(255,255,255,.25);*/
     height: 40px;
     width: 40px;
     border-radius: 50%;
@@ -70,7 +75,8 @@
 }
 .msg-box {
     display: flex;
-    background: #99ffcc;
+    background: #41DC8F;
+    /*background: #99ffcc;*/
     /*background: #5b5e6c;*/
     padding: 10px 10px 0 10px;
     border-radius: 0 6px 6px 0;
@@ -122,7 +128,8 @@
 }
 .msg-self .msg-box {
     border-radius: 6px 0 0 6px;
-    background: #b34241;
+    background: #FA2E2C;
+    /*background: #b34241;*/
     /*background: #2671ff;*/
     float: right;
 }
