@@ -851,84 +851,40 @@
                 </section>
 
 {{--                <section class="padding-110px-tb xs-padding-60px-tb bg-white builder-bg" id="testimonials-section4">--}}
-                <section class="bg-white builder-bg" style="padding-top:180px" >
-                    <div class="container">
-                        <div id="testim" class="testim">
-                            <div class="testim-cover">
-                                <div class="wrap">
-                                    <span id="right-arrow" class="arrow right fa fa-chevron-right"></span>
-                                    <span id="left-arrow" class="arrow left fa fa-chevron-left "></span>
-                                    <ul id="testim-dots" class="dots">
-                                        @if(!empty($testimonials))
-                                            @foreach($testimonials as $testimonial)
-                                                <li class="dot"></li>
-                                            @endforeach
-                                        @endif
-                                    </ul>
-                                    <div id="testim-content" class="cont">
-                                        @if(!empty($testimonials))
-                                            @foreach($testimonials as $testimonial)
-                                                <div class="">
-                                                    <div class="img">
-                                                        <img src="{{asset('uploads/testimonials/'. $testimonial->image)}}" alt="">
-                                                    </div>
-                                                    <h2>{{$testimonial->title ?? 'Lorem P. Ipsum'}}</h2>
-                                                    <p>{{$testimonial->details ?? 'Lorem ipsum dolor sit amet, consectetur'}}</p>
-                                                </div>
-                                            @endforeach
-                                        @endif
+                <section class="bg-white builder-bg" style="padding-top:180px; padding-bottom: 80px;" >
+                    <div class="container-fluid">
+                        <div class="row equalize">
+                            <div class="col-md-12">
+                                <div id="testim" class="testim">
+                                    <div class="testim-cover">
+                                        <div class="wrap">
+                                            <span id="right-arrow" class="arrow right fa fa-chevron-right"></span>
+                                            <span id="left-arrow" class="arrow left fa fa-chevron-left "></span>
+                                            <ul id="testim-dots" class="dots">
+                                                @if(!empty($testimonials))
+                                                    @foreach($testimonials as $testimonial)
+                                                        <li class="dot"></li>
+                                                    @endforeach
+                                                @endif
+                                            </ul>
+                                            <div id="testim-content" class="cont">
+                                                @if(!empty($testimonials))
+                                                    @foreach($testimonials as $testimonial)
+                                                        <div class="">
+                                                            <div class="img">
+                                                                <img src="{{asset('uploads/testimonials/'. $testimonial->image)}}" alt="">
+                                                            </div>
+                                                            <h2>{{$testimonial->title ?? 'Lorem P. Ipsum'}}</h2>
+                                                            <p>{{$testimonial->details ?? 'Lorem ipsum dolor sit amet, consectetur'}}</p>
+                                                        </div>
+                                                    @endforeach
+                                                @endif
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
-{{--                        <div class="row two-column">--}}
-{{--                            <!-- testimonial item -->--}}
-{{--                            <div class="col-md-6 col-sm-6 col-xs-12 xs-text-center margin-ten-bottom sm-margin-twenty-bottom">--}}
-{{--                                <div class="col-md-3 col-sm-3 col-xs-12 sm-no-padding xs-margin-eleven-bottom">--}}
-{{--                                    <img class="border-radius-100 width-95 xs-width-40" src="{{asset('welcome-home-page/images/avtar.jpg')}}" data-img-size="(W)149px X (H)149px" alt=""/>--}}
-{{--                                </div>--}}
-{{--                                <div class="col-md-9 col-sm-9 col-xs-12 feature-box-details">--}}
-{{--                                    <div class="text-medium margin-five-bottom sm-margin-twelve-bottom xs-margin-six-bottom float-left width-100 tz-text">Lorem Ipsum has been the industry's standard dummy text ever since, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</div>--}}
-{{--                                    <span class="tz-text font-weight-600 alt-font text-dark-gray sm-text-medium display-inline-block">- NATHAN FORD</span>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <!-- end testimonial item -->--}}
-{{--                            <!-- testimonial item -->--}}
-{{--                            <div class="col-md-6 col-sm-6 col-xs-12 xs-text-center margin-ten-bottom sm-margin-twenty-bottom">--}}
-{{--                                <div class="col-md-3 col-sm-3 col-xs-12 sm-no-padding xs-margin-eleven-bottom">--}}
-{{--                                    <img class="border-radius-100 width-95 xs-width-40" src="{{asset('welcome-home-page/images/avtar.jpg')}}" data-img-size="(W)149px X (H)149px" alt=""/>--}}
-{{--                                </div>--}}
-{{--                                <div class="col-md-9 col-sm-9 col-xs-12 feature-box-details">--}}
-{{--                                    <div class="text-medium margin-five-bottom sm-margin-twelve-bottom xs-margin-six-bottom float-left width-100 tz-text">Lorem Ipsum has been the industry's standard dummy text ever since, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</div>--}}
-{{--                                    <span class="tz-text font-weight-600 alt-font text-dark-gray sm-text-medium display-inline-block">- PAUL SCRIVENS</span>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <!-- end testimonial item -->--}}
-{{--                            <!-- testimonial item -->--}}
-{{--                            <div class="col-md-6 col-sm-6 col-xs-12 xs-text-center xs-margin-twenty-bottom">--}}
-{{--                                <div class="col-md-3 col-sm-3 col-xs-12 sm-no-padding xs-margin-eleven-bottom">--}}
-{{--                                    <img class="border-radius-100 width-95 xs-width-40" src="{{asset('welcome-home-page/images/avtar.jpg')}}" data-img-size="(W)149px X (H)149px" alt=""/>--}}
-{{--                                </div>--}}
-{{--                                <div class="col-md-9 col-sm-9 col-xs-12 feature-box-details">--}}
-{{--                                    <div class="text-medium margin-five-bottom sm-margin-twelve-bottom xs-margin-six-bottom float-left width-100 tz-text">Lorem Ipsum has been the industry's standard dummy text ever since, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</div>--}}
-{{--                                    <span class="tz-text font-weight-600 alt-font text-dark-gray sm-text-medium display-inline-block">- AARRON WALTER</span>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <!-- end testimonial item -->--}}
-{{--                            <!-- testimonial item -->--}}
-{{--                            <div class="col-md-6 col-sm-6 col-xs-12 xs-text-center">--}}
-{{--                                <div class="col-md-3 col-sm-3 col-xs-12 sm-no-padding sm-margin-eleven-bottom">--}}
-{{--                                    <img class="border-radius-100 width-95 xs-width-40" src="{{asset('welcome-home-page/images/avtar.jpg')}}" data-img-size="(W)149px X (H)149px" alt=""/>--}}
-{{--                                </div>--}}
-{{--                                <div class="col-md-9 col-sm-9 col-xs-12 feature-box-details">--}}
-{{--                                    <div class="text-medium margin-five-bottom sm-margin-twelve-bottom xs-margin-six-bottom float-left width-100 tz-text">Lorem Ipsum has been the industry's standard dummy text ever since, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</div>--}}
-{{--                                    <span class="tz-text font-weight-600 alt-font text-dark-gray sm-text-medium display-inline-block">- SHOKO MUGIKURA</span>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <!-- end testimonial item -->--}}
-{{--                        </div>--}}
                     </div>
                 </section>
                 <!-- ############ PAGE END-->
