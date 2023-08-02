@@ -66,7 +66,13 @@
                                                                 <td>{{ $approved_track->name }}</td>
                                                                 <td>{{ getDateFormat($approved_track->release_date) }}</td>
                                                                 <td>
-                                                                    <a href="{{ route('admin.artist.profile', !empty($approved_track->user) ? $approved_track->user->id : null) }}">{{ !empty($approved_track->user) ? $approved_track->user->name : '' }}</a>
+                                                                    @if(!empty($approved_track->user))
+                                                                        <a href="{{ route('admin.artist.profile', !empty($approved_track->user) ? $approved_track->user->id : null) }}">
+                                                                            {{ !empty($approved_track->user) ? $approved_track->user->name : '' }}
+                                                                        </a>
+                                                                    @else
+                                                                        {{__('------')}}
+                                                                    @endif
                                                                 </td>
                                                                 <td>{{ getDateFormat($approved_track->created_at) }}</td>
                                                                 <td>
