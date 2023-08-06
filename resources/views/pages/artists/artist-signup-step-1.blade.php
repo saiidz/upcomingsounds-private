@@ -22,8 +22,8 @@
         <div class="container">
             <div class="row">
                 <div id="snackbar"></div>
-                <div class="col-md-6">
-                    <div class="cardcontainer">
+                <div class="col-md-12">
+                    <div class="cardcontainer" style="margin: 0 auto;">
                         <div class="photo"> <img src="{{asset('images/artist.svg')}}">
                         </div>
                         <div class="content_artist">
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <!-- <div class="col-md-6">
                     <div class="cardcontainer">
                         <div class="photo"> <img src="{{asset('images/artist_representative.svg')}}">
                         </div>
@@ -47,7 +47,7 @@
                             <a class="button transparent  tellMeMore siGnup1" href="{{route('artist.signup.representative.step.2')}}?signup=representative">Start</a>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
