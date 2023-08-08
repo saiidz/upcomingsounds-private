@@ -72,7 +72,7 @@
                     <div class="m-b-md">
                         <ul class="nav l-h-2x _600">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{url('/about-us')}}">About us</a>
+                                <a class="nav-link" style="color: rgba(0,0,0,.87) !important;" href="{{url('/about-us')}}">About us</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="https://blog.upcomingsounds.com">Blog</a>
