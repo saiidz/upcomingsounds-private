@@ -1,4 +1,4 @@
-<div class="col-lg-5 w-xxl w-auto-md">
+<div class="col-lg-4 w-xxl w-auto-md">
     <div class="padding" style="bottom: 60px;" data-ui-jp="stick_in_parent">
         <div class="row item-list item-list-sm m-b">
             <div class="col-xs-12">
