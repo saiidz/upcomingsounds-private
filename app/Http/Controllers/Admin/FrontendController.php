@@ -52,7 +52,7 @@ class FrontendController extends Controller
             'title_two_end_section'        => 'required',
             'description_one_end_section'  => 'required',
             'title_one_end_section'        => 'required',
-            'image_upcoming'               => 'mimes:png,jpg',
+            'image_upcoming_sounds'        => 'mimes:png,jpg',
             'upcoming_sound_content_one'   => 'required',
             'upcoming_sound_content_two'   => 'required',
             'upcoming_sound_content_three' => 'required',
@@ -97,11 +97,11 @@ class FrontendController extends Controller
             $award_image_new_path = "uploads/homesection/award_image_upcoming.webp";
         }
 
-        if ($request->hasFile('image_upcoming'))
+        if ($request->hasFile('image_upcoming_sounds'))
         {
-            $image = Webp::make($request->file('image_upcoming'))->quality(70);
-            $image->save(public_path('uploads/homesection/image_upcoming.webp'));
-            $image_new_path = "uploads/homesection/image_upcoming.webp";
+            $image = Webp::make($request->file('image_upcoming_sounds'))->quality(70);
+            $image->save(public_path('uploads/homesection/image_upcoming_sounds.webp'));
+            $image_new_path = "uploads/homesection/image_upcoming_sounds.webp";
         }
 
         $theme = Option::where('key','home_new_settings')->first();
@@ -121,7 +121,7 @@ class FrontendController extends Controller
             'title_two_end_section'         => $request->title_two_end_section ?? null,
             'description_one_end_section'   => $request->description_one_end_section ?? null,
             'title_one_end_section'         => $request->title_one_end_section ?? null,
-            'image_upcoming'                => !empty($image_new_path) ? $image_new_path : (!empty($image_new) ? $image_new : null),
+            'image_upcoming_sounds'         => !empty($image_new_path) ? $image_new_path : (!empty($image_new) ? $image_new : null),
             'upcoming_sound_content_one'    => $request->upcoming_sound_content_one ?? null,
             'upcoming_sound_content_two'    => $request->upcoming_sound_content_two ?? null,
             'upcoming_sound_content_three'  => $request->upcoming_sound_content_three ?? null,
