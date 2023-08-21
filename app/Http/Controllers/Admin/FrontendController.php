@@ -76,6 +76,8 @@ class FrontendController extends Controller
             return response()->json(['errors' => $validator->errors()->all()]);
         }
 
+        $theme = Option::where('key','home_new_settings')->first();
+
         if ($request->hasFile('artist_image'))
         {
             $artist_image = Webp::make($request->file('artist_image'))->quality(70);
@@ -99,12 +101,14 @@ class FrontendController extends Controller
 
         if ($request->hasFile('image_upcoming_sounds'))
         {
+            $image_new = !empty(json_decode($theme->value)->image_upcoming_sounds) ? json_decode($theme->value)->image_upcoming_sounds : null;
+            if(file_exists($image_new)) {
+                unlink($image_new);
+            }
             $image = Webp::make($request->file('image_upcoming_sounds'))->quality(70);
             $image->save(public_path('uploads/homesection/image_upcoming_sounds.webp'));
             $image_new_path = "uploads/homesection/image_upcoming_sounds.webp";
         }
-
-        $theme = Option::where('key','home_new_settings')->first();
 
         if(!empty($theme))
         {
