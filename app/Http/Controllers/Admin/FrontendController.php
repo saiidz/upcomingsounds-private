@@ -126,7 +126,7 @@ class FrontendController extends Controller
             'title_two_end_section'         => $request->title_two_end_section ?? null,
             'description_one_end_section'   => $request->description_one_end_section ?? null,
             'title_one_end_section'         => $request->title_one_end_section ?? null,
-            'home_end_section_image'        => $image_new_path,
+            'home_end_section_image'        => !empty($image_new_path) ? $image_new_path : (!empty($image_new) ? $image_new : null),
             'upcoming_sound_content_one'    => $request->upcoming_sound_content_one ?? null,
             'upcoming_sound_content_two'    => $request->upcoming_sound_content_two ?? null,
             'upcoming_sound_content_three'  => $request->upcoming_sound_content_three ?? null,
