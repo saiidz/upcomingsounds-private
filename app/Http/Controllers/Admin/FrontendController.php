@@ -111,7 +111,7 @@ class FrontendController extends Controller
             $artist_image_new = !empty(json_decode($theme->value)->artist_image) ? json_decode($theme->value)->artist_image : null;
             $curator_image_new = !empty(json_decode($theme->value)->curator_image) ? json_decode($theme->value)->curator_image : null;
             $award_image_new = !empty(json_decode($theme->value)->award_image) ? json_decode($theme->value)->award_image : null;
-            $image_new = !empty(json_decode($theme->value)->image) ? json_decode($theme->value)->image : null;
+            $image_new = !empty(json_decode($theme->value)->image_upcoming_sounds) ? json_decode($theme->value)->image_upcoming_sounds : null;
         }
 
         $data = [
