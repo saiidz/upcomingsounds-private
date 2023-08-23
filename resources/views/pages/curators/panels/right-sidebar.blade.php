@@ -233,15 +233,19 @@
                                 <div class="text-white m-t-3">
                                     {{-- First Tiers Percentage--}}
                                     @if($countSubmitCoverages <= \App\Templates\ITiers::TEARS_ONE)
-                                        @if($countSubmitCoverages >= $tOne && $countSubmitCoverages <= 334)
-                                            <p>{{\App\Templates\ITiers::PERCENTAGE_25}}</p>
-                                        @elseif($countSubmitCoverages >= 334 && $countSubmitCoverages != 500) {{-- 167+167=334 --}}
-                                             <p>{{\App\Templates\ITiers::PERCENTAGE_75}}l</p>
-                                        @elseif($countSubmitCoverages >= 500) {{-- 167+167+166=500 --}}
-                                            <p>You {{\App\Templates\ITiers::PERCENTAGE_100}}</p>
-                                        @else
-                                            <p>{{\App\Templates\ITiers::PERCENTAGE_0}}</p>
-                                        @endif
+                                        @php
+                                                $progress = ($countSubmitCoverages / \App\Templates\ITiers::TEARS_ONE) * 100;
+                                        @endphp
+                                        <p>{{'You are '.$progress.'% to your next pay level'}}</p>
+{{--                                        @if($countSubmitCoverages >= $tOne && $countSubmitCoverages <= 334)--}}
+{{--                                            <p>{{\App\Templates\ITiers::PERCENTAGE_25}}</p>--}}
+{{--                                        @elseif($countSubmitCoverages >= 334 && $countSubmitCoverages != 500) --}}{{-- 167+167=334 --}}
+{{--                                             <p>{{\App\Templates\ITiers::PERCENTAGE_75}}l</p>--}}
+{{--                                        @elseif($countSubmitCoverages >= 500) --}}{{-- 167+167+166=500 --}}
+{{--                                            <p>You {{\App\Templates\ITiers::PERCENTAGE_100}}</p>--}}
+{{--                                        @else--}}
+{{--                                            <p>{{\App\Templates\ITiers::PERCENTAGE_0}}</p>--}}
+{{--                                        @endif--}}
                                      {{-- Second Tiers Percentage--}}
                                     @elseif($countSubmitCoverages <= 900)
                                         @if($countSubmitCoverages >= 633 && $countSubmitCoverages <= 766)
