@@ -15,6 +15,12 @@ class CreateCouponsTable extends Migration
     {
         Schema::create('coupons', function (Blueprint $table) {
             $table->id();
+            $table->string('code')->unique();
+            $table->decimal('discount', 8, 2);
+            $table->enum('discount_type', ['fixed', 'percentage']);
+            $table->date('expiration_date');
+            $table->boolean('is_redeemed')->default(false);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
