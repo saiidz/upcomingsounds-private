@@ -9,9 +9,15 @@ use App\Models\Country;
 use App\Models\Vehicle;
 use App\Models\Category;
 use App\Http\Resources\Bid;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Resources\myBids;
 use App\Models\AuctionVehicle;
+use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -26,28 +32,35 @@ use App\Http\Resources\Vehicle as VehicleResource;
 class DashboardController extends Controller
 {
     /**
-     * Dashboard
+     * @param Request $request
+     * @return Application|Factory|View
      */
     public function index(Request $request)
     {
         return view('pages.dashboard');
     }
+
     /**
-     * privacyPolicy
+     * @param Request $request
+     * @return Application|Factory|View
      */
     public function privacyPolicy(Request $request)
     {
         return view('privacy-policy');
     }
+
     /**
-     * termOfService
+     * @param Request $request
+     * @return Application|Factory|View
      */
     public function termOfService(Request $request)
     {
         return view('term-of-service');
     }
+
     /**
-     * aboutUs
+     * @param Request $request
+     * @return Application|Factory|View
      */
     public function aboutUs(Request $request)
     {
@@ -58,8 +71,10 @@ class DashboardController extends Controller
         }
         return view('about-us', get_defined_vars());
     }
+
     /**
-     * contactUs
+     * @param Request $request
+     * @return Application|Factory|View
      */
     public function contactUs(Request $request)
     {
@@ -70,8 +85,10 @@ class DashboardController extends Controller
         }
         return view('contact-us', get_defined_vars());
     }
+
     /**
-     * contactUsPost
+     * @param Request $request
+     * @return Application|RedirectResponse|Redirector
      */
     public function contactUsPost(Request $request)
     {
@@ -99,8 +116,10 @@ class DashboardController extends Controller
 
         return redirect('/contact-us')->with('success', 'Mail sent successfully.');
     }
+
     /**
-     * blog
+     * @param Request $request
+     * @return Application|Factory|View
      */
     public function blog(Request $request)
     {
@@ -108,7 +127,7 @@ class DashboardController extends Controller
     }
 
     /**
-     * help
+     * @return Application|Factory|View
      */
     public function help()
     {
@@ -117,7 +136,7 @@ class DashboardController extends Controller
 
     /**
      * @param Request $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function markNotification(Request $request)
     {

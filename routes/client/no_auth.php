@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GiftCardController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArtistController;
@@ -50,8 +51,11 @@ Route::get('help/ticket', [TicketHelpController::class,'helpTicket']);
 Route::post('help/ticket', [TicketHelpController::class,'postHelpTicket']);
 Route::post('newsletter', [NewsLetterSubscriptionController::class,'newsLetter']);
 
-// public profile artist
+# public profile artist
 Route::get('artist/public/{user:name}',[ArtistController::class,'artistPublicProfile'])->name('artist.public.profile');
+
+# Gift Card Route
+Route::get('gift-card',[GiftCardController::class, 'index'])->name('card-gift');
 
 // Route::group(['middleware' => ['web'], 'namespace' => '\BinshopsBlog\Controllers'], function () {
 

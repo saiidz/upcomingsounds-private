@@ -164,6 +164,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{url('/how-to-help')}}">Help</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('card-gift')}}">Gift Card</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
