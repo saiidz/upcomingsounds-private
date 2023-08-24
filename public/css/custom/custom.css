@@ -920,6 +920,9 @@ svg.svg-inline--fa {
     .mouse-icon {
         top: 300px !important;
     }
+    .bgGift{
+        height: 50vh !important;
+    }
 }
 
 /*
@@ -929,6 +932,9 @@ svg.svg-inline--fa {
 
 @media (min-width: 320px) and (max-width: 480px) {
 
+    .bgGift{
+        height: 40vh !important;
+    }
     #loading {
         top: 38px !important;
     }
