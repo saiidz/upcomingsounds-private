@@ -15,6 +15,7 @@ use IlluminateAgnostic\Str\Support\Str;
 use Stripe\Checkout\Session;
 use Stripe\Exception\ApiErrorException;
 use Stripe\Stripe;
+use Stripe\StripeClient;
 
 class GiftCardController extends Controller
 {
@@ -109,7 +110,7 @@ class GiftCardController extends Controller
         if(!empty($sessionExist))
         {
             # update customer
-            $stripe = new \Stripe\StripeClient(Config::get('services.stripe.secret'));
+            $stripe = new StripeClient(Config::get('services.stripe.secret'));
             $customer = $stripe->customers->retrieve($session->customer);
 
             $sessionExist->update([
@@ -142,7 +143,7 @@ class GiftCardController extends Controller
         if(!empty($sessionExist))
         {
             # update customer
-            $stripe = new \Stripe\StripeClient(Config::get('services.stripe.secret'));
+            $stripe = new StripeClient(Config::get('services.stripe.secret'));
             $customer = $stripe->customers->retrieve($session->customer);
 
             $sessionExist->update([
