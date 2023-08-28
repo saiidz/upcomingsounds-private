@@ -101,7 +101,7 @@ class GiftCardController extends Controller
      */
     public function checkoutSuccess(Request $request)
     {
-        dd($_GET['session_id']);
+        dd($_GET, $request->all());
         Stripe::setApiKey(Config::get('services.stripe.secret'));
         $session = Session::retrieve($request['session_id']);
 
