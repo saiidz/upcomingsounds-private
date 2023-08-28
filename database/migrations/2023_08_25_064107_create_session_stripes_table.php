@@ -15,6 +15,19 @@ class CreateSessionStripesTable extends Migration
     {
         Schema::create('session_stripes', function (Blueprint $table) {
             $table->id();
+            $table->longText('session_id')->nullable();
+            $table->string('coupon_code')->unique()->index()->nullable();
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('currency')->nullable();
+            $table->string('live_mode')->nullable();
+            $table->longText('url')->nullable();
+            $table->string('payment_status')->nullable();
+            $table->json('details')->nullable();
+            $table->longText('stripe_customer_id')->nullable();
+            $table->json('customer_details')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
