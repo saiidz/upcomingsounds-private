@@ -16,6 +16,11 @@
             text-align: center;
             padding: 20px 20px;
         }
+        .card
+        {
+            background-color: initial !important;
+            border:none !important;
+        }
     </style>
 @endsection
 
@@ -40,7 +45,7 @@
                         <div class="card mb-6">
                             <img src="{{ asset('images/gift-card/GC-USC-20.png')  }}" width="100%" class="card-img-top" alt="">
                             <div class="card-body">
-                                <a href="javascript:void(0)" class="nav-link">
+                                <a href="{{route('checkout.gift.card')}}" class="nav-link">
                                     <span class="btn btn-small-white rounded primary _600">{{ __('Buy Now') }}</span>
                                 </a>
                             </div>
@@ -109,5 +114,5 @@
 @endsection
 
 @section('page-script')
-
+    <script src="https://js.stripe.com/v3/"></script>
 @endsection
