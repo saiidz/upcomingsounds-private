@@ -116,7 +116,8 @@ class GiftCardController extends Controller
             {
                 # update customer
                 $stripe = new StripeClient(Config::get('services.stripe.secret'));
-                $customer = $stripe->customers->retrieve($session->customer);
+                if(!empty($session->customer))
+                    $customer = $stripe->customers->retrieve($session->customer);
 
                 $sessionExist->update([
                     'name'               => !empty($customer) ? $customer['name'] : null,
@@ -125,7 +126,7 @@ class GiftCardController extends Controller
                     'payment_status'     => $session['payment_status'],
                     'details'            => json_encode($session),
                     'stripe_customer_id' => !empty($customer) ? $customer['id'] : null,
-                    'customer_details'   => json_encode($customer),
+                    'customer_details'   => !empty($customer) ? json_encode($customer) : null,
                 ]);
             }
 
@@ -154,7 +155,9 @@ class GiftCardController extends Controller
             {
                 # update customer
                 $stripe = new StripeClient(Config::get('services.stripe.secret'));
-                $customer = $stripe->customers->retrieve($session->customer);
+
+                if(!empty($session->customer))
+                    $customer = $stripe->customers->retrieve($session->customer);
 
                 $sessionExist->update([
                     'name'               => !empty($customer) ? $customer['name'] : null,
@@ -163,7 +166,7 @@ class GiftCardController extends Controller
                     'payment_status'     => $session['payment_status'],
                     'details'            => json_encode($session),
                     'stripe_customer_id' => !empty($customer) ? $customer['id'] : null,
-                    'customer_details'   => json_encode($customer),
+                    'customer_details'   => !empty($customer) ? json_encode($customer) : null,
                 ]);
             }
 
