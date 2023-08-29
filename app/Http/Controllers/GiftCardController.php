@@ -62,7 +62,8 @@ class GiftCardController extends Controller
                 'client_reference_id' => Str::random(6),
 //                'success_url' => route('checkout.success',['session_id' => CHECKOUT_SESSION_ID]),
                 'success_url' => url('success-checkout/session_id={CHECKOUT_SESSION_ID}'),
-                'cancel_url' => route('checkout.failure'),
+                'cancel_url'  => url('failure-checkout/session_id={CHECKOUT_SESSION_ID}'),
+//                'cancel_url' => route('checkout.failure'),
             ]);
             $timestamp = now()->timestamp;
             $sixDigitTime = substr($timestamp, -6);
@@ -101,31 +102,35 @@ class GiftCardController extends Controller
      */
     public function checkoutSuccess(Request $request)
     {
-        dd($_GET,request()->url(), request()->all(), request()->toArray(),request()->query('session_id'));
-        Stripe::setApiKey(Config::get('services.stripe.secret'));
-        $session = Session::retrieve($request['session_id']);
-
-        $sessionExist = SessionStripe::where('session_id',$session['id'])->first();
-
-        # update success and failure payment
-        if(!empty($sessionExist))
+        $sessionID = explode('session_id=',$request->url());
+        if(!empty($sessionID) && (!empty($sessionID[1])))
         {
-            # update customer
-            $stripe = new StripeClient(Config::get('services.stripe.secret'));
-            $customer = $stripe->customers->retrieve($session->customer);
+            $request['session_id'] = $sessionID[1];
+            Stripe::setApiKey(Config::get('services.stripe.secret'));
+            $session = Session::retrieve($request['session_id']);
 
-            $sessionExist->update([
-                'name'               => !empty($customer) ? $customer['name'] : null,
-                'email'              => !empty($customer) ? $customer['email'] : null,
-                'phone'             => !empty($customer) ? $customer['phone'] : null,
-                'payment_status'     => $session['payment_status'],
-                'details'            => json_encode($session),
-                'stripe_customer_id' => !empty($customer) ? $customer['id'] : null,
-                'customer_details'   => json_encode($customer),
-            ]);
+            $sessionExist = SessionStripe::where('session_id',$session['id'])->first();
+
+            # update success and failure payment
+            if(!empty($sessionExist))
+            {
+                # update customer
+                $stripe = new StripeClient(Config::get('services.stripe.secret'));
+                $customer = $stripe->customers->retrieve($session->customer);
+
+                $sessionExist->update([
+                    'name'               => !empty($customer) ? $customer['name'] : null,
+                    'email'              => !empty($customer) ? $customer['email'] : null,
+                    'phone'             => !empty($customer) ? $customer['phone'] : null,
+                    'payment_status'     => $session['payment_status'],
+                    'details'            => json_encode($session),
+                    'stripe_customer_id' => !empty($customer) ? $customer['id'] : null,
+                    'customer_details'   => json_encode($customer),
+                ]);
+            }
+
+            return redirect('gift-card')->with('success','Payment has been successfully processed and gift card details send to your email you have entered on stripe payment.');
         }
-
-        return redirect('gift-card')->with('success','Payment has been successfully processed and gift card details send to your email you have entered on stripe payment.');
     }
 
     /**
@@ -135,29 +140,34 @@ class GiftCardController extends Controller
      */
     public function checkoutFailure(Request $request)
     {
-        Stripe::setApiKey(Config::get('services.stripe.secret'));
-        $session = Session::retrieve($request['session_id']);
-
-        $sessionExist = SessionStripe::where('session_id',$session['id'])->first();
-
-        # update success and failure payment
-        if(!empty($sessionExist))
+        $sessionID = explode('session_id=',$request->url());
+        if(!empty($sessionID) && (!empty($sessionID[1])))
         {
-            # update customer
-            $stripe = new StripeClient(Config::get('services.stripe.secret'));
-            $customer = $stripe->customers->retrieve($session->customer);
+            $request['session_id'] = $sessionID[1];
+            Stripe::setApiKey(Config::get('services.stripe.secret'));
+            $session = Session::retrieve($request['session_id']);
 
-            $sessionExist->update([
-                'name'               => !empty($customer) ? $customer['name'] : null,
-                'email'              => !empty($customer) ? $customer['email'] : null,
-                'phone'              => !empty($customer) ? $customer['phone'] : null,
-                'payment_status'     => $session['payment_status'],
-                'details'            => json_encode($session),
-                'stripe_customer_id' => !empty($customer) ? $customer['id'] : null,
-                'customer_details'   => json_encode($customer),
-            ]);
+            $sessionExist = SessionStripe::where('session_id',$session['id'])->first();
+
+            # update success and failure payment
+            if(!empty($sessionExist))
+            {
+                # update customer
+                $stripe = new StripeClient(Config::get('services.stripe.secret'));
+                $customer = $stripe->customers->retrieve($session->customer);
+
+                $sessionExist->update([
+                    'name'               => !empty($customer) ? $customer['name'] : null,
+                    'email'              => !empty($customer) ? $customer['email'] : null,
+                    'phone'              => !empty($customer) ? $customer['phone'] : null,
+                    'payment_status'     => $session['payment_status'],
+                    'details'            => json_encode($session),
+                    'stripe_customer_id' => !empty($customer) ? $customer['id'] : null,
+                    'customer_details'   => json_encode($customer),
+                ]);
+            }
+
+            return redirect('gift-card')->with('error','Payment has been cancelled.');
         }
-
-        return redirect('gift-card')->with('error','Payment has been cancelled.');
     }
 }
