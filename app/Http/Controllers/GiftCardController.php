@@ -11,6 +11,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Mail;
 use IlluminateAgnostic\Str\Support\Str;
 use Stripe\Checkout\Session;
 use Stripe\Exception\ApiErrorException;
@@ -128,6 +129,20 @@ class GiftCardController extends Controller
                     'stripe_customer_id' => !empty($customer) ? $customer['id'] : null,
                     'customer_details'   => !empty($customer) ? json_encode($customer) : null,
                 ]);
+
+                $data['email'] = !empty($customer) ? $customer['email'] : null;
+                $data['username'] = !empty($customer) ? $customer['name'] : null;
+                $data["title"] = "GIFT CARD Upcoming Sounds";
+
+                try {
+                    Mail::send('gift-card.gift-card-email', $data, function($message)use($data) {
+                        $message->from('gary@upcomingsounds.com');
+                        $message->to($data["email"], $data["email"])
+                            ->subject($data["title"]);
+                    });
+                } catch (\Throwable $th) {
+                    //throw $th;
+                }
             }
 
             return redirect('gift-card')->with('success','Payment has been successfully processed and gift card details send to your email you have entered on stripe payment.');
