@@ -57,7 +57,7 @@ Route::get('artist/public/{user:name}',[ArtistController::class,'artistPublicPro
 # Gift Card Route
 Route::get('gift-card',[GiftCardController::class, 'index'])->name('card-gift');
 Route::get('checkout-gift-card',[GiftCardController::class, 'checkout'])->name('checkout.gift.card');
-Route::get('success-checkout',[GiftCardController::class, 'checkoutSuccess'])->name('checkout.success');
+Route::get('success-checkout/session_id={session_id}',[GiftCardController::class, 'checkoutSuccess'])->name('checkout.success');
 Route::get('failure-checkout',[GiftCardController::class, 'checkoutFailure'])->name('checkout.failure');
 
 // Route::group(['middleware' => ['web'], 'namespace' => '\BinshopsBlog\Controllers'], function () {

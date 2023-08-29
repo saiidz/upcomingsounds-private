@@ -61,7 +61,7 @@ class GiftCardController extends Controller
                 'mode' => 'payment',
                 'client_reference_id' => Str::random(6),
 //                'success_url' => route('checkout.success',['session_id' => CHECKOUT_SESSION_ID]),
-                'success_url' => url('success-checkout?session_id={CHECKOUT_SESSION_ID}'),
+                'success_url' => url('success-checkout/session_id={CHECKOUT_SESSION_ID}'),
                 'cancel_url' => route('checkout.failure'),
             ]);
             $timestamp = now()->timestamp;
