@@ -11,6 +11,7 @@ interface IOfferTemplateStatus
     const EXPIRED = 'EXPIRED';
     const ALTERNATIVE = 'ALTERNATIVE';
     const COMPLETED = 'COMPLETED';
+    const CANCELLED = 'CANCELLED';
     const NEW = 'NEW';
     const TYPE_OFFER = 'OFFER';
     const TYPE_DIRECT_OFFER = 'DIRECT_OFFER';

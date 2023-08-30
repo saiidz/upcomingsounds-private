@@ -19,7 +19,7 @@ class CreateArtistCouponGiftCardsTable extends Migration
             $table->foreignId('session_strip_id')->references('id')->on('session_stripes')->constrained()->onDelete('cascade');
             $table->string('credits')->nullable();
             $table->string('coupon_code')->unique()->index()->nullable();
-            $table->enum('status',['PENDING','PAID'])->default('PENDING');
+            $table->enum('status',['PENDING','PAID','CANCELLED'])->default('PENDING');
             $table->softDeletes();
             $table->timestamps();
         });

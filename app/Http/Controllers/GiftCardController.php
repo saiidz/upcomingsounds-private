@@ -196,6 +196,7 @@ class GiftCardController extends Controller
                     'email'              => !empty($customer) ? $customer['email'] : null,
                     'phone'              => !empty($customer) ? $customer['phone'] : null,
                     'payment_status'     => $session['payment_status'],
+                    'claim_now_status'   => IOfferTemplateStatus::CANCELLED,
                     'details'            => json_encode($session),
                     'stripe_customer_id' => !empty($customer) ? $customer['id'] : null,
                     'customer_details'   => !empty($customer) ? json_encode($customer) : null,
