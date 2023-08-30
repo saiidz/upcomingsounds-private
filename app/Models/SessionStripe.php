@@ -17,6 +17,7 @@ class SessionStripe extends Model
         'name',
         'email',
         'phone',
+        'amount',
         'currency',
         'live_mode',
         'url',

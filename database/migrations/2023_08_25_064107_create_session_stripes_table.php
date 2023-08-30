@@ -20,6 +20,7 @@ class CreateSessionStripesTable extends Migration
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
+            $table->string('amount')->nullable();
             $table->string('currency')->nullable();
             $table->string('live_mode')->nullable();
             $table->longText('url')->nullable();

@@ -26,20 +26,6 @@ class GiftCardController extends Controller
      */
     public function index()
     {
-//        $data['email'] = 'farhanakram670@gmail.com';
-//        $data['username'] = 'farhan';
-//        $data["title"] = "GIFT CARD Upcoming Sounds";
-//
-//        try {
-//            Mail::send('gift-card.gift-card-email', $data, function($message)use($data) {
-//                $message->from('info@upcomingsounds.com');
-//                $message->to($data["email"], $data["email"])
-//                    ->subject($data["title"]);
-//            });
-//        } catch (\Throwable $th) {
-//            //throw $th;
-//        }
-
         return view('gift-card.index');
     }
 
@@ -49,7 +35,14 @@ class GiftCardController extends Controller
      */
     public function checkout(Request $request)
     {
-        $priceID = decrypt($request['price_id']);
+        try {
+            $priceID = decrypt($request['price_id']);
+            $amount  = decrypt($request['amount']);
+        }catch (DecryptException $e){
+            return abort(404,'Not Found');
+        }
+
+
         if(empty($priceID))
             return redirect()->back()->with('error','Something went wrong');
 
@@ -95,6 +88,7 @@ class GiftCardController extends Controller
                 SessionStripe::create([
                     'session_id'     => $session['id'],
                     'coupon_code'    => $couponCode,
+                    'amount'         => $amount,
                     'currency'       => $session['currency'],
                     'live_mode'      => !$session['live_mode'] ? 'sandbox' : 'live',
                     'url'            => $session['url'],

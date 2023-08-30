@@ -69,7 +69,7 @@
                         <div class="card mb-6">
                             <img src="{{ asset('images/gift-card/GC-USC-20.png')  }}" width="100%" class="card-img-top" alt="">
                             <div class="card-body">
-                                <a href="{{route('checkout.gift.card',['price_id' => encrypt(\App\Templates\IGiftCard_Product_Stripe::SANDBOX_500)])}}" class="nav-link">
+                                <a href="{{route('checkout.gift.card',['price_id' => encrypt(\App\Templates\IGiftCard_Product_Stripe::SANDBOX_500),'amount' => encrypt(\App\Templates\IGiftCard_Product_Stripe::SANDBOX_AMOUNT_500)])}}" class="nav-link">
                                     <span class="btn btn-small-white rounded primary _600">{{ __('Buy Now') }}</span>
                                 </a>
                             </div>
@@ -79,7 +79,7 @@
                         <div class="card mb-6">
                             <img src="{{ asset('images/gift-card/GC-USC-50.png')  }}" width="100%" class="card-img-top" alt="">
                             <div class="card-body">
-                                <a href="{{route('checkout.gift.card',['price_id' => encrypt(\App\Templates\IGiftCard_Product_Stripe::LIVE_50)])}}" class="nav-link">
+                                <a href="{{route('checkout.gift.card',['price_id' => encrypt(\App\Templates\IGiftCard_Product_Stripe::LIVE_50),'amount' => encrypt(\App\Templates\IGiftCard_Product_Stripe::LIVE_AMOUNT_50)])}}" class="nav-link">
                                     <span class="btn btn-small-white rounded primary _600">{{ __('Buy Now') }}</span>
                                 </a>
                             </div>
@@ -95,7 +95,7 @@
                         <div class="card mb-6">
                             <img src="{{ asset('images/gift-card/GC-USC-100.png')  }}" width="100%" class="card-img-top" alt="">
                             <div class="card-body">
-                                <a href="{{route('checkout.gift.card',['price_id' => encrypt(\App\Templates\IGiftCard_Product_Stripe::LIVE_100)])}}" class="nav-link">
+                                <a href="{{route('checkout.gift.card',['price_id' => encrypt(\App\Templates\IGiftCard_Product_Stripe::LIVE_100),'amount' => encrypt(\App\Templates\IGiftCard_Product_Stripe::LIVE_AMOUNT_100)])}}" class="nav-link">
                                     <span class="btn btn-small-white rounded primary _600">{{ __('Buy Now') }}</span>
                                 </a>
                             </div>
@@ -105,7 +105,7 @@
                         <div class="card mb-6">
                             <img src="{{ asset('images/gift-card/GC-USC-250.png')  }}" width="100%" class="card-img-top" alt="">
                             <div class="card-body">
-                                <a href="{{route('checkout.gift.card',['price_id' => encrypt(\App\Templates\IGiftCard_Product_Stripe::LIVE_250)])}}" class="nav-link">
+                                <a href="{{route('checkout.gift.card',['price_id' => encrypt(\App\Templates\IGiftCard_Product_Stripe::LIVE_250),'amount' => encrypt(\App\Templates\IGiftCard_Product_Stripe::LIVE_AMOUNT_250)])}}" class="nav-link">
                                     <span class="btn btn-small-white rounded primary _600">{{ __('Buy Now') }}</span>
                                 </a>
                             </div>
@@ -122,7 +122,7 @@
                         <div class="card mb-6">
                             <img src="{{ asset('images/gift-card/GC-USC-500.png')  }}" width="100%" class="card-img-top" alt="">
                             <div class="card-body">
-                                <a href="{{route('checkout.gift.card',['price_id' => encrypt(\App\Templates\IGiftCard_Product_Stripe::LIVE_500)])}}" class="nav-link">
+                                <a href="{{route('checkout.gift.card',['price_id' => encrypt(\App\Templates\IGiftCard_Product_Stripe::LIVE_500),'amount' => encrypt(\App\Templates\IGiftCard_Product_Stripe::LIVE_AMOUNT_500)])}}" class="nav-link">
                                     <span class="btn btn-small-white rounded primary _600">{{ __('Buy Now') }}</span>
                                 </a>
                             </div>
