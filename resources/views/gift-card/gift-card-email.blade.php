@@ -148,7 +148,9 @@
                                                             <tbody>
                                                             <tr>
                                                                 <td style="font-size:6px; line-height:10px; padding:0px 0px 0px 0px;" valign="top" align="center">
-                                                                    <img class="max-width" border="0" style="display:block; color:#000000; text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px; max-width:100% !important; width:100%; height:auto !important;" width="600" alt="" data-proportionally-constrained="true" data-responsive="true" src="http://cdn.mcauto-images-production.sendgrid.net/fd89730147391a26/07cadea6-ff38-451e-89d9-548c3c305bb9/4097x1027.png">
+                                                                    <a href="{{config('app.url')}}" rel="noreferrer" target="_blank" style="text-align: center;display: inline-block;">
+                                                                        <img class="max-width" border="0" style="display:block; color:#000000; text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px; max-width:100% !important; width:100%; height:auto !important;" width="600" alt="" data-proportionally-constrained="true" data-responsive="true" src="http://cdn.mcauto-images-production.sendgrid.net/fd89730147391a26/07cadea6-ff38-451e-89d9-548c3c305bb9/4097x1027.png">
+                                                                    </a>
                                                                 </td>
                                                             </tr>
                                                             </tbody>
@@ -177,7 +179,9 @@
                                                             <tbody>
                                                             <tr>
                                                                 <td style="font-size:6px; line-height:10px; padding:0px 0px 0px 0px;" valign="top" align="center">
-                                                                    <img class="max-width" border="0" style="display:block; color:#000000; text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px; max-width:100% !important; width:100%; height:auto !important;" width="600" alt="" data-proportionally-constrained="true" data-responsive="true" src="http://cdn.mcauto-images-production.sendgrid.net/fd89730147391a26/09c94643-f66e-47d5-aa32-26588304a2d3/665x361.png">
+                                                                    <a href="{!! $claimUrl !!}" rel="noreferrer" target="_blank">
+                                                                        <img class="max-width" border="0" style="display:block; color:#000000; text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px; max-width:100% !important; width:100%; height:auto !important;" width="600" alt="" data-proportionally-constrained="true" data-responsive="true" src="http://cdn.mcauto-images-production.sendgrid.net/fd89730147391a26/09c94643-f66e-47d5-aa32-26588304a2d3/665x361.png">
+                                                                    </a>
                                                                 </td>
                                                             </tr>
                                                             </tbody>
@@ -198,7 +202,7 @@
                                                                         <tbody>
                                                                         <tr>
                                                                             <td align="center" bgcolor="#06b875" class="inner-td" style="border-radius:6px; font-size:16px; text-align:center; background-color:inherit;">
-                                                                                <a href="javascript:void(0)" style="background-color:#06b875; border:1px solid #333333; border-color:#333333; border-radius:6px; border-width:1px; color:#ffffff; display:inline-block; font-size:14px; font-weight:normal; letter-spacing:0px; line-height:normal; padding:12px 18px 12px 18px; text-align:center; text-decoration:none; border-style:solid;">
+                                                                                <a href="{!! $claimUrl !!}" target="_blank" style="background-color:#06b875; border:1px solid #333333; border-color:#333333; border-radius:6px; border-width:1px; color:#ffffff; display:inline-block; font-size:14px; font-weight:normal; letter-spacing:0px; line-height:normal; padding:12px 18px 12px 18px; text-align:center; text-decoration:none; border-style:solid;">
                                                                                     Claim now
                                                                                 </a>
                                                                             </td>
@@ -209,6 +213,25 @@
                                                             </tr>
                                                             </tbody>
                                                         </table>
+                                                        <table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="3710f6c7-ea4d-48cc-b6ac-451f189237e0" data-mc-module-version="2019-10-22">
+                                                            <tbody>
+                                                            <tr>
+                                                                <td style="padding:18px 0px 18px 0px; line-height:20px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content">
+                                                                    <div>
+                                                                        <h4 style="text-align: inherit">
+                                                                            <span style="font-family: arial, helvetica, sans-serif">
+                                                                                If you're having trouble clicking the "Claim now" button, copy and paste the URL below into your web browser:
+                                                                            </span>
+                                                                            <a href="{!! $claimUrl !!}">
+                                                                                <span style="font-family: arial, helvetica, sans-serif">{!! $claimUrl !!} </span>
+                                                                            </a>
+                                                                        </h4>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+
                                                         <table class="module" role="module" data-type="spacer" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="da99b551-1bf9-45b0-a03a-35bc4fcdb52b">
                                                             <tbody>
                                                             <tr>
@@ -221,7 +244,9 @@
                                                             <tbody>
                                                             <tr>
                                                                 <td style="font-size:6px; line-height:10px; padding:0px 0px 0px 0px;" valign="top" align="center">
-                                                                    <img class="max-width" border="0" style="display:block; color:#000000; text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px; max-width:30% !important; width:30%; height:auto !important;" width="180" alt="" data-proportionally-constrained="true" data-responsive="true" src="http://cdn.mcauto-images-production.sendgrid.net/fd89730147391a26/07cadea6-ff38-451e-89d9-548c3c305bb9/4097x1027.png">
+                                                                    <a href="{{config('app.url')}}" rel="noreferrer" target="_blank">
+                                                                        <img class="max-width" border="0" style="display:block; color:#000000; text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px; max-width:30% !important; width:30%; height:auto !important;" width="180" alt="" data-proportionally-constrained="true" data-responsive="true" src="http://cdn.mcauto-images-production.sendgrid.net/fd89730147391a26/07cadea6-ff38-451e-89d9-548c3c305bb9/4097x1027.png">
+                                                                    </a>
                                                                 </td>
                                                             </tr>
                                                             </tbody>

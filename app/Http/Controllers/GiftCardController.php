@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\SessionStripe;
+use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -25,6 +26,20 @@ class GiftCardController extends Controller
      */
     public function index()
     {
+//        $data['email'] = 'farhanakram670@gmail.com';
+//        $data['username'] = 'farhan';
+//        $data["title"] = "GIFT CARD Upcoming Sounds";
+//
+//        try {
+//            Mail::send('gift-card.gift-card-email', $data, function($message)use($data) {
+//                $message->from('info@upcomingsounds.com');
+//                $message->to($data["email"], $data["email"])
+//                    ->subject($data["title"]);
+//            });
+//        } catch (\Throwable $th) {
+//            //throw $th;
+//        }
+
         return view('gift-card.index');
     }
 
@@ -133,10 +148,11 @@ class GiftCardController extends Controller
                 $data['email'] = !empty($customer) ? $customer['email'] : null;
                 $data['username'] = !empty($customer) ? $customer['name'] : null;
                 $data["title"] = "GIFT CARD Upcoming Sounds";
+                $data['claimUrl'] = route('gift-card-claim',encrypt($session['id']));
 
                 try {
                     Mail::send('gift-card.gift-card-email', $data, function($message)use($data) {
-                        $message->from('gary@upcomingsounds.com');
+                        $message->from('info@upcomingsounds.com');
                         $message->to($data["email"], $data["email"])
                             ->subject($data["title"]);
                     });
@@ -187,5 +203,29 @@ class GiftCardController extends Controller
 
             return redirect('gift-card')->with('error','Payment has been cancelled.');
         }
+    }
+
+    /**
+     * @param $session_id
+     * @return Application|Factory|View|RedirectResponse|void
+     */
+    public function giftCardClaim($session_id)
+    {
+        try {
+            $session_id = decrypt($session_id);
+            if(!empty($session_id))
+            {
+                $sessionStripe = SessionStripe::where('session_id',$session_id)->first();
+                if(!empty($sessionStripe))
+                    return view('gift-card.claim', get_defined_vars());
+                else
+                    return redirect()->route('card-gift')->with('error','Session ID not found');
+            }else
+                return redirect()->route('card-gift')->with('error','Session ID not found');
+        }catch (DecryptException $e)
+        {
+            abort(404,'Not Found');
+        }
+
     }
 }

@@ -21,6 +21,7 @@ class SessionStripe extends Model
         'live_mode',
         'url',
         'payment_status',
+        'claim_now_status',
         'details',
         'stripe_customer_id',
         'customer_details',

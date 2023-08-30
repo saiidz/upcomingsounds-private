@@ -59,6 +59,7 @@ Route::get('gift-card',[GiftCardController::class, 'index'])->name('card-gift');
 Route::get('checkout-gift-card',[GiftCardController::class, 'checkout'])->name('checkout.gift.card');
 Route::get('success-checkout/session_id={session_id}',[GiftCardController::class, 'checkoutSuccess'])->name('checkout.success');
 Route::get('failure-checkout/session_id={session_id}',[GiftCardController::class, 'checkoutFailure'])->name('checkout.failure');
+Route::get('gift-card-claim/{session_id}',[GiftCardController::class, 'giftCardClaim'])->name('gift-card-claim');
 
 // Route::group(['middleware' => ['web'], 'namespace' => '\BinshopsBlog\Controllers'], function () {
 

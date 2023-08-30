@@ -24,6 +24,7 @@ class CreateSessionStripesTable extends Migration
             $table->string('live_mode')->nullable();
             $table->longText('url')->nullable();
             $table->string('payment_status')->nullable();
+            $table->enum('claim_now_status',['PENDING','PAID'])->default('PENDING');
             $table->json('details')->nullable();
             $table->longText('stripe_customer_id')->nullable();
             $table->json('customer_details')->nullable();
