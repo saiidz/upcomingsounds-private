@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Artist\ArtistCouponGiftCard;
 use App\Models\Country;
 use App\Models\TransactionHistory;
 use App\Models\TransactionUserInfo;
 use App\Models\User;
+use App\Templates\IOfferTemplateStatus;
 use App\Templates\IStatus;
 use Carbon\Carbon;
 use Illuminate\Contracts\Encryption\DecryptException;
@@ -26,6 +28,11 @@ class ArtistWalletController extends Controller
     public function wallet()
     {
 //        dd(Auth::user()->transactionHistory->sum('credits'));
+        # ArtistCouponGiftCards
+        $artistCouponGiftCards = ArtistCouponGiftCard::where([
+                'user_id' => Auth::id(),
+                'status' => IOfferTemplateStatus::PAID,
+            ])->get();
 
         $stripe = new StripeClient(Config('services.stripe.secret'));
 

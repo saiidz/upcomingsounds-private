@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Artist\ArtistCouponGiftCard;
 use App\Templates\IMessageTemplates;
 use App\Templates\IOfferTemplateStatus;
 use App\Templates\IStatus;
@@ -326,6 +327,14 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * @return HasMany
+     */
+    public function artistCouponGiftCard(): HasMany
+    {
+        return $this->hasMany(ArtistCouponGiftCard::class, 'user_id')->where('status' , IOfferTemplateStatus::PAID);
+    }
+
+    /**
      * @return int|void
      */
     public static function artistBalance()
@@ -337,6 +346,7 @@ class User extends Authenticatable implements MustVerifyEmail
                 - (!empty($user->campaign) ? $user->campaign->sum('usc_credit') : 0)
                 - (!empty($user->artistSendOfferTransaction) ? $user->artistSendOfferTransaction->sum('contribution') : 0)
                 + (!empty($user->artistRefundSendOfferTransaction) ? $user->artistRefundSendOfferTransaction->sum('contribution') : 0)
+                + (!empty($user->artistCouponGiftCard) ? $user->artistCouponGiftCard->sum('credits') : 0)
                 : 0;
             return $balance;
         }

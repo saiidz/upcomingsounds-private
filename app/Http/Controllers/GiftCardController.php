@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Artist\ArtistCouponGiftCard;
 use App\Models\SessionStripe;
+use App\Models\TransactionHistory;
+use App\Models\TransactionUserInfo;
+use App\Templates\IOfferTemplateStatus;
+use App\Templates\IStatus;
+use Carbon\Carbon;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -11,6 +17,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Mail;
 use IlluminateAgnostic\Str\Support\Str;
@@ -78,7 +85,7 @@ class GiftCardController extends Controller
             $sixDigitTime = substr($timestamp, -6);
             $randomString = Str::random(2); // You can adjust the length as needed
 
-            $couponCode = "UCS-{$sixDigitTime}{$randomString}";
+            $couponCode = "USC-{$sixDigitTime}{$randomString}";
 
             $session->metadata = ['coupon_code' => $couponCode];
 
@@ -221,5 +228,43 @@ class GiftCardController extends Controller
             abort(404,'Not Found');
         }
 
+    }
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function claimNowCoupon(Request $request)
+    {
+        if(!empty($request->coupon_code))
+        {
+            $stripeSession = SessionStripe::where([
+                'coupon_code'      => $request->coupon_code,
+                'payment_status'   => IStatus::PAID,
+                'claim_now_status' => IOfferTemplateStatus::PENDING,
+            ])->first();
+
+            if(!empty($stripeSession))
+            {
+                $user = Auth::user();
+                # Artist Coupon Gift card claim
+                ArtistCouponGiftCard::create([
+                    'user_id'          => $user->id,
+                    'session_strip_id' => $stripeSession->id,
+                    'credits'          => $stripeSession->amount,
+                    'coupon_code'      => $stripeSession->coupon_code,
+                    'status'           => IOfferTemplateStatus::PAID,
+                ]);
+
+                # update coupon status paid claim
+                $stripeSession->update([
+                    'claim_now_status' => IOfferTemplateStatus::PAID,
+                ]);
+
+                return response()->json(['success' => 'USC Credit in Your wallet. Please check coupon gift card history']);
+            }else
+                return response()->json(['error' => 'Coupon Code not Found. Please add correct code']);
+        }else
+            return response()->json(['error' => 'Coupon Code not Found']);
     }
 }

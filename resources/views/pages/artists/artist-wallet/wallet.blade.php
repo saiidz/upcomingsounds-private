@@ -20,13 +20,18 @@
         #walletLoadings {
             background: rgba(255, 255, 255, .4) url({{asset('images/loader.gif')}}) no-repeat center center !important;
         }
-        #myHistory .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+        #myHistory .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active,
+        #myCouponHistory .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
             color: white !important;
         }
-        #myHistory a.paginate_button {
+        #myHistory a.paginate_button ,
+        #myCouponHistory a.paginate_button
+        {
             color: white!important;
         }
-        #myHistory.dataTables_wrapper .dataTables_paginate .paginate_button:active {
+        #myHistory.dataTables_wrapper .dataTables_paginate .paginate_button:active,
+        #myCouponHistory.dataTables_wrapper .dataTables_paginate .paginate_button:active
+        {
             background-color: #2b2b2b!important;
             background: linear-gradient(to bottom, #2b2b2b 0%, #0c0c0c 100%)!important;
             box-shadow: inset 0 0 3px #111!important;
@@ -37,7 +42,10 @@
             box-shadow: inset 0 0 3px #111!important;
         }
         #myHistory tr.odd,
-        #myHistory tr.even {
+        #myHistory tr.even,
+        #myCouponHistory tr.odd,
+        #myCouponHistory tr.even
+        {
             color: black;
         }
         /*input.has-value {*/
@@ -66,6 +74,9 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#" data-toggle="tab" data-target="#myHistory">My History</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-toggle="tab" data-target="#myCouponHistory">Coupon/Gift Card</a>
                                 </li>
                                 <li>
                                     <div class="tw-w-full tw-flex tw-justify-end">
@@ -180,6 +191,9 @@
                             </div>
                             {{--  History  Wallet --}}
                             @include('pages.artists.artist-wallet.history')
+
+                            {{-- Coupon gift card history --}}
+                            @include('pages.artists.artist-wallet.coupon-gift-card-history')
                         </div>
                     </div>
                 </div>
@@ -188,7 +202,7 @@
 
         <div class="wantUP">
             <div class="mainParentContainer">
-                <span class="wantBUCS">Want to buy Upcoming Sounds<br class="br"> by unit?</span>
+                <span class="wantBUCS">Want to buy USC<br class="br"> by unit?</span>
                 <span class="wantPUCS">You can purchase between 1 and 1000 | USC credits</span>
 
                 <div class="row">
@@ -203,6 +217,19 @@
 
                 <span class="text-black possibleUCS">It's possible! All you have to do is start a campaign.<br class="tw-block"> When you send your campaign, you will be able to buy the exact number of Upcoming Sounds required to send your campaign</span>
                 <span class="text-muted pleaseNoteUCS">Please note that by buying credits individually, you do not benefit from the discounts offered by the packs.</span>
+
+                {{--Claim Coupons Code--}}
+                <div class="row" style="margin-bottom:25px;">
+                    <div class="col-sm-12">
+                        <div class="purchase_credit_wallet">
+                            <img class="icon_UP_check_wallet" src="{{asset('images/coin_bg.png')}}">
+                            <input type="text" min="1" class="form-control" id="couponCode" placeholder="Enter Coupon Code" value="" required>
+                            <a href="javascript:void(0)" class="buyNow_P_C couponCodeClaimNow" id="couponCodeClaimNow" onclick="couponClaimNow()">Claim Now</a>
+                        </div>
+                    </div>
+                </div>
+                {{--Claim Coupons Code--}}
+
                 <a href="{{url('welcome-your-track')}}" class="startCampaign">Start a campaign</a>
             </div>
         </div>
@@ -216,6 +243,48 @@
 {{--    <script src="{{asset('js/jquery.min.js')}}"></script>--}}
     <script src="https://js.stripe.com/v3/"></script>
 
+    <script>
+        // couponClaimNow js
+        function couponClaimNow()
+        {
+            let coupon_code = $('#couponCode').val();
+            if(coupon_code === "")
+            {
+                toastr.error('Please Add Coupon Code');
+                return false;
+            }
+
+            document.getElementById('couponCodeClaimNow').style.pointerEvents="none";
+            document.getElementById('couponCodeClaimNow').style.cursor="default";
+
+            $.ajax({
+                type: 'POST',
+                url: '{{route('claim.now.coupon')}}',
+                data: {
+                    coupon_code: coupon_code,
+                },
+                success:function (response){
+                    document.getElementById('couponCodeClaimNow').style.pointerEvents="auto";
+                    document.getElementById('couponCodeClaimNow').style.cursor="pointer";
+
+                    if(response.success)
+                    {
+                        toastr.success(response.success);
+                        $('#couponCode').val('');
+                        setTimeout(function() {
+                            location.reload();
+                        }, 3000);
+                        return false;
+                    }
+                    if(response.error)
+                    {
+                        toastr.error(response.error);
+                        return false;
+                    }
+                },
+            });
+        }
+    </script>
     <script>
         //eur currency
         //Standard package
@@ -874,6 +943,25 @@
         document.title='Artist History';
         // DataTable initialisation
         $('#historyWallet').DataTable(
+            {
+                "paging": true,
+                "buttons": [
+                    'colvis',
+                    'copyHtml5',
+                    'csvHtml5',
+                    'excelHtml5',
+                    'pdfHtml5',
+                    'print'
+                ]
+            }
+        );
+    });
+    $(document).ready(function() {
+        //Only needed for the filename of export files.
+        //Normally set in the title tag of your page.
+        document.title='Coupon/ Gift Card History';
+        // DataTable initialisation
+        $('#couponGiftHistoryWallet').DataTable(
             {
                 "paging": true,
                 "buttons": [

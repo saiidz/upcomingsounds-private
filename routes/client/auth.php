@@ -10,6 +10,7 @@ use App\Http\Controllers\ArtistTrackController;
 use App\Http\Controllers\ArtistWalletController;
 use App\Http\Controllers\Curator\SendOfferController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GiftCardController;
 use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\PromoteYourTrackController;
 use Illuminate\Http\Request;
@@ -115,4 +116,6 @@ Route::get('responses-messages', [MessageController::class,'responses'])->name('
 
 Route::post('/mark-as-read',[DashboardController::class, 'markNotification'])->name('artist.markNotification');
 
+# Coupon Claim Now USC credits
+Route::post('claim-now-coupon',[GiftCardController::class,'claimNowCoupon'])->name('claim.now.coupon');
 /***************************************************** Artist Routes *********************************************************/

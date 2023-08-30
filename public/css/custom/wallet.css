@@ -347,6 +347,22 @@ br.br {
     display: inline-table !important;
 }
 
+#myCouponHistory #couponGiftHistoryWallet_length,
+#myCouponHistory #couponGiftHistoryWallet_length select,
+#myCouponHistory #couponGiftHistoryWallet_info,
+#myCouponHistory .previous,
+#myCouponHistory .next,
+#myCouponHistory #couponGiftHistoryWallet_filter{
+    color: white;
+}
+
+#myCouponHistory #couponGiftHistoryWallet_wrapper{
+    margin-top:15px;
+}
+#myCouponHistory .table-responsive{
+    display: inline-table !important;
+}
+
 #curatorHistory #historyCuratorWithdrawal_length,
 #curatorHistory #historyCuratorWithdrawal_length select,
 #curatorHistory #historyCuratorWithdrawal_info,
@@ -385,6 +401,9 @@ br.br {
 }
 @media (min-width: 320px) and (max-width: 600px) {
     #myHistory .table-responsive{
+        display: block !important;
+    }
+    #myCouponHistory .table-responsive{
         display: block !important;
     }
     #curatorHistory .table-responsive{

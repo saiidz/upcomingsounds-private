@@ -29,6 +29,6 @@ class TransactionUserInfo extends Model
 
     // User has many TransactionHistory
     public function transactionHistory(){
-        return $this->hasMany(TransactionHistory::class, 'transaction_user_id');
+        return $this->hasMany(TransactionHistory::class, 'transaction_user_id')->latest();
     }
 }

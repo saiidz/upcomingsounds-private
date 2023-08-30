@@ -18,4 +18,6 @@ interface IStatus
 
     const PAYPAL = 'paypal';
     const WISE = 'wise';
+
+    const PAID = 'paid';
 }
