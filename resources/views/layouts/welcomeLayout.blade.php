@@ -21,10 +21,9 @@
 
         <div class="app-header navbar-md black box-shadow-z1 @if(Request::is('welcome-new') == 'true') weLcoMeHeaderHide @endif">
             <div class="navbar" data-pjax>
-                {{-- <a data-toggle="collapse" data-target="#navbar"
-                   class="navbar-item pull-right hidden-md-up m-r-0 m-l">
+                <a data-toggle="collapse" data-target="#navbar" class="navbar-item pull-right hidden-md-up m-r-0 m-l">
                     <i class="material-icons">menu</i>
-                </a> --}}
+                </a>
                 <!-- brand -->
                 <a href="{{url('/')}}" class="navbar-brand md">
                     {{--                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32">--}}
@@ -42,6 +41,7 @@
                 </a>
                 <!-- / brand -->
 
+                <div class="collapse navbar-toggleable-sm l-h-0 text-center" id="navbar">
                 <!-- nabar right -->
                 <ul class="nav navbar-nav pull-right">
                     @if(Auth::check())
@@ -108,6 +108,7 @@
                     @endif
 
                 </ul>
+                </div>
                 <!-- / navbar right -->
 
                 <!-- navbar collapse -->
