@@ -21,9 +21,6 @@
             background-color: initial !important;
             border:none !important;
         }
-        .h-v {
-            height: 90vh !important;
-        }
     </style>
 @endsection
 

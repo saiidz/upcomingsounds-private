@@ -79,7 +79,7 @@
                                     <a class="nav-link" href="#" data-toggle="tab" data-target="#myCouponHistory">Coupon/Gift Card</a>
                                 </li>
                                 <li>
-                                    <div class="tw-w-full tw-flex tw-justify-end">
+                                    <div class="tw-w-full tw-flex tw-justify-end" id="uscStyle">
                                         <span class="text">
                                             <div class="tw-relative">
                                                 <div class="tw-flex tw-items-center">
