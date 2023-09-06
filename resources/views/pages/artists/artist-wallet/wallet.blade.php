@@ -70,13 +70,13 @@
                         <div class="b-b b-primary nav-active-primary">
                             <ul class="nav nav-tabs">
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="#" data-toggle="tab" data-target="#buyUS">Buy UpcomingSounds Credits</a>
+                                    <a class="nav-link active" href="#" data-toggle="tab" onclick="myHistory()" data-target="#buyUS">Buy UpcomingSounds Credits</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#" data-toggle="tab" data-target="#myHistory">My History</a>
+                                    <a class="nav-link" href="javascript:void(0)" onclick="myHistory()" data-toggle="tab" data-target="#myHistory">My History</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#" data-toggle="tab" data-target="#myCouponHistory">Coupon/Gift Card</a>
+                                    <a class="nav-link" href="javascript:void(0)" onclick="myCouponHistory()" data-toggle="tab" data-target="#myCouponHistory">Coupon/Gift Card</a>
                                 </li>
                                 <li>
                                     <div class="tw-w-full tw-flex tw-justify-end" id="uscStyle">
@@ -202,24 +202,26 @@
 
         <div class="wantUP">
             <div class="mainParentContainer">
-                <span class="wantBUCS">Want to buy USC<br class="br"> by unit?</span>
-                <span class="wantPUCS">You can purchase between 1 and 1000 | USC credits</span>
+                <div class="wantTOBuy">
+                    <span class="wantBUCS">Want to buy USC<br class="br"> by unit?</span>
+                    <span class="wantPUCS">You can purchase between 1 and 1000 | USC credits</span>
 
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="purchase_credit_wallet">
-                            <img class="icon_UP_check_wallet" src="{{asset('images/coin_bg.png')}}">
-                            <input type="number" min="1" class="form-control" name="amountUSC" id="amountUSC" placeholder="Enter Credits" value="" required>
-                            <a href="javascript:void(0)" class="buyNow_P_C buyOneUSCNow" id="buyOneUSCNow" onclick="buyOneUSCNow()" data-one-usc-package="1 USC" data-one-usc-contacts="1" data-one-usc-currency="gbp" data-one-usc-price="@isset($one_usc_products){{number_format($one_usc_products['data'][0]['unit_amount'] / 100, 2)}} @endisset">Buy now</a>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="purchase_credit_wallet">
+                                <img class="icon_UP_check_wallet" src="{{asset('images/coin_bg.png')}}">
+                                <input type="number" min="1" class="form-control" name="amountUSC" id="amountUSC" placeholder="Please enter the amount of credits you would like to purchase" value="" required>
+                                <a href="javascript:void(0)" class="buyNow_P_C buyOneUSCNow" id="buyOneUSCNow" onclick="buyOneUSCNow()" data-one-usc-package="1 USC" data-one-usc-contacts="1" data-one-usc-currency="gbp" data-one-usc-price="@isset($one_usc_products){{number_format($one_usc_products['data'][0]['unit_amount'] / 100, 2)}} @endisset">Buy now</a>
+                            </div>
                         </div>
                     </div>
+
+                    <span class="text-black possibleUCS">It's possible! All you have to do is start a campaign.<br class="tw-block"> When you send your campaign, you will be able to buy the exact number of Upcoming Sounds required to send your campaign</span>
+                    <span class="text-muted pleaseNoteUCS">Please note that by buying credits individually, you do not benefit from the discounts offered by the packs.</span>
                 </div>
 
-                <span class="text-black possibleUCS">It's possible! All you have to do is start a campaign.<br class="tw-block"> When you send your campaign, you will be able to buy the exact number of Upcoming Sounds required to send your campaign</span>
-                <span class="text-muted pleaseNoteUCS">Please note that by buying credits individually, you do not benefit from the discounts offered by the packs.</span>
-
                 {{--Claim Coupons Code--}}
-                <div class="row" style="margin-bottom:25px;">
+                <div class="row couponClaimNow" style="margin-bottom:25px; display:none;">
                     <div class="col-sm-12">
                         <div class="purchase_credit_wallet">
                             <img class="icon_UP_check_wallet" src="{{asset('images/coin_bg.png')}}">
@@ -977,4 +979,18 @@
     });
 </script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+<script>
+    function myHistory()
+    {
+        $('.couponClaimNow').css('display','none');
+        $('.wantTOBuy').css('display','block');
+    }
+
+    function myCouponHistory()
+    {
+        $('.wantTOBuy').css('display','none');
+        $('.couponClaimNow').css('display','block');
+    }
+</script>
 @endsection
