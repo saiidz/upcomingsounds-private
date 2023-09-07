@@ -45,7 +45,7 @@
                     </a> --}}
                 </li>
                 <li class="nav-item" id="Login">
-                    <a href="{{ route('login') }}" class="nav-link" style="color:#fff">
+                    <a href="{{ route('login') }}" class="nav-link" style="color:white !important;">
                         Login
                     </a>
                 </li>
