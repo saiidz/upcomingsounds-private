@@ -1095,4 +1095,7 @@ svg.svg-inline--fa {
     #uscStyle{
         display: inline-block !important;
     }
+    .card-img-top {
+        width: 100% !important;
+    }
 }

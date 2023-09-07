@@ -130,7 +130,9 @@
                     <div class="m-b-md">
                         <ul class="nav l-h-2x _600">
                             @if(Auth::check())
-
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('card-gift')}}">Gift Card</a>
+                                </li>
                             @else
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{url('/register')}}">Sign up</a>
@@ -164,9 +166,13 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{url('/how-to-help')}}">Help</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('card-gift')}}">Gift Card</a>
-                            </li>
+                            @if(Auth::check())
+
+                            @else
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('card-gift')}}">Gift Card</a>
+                                </li>
+                            @endif
                         </ul>
                     </div>
                 </div>

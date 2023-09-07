@@ -21,9 +21,9 @@
             background-color: initial !important;
             border:none !important;
         }
-        .h-v {
-            height: 90vh !important;
-        }
+        /*.h-v {*/
+        /*    height: 90vh !important;*/
+        /*}*/
         .cb_code{
             position: relative;
             display: block;
@@ -61,42 +61,54 @@
             </div>
         </div>
 
-        <section class="cd-faq js-cd-faq container max-width-md margin-top-lg margin-bottom-lg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 col-xs-12 r_gf">
-                        <h3 class="_600">Congratulations on receiving such a valuable gift card</h3>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 col-xs-12">
-                        <div class="card mb-6">
-                            <div class="card-body cb_code">
-                                <div class="couponCode">
-                                    <span class="_600">{{!empty($sessionStripe) ? $sessionStripe->coupon_code : null}}</span>
-                                </div>
-                                <img src="{{ asset('images/gift-card/GC-USC_CODE-CLAIM.png')  }}"  class="card-img-top" alt="">
-                            </div>
+        @if(!empty($sessionStripe) && !empty($sessionStripe->claim_now_status == 'PAID'))
+            <section class="cd-faq js-cd-faq container max-width-md margin-top-lg margin-bottom-lg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12 r_gf">
+                            <h3 class="_600">This coupon code has already been claimed, <a href="{{route('card-gift')}}" style="color:red !important;">click here</a> to purchase a new one.</h3>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12 col-xs-12 r_cy">
-                        <h6>To claim your USC credits, follow these steps: </h6>
-                        <ul>
-                            <li>
-                                1. Locate your distinct gift card code. For reference, it might appear as *USC-00000RJC.
-                            </li>
-                            <li>
-                                2. Register or login at Upcomingsounds.com. If you haven't registered yet, please create an artist account. If you're already a member, simply login. Once logged in, input the gift card code into the designated field within your artist wallet to claim its value.
-                            </li>
-                            <li>3. Click Claim: Once you’ve entered the code, hit the "Claim now" button.</li>
-                            <li>4. Shop Away: Upon successful redemption, the balance will be added to your account, and you can start shopping immediately! Remember, treat this balance as you would any cash in your pocket. </li>
-                        </ul>
+            </section>
+        @else
+            <section class="cd-faq js-cd-faq container max-width-md margin-top-lg margin-bottom-lg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12 r_gf">
+                            <h3 class="_600">Congratulations on receiving such a valuable gift card</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12">
+                            <div class="card mb-6">
+                                <div class="card-body cb_code">
+                                    <div class="couponCode">
+                                        <span class="_600">{{!empty($sessionStripe) ? $sessionStripe->coupon_code : null}}</span>
+                                    </div>
+                                    <img src="{{ asset('images/gift-card/GC-USC_CODE-CLAIM.png')  }}"  class="card-img-top" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12 r_cy">
+                            <h6>To claim your USC credits, follow these steps: </h6>
+                            <ul>
+                                <li>
+                                    1. Locate your distinct gift card code. For reference, it might appear as *USC-00000RJC.
+                                </li>
+                                <li>
+                                    2. Register or login at <a href="{{url('/')}}" style="color:red !important;">Upcomingsounds.com</a>. If you haven't registered yet, please create an <a href="{{url('for-artists')}}" style="color:red !important;">artist</a> account. If you're already a member, simply <a href="{{route('login')}}" style="color:red !important;">login</a>. Once logged in, input the gift card code into the designated field within your <a href="{{url('wallet')}}" style="color:red !important;">artist wallet</a> to claim its value.
+                                </li>
+                                <li>3. Click Claim: Once you’ve entered the code, hit the "Claim now" button.</li>
+                                <li>4. Shop Away: Upon successful redemption, the balance will be added to your account, and you can start shopping immediately! Remember, treat this balance as you would any cash in your pocket. </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        @endif
         <!-- ############ PAGE END-->
 
     </div>

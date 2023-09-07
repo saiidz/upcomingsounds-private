@@ -86,7 +86,7 @@
                                 </span>
                             </a> --}}
                         </li>
-                        <li class="nav-item" id="Login">
+                        <li class="nav-item" id="Login" style="color:white !important;">
                             <a href="{{ route('login') }}" class="nav-link">
                                 Login
                             </a>
