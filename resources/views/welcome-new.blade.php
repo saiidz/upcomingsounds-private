@@ -707,7 +707,7 @@
                         <!-- slider item -->
                         @if(!empty($homeSliders))
                             @foreach($homeSliders as $homeSlider)
-                                <div class="item owl-bg-img tz-builder-bg-image cover-background bg-img-one" id="tz-bg-1" style="background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) repeat scroll 0% 0%, transparent url({{asset('uploads/home_slider/'. $homeSlider->image)}}) repeat scroll 0% 0%;" data-img-size="(W)1920px X (H)994px">
+                                <div class="item owl-bg-img tz-builder-bg-image cover-background bg-img-one" id="tz-bg-1" style="background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) repeat scroll 0% 0%, transparent url({{asset( $homeSlider->image )}}) repeat scroll 0% 0%;" data-img-size="(W)1920px X (H)994px">
                                     <div class="container one-sixth-screen xs-one-third-screen position-relative">
                                         <div class="col-md-12 col-sm-12 col-xs-12 slider-typography text-left">
                                             <div class="slider-text-middle-main">
@@ -718,10 +718,15 @@
                                                             {{$homeSlider->details ?? null}}
                                                         </div>
                                                         <div class="btn-dual">
-                                                            <a class="btn btn-medium propClone bg-white text-dark-gray btn-circle xs-margin-ten-bottom" href="{{$homeSlider->button_one_link ?? null}}">
-                                                                <span class="tz-text">{{$homeSlider->button_one_text ?? null}}</span>
-                                                            </a>
-                                                            <a class="btn btn-medium propClone highlight-button-white-border btn-circle xs-margin-ten-bottom" href="{{$homeSlider->button_two_link ?? null}}"><span class="tz-text">{{$homeSlider->button_two_text ?? null}}</span></a>
+                                                            @if($homeSlider->button_one_status == 1)
+                                                                <a class="btn btn-medium propClone bg-white text-dark-gray btn-circle xs-margin-ten-bottom" href="{{$homeSlider->button_one_link ?? null}}">
+                                                                    <span class="tz-text">{{$homeSlider->button_one_text ?? null}}</span>
+                                                                </a>
+                                                            @endif
+
+                                                            @if($homeSlider->button_two_status == 1)
+                                                                    <a class="btn btn-medium propClone highlight-button-white-border btn-circle xs-margin-ten-bottom" href="{{$homeSlider->button_two_link ?? null}}"><span class="tz-text">{{$homeSlider->button_two_text ?? null}}</span></a>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </div>

@@ -72,6 +72,14 @@
                                     </div>
 
                                     <div class="input-field col s6">
+                                        <span>Button One Status</span>
+                                        <select class="form-control-label" name="button_one_status">
+                                            <option value="1" {{!empty($homeSlider) ? ($homeSlider->button_one_status == 1 ? 'selected' : '' ) : ''}}>Active</option>
+                                            <option value="0" {{!empty($homeSlider) ? ($homeSlider->button_one_status == 0 ? 'selected' : '' ) : ''}}>InActive</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="input-field col s6">
                                         {!! Form::text('button_two_text',$homeSlider->button_two_text ?? null,['placeholder'=>'Classic','class'=>"validate", 'id' => 'artist_name', 'required'=>false]) !!}
                                         <label for="button_two_text">Button Two Text</label>
                                     </div>
@@ -80,14 +88,22 @@
                                         <label for="button_two_link">Button Two Link</label>
                                     </div>
 
-                                    <div class="col m6 s12 file-field">
+                                    <div class="input-field col s6">
+                                        <span>Button Two Status</span>
+                                        <select class="form-control-label" name="button_two_status">
+                                            <option value="1" {{!empty($homeSlider) ? ($homeSlider->button_two_status == 1 ? 'selected' : '' ) : ''}}>Active</option>
+                                            <option value="0" {{!empty($homeSlider) ? ($homeSlider->button_two_status == 0 ? 'selected' : '' ) : ''}}>InActive</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="input-field col m6 s12 file-field">
                                         <div class="btn float-right">
                                             <span>Slider Image</span>
                                             {!! Form::file('image',['placeholder'=>'Farhan','accept' => 'image/*','class'=>"validate", 'id' => 'artist_name', 'required'=>false]) !!}
                                         </div>
 
                                         <div class="file-path-wrapper">
-                                            <img class=" ml-3 img-fluid" src="{{ asset(!empty($homeSlider->image) ? 'uploads/home_slider/'.$homeSlider->image : 'images/logo.png') }}" alt="" height="50" style="object-fit: contain">
+                                            <img class=" ml-3 img-fluid" src="{{ asset(!empty($homeSlider->image) ? $homeSlider->image : 'images/logo.png') }}" alt="" height="50" style="object-fit: contain">
                                         </div>
                                     </div>
 

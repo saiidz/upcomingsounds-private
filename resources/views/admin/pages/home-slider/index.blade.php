@@ -70,8 +70,8 @@
                                                                 <td>{{ $loop->iteration }}</td>
                                                                 <td>{{ $homeSlider->title ?? '----' }}</td>
                                                                 <td>
-                                                                    <a href="{{asset('uploads/home_slider')}}/{{$homeSlider->image}}" target="_blank">
-                                                                        <img style="height:40px" src="{{asset('uploads/home_slider')}}/{{$homeSlider->image}}">
+                                                                    <a href="{{asset($homeSlider->image)}}" target="_blank">
+                                                                        <img style="height:40px" src="{{asset($homeSlider->image)}}">
                                                                     </a>
                                                                 </td>
                                                                 <td>{{ Str::limit($homeSlider->details,50) ?? '----' }}</td>

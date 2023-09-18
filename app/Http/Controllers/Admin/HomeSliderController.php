@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\HomeSlider;
+use Buglinjo\LaravelWebp\Webp;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -53,15 +54,24 @@ class HomeSliderController extends Controller
             return response()->json(['errors' => $validator->errors()->all()]);
         }
 
-        $input           = $request->all();
-        $input['status'] = $request->status;
+        $input                      = $request->all();
+        $input['status']            = $request->status;
+        $input['button_one_status'] = $request->button_one_status;
+        $input['button_two_status'] = $request->button_two_status;
 
 
-        if ($request->file('image')) {
-            $file = $request->file('image');
-            $name = str_replace(' ', '', $file->getClientOriginalName());
-            $image_path = 'default_'.time().$name;
-            $file->move(public_path() . '/uploads/home_slider/', $image_path);
+        if ($request->file('image'))
+        {
+//            $file = $request->file('image');
+//            $name = str_replace(' ', '', $file->getClientOriginalName());
+//            $image_path = 'default_'.time().$name;
+            $image_path = 'default_'.time().'.webp';
+
+            $image = Webp::make($request->file('image'))->quality(70);
+            $image->save(public_path('uploads/home_slider/'. $image_path));
+            $image_path = "uploads/home_slider/". $image_path;
+
+//            $file->move(public_path() . '/uploads/home_slider/', $image_path);
             //store image file into directory and db
             $input['image'] = $image_path;
         }
@@ -120,13 +130,20 @@ class HomeSliderController extends Controller
 
         $input           = $request->all();
         $input['status'] = $request->status;
-
+        $input['button_one_status'] = $request->button_one_status;
+        $input['button_two_status'] = $request->button_two_status;
 
         if ($request->file('image')) {
-            $file = $request->file('image');
-            $name = str_replace(' ', '', $file->getClientOriginalName());
-            $image_path = 'default_'.time().$name;
-            $file->move(public_path() . '/uploads/home_slider/', $image_path);
+            $image_path = 'default_'.time().'.webp';
+
+            $image = Webp::make($request->file('image'))->quality(70);
+            $image->save(public_path('uploads/home_slider/'. $image_path));
+            $image_path = "uploads/home_slider/". $image_path;
+
+//            $file = $request->file('image');
+//            $name = str_replace(' ', '', $file->getClientOriginalName());
+//            $image_path = 'default_'.time().$name;
+//            $file->move(public_path() . '/uploads/home_slider/', $image_path);
             //store image file into directory and db
             $input['image'] = $image_path;
         }else{
