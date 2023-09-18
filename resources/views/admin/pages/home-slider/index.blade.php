@@ -70,9 +70,13 @@
                                                                 <td>{{ $loop->iteration }}</td>
                                                                 <td>{{ $homeSlider->title ?? '----' }}</td>
                                                                 <td>
-                                                                    <a href="{{asset($homeSlider->image)}}" target="_blank">
-                                                                        <img style="height:40px" src="{{asset($homeSlider->image)}}">
-                                                                    </a>
+                                                                    @if(!empty($homeSlider->image))
+                                                                        <a href="{{asset($homeSlider->image)}}" target="_blank">
+                                                                            <img style="height:40px" src="{{asset($homeSlider->image)}}">
+                                                                        </a>
+                                                                    @else
+                                                                        {{__('-------')}}
+                                                                    @endif
                                                                 </td>
                                                                 <td>{{ Str::limit($homeSlider->details,50) ?? '----' }}</td>
                                                                 <td>{{ getDateFormat($homeSlider->created_at) }}</td>
