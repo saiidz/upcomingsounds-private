@@ -53,6 +53,14 @@ success, touch, track, tracks, transparent, united, visibility,
           href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <style>
     @media (min-width: 320px) and (max-width: 480px) {
+        .weLcoMeHeaderHide{
+            display:none !important;
+        }
+        .weLcoMeHeaderTopHide{
+            padding-top: 0 !important;
+        }
+    }
+    @media (min-width: 320px) and (max-width: 480px) {
         #snackbarError{
             top:113px !important;
         }

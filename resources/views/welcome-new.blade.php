@@ -649,7 +649,7 @@
 {{-- page content --}}
 @section('content')
 
-            <div class="{{Auth::check() ? 'app-bodynew' : 'app-body'}}">
+            <div class="{{Auth::check() ? 'app-bodynew' : 'app-body'}} @if(Request::is('welcome-new') == 'true') weLcoMeHeaderTopHide @endif">
 
                 <!-- ############ PAGE START-->
 
