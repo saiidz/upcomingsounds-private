@@ -52,7 +52,7 @@ class FrontendController extends Controller
             'title_two_end_section'        => 'required',
             'description_one_end_section'  => 'required',
             'title_one_end_section'        => 'required',
-            'home_end_section_image'       => 'mimes:png,jpg',
+            'upcoming_home_new_section'    => 'mimes:png,jpg',
             'upcoming_sound_content_one'   => 'required',
             'upcoming_sound_content_two'   => 'required',
             'upcoming_sound_content_three' => 'required',
@@ -99,16 +99,22 @@ class FrontendController extends Controller
             $award_image_new_path = "uploads/homesection/award_image_upcoming.webp";
         }
 
-        if ($request->hasFile('home_end_section_image'))
+        if ($request->hasFile('upcoming_home_new_section'))
         {
-            $image_new = !empty(json_decode($theme->value)->home_end_section_image) ? json_decode($theme->value)->home_end_section_image : null;
+            $image_new = !empty(json_decode($theme->value)->upcoming_home_new_section) ? json_decode($theme->value)->upcoming_home_new_section : null;
             if(file_exists($image_new)) {
                 unlink($image_new);
             }
 
-            $image = Webp::make($request->file('home_end_section_image'))->quality(70);
-            $image->save(public_path('uploads/homesection/home_end_section_image.webp'));
-            $image_new_path = "uploads/homesection/home_end_section_image.webp";
+            $image_path = 'default_'.time().'.webp';
+
+            $image = Webp::make($request->file('upcoming_home_new_section'))->quality(70);
+            $image->save(public_path('uploads/homesection/'. $image_path));
+            $image_new_path = "uploads/homesection/". $image_path;
+
+//            $image = Webp::make($request->file('upcoming_home_new_section'))->quality(70);
+//            $image->save(public_path('uploads/homesection/home_end_section_image.webp'));
+//            $image_new_path = "uploads/homesection/home_end_section_image.webp";
         }
 
         if(!empty($theme))
@@ -116,7 +122,7 @@ class FrontendController extends Controller
             $artist_image_new = !empty(json_decode($theme->value)->artist_image) ? json_decode($theme->value)->artist_image : null;
             $curator_image_new = !empty(json_decode($theme->value)->curator_image) ? json_decode($theme->value)->curator_image : null;
             $award_image_new = !empty(json_decode($theme->value)->award_image) ? json_decode($theme->value)->award_image : null;
-            $image_new = !empty(json_decode($theme->value)->home_end_section_image) ? json_decode($theme->value)->home_end_section_image : null;
+            $image_new = !empty(json_decode($theme->value)->upcoming_home_new_section) ? json_decode($theme->value)->upcoming_home_new_section : null;
         }
 
         $data = [
@@ -126,7 +132,7 @@ class FrontendController extends Controller
             'title_two_end_section'         => $request->title_two_end_section ?? null,
             'description_one_end_section'   => $request->description_one_end_section ?? null,
             'title_one_end_section'         => $request->title_one_end_section ?? null,
-            'home_end_section_image'        => !empty($image_new_path) ? $image_new_path : (!empty($image_new) ? $image_new : null),
+            'upcoming_home_new_section'     => !empty($image_new_path) ? $image_new_path : (!empty($image_new) ? $image_new : null),
             'upcoming_sound_content_one'    => $request->upcoming_sound_content_one ?? null,
             'upcoming_sound_content_two'    => $request->upcoming_sound_content_two ?? null,
             'upcoming_sound_content_three'  => $request->upcoming_sound_content_three ?? null,

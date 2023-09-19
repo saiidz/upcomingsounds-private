@@ -853,8 +853,8 @@
 {{--                            {{dd($theme_home->image_upcoming_sounds)}}--}}
 {{--                            {{dump($theme_home->home_end_section_image)}}--}}
                             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 no-padding xs-no-padding-15 bg-gray tz-builder-bg-image cover-background xs-height-300-px bg-img-four" data-img-size="(W)1000px X (H)800px" style="background: linear-gradient(transparent, transparent) repeat scroll 0% 0%, transparent
-                             url({{asset(!empty($theme_home->home_end_section_image)
-                                ? $theme_home->home_end_section_image
+                             url({{asset(!empty($theme_home->upcoming_home_new_section)
+                                ? $theme_home->upcoming_home_new_section
                                 : 'welcome-home-page/images/upcomingSounds.png')}}) repeat scroll 0% 0%;">
 
                             </div>
