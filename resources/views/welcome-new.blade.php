@@ -864,24 +864,22 @@
                 </section>
 
 {{--                <section class="padding-110px-tb xs-padding-60px-tb bg-white builder-bg" id="testimonials-section4">--}}
-                <section class="bg-white builder-bg" style="padding-top:180px; padding-bottom: 80px;" >
-                    <div class="container-fluid">
-                        <div class="row equalize">
-                            <div class="col-md-12">
-                                <div id="testim" class="testim">
-                                    <div class="testim-cover">
-                                        <div class="wrap">
-                                            <span id="right-arrow" class="arrow right fa fa-chevron-right"></span>
-                                            <span id="left-arrow" class="arrow left fa fa-chevron-left "></span>
-                                            <ul id="testim-dots" class="dots">
-                                                @if(!empty($testimonials))
+                @if(!empty($testimonials) && count($testimonials) > 0)
+                    <section class="bg-white builder-bg" style="padding-top:180px; padding-bottom: 80px;" >
+                        <div class="container-fluid">
+                            <div class="row equalize">
+                                <div class="col-md-12">
+                                    <div id="testim" class="testim">
+                                        <div class="testim-cover">
+                                            <div class="wrap" id="testMonials" style="display: none;">
+                                                <span id="right-arrow" class="arrow right fa fa-chevron-right"></span>
+                                                <span id="left-arrow" class="arrow left fa fa-chevron-left "></span>
+                                                <ul id="testim-dots" class="dots">
                                                     @foreach($testimonials as $testimonial)
                                                         <li class="dot"></li>
                                                     @endforeach
-                                                @endif
-                                            </ul>
-                                            <div id="testim-content" class="cont">
-                                                @if(!empty($testimonials))
+                                                </ul>
+                                                <div id="testim-content" class="cont">
                                                     @foreach($testimonials as $testimonial)
                                                         <div class="">
                                                             <div class="img">
@@ -891,15 +889,15 @@
                                                             <p>{{$testimonial->details ?? 'Lorem ipsum dolor sit amet, consectetur'}}</p>
                                                         </div>
                                                     @endforeach
-                                                @endif
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                @endif
                 <!-- ############ PAGE END-->
 
             </div>
@@ -909,6 +907,16 @@
 @endsection
 {{-- page script --}}
 @section('page-script')
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Check if the page was reloaded
+            if (performance.navigation.type === 1) {
+                // Page was reloaded, toggle the display property to "block"
+                document.getElementById('testMonials').style.display = 'block';
+            }
+        });
+    </script>
+
     <script>
         $('video').on('ended', function () {
             this.load();
