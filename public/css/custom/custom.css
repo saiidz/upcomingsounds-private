@@ -834,6 +834,11 @@ svg.svg-inline--fa {
     .bgGift{
         height: 52vh !important;
     }
+    .couponCode {
+        top: 75% !important;
+        left: 49% !important;
+        font-size: 16px !important;
+    }
 }
 
 /*
@@ -934,6 +939,11 @@ svg.svg-inline--fa {
     .bgGift{
         height: 40vh !important;
     }
+    .couponCode {
+        top: 73% !important;
+        left: 49% !important;;
+        font-size: 12px !important;;
+    }
 }
 
 /*
@@ -941,8 +951,12 @@ svg.svg-inline--fa {
   ##Screen = B/w 320px to 479px
 */
 
-@media (min-width: 320px) and (max-width: 480px) {
-
+@media (min-width: 320px) and (max-width: 480px)
+{
+    .couponCode {
+        top: 74% !important;
+        font-size: 13px !important;
+    }
     .bgGift{
         height: 20vh !important;
     }

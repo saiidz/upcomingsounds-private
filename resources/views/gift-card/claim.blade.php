@@ -29,14 +29,14 @@
             display: block;
             top: 20px;
         }
-        .couponCode{
-            margin-right: 164px;
-        }
-        .couponCode span{
-            position: absolute;
-            top: 273px;
-            font-size: 20px;
-        }
+        /*.couponCode{*/
+        /*    margin-right: 164px;*/
+        /*}*/
+        /*.couponCode span{*/
+        /*    position: absolute;*/
+        /*    top: 273px;*/
+        /*    font-size: 20px;*/
+        /*}*/
         .r_gf{
             text-align: center;
             margin-top: 15px;
@@ -46,6 +46,18 @@
         }
         .card-img-top{
             width:60%;
+        }
+        .couponCode {
+            position: absolute;
+            top: 77%;
+            left: 48%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            /* background-color: white; */
+            padding: 5px 10px;
+            /* border: 1px solid #000; */
+            border-radius: 5px;
+            z-index: 2;
         }
 </style>
 @endsection
@@ -84,9 +96,9 @@
                             <div class="card mb-6">
                                 <div class="card-body cb_code">
                                     <div class="couponCode">
-                                        <span class="_600">{{!empty($sessionStripe) ? $sessionStripe->coupon_code : null}}</span>
+                                        <span class="_600">USC-145578tn</span>
                                     </div>
-                                    <img src="{{ asset('images/gift-card/GC-USC_CODE-CLAIM.png')  }}"  class="card-img-top" alt="">
+                                    <img src="{{ asset('images/gift-card/GC-USC_CODE-CLAIM.png') }}" class="card-img-top" alt="">
                                 </div>
                             </div>
                         </div>
