@@ -658,7 +658,8 @@
                     <div class="row-col">
                         <div class="col-lg-12 welcome_video">
                             <video id="welcome_video" preload="metadata" autoplay loop muted playsinline loading="lazy">
-                                <source src="https://us-east-vpc.s3.us-east-2.amazonaws.com/upcomingsounds_home.mp4">
+                                <source src="https://us-east-vpc.s3.us-east-2.amazonaws.com/upcomingsounds_new.mp4">
+{{--                                <source src="https://us-east-vpc.s3.us-east-2.amazonaws.com/upcomingsounds_home.mp4">--}}
                             </video>
                             <div class="mouse">
                                 <a href="javascript:void(0)" class="mouse-icon" id="upClick">
