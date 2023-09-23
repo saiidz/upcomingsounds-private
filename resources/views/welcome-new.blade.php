@@ -720,13 +720,14 @@
                                                         </div>
                                                         <div class="btn-dual">
                                                             @if($homeSlider->button_one_status == 1)
-                                                                <a class="btn btn-medium propClone bg-white text-dark-gray btn-circle xs-margin-ten-bottom" style="background-color: #02b875 !important;color: white !important;" href="{{$homeSlider->button_one_link ?? null}}">
+                                                                <a class="btn btn-sm rounded primary _600 tastemakers_signup" style="background-color: #02b875 !important;color: white !important;" href="{{$homeSlider->button_one_link ?? null}}">
                                                                     <span class="tz-text">{{$homeSlider->button_one_text ?? null}}</span>
                                                                 </a>
                                                             @endif
 
                                                             @if($homeSlider->button_two_status == 1)
-                                                                    <a class="btn btn-medium propClone highlight-button-white-border btn-circle xs-margin-ten-bottom" style="background-color: #02b875 !important;color: white !important;" href="{{$homeSlider->button_two_link ?? null}}"><span class="tz-text">{{$homeSlider->button_two_text ?? null}}</span></a>
+                                                                    <a class="btn btn-sm rounded primary _600 tastemakers_signup" style="background-color: #02b875 !important;color: white !important;" href="{{$homeSlider->button_two_link ?? null}}"><span class="tz-text">{{$homeSlider->button_two_text ?? null}}</span></a>
+{{--                                                                    <a class="btn btn-medium propClone highlight-button-white-border btn-circle xs-margin-ten-bottom" style="background-color: #02b875 !important;color: white !important;" href="{{$homeSlider->button_two_link ?? null}}"><span class="tz-text">{{$homeSlider->button_two_text ?? null}}</span></a>--}}
                                                             @endif
                                                         </div>
                                                     </div>
