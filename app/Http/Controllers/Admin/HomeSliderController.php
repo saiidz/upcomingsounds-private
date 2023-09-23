@@ -40,13 +40,13 @@ class HomeSliderController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'image'           => 'mimes:jpeg,jpg,png',
-            'button_two_link' => 'required',
-            'button_two_text' => 'required',
-            'button_one_link' => 'required',
-            'button_one_text' => 'required',
-            'details'         => 'required',
-            'title'           => 'required',
+            'image'           => 'required|mimes:jpeg,jpg,png',
+//            'button_two_link' => 'required',
+//            'button_two_text' => 'required',
+//            'button_one_link' => 'required',
+//            'button_one_text' => 'required',
+//            'details'         => 'required',
+//            'title'           => 'required',
         ]);
 
         if ($validator->fails())
@@ -112,13 +112,13 @@ class HomeSliderController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'image'           => 'mimes:jpeg,jpg,png',
-            'button_two_link' => 'required',
-            'button_two_text' => 'required',
-            'button_one_link' => 'required',
-            'button_one_text' => 'required',
-            'details'         => 'required',
-            'title'           => 'required',
+            'image'           => 'required|mimes:jpeg,jpg,png',
+//            'button_two_link' => 'required',
+//            'button_two_text' => 'required',
+//            'button_one_link' => 'required',
+//            'button_one_text' => 'required',
+//            'details'         => 'required',
+//            'title'           => 'required',
         ]);
 
         if ($validator->fails())

@@ -31,13 +31,26 @@ use App\Http\Controllers\Admin\BinshopsCommentWriterController;
 //});
 
 Route::get('/', function () {
-    $theme_home = Option::where('key', 'home_settings')->first();
+    $theme_home = Option::where('key', 'home_new_settings')->first();
+    $homeSliders = HomeSlider::where('status',1)->latest()->get();
+    $testimonials = Testimonial::where('status',1)->latest()->get();
+
     if(!empty($theme_home))
     {
         $theme_home = json_decode($theme_home->value);
     }
-    return view('welcome', get_defined_vars());
+    return view('welcome-new', get_defined_vars());
 });
+
+//Route::get('/', function () {
+//    $theme_home = Option::where('key', 'home_settings')->first();
+//    if(!empty($theme_home))
+//    {
+//        $theme_home = json_decode($theme_home->value);
+//    }
+//    return view('welcome', get_defined_vars());
+//});
+
 //Route::get('/', function () {
 //    return view('welcome');
 //})->middleware('guest');
@@ -89,18 +102,6 @@ Route::group(['middleware' => ['try_catch']], function() {
 
 
     Route::prefix('')->group(base_path('routes/client/no_auth.php'));
-});
-
-Route::get('welcome-new', function () {
-    $theme_home = Option::where('key', 'home_new_settings')->first();
-    $homeSliders = HomeSlider::where('status',1)->latest()->get();
-    $testimonials = Testimonial::where('status',1)->latest()->get();
-
-    if(!empty($theme_home))
-    {
-        $theme_home = json_decode($theme_home->value);
-    }
-    return view('welcome-new', get_defined_vars());
 });
 
 Route::get('/t', function () {

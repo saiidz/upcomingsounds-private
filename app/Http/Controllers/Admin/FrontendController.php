@@ -146,7 +146,7 @@ class FrontendController extends Controller
             'artist_image'                  => !empty($artist_image_new_path) ? $artist_image_new_path : (!empty($artist_image_new) ? $artist_image_new : null),
             'artist_btn_link'               => $request->artist_btn_link ?? null,
             'artist_btn_text'               => $request->artist_btn_text ?? null,
-            'artist_description_two'        => $request->artist_description ?? null,
+            'artist_description_two'        => $request->artist_description_two ?? null,
             'artist_description'            => $request->artist_description ?? null,
             'artist_title'                  => $request->artist_title ?? null,
         ];
