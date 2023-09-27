@@ -645,6 +645,34 @@
 
         }
     </style>
+    <!-- Include Slick carousel CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <!-- Include Slick theme CSS (optional) -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <!-- Include your custom CSS (optional) -->
+    <style>
+        /* Customize your slider styles here */
+        .testimonial-slider {
+            width: 80%;
+            margin: 0 auto;
+            height: 300px; /* Set your desired fixed height */
+        }
+        .testimonial-slide {
+            text-align: center;
+        }
+        .testimonial-slide img {
+            display: inline-block;
+            max-width: 100%;
+            height: auto;
+        }
+        .testimonial-slide h2 {
+            font-size: 24px;
+            margin: 15px 0;
+        }
+        .testimonial-slide p {
+            font-size: 16px;
+        }
+    </style>
 @endsection
 {{-- page content --}}
 @section('content')
@@ -908,30 +936,40 @@
                         <div class="container-fluid">
                             <div class="row equalize">
                                 <div class="col-md-12">
-                                    <div id="testim" class="testim">
-                                        <div class="testim-cover">
-                                            <div class="wrap" id="testMonials" style="display: none;">
-                                                <span id="right-arrow" class="arrow right fa fa-chevron-right"></span>
-                                                <span id="left-arrow" class="arrow left fa fa-chevron-left "></span>
-                                                <ul id="testim-dots" class="dots">
-                                                    @foreach($testimonials as $testimonial)
-                                                        <li class="dot"></li>
-                                                    @endforeach
-                                                </ul>
-                                                <div id="testim-content" class="cont">
-                                                    @foreach($testimonials as $testimonial)
-                                                        <div class="">
-                                                            <div class="img">
-                                                                <img src="{{asset('uploads/testimonials/'. $testimonial->image)}}" alt="">
-                                                            </div>
-                                                            <h2>{{$testimonial->title ?? 'Lorem P. Ipsum'}}</h2>
-                                                            <p>{{$testimonial->details ?? 'Lorem ipsum dolor sit amet, consectetur'}}</p>
-                                                        </div>
-                                                    @endforeach
-                                                </div>
+                                    <div class="testimonial-slider">
+                                        @foreach($testimonials as $testimonial)
+                                            <div class="testimonial-slide">
+                                                <img src="{{asset('uploads/testimonials/'. $testimonial->image)}}" alt="Testimonial 1" style="  display: block;width: 100px;height: 100px;margin: auto;border-radius: 50%;">
+                                                <h2>{{$testimonial->title ?? 'Lorem P. Ipsum'}}</h2>
+                                                <p>{{$testimonial->details ?? 'Lorem ipsum dolor sit amet, consectetur'}}</p>
                                             </div>
-                                        </div>
+                                        @endforeach
+                                        <!-- Add more testimonial slides as needed -->
                                     </div>
+{{--                                    <div id="testim" class="testim">--}}
+{{--                                        <div class="testim-cover">--}}
+{{--                                            <div class="wrap" id="testMonials" style="display: none;">--}}
+{{--                                                <span id="right-arrow" class="arrow right fa fa-chevron-right"></span>--}}
+{{--                                                <span id="left-arrow" class="arrow left fa fa-chevron-left "></span>--}}
+{{--                                                <ul id="testim-dots" class="dots">--}}
+{{--                                                    @foreach($testimonials as $testimonial)--}}
+{{--                                                        <li class="dot"></li>--}}
+{{--                                                    @endforeach--}}
+{{--                                                </ul>--}}
+{{--                                                <div id="testim-content" class="cont">--}}
+{{--                                                    @foreach($testimonials as $testimonial)--}}
+{{--                                                        <div class="">--}}
+{{--                                                            <div class="img">--}}
+{{--                                                                <img src="{{asset('uploads/testimonials/'. $testimonial->image)}}" alt="">--}}
+{{--                                                            </div>--}}
+{{--                                                            <h2>{{$testimonial->title ?? 'Lorem P. Ipsum'}}</h2>--}}
+{{--                                                            <p>{{$testimonial->details ?? 'Lorem ipsum dolor sit amet, consectetur'}}</p>--}}
+{{--                                                        </div>--}}
+{{--                                                    @endforeach--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                 </div>
                             </div>
                         </div>
@@ -946,6 +984,20 @@
 @endsection
 {{-- page script --}}
 @section('page-script')
+
+    <!-- Include jQuery and Slick carousel scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $.noConflict();
+        jQuery(document).ready(function($) {
+            // Your Slick carousel initialization code here
+            $('.testimonial-slider').slick({
+                autoplay: true, // Auto-play the slider
+            });
+        });
+    </script>
+
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Check if the page was reloaded
