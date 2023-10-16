@@ -41,6 +41,8 @@ use Illuminate\Support\Facades\Auth;
     const OFFER_UPDATED_SUCCESS = "Offer Template Updated Successfully. Please wait for approval from admin side.";
     const VIEW_SUBMISSION = "view_submission";
     const MAKE_ANOTHER_OFFER = "make_another_offer";
+     const VERIFIED_COVERAGE_SUCCESS = "Verified Coverage Created Successfully";
+     const VERIFIED_COVERAGE_UPDATED_SUCCESS = "Verified Coverage Updated Successfully. Please wait for approval from admin side.";
     const PROMOTE_ADD_TRACK = "Your music has been submitted to Upcomingsounds. Thank you
 
                                 After that, what happens?

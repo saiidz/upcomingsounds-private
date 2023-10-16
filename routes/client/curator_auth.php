@@ -6,6 +6,7 @@ use App\Http\Controllers\Curator\SavedArtistController;
 use App\Http\Controllers\Curator\SendOfferController;
 use App\Http\Controllers\Curator\SubmitCoverageController;
 use App\Http\Controllers\Curator\SubmitWorkController;
+use App\Http\Controllers\Curator\VerifiedCoverageController;
 use App\Http\Controllers\MessengerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -83,6 +84,17 @@ Route::post('update-offer-template/{offer_template}', [OfferTemplateController::
 Route::post('offer/change-status',[OfferTemplateController::class,'offerChangeStatus'])->name('curator.change.status');
 Route::delete('delete-offer-template/{offer_template}',[OfferTemplateController::class,'destroy']);
 // offer templates routes
+
+# Verified Coverage routes
+Route::get('verified-coverage', [VerifiedCoverageController::class,'index'])->name('curator.verified.coverage');
+Route::get('create-verified-coverage', [VerifiedCoverageController::class,'create'])->name('curator.create.verified.coverage');
+Route::post('store-verified-coverage', [VerifiedCoverageController::class, 'storeVerifiedCoverage'])->name('curator.store.verified.coverage');
+//Route::get('offer-template', [VerifiedCoverageController::class,'show'])->name('curator.show.offer.template');
+Route::get('edit-verified-coverage/{verified_coverage}', [VerifiedCoverageController::class,'edit'])->name('curator.edit.verified.coverage');
+Route::post('update-verified-coverage/{verified_coverage}', [VerifiedCoverageController::class, 'updateVerifiedCoverage'])->name('curator.update.verified.coverage');
+Route::post('verified-coverage/change-status',[VerifiedCoverageController::class,'verifiedCoverageChangeStatus'])->name('curator.verified.coverage.change.status');
+//Route::delete('delete-offer-template/{offer_template}',[VerifiedCoverageController::class,'destroy']);
+# offer templates routes
 
 // create an offer
 Route::get('offer-template-create', [OfferTemplateController::class,'directCreateOfferTemplate'])->name('curator.direct.create.offer.template');

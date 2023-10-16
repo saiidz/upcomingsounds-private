@@ -75,6 +75,8 @@
                           && Request::is('offer-rejected') != 'offer-rejected' && Request::is('offer-expired') != 'offer-expired' && Request::is('offer-alternative') != 'offer-alternative'
                           && Request::is('offer-artists-submissions') != 'offer-artists-submissions' && Request::is('offer-proposition') != 'offer-proposition'
                           && Request::is('create-offer-template') != 'create-offer-template'
+                          && Request::is('verified-coverage') != 'verified-coverage'
+                          && Request::is('create-verified-coverage') != 'create-verified-coverage'
                           && Request::is('offer-completed') != 'offer-completed')
                         <li>
                             @if (Auth::check() && auth()->user())
@@ -317,6 +319,7 @@
                           || Request::is('offer-expired') == 'offer-expired'
                           || Request::is('offer-alternative') == 'offer-alternative' || Request::is('offer-artists-submissions') == 'offer-artists-submissions'
                           || Request::is('offer-proposition') == 'offer-proposition' || Request::is('create-offer-template') == 'create-offer-template'
+                          || Request::is('verified-coverage') == 'verified-coverage' || Request::is('create-verified-coverage') == 'create-verified-coverage'
                           || Request::is('offer-completed') == 'offer-completed')
                         <li>
                             @if (Auth::check() && auth()->user())
@@ -392,6 +395,14 @@
                                         <i class="fa fa-edit"></i>
                                     </span>
                                 <span class="nav-text">Proposition</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{route('curator.verified.coverage')}}" id="verifiedCoverage">
+                                    <span class="nav-icon">
+                                        <i class="fa fa-edit"></i>
+                                    </span>
+                                <span class="nav-text">Verified Coverage</span>
                             </a>
                         </li>
                         <li>

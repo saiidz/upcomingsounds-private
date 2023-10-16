@@ -111,6 +111,10 @@
         {
             window.location.href = '/offer-proposition';
         });
+        $('#verifiedCoverage').on('click', function ()
+        {
+            window.location.href = '/verified-coverage';
+        });
         $('#completedOffers').on('click', function ()
         {
             window.location.href = '/offer-completed';
