@@ -42,6 +42,12 @@
                                                     <span class="text-primary">Approved</span>
                                                 @elseif($verifiedCoverage->is_rejected == 1)
                                                     <span class="text-danger">Rejected</span>
+                                                    <div>
+                                                        <span id="mgAdmin{{$verifiedCoverage->id}}" style="display:none">{!! $verifiedCoverage->reason_reject !!}</span>
+                                                        <a href="javascript:void(0)" class="btn btn-xs white"  onclick="adminMsgModalCenter({{$verifiedCoverage->id}})">
+                                                            Admin Reject Message
+                                                        </a>
+                                                    </div>
                                                 @else
                                                     <span class="text-danger">Pending</span>
                                                 @endif
@@ -170,4 +176,13 @@
         }
     </script>
     {{--    Active Display--}}
+    <script>
+        function adminMsgModalCenter(id)
+        {
+            let msg = $('#mgAdmin'+id).html();
+            $('#msgAdmin').html(msg);
+            $('#adminMsgModalCenter').modal('show');
+
+        }
+    </script>
 @endsection

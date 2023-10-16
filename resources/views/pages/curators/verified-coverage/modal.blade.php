@@ -18,3 +18,21 @@
     </div>
 </div>
 <!-- / Delete Campaign Modal -->
+
+<!-- Permission Copy Right Modal -->
+<div id="adminMsgModalCenter" class="modal fade black-overlay" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Admin Message Against Verified Coverage</h5>
+            </div>
+            <div class="modal-body">
+                <p id="msgAdmin"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div>
+</div>
+<!-- Permission Copy Right Modal -->

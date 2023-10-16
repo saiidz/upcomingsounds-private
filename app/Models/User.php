@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Artist\ArtistCouponGiftCard;
+use App\Models\Curator\VerifiedCoverage;
 use App\Templates\IMessageTemplates;
 use App\Templates\IOfferTemplateStatus;
 use App\Templates\IStatus;
@@ -172,7 +173,10 @@ class User extends Authenticatable implements MustVerifyEmail
          $query->where('is_approved',0)->where('type','artist');
      }
 
-     // get curators approved
+    /**
+     * @param $query
+     * @return void
+     */
     public function scopeGetApprovedCurators($query)
     {
         $query->where('is_approved',1)->where('type','curator');
@@ -207,6 +211,15 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(CuratorOfferTemplate::class,'user_id','id')->where('type', '!=',IOfferTemplateStatus::TYPE_DIRECT_OFFER);
     }
+
+    /**
+     * @return HasMany
+     */
+    public function curatorVerifiedCoverage(): HasMany
+    {
+        return $this->hasMany(VerifiedCoverage::class,'user_id','id');
+    }
+
      /**
      * Enter your own logic (e.g. if ($this->id === 1) to
      *   enable this user to be able to add/edit blog posts

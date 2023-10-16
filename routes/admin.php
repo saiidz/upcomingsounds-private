@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\OfferTypeController;
 use App\Http\Controllers\Admin\SendDirectOfferController;
 use App\Http\Controllers\Admin\SubmitWorkController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\VerifiedCoverageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ArtistController;
 use App\Http\Controllers\Admin\OptionController;
@@ -113,7 +114,7 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
     Route::post('banner-image-remove', [BannerController::class,'destroyBannerImg'])->name('banner.img.remove');
     Route::post('audio-remove', [BannerController::class,'destroyAudio'])->name('banner.audio.remove');
 
-    // Offer Type
+    # Offer Type
     Route::get('offers',  [OfferTypeController::class, 'offers'])->name('offers');
     Route::get('offer-template-curator/{user}',[OfferTypeController::class,'curatorOfferTemplate'])->name('curator.template-offer');
     Route::delete('delete-offer-template/{offer_template}',[OfferTypeController::class,'destroyOfferTemplate'])->name('curator.delete.offer.template');
@@ -122,6 +123,14 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
     Route::post('store-offer-template-reject/{offer_template}',[OfferTypeController::class,'storeRejectOfferTemplate'])->name('store.OfferTemplate.reject');
     Route::resource('offer-types',  OfferTypeController::class);
     Route::resource('alternative-options',  AlternativeOptionController::class);
+
+    # Verified Coverage
+    Route::get('curator-verified-coverage',  [VerifiedCoverageController::class, 'curatorVerifiedCoverage'])->name('curator.verified.coverage');
+    Route::get('verified-coverage-curator/{user}',[VerifiedCoverageController::class,'verifiedCoverage'])->name('verified.coverage');
+    Route::delete('delete-verified-coverage/{verified_coverage}',[VerifiedCoverageController::class,'destroyOfferTemplate'])->name('curator.delete.verified.coverage');
+    Route::get('verified-coverage/{verified_coverage}',[VerifiedCoverageController::class,'showVerifiedCoverage'])->name('curator.show.verified.coverage');
+    Route::post('store-approved-verified-coverage/{verified_coverage}', [VerifiedCoverageController::class,'storeApprovedVerifiedCoverage'])->name('store.approved.verified.coverage');
+    Route::post('store-verified-coverage-reject/{verified_coverage}',[VerifiedCoverageController::class,'storeRejectVerifiedCoverage'])->name('store.verified.coverage.reject');
 
     // send direct offers
     Route::get('send-direct-offer',[SendDirectOfferController::class,'sendDirectOffer'])->name('curator.send.direct.offer');

@@ -88,7 +88,9 @@
         <li class="bold {{ Request::is('admin/curator-approved') || Request::is('admin/curator-pending')
         || Request::is('admin/curator-profile*') || Request::is('admin/curator-verification*')
         || Request::is('admin/curator-features*') || Request::is('admin/curator-sub-feature*')
-        || Request::is('admin/offer*') || Request::is('admin/offer-template-curator*') || Request::is('admin/send-direct-offer*')
+        || Request::is('admin/offers*') || Request::is('admin/offer-template-curator*')
+        || Request::is('admin/curator-verified-coverage*') || Request::is('admin/verified-coverage-curator*') || Request::is('admin/verified-coverage*')
+        || Request::is('admin/send-direct-offer*')
         || Request::is('admin/curator-submit-work*') || Request::is('admin/curator-withdrawal-request*') ? 'active open' : '' }}">
             <a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)">
                 <i class="material-icons">face</i>
@@ -130,6 +132,14 @@
                         <a class="{{ Request::is('admin/offers*') || Request::is('admin/offer-template-curator*') ? 'active' : '' }}" href="{{ route('admin.offers') }}">
                             <i class="material-icons">radio_button_unchecked</i>
                             <span data-i18n="List">Offers - Proposition</span>
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('admin/curator-verified-coverage*') || Request::is('admin/verified-coverage-curator*')
+                            || Request::is('admin/verified-coverage*') ? 'active' : '' }}">
+                        <a class="{{ Request::is('admin/curator-verified-coverage*') || Request::is('admin/verified-coverage-curator*')
+                                || Request::is('admin/verified-coverage*') ? 'active' : '' }}" href="{{ route('admin.curator.verified.coverage') }}">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            <span data-i18n="List">Verified Coverage</span>
                         </a>
                     </li>
                     <li class="{{ Request::is('admin/send-direct-offer*') ? 'active' : '' }}">

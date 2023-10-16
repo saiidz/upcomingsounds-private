@@ -7,6 +7,7 @@ use App\Models\Curator\VerifiedCoverage;
 use App\Models\OfferType;
 use App\Templates\IMessageTemplates;
 use App\Templates\IOfferTemplateStatus;
+use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -84,9 +85,14 @@ class VerifiedCoverageController extends Controller
      */
     public function edit($verified_coverage)
     {
-        $verified_coverage = VerifiedCoverage::find(decrypt($verified_coverage));
-        $offer_types = OfferType::get();
-        return view('pages.curators.verified-coverage.create', get_defined_vars());
+        try {
+            $verified_coverage = VerifiedCoverage::find(decrypt($verified_coverage));
+            $offer_types = OfferType::get();
+            return view('pages.curators.verified-coverage.create', get_defined_vars());
+        }catch (DecryptException $exception)
+        {
+            abort(404);
+        }
     }
 
     /**
