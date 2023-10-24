@@ -11,6 +11,10 @@ use App\Models\Invoice;
 use App\Models\Order;
 use App\Models\User;
 use App\Models\Vehicle;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -26,13 +30,19 @@ class DashboardController extends Controller
         return view('admin.pages.dashboard');
     }
 
-    // Profile update
+    /**
+     * @return Application|Factory|View
+     */
     public function profile(){
         $profile = Auth::user();
         return view('admin.pages.admin-profile',get_defined_vars());
     }
 
-    // storeProfile
+    /**
+     * @param Request $request
+     * @param User $profile
+     * @return RedirectResponse
+     */
     public function storeProfile(Request $request,User $profile){
         $validator = Validator::make($request->all(), [
             'name'         => 'required|string|min:2|max:60',

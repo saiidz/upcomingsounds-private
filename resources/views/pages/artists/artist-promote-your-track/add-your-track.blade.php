@@ -23,7 +23,7 @@
         .title__name h3{
             font-size: 0.8rem !important;
         }
-        #selectionSHow h2,h3{
+        .form__container h2,h3{
             font-size:22px !important;
         }
         #rocket img{
@@ -49,7 +49,7 @@
         <div class="padding p-b-0">
             <div class="row row-sm item-masonry item-info-overlay">
                 <div class="col-sm-12 text-white m-b-sm">
-                    <div class="form__container" id="selectionSHow">
+                    <div class="form__container">
                         <div id="selectionHide">
                             <div class="title__container">
                                 <div class="separatortrack">
@@ -190,6 +190,7 @@
                                 </div>
                             </div>
                         </div>
+                        <div id="selectionSHow"></div>
                     </div>
                 </div>
             </div>
@@ -605,8 +606,8 @@
     <script>
         function selectSelection()
         {
-            toastr.error('work is pending');
-            return false;
+            // toastr.error('work is pending');
+            // return false;
             // check value curator check
             let received_check = $('.stepTwoReceived').is(':checked');
             let visibility_check = $('.stepTwoVisibility').is(':checked');
@@ -629,23 +630,30 @@
 
             var right_now_id =  $('#rightNowID').attr('data-id');
 
-                $.ajax({
-                    type: "GET",
-                    url: '{{url('/get-curators')}}',
-                    data: {
-                        right_now_check: 'right_now_check',
-                        right_now_id: right_now_id,
-                    },
-                    dataType: 'json',
-                    success: function (data) {
-                        if (data.success) {
-                            toastr.success(data.success);
-                            $('#selectionHide').hide();
-                            $('#selectionSHow').append(data.curators)
-                        }
+            $.ajax({
+                type: "GET",
+                url: '{{url('/get-curators')}}',
+                data: {
+                    right_now_check: 'right_now_check',
+                    right_now_id: right_now_id,
+                },
+                dataType: 'json',
+                success: function (data) {
+                    if (data.success) {
+                        toastr.success(data.success);
+                        $('#selectionHide').hide();
+                        $('#selectionSHow').append(data.curators)
+                    }
 
-                    },
-                });
+                },
+            });
+        }
+
+        function prevSelectedCuratorForm()
+        {
+            $('#selectionSHow').html('');
+            $('#selectionHide').show();
+
         }
     </script>
     <script>

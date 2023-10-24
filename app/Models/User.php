@@ -9,6 +9,7 @@ use App\Templates\IOfferTemplateStatus;
 use App\Templates\IStatus;
 use App\Templates\IUserType;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Laravel\Cashier\Billable;
@@ -87,23 +88,37 @@ class User extends Authenticatable implements MustVerifyEmail
 
     protected $dates = ['last_active_at'];
 
-    // User tags
+    /**
+     * @return HasMany
+     */
     public function userTags(){
         return $this->hasMany(UserTag::class, 'user_id');
     }
-    // CuratorUserTags
+
+    /**
+     * @return HasMany
+     */
     public function curatorUserTags(){
         return $this->hasMany(CuratorUserTag::class, 'user_id');
     }
-    // artist user
+
+    /**
+     * @return HasOne
+     */
     public function artistUser(){
         return $this->hasOne(ArtistUser::class,'user_id');
     }
-    // curator user
+
+    /**
+     * @return HasOne
+     */
     public function curatorUser(){
         return $this->hasOne(CuratorUser::class,'user_id');
     }
-    // user belongs to country
+
+    /**
+     * @return BelongsTo
+     */
     public function country(){
         return $this->belongsTo(Country::class);
     }

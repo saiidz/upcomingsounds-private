@@ -82,7 +82,7 @@
                 <div class="item r" id="budgetMindNot" data-id="item-5">
                     <div class="item-info">
                         <div class="item-title bottom text-right">
-                            <input type="checkbox" class="budgetYes budget_mind" name="pay_now" value="yes" />
+                            <input type="checkbox" class="budgetNot budget_mind" name="pay_now" value="yes" />
                         </div>
                         <div id="rocket">
                             <img src="{{asset('images/three_man.png')}}" alt="">
