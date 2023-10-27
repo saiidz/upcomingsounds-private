@@ -422,7 +422,7 @@
 
                 <div data-flex-no-shrink>
                     <div class="nav-fold dropup">
-                        <a data-toggle="dropdown">
+                        <a data-toggle="dropdown" href="{{url('/taste-maker-profile')}}#profile" class="reloadProfile">
                       <span class="pull-left">
                           @if(!empty($user_curator->profile))
                               <img src="{{URL('/')}}/uploads/profile/{{$user_curator->profile}}" alt="..." class="w-32 img-circle">

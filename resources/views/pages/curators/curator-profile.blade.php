@@ -91,7 +91,8 @@
                     </h1>
                     <p class="item-desc text-ellipsis text-muted" data-ui-toggle-class="text-ellipsis">
                         @if(!empty($user_curator->curatorUser->curator_signup_from))
-                            {{Str::upper ($user_curator->curatorUser->curator_signup_from)}}
+                            {{ucwords(str_replace("_", " ", $user_curator->curatorUser->curator_signup_from))}}
+{{--                            {{Str::upper ($user_curator->curatorUser->curator_signup_from)}}--}}
                         @endif
                     </p>
 
