@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\SendDirectOfferController;
 use App\Http\Controllers\Admin\SubmitWorkController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\VerifiedCoverageController;
+use App\Http\Controllers\Admin\VerifiedCoverageOfferTypeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ArtistController;
 use App\Http\Controllers\Admin\OptionController;
@@ -131,6 +132,8 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
     Route::get('verified-coverage/{verified_coverage}',[VerifiedCoverageController::class,'showVerifiedCoverage'])->name('curator.show.verified.coverage');
     Route::post('store-approved-verified-coverage/{verified_coverage}', [VerifiedCoverageController::class,'storeApprovedVerifiedCoverage'])->name('store.approved.verified.coverage');
     Route::post('store-verified-coverage-reject/{verified_coverage}',[VerifiedCoverageController::class,'storeRejectVerifiedCoverage'])->name('store.verified.coverage.reject');
+
+    Route::resource('verified-coverage-offer-types',  VerifiedCoverageOfferTypeController::class);
 
     // send direct offers
     Route::get('send-direct-offer',[SendDirectOfferController::class,'sendDirectOffer'])->name('curator.send.direct.offer');

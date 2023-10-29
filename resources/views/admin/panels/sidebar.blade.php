@@ -91,6 +91,7 @@
         || Request::is('admin/offers*') || Request::is('admin/offer-template-curator*')
         || Request::is('admin/curator-verified-coverage*') || Request::is('admin/verified-coverage-curator*') || Request::is('admin/verified-coverage*')
         || Request::is('admin/send-direct-offer*')
+        || Request::is('admin/offer-types*')
         || Request::is('admin/curator-submit-work*') || Request::is('admin/curator-withdrawal-request*') ? 'active open' : '' }}">
             <a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)">
                 <i class="material-icons">face</i>
@@ -134,14 +135,39 @@
                             <span data-i18n="List">Offers - Proposition</span>
                         </a>
                     </li>
-                    <li class="{{ Request::is('admin/curator-verified-coverage*') || Request::is('admin/verified-coverage-curator*')
-                            || Request::is('admin/verified-coverage*') ? 'active' : '' }}">
-                        <a class="{{ Request::is('admin/curator-verified-coverage*') || Request::is('admin/verified-coverage-curator*')
-                                || Request::is('admin/verified-coverage*') ? 'active' : '' }}" href="{{ route('admin.curator.verified.coverage') }}">
-                            <i class="material-icons">radio_button_unchecked</i>
-                            <span data-i18n="List">Verified Coverage</span>
+
+                    <li class="bold {{ Request::is('admin/curator-verified-coverage*') || Request::is('admin/verified-coverage-curator*')
+                            || Request::is('admin/verified-coverage*') || Request::is('admin/offer-types*') ? 'active open' : '' }}">
+                        <a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)">
+                            <i class="material-icons">face</i>
+                            <span class="menu-title" data-i18n="User">Verified Coverage</span>
                         </a>
+                        <div class="collapsible-body">
+                            <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+                                <li class="{{ Request::is('admin/verified-coverage-offer-types*') || Request::is('admin/verified-coverage*') ? 'active' : '' }}">
+                                    <a class="{{ Request::is('admin/verified-coverage-offer-types*') || Request::is('admin/verified-coverage*') ? 'active' : '' }}" href="{{ route('admin.verified-coverage-offer-types.index') }}">
+                                        <i class="material-icons">radio_button_unchecked</i>
+                                        <span data-i18n="List">VC Offer Types</span>
+                                    </a>
+                                </li>
+                                <li class="{{ Request::is('admin/curator-verified-coverage*') ? 'active' : '' }}">
+                                    <a class="{{ Request::is('admin/curator-verified-coverage*') ? 'active' : '' }}" href="{{ route('admin.curator.verified.coverage') }}">
+                                        <i class="material-icons">radio_button_unchecked</i>
+                                        <span data-i18n="List">Verified Coverage</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
+
+{{--                    <li class="{{ Request::is('admin/curator-verified-coverage*') || Request::is('admin/verified-coverage-curator*')--}}
+{{--                            || Request::is('admin/verified-coverage*') ? 'active' : '' }}">--}}
+{{--                        <a class="{{ Request::is('admin/curator-verified-coverage*') || Request::is('admin/verified-coverage-curator*')--}}
+{{--                                || Request::is('admin/verified-coverage*') ? 'active' : '' }}" href="{{ route('admin.curator.verified.coverage') }}">--}}
+{{--                            <i class="material-icons">radio_button_unchecked</i>--}}
+{{--                            <span data-i18n="List">Verified Coverage</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
                     <li class="{{ Request::is('admin/send-direct-offer*') ? 'active' : '' }}">
                         <a class="{{ Request::is('admin/send-direct-offer*') ? 'active' : '' }}" href="{{ route('admin.curator.send.direct.offer') }}">
                             <i class="material-icons">radio_button_unchecked</i>

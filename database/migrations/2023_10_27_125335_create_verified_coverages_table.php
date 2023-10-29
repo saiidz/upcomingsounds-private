@@ -16,7 +16,8 @@ class CreateVerifiedCoveragesTable extends Migration
         Schema::create('verified_coverages', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->foreignId('offer_type')->constrained('offer_types')->cascadeOnDelete();
+            $table->foreignId('v_c_offer_type')->constrained('verified_coverage_offer_types')->cascadeOnDelete();
+            $table->longText('description')->nullable();
             $table->longText('time_to_publish')->nullable();
             $table->integer('contribution')->nullable();
             $table->boolean('is_active')->default(false);

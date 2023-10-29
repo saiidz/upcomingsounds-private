@@ -45,7 +45,7 @@
                     <form method="POST" action="{{!empty($verified_coverage)
                                     ? route('curator.update.verified.coverage', encrypt($verified_coverage->id))
                                     : route('curator.store.verified.coverage')}}"
-                          enctype="multipart/form-data" class="basicform_with_reload">
+                          enctype="multipart/form-data" class="new_basicform_with_reload">
                         @csrf
                         <div class="form-group">
                             <label class="control-label form-control-label text-muted">Offer Type</label>
@@ -54,10 +54,20 @@
                                     <option disabled selected>Please Choose</option>
                                     @if(!empty($offer_types))
                                         @foreach($offer_types as $offer_type)
-                                            <option value="{{$offer_type->id}}" {{(!empty($verified_coverage) && $offer_type->id == $verified_coverage->offer_type) ? 'selected' : '' }}>{{$offer_type->name}}</option>
+                                            <option value="{{$offer_type->id}}" {{(!empty($verified_coverage) && $offer_type->id == $verified_coverage->v_c_offer_type) ? 'selected' : '' }}>{{$offer_type->name}}</option>
                                         @endforeach
                                     @endif
                                 </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="textOffer">
+                                <label class="control-label form-control-label text-muted">Description</label>
+                            </div>
+                            <div>
+                                   <textarea name="description_details" id="descriptionDetails"
+                                             placeholder="Offer Text..."
+                                             class="form-control ckeditor">{!! !empty($verified_coverage) ? $verified_coverage->description : old('description_details') !!}</textarea>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -65,7 +75,11 @@
                                 <label class="control-label form-control-label text-muted">Time To Publish</label>
                                 <select class="form-control" name="time_to_publish">
                                     <option disabled selected>Please Choose</option>
-                                    <option value="30" {{!empty($verified_coverage->time_to_publish) ? 'selected' : '' }}>{{__('1 - 30 days')}}</option>
+                                    @for ($i = 1; $i <= 30; $i++)
+                                        <option value="{{ $i }}" {{ !empty($verified_coverage) ? $i == $verified_coverage->time_to_publish ? 'selected' : '' : ''}}>
+                                            {{ $i }} {{ __('day' . ($i > 1 ? 's' : '')) }}
+                                        </option>
+                                    @endfor
                                 </select>
                             </div>
                         </div>
@@ -104,5 +118,12 @@
 @endsection
 
 @section('page-script')
+    <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+    <script>
+        $(document).ready(function() {
 
+            $('.ckeditor').ckeditor();
+
+        });
+    </script>
 @endsection

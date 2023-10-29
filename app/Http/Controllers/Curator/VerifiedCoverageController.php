@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Curator;
 
 use App\Http\Controllers\Controller;
 use App\Models\Curator\VerifiedCoverage;
+use App\Models\Curator\VerifiedCoverageOfferType;
 use App\Models\OfferType;
 use App\Templates\IMessageTemplates;
 use App\Templates\IOfferTemplateStatus;
@@ -32,7 +33,7 @@ class VerifiedCoverageController extends Controller
      */
     public function create()
     {
-        $offer_types = OfferType::get();
+        $offer_types = VerifiedCoverageOfferType::get();
         return view('pages.curators.verified-coverage.create', get_defined_vars());
     }
 
@@ -46,17 +47,18 @@ class VerifiedCoverageController extends Controller
             'confirm'             => "required",
             'contribution'        => "required|numeric|between:1,100",
             'time_to_publish'     => "required",
+            'description_details' => "required",
             'offer_type'          => "required",
         ]);
 
         if ($validator->fails())
-        {
             return response()->json(['errors' => $validator->errors()->all()]);
-        }
 
         $input = $request->all();
         $input['user_id'] = Auth::id();
-        $input['is_active'] = IOfferTemplateStatus::IS_ACTIVE;
+        $input['v_c_offer_type'] = $request->offer_type ?? null;
+        $input['description'] = $request->description_details ?? null;
+        $input['is_active'] = IOfferTemplateStatus::IS_NOT_ACTIVE;
         VerifiedCoverage::create($input);
 
         return response()->json([
@@ -87,7 +89,7 @@ class VerifiedCoverageController extends Controller
     {
         try {
             $verified_coverage = VerifiedCoverage::find(decrypt($verified_coverage));
-            $offer_types = OfferType::get();
+            $offer_types = VerifiedCoverageOfferType::get();
             return view('pages.curators.verified-coverage.create', get_defined_vars());
         }catch (DecryptException $exception)
         {
@@ -116,7 +118,8 @@ class VerifiedCoverageController extends Controller
         $input = $request->all();
 
         $input['user_id'] = Auth::id();
-        $input['is_active'] = IOfferTemplateStatus::IS_ACTIVE;
+        $input['v_c_offer_type'] = $request->offer_type ?? null;
+        $input['is_active'] = $verified_coverage->is_active;
         $input['is_approved'] = 0;
         $verified_coverage->update($input);
         return response()->json(['success' => IMessageTemplates::VERIFIED_COVERAGE_UPDATED_SUCCESS]);
@@ -142,6 +145,12 @@ class VerifiedCoverageController extends Controller
     public function verifiedCoverageChangeStatus(Request $request)
     {
         $curator_id = Auth::id();
+
+        # Deactivate the previous record
+        VerifiedCoverage::where([
+            'user_id' => $curator_id,
+            'is_active' => 1
+        ])->update(['is_active' => 0]);
 
         // update status public profile
         VerifiedCoverage::where(['id' => $request->verified_coverage_id, 'user_id' => $curator_id])->update([

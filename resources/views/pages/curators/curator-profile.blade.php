@@ -75,7 +75,7 @@
                             <h4 class="inline m-a-0 biO">Bio</h4>
                         </div>
                         <p id="bioInfo" class="text-muted">{{Str::limit($user_curator->curatorUser->curator_bio, 50)}}</p>
-                        <a href="javascript:void(0)" class="seeMoreBio" onclick="seeMoreBio()">See more</a>
+                        <a href="javascript:void(0)" class="seeMoreBio" onclick="seeMoreBio()">See More</a>
                     @endif
                 </div>
             </div>
@@ -408,6 +408,16 @@
             // }
             $('#bioInfo').empty();
             $('#bioInfo').html(curator_bio);
+
+            var seeText = $('.seeMoreBio').html();
+            if(seeText === 'See Less')
+            {
+                $('.seeMoreBio').html('See More');
+                $('#bioInfo').html('{{ Str::limit($user_curator->curatorUser->curator_bio, 50) }}');
+            }else if(seeText === 'See More'){
+                $('.seeMoreBio').html('See Less');
+            }
+
         }
     }
 </script>

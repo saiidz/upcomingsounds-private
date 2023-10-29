@@ -56,7 +56,7 @@
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                    @if (!empty($curatorsVerifiedCoverages))
+                                                    @if (!empty($curatorsVerifiedCoverages) && count($curatorsVerifiedCoverages) > 0)
                                                         @foreach ($curatorsVerifiedCoverages as $curatorsVerifiedCoverage)
                                                             <tr>
                                                                 <td>{{ $loop->iteration }}</td>

@@ -38,19 +38,6 @@
                                                         <span class="slider round switchDemo"></span>
                                                     </label>
                                                 </div>
-                                                @if($verifiedCoverage->is_approved == 1)
-                                                    <span class="text-primary">Approved</span>
-                                                @elseif($verifiedCoverage->is_rejected == 1)
-                                                    <span class="text-danger">Rejected</span>
-                                                    <div>
-                                                        <span id="mgAdmin{{$verifiedCoverage->id}}" style="display:none">{!! $verifiedCoverage->reason_reject !!}</span>
-                                                        <a href="javascript:void(0)" class="btn btn-xs white"  onclick="adminMsgModalCenter({{$verifiedCoverage->id}})">
-                                                            Admin Reject Message
-                                                        </a>
-                                                    </div>
-                                                @else
-                                                    <span class="text-danger">Pending</span>
-                                                @endif
                                             </div>
                                             <div class="item-title text-ellipsis">
                                                 <span class="text-muted">{{__('Created At')}}</span>
@@ -58,13 +45,17 @@
                                             <div class="item-meta text-sm text-muted">
                                                 <span class="item-meta-date text-xs">{{($verifiedCoverage->created_at) ? \Carbon\Carbon::parse($verifiedCoverage->created_at)->format('M d Y') : ''}}</span>
                                             </div>
-
+                                            <div
+                                                class="item-except visible-list text-sm text-muted m-t-sm">
+                                                {!! $verifiedCoverage->description ?? '--' !!}
+                                            </div>
                                             <div class="m-t-sm offerAlternative">
                                                 @if(!empty($verifiedCoverage->contribution))
                                                     <div>
                                                         <span style="color:#02b875 !important">Contribution: </span><span class="btn btn-xs white">{{$verifiedCoverage->contribution ?? 0}} USC</span>
                                                     </div>
                                                 @endif
+
                                                 @if(!empty($verifiedCoverage->offerType))
                                                     <div>
                                                         <span style="color:#02b875 !important">Offer Type: </span><span class="btn btn-xs white">{{$verifiedCoverage->offerType->name}}</span>
@@ -72,16 +63,33 @@
                                                 @endif
                                                 @if(!empty($verifiedCoverage->time_to_publish))
                                                     <div>
-                                                        <span style="color:#02b875 !important">Time To Publish: </span><span class="btn btn-xs white">{{$verifiedCoverage->time_to_publish}}</span>
+                                                        <span style="color:#02b875 !important">Time To Publish: </span><span class="btn btn-xs white">{{$verifiedCoverage->time_to_publish}} day</span>
                                                     </div>
                                                 @endif
                                             </div>
 
 
-                                            <div class="m-t-sm campaignBtn" style="display:flex">
-                                                <form id="form-offer{{$verifiedCoverage->id}}" action="{{route('curator.edit.verified.coverage',encrypt($verifiedCoverage->id))}}">
-                                                    <a href="javascript:void(0)" class="btn btn-xs white" onclick="verifiedCoverageEdit({{$verifiedCoverage->id}})" id="offerTemplateEdit">Edit</a>
-                                                </form>
+                                            <div class="m-t-sm campaignBtn" style="display:flex;justify-content: space-between;">
+                                                <div>
+                                                    <form id="form-offer{{$verifiedCoverage->id}}" action="{{route('curator.edit.verified.coverage',encrypt($verifiedCoverage->id))}}">
+                                                        <a href="javascript:void(0)" class="btn btn-xs white" onclick="verifiedCoverageEdit({{$verifiedCoverage->id}})" id="offerTemplateEdit">Edit</a>
+                                                    </form>
+                                                </div>
+                                                <div>
+                                                    @if($verifiedCoverage->is_approved == 1)
+                                                        <span class="text-primary" style="float: right !important;">Approved</span>
+                                                    @elseif($verifiedCoverage->is_rejected == 1)
+                                                        <span class="text-danger" style="float: right !important;">Rejected</span>
+                                                        <div>
+                                                            <span id="mgAdmin{{$verifiedCoverage->id}}" style="display:none">{!! $verifiedCoverage->reason_reject !!}</span>
+                                                            <a href="javascript:void(0)" class="btn btn-xs white"  onclick="adminMsgModalCenter({{$verifiedCoverage->id}})">
+                                                                Admin Reject Message
+                                                            </a>
+                                                        </div>
+                                                    @else
+                                                        <span class="text-danger" style="float: right !important;">Pending</span>
+                                                    @endif
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

@@ -17,7 +17,8 @@ class VerifiedCoverage extends Model
 
     protected $fillable = [
         'user_id',
-        'offer_type',
+        'v_c_offer_type',
+        'description',
         'time_to_publish',
         'contribution',
         'is_active',
@@ -41,6 +42,6 @@ class VerifiedCoverage extends Model
      */
     public function offerType(): BelongsTo
     {
-        return $this->belongsTo(OfferType::class,'offer_type');
+        return $this->belongsTo(VerifiedCoverageOfferType::class,'v_c_offer_type');
     }
 }
