@@ -384,9 +384,13 @@
        </div>
        <div data-flex-no-shrink>
           <div class="nav-fold dropup">
-             <a data-toggle="dropdown">
+             <a data-toggle="dropdown" href="{{url('/artist-profile')}}#profile" class="reloadProfile">
              <span class="pull-left">
-             <img src="{{asset('images/a3.jpg')}}" alt="..." class="w-32 img-circle">
+                @if(!empty($user_artist->profile))
+                     <img src="{{URL('/')}}/uploads/profile/{{$user_artist->profile}}" alt="..." class="w-32 img-circle">
+                 @else
+                     <img src="{{asset('images/a3.jpg')}}" alt="..." class="w-32 img-circle">
+                 @endif
              </span>
              <span class="clear hidden-folded p-x p-y-xs">
              <span class="block _500 text-ellipsis">{{($user_artist) ? $user_artist->name : ''}}</span>

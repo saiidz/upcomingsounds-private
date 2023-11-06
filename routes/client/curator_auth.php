@@ -29,7 +29,10 @@ Route::post('/store-curator-tag', [CuratorController::class, 'storeCuratorTag'])
 Route::delete('delete-feature-tag',[CuratorController::class,'deleteCuratorTag']);
 Route::post('curator-change-password', [CuratorController::class, 'curatorChangePassword']);
 
-// Wallet Shop Route
+# public profile curator
+Route::post('curator/change-public-profile',[CuratorController::class,'curatorChangeStatusProfile'])->name('curator.change.public.profile');
+
+# Wallet Shop Route
 Route::get('/taste-maker-wallet',[CuratorWalletController::class,'wallet'])->name('curator.wallet');
 Route::post('/curator-billing-info',[CuratorWalletController::class,'curatorBillingInfo'])->name('curator.billing.info');
 Route::post('/curator-withdrawal-request',[CuratorWalletController::class,'curatorWithdrawalRequest'])->name('curator.withdrawal.request');

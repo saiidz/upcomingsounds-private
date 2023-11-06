@@ -32,7 +32,9 @@ use PragmaRX\Countries\Package\Countries;
 
 class ArtistController extends Controller
 {
-    // Artist Profile
+    /**
+     * @return Application|Factory|View
+     */
     public function artistProfile(){
         $user_artist = Auth::user();
         $selected_feature = $user_artist->userTags->pluck('feature_tag_id')->toArray();
@@ -67,7 +69,11 @@ class ArtistController extends Controller
         $unReadNotifications = auth()->user()->unreadNotifications()->latest()->get();
         return view('pages.artists.artist-profile', get_defined_vars());
     }
-    // Artist Update Profile
+
+    /**
+     * @param Request $request
+     * @return RedirectResponse
+     */
     public function updateArtistProfile(Request $request)
     {
             $validator = Validator::make($request->all(), [
@@ -131,7 +137,8 @@ class ArtistController extends Controller
     }
 
     /**
-     * User artist upload Profile
+     * @param Request $request
+     * @return JsonResponse
      */
     public function uploadArtistProfile(Request $request)
     {

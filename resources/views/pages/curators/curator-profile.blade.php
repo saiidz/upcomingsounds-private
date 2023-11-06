@@ -25,6 +25,18 @@
         .ItemNotify{
             background-color: rgba(120, 120, 120, 0.1);
         }
+        .custom-icon::before {
+            content: "";
+            background-image: url({{asset('/images/artist_us.png')}});
+            width: 22px;
+            height: 22px;
+            display: inline-block;
+            background-size: cover;
+            margin-top: 7px;
+        }
+        .ItemNotify{
+            background-color: rgba(120, 120, 120, 0.1);
+        }
     </style>
 @endsection
 
@@ -201,6 +213,21 @@
                                    <i class="fab fa-tiktok"></i>
                                     <i class="fab fa-tiktok"></i>
                                     {{-- <i class="iconify" data-icon="fa-brands:tiktok"></i> --}}
+                                </a>
+                            @endif
+                            @if($user_curator->is_public_profile == 1)
+                                <a href="{{route('taste.maker.public.profile',$user_curator->name)}}" target="_blank" id="curator_Public_Profile"
+                                   class="btn btn-icon btn-social rounded btn-social-colored"
+                                   style="background-color:#333 !important;" title="Public Profile">
+                                    <i class="custom-icon"></i>
+                                    <i class="custom-icon"></i>
+                                </a>
+                            @else
+                                <a href="{{route('taste.maker.public.profile',$user_curator->name)}}" target="_blank" id="curator_Public_Profile"
+                                   class="btn btn-icon btn-social rounded btn-social-colored"
+                                   style="background-color:#333 !important; display:none;" title="Public Profile">
+                                    <i class="custom-icon"></i>
+                                    <i class="custom-icon"></i>
                                 </a>
                             @endif
                         </div>
@@ -474,4 +501,41 @@
     }
 </script>
 {{--    Notification Display--}}
+
+{{--    Public Profile Display--}}
+<script>
+    $('#curatorChangePublicProfile').on('change', function() {
+        let checked = $(this).is(':checked')
+        if(checked == 'true'){
+            var data = checked;
+        }else{
+            var data = checked;
+        }
+        var url = "{{route('curator.change.public.profile')}}";
+        $.ajax({
+            type: "POST",
+            url: url,
+            data:{
+                "_token": "{{ csrf_token() }}",
+                "is_public_profile": data,
+            },
+            success: function (data) {
+                if(data.success){
+                    if(data.is_public_profile == 0)
+                    {
+                        $('#curator_Public_Profile').css('display', 'none');
+                    }else{
+                        $('#curator_Public_Profile').css('display', 'inline-block');
+                    }
+                    $('#snackbar').html(data.success);
+                    $('#snackbar').addClass("show");
+                    setTimeout(function () {
+                        $('#snackbar').removeClass("show");
+                    }, 5000);
+                }
+            }
+        });
+    });
+</script>
+{{--    Public Profile Display--}}
 @endsection

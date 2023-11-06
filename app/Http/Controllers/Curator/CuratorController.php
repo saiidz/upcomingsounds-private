@@ -6,6 +6,10 @@ use App\Events\RealTimeNotification;
 use App\Models\Option;
 use App\Models\User;
 use App\Models\Country;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\CuratorFeature;
 use App\Models\CuratorUserTag;
@@ -14,6 +18,7 @@ use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 use App\Templates\IMessageTemplates;
 use Illuminate\Notifications\Notification;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -26,15 +31,18 @@ class CuratorController extends Controller
 {
 
     /**
-     * Curator Home
+     * @return Application|Factory|View
      */
     public function index()
     {
         return view('pages.curators.curator-home');
     }
 
-    // curatorProfile
-    public function curatorProfile(){
+    /**
+     * @return Application|Factory|View
+     */
+    public function curatorProfile()
+    {
         $user_curator = Auth::user();
         $selected_feature = $user_curator->curatorUserTags->pluck('curator_feature_tag_id')->toArray();
         $countries = Country::all();
@@ -54,7 +62,8 @@ class CuratorController extends Controller
     }
 
     /**
-     * User Curator upload Profile
+     * @param Request $request
+     * @return JsonResponse
      */
     public function uploadCuratorProfile(Request $request)
     {
@@ -80,7 +89,10 @@ class CuratorController extends Controller
         ]);
     }
 
-    // Curator Update Profile
+    /**
+     * @param Request $request
+     * @return Application|RedirectResponse|Redirector
+     */
     public function updateCuratorProfile(Request $request)
     {
             $validator = Validator::make($request->all(), [
@@ -139,9 +151,8 @@ class CuratorController extends Controller
 
 
     /**
-     * @param FormRequest $request
+     * @param AddTagCuratorRequest $request
      * @return JsonResponse
-     * @return update merchant seetings
      */
     public function storeCuratorTag(AddTagCuratorRequest $request): JsonResponse
     {
@@ -160,9 +171,10 @@ class CuratorController extends Controller
 
     }
 
-
-
-
+    /**
+     * @param $request
+     * @return array
+     */
     private function _filterCuratorTagRequest($request):array
     {
         return [
@@ -170,7 +182,10 @@ class CuratorController extends Controller
             'name' => $request->name,
         ];
     }
-    // forCurators
+
+    /**
+     * @return Application|Factory|View
+     */
     public function forCurators()
     {
 //        $classifiedImg = public_path('images/curator-header.jpg');
@@ -185,9 +200,8 @@ class CuratorController extends Controller
     }
 
     /**
-     * @param FormRequest $request
-     * @return JsonResponse
-     * @return update merchant seetings
+     * @param Request $request
+     * @return JsonResponse|void
      */
     public function deleteCuratorTag(Request $request)
     {
@@ -262,5 +276,47 @@ class CuratorController extends Controller
             ->markAsRead();
 
         return response()->noContent();
+    }
+
+    /**
+     * @param User $user
+     * @return Application|Factory|View|RedirectResponse|Redirector
+     */
+    public function curatorPublicProfile(User $user)
+    {
+        try {
+            if($user->is_public_profile == 1)
+            {
+                return view('pages.curators.curator-public-profile.public-profile', get_defined_vars());
+            }else{
+                return abort(403, "Restricted Access!");
+            }
+
+        }catch (\Exception $exception)
+        {
+            return abort(403, "Restricted Access!");
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function curatorChangeStatusProfile(Request $request)
+    {
+        $curator_id = Auth::id();
+
+        // update status public profile
+        User::where('id', $curator_id)->update([
+            'is_public_profile' => ($request->is_public_profile == 'true') ? 1 : 0,
+        ]);
+
+        #curator find
+        $curator = User::find($curator_id);
+
+        return response()->json([
+            'success' => 'Public Profile Is Updated',
+            'is_public_profile' => $curator->is_public_profile ?? null,
+        ]);
     }
 }

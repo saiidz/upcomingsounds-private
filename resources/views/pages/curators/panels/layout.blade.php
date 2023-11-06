@@ -15,7 +15,11 @@
         @include('pages.curators.collapsed_sidebar')
     </div>
     <!-- BEGIN: SideNav-->
-@include('pages.curators.panels.sidebar')
+    @if(Request::is('taste-maker/public*') == 'true')
+    @else
+        @include('pages.curators.panels.sidebar')
+    @endif
+
 <!-- END: SideNav-->
 
     <!-- ############ LAYOUT START-->

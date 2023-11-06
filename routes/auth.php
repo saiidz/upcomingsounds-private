@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArtistController;
+use App\Http\Controllers\Curator\CuratorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\ReferralController;
 use App\Http\Controllers\Auth\NewPasswordController;
@@ -443,8 +444,16 @@ Route::post('/referral/register', [ReferralController::class, 'store'])
 /***************************************************** Referral Routes *********************************************************/
 
 /***************************************************** Artist Public Routes *********************************************************/
-// public profile artist
+# public profile artist
 Route::get('artist/public/{user:name}',[ArtistController::class,'artistPublicProfile'])
     ->middleware('guest')
     ->name('artist.public.profile');
+
 /***************************************************** Artist Public Routes *********************************************************/
+
+/***************************************************** Curator Public Routes *********************************************************/
+# public profile curator
+Route::get('taste-maker/public/{user:name}',[CuratorController::class,'curatorPublicProfile'])
+    ->middleware('guest')
+    ->name('taste.maker.public.profile');
+/***************************************************** Curator Public Routes *********************************************************/

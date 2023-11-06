@@ -54,6 +54,9 @@ Route::post('newsletter', [NewsLetterSubscriptionController::class,'newsLetter']
 # public profile artist
 Route::get('artist/public/{user:name}',[ArtistController::class,'artistPublicProfile'])->name('artist.public.profile');
 
+# public profile curator
+Route::get('taste-maker/public/{user:name}',[CuratorController::class,'curatorPublicProfile'])->name('taste.maker.public.profile');
+
 # Gift Card Route
 Route::get('gift-card',[GiftCardController::class, 'index'])->name('card-gift');
 Route::get('checkout-gift-card',[GiftCardController::class, 'checkout'])->name('checkout.gift.card');
