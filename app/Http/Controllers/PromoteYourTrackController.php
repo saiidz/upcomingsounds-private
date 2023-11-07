@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Campaign;
+use App\Models\Curator\VerifiedCoverage;
 use App\Models\CuratorFeatureTag;
 use App\Models\ReferralRelationship;
 use App\Models\TransactionHistory;
@@ -116,7 +117,6 @@ class PromoteYourTrackController extends Controller
      */
     public function getCurators(Request $request)
     {
-
         if($request->recieved_check == 1)
         {
             $curators = User::with('curatorUser')->whereHas('curatorUser', function($q){
@@ -168,10 +168,17 @@ class PromoteYourTrackController extends Controller
                     $curators = User::with('curatorUser')->whereHas('curatorUser', function($q){
                         $q->whereIn('curator_signup_from',['journalist_media','label_manager','media']);
                     })->getReceivedCurstors()->latest()->get();
+                }else{
+                    $curators = VerifiedCoverage::with('user','offerType')
+                        ->where([
+                        'is_active'   => IStatus::IS_ACTIVE,
+                        'is_approved' => IStatus::IS_APPROVED,
+                    ])->latest()->get();
                 }
+
                 $curator_list = view('pages.artists.artist-promote-your-track.form-wizard.selection-curator')->with('curators', $curators)->render();
                 return response()->json([
-                    'success' => 'we have '.$curators->count().' curators',
+                    'success' => 'we have '.$curators->count().' Verified Coverage Curators',
                     'curators' => $curator_list,
                 ]);
             }

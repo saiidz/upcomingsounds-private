@@ -20,4 +20,7 @@ interface IStatus
     const WISE = 'wise';
 
     const PAID = 'paid';
+
+    const IS_ACTIVE = 1;
+    const IS_APPROVED = 1;
 }

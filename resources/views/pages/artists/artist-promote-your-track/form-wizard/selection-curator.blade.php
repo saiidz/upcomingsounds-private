@@ -76,43 +76,96 @@
                     nextSelector: 'a.jscroll-next:last'
                 }">
                             <div class="row">
-                                <div class="col-xs-4 col-sm-4 col-md-3">
-                                    <div class="item r" data-id="item-100" data-src="http://localhost:8001/uploads/audio/default_1683229746testmp3.mp3">
-                                        <div class="item-media">
-                                            <a href="javascript:void(0)" class="item-media-content" onclick="openNav(33)" style="background-image: url(http://localhost:8001/uploads/track_thumbnail/default_1683229746Payfast-logo.png);"></a>
+                                @if(!empty($curators) && count($curators) > 0)
+                                    @foreach($curators as $curator)
+                                        <div class="col-xs-4 col-sm-4 col-md-3">
+                                            <div class="item r" data-id="item-100">
+                                                <div class="item-media itemCurator">
+{{--                                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url(http://localhost:8001/uploads/track_thumbnail/default_1683229746Payfast-logo.png);"></a>--}}
+                                                    <div class="item-media-content itemMediaCurator">
+                                                        @php
+                                                            $mystring = !empty($curator->user->profile) ? $curator->user->profile : null;
+                                                            $findhttps   = 'https';
+                                                            $findhttp   = 'http';
+                                                            $poshttps = strpos($mystring, $findhttps);
 
-                                            <div class="item-overlay center">
-                                                <button class="btn-playpause">Play</button>
-                                            </div>
-                                        </div>
-                                        <div class="item-info" style="position: relative !important;padding: 10px 0 20px 0 !important;border-radius: inherit !important;">
-                                            <div class="item-overlay bottom text-right" style="bottom: 100% !important;">
-                                                <a href="javascript:void(0)" class="btn-favorite" onclick="favoriteTrack(100,'SAVE')">
-                                                    <i class="fa fa-heart-o"></i>
-                                                </a>
-                                                <a href="#" class="btn-more" data-toggle="dropdown">
-                                                    <i class="fa fa-ellipsis-h"></i>
-                                                </a>
-                                                <div class="dropdown-menu pull-right black lt"></div>
-                                            </div>
-                                            <div class="item-title text-ellipsis">
-                                                <a href="javascript:void(0)" onclick="openNav(33)">Keiko Schroeder (farhanartist)</a>
-                                            </div>
-                                            <div class="item-author text-ellipsis">
-                                                <span class="text-muted">Release Date: 04 May 2023</span>
-                                            </div>
-                                            <div class="item-author text-ellipsis">
-                                                <div class="clearfix m-b-sm">
-                                                    <img class="flag_icon" src="http://localhost:8001/images/flags/AI.png" alt="AI">
-                                                    <span class="text-muted" style="font-size:15px">Anguilla</span>
+                                                            $poshttp = strpos($mystring, $findhttp);
+                                                            if($poshttps != false){
+                                                                $pos = $poshttps;
+                                                            }else{
+                                                                $pos = $poshttp;
+                                                            }
+                                                        @endphp
+                                                        @if($pos === false)
+                                                            @if(!empty($curator->user->profile))
+                                                                <img src="{{URL('/')}}/uploads/profile/{{$curator->user->profile}}" alt="" class="profile-image">
+                                                            @else
+                                                                <img src="{{asset('images/profile_images_icons.svg')}}" alt="" class="profile-image">
+                                                            @endif
+                                                        @elseif($pos == 0)
+                                                            <img src="{{asset($curator->user->profile)}}" alt="" class="profile-image">
+                                                        @else
+
+                                                        @endif
+
+                                                        <img src="{{asset('images/bg_curator_profile.png')}}" alt="" class="background-image">
+                                                    </div>
+                                                </div>
+                                                <div class="item-info" style="position: relative !important;padding: 10px 0 20px 0 !important;border-radius: inherit !important;">
+                                                    <div class="item-overlay bottom text-right" style="bottom: 100% !important;">
+                                                        <a href="javascript:void(0)" class="btn-favorite" onclick="favoriteTrack(100,'SAVE')">
+                                                            <i class="fa fa-heart-o"></i>
+                                                        </a>
+{{--                                                        <a href="#" class="btn-more" data-toggle="dropdown">--}}
+{{--                                                            <i class="fa fa-ellipsis-h"></i>--}}
+{{--                                                        </a>--}}
+{{--                                                        <div class="dropdown-menu pull-right black lt"></div>--}}
+                                                    </div>
+                                                    <div class="" style="justify-content: space-between !important;align-items: center !important;display: flex !important;">
+                                                        <h3>{{ !empty($curator->user->name) ? $curator->user->name : '------' }}</h3>
+
+                                                        @if(!empty($curator->user->curatorUser->country))
+                                                            <div class="item-author text-ellipsis">
+                                                                <div class="clearfix m-b-sm">
+                                                                    <img class="flag_icon" src="{{asset('images/flags')}}/{{$curator->user->curatorUser->country->flag_icon}}.png" alt="{{$curator->user->curatorUser->country->flag_icon}}">
+                                                                    <span class="text-muted"
+                                                                          style="font-size:15px">{{($curator->user->curatorUser->country) ? $curator->user->curatorUser->country->name : ''}}</span>
+                                                                </div>
+                                                            </div>
+                                                        @endif
+                                                    </div>
+
+{{--                                                    <div class="item-title text-ellipsis">--}}
+{{--                                                        <a href="javascript:void(0)">{{ !empty($curator->user->name) ? $curator->user->name : '------' }}</a>--}}
+{{--                                                    </div>--}}
+                                                    <div class="item-author text-ellipsis">
+                                                        <span class="text-muted">{{ !empty($curator->user->curatorUser->curator_signup_from) ? ucwords(str_replace("_", " ", $curator->user->curatorUser->curator_signup_from)) : '------' }}</span>
+                                                    </div>
+                                                    <div class="item-author text-ellipsis">
+                                                        <span class="text-muted">Coverage Type: {{ !empty($curator->offerType->name) ? $curator->offerType->name : '------' }}</span>
+                                                    </div>
+                                                    <div class="" style="justify-content: space-between !important;align-items: center !important;display: flex !important;">
+                                                        <div class="item-author text-ellipsis">
+                                                            <span class="text-muted">
+                                                                {{--                                                        @if($curator->time_to_publish)--}}
+                                                                {{--                                                        @else--}}
+                                                                {{ !empty($curator->time_to_publish) ? $curator->time_to_publish : '------' }} days for coverage
+    {{--                                                        @endif--}}
+                                                            </span>
+                                                        </div>
+
+                                                        <div style="background-color: #02b875 !important;padding: 5px;">
+                                                            <a class="m-b-md" href="#">
+                                                                <span class="amount">Select for {{ !empty($curator->contribution) ? $curator->contribution : 0 }}  USC</span>
+                                                                <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
+                                                            </a>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="item-author text-sm text-ellipsis">
-                                                <a href="javascript:void(0)" class="text-muted">Premium</a>
-                                            </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    @endforeach
+                                @endif
                             </div>
                         </div>
                     </div>

@@ -37,7 +37,40 @@
             width: 100%;
         }
 
+        .itemCurator {
+            position: relative;
+            overflow: hidden;
+        }
 
+        .itemMediaCurator {
+            position: relative;
+            width: 100%;
+            padding-top: 100%; /* Set the desired aspect ratio, e.g., 4:3 would be 75% */
+            background-size: cover;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the image covers the container */
+        }
+
+        .profile-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            /*border: 4px solid #fff; !* Add a white border around the profile image *!*/
+            border-radius: 50%; /* Make it a circle for a profile image effect */
+        }
+        .itemCurator:after {
+            padding-top: 2% !important;
+        }
     </style>
 @endsection
 
@@ -609,15 +642,15 @@
             // toastr.error('work is pending');
             // return false;
             // check value curator check
-            let received_check = $('.stepTwoReceived').is(':checked');
-            let visibility_check = $('.stepTwoVisibility').is(':checked');
-            let establish_check = $('.stepTwoEstablish').is(':checked');
-
-            if(received_check == false && visibility_check == false && establish_check == false)
-            {
-                toastr.error('Please Select Right Now');
-                return false;
-            }
+            // let received_check = $('.stepTwoReceived').is(':checked');
+            // let visibility_check = $('.stepTwoVisibility').is(':checked');
+            // let establish_check = $('.stepTwoEstablish').is(':checked');
+            //
+            // if(received_check == false && visibility_check == false && establish_check == false)
+            // {
+            //     toastr.error('Please Select Right Now');
+            //     return false;
+            // }
 
             let payNow = $('.budgetYes').is(':checked');
             let budgetNot = $('.budgetNot').is(':checked');
@@ -629,7 +662,7 @@
             }
 
             var right_now_id =  $('#rightNowID').attr('data-id');
-
+            showLoader();
             $.ajax({
                 type: "GET",
                 url: '{{url('/get-curators')}}',
@@ -639,6 +672,7 @@
                 },
                 dataType: 'json',
                 success: function (data) {
+                    loader();
                     if (data.success) {
                         toastr.success(data.success);
                         $('#selectionHide').hide();
@@ -689,16 +723,16 @@
             if(status == 'step_two')
             {
                 // check value curator check
-                let received_check = $('.stepTwoReceived').is(':checked');
-                let visibility_check = $('.stepTwoVisibility').is(':checked');
-                let establish_check = $('.stepTwoEstablish').is(':checked');
-
-                // check right now
-                if(received_check == false && visibility_check == false && establish_check == false)
-                {
-                    toastr.error('Please Select Right Now');
-                    return false;
-                }
+                // let received_check = $('.stepTwoReceived').is(':checked');
+                // let visibility_check = $('.stepTwoVisibility').is(':checked');
+                // let establish_check = $('.stepTwoEstablish').is(':checked');
+                //
+                // // check right now
+                // if(received_check == false && visibility_check == false && establish_check == false)
+                // {
+                //     toastr.error('Please Select Right Now');
+                //     return false;
+                // }
                 // check start campaign
                 let payNow = $('.budgetYes').is(':checked');
                 let budgetNot = $('.budgetNot').is(':checked');
