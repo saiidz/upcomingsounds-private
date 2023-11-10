@@ -13,7 +13,8 @@
             @endif
             <div class="py-5 text-center m-t-lg">
                 <h2>Withdrawal</h2>
-                <p class="lead" style="color:#02b875 !important">Choose and activate your 45-day campaign (curators will offer publishing/coverage or select individual curators). </p>
+                <p class="lead" style="color:#fff !important">After filling out the required information, select your withdrawal method. </p>
+{{--                <p class="lead" style="color:#02b875 !important">Choose and activate your 45-day campaign (curators will offer publishing/coverage or select individual curators). </p>--}}
             </div>
             <div class="row">
                 <div class="col-md-8 order-md-1">
@@ -170,7 +171,7 @@
                                                     </div>
                                                     <div class="col-md-6 mb-3">
                                                         <label for="email" class="text-black">Paypal Email</label>
-                                                        <input type="email" name="paypal_email" class="form-control" id="paypal_email" placeholder="Enter Paypal Email" value="">
+                                                        <input type="email" name="email" class="form-control" id="paypal_email" placeholder="Enter Paypal Email" value="">
                                                         @error('paypal_email')
                                                         <small class="red-text ml-10" role="alert">
                                                             {{ $message }}
@@ -204,7 +205,7 @@
                                                     </div>
                                                     <div class="col-md-6 mb-3">
                                                         <label for="email" class="text-black">Wise Email</label>
-                                                        <input type="email" name="wise_email" class="form-control" id="wise_email" placeholder="Enter Wise Email" value="">
+                                                        <input type="email" name="email" class="form-control" id="wise_email" placeholder="Enter Wise Email" value="">
                                                         @error('wise_email')
                                                         <small class="red-text ml-10" role="alert">
                                                             {{ $message }}

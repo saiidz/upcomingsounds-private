@@ -108,15 +108,15 @@ class CuratorWalletController extends Controller
         elseif(empty($request->wise_email) && ($request->withdrawal_request == IStatus::WISE))
 //            $requiredEmail = 'required|email';
 
-//        $validatorError = Validator::make($request->all(), [
-////            'email'  => !empty($requiredEmail) ? $requiredEmail : '',
-//            'amount' => 'required|numeric',
-//        ]);
-//
-//        if ($validatorError->fails())
-//        {
-//            return response()->json(['errors' => $validatorError->errors()->all()]);
-//        }
+        $validator = Validator::make($request->all(), [
+            'email'  => !empty($requiredEmail) ? $requiredEmail : '',
+            'amount' => 'required|numeric',
+        ]);
+
+        if ($validator->fails())
+        {
+            return response()->json(['errors' => $validator->errors()->all()]);
+        }
 
         $user = Auth::user();
 
