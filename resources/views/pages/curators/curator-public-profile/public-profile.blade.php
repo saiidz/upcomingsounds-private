@@ -274,7 +274,10 @@
                     </div>
                 </div>
             </div>
-            @include('pages.curators.panels.right-sidebar')
+            @if(\Illuminate\Support\Facades\Auth::user()->type != 'artist')
+                @include('pages.curators.panels.right-sidebar')
+            @endif
+
         </div>
     </div>
 

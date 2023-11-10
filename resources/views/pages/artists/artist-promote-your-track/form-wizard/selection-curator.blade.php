@@ -122,7 +122,11 @@
 {{--                                                        <div class="dropdown-menu pull-right black lt"></div>--}}
                                                     </div>
                                                     <div class="" style="justify-content: space-between !important;align-items: center !important;display: flex !important;">
-                                                        <h3>{{ !empty($curator->user->name) ? $curator->user->name : '------' }}</h3>
+                                                        @if(!empty($curator->user->name))
+{{--                                                            <a href="{{route('taste.maker.public.profile',$curator->user->name)}}" target="_blank">--}}
+                                                                <h3>{{ $curator->user->name}}</h3>
+{{--                                                            </a>--}}
+                                                        @endif
 
                                                         @if(!empty($curator->user->curatorUser->country))
                                                             <div class="item-author text-ellipsis">
