@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
+use App\Models\Artist\ArtistFavoriteCurator;
 use App\Models\Option;
 use App\Models\User;
 use App\Models\Country;
@@ -35,7 +36,8 @@ class ArtistController extends Controller
     /**
      * @return Application|Factory|View
      */
-    public function artistProfile(){
+    public function artistProfile()
+    {
         $user_artist = Auth::user();
         $selected_feature = $user_artist->userTags->pluck('feature_tag_id')->toArray();
         $countries = Country::all();
@@ -67,6 +69,8 @@ class ArtistController extends Controller
         $artist_tracks = ArtistTrack::where('user_id',$user_artist->id)->orderBy('id','desc')->get();
         $notifications = auth()->user()->notifications()->latest()->get();
         $unReadNotifications = auth()->user()->unreadNotifications()->latest()->get();
+
+        $savedCurators = ArtistFavoriteCurator::where('artist_id',Auth::id())->latest()->get();
         return view('pages.artists.artist-profile', get_defined_vars());
     }
 

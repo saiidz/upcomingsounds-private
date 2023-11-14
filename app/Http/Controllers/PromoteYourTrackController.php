@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Artist\ArtistFavoriteCurator;
 use App\Models\Campaign;
 use App\Models\Curator\VerifiedCoverage;
 use App\Models\CuratorFeatureTag;
@@ -193,7 +194,7 @@ class PromoteYourTrackController extends Controller
     }
 
     /**
-     * @param storeAddTrack $request
+     * @param AddYourTrackRequest $request
      * @return JsonResponse
      */
     public function storeAddTrack(AddYourTrackRequest $request): JsonResponse
@@ -277,5 +278,46 @@ class PromoteYourTrackController extends Controller
         }
 
         return response()->json('Song Track created successfully.');
+    }
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function favoriteCurator(Request $request)
+    {
+        if($request->ajax())
+        {
+            if (!empty($request->curator_id))
+            {
+                $curator_ID = base64_decode($request->curator_id);
+                # if record exists in database
+                $artistFavoriteCurator = ArtistFavoriteCurator::where(['artist_id' => Auth::id(), 'curator_id' => $curator_ID])->first();
+                if(!empty($artistFavoriteCurator))
+                {
+                    $artistFavoriteCurator->forceDelete();
+                    return response()->json([
+                        'success' => 'Curator Updated successfully',
+                        'reload_page'  => 'reload_page',
+                    ]);
+                }
+
+                ArtistFavoriteCurator::create([
+                    'artist_id'  => Auth::id(),
+                    'curator_id' => $curator_ID,
+                ]);
+                return response()->json([
+                    'success' => 'Curator Updated successfully',
+                    'statusCurator'  => true,
+                ]);
+            }else
+            {
+                return response()->json(['error' => 'Error In Ajax call.']);
+            }
+        }else
+        {
+            return response()->json(['error' => 'Error In Ajax call.']);
+        }
+
     }
 }

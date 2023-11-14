@@ -113,9 +113,20 @@
                                                 </div>
                                                 <div class="item-info" style="position: relative !important;padding: 10px 0 20px 0 !important;border-radius: inherit !important;">
                                                     <div class="item-overlay bottom text-right" style="bottom: 100% !important; opacity: 1 !important;">
-                                                        <a href="javascript:void(0)" class="btn-favorite" onclick="favoriteTrack(100,'SAVE')">
-                                                            <i class="fa fa-heart-o"></i>
-                                                        </a>
+                                                        @if(!empty($curator->artistFavoriteCurator) && !empty($curator->user))
+                                                            <a href="javascript:void(0)" class="btn-favorite" @if($curator->user) onclick="favoriteCurator({{ $curator->user->id }})" @endif data-toggle="tooltip" title="Saved Curator">
+                                                                <i class=" {{ !empty($curator->artistFavoriteCurator) ? 'fa fa-heart colorAdd' : 'fa fa-heart-o' }}"></i>
+                                                            </a>
+                                                        @else
+                                                            @if(empty($curator->artistFavoriteCurator) && !empty($curator->user))
+                                                                <a href="javascript:void(0)" class="btn-favorite" @if($curator->user) onclick="favoriteCurator({{ $curator->user->id }})" @endif data-toggle="tooltip" title="Saved Curator">
+                                                                    <i class="fa fa-heart-o addClassFavorite{{ $curator->user->id }}"></i>
+                                                                </a>
+                                                            @endif
+                                                        @endif
+{{--                                                        <a href="javascript:void(0)" class="btn-favorite" onclick="favoriteTrack(100,'SAVE')" data-toggle="tooltip" title="Saved Curator">--}}
+{{--                                                            <i class="fa fa-heart-o"></i>--}}
+{{--                                                        </a>--}}
 {{--                                                        <a href="#" class="btn-more" data-toggle="dropdown">--}}
 {{--                                                            <i class="fa fa-ellipsis-h"></i>--}}
 {{--                                                        </a>--}}
@@ -159,7 +170,7 @@
                                                         </div>
 
                                                         <div style="background-color: #02b875 !important;padding: 5px;">
-                                                            <a class="m-b-md" href="#">
+                                                            <a class="m-b-md" href="javascript:void(0)" onclick="selectCuratorVerifiedCoverage({{ $curator->id }})">
                                                                 <span class="amount">Select for {{ !empty($curator->contribution) ? $curator->contribution : 0 }}  USC</span>
                                                                 <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
                                                             </a>

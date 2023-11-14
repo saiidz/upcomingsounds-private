@@ -71,6 +71,9 @@
         .itemCurator:after {
             padding-top: 2% !important;
         }
+        .colorAdd{
+            color:#02b875 !important;
+        }
     </style>
 @endsection
 
@@ -1084,5 +1087,11 @@
     });
 </script>
 
+    <script>
+        function selectCuratorVerifiedCoverage(id)
+        {
+            console.log(id);
+        }
+    </script>
 @endsection
 

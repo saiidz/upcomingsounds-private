@@ -288,3 +288,42 @@
         form.submit();
     }
 </script>
+
+<script>
+    function favoriteCurator(curator_id_)
+    {
+        var curator_id = window.btoa( curator_id_ );
+
+        showLoader();
+        $.ajax({
+            type: "GET",
+            url: '{{route('artist.favorite.curator')}}',
+            data: {curator_id:curator_id},
+            dataType: 'json',
+            success: function (data) {
+                loader();
+                if (data.success) {
+                    toastr.success(data.success);
+
+                    if(data.reload_page == "reload_page")
+                    {
+                        $('.addClassFavorite'+ curator_id_).removeClass('fa fa-heart colorAdd');
+                        $('.addClassFavorite'+ curator_id_).addClass('fa fa-heart-o');
+                        return false;
+                        // location.reload();
+                    }
+                    if(data.statusCurator == true)
+                    {
+                        $('.addClassFavorite'+ curator_id_).removeClass('fa fa-heart-o');
+                        $('.addClassFavorite'+ curator_id_).addClass('fa fa-heart colorAdd');
+                        return false;
+                        {{--window.location.replace('{{url('/artist-profile')}}#likes');--}}
+                    }
+                }
+                if (data.error) {
+                    toastr.error(data.error);
+                }
+            },
+        })
+    }
+</script>

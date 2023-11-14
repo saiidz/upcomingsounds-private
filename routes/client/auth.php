@@ -38,12 +38,15 @@ Route::delete('delete-track/{artist_track}',[ArtistTrackController::class,'destr
 Route::post('request-edit-track', [ArtistTrackController::class,'requestTrackEdit'])->name('request.edit.track');
 Route::delete('delete-track-image',[ArtistTrackController::class,'destroyImgPdf']);
 
-// promote your track
+# promote your track
 Route::get('welcome-your-track', [PromoteYourTrackController::class, 'index']);
 Route::get('promote-your-track', [PromoteYourTrackController::class, 'addYourTrack']);
 Route::post('store/track/campaign', [PromoteYourTrackController::class, 'storeTrackCampaign'])->name('store.Track.Campaign');
 Route::get('get-curators', [PromoteYourTrackController::class, 'getCurators']);
 Route::post('track-add-store', [PromoteYourTrackController::class, 'storeAddTrack'])->name('storeTrack');
+
+# favorite curator
+Route::get('favorite-curator', [PromoteYourTrackController::class,'favoriteCurator'])->name('artist.favorite.curator');
 
 // Wallet Shop Route
 Route::get('/wallet',[ArtistWalletController::class,'wallet']);
