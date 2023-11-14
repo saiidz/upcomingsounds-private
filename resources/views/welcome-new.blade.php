@@ -698,8 +698,8 @@
                     </div>
                 </div>
 
-                <section class="padding-110px-tb xs-padding-60px-tb bg-white builder-bg" id="content-section13">
-                    <div class="container circleCall">
+                <section class="padding-110px-tb xs-padding-60px-tb bg-white builder-bg circleCall" id="content-section13" style="padding-top: 167px !important;padding-bottom: 256px !important;">
+                    <div class="container">
                         <div class="row equalize xs-equalize-auto equalize-display-inherit">
                             <!-- content details -->
                             <div class="col-md-6 col-sm-6 xs-12 xs-text-center xs-margin-nineteen-bottom display-table" style="">
@@ -985,6 +985,18 @@
 {{-- page script --}}
 @section('page-script')
 
+    <script>
+        $('video').on('ended', function () {
+            this.load();
+            this.play();
+        });
+        $("#upClick").click(function() {
+            $('html, body').animate({
+                scrollTop: $(".circleCall").offset().top
+            }, 1500);
+        });
+    </script>
+
     <!-- Include jQuery and Slick carousel scripts -->
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
@@ -1008,17 +1020,7 @@
         });
     </script>
 
-    <script>
-        $('video').on('ended', function () {
-            this.load();
-            this.play();
-        });
-        $("#upClick").click(function() {
-            $('html, body').animate({
-                scrollTop: $(".circleCall").offset().top
-            }, 1500);
-        });
-    </script>
+
     <script>
         // vars
         'use strict'
