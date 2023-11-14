@@ -112,7 +112,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="item-info" style="position: relative !important;padding: 10px 0 20px 0 !important;border-radius: inherit !important;">
-                                                    <div class="item-overlay bottom text-right" style="bottom: 100% !important;">
+                                                    <div class="item-overlay bottom text-right" style="bottom: 100% !important; opacity: 1 !important;">
                                                         <a href="javascript:void(0)" class="btn-favorite" onclick="favoriteTrack(100,'SAVE')">
                                                             <i class="fa fa-heart-o"></i>
                                                         </a>

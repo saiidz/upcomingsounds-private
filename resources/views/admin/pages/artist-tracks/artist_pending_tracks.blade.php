@@ -80,6 +80,17 @@
                                                         @endforeach
                                                     @endif
 												</tbody>
+                                                <tfoot>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>Name</th>
+                                                    <th>Release Date</th>
+                                                    <th>Artist Name</th>
+                                                    <th>Created At</th>
+                                                    <th>Status</th>
+                                                    <th>View</th>
+                                                </tr>
+                                                </tfoot>
                                             </table>
 										</div>
 									</div>
