@@ -186,7 +186,7 @@
                                                     </div>
                                                     <div class="col-md-6 mb-3">
                                                         <label for="withdrawal_method" class="text-black">Wise Method</label>
-                                                        <select class="custom-select d-block w-100" id="wiseMethod" name="wise_method" required><sup>*</sup>
+                                                        <select class="custom-select d-block w-100" id="wiseMethod" name="wise_method"><sup>*</sup>
                                                             <option value="1" disabled selected>Choose Method</option>
                                                             <option value="email">Email</option>
                                                             <option value="account_add">Add Account</option>

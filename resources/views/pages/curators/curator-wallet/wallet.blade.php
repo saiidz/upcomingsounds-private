@@ -333,6 +333,8 @@
                 $('#wise_bic_swift_outside').val('');
                 $('#wise_iban_outside').val('');
                 $('#wise_address_outside').val('');
+
+                $('#wiseMethod').attr('required', false);
 // alert('paypal');
             }else if(withdrawMethod == 'wise')
             {
@@ -351,6 +353,8 @@
                 $('#wise_bic_swift_outside').val('');
                 $('#wise_iban_outside').val('');
                 $('#wise_address_outside').val('');
+
+                $('#wiseMethod').attr('required', true);
                 // alert('wise');
             }
         });

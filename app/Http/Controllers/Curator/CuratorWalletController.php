@@ -103,13 +103,19 @@ class CuratorWalletController extends Controller
      */
     public function curatorWithdrawalRequest(Request $request)
     {
+
         if(empty($request->paypal_email) && ($request->withdrawal_request == IStatus::PAYPAL))
-            $requiredEmail = 'required|email';
-        elseif(empty($request->wise_email) && ($request->withdrawal_request == IStatus::WISE))
+            return response()->json(['error' => 'Paypal Email is required']);
+//            $requiredEmail = 'required|email';
+        elseif(empty($request->wise_method) && ($request->withdrawal_request == IStatus::WISE))
+            return response()->json(['error' => 'Wise Method is required']);
 //            $requiredEmail = 'required|email';
 
+        if(!empty($request->wise_method) && $request->wise_method == 'email' && ($request->withdrawal_request == IStatus::WISE))
+            return response()->json(['error' => 'Wise Email is required']);
+
         $validator = Validator::make($request->all(), [
-            'email'  => !empty($requiredEmail) ? $requiredEmail : '',
+//            'email'  => !empty($requiredEmail) ? $requiredEmail : '',
             'amount' => 'required|numeric',
         ]);
 
