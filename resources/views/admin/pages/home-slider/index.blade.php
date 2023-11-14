@@ -103,12 +103,11 @@
                                                     <tfoot>
                                                     <tr>
                                                         <th>S#</th>
-                                                        <th>Artist Name</th>
-                                                        <th>Artist Thumbnail</th>
-                                                        <th>Track Name</th>
-                                                        <th>Track Description</th>
+                                                        <th>Title</th>
+                                                        <th>Image</th>
+                                                        <th>Description</th>
                                                         <th>Created At</th>
-                                                        <th>Add Days</th>
+                                                        <th>Status</th>
                                                         <th>Action</th>
                                                     </tr>
                                                     </tfoot>

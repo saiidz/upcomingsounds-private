@@ -144,14 +144,14 @@
                         </a>
                         <div class="collapsible-body">
                             <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-                                <li class="{{ Request::is('admin/verified-coverage-offer-types*') || Request::is('admin/verified-coverage*') ? 'active' : '' }}">
-                                    <a class="{{ Request::is('admin/verified-coverage-offer-types*') || Request::is('admin/verified-coverage*') ? 'active' : '' }}" href="{{ route('admin.verified-coverage-offer-types.index') }}">
+                                <li class="{{ Request::is('admin/verified-coverage-offer-types*') ? 'active' : '' }}">
+                                    <a class="{{ Request::is('admin/verified-coverage-offer-types*') ? 'active' : '' }}" href="{{ route('admin.verified-coverage-offer-types.index') }}">
                                         <i class="material-icons">radio_button_unchecked</i>
                                         <span data-i18n="List">VC Offer Types</span>
                                     </a>
                                 </li>
-                                <li class="{{ Request::is('admin/curator-verified-coverage*') ? 'active' : '' }}">
-                                    <a class="{{ Request::is('admin/curator-verified-coverage*') ? 'active' : '' }}" href="{{ route('admin.curator.verified.coverage') }}">
+                                <li class="{{ Request::is('admin/curator-verified-coverage*') || Request::is('admin/verified-coverage-curator*') ? 'active' : '' }}">
+                                    <a class="{{ Request::is('admin/curator-verified-coverage*') || Request::is('admin/verified-coverage-curator*') ? 'active' : '' }}" href="{{ route('admin.curator.verified.coverage') }}">
                                         <i class="material-icons">radio_button_unchecked</i>
                                         <span data-i18n="List">Verified Coverage</span>
                                     </a>
@@ -196,22 +196,22 @@
             </div>
         </li>
 
-        <li class="bold {{ Request::is('admin/blog-users*') ? 'active open' : '' }}">
-            <a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)">
-                <i class="material-icons">face</i>
-                <span class="menu-title" data-i18n="User">Blogs</span>
-            </a>
-            <div class="collapsible-body">
-                <ul class="collapsible collapsible-sub" data-collapsible="accordion">
-                    <li class="{{ Request::is('admin/blog-users*') ? 'active' : '' }}">
-                        <a class="{{ Request::is('admin/blog-users*') ? 'active' : '' }}" href="{{ route('admin.blog-users.index') }}">
-                            <i class="material-icons">radio_button_unchecked</i>
-                            <span data-i18n="List">Blog Users</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </li>
+{{--        <li class="bold {{ Request::is('admin/blog-users*') ? 'active open' : '' }}">--}}
+{{--            <a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)">--}}
+{{--                <i class="material-icons">face</i>--}}
+{{--                <span class="menu-title" data-i18n="User">Blogs</span>--}}
+{{--            </a>--}}
+{{--            <div class="collapsible-body">--}}
+{{--                <ul class="collapsible collapsible-sub" data-collapsible="accordion">--}}
+{{--                    <li class="{{ Request::is('admin/blog-users*') ? 'active' : '' }}">--}}
+{{--                        <a class="{{ Request::is('admin/blog-users*') ? 'active' : '' }}" href="{{ route('admin.blog-users.index') }}">--}}
+{{--                            <i class="material-icons">radio_button_unchecked</i>--}}
+{{--                            <span data-i18n="List">Blog Users</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
+{{--            </div>--}}
+{{--        </li>--}}
 
         <li class="bold">
             <a class="waves-effect waves-cyan {{Request::is('admin/tickets') || Request::is('admin/ticket*') ? 'active' : ''}}" href="{{route('admin.help.ticket')}}">

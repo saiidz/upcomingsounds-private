@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\HomeSlider;
+use Buglinjo\LaravelWebp\Exceptions\CwebpShellExecutionFailed;
+use Buglinjo\LaravelWebp\Exceptions\DriverIsNotSupportedException;
+use Buglinjo\LaravelWebp\Exceptions\ImageMimeNotSupportedException;
 use Buglinjo\LaravelWebp\Webp;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -36,6 +39,9 @@ class HomeSliderController extends Controller
     /**
      * @param Request $request
      * @return JsonResponse
+     * @throws CwebpShellExecutionFailed
+     * @throws DriverIsNotSupportedException
+     * @throws ImageMimeNotSupportedException
      */
     public function store(Request $request)
     {
@@ -108,11 +114,15 @@ class HomeSliderController extends Controller
      * @param Request $request
      * @param $id
      * @return JsonResponse
+     * @throws CwebpShellExecutionFailed
+     * @throws DriverIsNotSupportedException
+     * @throws ImageMimeNotSupportedException
      */
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'image'           => 'required|mimes:jpeg,jpg,png',
+            'image'           => 'mimes:jpeg,jpg,png',
+//            'image'           => 'required|mimes:jpeg,jpg,png',
 //            'button_two_link' => 'required',
 //            'button_two_text' => 'required',
 //            'button_one_link' => 'required',

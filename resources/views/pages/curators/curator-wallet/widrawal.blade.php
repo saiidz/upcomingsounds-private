@@ -171,7 +171,7 @@
                                                     </div>
                                                     <div class="col-md-6 mb-3">
                                                         <label for="email" class="text-black">Paypal Email</label>
-                                                        <input type="email" name="email" class="form-control" id="paypal_email" placeholder="Enter Paypal Email" value="">
+                                                        <input type="email" name="paypal_email" class="form-control" id="paypal_email" placeholder="Enter Paypal Email" value="">
                                                         @error('paypal_email')
                                                         <small class="red-text ml-10" role="alert">
                                                             {{ $message }}
@@ -205,7 +205,7 @@
                                                     </div>
                                                     <div class="col-md-6 mb-3">
                                                         <label for="email" class="text-black">Wise Email</label>
-                                                        <input type="email" name="email" class="form-control" id="wise_email" placeholder="Enter Wise Email" value="">
+                                                        <input type="email" name="wise_email" class="form-control" id="wise_email" placeholder="Enter Wise Email" value="">
                                                         @error('wise_email')
                                                         <small class="red-text ml-10" role="alert">
                                                             {{ $message }}

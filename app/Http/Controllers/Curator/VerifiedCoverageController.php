@@ -24,7 +24,7 @@ class VerifiedCoverageController extends Controller
      */
     public function index()
     {
-        $verifiedCoverages = VerifiedCoverage::where('user_id' , Auth::id())->get();
+        $verifiedCoverages = VerifiedCoverage::where('user_id' , Auth::id())->latest()->get();
         return view('pages.curators.verified-coverage.verified-coverage', get_defined_vars());
     }
 

@@ -64,7 +64,14 @@ class VerifiedCoverageController extends Controller
 
         if(!empty($verified_coverage))
         {
+            # Deactivate the previous record
+            VerifiedCoverage::where([
+                'user_id' => $verified_coverage->user_id,
+                'is_active' => 1
+            ])->update(['is_active' => 0]);
+
             $verified_coverage->update([
+                'is_active'   => 1,
                 'is_approved' => 1,
                 'is_rejected' => 0,
             ]);
