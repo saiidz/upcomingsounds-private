@@ -1087,11 +1087,25 @@
     });
 </script>
 
-    <script>
-        function selectCuratorVerifiedCoverage(id)
+<script>
+    {{-- selectCuratorVerifiedCoverage --}}
+    function selectCuratorVerifiedCoverage(id)
+    {
+        var requestFrom =  $('#click_C_V_C'+id).data('value');
+        console.log(requestFrom);
+        if(requestFrom === 'first')
         {
-            console.log(id);
+            $('#selectC_V_C'+id).css('background-color',"#e26e6b");
+            $('#click_C_V_C'+id).attr('data-value','second');
+        }else if(requestFrom === 'second')
+        {
+            alert('second');
+            $('#selectC_V_C'+id).css('background-color',"#02b875");
+            $('#click_C_V_C'+id).attr('data-value','first');
         }
-    </script>
+        console.log(id);
+    }
+    {{-- selectCuratorVerifiedCoverage --}}
+</script>
 @endsection
 

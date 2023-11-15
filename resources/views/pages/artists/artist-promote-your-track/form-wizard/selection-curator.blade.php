@@ -169,8 +169,8 @@
                                                             </span>
                                                         </div>
 
-                                                        <div style="background-color: #02b875 !important;padding: 5px;">
-                                                            <a class="m-b-md" href="javascript:void(0)" onclick="selectCuratorVerifiedCoverage({{ $curator->id }})">
+                                                        <div style="background-color: #02b875 !important;padding: 5px;" id="selectC_V_C{{ $curator->id }}">
+                                                            <a class="m-b-md" href="javascript:void(0)" data-value="first" id="click_C_V_C{{ $curator->id }}" onclick="selectCuratorVerifiedCoverage({{ $curator->id }})">
                                                                 <span class="amount">Select for {{ !empty($curator->contribution) ? $curator->contribution : 0 }}  USC</span>
                                                                 <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
                                                             </a>
