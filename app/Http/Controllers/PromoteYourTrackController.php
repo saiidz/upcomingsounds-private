@@ -299,6 +299,8 @@ class PromoteYourTrackController extends Controller
                     return response()->json([
                         'success' => 'Curator Updated successfully',
                         'reload_page'  => 'reload_page',
+                        'curatorID'  => $curator_ID,
+                        'requestFrom' => !empty($request->requestFrom) ? $request->requestFrom : '',
                     ]);
                 }
 
@@ -307,8 +309,10 @@ class PromoteYourTrackController extends Controller
                     'curator_id' => $curator_ID,
                 ]);
                 return response()->json([
-                    'success' => 'Curator Updated successfully',
+                    'success' => 'Curator Saved successfully',
                     'statusCurator'  => true,
+                    'curatorID'  => $curator_ID,
+                    'requestFrom' => !empty($request->requestFrom) ? $request->requestFrom : '',
                 ]);
             }else
             {

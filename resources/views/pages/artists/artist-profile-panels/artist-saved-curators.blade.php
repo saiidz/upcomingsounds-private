@@ -37,8 +37,19 @@
                     </div>
                     <div class="item-info">
                         <div class="item-overlay bottom text-right" style="opacity:1 !important;">
-                            <a href="#" class="btn-favorite"><i
-                                    class="fa fa-heart-o"></i></a>
+                            @if(!empty($savedCurator) && !empty($savedCurator->curatorUser))
+                                <a href="javascript:void(0)" class="btn-favorite" @if($savedCurator->curatorUser) onclick="favoriteCurator({{ $savedCurator->curatorUser->id }},'saved')" @endif data-toggle="tooltip" title="Saved Curator">
+                                    <i class=" {{ !empty($savedCurator) ? 'fa fa-heart colorAdd' : 'fa fa-heart-o' }} addClassFavorite{{ $savedCurator->curatorUser->id }}"></i>
+                                </a>
+                            @else
+                                @if(empty($savedCurator) && !empty($savedCurator->curatorUser))
+                                    <a href="javascript:void(0)" class="btn-favorite" @if($savedCurator->curatorUser) onclick="favoriteCurator({{ $savedCurator->curatorUser->id }},'saved')" @endif data-toggle="tooltip" title="Saved Curator">
+                                        <i class="fa fa-heart-o addClassFavorite{{ $savedCurator->curatorUser->id }}"></i>
+                                    </a>
+                                @endif
+                            @endif
+{{--                            <a href="#" class="btn-favorite"><i--}}
+{{--                                    class="fa fa-heart-o"></i></a>--}}
                         </div>
                         <div class="item-title text-ellipsis">
                             <a href="javascript:void(0)" id="curatorPublicProfile{{$savedCurator->curatorUser->id}}" data-value="{{route('taste.maker.public.profile',$savedCurator->curatorUser->name)}}" onclick="publicProfileCurator({{$savedCurator->curatorUser->id}})" id="publicProfileBlank">

@@ -290,7 +290,7 @@
 </script>
 
 <script>
-    function favoriteCurator(curator_id_)
+    function favoriteCurator(curator_id_,requestFrom)
     {
         var curator_id = window.btoa( curator_id_ );
 
@@ -298,7 +298,10 @@
         $.ajax({
             type: "GET",
             url: '{{route('artist.favorite.curator')}}',
-            data: {curator_id:curator_id},
+            data: {
+                curator_id:curator_id,
+                requestFrom:requestFrom
+            },
             dataType: 'json',
             success: function (data) {
                 loader();
@@ -307,15 +310,20 @@
 
                     if(data.reload_page == "reload_page")
                     {
-                        $('.addClassFavorite'+ curator_id_).removeClass('fa fa-heart colorAdd');
-                        $('.addClassFavorite'+ curator_id_).addClass('fa fa-heart-o');
+                        if(data.requestFrom == 'saved')
+                        {
+                            location.reload();
+                            return false;
+                        }
+                        $('.addClassFavorite'+ data.curatorID).removeClass('fa fa-heart colorAdd');
+                        $('.addClassFavorite'+ data.curatorID).addClass('fa fa-heart-o');
                         return false;
                         // location.reload();
                     }
                     if(data.statusCurator == true)
                     {
-                        $('.addClassFavorite'+ curator_id_).removeClass('fa fa-heart-o');
-                        $('.addClassFavorite'+ curator_id_).addClass('fa fa-heart colorAdd');
+                        $('.addClassFavorite'+ data.curatorID).removeClass('fa fa-heart-o');
+                        $('.addClassFavorite'+ data.curatorID).addClass('fa fa-heart colorAdd');
                         return false;
                         {{--window.location.replace('{{url('/artist-profile')}}#likes');--}}
                     }

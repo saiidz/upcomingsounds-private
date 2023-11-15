@@ -114,12 +114,12 @@
                                                 <div class="item-info" style="position: relative !important;padding: 10px 0 20px 0 !important;border-radius: inherit !important;">
                                                     <div class="item-overlay bottom text-right" style="bottom: 100% !important; opacity: 1 !important;">
                                                         @if(!empty($curator->artistFavoriteCurator) && !empty($curator->user))
-                                                            <a href="javascript:void(0)" class="btn-favorite" @if($curator->user) onclick="favoriteCurator({{ $curator->user->id }})" @endif data-toggle="tooltip" title="Saved Curator">
-                                                                <i class=" {{ !empty($curator->artistFavoriteCurator) ? 'fa fa-heart colorAdd' : 'fa fa-heart-o' }}"></i>
+                                                            <a href="javascript:void(0)" class="btn-favorite" @if($curator->user) onclick="favoriteCurator({{ $curator->user->id }},'promoteTrack')" @endif data-toggle="tooltip" title="Saved Curator">
+                                                                <i class=" {{ !empty($curator->artistFavoriteCurator) ? 'fa fa-heart colorAdd' : 'fa fa-heart-o' }} addClassFavorite{{ $curator->user->id }}"></i>
                                                             </a>
                                                         @else
                                                             @if(empty($curator->artistFavoriteCurator) && !empty($curator->user))
-                                                                <a href="javascript:void(0)" class="btn-favorite" @if($curator->user) onclick="favoriteCurator({{ $curator->user->id }})" @endif data-toggle="tooltip" title="Saved Curator">
+                                                                <a href="javascript:void(0)" class="btn-favorite" @if($curator->user) onclick="favoriteCurator({{ $curator->user->id }},'promoteTrack')" @endif data-toggle="tooltip" title="Saved Curator">
                                                                     <i class="fa fa-heart-o addClassFavorite{{ $curator->user->id }}"></i>
                                                                 </a>
                                                             @endif
