@@ -1081,6 +1081,25 @@
                 '_self' // <- This is what makes it open in a new window.
             );
         }
+
+        function publicProfileCurator(id)
+        {
+            let url = $('#curatorPublicProfile'+id).data('value');
+            window.open(
+                url,
+                '_blank' // <- This is what makes it open in a new window.
+            );
+        }
+
+        // function publicProfileCurator(curator_name)
+        // {
+        //     // console.log(window.location.origin);
+        //     // console.log(curator_name);
+        //     window.open(
+        //         window.location.origin + '/taste-maker/public/'+curator_name,
+        //         '_blank' // <- This is what makes it open in a new window.
+        //     );
+        // }
     </script>
 {{--    Promote to track redirect and checked track--}}
 

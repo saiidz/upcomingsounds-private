@@ -17,21 +17,23 @@
                                 $pos = $poshttp;
                             }
                         @endphp
-                        @if($pos === false)
-                            @if(!empty($savedCurator->curatorUser->profile))
+                        <a href="javascript:void(0)" id="curatorPublicProfile{{$savedCurator->curatorUser->id}}" data-value="{{route('taste.maker.public.profile',$savedCurator->curatorUser->name)}}" onclick="publicProfileCurator({{$savedCurator->curatorUser->id}})" id="publicProfileBlank">
+                            @if($pos === false)
+                                @if(!empty($savedCurator->curatorUser->profile))
+                                    <div class="item-media-content"
+                                         style="background-image: url({{URL('/')}}/uploads/profile/{{$savedCurator->curatorUser->profile}});"></div>
+                                @else
+                                    <div class="item-media-content"
+                                         style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>
+                                @endif
+                            @elseif($pos == 0)
                                 <div class="item-media-content"
-                                     style="background-image: url({{URL('/')}}/uploads/profile/{{$savedCurator->curatorUser->profile}});"></div>
+                                     style="background-image: url({{$savedCurator->curatorUser->profile}});"></div>
                             @else
                                 <div class="item-media-content"
                                      style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>
                             @endif
-                        @elseif($pos == 0)
-                            <div class="item-media-content"
-                                 style="background-image: url({{$savedCurator->curatorUser->profile}});"></div>
-                        @else
-                            <div class="item-media-content"
-                                 style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>
-                        @endif
+                        </a>
                     </div>
                     <div class="item-info">
                         <div class="item-overlay bottom text-right" style="opacity:1 !important;">
@@ -39,7 +41,7 @@
                                     class="fa fa-heart-o"></i></a>
                         </div>
                         <div class="item-title text-ellipsis">
-                            <a href="{{route('taste.maker.public.profile',$savedCurator->curatorUser->name)}}" target="_blank">
+                            <a href="javascript:void(0)" id="curatorPublicProfile{{$savedCurator->curatorUser->id}}" data-value="{{route('taste.maker.public.profile',$savedCurator->curatorUser->name)}}" onclick="publicProfileCurator({{$savedCurator->curatorUser->id}})" id="publicProfileBlank">
                                 {{($savedCurator->curatorUser) ? $savedCurator->curatorUser->name : ''}}
                             </a>
                         </div>

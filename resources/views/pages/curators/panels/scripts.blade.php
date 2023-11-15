@@ -382,6 +382,7 @@
             '_blank' // <- This is what makes it open in a new window.
         );
     }
+
     function publicProfileSaved(id)
     {
         let url = $('#publicProfile'+id).data('value');
