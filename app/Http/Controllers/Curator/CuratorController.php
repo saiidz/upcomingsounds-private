@@ -285,12 +285,17 @@ class CuratorController extends Controller
     public function curatorPublicProfile(User $user)
     {
         try {
-            if($user->is_public_profile == 1)
+            if (!empty($user) && Auth::check())
             {
-                return view('pages.curators.curator-public-profile.public-profile', get_defined_vars());
-            }else{
+                if($user->is_public_profile == 1)
+                {
+                    return view('pages.curators.curator-public-profile.public-profile', get_defined_vars());
+                }else{
+                    return abort(403, "Restricted Access!");
+                }
+            }else
                 return abort(403, "Restricted Access!");
-            }
+
 
         }catch (\Exception $exception)
         {
