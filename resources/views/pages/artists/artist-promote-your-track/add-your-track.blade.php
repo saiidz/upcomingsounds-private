@@ -1086,26 +1086,46 @@
         readAudioURL(this);
     });
 </script>
+    <script>
+        // function encodeId(id) {
+        //     return btoa(id); // Base64 encoding
+        // }
+        {{-- selectCuratorVerifiedCoverage --}}
+        // Initialize an array to store selected curator IDs
+        var selectedCurators = [];
 
-<script>
-    {{-- selectCuratorVerifiedCoverage --}}
-    function selectCuratorVerifiedCoverage(id)
-    {
-        var requestFrom =  $('#click_C_V_C'+id).data('value');
-        console.log(requestFrom);
-        if(requestFrom === 'first')
+        function selectCuratorVerifiedCoverage(id)
         {
-            $('#selectC_V_C'+id).css('background-color',"#e26e6b");
-            $('#click_C_V_C'+id).attr('data-value','second');
-        }else if(requestFrom === 'second')
-        {
-            alert('second');
-            $('#selectC_V_C'+id).css('background-color',"#02b875");
-            $('#click_C_V_C'+id).attr('data-value','first');
+            var curatorId = atob(id);
+            var requestFrom =  $('#click_C_V_C'+curatorId).attr('data-value');
+
+            // Check if curatorId is already in the array
+            var index = selectedCurators.indexOf(curatorId);
+
+            if(requestFrom === 'first')
+            {
+                $('#selectC_V_C'+curatorId).css('background-color',"#e26e6b");
+                $('#click_C_V_C'+curatorId).attr('data-value','second');
+
+                var inputValue = $('#verifiedCoverageIds'+curatorId).val(curatorId);
+
+                // Add the current input value to the array
+                selectedCurators.push({
+                    curatorId: curatorId,
+                    inputValue: inputValue
+                });
+            }else if(requestFrom === 'second')
+            {
+                $('#selectC_V_C'+curatorId).css('background-color',"#02b875");
+                $('#click_C_V_C'+curatorId).attr('data-value','first');
+
+                var inputValue = $('#verifiedCoverageIds'+curatorId).val('');
+                selectedCurators.splice(inputValue, 1);
+            }
+            console.log("Input Values Array:", selectedCurators);
         }
-        console.log(id);
-    }
-    {{-- selectCuratorVerifiedCoverage --}}
-</script>
+
+        {{-- selectCuratorVerifiedCoverage --}}
+    </script>
 @endsection
 
