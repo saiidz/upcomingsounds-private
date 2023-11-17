@@ -1092,7 +1092,8 @@
         // }
         {{-- selectCuratorVerifiedCoverage --}}
         // Initialize an array to store selected curator IDs
-        var selectedCurators = [];
+        // var selectedCurators = [];
+        var inputValuesObject = {};
 
         function selectCuratorVerifiedCoverage(id)
         {
@@ -1100,7 +1101,7 @@
             var requestFrom =  $('#click_C_V_C'+curatorId).attr('data-value');
 
             // Check if curatorId is already in the array
-            var index = selectedCurators.indexOf(curatorId);
+            // var index = selectedCurators.indexOf(curatorId);
 
             if(requestFrom === 'first')
             {
@@ -1110,19 +1111,21 @@
                 var inputValue = $('#verifiedCoverageIds'+curatorId).val(curatorId);
 
                 // Add the current input value to the array
-                selectedCurators.push({
-                    curatorId: curatorId,
-                    inputValue: inputValue
-                });
+                inputValuesObject[curatorId] = inputValue;
+                // selectedCurators.push({
+                //     curatorId: curatorId,
+                //     inputValue: inputValue
+                // });
             }else if(requestFrom === 'second')
             {
                 $('#selectC_V_C'+curatorId).css('background-color',"#02b875");
                 $('#click_C_V_C'+curatorId).attr('data-value','first');
 
                 var inputValue = $('#verifiedCoverageIds'+curatorId).val('');
-                selectedCurators.splice(inputValue, 1);
+                delete inputValuesObject[curatorId];
+                // selectedCurators.splice(inputValue, 1);
             }
-            console.log("Input Values Array:", selectedCurators);
+            console.log("Input Values Array:", inputValuesObject);
         }
 
         {{-- selectCuratorVerifiedCoverage --}}
