@@ -1102,7 +1102,6 @@
 
             // Check if curatorId is already in the array
             // var index = selectedCurators.indexOf(curatorId);
-
             if(requestFrom === 'first')
             {
                 $('#selectC_V_C'+curatorId).css('background-color',"#e26e6b");
@@ -1112,6 +1111,9 @@
 
                 // Add the current input value to the array
                 inputValuesObject[curatorId] = inputValue;
+
+                toastr.success('You have selected item');
+
                 // selectedCurators.push({
                 //     curatorId: curatorId,
                 //     inputValue: inputValue
@@ -1123,6 +1125,8 @@
 
                 var inputValue = $('#verifiedCoverageIds'+curatorId).val('');
                 delete inputValuesObject[curatorId];
+
+                toastr.error('You have un selected item');
                 // selectedCurators.splice(inputValue, 1);
             }
             console.log("Input Values Array:", inputValuesObject);
