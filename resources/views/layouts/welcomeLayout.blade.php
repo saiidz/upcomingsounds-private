@@ -40,6 +40,8 @@
                                 }else{
                                     $url = url('/');
                                 }
+                        }else{
+                                $url = url('/');
                         }
                 @endphp
                 <a href="{{ $url }}" class="navbar-brand md">
