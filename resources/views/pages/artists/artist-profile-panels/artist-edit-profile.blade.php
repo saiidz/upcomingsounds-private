@@ -308,9 +308,9 @@
                 </div>
             </div>
 
-        <div class="page-title m-b-2">
-            <h4 class="inline m-a-0 update_profile">Your universe</h4>
-        </div>
+{{--        <div class="page-title m-b-2">--}}
+{{--            <h4 class="inline m-a-0 update_profile">Your universe</h4>--}}
+{{--        </div>--}}
 
         <div class="form-group row">
             <div class="col-sm-3">

@@ -70,6 +70,10 @@ class VerifiedCoverageController extends Controller
                 'is_active' => 1
             ])->update(['is_active' => 0]);
 
+            User::where('id', $verified_coverage->user_id)->update([
+                'is_public_profile' => 1,
+            ]);
+
             $verified_coverage->update([
                 'is_active'   => 1,
                 'is_approved' => 1,

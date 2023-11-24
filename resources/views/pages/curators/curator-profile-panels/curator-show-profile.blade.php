@@ -37,15 +37,15 @@
     </div>
 </div>
 
-<div class="form-group row">
-    <div class="col-sm-2 form-control-label text-muted">Public Profile Display:</div>
-    <div class="col-sm-9" id="deMo">
-        <label class="switch">
-            <input type="checkbox" name="demo" id="curatorChangePublicProfile" value="" {{ ($user_curator->is_public_profile == 1) ? 'checked' : ''  }}>
-            <span class="slider round switchDemo"></span>
-        </label>
-    </div>
-</div>
+{{--<div class="form-group row">--}}
+{{--    <div class="col-sm-2 form-control-label text-muted">Public Profile Display:</div>--}}
+{{--    <div class="col-sm-9" id="deMo">--}}
+{{--        <label class="switch">--}}
+{{--            <input type="checkbox" name="demo" id="curatorChangePublicProfile" value="" {{ ($user_curator->is_public_profile == 1) ? 'checked' : ''  }}>--}}
+{{--            <span class="slider round switchDemo"></span>--}}
+{{--        </label>--}}
+{{--    </div>--}}
+{{--</div>--}}
 
 @if(!empty($user_curator->curatorUser))
     <div class="page-title m-b">

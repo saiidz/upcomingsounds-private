@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Curator\VerifiedCoverage;
 use App\Models\Curator\VerifiedCoverageOfferType;
 use App\Models\OfferType;
+use App\Models\User;
 use App\Templates\IMessageTemplates;
 use App\Templates\IOfferTemplateStatus;
 use Illuminate\Contracts\Encryption\DecryptException;
@@ -121,6 +122,7 @@ class VerifiedCoverageController extends Controller
         $input['v_c_offer_type'] = $request->offer_type ?? null;
         $input['is_active'] = $verified_coverage->is_active;
         $input['is_approved'] = 0;
+
         $verified_coverage->update($input);
         return response()->json(['success' => IMessageTemplates::VERIFIED_COVERAGE_UPDATED_SUCCESS]);
     }
@@ -156,6 +158,20 @@ class VerifiedCoverageController extends Controller
         VerifiedCoverage::where(['id' => $request->verified_coverage_id, 'user_id' => $curator_id])->update([
             'is_active' => ($request->is_active == 'true') ? 1 : 0,
         ]);
+
+        $verified_coverage = VerifiedCoverage::find($request->verified_coverage_id);
+        if($verified_coverage->is_active == 1)
+        {
+            # update status public profile
+            User::where('id', $curator_id)->update([
+                'is_public_profile' => 1,
+            ]);
+        }else{
+            # update status public profile
+            User::where('id', $curator_id)->update([
+                'is_public_profile' => 0,
+            ]);
+        }
 
         return response()->json([
             'success' => 'Verified Coverage status Is Updated',
