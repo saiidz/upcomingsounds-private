@@ -4,7 +4,7 @@
     <div class="left navside grey dk" data-layout="column">
        <div class="navbar no-radius">
           <!-- brand -->
-          <a href="{{url('/')}}" class="navbar-brand md">
+          <a href="{{url('/artist-profile')}}" class="navbar-brand md">
           <img src="{{asset('images/logo.png')}}" alt=".">
           </a>
           <!-- / brand -->

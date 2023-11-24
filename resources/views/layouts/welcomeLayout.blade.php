@@ -25,7 +25,24 @@
                     <i class="material-icons">menu</i>
                 </a>
                 <!-- brand -->
-                <a href="{{url('/')}}" class="navbar-brand md">
+                @php
+                    if (Auth::check())
+                        {
+                            if (Auth::user()->type == 'artist')
+                                {
+                                    $url = url('/artist-profile');
+                                }elseif (Auth::user()->type == 'curator')
+                                {
+                                    $url = url('/dashboard');
+                                }elseif(Auth::user()->type == 'admin' && Auth::user()->is_blog == 0)
+                                {
+                                    $url = url('/admin/dashboard');
+                                }else{
+                                    $url = url('/');
+                                }
+                        }
+                @endphp
+                <a href="{{ $url }}" class="navbar-brand md">
                     {{--                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32">--}}
                     {{--                            <circle cx="24" cy="24" r="24" fill="rgba(255,255,255,0.2)"/>--}}
                     {{--                            <circle cx="24" cy="24" r="22" fill="#1c202b" class="brand-color"/>--}}
