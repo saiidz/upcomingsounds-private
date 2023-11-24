@@ -37,6 +37,40 @@
         .ItemNotify{
             background-color: rgba(120, 120, 120, 0.1);
         }
+        .itemCurator {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .itemMediaCurator {
+            position: relative;
+            width: 100%;
+            padding-top: 100%; /* Set the desired aspect ratio, e.g., 4:3 would be 75% */
+            background-size: cover;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the image covers the container */
+        }
+
+        .profile-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            /*border: 4px solid #fff; !* Add a white border around the profile image *!*/
+            border-radius: 50%; /* Make it a circle for a profile image effect */
+        }
+        .itemCurator:after {
+            padding-top: 2% !important;
+        }
     </style>
 @endsection
 

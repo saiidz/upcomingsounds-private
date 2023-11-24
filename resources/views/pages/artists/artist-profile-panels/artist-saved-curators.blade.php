@@ -3,38 +3,72 @@
         @foreach($savedCurators as $savedCurator)
             <div class="col-xs-4 col-sm-4 col-md-3">
                 <div class="item r" data-id="item-10">
-                    <div class="item-media ">
-                        @php
-                            $mystring = $savedCurator->curatorUser->profile;
-                            $findhttps   = 'https';
-                            $findhttp   = 'http';
-                            $poshttps = strpos($mystring, $findhttps);
+                    <div class="item-media itemCurator">
+                        {{--                                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url(http://localhost:8001/uploads/track_thumbnail/default_1683229746Payfast-logo.png);"></a>--}}
+                        <div class="item-media-content itemMediaCurator">
+                            @php
+                                $mystring = !empty($savedCurator->curatorUser->profile) ? $savedCurator->curatorUser->profile : null;
+                                $findhttps   = 'https';
+                                $findhttp   = 'http';
+                                $poshttps = strpos($mystring, $findhttps);
 
-                            $poshttp = strpos($mystring, $findhttp);
-                            if($poshttps != false){
-                                $pos = $poshttps;
-                            }else{
-                                $pos = $poshttp;
-                            }
-                        @endphp
-                        <a href="javascript:void(0)" id="curatorPublicProfile{{$savedCurator->curatorUser->id}}" data-value="{{route('taste.maker.public.profile',$savedCurator->curatorUser->name)}}" onclick="publicProfileCurator({{$savedCurator->curatorUser->id}})" id="publicProfileBlank">
-                            @if($pos === false)
-                                @if(!empty($savedCurator->curatorUser->profile))
-                                    <div class="item-media-content"
-                                         style="background-image: url({{URL('/')}}/uploads/profile/{{$savedCurator->curatorUser->profile}});"></div>
+                                $poshttp = strpos($mystring, $findhttp);
+                                if($poshttps != false){
+                                    $pos = $poshttps;
+                                }else{
+                                    $pos = $poshttp;
+                                }
+                            @endphp
+                            <a href="javascript:void(0)" id="curatorPublicProfile{{$savedCurator->curatorUser->id}}" data-value="{{route('taste.maker.public.profile',$savedCurator->curatorUser->name)}}" onclick="publicProfileCurator({{$savedCurator->curatorUser->id}})" id="publicProfileBlank">
+                                @if($pos === false)
+                                    @if(!empty($savedCurator->curatorUser->profile))
+                                        <img src="{{URL('/')}}/uploads/profile/{{$savedCurator->curatorUser->profile}}" alt="" class="profile-image">
+                                    @else
+                                        <img src="{{asset('images/profile_images_icons.svg')}}" alt="" class="profile-image">
+                                    @endif
+                                @elseif($pos == 0)
+                                    <img src="{{asset($savedCurator->curatorUser->profile)}}" alt="" class="profile-image">
                                 @else
-                                    <div class="item-media-content"
-                                         style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>
+
                                 @endif
-                            @elseif($pos == 0)
-                                <div class="item-media-content"
-                                     style="background-image: url({{$savedCurator->curatorUser->profile}});"></div>
-                            @else
-                                <div class="item-media-content"
-                                     style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>
-                            @endif
-                        </a>
+
+                                <img src="{{asset('images/bg_curator_profile.png')}}" alt="" class="background-image">
+                            </a>
+                        </div>
                     </div>
+
+{{--                    <div class="item-media ">--}}
+{{--                        @php--}}
+{{--                            $mystring = $savedCurator->curatorUser->profile;--}}
+{{--                            $findhttps   = 'https';--}}
+{{--                            $findhttp   = 'http';--}}
+{{--                            $poshttps = strpos($mystring, $findhttps);--}}
+
+{{--                            $poshttp = strpos($mystring, $findhttp);--}}
+{{--                            if($poshttps != false){--}}
+{{--                                $pos = $poshttps;--}}
+{{--                            }else{--}}
+{{--                                $pos = $poshttp;--}}
+{{--                            }--}}
+{{--                        @endphp--}}
+{{--                        <a href="javascript:void(0)" id="curatorPublicProfile{{$savedCurator->curatorUser->id}}" data-value="{{route('taste.maker.public.profile',$savedCurator->curatorUser->name)}}" onclick="publicProfileCurator({{$savedCurator->curatorUser->id}})" id="publicProfileBlank">--}}
+{{--                            @if($pos === false)--}}
+{{--                                @if(!empty($savedCurator->curatorUser->profile))--}}
+{{--                                    <div class="item-media-content"--}}
+{{--                                         style="background-image: url({{URL('/')}}/uploads/profile/{{$savedCurator->curatorUser->profile}});"></div>--}}
+{{--                                @else--}}
+{{--                                    <div class="item-media-content"--}}
+{{--                                         style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>--}}
+{{--                                @endif--}}
+{{--                            @elseif($pos == 0)--}}
+{{--                                <div class="item-media-content"--}}
+{{--                                     style="background-image: url({{$savedCurator->curatorUser->profile}});"></div>--}}
+{{--                            @else--}}
+{{--                                <div class="item-media-content"--}}
+{{--                                     style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>--}}
+{{--                            @endif--}}
+{{--                        </a>--}}
+{{--                    </div>--}}
                     <div class="item-info">
                         <div class="item-overlay bottom text-right" style="opacity:1 !important;">
                             @if(!empty($savedCurator) && !empty($savedCurator->curatorUser))

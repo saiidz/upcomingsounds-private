@@ -115,12 +115,12 @@
                                                     <div class="item-overlay bottom text-right" style="bottom: 100% !important; opacity: 1 !important;">
                                                         @if(!empty($curator->artistFavoriteCurator) && !empty($curator->user))
                                                             <a href="javascript:void(0)" class="btn-favorite" @if($curator->user) onclick="favoriteCurator({{ $curator->user->id }},'promoteTrack')" @endif data-toggle="tooltip" title="Saved Curator">
-                                                                <i class=" {{ !empty($curator->artistFavoriteCurator) ? 'fa fa-heart colorAdd' : 'fa fa-heart-o' }} addClassFavorite{{ $curator->user->id }}"></i>
+                                                                <i class=" {{ !empty($curator->artistFavoriteCurator) ? 'fa fa-heart colorAdd' : 'fa fa-heart-o' }} addClassFavorite{{ $curator->user->id }}" style="font-size: 25px !important;"></i>
                                                             </a>
                                                         @else
                                                             @if(empty($curator->artistFavoriteCurator) && !empty($curator->user))
                                                                 <a href="javascript:void(0)" class="btn-favorite" @if($curator->user) onclick="favoriteCurator({{ $curator->user->id }},'promoteTrack')" @endif data-toggle="tooltip" title="Saved Curator">
-                                                                    <i class="fa fa-heart-o addClassFavorite{{ $curator->user->id }}"></i>
+                                                                    <i class="fa fa-heart-o addClassFavorite{{ $curator->user->id }}" style="font-size: 25px !important;"></i>
                                                                 </a>
                                                             @endif
                                                         @endif
