@@ -66,7 +66,7 @@
                                                                 <tr>
                                                                     <td>{{ $i++ }}</td>
                                                                     <td>
-                                                                        <a href="{{ route('admin.curator.profile', $user_curator->id) }}">{{ $user_curator->name ?? '' }}</a>
+                                                                        <a href="{{ route('admin.curator.profile', $user_curator->id) }}" target="_blank">{{ $user_curator->name ?? '' }}</a>
                                                                     </td>
                                                                     <td>{{ $user_curator->email }}</td>
                                                                     <td>{{ ($user_curator->is_verified == 1) ? 'Yes' : 'No' }}</td>

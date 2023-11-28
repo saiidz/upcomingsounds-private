@@ -65,7 +65,7 @@
                                                             <tr>
                                                                 <td>{{ $loop->iteration }}</td>
                                                                 <td>
-                                                                    <a href="{{ route('admin.curator.profile', $pending_curator->id) }}">{{ $pending_curator->name ?? '' }}</a>
+                                                                    <a href="{{ route('admin.curator.profile', $pending_curator->id) }}" target="_blank">{{ $pending_curator->name ?? '' }}</a>
                                                                 </td>
                                                                 <td>{{ $pending_curator->phone_number ?? '--' }}</td>
                                                                 <td>{{ getDateFormat($pending_curator->created_at) }}</td>
