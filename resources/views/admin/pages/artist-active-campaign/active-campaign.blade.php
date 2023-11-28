@@ -70,7 +70,12 @@
                                                             <tr>
                                                                 <td>{{ $loop->iteration }}</td>
                                                                 <td>
-                                                                    <a href="{{ route('admin.artist.profile', !empty($activeCampaign->user) ? $activeCampaign->user->id : null) }}">{{ !empty($activeCampaign->user) ? $activeCampaign->user->name : '' }}</a>
+                                                                    @if(!empty($activeCampaign->user))
+                                                                        <a href="{{ route('admin.artist.profile', $activeCampaign->user->id) }}">{{ $activeCampaign->user->name }}</a>
+                                                                    @else
+                                                                        {{ '---------' }}
+                                                                    @endif
+
                                                                 </td>
                                                                 <td>
                                                                     <a href="{{ route('admin.artist.track.detail', !empty($activeCampaign->artistTrack) ? $activeCampaign->artistTrack->id : null) }}">{{ !empty($activeCampaign->artistTrack) ? $activeCampaign->artistTrack->name : '' }}</a>
