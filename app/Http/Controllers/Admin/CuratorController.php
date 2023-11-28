@@ -4,6 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
 use App\Helpers\Helper;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Templates\IMessageTemplates;
@@ -14,23 +19,17 @@ use Illuminate\Support\Facades\Validator;
 class CuratorController extends Controller
 {
     /**
-     * approvedCurator function
-     *
-     * @return void
+     * @return Application|Factory|View
      */
-
     public function approvedCurator()
     {
         $approved_curators = User::GetApprovedCurators()->latest()->get();
         return view('admin.pages.curators.curator_approved', get_defined_vars());
     }
 
-     /**
-     * pendingCurator function
-     *
-     * @return void
+    /**
+     * @return Application|Factory|View
      */
-
     public function pendingCurator()
     {
         $pending_curators = User::GetPendingCurators()->latest()->get();
@@ -39,7 +38,7 @@ class CuratorController extends Controller
 
     /**
      * @param $id
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function deleteCurator($id)
     {
@@ -48,9 +47,8 @@ class CuratorController extends Controller
     }
 
     /**
-     * profileCurator function
-     *
-     * @return void
+     * @param User $user
+     * @return Application|Factory|View
      */
 
     public function profileCurator(User $user)
@@ -59,11 +57,8 @@ class CuratorController extends Controller
     }
 
     /**
-     * verificationCurator function
-     *
-     * @return void
+     * @return Application|Factory|View
      */
-
     public function verificationCurator()
     {
         $user_curators = User::with('curatorVerificationForm')->where('is_approved',1)->where('type','curator')
@@ -72,12 +67,11 @@ class CuratorController extends Controller
         return view('admin.pages.curators.curator_verification', get_defined_vars());
     }
 
-     /**
-     * storeApprovedCurator function
-     *
-     * @return void
+    /**
+     * @param Request $request
+     * @param User $user
+     * @return JsonResponse
      */
-
     public function storeApprovedCurator(Request $request,User $user)
     {
         $validator = Validator::make($request->all(), [
@@ -116,11 +110,10 @@ class CuratorController extends Controller
     }
 
     /**
-     * storeRejectCurator function
-     *
-     * @return void
+     * @param Request $request
+     * @param User $user
+     * @return JsonResponse
      */
-
     public function storeRejectCurator(Request $request,User $user)
     {
         $validator = Validator::make($request->all(), [
@@ -158,15 +151,10 @@ class CuratorController extends Controller
         // return redirect()->back()->with('success','Curator Reject successfully and send email to Curator.');
     }
 
-
-
-
     /**
-     * curatorVerifcationShow function
-     *
-     * @return void
+     * @param User $user
+     * @return Application|Factory|View|RedirectResponse
      */
-
     public function curatorVerifcationShow(User $user)
     {
         if(!empty($user))
@@ -180,11 +168,10 @@ class CuratorController extends Controller
     }
 
     /**
-     * storeVerifiedCurator function
-     *
-     * @return void
+     * @param Request $request
+     * @param User $user
+     * @return JsonResponse
      */
-
     public function storeVerifiedCurator(Request $request,User $user)
     {
         $validator = Validator::make($request->all(), [
@@ -228,11 +215,10 @@ class CuratorController extends Controller
     }
 
     /**
-     * storeRejectedCurator function
-     *
-     * @return void
+     * @param Request $request
+     * @param User $user
+     * @return JsonResponse
      */
-
     public function storeRejectedCurator(Request $request,User $user)
     {
         $validator = Validator::make($request->all(), [
