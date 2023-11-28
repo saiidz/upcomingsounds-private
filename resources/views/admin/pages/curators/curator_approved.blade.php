@@ -78,7 +78,7 @@
                                                                     @endif
                                                                 </td>
                                                                 <td>
-                                                                    <a href="{{ route('admin.curator.profile', $approved_curator->id) }}"><i class="material-icons">remove_red_eye</i></a>
+                                                                    <a href="{{ route('admin.curator.profile', $approved_curator->id) }}" target="_blank"><i class="material-icons">remove_red_eye</i></a>
                                                                     <a class="dropdown-item has-icon delete-confirm" href="javascript:void(0)" data-id={{ $approved_curator->id }}>
                                                                         <img class="editDell" src="{{asset('images/delete_forever.svg')}}">
                                                                     </a>

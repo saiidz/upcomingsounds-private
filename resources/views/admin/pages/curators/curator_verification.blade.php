@@ -71,7 +71,7 @@
                                                                     <td>{{ $user_curator->email }}</td>
                                                                     <td>{{ ($user_curator->is_verified == 1) ? 'Yes' : 'No' }}</td>
                                                                     <td>{{ ($user_curator->type == 'curator') ? 'Curator' : '--' }}</td>
-                                                                    <td><a href="{{ route('admin.curator.verification.show', $user_curator->id) }}"><i class="material-icons">remove_red_eye</i></a></td>
+                                                                    <td><a href="{{ route('admin.curator.verification.show', $user_curator->id) }}" target="_blank"><i class="material-icons">remove_red_eye</i></a></td>
                                                                 </tr>
                                                             @endif
 

@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use SendGrid\Mail\Mail;
+use Twilio\Exceptions\ConfigurationException;
+use Twilio\Exceptions\TwilioException;
 use Twilio\Rest\Client;
 
 class Helper
@@ -18,6 +20,14 @@ class Helper
             return response()->view('errors.404');
         }
     }
+
+    /**
+     * @param String $phone_number
+     * @param String $msg
+     * @return void
+     * @throws ConfigurationException
+     * @throws TwilioException
+     */
     public static function twilioOtp(String $phone_number, String $msg)
     {
         $account_sid = Config::get('services.twilio.twilio_sid');
