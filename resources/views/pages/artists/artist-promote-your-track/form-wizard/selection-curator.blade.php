@@ -58,6 +58,12 @@
 {{--        </div>--}}
         <div class="title__container">
             <div class="separatortrack">
+                <div class="promoteAddTrack">
+                    <a class="m-b-md" href="{{ url('/wallet') }}">
+                        <span class="amount">{{\App\Models\User::artistBalance()}} USC</span>
+                        <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
+                    </a>
+                </div>
                 <h4>{{ !empty($curators) ? $curators->count() : '' }} curators & pros recommended for you</h4>
 {{--                <p class="text-muted">A tailor-made selection based on the information you shared with us</p>--}}
                 {{-- <div class="separator"></div> --}}
@@ -178,6 +184,8 @@
                                                                 <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
                                                             </div>
                                                         </a>
+                                                        <input type="hidden" id="curatorNameIDs{{ $curator->id }}" value="{{ !empty($curator->user->name) ? $curator->user->name : '' }}">
+                                                        <input type="hidden" id="contribution_V_C_IDs{{ $curator->id }}" value="{{ !empty($curator->contribution) ? $curator->contribution : 0 }}">
                                                         <input type="hidden" id="verifiedCoverageIds{{ $curator->id }}" name="verified_coverage_ids" value="">
                                                     </div>
                                                 </div>
@@ -196,6 +204,13 @@
 
     <div class="buttons">
         <a class="m-b-md rounded addTrack nxt__btn" onclick="prevSelectedCuratorForm();"> Back</a>
+        <div>
+            <h3 id="showCuratorProsSelect" style="color: #da4441 !important;"></h3>
+            <h3 id="showContributionTotal" style="display:none;">
+                <span class="show_C_Amount"></span>
+                <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
+            </h3>
+        </div>
         <a class="m-b-md rounded addTrack nxt__btn" onclick="nextForm('step_three');"> Next</a>
     </div>
 

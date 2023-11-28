@@ -1094,6 +1094,7 @@
         // Initialize an array to store selected curator IDs
         // var selectedCurators = [];
         var inputValuesObject = {};
+        var contributionValuesObject = {};
 
         function selectCuratorVerifiedCoverage(id)
         {
@@ -1102,22 +1103,24 @@
 
             // Check if curatorId is already in the array
             // var index = selectedCurators.indexOf(curatorId);
+
+            var curatorName = $('#curatorNameIDs'+curatorId).val();
+            // console.log(curatorName);
             if(requestFrom === 'first')
             {
                 $('#selectC_V_C'+curatorId).css('background-color',"#e26e6b");
                 $('#click_C_V_C'+curatorId).attr('data-value','second');
 
                 var inputValue = $('#verifiedCoverageIds'+curatorId).val(curatorId);
+                var c_PriceValue = $('#contribution_V_C_IDs'+curatorId).val();
 
                 // Add the current input value to the array
                 inputValuesObject[curatorId] = inputValue;
+                contributionValuesObject[curatorId] = c_PriceValue;
 
-                toastr.success('You have selected item');
+                var successMsg = curatorName + ' was added to the selection.';
+                toastr.success(successMsg);
 
-                // selectedCurators.push({
-                //     curatorId: curatorId,
-                //     inputValue: inputValue
-                // });
             }else if(requestFrom === 'second')
             {
                 $('#selectC_V_C'+curatorId).css('background-color',"#02b875");
@@ -1125,11 +1128,36 @@
 
                 var inputValue = $('#verifiedCoverageIds'+curatorId).val('');
                 delete inputValuesObject[curatorId];
+                delete contributionValuesObject[curatorId];
 
-                toastr.error('You have un selected item');
+                var errorMsg = curatorName + ' was removed from the selection.';
+                toastr.error(errorMsg);
                 // selectedCurators.splice(inputValue, 1);
             }
             console.log("Input Values Array:", inputValuesObject);
+            console.log("contributionValuesObject Array:", contributionValuesObject);
+            // sum of selected pros contribution
+            // Sum the values in the object
+            var sumTotalContribution = 0;
+
+            $.each(contributionValuesObject, function(key, value) {
+                sumTotalContribution += parseInt(value, 10) || 0;
+            });
+            console.log("sumTotalContribution Array:", sumTotalContribution);
+            var selectedCount = Object.keys(inputValuesObject).length
+            if(selectedCount === 0)
+            {
+                $('#showCuratorProsSelect').html('');
+                $('#showContributionTotal').css('display','none');
+                $('.show_C_Amount').html('');
+                return false;
+            }else {
+                $('#showCuratorProsSelect').html(selectedCount + ' Pros Selected');
+                $('#showContributionTotal').css('display','block');
+                $('.show_C_Amount').html(sumTotalContribution + ' USC');
+                console.log("count :", selectedCount);
+            }
+
         }
 
         {{-- selectCuratorVerifiedCoverage --}}
