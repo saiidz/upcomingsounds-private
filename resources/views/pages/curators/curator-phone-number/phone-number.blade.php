@@ -30,7 +30,7 @@
                     <div>
                         <h4><span class="Gary">Gary</span> from Upcoming Sounds</h4>
                         <p class="text-muted m-y">
-                            Great! Now tell us a bit more about you :)
+                            Excellent! Enter your phone number to receive a verification SMS.
                         </p>
                     </div>
                 </div>
@@ -55,8 +55,8 @@
                                                         <div class="row">
                                                             <div class="col s12">
                                                                 <div class="input-field col s12">
-                                                                    <h5 class="display-7">Your Phone Number</h5>
-                                                                    <p class="text-muted text-md m-b-lg">We will send a verification code to this number.</p>
+                                                                    <h5 class="display-7">To add your phone number, select your country</h5>
+                                                                    <p class="text-muted text-md m-b-lg">You will receive a verification code at this number.</p>
                                                                     @if(!empty(Auth::user()->phone_number) && Auth::user()->is_phone_verified == 1)
                                                                         <input id="phone" type="tel" inputmode="tel" value="{{Auth::user()->phone_number}}" class="phone" name="phone_pattern" readonly required/>
                                                                         <input id="already_phone_pattern" name="phone_number" hidden>
