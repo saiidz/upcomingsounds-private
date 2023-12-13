@@ -168,6 +168,7 @@
 {{--            </div>--}}
 {{--        </div>--}}
         <div class="buttons">
+            <input type="hidden" id="ArtistTrack" value="">
             <a class="m-b-md rounded addTrack prev__btn" onclick="prevForm();">Back</a>
             <a class="m-b-md rounded addTrack rightNowClass" id="rightNowID" style="display:none;" data-id="" onclick="selectSelection()">Select Selection</a>
              <a class="m-b-md rounded addTrack nxt__btn twoStep" onclick="nextForm('step_two');">Next</a>

@@ -69,7 +69,7 @@
             border-radius: 50%; /* Make it a circle for a profile image effect */
         }
         .itemCurator:after {
-            padding-top: 2% !important;
+            padding-top: 0% !important;
         }
         .colorAdd{
             color:#02b875 !important;
@@ -364,6 +364,9 @@
 
             $('#firstStepBtn').addClass('firstStepBtn');
             $('#firstStepBtn').html('Promote Your TracK');
+
+            $('#ArtistTrack').val('');
+            $('#ArtistTrack').val(id);
         }
         $(document).ready(function(){
             $('.oneTrackSelected').click(function() {
@@ -679,7 +682,11 @@
                     if (data.success) {
                         toastr.success(data.success);
                         $('#selectionHide').hide();
-                        $('#selectionSHow').append(data.curators)
+                        $('#selectionSHow').append(data.curators);
+
+                        var artist_id = $('#ArtistTrack').val();
+                        $('#artistTrackSelectedID').val('');
+                        $('#artistTrackSelectedID').val(artist_id);
                     }
 
                 },
@@ -712,7 +719,7 @@
         var viewId = 1;
 
         function nextForm(status) {
-            if(status == 'step_one')
+            if(status === 'step_one')
             {
                 // check value track come
                 let track_id = $('.oneTrackSelected').is(':checked');
@@ -723,7 +730,7 @@
                 }
             }
 
-            if(status == 'step_two')
+            if(status === 'step_two')
             {
                 // check value curator check
                 // let received_check = $('.stepTwoReceived').is(':checked');
@@ -747,7 +754,7 @@
                 }
             }
 
-            if(status == 'step_three')
+            if(status === 'step_three')
             {
                 let standard_check = $('.stepThreeStandard').is(':checked');
                 let advanced_check = $('.stepThreeAdvanced').is(':checked');
@@ -794,6 +801,47 @@
                 });
                 return false;
                 // $('#selectionHide').show();
+            }
+
+            if(status === 'verified_content_curator')
+            {
+                // verified_content_curator is empty
+                let verifiedCoverageIDS = $('#verifiedCoverageIDS').val();
+
+                if(!verifiedCoverageIDS)
+                {
+                    toastr.error('Please select any verified coverage of curator');
+                    return  false;
+                }
+                var track_id = $('#artistTrackSelectedID').val();
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    type: "POST",
+                    url: '{{route('get.selected-verified-coverage.curator')}}',
+                    data: {
+                        track_id: track_id,
+                        verifiedCoverageIDS : verifiedCoverageIDS
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        loader();
+                        if (data.success) {
+                            toastr.success(data.success);
+                            window.location = '{{ URL::to('/campaigns') }}';
+                        }
+                        if (data.error) {
+                            toastr.error(data.error);
+                            window.open('{{ URL::to('/wallet') }}', '_blank');
+                        }
+                    },
+                });
+                return  false;
             }
 
             // let track_id = $('#received_details').is(':checked');
@@ -1086,81 +1134,6 @@
         readAudioURL(this);
     });
 </script>
-    <script>
-        // function encodeId(id) {
-        //     return btoa(id); // Base64 encoding
-        // }
-        {{-- selectCuratorVerifiedCoverage --}}
-        // Initialize an array to store selected curator IDs
-        // var selectedCurators = [];
-        var inputValuesObject = {};
-        var contributionValuesObject = {};
-
-        function selectCuratorVerifiedCoverage(id)
-        {
-            var curatorId = atob(id);
-            var requestFrom =  $('#click_C_V_C'+curatorId).attr('data-value');
-
-            // Check if curatorId is already in the array
-            // var index = selectedCurators.indexOf(curatorId);
-
-            var curatorName = $('#curatorNameIDs'+curatorId).val();
-            // console.log(curatorName);
-            if(requestFrom === 'first')
-            {
-                $('#selectC_V_C'+curatorId).css('background-color',"#e26e6b");
-                $('#click_C_V_C'+curatorId).attr('data-value','second');
-
-                var inputValue = $('#verifiedCoverageIds'+curatorId).val(curatorId);
-                var c_PriceValue = $('#contribution_V_C_IDs'+curatorId).val();
-
-                // Add the current input value to the array
-                inputValuesObject[curatorId] = inputValue;
-                contributionValuesObject[curatorId] = c_PriceValue;
-
-                var successMsg = curatorName + ' was added to the selection.';
-                toastr.success(successMsg);
-
-            }else if(requestFrom === 'second')
-            {
-                $('#selectC_V_C'+curatorId).css('background-color',"#02b875");
-                $('#click_C_V_C'+curatorId).attr('data-value','first');
-
-                var inputValue = $('#verifiedCoverageIds'+curatorId).val('');
-                delete inputValuesObject[curatorId];
-                delete contributionValuesObject[curatorId];
-
-                var errorMsg = curatorName + ' was removed from the selection.';
-                toastr.error(errorMsg);
-                // selectedCurators.splice(inputValue, 1);
-            }
-            console.log("Input Values Array:", inputValuesObject);
-            console.log("contributionValuesObject Array:", contributionValuesObject);
-            // sum of selected pros contribution
-            // Sum the values in the object
-            var sumTotalContribution = 0;
-
-            $.each(contributionValuesObject, function(key, value) {
-                sumTotalContribution += parseInt(value, 10) || 0;
-            });
-            console.log("sumTotalContribution Array:", sumTotalContribution);
-            var selectedCount = Object.keys(inputValuesObject).length
-            if(selectedCount === 0)
-            {
-                $('#showCuratorProsSelect').html('');
-                $('#showContributionTotal').css('display','none');
-                $('.show_C_Amount').html('');
-                return false;
-            }else {
-                $('#showCuratorProsSelect').html(selectedCount + ' Pros Selected');
-                $('#showContributionTotal').css('display','block');
-                $('.show_C_Amount').html(sumTotalContribution + ' USC');
-                console.log("count :", selectedCount);
-            }
-
-        }
-
-        {{-- selectCuratorVerifiedCoverage --}}
-    </script>
+    <script src="{{asset('js/custom/artist/verified-coverage.js')}}"></script>
 @endsection
 

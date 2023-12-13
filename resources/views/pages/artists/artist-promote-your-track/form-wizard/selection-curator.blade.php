@@ -185,14 +185,16 @@
                                                             </div>
                                                         </a>
                                                         <input type="hidden" id="curatorNameIDs{{ $curator->id }}" value="{{ !empty($curator->user->name) ? $curator->user->name : '' }}">
-                                                        <input type="hidden" id="contribution_V_C_IDs{{ $curator->id }}" value="{{ !empty($curator->contribution) ? $curator->contribution : 0 }}">
-                                                        <input type="hidden" id="verifiedCoverageIds{{ $curator->id }}" name="verified_coverage_ids" value="">
+                                                        <input type="hidden" id="contribution_V_C_IDs{{ $curator->id }}" name="verified_coverage_USC[]" value="{{ !empty($curator->contribution) ? $curator->contribution : 0 }}">
+                                                        <input type="hidden" id="verifiedCoverageIds{{ $curator->id }}" name="verified_coverage_ids[]" value="">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     @endforeach
                                 @endif
+                                <input type="hidden" id="verifiedCoverageIDS" value="">
+                                <input type="hidden" id="artistTrackSelectedID" value="">
                             </div>
                         </div>
                     </div>
@@ -211,7 +213,7 @@
                 <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
             </h3>
         </div>
-        <a class="m-b-md rounded addTrack nxt__btn" onclick="nextForm('step_three');"> Next</a>
+        <a class="m-b-md rounded addTrack nxt__btn" onclick="nextForm('verified_content_curator');"> Next</a>
     </div>
 
 </div>

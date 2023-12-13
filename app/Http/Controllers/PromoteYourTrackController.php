@@ -81,14 +81,13 @@ class PromoteYourTrackController extends Controller
     {
         $artist_credits = !empty(Auth::user()->TransactionUserInfo) ? Auth::user()->TransactionUserInfo->transactionHistory->sum('credits') - (!empty(Auth::user()->campaign) ? Auth::user()->campaign->sum('usc_credit') : 0) : 0;
 //        $artist_credits = !empty(Auth::user()->TransactionUserInfo) ? number_format(Auth::user()->TransactionUserInfo->transactionHistory->sum('credits')) - (!empty(Auth::user()->campaign) ? number_format(Auth::user()->campaign->sum('usc_credit')) : 0) : 0;
+
         $usc_credits = $request->usc_credit;
         if ($usc_credits > $artist_credits)
-        {
             return response()->json(['error' => 'You have insufficient '.$artist_credits.'USC credits, please go to wallet and purchased credits']);
-        }
 
         $input = $request->all();
-        // create campaign
+        # create campaign
         $input['user_id'] = Auth::id();
         if ($request->package_name == IPackages::PREMIUM_NAME)
         {
@@ -100,6 +99,7 @@ class PromoteYourTrackController extends Controller
 
         // update curator credit if artist signup from curator referral
         $referral = ReferralRelationship::where('user_id',Auth::id())->first();
+
         if(!empty($referral))
         {
             $curatorTransaction = TransactionHistory::where('user_id',$referral->referralLink->user_id)

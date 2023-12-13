@@ -5,6 +5,7 @@ use App\Http\Controllers\Artist\CampaignController;
 use App\Http\Controllers\Artist\CoverageController;
 use App\Http\Controllers\Artist\MessageController;
 use App\Http\Controllers\Artist\OfferController;
+use App\Http\Controllers\Artist\VerifiedCoverageCuratorController;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\ArtistTrackController;
 use App\Http\Controllers\ArtistWalletController;
@@ -121,4 +122,8 @@ Route::post('/mark-as-read',[DashboardController::class, 'markNotification'])->n
 
 # Coupon Claim Now USC credits
 Route::post('claim-now-coupon',[GiftCardController::class,'claimNowCoupon'])->name('claim.now.coupon');
+
+# verified coverage routes
+Route::post('get/selected-verified-coverage/curator', [VerifiedCoverageCuratorController::class, 'getSelectedVerifiedCoverageCurator'])->name('get.selected-verified-coverage.curator');
+# verified coverage routes
 /***************************************************** Artist Routes *********************************************************/
