@@ -227,6 +227,7 @@
                             </div>
                         </div>
                         <div id="selectionSHow"></div>
+                        <div id="selectionVerifiedCuratorSHow"></div>
                     </div>
                 </div>
             </div>
@@ -699,6 +700,13 @@
             $('#selectionHide').show();
 
         }
+        function prevChangeSelectedCuratorForm()
+        {
+            $('#selectionVerifiedCuratorSHow').html('');
+            $('#selectionHide').hide();
+            $('#selectionSHow').show();
+
+        }
     </script>
     <script>
         // const nxtBtn = document.querySelector('#submitBtn');
@@ -820,7 +828,7 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
                 });
-
+                // showLoader();
                 $.ajax({
                     type: "POST",
                     url: '{{route('get.selected-verified-coverage.curator')}}',
@@ -830,14 +838,24 @@
                     },
                     dataType: 'json',
                     success: function (data) {
-                        loader();
+                        // loader();
                         if (data.success) {
                             toastr.success(data.success);
-                            window.location = '{{ URL::to('/campaigns') }}';
+                            $('#selectionHide').hide();
+                            $('#selectionSHow').hide();
+                            $('#selectionVerifiedCuratorSHow').append(data.selectedVerifiedCurators);
+                            return false;
                         }
-                        if (data.error) {
+                        if (data.error)
+                        {
                             toastr.error(data.error);
+                            return false;
+                        }
+                        if (data.error_wallet)
+                        {
+                            toastr.error(data.error_wallet);
                             window.open('{{ URL::to('/wallet') }}', '_blank');
+                            return false;
                         }
                     },
                 });
