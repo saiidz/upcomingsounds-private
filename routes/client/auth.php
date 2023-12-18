@@ -125,5 +125,6 @@ Route::post('claim-now-coupon',[GiftCardController::class,'claimNowCoupon'])->na
 
 # verified coverage routes
 Route::post('get/selected-verified-coverage/curator', [VerifiedCoverageCuratorController::class, 'getSelectedVerifiedCoverageCurator'])->name('get.selected-verified-coverage.curator');
+Route::post('final-pay/selected-verified-coverage/curator', [VerifiedCoverageCuratorController::class, 'finalPaySelectedVerifiedCoverageCurator'])->name('final-pay.selected-verified-coverage.curator');
 # verified coverage routes
 /***************************************************** Artist Routes *********************************************************/

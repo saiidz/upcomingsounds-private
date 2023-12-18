@@ -16,8 +16,9 @@ class VerifiedContentCreatorCurator extends Model
 
     protected $fillable = [
         'artist_id',
+        'artist_track_id',
         'curator_id',
-        'track_id',
+        'verified_coverage_id',
         'usc_credit',
         'pay_now',
         'deleted_at',
@@ -26,9 +27,17 @@ class VerifiedContentCreatorCurator extends Model
     /**
      * @return BelongsTo
      */
-    public function user(): BelongsTo
+    public function artistUser(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'artist_id');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function curatorUser(): BelongsTo
+    {
+        return $this->belongsTo(User::class,'curator_id');
     }
 
     /**
@@ -36,6 +45,6 @@ class VerifiedContentCreatorCurator extends Model
      */
     public function artistTrack(): BelongsTo
     {
-        return $this->belongsTo(ArtistTrack::class, 'track_id', 'id');
+        return $this->belongsTo(ArtistTrack::class, 'artist_track_id', 'id');
     }
 }

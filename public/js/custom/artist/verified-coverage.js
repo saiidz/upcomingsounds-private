@@ -76,7 +76,7 @@ function selectCuratorVerifiedCoverage(id)
         // Convert the object to a JSON string
         var jsonString = JSON.stringify(Object.values(selectedInputValuesObject));
         $('#verifiedCoverageIDS').val(jsonString);
-        // console.log("selectedInputValuesObject :", jsonString);
+        console.log("selectedInputValuesObject :", jsonString);
         // console.log("selectedInputValuesObject :", selectedInputValuesObject);
         // console.log("count :", selectedCount);
     }

@@ -7,6 +7,7 @@ use App\Models\Country;
 use App\Models\TransactionHistory;
 use App\Models\TransactionUserInfo;
 use App\Models\User;
+use App\Templates\I_PRODUCTS;
 use App\Templates\IOfferTemplateStatus;
 use App\Templates\IStatus;
 use Carbon\Carbon;
@@ -55,7 +56,7 @@ class ArtistWalletController extends Controller
         $platinum_products =  $stripe->prices->all(['product' => 'prod_L21JVzBAJvcxEH']);
 
         # 1 USC package product
-        $one_usc_products =  $stripe->prices->all(['product' => 'prod_NMz9kAFKIx11X2']);
+        $one_usc_products =  $stripe->prices->all(['product' => I_PRODUCTS::ONE_USC_PRODUCT]);
 //dd($one_usc_products);
         /**
          *Sandbox Products Stripe

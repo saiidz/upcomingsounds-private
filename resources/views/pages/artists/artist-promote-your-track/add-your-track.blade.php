@@ -698,6 +698,9 @@
         {
             $('#selectionSHow').html('');
             $('#selectionHide').show();
+            selectedInputValuesObject = {};
+            inputValuesObject = {};
+            contributionValuesObject = {};
 
         }
         function prevChangeSelectedCuratorForm()
@@ -828,7 +831,7 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     }
                 });
-                // showLoader();
+                showLoader();
                 $.ajax({
                     type: "POST",
                     url: '{{route('get.selected-verified-coverage.curator')}}',
@@ -838,7 +841,7 @@
                     },
                     dataType: 'json',
                     success: function (data) {
-                        // loader();
+                        loader();
                         if (data.success) {
                             toastr.success(data.success);
                             $('#selectionHide').hide();
@@ -851,10 +854,76 @@
                             toastr.error(data.error);
                             return false;
                         }
+                    },
+                });
+                return  false;
+            }
+
+            // final_verified_content_curator
+            if(status === 'final_verified_content_curator')
+            {
+                // verified_content_curator is empty
+                let verifiedCoverageIDS = $('#verifiedCoverageIDS').val();
+
+                if(!verifiedCoverageIDS)
+                {
+                    toastr.error('Please select any verified coverage of curator');
+                    return  false;
+                }
+
+                var track_id = $('#artistTrackSelectedID').val();
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                showLoader();
+                $.ajax({
+                    type: "POST",
+                    url: '{{route('final-pay.selected-verified-coverage.curator')}}',
+                    data: {
+                        track_id: track_id,
+                        verifiedCoverageIDS : verifiedCoverageIDS
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        loader();
+                        if (data.success) {
+                            toastr.success(data.success);
+                            window.location = '{{ URL::to('/campaigns') }}';
+                            return false;
+                        }
+                        if (data.error)
+                        {
+                            toastr.error(data.error);
+                            return false;
+                        }
                         if (data.error_wallet)
                         {
-                            toastr.error(data.error_wallet);
-                            window.open('{{ URL::to('/wallet') }}', '_blank');
+                            var one_usc_currency = 'gbp';
+                            var one_usc_package = '1 USC';
+
+                            showLoader();
+                            $.ajax({
+                                type: 'POST',
+                                url: '{{url('checkout')}}',
+                                data: {
+                                    requestFrom: 'oneUSC',
+                                    amount_USC: data.amount_USC,
+                                    price: data.amount_USC,
+                                    currency: one_usc_currency,
+                                    contacts: data.amount_USC,
+                                    package: one_usc_package,
+                                },
+                                success:function (data){
+                                    loader();
+                                    toastr.error(data.error_wallet);
+                                    window.open('{{ URL::to('/artist-checkout') }}', '_blank');
+                                    return false;
+                                    // window.location.href = "/artist-checkout";
+                                },
+                            });
                             return false;
                         }
                     },

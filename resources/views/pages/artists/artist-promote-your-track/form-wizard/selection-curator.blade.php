@@ -58,13 +58,20 @@
 {{--        </div>--}}
         <div class="title__container">
             <div class="separatortrack">
-                <div class="promoteAddTrack">
+                <div class="promoteAddTrack" style="display: flex;align-items: center;justify-content: space-between;margin: 0;padding: 0;">
+                    <h4>{{ !empty($curators) ? $curators->count() : '' }} curators & pros recommended for you</h4>
+                    <div>
+                        <h3 id="showCuratorProsSelect" style="color: #da4441 !important;"></h3>
+                        <h3 id="showContributionTotal" style="display:none;">
+                            <span class="show_C_Amount"></span>
+                            <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
+                        </h3>
+                    </div>
                     <a class="m-b-md" href="{{ url('/wallet') }}">
                         <span class="amount">{{\App\Models\User::artistBalance()}} USC</span>
                         <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
                     </a>
                 </div>
-                <h4>{{ !empty($curators) ? $curators->count() : '' }} curators & pros recommended for you</h4>
 {{--                <p class="text-muted">A tailor-made selection based on the information you shared with us</p>--}}
                 {{-- <div class="separator"></div> --}}
             </div>
@@ -84,7 +91,7 @@
                             <div class="row">
                                 @if(!empty($curators) && count($curators) > 0)
                                     @foreach($curators as $curator)
-                                        <div class="col-xs-4 col-sm-4 col-md-3">
+                                        <div class="col-xs-12 col-sm-4 col-md-3">
                                             <div class="item r" data-id="item-100">
                                                 <div class="item-media itemCurator">
 {{--                                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url(http://localhost:8001/uploads/track_thumbnail/default_1683229746Payfast-logo.png);"></a>--}}
@@ -206,13 +213,6 @@
 
     <div class="buttons">
         <a class="m-b-md rounded addTrack nxt__btn" onclick="prevSelectedCuratorForm();"> Back</a>
-        <div>
-            <h3 id="showCuratorProsSelect" style="color: #da4441 !important;"></h3>
-            <h3 id="showContributionTotal" style="display:none;">
-                <span class="show_C_Amount"></span>
-                <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
-            </h3>
-        </div>
         <a class="m-b-md rounded addTrack nxt__btn" onclick="nextForm('verified_content_curator');"> Next</a>
     </div>
 

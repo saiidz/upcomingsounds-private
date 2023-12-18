@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Artist\ArtistCouponGiftCard;
+use App\Models\Artist\VerifiedContentCreatorCurator;
 use App\Models\Curator\VerifiedCoverage;
 use App\Templates\IMessageTemplates;
 use App\Templates\IOfferTemplateStatus;
@@ -363,6 +364,14 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * @return HasMany
+     */
+    public function artistVerifiedContentCreatorCurator(): HasMany
+    {
+        return $this->hasMany(VerifiedContentCreatorCurator::class, 'artist_id');
+    }
+
+    /**
      * @return int|void
      */
     public static function artistBalance()
@@ -373,6 +382,7 @@ class User extends Authenticatable implements MustVerifyEmail
             $balance = !empty($user->TransactionUserInfo) ? $user->TransactionUserInfo->transactionHistory->sum('credits')
                 - (!empty($user->campaign) ? $user->campaign->sum('usc_credit') : 0)
                 - (!empty($user->artistSendOfferTransaction) ? $user->artistSendOfferTransaction->sum('contribution') : 0)
+                - (!empty($user->artistVerifiedContentCreatorCurator) ? $user->artistVerifiedContentCreatorCurator->sum('usc_credit') : 0)
                 + (!empty($user->artistRefundSendOfferTransaction) ? $user->artistRefundSendOfferTransaction->sum('contribution') : 0)
                 + (!empty($user->artistCouponGiftCard) ? $user->artistCouponGiftCard->sum('credits') : 0)
                 : 0;
