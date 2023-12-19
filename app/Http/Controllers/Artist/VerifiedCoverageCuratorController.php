@@ -7,6 +7,10 @@ use App\Models\Artist\VerifiedContentCreatorCurator;
 use App\Models\ArtistTrack;
 use App\Models\Curator\VerifiedCoverage;
 use App\Models\User;
+use Illuminate\Contracts\Encryption\DecryptException;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,6 +18,19 @@ use PHPUnit\Exception;
 
 class VerifiedCoverageCuratorController extends Controller
 {
+    /**
+     * @var VerifiedContentCreatorCurator
+     */
+    private $verifiedContentCreatorCurator;
+
+    /**
+     * @param VerifiedContentCreatorCurator $verifiedContentCreatorCurator
+     */
+    public function __construct(VerifiedContentCreatorCurator $verifiedContentCreatorCurator)
+    {
+        $this->verifiedContentCreatorCurator = $verifiedContentCreatorCurator;
+    }
+
     /**
      * @param Request $request
      * @return JsonResponse
@@ -151,6 +168,33 @@ class VerifiedCoverageCuratorController extends Controller
         }catch (Exception $exception)
         {
             return response()->json(['error' => $exception->getMessage()]);
+        }
+    }
+
+    /**
+     * @return Application|Factory|View
+     */
+    public function verifiedContentCreator()
+    {
+        $verifiedContentCreatorCurators = $this->verifiedContentCreatorCurator->where([
+            'artist_id' => Auth::id(),
+        ])->latest()->get();
+
+        return view('pages.artists.verified-content-creator-curator.verified-content-creator', get_defined_vars());
+    }
+
+    /**
+     * @param $verified_content_creator
+     * @return Application|Factory|View
+     */
+    public function verifiedContentCreatorShow($verified_content_creator)
+    {
+        try {
+            $verified_content_creator = $this->verifiedContentCreatorCurator->find(decrypt($verified_content_creator));
+            return view('pages.artists.verified-content-creator-curator.verified-content-curator-details', get_defined_vars());
+        }catch (DecryptException $exception)
+        {
+            abort('404','Not Found');
         }
     }
 }

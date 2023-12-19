@@ -41,7 +41,7 @@
                  @endif
 
                  @if(Request::is('artist-offers') != 'artist-offers' && Request::is('pending-offer') != 'pending-offer'
-                          && Request::is('accepted-offer') != 'accepted-offer' && Request::is('rejected-offer') != 'rejected-offer'
+                          && Request::is('accepted-offer') != 'accepted-offer' && Request::is('verified-content-creator') != 'verified-content-creator' && Request::is('rejected-offer') != 'rejected-offer'
                           && Request::is('alternative-offer') != 'alternative-offer' && Request::is('completed-offer') != 'completed-offer'
                           && Request::is('new-offer') != 'new-offer' && Request::is('proposition-offer') != 'proposition-offer'
                            && Request::is('messages') != 'messages')
@@ -262,7 +262,7 @@
                  @endif
                  {{-- Offers Pages --}}
                  @if(Request::is('artist-offers') == 'artist-offers' || Request::is('pending-offer') == 'pending-offer'
-                          || Request::is('accepted-offer') == 'accepted-offer' || Request::is('rejected-offer') == 'rejected-offer'
+                          || Request::is('accepted-offer') == 'accepted-offer' || Request::is('verified-content-creator') == 'verified-content-creator' || Request::is('rejected-offer') == 'rejected-offer'
                           || Request::is('alternative-offer') == 'alternative-offer' || Request::is('completed-offer') == 'completed-offer'
                           || Request::is('new-offer') == 'new-offer' || Request::is('proposition-offer') == 'proposition-offer')
                      <li>
@@ -335,6 +335,14 @@
                                         <i class="fa fa-check-square-o"></i>
                                     </span>
                              <span class="nav-text">Completed</span>
+                         </a>
+                     </li>
+                     <li>
+                         <a class="dropdown-item" href="{{ route('curator.coverage.verified') }}" id="verifiedContentCreatorCurator">
+                                    <span class="nav-icon">
+                                        <i class="fa fa-bullseye"></i>
+                                    </span>
+                             <span class="nav-text">Verified Curator</span>
                          </a>
                      </li>
                  @endif

@@ -222,6 +222,10 @@
     {
         window.location.href = '/completed-offer';
     });
+    $('#verifiedContentCreatorCurator').on('click', function ()
+    {
+        window.location.href = '/verified-content-creator';
+    });
     // offer template open
 
     $('#artistMessages').on('click', function ()
@@ -285,6 +289,12 @@
     function OfferShow(id)
     {
         var form = document.getElementById("form-offer"+id);
+        form.submit();
+    }
+
+    function verifiedContentCreatorCuratorShow(id)
+    {
+        var form = document.getElementById("form-verified"+id);
         form.submit();
     }
 </script>

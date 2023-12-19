@@ -3,6 +3,7 @@
 namespace App\Models\Artist;
 
 use App\Models\ArtistTrack;
+use App\Models\Curator\VerifiedCoverage;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -35,9 +36,17 @@ class VerifiedContentCreatorCurator extends Model
     /**
      * @return BelongsTo
      */
-    public function curatorUser(): BelongsTo
+    public function userCurator(): BelongsTo
     {
         return $this->belongsTo(User::class,'curator_id');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function verifiedCoverage(): BelongsTo
+    {
+        return $this->belongsTo(VerifiedCoverage::class,'verified_coverage_id');
     }
 
     /**

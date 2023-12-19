@@ -891,7 +891,7 @@
                         loader();
                         if (data.success) {
                             toastr.success(data.success);
-                            window.location = '{{ URL::to('/campaigns') }}';
+                            window.location = '{{ URL::to('/verified-content-creator') }}';
                             return false;
                         }
                         if (data.error)
@@ -901,6 +901,7 @@
                         }
                         if (data.error_wallet)
                         {
+                            toastr.error(data.error_wallet);
                             var one_usc_currency = 'gbp';
                             var one_usc_package = '1 USC';
 
@@ -918,7 +919,6 @@
                                 },
                                 success:function (data){
                                     loader();
-                                    toastr.error(data.error_wallet);
                                     window.open('{{ URL::to('/artist-checkout') }}', '_blank');
                                     return false;
                                     // window.location.href = "/artist-checkout";

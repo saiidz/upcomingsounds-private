@@ -78,7 +78,7 @@ Route::get('get-cites-artist/{id}', [AjaxController::class,'getCities']);
 Route::post('artist/change-public-profile',[ArtistController::class,'artistChangeStatusProfile'])->name('artist.change.public.profile');
 //Route::get('artist/public/{user:name}',[ArtistController::class,'artistPublicProfile'])->name('artist.public.profile');
 
-// offers routes
+# offers routes
 Route::get('artist-offers', [OfferController::class,'offers'])->name('artist.offers');
 Route::get('pending-offer', [OfferController::class,'pending'])->name('artist.pending');
 Route::get('accepted-offer', [OfferController::class,'accepted'])->name('artist.accepted');
@@ -88,7 +88,8 @@ Route::get('artists-submissions-offer', [OfferController::class,'artistsSubmissi
 Route::get('completed-offer', [OfferController::class,'completed'])->name('artist.completed');
 Route::get('new-offer', [OfferController::class,'new'])->name('artist.new');
 Route::get('proposition-offer', [OfferController::class,'proposition'])->name('artist.proposition');
-// offers routes
+# offers routes
+
 
 // offer detail route
 Route::get('curator-offer/{send_offer}', [SendOfferController::class,'sendOfferShow'])->name('artist.offer.show');
@@ -126,5 +127,7 @@ Route::post('claim-now-coupon',[GiftCardController::class,'claimNowCoupon'])->na
 # verified coverage routes
 Route::post('get/selected-verified-coverage/curator', [VerifiedCoverageCuratorController::class, 'getSelectedVerifiedCoverageCurator'])->name('get.selected-verified-coverage.curator');
 Route::post('final-pay/selected-verified-coverage/curator', [VerifiedCoverageCuratorController::class, 'finalPaySelectedVerifiedCoverageCurator'])->name('final-pay.selected-verified-coverage.curator');
+Route::get('verified-content-creator', [VerifiedCoverageCuratorController::class,'verifiedContentCreator'])->name('curator.coverage.verified');
+Route::get('verified-content-creator/{verified_content_creator}', [VerifiedCoverageCuratorController::class,'verifiedContentCreatorShow'])->name('curator.coverage.verified.show');
 # verified coverage routes
 /***************************************************** Artist Routes *********************************************************/
