@@ -119,6 +119,10 @@
         {
             window.location.href = '/offer-completed';
         });
+        $('#verifiedContentCreatorArtist').on('click', function ()
+        {
+            window.location.href = '/artist-verified-content-creator';
+        });
         // offer template open
     </script>
 @yield('page-script')
@@ -673,6 +677,11 @@
     function sendOfferShow(id)
     {
         var form = document.getElementById("form-offer"+id);
+        form.submit();
+    }
+    function verifiedContentCreatorCuratorShow(id)
+    {
+        var form = document.getElementById("form-artist-verified"+id);
         form.submit();
     }
 </script>

@@ -75,6 +75,7 @@
                           && Request::is('offer-rejected') != 'offer-rejected' && Request::is('offer-expired') != 'offer-expired' && Request::is('offer-alternative') != 'offer-alternative'
                           && Request::is('offer-artists-submissions') != 'offer-artists-submissions' && Request::is('offer-proposition') != 'offer-proposition'
                           && Request::is('create-offer-template') != 'create-offer-template'
+                          && Request::is('artist-verified-content-creator') != 'artist-verified-content-creator'
                           && Request::is('verified-coverage') != 'verified-coverage'
                           && Request::is('create-verified-coverage') != 'create-verified-coverage'
                           && Request::is('offer-completed') != 'offer-completed')
@@ -320,6 +321,7 @@
                           || Request::is('offer-alternative') == 'offer-alternative' || Request::is('offer-artists-submissions') == 'offer-artists-submissions'
                           || Request::is('offer-proposition') == 'offer-proposition' || Request::is('create-offer-template') == 'create-offer-template'
                           || Request::is('verified-coverage') == 'verified-coverage' || Request::is('create-verified-coverage') == 'create-verified-coverage'
+                          || Request::is('artist-verified-content-creator') == 'artist-verified-content-creator'
                           || Request::is('offer-completed') == 'offer-completed')
                         <li>
                             @if (Auth::check() && auth()->user())
@@ -411,6 +413,14 @@
                                         <i class="fa fa-check-circle-o"></i>
                                     </span>
                                 <span class="nav-text">Completed</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('artist.coverage.verified') }}" id="verifiedContentCreatorArtist">
+                                    <span class="nav-icon">
+                                        <i class="fa fa-bullseye"></i>
+                                    </span>
+                                <span class="nav-text">Verified Artist</span>
                             </a>
                         </li>
                     @endif

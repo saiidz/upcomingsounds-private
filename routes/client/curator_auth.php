@@ -6,6 +6,7 @@ use App\Http\Controllers\Curator\SavedArtistController;
 use App\Http\Controllers\Curator\SendOfferController;
 use App\Http\Controllers\Curator\SubmitCoverageController;
 use App\Http\Controllers\Curator\SubmitWorkController;
+use App\Http\Controllers\Curator\VerifiedCoverageArtistController;
 use App\Http\Controllers\Curator\VerifiedCoverageController;
 use App\Http\Controllers\MessengerController;
 use Illuminate\Http\Request;
@@ -129,4 +130,10 @@ Route::get('submit-coverage', [SubmitCoverageController::class, 'submitCoverage'
 Route::post('store-submit-coverage', [SubmitCoverageController::class, 'sendSubmitCoverage'])->name('curator.store.submit.coverage');
 Route::get('view-submit-coverage/{submitCoverage}', [SubmitCoverageController::class, 'viewSubmitCoverage'])->name('curator.view.submit.coverage');
 Route::post('add-usc-submit-coverage', [SubmitCoverageController::class, 'storeUscSubmitCoverage'])->name('curator.store.usc.submit.coverage');
+
+# verified coverage routes
+Route::get('artist-verified-content-creator', [VerifiedCoverageArtistController::class,'verifiedContentCreator'])->name('artist.coverage.verified');
+Route::get('artist-verified-content-creator/{verified_content_creator}', [VerifiedCoverageArtistController::class,'verifiedContentCreatorShow'])->name('artist.coverage.verified.show');
+# verified coverage routes
+
 /***************************************************** Curator Routes *********************************************************/
