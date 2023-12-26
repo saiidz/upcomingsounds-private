@@ -26,11 +26,14 @@ class AuthenticatedSessionController extends Controller
         return view('auth.login');
     }
 
+    public function loginNew()
+    {
+        return view('auth.login-new');
+    }
+
     /**
-     * Handle an incoming authentication request.
-     *
-     * @param  \App\Http\Requests\Auth\LoginRequest  $request
-     * @return RedirectResponse
+     * @param LoginRequest $request
+     * @return Application|RedirectResponse|Redirector
      */
     public function store(LoginRequest $request)
     {
