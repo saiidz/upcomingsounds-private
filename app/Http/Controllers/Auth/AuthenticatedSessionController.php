@@ -9,6 +9,8 @@ use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use App\Templates\IUserType;
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
@@ -17,19 +19,14 @@ use Illuminate\Support\Facades\Auth;
 class AuthenticatedSessionController extends Controller
 {
     /**
-     * Display the login view.
-     *
-     * @return \Illuminate\View\View
+     * @return Application|Factory|View
      */
     public function create()
     {
-        return view('auth.login');
+        return view('auth.login-new');
+//        return view('auth.login');
     }
 
-    public function loginNew()
-    {
-        return view('auth.login-new');
-    }
 
     /**
      * @param LoginRequest $request
@@ -91,10 +88,8 @@ class AuthenticatedSessionController extends Controller
     }
 
     /**
-     * Destroy an destroyCurator authenticated session.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return RedirectResponse
+     * @param Request $request
+     * @return Application|RedirectResponse|Redirector
      */
     public function destroyCurator(Request $request)
     {
@@ -131,14 +126,13 @@ class AuthenticatedSessionController extends Controller
      */
     public function createCurator()
     {
-        return view('auth.curator-login');
+        return view('auth.curator-login-new');
+//        return view('auth.curator-login');
     }
 
     /**
-     * Handle an incoming authentication storeCurator request.
-     *
-     * @param  \App\Http\Requests\Auth\LoginRequest  $request
-     * @return RedirectResponse
+     * @param LoginRequest $request
+     * @return Application|RedirectResponse|Redirector
      */
     public function storeCurator(LoginRequest $request)
     {

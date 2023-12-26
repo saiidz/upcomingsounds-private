@@ -21,15 +21,8 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
-    }
-
-    /**
-     * @return Application|Factory|View
-     */
-    public function RegisterNew()
-    {
         return view('auth.register-new');
+//        return view('auth.register');
     }
 
     /**
@@ -68,7 +61,8 @@ class RegisteredUserController extends Controller
      */
     public function createCurator()
     {
-        return view('auth.curator-register');
+        return view('auth.curator-register-new');
+//        return view('auth.curator-register');
     }
 
     /**

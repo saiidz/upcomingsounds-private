@@ -296,7 +296,7 @@
                         </li>
 
                         <li>
-                            <a href="{{route('logout')}}">
+                            <a href="{{route('curator.logout')}}">
                                 <span class="nav-icon">
                                     <i class="fa fa-sign-out"></i>
                                 </span>

@@ -7,7 +7,7 @@
     <meta property="og:url" content="https://upcomingsounds.com">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title> Login | {{ config('app.name', 'Welcome to the newest platform for music promotion and pitching service with effective results. Submit your music now! | UpcomingSounds') }}</title>
+    <title> Taste Maker Signup | {{ config('app.name', 'Welcome to the newest platform for music promotion and pitching service with effective results. Submit your music now! | UpcomingSounds') }}</title>
     <meta name="description" content="acoustic, advice, answers, apply, artist, artists, audiences,
          band, Belgium, best, blog, brazil, budget, build, Canadian, careers,
          cheating, choice, classic, contact, a curator,
@@ -69,17 +69,31 @@
                         <div class="auth-form">
                             <div class="auth-form__header">
                                 <div class="auth-form__title">
-                                    Welcome back Artist!
+                                    Create an account
                                 </div>
-                                <div class="auth-form__text">New user? <a href="{{ route('register') }}">
-                                        Join now
+                                <div class="auth-form__text">Already have an account? <a href="{{ route('curator.login') }}">
+                                        Log in
                                     </a>
                                 </div>
                             </div>
                             <div class="auth-form__body">
-                                <form method="POST" action="{{ route('login') }}" autocomplete="off">
+                                <form method="POST" action="{{ route('curator.register') }}" autocomplete="off">
                                     @csrf
-                                    <input type="hidden" name="user_check" value="artist">
+                                    <fieldset aria-describedby="" class="form-group md-label">
+                                        <!---->
+                                        <div tabindex="-1" role="group" class="bv-no-focus-ring">
+                                            <input id="fc-name" type="text" name="name" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror" required>
+                                            <label for="fc-name">
+                                                Username
+                                            </label>
+                                            <div class="invalid-feedback">
+                                                @error('name')
+                                                {{ $message }}
+                                                @enderror
+                                            </div>
+                                            <!----><!----><!---->
+                                        </div>
+                                    </fieldset>
                                     <fieldset aria-describedby="" class="form-group md-label">
                                         <!---->
                                         <div tabindex="-1" role="group" class="bv-no-focus-ring">
@@ -116,6 +130,21 @@
                                             <!----><!----><!---->
                                         </div>
                                     </fieldset>
+                                    <fieldset aria-describedby="" class="form-group md-label">
+                                        <!---->
+                                        <div tabindex="-1" role="group" class="bv-no-focus-ring">
+                                            <input id="fc-address" type="text" name="address" value="{{ old('address') }}" class="form-control @error('address') is-invalid @enderror" required>
+                                            <label for="fc-address">
+                                                Address
+                                            </label>
+                                            <div class="invalid-feedback">
+                                                @error('address')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                            <!----><!----><!---->
+                                        </div>
+                                    </fieldset>
                                     <fieldset aria-describedby="" class="form-group form-group">
                                         <!---->
                                         <div tabindex="-1" role="group" class="bv-no-focus-ring">
@@ -124,10 +153,16 @@
                                         </div>
                                     </fieldset>
                                     <div class="form-group">
-                                        <div class="ch-auth custom-control custom-checkbox">
-                                            <input type="checkbox" name="remember" class="custom-control-input" {{ old('remember') ? 'checked' : '' }} id="__BVID__44">
-                                            <label class="custom-control-label" for="__BVID__44">
-                                                Keep me signed in
+                                        <div class="">
+                                            <label class="" for="">
+                                                By clicking Sign Up, I agree to the
+                                                <a href="{{url('/term-of-service')}}" target="_blank">
+                                                    Terms of service
+                                                </a>
+                                                and
+                                                <a href="{{url('/privacy-policy')}}" target="_blank">
+                                                    Policy Privacy.
+                                                </a>
                                             </label>
                                         </div>
                                     </div>
@@ -137,20 +172,17 @@
                                             {!! NoCaptcha::renderJs() !!}
                                             {!! NoCaptcha::display() !!}
                                             @error('g-recaptcha-response')
-                                                <small class="red-text ml-10" role="alert">
-                                                    {{ $message }}
-                                                </small>
+                                            <small class="red-text ml-10" role="alert">
+                                                {{ $message }}
+                                            </small>
                                             @enderror
                                         </div>
                                     </fieldset>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-outline-primary btn-block text-uppercase">
-                                            Continue
+                                            Sign up
                                         </button>
                                     </div>
-                                    <a href="{{ route('password.request') }}" class="auth-form__forgot-link">
-                                        Forgot your password?
-                                    </a><!---->
                                 </form>
                             </div>
                             <div class="auth-form__footer">
@@ -158,7 +190,7 @@
                                     or
                                 </div>
                                 <div class="form-group">
-                                    <a href="{{ url('/login/google/?request_from=artist') }}" class="btn btn-social btn-google btn-block">
+                                    <a href="{{ url('/login/google/?request_from=curator') }}" class="btn btn-social btn-google btn-block">
                                         <span class="btn-social__icon"></span>
                                         <span class="btn-social__text">
                                  Continue with Google

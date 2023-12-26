@@ -1,244 +1,243 @@
-{{-- layout --}}
-@extends('layouts.guest')
-
-{{-- page title --}}
-@section('title','Taste Maker Login')
-
-@section('page-style')
+<!DOCTYPE html>
+<html data-html-server-rendered="true" lang="en" data-vue-tag="%7B%22lang%22:%7B%22ssr%22:%22en%22%7D%7D">
+<head>
+    <meta property="og:title" content="Upcomingsounds.com">
+    <meta property="og:description" content="Add description here">
+    <meta property="og:image" content="https://https://upcomingsounds.com/og-image.png">
+    <meta property="og:url" content="https://upcomingsounds.com">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Taste Maker Login | {{ config('app.name', 'Welcome to the newest platform for music promotion and pitching service with effective results. Submit your music now! | UpcomingSounds') }}</title>
+    <meta name="description" content="acoustic, advice, answers, apply, artist, artists, audiences,
+         band, Belgium, best, blog, brazil, budget, build, Canadian, careers,
+         cheating, choice, classic, contact, a curator,
+         curatorS, days, discover, electronic, explore,
+         feedback, folk, United kingdom,  german, getting,
+         great, rock,   guaranteed, help, important,
+         indie, industry, info, instrumental, island, Italy, jazz, join,
+         label, labels, Lebanon, listened,   mentors,
+         metal, MUSiC, musicians musique need network open
+         opportunities, platform, playlist, playlists, pricing,
+         producer, professionals, promote, promotion,
+         ProS, publishers, punk, radio, radios, record,
+         records, EDM,  release, results, rock music,  select,
+         simple, Reels, soul, Spotify, states,  Tiktok, stories, streaming, streams,
+         success, touch, track, tracks, transparent, united, visibility,
+         to access music industry jobs, record labels, music promotion, A&R & further your career in music, Music, Gateway, a worldwide, music industry, marketplace, where you find music industry jobs, music cloud storage, music news, music industry jobs, record labels companies, music business worldwide, music industry news, music industry careers, career, in music, business,  how to start a career in music," />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+    <link rel="apple-touch-icon" href="{{asset('images/logo.png')}}">
+    <meta name="apple-mobile-web-app-title" content="Flatkit">
+    <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" sizes="196x196" href="{{asset('images/favicon.png')}}">
+    <link rel="stylesheet" href="{{asset('css/login/login-new.css')}}" type="text/css" />
     <style>
-        .curator_sides {
-            height: 62px;
-            font-size: 20px;
-            padding-top: 17px;
+        /*.hide {*/
+        /*    display: none !important;*/
+        /*}*/
+        .create_password {
+            position: absolute;
+            right: 7px;
+            top: 16px;
+        }
+        #passwordDisplay{
+            position: relative;
         }
     </style>
-@endsection
-
-{{-- page content --}}
-@section('content')
-
-        <div class="b-t">
-            <div class="center-block w-xxl w-auto-xs p-y-md text-center">
-                <div class="p-a-md">
-                    <div>
-                        <a href="{{ url('/login/google/?request_from=curator') }}" class="btn-block">
-                            <img src="{{asset('images/google_new.png')}}" style="width: 80%;">
-{{--                            <img src="{{asset('images/google_new.png')}}" style="width: 278px;height: 62px;">--}}
-                            {{--                            <i class="fa fa-google pull-left"></i>--}}
-                            {{--                            Sign up with Google--}}
+</head>
+<body>
+<div data-server-rendered="true" id="app" class="app">
+    <div class="page-bg _auth"><img alt="Page background image" src="{{asset('images/login-bg.jpg')}}" class="page-bg__img g-image"></div>
+    <!---->
+    <main class="main">
+        <div class="auth container-fluid">
+            <div class="auth__row">
+                <div class="auth__info-col">
+                    <div class="free-trial">
+                        <a href="{{url('/')}}">
+                            <img alt="Logo image" src="{{asset('images/logo.png')}}" width="300" data-sizes="(max-width: 300px) 100vw, 300px" class="free-trial__img g-image g-image--lazy g-image--loading">
                         </a>
-
-                        {{-- <a href="{{ url('/login/facebook/?request_from=curator') }}" class="btn-block">
-                            <img src="{{asset('images/facebook.png')}}"  style="width: 80%;">
-                        </a> --}}
-
-{{--                        <a href="{{ url('/login/twitter/?request_from=curator') }}" class="btn-block">--}}
-{{--                            <img src="{{asset('images/twitter.png')}}" style="width: 80%;">--}}
-{{--                        </a>--}}
-{{--                        <a href="{{url('/login/spotify/?request_from=curator')}}" style="background-color: #1ed760;;" class="btn btn-block curator_sides text-white m-b-sm">--}}
-{{--                            <i class="fa fa-spotify pull-left"></i>--}}
-{{--                            Sign up with Spotify--}}
-{{--                        </a>--}}
+                        <!---->
                     </div>
-                    <div class="m-y text-sm">
-                        OR
-                    </div>
-                    <form method="POST" action="{{ route('curator.login') }}" autocomplete="off">
-                        @csrf
-                        <input type="hidden" name="user_check" value="curator">
-                        <div class="form-group">
-                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="Email" required>
-                            @error('email')
-                            <small class="red-text ml-10" role="alert">
-                                {{ $message }}
-                            </small>
-                            @enderror
+                </div>
+                <div class="auth__card-col">
+                    <div class="auth-card">
+                        <div class="auth-form">
+                            <div class="auth-form__header">
+                                <div class="auth-form__title">
+                                    Welcome back Taste Maker!
+                                </div>
+                                <div class="auth-form__text">New user? <a href="{{ route('curator.register') }}">
+                                        Join now
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="auth-form__body">
+                                <form method="POST" action="{{ route('curator.login') }}" autocomplete="off">
+                                    @csrf
+                                    <input type="hidden" name="user_check" value="artist">
+                                    <fieldset aria-describedby="" class="form-group md-label">
+                                        <!---->
+                                        <div tabindex="-1" role="group" class="bv-no-focus-ring">
+                                            <input id="fc-EmailAddress" type="email" name="email" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror" required>
+                                            <label for="fc-EmailAddress">
+                                                Email Address
+                                            </label>
+                                            <div class="invalid-feedback">
+                                                @error('email')
+                                                {{ $message }}
+                                                @enderror
+                                            </div>
+                                            <!----><!----><!---->
+                                        </div>
+                                    </fieldset>
+                                    <fieldset aria-describedby="" class="form-group md-label">
+                                        <!---->
+                                        <div tabindex="-1" role="group" class="bv-no-focus-ring">
+                                            <input id="passwordAdd" type="password"
+                                                   class="form-control @error('password') is-invalid @enderror"
+                                                   name="password"  required
+                                                   autocomplete="current-password"><label for="password">
+                                                Password
+                                            </label>
+                                            <div class="invalid-feedback">
+                                                @error('password')
+                                                {{ $message }}
+                                                @enderror
+                                            </div>
+                                            <span toggle="#passwordAdd" class="show-pas toggle-password create_password">
+                                       <img src="{{asset('images/toggle.svg')}}" alt="" class="password-toggle show" id="showEyes" />
+                                       <img src="{{asset('images/show-pas_black.svg')}}" alt="" class="password-toggle hide" id="hideEyes" style="display: none" />
+                                       </span>
+                                            <!----><!----><!---->
+                                        </div>
+                                    </fieldset>
+                                    <fieldset aria-describedby="" class="form-group form-group">
+                                        <!---->
+                                        <div tabindex="-1" role="group" class="bv-no-focus-ring">
+                                            <div></div>
+                                            <!----><!----><!---->
+                                        </div>
+                                    </fieldset>
+                                    <div class="form-group">
+                                        <div class="ch-auth custom-control custom-checkbox">
+                                            <input type="checkbox" name="remember" class="custom-control-input" {{ old('remember') ? 'checked' : '' }} id="__BVID__44">
+                                            <label class="custom-control-label" for="__BVID__44">
+                                                Keep me signed in
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <fieldset aria-describedby="" class="form-group md-label">
+                                        <!---->
+                                        <div tabindex="-1" role="group" class="bv-no-focus-ring">
+                                            {!! NoCaptcha::renderJs() !!}
+                                            {!! NoCaptcha::display() !!}
+                                            @error('g-recaptcha-response')
+                                            <small class="red-text ml-10" role="alert">
+                                                {{ $message }}
+                                            </small>
+                                            @enderror
+                                        </div>
+                                    </fieldset>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-outline-primary btn-block text-uppercase">
+                                            Continue
+                                        </button>
+                                    </div>
+                                    <a href="{{ route('password.request') }}" class="auth-form__forgot-link">
+                                        Forgot your password?
+                                    </a><!---->
+                                </form>
+                            </div>
+                            <div class="auth-form__footer">
+                                <div class="auth-or">
+                                    or
+                                </div>
+                                <div class="form-group">
+                                    <a href="{{ url('/login/google/?request_from=curator') }}" class="btn btn-social btn-google btn-block">
+                                        <span class="btn-social__icon"></span>
+                                        <span class="btn-social__text">
+                                 Continue with Google
+                                 </span>
+                                    </a>
+                                </div>
+                                <div class="auth-form__text _sm">
+                                    Protected by reCAPTCHA and subject to the Google Privacy Policy and Terms of Service.
+                                </div>
+                            </div>
+                            <!---->
                         </div>
-                        <div class="form-group createPassword">
-                            <input id="password" type="password"
-                                   class="form-control @error('password') is-invalid @enderror"
-                                   name="password" placeholder="Password" required
-                                   autocomplete="current-password">
-{{--                            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" value="{{ old('password') }}" placeholder="Password" required>--}}
-                            @error('password')
-                            <small class="red-text ml-10" role="alert">
-                                {{ $message }}
-                            </small>
-                            @enderror
-
-                            <span toggle="#password" class="show-pas toggle-password create_password">
-                            <img src="{{asset('images/toggle.svg')}}" alt="" class="password-toggle show" />
-							<img src="{{asset('images/show-pas_black.svg')}}" alt="" class="password-toggle hide" />
-									</span>
-                        </div>
-                        <div class="m-b-md">
-                            <label class="md-check">
-                                <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}><i class="primary"></i> Keep me signed in
-                            </label>
-                        </div>
-                        <button type="submit" class="btn circle btn-outline b-primary p-x-md auth_btn Login">Sign in</button>
-{{--                        <button type="submit" class="btn btn-lg black p-x-lg">Sign in</button>--}}
-                    </form>
-                    <div class="m-y">
-                        <a href="{{ route('password.request') }}" class="_600">Forgot password?</a>
-                    </div>
-                    <div>
-                        Do not have an account?
-                        <a href="{{ route('curator.register') }}" class="text-primary _600">Sign up</a>
                     </div>
                 </div>
             </div>
         </div>
-{{--    <div id="main" class="bg-gradiant-purple authentication-page">--}}
-{{--        <section class="bg-login login_main ">--}}
-{{--            <div class="container">--}}
-{{--                <div class="main-flex-box">--}}
-{{--                    <div class="text-box">--}}
-{{--                        <h1>Login</h1>--}}
-{{--                        <p>Sign in with the email and password</p>--}}
-{{--                       @if(session('failed') !== null)--}}
-{{--                            <p style="color:red">{{session('failed')}}</p>--}}
-{{--                       @endif--}}
-{{--                        <form class="login-form" method="POST" action="{{ route('login') }}">--}}
-{{--                            @csrf--}}
-{{--                            <div class="login_input">--}}
-{{--                                <div class="input-group">--}}
-{{--                                    <span><img src="{{asset('images/email.svg')}}" alt=""/></span>--}}
-{{--                                    <input id="icon_prefix" type="email" class=" @error('email') is-invalid @enderror"--}}
-{{--                                           name="email"--}}
-{{--                                           value="{{ old('email') }}" placeholder="Email" required autocomplete="off"--}}
-{{--                                           autofocus>--}}
-{{--                                    @error('email')--}}
-{{--                                    <small class="red-text ml-10" role="alert">--}}
-{{--                                        {{ $message }}--}}
-{{--                                    </small>--}}
-{{--                                    @enderror--}}
-{{--                                </div>--}}
-{{--                                <div class="input-group">--}}
-{{--                                    <span class="password-icon"><img src="{{asset('images/password.svg')}}" alt=""/></span>--}}
-{{--                                    <input id="password-field" type="password"--}}
-{{--                                           class="form-control @error('password') is-invalid @enderror"--}}
-{{--                                           name="password" placeholder="Password" required--}}
-{{--                                           autocomplete="current-password">--}}
-{{--                                    @error('password')--}}
-{{--                                    <small class="red-text ml-10" role="alert">--}}
-{{--                                        {{ $message }}--}}
-{{--                                    </small>--}}
-{{--                                    @enderror--}}
-{{--                                    <span--}}
-{{--                                        toggle="#password-field"--}}
-{{--                                        class="show-pas toggle-password"--}}
-{{--                                     autocomplete="off"><img--}}
-{{--                                            src="{{asset('images/toggle.svg')}}"--}}
-{{--                                            alt=""--}}
-{{--                                            class="password-toggle show"--}}
-{{--                                        />--}}
-
-{{--										<img--}}
-{{--                                            src="{{asset('images/show-pas.svg')}}"--}}
-{{--                                            alt=""--}}
-{{--                                            class="password-toggle hide"--}}
-{{--                                        />--}}
-{{--									</span>--}}
-{{--                                </div>--}}
-{{--                                <p>--}}
-{{--                                    <a href="{{ route('password.request') }}" class="text-color-white"--}}
-{{--                                    >Forgot Password?</a--}}
-{{--                                    >--}}
-{{--                                </p>--}}
-{{--                                <button type="submit" class="btn-white">--}}
-{{--                                    Login--}}
-{{--                                </button>--}}
-
-{{--                            </div>--}}
-
-{{--                            <div class="login_terms">--}}
-{{--                                <p>Don't have account? <a href="{{ route('register') }}">SIGN UP </a></p>--}}
-{{--                            </div>--}}
-{{--                        </form>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </section>--}}
-{{--    </div>--}}
-    {{--<div id="login-page" class="row">--}}
-    {{--  <div class="col s12 m6 l4 z-depth-4 card-panel border-radius-6 login-card bg-opacity-8">--}}
-    {{--    <form class="login-form" method="POST" action="{{ route('login') }}">--}}
-    {{--      @csrf--}}
-    {{--      <div class="row">--}}
-    {{--        <div class="input-field col s12">--}}
-    {{--          <h5 class="ml-4">{{ __('Sign in') }}</h5>--}}
-    {{--        </div>--}}
-    {{--      </div>--}}
-    {{--      <div class="row margin">--}}
-    {{--        <div class="input-field col s12">--}}
-    {{--          <i class="material-icons prefix pt-2">person_outline</i>--}}
-    {{--          <input id="email" type="email" class=" @error('email') is-invalid @enderror" name="email"--}}
-    {{--            value="{{ old('email') }}" required autocomplete="email" autofocus>--}}
-    {{--          <label for="email" class="center-align">{{ __('Email') }}</label>--}}
-    {{--          @error('email')--}}
-    {{--          <small class="red-text ml-10" role="alert">--}}
-    {{--            {{ $message }}--}}
-    {{--          </small>--}}
-    {{--          @enderror--}}
-    {{--        </div>--}}
-    {{--      </div>--}}
-    {{--      <div class="row margin">--}}
-    {{--        <div class="input-field col s12">--}}
-    {{--          <i class="material-icons prefix pt-2">lock_outline</i>--}}
-    {{--          <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"--}}
-    {{--            name="password" required autocomplete="current-password">--}}
-    {{--          <label for="password">{{ __('password') }}</label>--}}
-    {{--          @error('password')--}}
-    {{--          <small class="red-text ml-10" role="alert">--}}
-    {{--            {{ $message }}--}}
-    {{--          </small>--}}
-    {{--          @enderror--}}
-    {{--        </div>--}}
-    {{--      </div>--}}
-    {{--      <div class="row">--}}
-    {{--        <div class="col s12 m12 l12 ml-2 mt-1">--}}
-    {{--          <p>--}}
-    {{--            <label>--}}
-    {{--              <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>--}}
-    {{--              <span>Remember Me</span>--}}
-    {{--            </label>--}}
-    {{--          </p>--}}
-    {{--        </div>--}}
-    {{--      </div>--}}
-    {{--      <div class="row">--}}
-    {{--        <div class="input-field col s12">--}}
-    {{--          <button type="submit" class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12">--}}
-    {{--            Login--}}
-    {{--          </button>--}}
-    {{--        </div>--}}
-    {{--      </div>--}}
-    {{--      <div class="row">--}}
-    {{--        <div class="input-field col s6 m6 l6">--}}
-    {{--          <p class="margin medium-small"><a href="{{ route('register') }}">Register Now!</a></p>--}}
-    {{--        </div>--}}
-    {{--        <div class="input-field col s6 m6 l6">--}}
-    {{--          <p class="margin right-align medium-small">--}}
-    {{--            <a href="{{ route('password.request') }}">Forgot password?</a>--}}
-    {{--          </p>--}}
-    {{--        </div>--}}
-    {{--      </div>--}}
-    {{--    </form>--}}
-    {{--  </div>--}}
-    {{--</div>--}}
-@endsection
-{{-- page script --}}
-@section('page-script')
-
+    </main>
+    <!---->
+</div>
+<!-- jQuery -->
+<script src="{{asset('libs/jquery/dist/jquery.js')}}"></script>
+<script src="{{asset('libs/tether/dist/js/tether.min.js')}}"></script>
+<script src="{{asset('libs/bootstrap/dist/js/bootstrap.js')}}"></script>
 <script>
     $(".toggle-password").click(function () {
         $(this).toggleClass("show-pas");
         var input = $($(this).attr("toggle"));
         if (input.attr("type") == "password") {
+            $('#showEyes').css('display', 'none');
+            $('#hideEyes').css('display', 'block');
             input.attr("type", "text");
         } else {
+            $('#hideEyes').css('display','none');
+            $('#showEyes').css('display','block');
             input.attr("type", "password");
         }
     });
 </script>
-@endsection
+<script type="text/javascript">
+    if (window.location.hash === "#_=_"){
+        history.replaceState
+            ? history.replaceState(null, null, window.location.href.split("#")[0])
+            : window.location.hash = "";
+    }
+</script>
+{{--success_phone_number--}}
+@if(Session::get('success_phone_number'))
+    @php $message = (Session::get('success_phone_number')) @endphp
+    <script>
+        var x = document.getElementById("snackbar");
+        x.innerText = "{{$message}}"
+        x.className = "show";
+        setTimeout(function () {
+            x.className = x.className.replace("show", "");
+        }, 5000);
+    </script>
+    @php Session::forget('success_phone_number'); @endphp
+@endif
+@if (Session::get('success'))
+    @php $message = (Session::get('success')) @endphp
+    <script>
+        var x = document.getElementById("snackbar");
+        x.innerText = "{{$message}}"
+        x.className = "show";
+        setTimeout(function () {
+            x.className = x.className.replace("show", "");
+        }, 5000);
+    </script>
+@endif
+@if (Session::get('error'))
+    @php $message = (Session::get('error')) @endphp
+    <script>
+        var x = document.getElementById("snackbarError");
+        x.innerText = "{{$message}}"
+        x.className = "show";
+        setTimeout(function () {
+            x.className = x.className.replace("show", "");
+        }, 5000);
+    </script>
+@endif
+</body>
+</html>

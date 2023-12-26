@@ -7,7 +7,7 @@
     <meta property="og:url" content="https://upcomingsounds.com">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title> Login | {{ config('app.name', 'Welcome to the newest platform for music promotion and pitching service with effective results. Submit your music now! | UpcomingSounds') }}</title>
+    <title> Signup | {{ config('app.name', 'Welcome to the newest platform for music promotion and pitching service with effective results. Submit your music now! | UpcomingSounds') }}</title>
     <meta name="description" content="acoustic, advice, answers, apply, artist, artists, audiences,
          band, Belgium, best, blog, brazil, budget, build, Canadian, careers,
          cheating, choice, classic, contact, a curator,
