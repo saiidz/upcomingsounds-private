@@ -177,7 +177,8 @@ class AuthenticationSocializeController extends Controller
     public function findOrCreateUser($providerUser, $provider, $request_from)
     {
 
-        $user = User::where('email',$providerUser->getEmail())->where('provider_id', $providerUser->id)->first();
+        $user = User::where('email',$providerUser->getEmail())->first();
+//        $user = User::where('email',$providerUser->getEmail())->where('provider_id', $providerUser->id)->first();
 
         Log::info('user info facebook: '.$user);
         if (isset($user))
