@@ -29,7 +29,8 @@ class AuthenticationSocializeController extends Controller
         try {
             // session(['request_from' => $request->get('request_from')]);
 //        return Socialite::driver($provider)->setScopes(['openid', 'email'])->redirect();
-            if($provider == 'google'){
+            if($provider == 'google')
+            {
                 session(['request_from' => $request->get('request_from')]);
                 return Socialite::driver($provider)->setScopes(['openid', 'email'])->redirect();
             }else{
@@ -49,21 +50,24 @@ class AuthenticationSocializeController extends Controller
     {
         try {
             $request_from = session('request_from');
-            if($provider == 'google'){
+            if($provider == 'google')
+            {
                 $user = Socialite::driver($provider)->stateless()->user();
-
                 // check email already exists on both side curator and artist
 //                $user_email_exist = User::where('email',$user->getEmail())->where('type','!=',$request_from)->first();
                 $user_email_exist = User::where('email',$user->getEmail())->first();
-                if(isset($user_email_exist)){
-
-                    if ($user_email_exist->type != $request_from){
-                        if ($user_email_exist->type == 'curator'){
-                            return redirect('/taste-maker-login')->with('error','This email already exists. You are already Register this email from curator.');
-                        }elseif ($user_email_exist->type == 'artist'){
-                            return redirect('/login')->with('error','This email already exists. You are already Register this email from artist.');
-                        }
-                    }
+                if(isset($user_email_exist))
+                {
+//                    if ($user_email_exist->type != $request_from)
+//                    {
+//                        if ($user_email_exist->type == 'curator')
+//                        {
+//                            return redirect('/taste-maker-login')->with('error','This email already exists. You are already Register this email from curator.');
+//                        }elseif ($user_email_exist->type == 'artist')
+//                        {
+//                            return redirect('/login')->with('error','This email already exists. You are already Register this email from artist.');
+//                        }
+//                    }
 //                    if ($user_email_exist->type == 'curator'){
 //                        return redirect('/taste-maker-login')->with('error','This email already exists. Try signing in using another method or resetting your password.');
 ////                        return redirect('/taste-maker-login')->with('error','This email already exists. Try logging in again, forget your password, or Use another authentication method.');
@@ -136,34 +140,84 @@ class AuthenticationSocializeController extends Controller
 
             $user =  $this->findOrCreateUser($user, $provider,$request_from);
             Auth::login($user, true);
-            if($request_from == 'artist'){
+
+            if($user->type == 'artist')
                 return redirect(RouteServiceProvider::HOME);
-            }elseif($request_from == 'curator'){
+            elseif($user->type == 'curator')
                 return redirect(RouteServiceProvider::CURATOR);
-            }
+
+//            if($request_from == 'artist')
+//                return redirect(RouteServiceProvider::HOME);
+//            elseif($request_from == 'curator')
+//                return redirect(RouteServiceProvider::CURATOR);
+
         } catch (Exception $e) {
             return $this->sendFailedResponse($e->getMessage());
         }
 
     }
+
+    /**
+     * @param $msg
+     * @return Application|RedirectResponse|Redirector
+     */
     protected function sendFailedResponse($msg = null)
     {
         return redirect('/')
 //            ->with('error', 'Unable to login and Email is already exists, try with another provider to login.');
             ->with(['error' => $msg ?: 'Unable to login, try with another provider to login.']);
     }
+
     /**
-     * If a user has registered before using social auth, return the user
-     * else, create a new user object.
-     * @return User|Application|RedirectResponse|Redirector
+     * @param $providerUser
+     * @param $provider
+     * @param $request_from
+     * @return User
      */
     public function findOrCreateUser($providerUser, $provider, $request_from)
     {
-        if($request_from == 'artist'){
+
+        $user = User::where('email',$providerUser->getEmail())->where('provider_id', $providerUser->id)->first();
+
+        Log::info('user info facebook: '.$user);
+        if (isset($user))
+        {
+            $user->update([
+                'name'              => !empty($user->name) ? $user->name : $providerUser->name,
+                'email'             => !empty($user->email) ? $user->email : $providerUser->email,
+                'email_verified_at' => Carbon::now(),
+                'profile'           => !empty($user->profile) ? $user->profile : $providerUser->avatar,
+                'type'              => $user->type,
+                'provider'          => $provider,
+                'provider_id'       => $providerUser->id,
+                'access_token'      => $providerUser->token
+            ]);
+            Log::info('update user info facebook: '.$user);
+        }else{
+            $user = User::create([
+                'name'              => $providerUser->getName(),
+                'email'             => $providerUser->getEmail(),
+                'email_verified_at' => Carbon::now(),
+                'profile'           => $providerUser->getAvatar(),
+                'type'              => $request_from,
+                'provider'          => $provider,
+                'provider_id'       => $providerUser->getId(),
+                'access_token'      => $providerUser->token,
+            ]);
+            Log::info('create user info facebook: '.$user);
+        }
+
+        return $user;
+        #exit
+
+//        dd($user_email_exist,$providerUser, $provider, $request_from);
+        if($request_from == 'artist')
+        {
 //            $user = User::where('provider_id', $providerUser->id)->where('type',$request_from)->first();
             $user = User::where('email',$providerUser->getEmail())->where('provider_id', $providerUser->id)->first();
             Log::info('user info artist: '.$user);
-            if (isset($user)) {
+            if (isset($user))
+            {
                 $user->update([
                     'name'              => !empty($user->name) ? $user->name : $providerUser->name,
                     'email'             => !empty($user->email) ? $user->email : $providerUser->email,
@@ -188,12 +242,14 @@ class AuthenticationSocializeController extends Controller
                 ]);
                 Log::info('create user info artist: '.$user);
             }
-        }elseif ($request_from == 'curator'){
+        }elseif ($request_from == 'curator')
+        {
             $user = User::where('email',$providerUser->getEmail())->where('provider_id', $providerUser->id)->first();
 //            $user = User::where('provider_id', $providerUser->id)->where('type',$request_from)->first();
 
             Log::info('user info curator: '.$user);
-            if (isset($user)) {
+            if (isset($user))
+            {
                 $user->update([
                     'name'              => !empty($user->name) ? $user->name : $providerUser->name,
                     'email'             => !empty($user->email) ? $user->email : $providerUser->email,
