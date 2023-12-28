@@ -109,7 +109,10 @@ class AuthenticatedSessionController extends Controller
         return view('admin.pages.admin-login');
     }
 
-    
+    /**
+     * @param Request $request
+     * @return RedirectResponse
+     */
     public function adminLogin(Request $request)
     {
         $request->validate([

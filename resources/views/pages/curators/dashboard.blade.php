@@ -110,6 +110,10 @@
                                             <div class="border_image">
                                                 @if(!empty($premium_campaign->banner_img) && $premium_campaign->banner_img_status == 1)
                                                     <img class="border" src="{{asset('uploads/banner_img')}}/{{$premium_campaign->banner_img}}" alt="" />
+                                                @else
+                                                    @if(!empty($premium_campaign->track_id))
+                                                        <img class="border" src="{{asset('images/border.png')}}" alt="" />
+                                                    @endif
                                                 @endif
 
 {{--                                                    @if(!empty($theme_settings->curator_border) && $theme_settings->curator_border == 'on')--}}
