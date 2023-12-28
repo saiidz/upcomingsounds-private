@@ -136,11 +136,11 @@
                                         <div tabindex="-1" role="group" class="bv-no-focus-ring">
                                             {!! NoCaptcha::renderJs() !!}
                                             {!! NoCaptcha::display() !!}
-                                            @error('g-recaptcha-response')
-                                            <small class="red-text ml-10" role="alert">
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('g-recaptcha-response')
                                                 {{ $message }}
-                                            </small>
-                                            @enderror
+                                                @enderror
+                                            </div>
                                         </div>
                                     </fieldset>
                                     <div class="form-group">
