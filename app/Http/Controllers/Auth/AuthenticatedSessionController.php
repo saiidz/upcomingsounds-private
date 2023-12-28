@@ -72,10 +72,8 @@ class AuthenticatedSessionController extends Controller
     }
 
     /**
-     * Destroy an authenticated session.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return RedirectResponse
+     * @param Request $request
+     * @return Application|RedirectResponse|Redirector
      */
     public function destroy(Request $request)
     {
@@ -109,6 +107,33 @@ class AuthenticatedSessionController extends Controller
     public function createAdmin()
     {
         return view('admin.pages.admin-login');
+    }
+
+    
+    public function adminLogin(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|string|email',
+            'password' => 'required|string',
+        ]);
+
+        $user_type = User::where('email', $request->email)->first();
+
+        if(isset($user_type))
+        {
+            if($request->has('user_check') && ($user_type->type != 'artist'))
+                return redirect()->route('curator.login')->with('error',"You are singing in as curator.");
+        }
+
+        // Authenticate using the default Laravel authentication
+        if (!auth()->attempt($request->only('email', 'password')))
+        {
+            return redirect()->back()->with('error', 'Invalid credentials');
+        }
+
+        $request->session()->regenerate();
+
+        return redirect()->route('admin.dashboard');
     }
 
      /**

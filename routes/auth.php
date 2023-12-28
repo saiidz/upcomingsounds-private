@@ -41,6 +41,9 @@ Route::post('/login', [AuthenticatedSessionController::class, 'store'])
 Route::get('/admin/login', [AuthenticatedSessionController::class, 'createAdmin'])
                 ->middleware('guest')
                 ->name('admin.login');
+Route::post('/admin/login', [AuthenticatedSessionController::class, 'adminLogin'])
+    ->middleware('guest');
+
 Route::get('/admin', function(){
    return redirect()->route("admin.login");
 });
