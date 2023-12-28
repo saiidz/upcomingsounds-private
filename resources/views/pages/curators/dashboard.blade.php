@@ -19,6 +19,13 @@
         iframe .ytp-cued-thumbnail-overlay .ytp-large-play-button {
             display: none !important;
         }
+        .notFoundCampaign
+        {
+            display: flex !important;
+            align-items: center!important;
+            justify-content: center!important;
+            background-color: #363c43!important;
+        }
     </style>
 @endsection
 
@@ -46,8 +53,8 @@
                                     $remove_banner = \App\Models\Campaign::where('id',$premium_campaign->id)->first();
                                     $remove_banner->update(['add_remove_banner' => 0]);
                                 @endphp
-                                <div class="item-title text-ellipsis">
-                                    <h3 class="white" style="text-align:center;font-size: 15px;">Not Active Campaign Found</h3>
+                                <div class="item-title text-ellipsis notFoundCampaign">
+                                    <h3 class="" style="text-align:center;font-size: 30px;">Not Active Campaign Found</h3>
                                 </div>
                             @else
                                 @if($premium_campaign->add_remove_banner == 1)
@@ -149,8 +156,8 @@
                             @endif
                         @endforeach
                     @else
-                        <div class="item-title text-ellipsis">
-                            <h3 class="white" style="text-align:center;font-size: 15px;">Not Campaign Found</h3>
+                        <div class="item-title text-ellipsis notFoundCampaign">
+                            <h3 class="" style="text-align:center;font-size: 30px;">Not Campaign Found</h3>
                         </div>
                     @endif
                 </section>
