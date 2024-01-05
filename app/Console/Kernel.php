@@ -29,6 +29,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('newsletter:subscription')->monthly();
         $schedule->command('sendOffer:expired')->daily();
         $schedule->command('submitCoverage:clear')->monthly();
+        $schedule->command('campaign:expired')->monthly();
 //        $schedule->command('submitCoverage:clear')->monthlyOn(Carbon::now()->day, '00:00');
     }
 

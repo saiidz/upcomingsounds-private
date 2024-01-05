@@ -24,6 +24,7 @@ use App\Models\ArtistTrackLink;
 use App\Models\PromoteYourTrack;
 use Illuminate\Http\JsonResponse;
 use App\Models\ArtistTrackLanguage;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\Artist\AddYourTrackRequest;
@@ -94,6 +95,11 @@ class PromoteYourTrackController extends Controller
             $input['add_days'] = IPackages::ADD_DAYS;
             $input['add_remove_banner'] = IPackages::ADD_BANNER;
         }
+
+        #store campaign expire date add
+        $carbon =   Carbon::now();
+        $carbon_target    = Carbon::parse($carbon)->addDays(45);
+        $input['is_expired_campaign_date'] = $carbon_target;
 
         $campaign = Campaign::create($input);
 

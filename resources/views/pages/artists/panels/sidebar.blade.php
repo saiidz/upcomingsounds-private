@@ -190,7 +190,7 @@
                     </li>
                      <li>
                          <a href="{{url('/artist-profile')}}#notifications" class="reloadNotifications">
-                             @if(!empty($unReadNotifications) && $unReadNotifications > 0)
+                             @if(!empty($unReadNotifications))
                                   <span class="nav-label">
                                     <b class="label">{{$unReadNotifications->count()}}</b>
                                   </span>

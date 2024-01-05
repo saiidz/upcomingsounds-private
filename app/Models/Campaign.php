@@ -32,6 +32,8 @@ class Campaign extends Model
         'link',
         'banner_img',
         'banner_img_status',
+        'is_expired_campaign_date',
+        'is_expired_campaign',
         'deleted_at',
     ];
 
