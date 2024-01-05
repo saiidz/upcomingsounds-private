@@ -292,7 +292,7 @@
                                     </li>
                                     <li class="nav-item m-r inline">
                                         <a class="nav-link RemoveUpload" href="#" data-toggle="tab"
-                                           data-target="#notification-center">Notification Center ({{$unReadNotifications->count()}})</a>
+                                           data-target="#notifications">Notification Center ({{$unReadNotifications->count()}})</a>
                                     </li>
                                 </ul>
                             </div>
@@ -434,7 +434,7 @@
                                 </div>
 
                                 {{--               Curator Notification Center                     --}}
-                                <div class="tab-pane" id="notification-center">
+                                <div class="tab-pane" id="notifications">
                                     @include('pages.artists.artist-profile-panels.artist-notification-center')
                                 </div>
                                 {{--               Curator Notification Center                     --}}

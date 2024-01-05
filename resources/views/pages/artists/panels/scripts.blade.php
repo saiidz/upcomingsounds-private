@@ -156,6 +156,12 @@
             '_self' // <- This is what makes it open in a new window.
         );
     });
+    $('.reloadNotifications').on('click', function(){
+        window.open(
+            window.location.origin + '/artist-profile#notifications',
+            '_self' // <- This is what makes it open in a new window.
+        );
+    });
     $('.reloadList').on('click', function(){
         window.open(
             window.location.origin + '/artist-profile#playlists',

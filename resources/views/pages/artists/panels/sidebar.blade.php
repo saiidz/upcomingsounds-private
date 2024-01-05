@@ -188,6 +188,17 @@
                            <span class="nav-text">Tracks</span>
                        </a>
                     </li>
+                     <li>
+                         <a href="{{url('/artist-profile')}}#notifications" class="reloadNotifications">
+                              <span class="nav-label">
+                                <b class="label">{{$unReadNotifications->count()}}</b>
+                              </span>
+                             <span class="nav-icon">
+                               <i class="fa fa-bell"></i>
+                             </span>
+                             <span class="nav-text">Notifications</span>
+                         </a>
+                     </li>
                     <li>
                        <a href="{{url('/artist-profile')}}#playlists" class="reloadList">
                        <span class="nav-icon">
