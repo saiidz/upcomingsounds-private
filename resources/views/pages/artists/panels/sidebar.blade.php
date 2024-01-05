@@ -190,9 +190,15 @@
                     </li>
                      <li>
                          <a href="{{url('/artist-profile')}}#notifications" class="reloadNotifications">
-                              <span class="nav-label">
-                                <b class="label">{{$unReadNotifications->count()}}</b>
-                              </span>
+                             @if(!empty($unReadNotifications) && $unReadNotifications > 0)
+                                  <span class="nav-label">
+                                    <b class="label">{{$unReadNotifications->count()}}</b>
+                                  </span>
+                             @else
+                                 <span class="nav-label">
+                                    <b class="label">0</b>
+                               </span>
+                             @endif
                              <span class="nav-icon">
                                <i class="fa fa-bell"></i>
                              </span>
