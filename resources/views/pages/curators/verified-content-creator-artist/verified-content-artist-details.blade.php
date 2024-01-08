@@ -299,6 +299,32 @@
                                 </div>
                             </div>
                         </div>
+                        @if(!empty($verified_content_creator->artistTrack) && count($verified_content_creator->artistTrack->artistTrackLanguages) > 0)
+                            <div class="form-group row">
+                                <div class="col-sm-2 form-control-label">Track Languages:</div>
+                                <div class="col-sm-9">
+                                    <div class="col-sm-12 form-control-label text-muted">
+                                        @foreach($verified_content_creator->artistTrack->artistTrackLanguages as $language)
+                                            <span class="btn btn-xs white campaignTag">{{$language->language->name}}</span>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+
+                        @if(!empty($verified_content_creator->artistTrack->artistTrackTags))
+                            <div class="form-group row">
+                                <div class="col-sm-2 form-control-label">Genres:</div>
+                                <div class="col-sm-9">
+                                    <div class="col-sm-12 form-control-label text-muted">
+                                        @foreach($verified_content_creator->artistTrack->artistTrackTags as $tag)
+                                            <span class="btn btn-xs white campaignTag">{{$tag->curatorFeatureTag->name}}</span>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+
                     </div>
 
                     @if(!empty($verified_content_creator->artistTrack->track_thumbnail))
@@ -338,6 +364,25 @@
                                         @endif
                                     @endforeach
                                 </div>
+                            </div>
+                        </div>
+                    @endif
+
+                    @if(count($verified_content_creator->artistTrack->artistTrackLinks) > 0)
+                        <div class="padding p-y-0 m-b-md m-t-3">
+                            <div class="page-title m-b">
+                                <h4 class="inline m-a-0 update_profile">Artist Track Links</h4>
+                            </div>
+                            <div class="form-group row">
+                                @foreach($verified_content_creator->artistTrack->artistTrackLinks as $link)
+                                    @if(!empty($link->link))
+                                        <div class="col-sm-6 form-control-label">
+                                            @php
+                                                echo $link->link;
+                                            @endphp
+                                        </div>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                     @endif
