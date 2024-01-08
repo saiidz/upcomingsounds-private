@@ -4,10 +4,12 @@ namespace App\Models\Artist;
 
 use App\Models\ArtistTrack;
 use App\Models\Curator\VerifiedCoverage;
+use App\Models\Curator\VerifiedCoverageSubmitWork;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class VerifiedContentCreatorCurator extends Model
@@ -22,6 +24,7 @@ class VerifiedContentCreatorCurator extends Model
         'verified_coverage_id',
         'usc_credit',
         'pay_now',
+        'status',
         'deleted_at',
     ];
 
@@ -55,5 +58,13 @@ class VerifiedContentCreatorCurator extends Model
     public function artistTrack(): BelongsTo
     {
         return $this->belongsTo(ArtistTrack::class, 'artist_track_id', 'id');
+    }
+
+    /**
+     * @return HasOne
+     */
+    public function verifiedCoverageSubmitWork(): HasOne
+    {
+        return $this->hasOne(VerifiedCoverageSubmitWork::class,'verified_content_creator_id');
     }
 }

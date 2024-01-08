@@ -386,6 +386,72 @@
                             </div>
                         </div>
                     @endif
+
+                    {{-- Submit Work  --}}
+                    @if(!empty($verified_content_creator->verifiedCoverageSubmitWork))
+                        <div class="row">
+                            <div class="col-sm-12 text-muted">
+                                <h4 style="color:#02b875 !important; text-align:center">Submit Work successfully. Please wait for approval from admin side.</h4>
+                            </div>
+                        </div>
+                    @elseif(!empty($verified_content_creator) && $verified_content_creator->status == \App\Templates\IOfferTemplateStatus::COMPLETED)
+                        <div class="row">
+                            <div class="col-sm-12 text-muted">
+                                <h4 style="color:#02b875 !important; text-align:center">This Verified Content is completed.</h4>
+                            </div>
+                        </div>
+                        @if(!empty($verified_content_creator->verifiedCoverageSubmitWork))
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="padding p-y-0 m-b-md m-t-3">
+                                        <div class="page-title m-b">
+                                            <h4 class="inline m-a-0 update_profile">View Submit Work</h4>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-12 form-control-label">
+                                                @if(!empty($verified_content_creator->verifiedCoverageSubmitWork->VerifiedCoverageSubmitWorkLinks))
+                                                    @foreach($verified_content_creator->verifiedCoverageSubmitWork->VerifiedCoverageSubmitWorkLinks as $link)
+                                                        <a href="{{$link->link}}" target="_blank" style="float:left !important;"
+                                                           class="btn btn-sm rounded add_track">
+                                                            View Completed Work</a>
+                                                    @endforeach
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="padding p-y-0 m-b-md m-t-3">
+                                        <div class="form-group row">
+                                            <div class="col-sm-12 form-control-label">
+                                                @if(!empty($verified_content_creator->verifiedCoverageSubmitWork->verifiedCoverageSubmitWorkImages))
+                                                    @foreach($verified_content_creator->verifiedCoverageSubmitWork->verifiedCoverageSubmitWorkImages as $image)
+                                                        <div class="" id="">
+                                                            <a href="{{asset('uploads/vc_submit_work_images')}}/{{$image->path}}" target="_blank" style="float:left !important;"
+                                                               class="btn btn-sm">
+                                                                <img src="{{asset('uploads/vc_submit_work_images')}}/{{$image->path}}" alt="" style="height: 50px;">
+                                                            </a>
+                                                        </div>
+                                                    @endforeach
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    @else
+                        <div class="" id="curatorOfferBtn">
+                            <a href="javascript:void(0)" data-toggle="modal"
+                               data-target="#submitWorkVC" class="btn btn-sm rounded add_track">
+                                Submit Work</a>
+                        </div>
+                    @endif
+
+                    {{-- Submit Work  --}}
                 </div>
             </div>
             @include('pages.curators.panels.right-sidebar')
@@ -393,16 +459,52 @@
     </div>
 
     <!-- ############ PAGE END-->
+    @include('pages.curators.verified-content-creator-artist.submit-wok-modal')
 @endsection
 
 
 @section('page-script')
     <script src="{{asset('app-assets/js/artist/artist.js')}}"></script>
-    <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
-    <script>
-        $(document).ready(function() {
+    <script type="text/javascript">
 
-            $('.ckeditor').ckeditor();
+
+
+        $(document).ready(function(){
+
+            var counter = 2;
+
+            $("#addLinkButton").click(function () {
+
+                if(counter>5)
+                {
+                    toastr.error('Only 5 Links allow');
+                    // alert("Only 5 Links allow");
+                    return false;
+                }
+
+                var newTextBoxDiv = $(document.createElement('div'))
+                    .attr("id", 'TextBoxDiv' + counter);
+
+                newTextBoxDiv.after().html('<div class="col-sm-12 m-b"> <div class="addEmbeded"><div class="addMoreLinks"><input type="text" class="form-control moreLinks" name="completion_url[]" id="textbox' + counter + '" value="" placeholder="Please Add Completion Url"></div></div></div>');
+
+                newTextBoxDiv.appendTo("#TextBoxesGroup");
+
+
+                counter++;
+            });
+
+            $("#removeButton").click(function () {
+                if(counter==2){
+                    toastr.error('No more textbox to remove');
+                    // alert("No more textbox to remove");
+                    return false;
+                }
+
+                counter--;
+
+                $("#TextBoxDiv" + counter).remove();
+
+            });
 
         });
     </script>
@@ -494,6 +596,14 @@
                     }
                 }
             });
+        });
+    </script>
+    <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $('.ckeditor').ckeditor();
+
         });
     </script>
 @endsection

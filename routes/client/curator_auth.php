@@ -104,7 +104,7 @@ Route::post('verified-coverage/change-status',[VerifiedCoverageController::class
 Route::get('offer-template-create', [OfferTemplateController::class,'directCreateOfferTemplate'])->name('curator.direct.create.offer.template');
 // create an offer
 
-// submit work offer
+# submit work offer
 Route::post('submit-work', [SubmitWorkController::class,'submitWork'])->name('curator.submit.work');
 // submit work offer
 
@@ -134,6 +134,9 @@ Route::post('add-usc-submit-coverage', [SubmitCoverageController::class, 'storeU
 # verified coverage routes
 Route::get('artist-verified-content-creator', [VerifiedCoverageArtistController::class,'verifiedContentCreator'])->name('artist.coverage.verified');
 Route::get('artist-verified-content-creator/{verified_content_creator}', [VerifiedCoverageArtistController::class,'verifiedContentCreatorShow'])->name('artist.coverage.verified.show');
+# submit work offer
+Route::post('verified-coverage-submit-work', [VerifiedCoverageArtistController::class,'submitWork'])->name('verified.coverage.submit.work');
+
 # verified coverage routes
 
 /***************************************************** Curator Routes *********************************************************/
