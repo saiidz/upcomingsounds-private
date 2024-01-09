@@ -372,6 +372,14 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * @return HasMany
+     */
+    public function artistRefundVerifiedContentCreatorCurator(): HasMany
+    {
+        return $this->hasMany(VerifiedContentCreatorCurator::class, 'artist_id')->where(['is_rejected' => 1, 'status' => IOfferTemplateStatus::REFUND]);
+    }
+
+    /**
      * @return int|void
      */
     public static function artistBalance()
@@ -384,6 +392,7 @@ class User extends Authenticatable implements MustVerifyEmail
                 - (!empty($user->artistSendOfferTransaction) ? $user->artistSendOfferTransaction->sum('contribution') : 0)
                 - (!empty($user->artistVerifiedContentCreatorCurator) ? $user->artistVerifiedContentCreatorCurator->sum('usc_credit') : 0)
                 + (!empty($user->artistRefundSendOfferTransaction) ? $user->artistRefundSendOfferTransaction->sum('contribution') : 0)
+                + (!empty($user->artistRefundVerifiedContentCreatorCurator) ? $user->artistRefundVerifiedContentCreatorCurator->sum('usc_credit') : 0)
                 + (!empty($user->artistCouponGiftCard) ? $user->artistCouponGiftCard->sum('credits') : 0)
                 : 0;
             return $balance;

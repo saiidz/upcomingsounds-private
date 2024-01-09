@@ -6,6 +6,7 @@ use App\Models\ArtistTrack;
 use App\Models\Curator\VerifiedCoverage;
 use App\Models\Curator\VerifiedCoverageSubmitWork;
 use App\Models\User;
+use App\Templates\IOfferTemplateStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -24,7 +25,10 @@ class VerifiedContentCreatorCurator extends Model
         'verified_coverage_id',
         'usc_credit',
         'pay_now',
+        'is_approved',
+        'is_rejected',
         'status',
+        'refund_message',
         'deleted_at',
     ];
 
@@ -66,5 +70,13 @@ class VerifiedContentCreatorCurator extends Model
     public function verifiedCoverageSubmitWork(): HasOne
     {
         return $this->hasOne(VerifiedCoverageSubmitWork::class,'verified_content_creator_id');
+    }
+
+    /**
+     * @return HasOne
+     */
+    public function pendingVerifiedCoverageSubmitWork(): HasOne
+    {
+        return $this->hasOne(VerifiedCoverageSubmitWork::class,'verified_content_creator_id')->where('status', IOfferTemplateStatus::PENDING);
     }
 }

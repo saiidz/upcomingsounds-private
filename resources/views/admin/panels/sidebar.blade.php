@@ -92,7 +92,8 @@
         || Request::is('admin/curator-verified-coverage*') || Request::is('admin/verified-coverage-curator*') || Request::is('admin/verified-coverage*')
         || Request::is('admin/send-direct-offer*')
         || Request::is('admin/offer-types*')
-        || Request::is('admin/curator-submit-work*') || Request::is('admin/curator-withdrawal-request*') ? 'active open' : '' }}">
+        || Request::is('admin/curator-submit-work*') || Request::is('admin/verified-coverage-submit-work*')
+        || Request::is('admin/curator-withdrawal-request*') ? 'active open' : '' }}">
             <a class="collapsible-header waves-effect waves-cyan" href="javascript:void(0)">
                 <i class="material-icons">face</i>
                 <span class="menu-title" data-i18n="User">Curators</span>
@@ -192,6 +193,14 @@
                             <span data-i18n="List">Alternative Options</span>
                         </a>
                     </li>
+                    {{--      Verified Coverage Submit Work     --}}
+                    <li class="{{ Request::is('admin/verified-coverage-submit-work*') ? 'active' : '' }}">
+                        <a class="{{ Request::is('admin/verified-coverage-submit-work*') ? 'active' : '' }}" href="{{ route('admin.verified.coverage.submit.work') }}">
+                            <i class="material-icons">radio_button_unchecked</i>
+                            <span data-i18n="List">Verified Coverage Submit Work</span>
+                        </a>
+                    </li>
+                    {{--      Verified Coverage Submit Work     --}}
                 </ul>
             </div>
         </li>

@@ -388,13 +388,13 @@
                     @endif
 
                     {{-- Submit Work  --}}
-                    @if(!empty($verified_content_creator->verifiedCoverageSubmitWork))
+                    @if(!empty($verified_content_creator->pendingVerifiedCoverageSubmitWork))
                         <div class="row">
                             <div class="col-sm-12 text-muted">
                                 <h4 style="color:#02b875 !important; text-align:center">Submit Work successfully. Please wait for approval from admin side.</h4>
                             </div>
                         </div>
-                    @elseif(!empty($verified_content_creator) && $verified_content_creator->status == \App\Templates\IOfferTemplateStatus::COMPLETED)
+                    @elseif(!empty($verified_content_creator) && !empty($verified_content_creator->verifiedCoverageSubmitWork))
                         <div class="row">
                             <div class="col-sm-12 text-muted">
                                 <h4 style="color:#02b875 !important; text-align:center">This Verified Content is completed.</h4>

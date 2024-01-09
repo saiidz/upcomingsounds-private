@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\SubmitWorkController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\VerifiedCoverageController;
 use App\Http\Controllers\Admin\VerifiedCoverageOfferTypeController;
+use App\Http\Controllers\Admin\VerifiedCoverageSubmitWorkController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ArtistController;
 use App\Http\Controllers\Admin\OptionController;
@@ -158,6 +159,14 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
     Route::get('curator-withdrawal-request/{transactionHistory}', [CuratorWithdrawalRequest::class,'detailTransactionHistory'])->name('request.withdrawal.curator.detail');
     Route::post('curator-withdrawal-request-approved-offer/{transactionHistory}', [CuratorWithdrawalRequest::class,'storeApprovedTransactionHistory'])->name('store.curator.approved.withdrawal');
     Route::post('curator-withdrawal-request-reject/{transactionHistory}',[CuratorWithdrawalRequest::class,'storeRejectTransactionHistory'])->name('store.curator.withdrawal.reject');
+
+    # submit work offer
+    Route::get('verified-coverage-submit-work', [VerifiedCoverageSubmitWorkController::class,'submitWork'])->name('verified.coverage.submit.work');
+    Route::get('verified-coverage-submit-work/{submitWork}', [VerifiedCoverageSubmitWorkController::class,'detailSubmitWork'])->name('verified.coverage.submit.work.detail');
+    Route::post('verified-coverage-submit-work-approved/{submitWork}', [VerifiedCoverageSubmitWorkController::class,'storeApprovedSubmitWork'])->name('store.verified.coverage.approved.submitWork');
+    Route::post('verified-coverage-submit-work-reject/{submitWork}',[VerifiedCoverageSubmitWorkController::class,'storeRejectSubmitWork'])->name('store.verified.coverage.submitWork.reject');
+    Route::post('verified-coverage-artist-refund-wallet/{submitWork}',[VerifiedCoverageSubmitWorkController::class,'artistRefundWaller'])->name('verified.coverage.artist.refund.waller');
+    # submit work offer
 });
 
 
