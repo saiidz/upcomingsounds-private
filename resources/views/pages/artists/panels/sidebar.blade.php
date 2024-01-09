@@ -35,7 +35,7 @@
                                play_circle_outline
                                </i>
                             </span>
-                            <span class="nav-text">Promote Your Track</span>
+                            <span class="nav-text">Dashboard</span>
                          </a>
                      </li>
                  @endif

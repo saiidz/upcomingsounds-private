@@ -71,7 +71,7 @@
             </div>
             <div class="page-title m-b-2">
                 <a class="btn btn-lg rounded add_your_track" href="{{url('/promote-your-track')}}">
-                    <div class="btnTitle">Add your track</div>
+                    <div class="btnTitle">Promote Your Track</div>
                     <div class="btnSubtitle">
                         And get access to {{ $curators }} curators & pros
                     </div>
