@@ -57,7 +57,7 @@ class SubmitWorkController extends Controller
                'status' => IOfferTemplateStatus::APPROVED,
             ]);
 
-            // update SendOfferTransaction table
+            # update SendOfferTransaction table
             $SendOfferTransaction = SendOfferTransaction::where(['send_offer_id' => $submitWork->send_offer_id, 'curator_id' => $submitWork->curator_id])->latest()->first();
             $SendOfferTransaction->update([
                 'usc_fee_commission' => IOfferTemplateStatus::USC_FEE_COMMISSION_ADMIN,

@@ -55,10 +55,11 @@ class VerifiedCoverageSubmitWorkController extends Controller
                 'status' => IOfferTemplateStatus::APPROVED,
             ]);
 
-            // update VerifiedContentCreatorCurator table
+            # update VerifiedContentCreatorCurator table
             $VerifiedContentCreatorCurator = VerifiedContentCreatorCurator::where('id', $submitWork->verified_content_creator_id)->latest()->first();
 
             $VerifiedContentCreatorCurator->update([
+                'usc_fee_commission' => IOfferTemplateStatus::USC_FEE_COMMISSION_ADMIN,
                 'is_approved'        => 1,
                 'is_rejected'        => 0,
             ]);

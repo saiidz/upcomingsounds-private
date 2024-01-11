@@ -390,7 +390,7 @@ class User extends Authenticatable implements MustVerifyEmail
             $balance = !empty($user->TransactionUserInfo) ? $user->TransactionUserInfo->transactionHistory->sum('credits')
                 - (!empty($user->campaign) ? $user->campaign->sum('usc_credit') : 0)
                 - (!empty($user->artistSendOfferTransaction) ? $user->artistSendOfferTransaction->sum('contribution') : 0)
-                - (!empty($user->artistVerifiedContentCreatorCurator) ? $user->artistVerifiedContentCreatorCurator->sum('usc_credit') : 0)
+                - (!empty($user->artistVerifiedContentCreatorCurator) ? $user->artistVerifiedContentCreatorCurator->sum('usc_credit') + $user->artistVerifiedContentCreatorCurator->sum('usc_fee_commission') : 0)
                 + (!empty($user->artistRefundSendOfferTransaction) ? $user->artistRefundSendOfferTransaction->sum('contribution') : 0)
                 + (!empty($user->artistRefundVerifiedContentCreatorCurator) ? $user->artistRefundVerifiedContentCreatorCurator->sum('usc_credit') : 0)
                 + (!empty($user->artistCouponGiftCard) ? $user->artistCouponGiftCard->sum('credits') : 0)

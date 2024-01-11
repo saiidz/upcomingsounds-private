@@ -24,6 +24,7 @@ class VerifiedContentCreatorCurator extends Model
         'curator_id',
         'verified_coverage_id',
         'usc_credit',
+        'usc_fee_commission',
         'pay_now',
         'is_approved',
         'is_rejected',
