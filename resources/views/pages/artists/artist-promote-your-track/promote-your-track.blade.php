@@ -4,6 +4,8 @@
 @section('title','Promote Your Track')
 
 @section('page-style')
+    <link rel="stylesheet" href="{{ asset('css/curator-dashboard.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css">
     <style>
         .sidebarCollapsed {
             height: 100%;
@@ -57,6 +59,22 @@
                 top: 40px;
             }
         }
+        #loadings {
+            background: rgba(255, 255, 255, .4) url({{asset('images/loader.gif')}}) no-repeat center center !important;
+        }
+        .slide-iframe iframe button .ytp-large-play-button-red-bg {
+            display: none !important;
+        }
+        iframe .ytp-cued-thumbnail-overlay .ytp-large-play-button {
+            display: none !important;
+        }
+        .notFoundCampaign
+        {
+            display: flex !important;
+            align-items: center!important;
+            justify-content: center!important;
+            background-color: #363c43!important;
+        }
     </style>
 @endsection
 
@@ -79,6 +97,20 @@
 {{--                <h2 class="widget-title h4 m-b">--}}
 {{--                    And get access to 1249 curators & pros--}}
 {{--                </h2>--}}
+            </div>
+
+        {{--    Slider        --}}
+            <div class="con m-b" id="curatorBanner" style="background-color: transparent">
+                <section class="main-slider">
+                    <div class="item-title text-ellipsis notFoundCampaign">
+                        <h3 class="" style="text-align:center;font-size: 30px;">Not Data Found</h3>
+                    </div>
+                </section>
+            </div>
+        {{--    Slider        --}}
+
+            <div class="page-title m-b">
+                <h1 class="inline m-a-0">{{ __('Upcoming Sounds featured tracks') }}</h1>
             </div>
 
             <div class="row row-sm item-masonry item-info-overlay">
@@ -941,6 +973,8 @@
 @endsection
 
 @section('page-script')
+    <script src="{{asset('js/custom/curator/curator-dashboard.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
     <script>
         // function openNav() {
         //     document.getElementById("mySidebarCollapsed").style.width = "490px";
