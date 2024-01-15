@@ -17,7 +17,7 @@
         @foreach($offer_payments as $offer_payment)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td><a href="{{route('curator.send.offer.show',encrypt($offer_payment->sendOffer->id))}}">{{!empty($offer_payment->sendOffer->curatorOfferTemplate) ? $offer_payment->sendOffer->curatorOfferTemplate->title : '----'}}</a></td>
+                <td><a href="{{route('curator.send.offer.show',encrypt($offer_payment->sendOffer->id))}}" style="color:#02b875 !important;">{{!empty($offer_payment->sendOffer->curatorOfferTemplate) ? $offer_payment->sendOffer->curatorOfferTemplate->title : '----'}}</a></td>
                 <td>{{!empty($offer_payment->sendOffer->curatorOfferTemplate) ? $offer_payment->sendOffer->curatorOfferTemplate->offerType->name : '----'}}</td>
                 <td>
                     @if(!empty($offer_payment->userArtist))

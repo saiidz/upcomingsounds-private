@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Artist\ArtistCouponGiftCard;
+use App\Models\Artist\VerifiedContentCreatorCurator;
 use App\Models\Country;
 use App\Models\TransactionHistory;
 use App\Models\TransactionUserInfo;
@@ -69,6 +70,11 @@ class ArtistWalletController extends Controller
         ]);
 
         $artist_transaction_user = TransactionUserInfo::where('user_id',Auth::id())->first();
+
+        #verifiedContentCreatorCurators
+        $verifiedContentCreatorCurators = VerifiedContentCreatorCurator::where([
+            'artist_id' => Auth::id(),
+        ])->latest()->get();
 
 //        $numberss = number_format($number / 100, 2);
 

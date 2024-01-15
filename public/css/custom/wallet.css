@@ -363,6 +363,22 @@ br.br {
     display: inline-table !important;
 }
 
+#myVerifiedContentCreatorCuratorHistory #verifiedContentCreatorCuratorsPayments_length,
+#myVerifiedContentCreatorCuratorHistory #verifiedContentCreatorCuratorsPayments_length select,
+#myVerifiedContentCreatorCuratorHistory #verifiedContentCreatorCuratorsPayments_info,
+#myVerifiedContentCreatorCuratorHistory .previous,
+#myVerifiedContentCreatorCuratorHistory .next,
+#myVerifiedContentCreatorCuratorHistory #verifiedContentCreatorCuratorsPayments_filter{
+    color: white;
+}
+
+#myVerifiedContentCreatorCuratorHistory #verifiedContentCreatorCuratorsPayments_wrapper{
+    margin-top:15px;
+}
+#myVerifiedContentCreatorCuratorHistory .table-responsive{
+    display: inline-table !important;
+}
+
 #curatorHistory #historyCuratorWithdrawal_length,
 #curatorHistory #historyCuratorWithdrawal_length select,
 #curatorHistory #historyCuratorWithdrawal_info,
@@ -404,6 +420,9 @@ br.br {
         display: block !important;
     }
     #myCouponHistory .table-responsive{
+        display: block !important;
+    }
+    #myVerifiedContentCreatorCuratorHistory .table-responsive{
         display: block !important;
     }
     #curatorHistory .table-responsive{

@@ -21,16 +21,20 @@
             background: rgba(255, 255, 255, .4) url({{asset('images/loader.gif')}}) no-repeat center center !important;
         }
         #myHistory .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active,
-        #myCouponHistory .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+        #myCouponHistory .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active,
+        #myVerifiedContentCreatorCuratorHistory .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active
+        {
             color: white !important;
         }
         #myHistory a.paginate_button ,
-        #myCouponHistory a.paginate_button
+        #myCouponHistory a.paginate_button,
+        #myVerifiedContentCreatorCuratorHistory a.paginate_button
         {
             color: white!important;
         }
         #myHistory.dataTables_wrapper .dataTables_paginate .paginate_button:active,
-        #myCouponHistory.dataTables_wrapper .dataTables_paginate .paginate_button:active
+        #myCouponHistory.dataTables_wrapper .dataTables_paginate .paginate_button:active,
+        #myVerifiedContentCreatorCuratorHistory.dataTables_wrapper .dataTables_paginate .paginate_button:active
         {
             background-color: #2b2b2b!important;
             background: linear-gradient(to bottom, #2b2b2b 0%, #0c0c0c 100%)!important;
@@ -44,7 +48,9 @@
         #myHistory tr.odd,
         #myHistory tr.even,
         #myCouponHistory tr.odd,
-        #myCouponHistory tr.even
+        #myCouponHistory tr.even,
+        #myVerifiedContentCreatorCuratorHistory tr.odd,
+        #myVerifiedContentCreatorCuratorHistory tr.even
         {
             color: black;
         }
@@ -76,8 +82,12 @@
                                     <a class="nav-link" href="javascript:void(0)" onclick="myHistory()" data-toggle="tab" data-target="#myHistory">My History</a>
                                 </li>
                                 <li class="nav-item">
+                                    <a class="nav-link" href="javascript:void(0)" onclick="myHistory()" data-toggle="tab" data-target="#myVerifiedContentCreatorCuratorHistory">Verified Content Creator Curator</a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link" href="javascript:void(0)" onclick="myCouponHistory()" data-toggle="tab" data-target="#myCouponHistory">Coupon/Gift Card</a>
                                 </li>
+
                                 <li>
                                     <div class="tw-w-full tw-flex tw-justify-end" id="uscStyle">
                                         <span class="text">
@@ -194,6 +204,8 @@
 
                             {{-- Coupon gift card history --}}
                             @include('pages.artists.artist-wallet.coupon-gift-card-history')
+
+                            @include('pages.artists.artist-wallet.verified-content-creator-curator-history')
                         </div>
                     </div>
                 </div>
@@ -964,6 +976,25 @@
         document.title='Coupon/ Gift Card History';
         // DataTable initialisation
         $('#couponGiftHistoryWallet').DataTable(
+            {
+                "paging": true,
+                "buttons": [
+                    'colvis',
+                    'copyHtml5',
+                    'csvHtml5',
+                    'excelHtml5',
+                    'pdfHtml5',
+                    'print'
+                ]
+            }
+        );
+    });
+    $(document).ready(function() {
+        //Only needed for the filename of export files.
+        //Normally set in the title tag of your page.
+        document.title='Verified Content Creator Curator History';
+        // DataTable initialisation
+        $('#verifiedContentCreatorCuratorsPayments').DataTable(
             {
                 "paging": true,
                 "buttons": [
