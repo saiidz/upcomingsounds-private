@@ -15,14 +15,24 @@ class NewsLetterSubscriptionController extends Controller
     public function newsLetter(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'g-recaptcha-response' => 'required|captcha',
             'email'    => 'required|string|email|unique:news_letter_subscriptions',
         ]);
 
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
+        if ($validator->fails())
+        {
+            return response()->json(['errors' => $validator->errors()->all()]);
         }
+//        $validator = Validator::make($request->all(), [
+//            'email'    => 'required|string|email|unique:news_letter_subscriptions',
+//            'g-recaptcha-response' => 'required|captcha',
+//        ]);
+//
+//        if ($validator->fails()) {
+//            return redirect()->back()
+//                ->withErrors($validator)
+//                ->withInput();
+//        }
         $input = $request->all();
         $input['status'] = 1;
         NewsLetterSubscription::create($input);

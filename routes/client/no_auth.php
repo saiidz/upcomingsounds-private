@@ -49,7 +49,7 @@ Route::post('contact-us',[DashboardController::class,'contactUsPost']);
 Route::get('how-to-help', [DashboardController::class,'help']);
 Route::get('help/ticket', [TicketHelpController::class,'helpTicket']);
 Route::post('help/ticket', [TicketHelpController::class,'postHelpTicket']);
-Route::post('newsletter', [NewsLetterSubscriptionController::class,'newsLetter']);
+Route::post('newsletter', [NewsLetterSubscriptionController::class,'newsLetter'])->name('newsLetter');
 
 # public profile artist
 Route::get('artist/public/{user:name}',[ArtistController::class,'artistPublicProfile'])->name('artist.public.profile');

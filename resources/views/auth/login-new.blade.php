@@ -47,6 +47,50 @@
         #passwordDisplay{
             position: relative;
         }
+        .cookiealert {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            margin: 0 !important;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            border-radius: 0;
+            transform: translateY(100%);
+            transition: all 500ms ease-out;
+            color: #ecf0f1;
+            background: #02b875 !important;
+        }
+
+        .cookiealert.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0%);
+            transition-delay: 1000ms;
+        }
+
+        .cookiealert a {
+            text-decoration: underline
+        }
+
+        .cookiealert .acceptcookies {
+            margin-left: 10px!important;
+            vertical-align: baseline!important;
+            border-radius: 500px!important;
+            color: rgba(255, 255, 255, 0.87)!important;
+            padding: 0.3445rem 0.75rem!important;
+            font-weight: 500!important;
+            outline: 0 !important;
+            font-size: .875rem!important;
+            border-width: 0!important;
+        }
+        .acceptcookies {
+            background-color: #1f1f25;
+        }
+        .btn.acceptcookies:not([disabled]):hover, .btn.acceptcookies:not([disabled]):focus, .btn.acceptcookies:not([disabled]).active{
+            box-shadow: inset 0 -10rem 0px rgb(158 158 158 / 10%);
+        }
     </style>
 </head>
 <body>

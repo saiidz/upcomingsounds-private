@@ -179,7 +179,7 @@
                 <div class="col-md-3 col-xs-6">
                     <h6 class="text-u-c m-b text-muted">Subscribe</h6>
                     <p>Do not want to miss our newsletter?</p>
-                    <form class="m-b-1" method="POST" action="{{url('/newsletter')}}">
+                    <form class="m-b-1 basicform_with_reload" method="POST" action="{{route('newsLetter')}}">
                         @csrf
                         <div class="form-group">
                             <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Your Subscriber email" required>
@@ -189,7 +189,17 @@
                                 </small>
                             @enderror
                         </div>
-                        <button type="submit" class="btn btn-sm btn-outline b-dark rounded">Subscribe
+
+                        <div class="form-group">
+                            {!! NoCaptcha::renderJs() !!}
+                            {!! NoCaptcha::display() !!}
+                            @error('g-recaptcha-response')
+                                <small class="red-text" role="alert">
+                                    {{ $message }}
+                                </small>
+                            @enderror
+                        </div>
+                        <button type="submit" class="btn btn-sm btn-outline b-dark rounded basicbtn">Subscribe
                         </button>
                     </form>
 {{--                    <div class="text-left">--}}

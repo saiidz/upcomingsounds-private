@@ -36,7 +36,8 @@
             box-shadow: inset 0 -10rem 0px rgb(158 158 158 / 10%);
         }
         .acceptcookies {
-            background-color: #1f1f25 !;
+            background-color: #1f1f25 !important;
+            /*background-color: #1f1f25;*/
         }
         .cookiealert .acceptcookies {
             margin-left: 10px;
