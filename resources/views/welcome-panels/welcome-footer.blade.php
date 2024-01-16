@@ -53,8 +53,8 @@
                            class="btn btn-icon btn-social btn-social-colored social_color"
                            title="Twitter">
 {{--                            <i class="{{ !empty($theme->twitter_icon) ? $theme->twitter_icon : 'fab fa-twitter' }}"></i>--}}
-{{--                            <i class="fa-brands fa-x-twitter"></i>--}}
-{{--                            <i class="fa-brands fa-x-twitter"></i>--}}
+{{--                            <i class="fa fa-x-twitter"></i>--}}
+{{--                            <i class="fa fa-x-twitter"></i>--}}
                             <i class="{{ !empty($theme->twitter_icon) ? $theme->twitter_icon : 'fa fa-twitter' }}"></i>
                             <i class="{{ !empty($theme->twitter_icon) ? $theme->twitter_icon : 'fa fa-twitter' }}"></i>
 {{--                            <i class="fa fa-twitter"></i>--}}
