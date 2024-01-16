@@ -40,7 +40,9 @@ $(document).ready(function () {
         slideSpeed: 300,
         items: 3,
         paginationSpeed: 400,
+        autoPlay: true,
         singleItem: true,
+        transitionStyle: "fade",
         navigationText: ['<i class="fa fa-long-arrow-left"></i>', '<i class="fa fa-long-arrow-right"></i>']
     });
 
