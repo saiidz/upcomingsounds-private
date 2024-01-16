@@ -15,14 +15,13 @@ class NewsLetterSubscriptionController extends Controller
     public function newsLetter(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'g-recaptcha-response' => 'required|captcha',
+            'g-recaptcha-response' => 'required',
             'email'    => 'required|email|unique:news_letter_subscriptions',
         ]);
 
         if ($validator->fails())
-        {
             return response()->json(['errors' => $validator->errors()->all()]);
-        }
+
 //        $validator = Validator::make($request->all(), [
 //            'email'    => 'required|string|email|unique:news_letter_subscriptions',
 //            'g-recaptcha-response' => 'required|captcha',
@@ -47,6 +46,7 @@ class NewsLetterSubscriptionController extends Controller
                 ->subject($data["title"]);
         });
 
-        return redirect()->back()->with('success', 'Newsletter Subscriber successfully.');
+        return response()->json(['success' => 'Newsletter Subscriber successfully.']);
+//        return redirect()->back()->with('success', 'Newsletter Subscriber successfully.');
     }
 }

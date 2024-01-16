@@ -65,6 +65,15 @@ success, touch, track, tracks, transparent, united, visibility,
             top:113px !important;
         }
     }
+    #loadings {
+        background: rgba(255, 255, 255, .4) url({{asset('images/loader.gif')}}) no-repeat center center !important;
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        /*background: #fff url(../images/loader.gif) no-repeat center center;*/
+        z-index: 999999;
+    }
 </style>
 {!! htmlScriptTagJsApi([
         'action' => 'homepage',
