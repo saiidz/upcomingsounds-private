@@ -2511,6 +2511,10 @@
     .welcome_UpcomingSounds{
         padding: 2rem !important;
     }
+    .uHNS{
+        background-size: 100% !important;
+        height: 643px !important;
+    }
 }
 
 @media (max-width: 419px) {
@@ -2533,9 +2537,17 @@
     .welcome_UpcomingSounds{
         padding: 2rem !important;
     }
+    .uHNS{
+        background-size: 100% !important;
+        height: 643px !important;
+    }
 }
 
 @media (max-width: 380px) {
+    .uHNS{
+        background-size: 100% !important;
+        height: 643px !important;
+    }
     /* header */
     .header-style13 .social a{margin:0 0 0 6px; }
     .header-style14 .social a, .header-style15 .social a{margin:0 0 0 6px; }
