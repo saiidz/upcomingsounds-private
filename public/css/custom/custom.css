@@ -41,6 +41,9 @@ body{
 /*    outline: 0;*/
 /*}*/
 
+.uHNS{
+    background-size: auto !important;
+}
 
 .toast{
     display: none;
@@ -1111,5 +1114,8 @@ svg.svg-inline--fa {
     }
     .card-img-top {
         width: 100% !important;
+    }
+    .uHNS{
+        background-size: 100% !important;
     }
 }
