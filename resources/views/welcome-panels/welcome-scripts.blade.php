@@ -96,4 +96,15 @@
     $(window).load(function() {
         $('#loading').hide();
     });
+
+    $(document).ready(function () {
+        $('#subscriberEmail').on('input', function () {
+            // Assuming you want to show reCAPTCHA only when email is present
+            if ($(this).val().trim() !== '') {
+                $('#recaptchaContainer').show();
+            } else {
+                $('#recaptchaContainer').hide();
+            }
+        });
+    });
 </script>

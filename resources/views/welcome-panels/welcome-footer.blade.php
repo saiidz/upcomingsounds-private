@@ -182,7 +182,7 @@
                     <form class="m-b-1 basicform_with_reload" method="POST" action="{{route('newsLetter')}}">
                         @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Your Subscriber email" required>
+                            <input type="text" id="subscriberEmail" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Your Subscriber email" required>
                             @error('email')
                                 <small class="red-text" role="alert">
                                     {{ $message }}
@@ -190,7 +190,7 @@
                             @enderror
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group" id="recaptchaContainer" style="display:none;">
                             {!! NoCaptcha::renderJs() !!}
                             {!! NoCaptcha::display() !!}
                             @error('g-recaptcha-response')
