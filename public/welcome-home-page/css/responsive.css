@@ -2565,6 +2565,10 @@
     }
 }
 @media screen and (max-width: 320px) {
+    .uHNS{
+        background-size: 100% !important;
+        height: 643px !important;
+    }
     .curatorHomePage{
         padding-left: 0px !important;
     }
