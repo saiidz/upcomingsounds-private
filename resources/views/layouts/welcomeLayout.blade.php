@@ -21,9 +21,9 @@
 
         <div class="app-header navbar-md black box-shadow-z1 @if(Request::is('welcome-new') == 'true') weLcoMeHeaderHide @endif">
             <div class="navbar" data-pjax>
-                <a data-toggle="collapse" data-target="#navbar" class="navbar-item pull-right hidden-md-up m-r-0 m-l">
-                    <i class="material-icons">menu</i>
-                </a>
+{{--                <a data-toggle="collapse" data-target="#navbar" class="navbar-item pull-right hidden-md-up m-r-0 m-l">--}}
+{{--                    <i class="material-icons">menu</i>--}}
+{{--                </a>--}}
                 <!-- brand -->
                 @php
                     if (Auth::check())
@@ -60,7 +60,7 @@
                 </a>
                 <!-- / brand -->
 
-                <div class="collapse navbar-toggleable-sm l-h-0 text-center" id="navbar">
+{{--                <div class="collapse navbar-toggleable-sm l-h-0 text-center" id="navbar">--}}
                 <!-- nabar right -->
                 <ul class="nav navbar-nav pull-right">
                     @if(Auth::check())
@@ -127,7 +127,7 @@
                     @endif
 
                 </ul>
-                </div>
+{{--                </div>--}}
                 <!-- / navbar right -->
 
                 <!-- navbar collapse -->
