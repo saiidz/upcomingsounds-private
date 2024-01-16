@@ -16,7 +16,7 @@ class NewsLetterSubscriptionController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'g-recaptcha-response' => 'required|captcha',
-            'email'    => 'required|string|email|unique:news_letter_subscriptions',
+            'email'    => 'required|email|unique:news_letter_subscriptions',
         ]);
 
         if ($validator->fails())

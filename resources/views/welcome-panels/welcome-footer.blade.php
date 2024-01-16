@@ -53,6 +53,8 @@
                            class="btn btn-icon btn-social btn-social-colored social_color"
                            title="Twitter">
 {{--                            <i class="{{ !empty($theme->twitter_icon) ? $theme->twitter_icon : 'fab fa-twitter' }}"></i>--}}
+{{--                            <i class="fa-brands fa-x-twitter"></i>--}}
+{{--                            <i class="fa-brands fa-x-twitter"></i>--}}
                             <i class="{{ !empty($theme->twitter_icon) ? $theme->twitter_icon : 'fa fa-twitter' }}"></i>
                             <i class="{{ !empty($theme->twitter_icon) ? $theme->twitter_icon : 'fa fa-twitter' }}"></i>
 {{--                            <i class="fa fa-twitter"></i>--}}
@@ -176,7 +178,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-3 col-xs-6">
+                <div class="col-md-3 col-xs-12">
                     <h6 class="text-u-c m-b text-muted">Subscribe</h6>
                     <p>Do not want to miss our newsletter?</p>
                     <form class="m-b-1 basicform_with_reload" method="POST" action="{{route('newsLetter')}}">
@@ -199,7 +201,7 @@
                                 </small>
                             @enderror
                         </div>
-                        <button type="submit" class="btn btn-sm btn-outline b-dark rounded basicbtn">Subscribe
+                        <button type="submit" class="btn btn-sm btn-outline b-dark rounded">Subscribe
                         </button>
                     </form>
 {{--                    <div class="text-left">--}}
