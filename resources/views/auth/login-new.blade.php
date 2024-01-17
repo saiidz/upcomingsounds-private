@@ -34,6 +34,11 @@
     <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
     <meta name="mobile-web-app-capable" content="yes">
     <link rel="shortcut icon" sizes="196x196" href="{{asset('images/favicon.png')}}">
+    <style>
+        body{
+            font-family: "Segoe UI", "Trebuchet MS", "PT Sans", "Helvetica Neue", "HelveticaNeue-Light", Helvetica, Arial, sans-serif !important;
+        }
+    </style>
     <link rel="stylesheet" href="{{asset('css/login/login-new.css')}}" type="text/css" />
     <style>
         /*.hide {*/
