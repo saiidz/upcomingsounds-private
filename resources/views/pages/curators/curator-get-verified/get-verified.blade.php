@@ -90,15 +90,15 @@
                                 <span>Making an offer is a great way to maximize your sales and increase your income instead of getting paid a small amount.</span>
                             </p>
                         </div>
-                        <div class="col-xs-12 col-sm-12 m5 bullets offset-m1">
-                            <img src="{{asset('images/music.svg')}}">
-                            <h5>
-                                <span>Full dashboard Access</span>
-                            </h5>
-                            <p class="text-muted text-md m-t-2">
-                                <span>With this option, you can access all features of our easy-to-use dashboard, including the offers section. </span>
-                            </p>
-                        </div>
+{{--                        <div class="col-xs-12 col-sm-12 m5 bullets offset-m1">--}}
+{{--                            <img src="{{asset('images/music.svg')}}">--}}
+{{--                            <h5>--}}
+{{--                                <span>Full dashboard Access</span>--}}
+{{--                            </h5>--}}
+{{--                            <p class="text-muted text-md m-t-2">--}}
+{{--                                <span>With this option, you can access all features of our easy-to-use dashboard, including the offers section. </span>--}}
+{{--                            </p>--}}
+{{--                        </div>--}}
                         <div class="clearfix"></div>
                     </div>
                 </main>
@@ -185,6 +185,7 @@
                                                 <option value="blog">Blog</option>
                                                 <option value="magazine">Magazine</option>
                                                 <option value="newspaper">Newspaper</option>
+                                                <option value="influencer">Influencer</option>
 
                                                 {{-- <option value="pro_exeprt">Pro Exeprt</option>
                                                 <option value="sound_expert">Sound expert</option>

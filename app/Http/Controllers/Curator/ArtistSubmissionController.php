@@ -138,7 +138,7 @@ class ArtistSubmissionController extends Controller
     }
 
     /**
-     * getVerified
+     * @return Application|Factory|View
      */
     public function getVerified()
     {
