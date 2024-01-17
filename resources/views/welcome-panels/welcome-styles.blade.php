@@ -75,6 +75,18 @@ success, touch, track, tracks, transparent, united, visibility,
         z-index: 999999;
     }
 </style>
+<link rel="stylesheet" href="{{asset('css/gijgo.min.css')}}" type="text/css" />
+<style>
+    .x-twitter-icon::before {
+        content: "";
+        background-image: url({{asset('/images/x-twitter.png')}});
+        width: 22px;
+        height: 22px;
+        display: inline-block;
+        background-size: cover;
+        /*margin-top: 7px;*/
+    }
+</style>
 {!! htmlScriptTagJsApi([
         'action' => 'homepage',
         'callback_then' => 'callbackThen',

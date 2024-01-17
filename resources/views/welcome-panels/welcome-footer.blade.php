@@ -55,8 +55,10 @@
 {{--                            <i class="{{ !empty($theme->twitter_icon) ? $theme->twitter_icon : 'fab fa-twitter' }}"></i>--}}
 {{--                            <i class="fa fa-x-twitter"></i>--}}
 {{--                            <i class="fa fa-x-twitter"></i>--}}
-                            <i class="{{ !empty($theme->twitter_icon) ? $theme->twitter_icon : 'fa fa-twitter' }}"></i>
-                            <i class="{{ !empty($theme->twitter_icon) ? $theme->twitter_icon : 'fa fa-twitter' }}"></i>
+                                <i class="x-twitter-icon" style="color: #d9d4d4;"></i>
+                                <i class="x-twitter-icon" style="color: #d9d4d4;"></i>
+{{--                            <i class="{{ !empty($theme->twitter_icon) ? $theme->twitter_icon : 'fa fa-twitter' }}"></i>--}}
+{{--                            <i class="{{ !empty($theme->twitter_icon) ? $theme->twitter_icon : 'fa fa-twitter' }}"></i>--}}
 {{--                            <i class="fa fa-twitter"></i>--}}
 {{--                            <i class="fa fa-twitter"></i>--}}
                         </a>

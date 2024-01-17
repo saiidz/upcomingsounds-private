@@ -673,6 +673,7 @@
             font-size: 16px;
         }
     </style>
+    <link rel="stylesheet" href="{{asset('css/gijgo.min.css')}}" type="text/css" />
 @endsection
 {{-- page content --}}
 @section('content')
@@ -1151,6 +1152,4 @@
     <script src="{{asset('welcome-home-page/js/counter.js')}}"></script>
     <script src="{{asset('welcome-home-page/js/twitterFetcher_min.js')}}"></script>
     <script src="{{asset('welcome-home-page/js/main.js')}}"></script>
-
-
 @endsection
