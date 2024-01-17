@@ -312,22 +312,32 @@
 
                             <div class="row m-t-lg">
                                 <div class="col-md-12 mb-2">
-                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3vo4PmB8cVL3B2eb0vgKsd?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6XmeZ0pUoUheuzZTXbFjmA?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0UqEAK9Sbv6rLGzGi5rHHf?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                        {!! !empty($theme->get_verified_link_1) ? $theme->get_verified_link_1 : null   !!}
+                                    {!! !empty($theme->get_verified_link_2) ? $theme->get_verified_link_2 : null !!}
+                                    {!! !empty($theme->get_verified_link_3) ? $theme->get_verified_link_3 : null !!}
+                                    {!! !empty($theme->get_verified_link_4) ? $theme->get_verified_link_4 : null !!}
+                                    {!! !empty($theme->get_verified_link_5) ? $theme->get_verified_link_5 : null !!}
+                                    {!! !empty($theme->get_verified_link_6) ? $theme->get_verified_link_6 : null !!}
+                                    {!! !empty($theme->get_verified_link_7) ? $theme->get_verified_link_7 : null !!}
+                                    {!! !empty($theme->get_verified_link_8) ? $theme->get_verified_link_8 : null !!}
+                                    {!! !empty($theme->get_verified_link_9) ? $theme->get_verified_link_9 : null !!}
+                                    {!! !empty($theme->get_verified_link_10) ? $theme->get_verified_link_10 : null !!}
+{{--                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3vo4PmB8cVL3B2eb0vgKsd?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>--}}
+{{--                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6XmeZ0pUoUheuzZTXbFjmA?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>--}}
+{{--                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0UqEAK9Sbv6rLGzGi5rHHf?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>--}}
 
-                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1WSCdUV91ridWUPxEPwq6o?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5folHZZCD9Ioo3Gzu7gfiN?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+{{--                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1WSCdUV91ridWUPxEPwq6o?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>--}}
+{{--                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5folHZZCD9Ioo3Gzu7gfiN?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>--}}
 
-                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2jEJ3CCG7v0i8SPIX6oETD?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+{{--                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2jEJ3CCG7v0i8SPIX6oETD?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>--}}
 
-                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6OZuv9PMatpxM1E0Duf6wg?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+{{--                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6OZuv9PMatpxM1E0Duf6wg?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>--}}
 
-                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0MKZYlvOGtVAivpTyHEVih?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+{{--                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0MKZYlvOGtVAivpTyHEVih?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>--}}
 
-                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0tdE2fFez5TZcUIo44owAW?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+{{--                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0tdE2fFez5TZcUIo44owAW?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>--}}
 
-                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1Z9qBVuGqsaNHjzsHWnGkH?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+{{--                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1Z9qBVuGqsaNHjzsHWnGkH?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>--}}
                                 </div>
                             </div>
 

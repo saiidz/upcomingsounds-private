@@ -582,7 +582,7 @@ class FrontendController extends Controller
     public function curatorsSettingUpdate(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'curator_banner_img' => 'required|mimes:png,jpg',
+            'curator_banner_img' => 'mimes:png,jpg',
         ]);
 
         if ($validator->fails())
@@ -594,7 +594,7 @@ class FrontendController extends Controller
 
         if(!empty($theme))
         {
-            $theme_banner = json_decode($theme->value)->curator_banner_img;
+            $theme_banner = json_decode($theme->value);
         }
 
         if ($request->hasFile('curator_banner_img')) {
@@ -619,7 +619,17 @@ class FrontendController extends Controller
         }
 
         $data = [
-            'curator_banner_img'  => !empty($banner_new_path) ? $banner_new_path : $theme_banner,
+            'curator_banner_img'  => !empty($banner_new_path) ? $banner_new_path : $theme_banner->curator_banner_img,
+            'get_verified_link_1'      => $request->get_verified_link_1 ?? $theme_banner->get_verified_link_1,
+            'get_verified_link_2'      => $request->get_verified_link_2 ?? $theme_banner->get_verified_link_2,
+            'get_verified_link_3'      => $request->get_verified_link_3 ?? $theme_banner->get_verified_link_3,
+            'get_verified_link_4'      => $request->get_verified_link_4 ?? $theme_banner->get_verified_link_4,
+            'get_verified_link_5'      => $request->get_verified_link_5 ?? $theme_banner->get_verified_link_5,
+            'get_verified_link_6'      => $request->get_verified_link_6 ?? $theme_banner->get_verified_link_6,
+            'get_verified_link_7'      => $request->get_verified_link_7 ?? $theme_banner->get_verified_link_7,
+            'get_verified_link_8'      => $request->get_verified_link_8 ?? $theme_banner->get_verified_link_8,
+            'get_verified_link_9'      => $request->get_verified_link_9 ?? $theme_banner->get_verified_link_9,
+            'get_verified_link_10'     => $request->get_verified_link_10 ?? $theme_banner->get_verified_link_10,
         ];
 
 

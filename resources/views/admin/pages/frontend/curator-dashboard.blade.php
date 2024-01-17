@@ -48,6 +48,57 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <h4 class="card-title">Get Verified Add Iframe Links</h4>
+                                    <div class="row">
+                                        <div class="input-field col m6 s12">
+                                            <input id="get_verified_link_1" name="get_verified_link_1" type="text" value="{{ !empty($theme->get_verified_link_1) ? $theme->get_verified_link_1 : null }}">
+                                            <label for="get_verified_link_1">Get Verified One</label>
+                                        </div>
+                                        <div class="input-field col m6 s12">
+                                            <input id="get_verified_link_2" name="get_verified_link_2" type="text" value="{{ !empty($theme->get_verified_link_2) ? $theme->get_verified_link_2 : null }}">
+                                            <label for="get_verified_link_2">Get Verified Two</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col m6 s12">
+                                            <input id="get_verified_link_3" name="get_verified_link_3" type="text" value="{{ !empty($theme->get_verified_link_3) ? $theme->get_verified_link_3 : null }}">
+                                            <label for="get_verified_link_3">Get Verified Three</label>
+                                        </div>
+                                        <div class="input-field col m6 s12">
+                                            <input id="get_verified_link_4" name="get_verified_link_4" type="text" value="{{ !empty($theme->get_verified_link_4) ? $theme->get_verified_link_4 : null }}">
+                                            <label for="get_verified_link_4">Get Verified Four</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col m6 s12">
+                                            <input id="get_verified_link_5" name="get_verified_link_5" type="text" value="{{ !empty($theme->get_verified_link_5) ? $theme->get_verified_link_5 : null }}">
+                                            <label for="get_verified_link_5">Get Verified Five</label>
+                                        </div>
+                                        <div class="input-field col m6 s12">
+                                            <input id="get_verified_link_6" name="get_verified_link_6" type="text" value="{{ !empty($theme->get_verified_link_6) ? $theme->get_verified_link_6 : null }}">
+                                            <label for="get_verified_link_6">Get Verified Six</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col m6 s12">
+                                            <input id="get_verified_link_7" name="get_verified_link_7" type="text" value="{{ !empty($theme->get_verified_link_7) ? $theme->get_verified_link_7 : null }}">
+                                            <label for="get_verified_link_7">Get Verified Seven</label>
+                                        </div>
+                                        <div class="input-field col m6 s12">
+                                            <input id="get_verified_link_8" name="get_verified_link_8" type="text" value="{{ !empty($theme->get_verified_link_8) ? $theme->get_verified_link_8 : null }}">
+                                            <label for="get_verified_link_8">Get Verified Eight</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col m6 s12">
+                                            <input id="get_verified_link_9" name="get_verified_link_9" type="text" value="{{ !empty($theme->get_verified_link_9) ? $theme->get_verified_link_9 : null }}">
+                                            <label for="get_verified_link_9">Get Verified Nine</label>
+                                        </div>
+                                        <div class="input-field col m6 s12">
+                                            <input id="get_verified_link_10" name="get_verified_link_10" type="text" value="{{ !empty($theme->get_verified_link_10) ? $theme->get_verified_link_10 : null }}">
+                                            <label for="get_verified_link_10">Get Verified Ten</label>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="row">
                                             <div class="input-field col s12">

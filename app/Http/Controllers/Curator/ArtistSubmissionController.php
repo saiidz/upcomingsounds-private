@@ -143,6 +143,8 @@ class ArtistSubmissionController extends Controller
     public function getVerified()
     {
         $curator_verification_form = CuratorVerificationForm::where('user_id', Auth::id())->latest()->first();
+        $theme = Option::where('key', 'curators_settings')->first();
+        $theme = !empty($theme) ? json_decode($theme->value) : '';
         return view('pages.curators.curator-get-verified.get-verified', get_defined_vars());
     }
 
