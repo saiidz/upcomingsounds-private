@@ -221,6 +221,67 @@
                             <div class="row m-t-2">
                                 <div class="col-md-12 mb-3">
                                     <div class="">
+                                        <span>
+                                            To get verified on Upcomingsounds.com, the process involves showcasing the impact of selected tracks across various influential platforms.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row m-t-2">
+                                <div class="col-md-12 mb-3">
+                                    <div class="">
+                                        <span>
+                                            To track Spotify, Apple, Deezer, SoundCloud, and other platform streams/plays on an artist's profile, curators are required to add one suggested track to their playlists for one week
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row m-t-2">
+                                <div class="col-md-12 mb-3">
+                                    <div class="">
+                                        <span>
+                                            Bloggers seeking verification must display traffic statistics, and monthly/daily readership, and include one article/review/online feature with links to the artist's website.
+
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row m-t-2">
+                                <div class="col-md-12 mb-3">
+                                    <div class="">
+                                        <span>
+                                            YouTube channels will need to add tracks or videos to their channel.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row m-t-2">
+                                <div class="col-md-12 mb-3">
+                                    <div class="">
+                                        <span>
+                                            Influencers on Instagram, Facebook, Snapchat, TikTok, and similar platforms will showcase followers, views, and likes from features in their stories.
+
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row m-t-2">
+                                <div class="col-md-12 mb-3">
+                                    <div class="">
+                                        <span>
+                                            Verification aims to affirm that curators and influencers can effectively promote new and upcoming artists, substantiated by tangible engagement and impact across these diverse platforms.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row m-t-2">
+                                <div class="col-md-12 mb-3">
+                                    <div class="">
                                         <h5>To speed up the application process, please provide the following information so we can get you approved and up and
                                             running as a verified, certified member of the UPCOMING SOUNDS team.</h5>
                                     </div>

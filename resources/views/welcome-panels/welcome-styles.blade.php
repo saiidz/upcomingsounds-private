@@ -52,6 +52,9 @@ success, touch, track, tracks, transparent, united, visibility,
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <style>
+    body {
+        font-family: "Segoe UI", "Trebuchet MS", "PT Sans", "Helvetica Neue", "HelveticaNeue-Light", Helvetica, Arial, sans-serif !important;
+    }
     @media (min-width: 320px) and (max-width: 480px) {
         .weLcoMeHeaderHide{
             display:none !important;

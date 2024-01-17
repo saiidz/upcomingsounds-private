@@ -58,6 +58,9 @@ success, touch, track, tracks, transparent, united, visibility,
     <!-- endbuild -->
     @yield('page-style')
     <style>
+        body {
+            font-family: "Segoe UI", "Trebuchet MS", "PT Sans", "Helvetica Neue", "HelveticaNeue-Light", Helvetica, Arial, sans-serif !important;
+        }
         .app-aside{
             bottom:0!important;
         }
