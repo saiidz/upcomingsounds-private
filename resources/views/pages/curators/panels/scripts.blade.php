@@ -79,6 +79,10 @@
         {
             window.location.href = '/offers';
         });
+        $('#showGetVerifiedRedirect').on('click', function ()
+        {
+            window.location.href = '/taste-maker/get-verified';
+        });
         $('#curatorSubmitCoverage').on('click', function ()
         {
             window.location.href = '/submit-coverage';

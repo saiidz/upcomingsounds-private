@@ -151,7 +151,8 @@
                                         <span class="nav-text">Offers</span>
                                     </a>
                                 @else
-                                    <a href="javascript:void(0)" id="showGetVerified">
+                                    <a href="{{ route('curator.get.verified') }}" id="showGetVerifiedRedirect">
+{{--                                    <a href="javascript:void(0)" id="showGetVerified">--}}
                                         <span class="nav-icon">
                                             <i class="fa fa-suitcase"></i>
                                         </span>
