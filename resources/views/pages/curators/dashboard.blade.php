@@ -213,7 +213,7 @@
                                                 @endif
                                             @endif
 
-                                            <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
+{{--                                            <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
                                             <div class="dropdown-menu pull-right black lt"></div>
                                         </div>
                                         <div class="item-title text-ellipsis">
@@ -265,7 +265,7 @@
                                                 </a>
                                             @endif
                                         @endif
-                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
+{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
                                         <div class="dropdown-menu pull-right black lt"></div>
                                     </div>
                                     <div class="item-title text-ellipsis">
@@ -335,7 +335,7 @@
                                                         </a>
                                                     @endif
                                                 @endif
-                                                <a href="javascript:void(0)" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
+{{--                                                <a href="javascript:void(0)" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
                                                 <div class="dropdown-menu pull-right black lt"></div>
                                             </div>
                                             <div class="item-title text-ellipsis">
@@ -404,7 +404,7 @@
                                                         </a>
                                                     @endif
                                                 @endif
-                                                <a href="javascript:void(0)" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
+{{--                                                <a href="javascript:void(0)" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
                                                 <div class="dropdown-menu pull-right black lt"></div>
                                             </div>
                                             <div class="item-title text-ellipsis">
@@ -478,7 +478,7 @@
                                                         </a>
                                                     @endif
                                                 @endif
-                                                <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
+{{--                                                <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
                                                 <div class="dropdown-menu pull-right black lt"></div>
                                             </div>
                                             <div class="item-title text-ellipsis">
@@ -718,7 +718,7 @@
                                 <div class="item-info">
                                     <div class="item-overlay bottom text-right">
                                         <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
-                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
+{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
                                         <div class="dropdown-menu pull-right black lt"></div>
                                     </div>
                                     <div class="item-title text-ellipsis">
@@ -743,7 +743,7 @@
                                 <div class="item-info">
                                     <div class="item-overlay bottom text-right">
                                         <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
-                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
+{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
                                         <div class="dropdown-menu pull-right black lt"></div>
                                     </div>
                                     <div class="item-title text-ellipsis">
@@ -768,7 +768,7 @@
                                 <div class="item-info">
                                     <div class="item-overlay bottom text-right">
                                         <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
-                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
+{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
                                         <div class="dropdown-menu pull-right black lt"></div>
                                     </div>
                                     <div class="item-title text-ellipsis">
@@ -793,7 +793,7 @@
                                 <div class="item-info">
                                     <div class="item-overlay bottom text-right">
                                         <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
-                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
+{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
                                         <div class="dropdown-menu pull-right black lt"></div>
                                     </div>
                                     <div class="item-title text-ellipsis">
@@ -818,7 +818,7 @@
                                 <div class="item-info">
                                     <div class="item-overlay bottom text-right">
                                         <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
-                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
+{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
                                         <div class="dropdown-menu pull-right black lt"></div>
                                     </div>
                                     <div class="item-title text-ellipsis">
@@ -843,7 +843,7 @@
                                 <div class="item-info">
                                     <div class="item-overlay bottom text-right">
                                         <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
-                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
+{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
                                         <div class="dropdown-menu pull-right black lt"></div>
                                     </div>
                                     <div class="item-title text-ellipsis">
@@ -868,7 +868,7 @@
                                 <div class="item-info">
                                     <div class="item-overlay bottom text-right">
                                         <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
-                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
+{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
                                         <div class="dropdown-menu pull-right black lt"></div>
                                     </div>
                                     <div class="item-title text-ellipsis">
@@ -893,7 +893,7 @@
                                 <div class="item-info">
                                     <div class="item-overlay bottom text-right">
                                         <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
-                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
+{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
                                         <div class="dropdown-menu pull-right black lt"></div>
                                     </div>
                                     <div class="item-title text-ellipsis">
@@ -918,7 +918,7 @@
                                 <div class="item-info">
                                     <div class="item-overlay bottom text-right">
                                         <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
-                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
+{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
                                         <div class="dropdown-menu pull-right black lt"></div>
                                     </div>
                                     <div class="item-title text-ellipsis">
@@ -943,7 +943,7 @@
                                 <div class="item-info">
                                     <div class="item-overlay bottom text-right">
                                         <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
-                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>
+{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
                                         <div class="dropdown-menu pull-right black lt"></div>
                                     </div>
                                     <div class="item-title text-ellipsis">
