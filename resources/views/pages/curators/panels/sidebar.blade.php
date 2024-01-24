@@ -90,12 +90,18 @@
                                         <span class="nav-text">Submissions</span>
                                     </a>
                                 @else
-                                    <a href="javascript:void(0)">
+                                    <a href="{{ route('curator.get.verified') }}" id="showGetVerifiedRedirect">
                                         <span class="nav-icon">
                                             <i class="fa fa-headphones"></i>
                                         </span>
-                                        <span class="nav-text" data-toggle="tooltip" title="You will need to submit for curator verifications in order to view this page">Submissions</span>
+                                        <span class="nav-text">Submissions</span>
                                     </a>
+{{--                                    <a href="javascript:void(0)">--}}
+{{--                                        <span class="nav-icon">--}}
+{{--                                            <i class="fa fa-headphones"></i>--}}
+{{--                                        </span>--}}
+{{--                                        <span class="nav-text" data-toggle="tooltip" title="You will need to submit for curator verifications in order to view this page">Submissions</span>--}}
+{{--                                    </a>--}}
                                 @endif
                             @endif
                         </li>
@@ -180,27 +186,27 @@
                                 <span class="nav-text">Submit Coverage</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <span class="nav-icon">
-                                    <i class="material-icons">
-                                    trending_up
-                                    </i>
-                                </span>
-                                <span class="nav-text">Charts</span>
-                            </a>
-                        </li>
+{{--                        <li>--}}
+{{--                            <a href="javascript:void(0)">--}}
+{{--                                <span class="nav-icon">--}}
+{{--                                    <i class="material-icons">--}}
+{{--                                    trending_up--}}
+{{--                                    </i>--}}
+{{--                                </span>--}}
+{{--                                <span class="nav-text">Charts</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
 
-                        <li>
-                            <a data-toggle="modal" data-target="#search-modal">
-                                <span class="nav-icon">
-                                    <i class="material-icons">
-                                    search
-                                    </i>
-                                </span>
-                                <span class="nav-text">Search</span>
-                            </a>
-                        </li>
+{{--                        <li>--}}
+{{--                            <a data-toggle="modal" data-target="#search-modal">--}}
+{{--                                <span class="nav-icon">--}}
+{{--                                    <i class="material-icons">--}}
+{{--                                    search--}}
+{{--                                    </i>--}}
+{{--                                </span>--}}
+{{--                                <span class="nav-text">Search</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
 {{--                        <li>--}}
 {{--                            <a href="javascript:void(0)">--}}
 {{--                                <span class="nav-icon">--}}
@@ -232,39 +238,39 @@
                             </a>
                         </li>
 
-                        <li>
-                            <a href="{{url('/taste-maker-profile')}}#stats" class="reloadStats">
-                                <span class="nav-icon">
-                                    <i class="material-icons">
-                                    portrait
-                                    </i>
-                                </span>
-                                <span class="nav-text">Stats</span>
-                            </a>
-                        </li>
+{{--                        <li>--}}
+{{--                            <a href="{{url('/taste-maker-profile')}}#stats" class="reloadStats">--}}
+{{--                                <span class="nav-icon">--}}
+{{--                                    <i class="material-icons">--}}
+{{--                                    portrait--}}
+{{--                                    </i>--}}
+{{--                                </span>--}}
+{{--                                <span class="nav-text">Stats</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
 
-                        <li>
-                            <a href="{{url('/taste-maker-profile')}}#tracks" class="reloadTracks">
-                                <span class="nav-icon">
-                                    <i class="material-icons">
-                                    list
-                                    </i>
-                                </span>
-                                <span class="nav-text">Tracks</span>
-                            </a>
-                        </li>
+{{--                        <li>--}}
+{{--                            <a href="{{url('/taste-maker-profile')}}#tracks" class="reloadTracks">--}}
+{{--                                <span class="nav-icon">--}}
+{{--                                    <i class="material-icons">--}}
+{{--                                    list--}}
+{{--                                    </i>--}}
+{{--                                </span>--}}
+{{--                                <span class="nav-text">Tracks</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
 
 
-                        <li>
-                            <a href="{{url('/taste-maker-profile')}}#playlists" class="reloadList">
-                                <span class="nav-icon">
-                                    <i class="material-icons">
-                                    queue_music
-                                    </i>
-                                </span>
-                                <span class="nav-text">Lists</span>
-                            </a>
-                        </li>
+{{--                        <li>--}}
+{{--                            <a href="{{url('/taste-maker-profile')}}#playlists" class="reloadList">--}}
+{{--                                <span class="nav-icon">--}}
+{{--                                    <i class="material-icons">--}}
+{{--                                    queue_music--}}
+{{--                                    </i>--}}
+{{--                                </span>--}}
+{{--                                <span class="nav-text">Lists</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
 
                         <li>
                             <a href="{{route('curator.wallet')}}">
