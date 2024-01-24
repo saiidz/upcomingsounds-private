@@ -704,7 +704,7 @@
 {{--                        </div>--}}
 {{--                    </div>--}}
 
-                    
+
                     <h2 class="widget-title h4 m-b">Recommand for you</h2>
                     <div class="row item-list item-list-md m-b">
                         <div class="col-sm-6">
