@@ -73,9 +73,9 @@
                                                             @endif
 
 
-                                                            <a href="#" class="btn-more" data-toggle="dropdown">
-                                                                <i class="fa fa-ellipsis-h"></i>
-                                                            </a>
+{{--                                                            <a href="#" class="btn-more" data-toggle="dropdown">--}}
+{{--                                                                <i class="fa fa-ellipsis-h"></i>--}}
+{{--                                                            </a>--}}
                                                             <div class="dropdown-menu pull-right black lt"></div>
                                                         </div>
                                                         <div class="item-title text-ellipsis">
