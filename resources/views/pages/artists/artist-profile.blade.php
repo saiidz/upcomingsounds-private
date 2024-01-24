@@ -271,10 +271,10 @@
                                         <a class="nav-link active RemoveUpload" href="#" data-toggle="tab"
                                            data-target="#track">Tracks</a>
                                     </li>
-                                    <li class="nav-item m-r inline">
-                                        <a class="nav-link RemoveUpload" href="#" data-toggle="tab"
-                                           data-target="#playlist">Lists</a>
-                                    </li>
+{{--                                    <li class="nav-item m-r inline">--}}
+{{--                                        <a class="nav-link RemoveUpload" href="#" data-toggle="tab"--}}
+{{--                                           data-target="#playlist">Lists</a>--}}
+{{--                                    </li>--}}
                                     <li class="nav-item m-r inline">
                                         <a class="nav-link RemoveUpload" href="#" data-toggle="tab" data-target="#like">Saved</a>
                                     </li>

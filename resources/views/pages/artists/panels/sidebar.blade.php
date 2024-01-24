@@ -110,16 +110,16 @@
                            <span class="nav-text">Active Campaigns</span>
                        </a>
                     </li>
-                    <li>
-                       <a data-toggle="modal" data-target="#search-modal">
-                       <span class="nav-icon">
-                       <i class="material-icons">
-                       search
-                       </i>
-                       </span>
-                       <span class="nav-text">Search</span>
-                       </a>
-                    </li>
+{{--                    <li>--}}
+{{--                       <a data-toggle="modal" data-target="#search-modal">--}}
+{{--                       <span class="nav-icon">--}}
+{{--                       <i class="material-icons">--}}
+{{--                       search--}}
+{{--                       </i>--}}
+{{--                       </span>--}}
+{{--                       <span class="nav-text">Search</span>--}}
+{{--                       </a>--}}
+{{--                    </li>--}}
                     {{--
                     <div data-flex-no-shrink>
                        --}}
@@ -205,16 +205,16 @@
                              <span class="nav-text">Notifications</span>
                          </a>
                      </li>
-                    <li>
-                       <a href="{{url('/artist-profile')}}#playlists" class="reloadList">
-                       <span class="nav-icon">
-                       <i class="material-icons">
-                       queue_music
-                       </i>
-                       </span>
-                       <span class="nav-text">Lists</span>
-                       </a>
-                    </li>
+{{--                    <li>--}}
+{{--                       <a href="{{url('/artist-profile')}}#playlists" class="reloadList">--}}
+{{--                       <span class="nav-icon">--}}
+{{--                       <i class="material-icons">--}}
+{{--                       queue_music--}}
+{{--                       </i>--}}
+{{--                       </span>--}}
+{{--                       <span class="nav-text">Lists</span>--}}
+{{--                       </a>--}}
+{{--                    </li>--}}
                     <li>
                        <a href="{{url('/artist-profile')}}#likes" class="reloadSaved">
                        <span class="nav-icon">

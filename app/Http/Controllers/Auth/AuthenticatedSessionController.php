@@ -37,12 +37,12 @@ class AuthenticatedSessionController extends Controller
     {
         $user_type = User::where('email', $request->email)->first();
 
-        if(isset($user_type)){
-            if($request->has('user_check') && ($user_type->type != 'artist')){
-//                return redirect()->back()->with('error',"Please Sign in from tastemaker side.");
-                return redirect()->route('curator.login')->with('error',"You are singing in as curator.");
-            }
-        }
+//        if(isset($user_type)){
+//            if($request->has('user_check') && ($user_type->type != 'artist')){
+////                return redirect()->back()->with('error',"Please Sign in from tastemaker side.");
+//                return redirect()->route('curator.login')->with('error',"You are singing in as curator.");
+//            }
+//        }
 
         $request->authenticate();
 
@@ -66,7 +66,11 @@ class AuthenticatedSessionController extends Controller
                 return redirect()->back();
 
             } else {
-                return redirect(RouteServiceProvider::HOME);
+                if ($user_type->type == 'artist')
+                    return redirect(RouteServiceProvider::HOME);
+                else
+                    return redirect(RouteServiceProvider::CURATOR);
+
             }
         }
     }
@@ -167,12 +171,12 @@ class AuthenticatedSessionController extends Controller
     {
         $user_type = User::where('email', $request->email)->first();
 
-        if(isset($user_type)){
-            if($request->has('user_check') && ($user_type->type != 'curator')){
-//                return redirect()->back()->with('error',"Please Sign in from artist side.");
-                return redirect()->route('login')->with('error',"You are singing in as artist.");
-            }
-        }
+//        if(isset($user_type)){
+//            if($request->has('user_check') && ($user_type->type != 'curator')){
+////                return redirect()->back()->with('error',"Please Sign in from artist side.");
+//                return redirect()->route('login')->with('error',"You are singing in as artist.");
+//            }
+//        }
 
         $request->authenticate();
 
@@ -196,7 +200,10 @@ class AuthenticatedSessionController extends Controller
                 return redirect()->back();
 
             } else {
-                return redirect(RouteServiceProvider::CURATOR);
+                if ($user_type->type == 'artist')
+                    return redirect(RouteServiceProvider::HOME);
+                else
+                    return redirect(RouteServiceProvider::CURATOR);
             }
         }
     }
