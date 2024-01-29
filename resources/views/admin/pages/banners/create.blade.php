@@ -127,6 +127,51 @@
                                         </div>
                                     </div>
 
+                                    <div class="row">
+                                        <div class="col m6 s12 file-field">
+                                            <div class="btn float-right">
+                                                <span>Banner Image One</span>
+                                                {!! Form::file('banner_img',['placeholder'=>'Farhan','accept' => 'image/*','class'=>"validate", 'id' => 'banner_img_one', 'required'=>false]) !!}
+                                            </div>
+
+                                            <div class="file-path-wrapper">
+                                                <img class=" ml-3 img-fluid" src="{{ asset(!empty($banner->banner_img_one) ? 'uploads/banner_img/'.$banner->banner_img_one : 'images/border.png') }}" alt="" height="50" style="object-fit: contain">
+                                            </div>
+                                        </div>
+                                        @if(!empty($banner->banner_img_one))
+                                            <a href="javascript:void(0)" data-id="{{ $banner->id }}" class="dropdown-item has-icon remove_banner_image">
+                                                Remove Banner Image One
+                                            </a>
+                                        @endif
+
+                                        <div class="col m6 s12 file-field">
+                                            <span>Banner One Status</span>
+                                            <select class="form-control-label" name="banner_img_one_status">
+                                                <option value="1" {{!empty($banner) ? ($banner->banner_img_one_status == 1 ? 'selected' : '' ) : ''}}>Active</option>
+                                                <option value="0" {{!empty($banner) ? ($banner->banner_img_one_status == 0 ? 'selected' : '' ) : ''}}>InActive</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="input-field col s6">
+                                            {!! Form::text('button_text',$banner->button_text ?? null,['placeholder'=>'','class'=>"validate", 'id' => 'artist_name', 'required'=>false]) !!}
+                                            <label for="button_text">Button Text</label>
+                                        </div>
+                                        <div class="input-field col s6">
+                                            {!! Form::text('button_link',$banner->button_link ?? null,['placeholder'=>'','class'=>"validate", 'id' => 'artist_name', 'required'=>false]) !!}
+                                            <label for="button_link">Button Link</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col m6 s12 file-field">
+                                            <span>Button Status</span>
+                                            <select class="form-control-label" name="button_status">
+                                                <option value="1" {{!empty($banner) ? ($banner->button_status == 1 ? 'selected' : '' ) : ''}}>Active</option>
+                                                <option value="0" {{!empty($banner) ? ($banner->button_status == 0 ? 'selected' : '' ) : ''}}>InActive</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col m4 s12">

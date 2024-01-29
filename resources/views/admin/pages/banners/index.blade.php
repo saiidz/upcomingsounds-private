@@ -71,9 +71,13 @@
                                                                 <td>{{ $loop->iteration }}</td>
                                                                 <td>{{ $banner->artist_name ?? '----' }}</td>
                                                                 <td>
-                                                                    <a href="{{asset('uploads/track_thumbnail')}}/{{$banner->track_thumbnail}}" target="_blank">
-                                                                        <img style="height:40px" src="{{asset('uploads/track_thumbnail')}}/{{$banner->track_thumbnail}}">
-                                                                    </a>
+                                                                    @if(!empty($banner->track_thumbnail))
+                                                                        <a href="{{asset('uploads/track_thumbnail')}}/{{$banner->track_thumbnail}}" target="_blank">
+                                                                            <img style="height:40px" src="{{asset('uploads/track_thumbnail')}}/{{$banner->track_thumbnail}}">
+                                                                        </a>
+                                                                    @else
+                                                                        {{ __('-------') }}
+                                                                    @endif
                                                                 </td>
                                                                 <td>{{ $banner->track_name ?? '----' }}</td>
                                                                 <td>{{ Str::limit($banner->track_description,50) ?? '----' }}</td>

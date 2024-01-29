@@ -26,6 +26,7 @@
             justify-content: center!important;
             background-color: #363c43!important;
         }
+        .item-media:after {padding-top: 2% !important;}
     </style>
 @endsection
 
@@ -64,7 +65,7 @@
                                             <h1 class="headline animated fadeInLeft">
                                                 {{ !empty($premium_campaign->artistTrack) ? $premium_campaign->artistTrack->name : (!empty($premium_campaign->track_name) ? $premium_campaign->track_name : '') }}<br />
                                             </h1>
-                                            <h3 class="title animated bounceInLeft" @if($premium_campaign->artistTrack) onclick="openNav({{$premium_campaign->id}})" style="cursor:pointer" @endif>
+                                            <h3 class="title animated bounceInLeft" @if($premium_campaign->artistTrack) onclick="openNav({{$premium_campaign->id}})" style="cursor:pointer; color:#e26e6b !important;" @endif>
                                                 {{ !empty($premium_campaign->artistTrack) ? $premium_campaign->artistTrack->user->name : (!empty($premium_campaign->artist_name) ? $premium_campaign->artist_name : '') }}
                                             </h3>
                                             <p class="description animated fadeInDown delay-06s">
@@ -72,7 +73,7 @@
                                             </p>
                                             @if(!empty($premium_campaign->artistTrack) && !empty($premium_campaign->artistTrack->audio))
                                                 <div class="item r" data-id="item-{{$premium_campaign->artistTrack->id}}" data-src="{{URL('/')}}/uploads/audio/{{$premium_campaign->artistTrack->audio}}">
-                                                    <div class="item-media">
+                                                    <div class="item-media" style=".item-media:after {padding-top: 2% !important;}">
                                                         <div class="item-media-content" id="itemMediaContent"></div>
                                                         <div class="">
                                                             <button class="btn-playpause">Play</button>
@@ -88,7 +89,7 @@
                                                 </div>
                                             @elseif(empty($premium_campaign->artistTrack) && !empty($premium_campaign->audio))
                                                 <div class="item r" data-id="item-{{$premium_campaign->id}}" data-src="{{URL('/')}}/uploads/audio/{{$premium_campaign->audio}}">
-                                                    <div class="item-media">
+                                                    <div class="item-media" style=".item-media:after {padding-top: 2% !important;}">
                                                         <div class="item-media-content" id="itemMediaContent"></div>
                                                         <div class="">
                                                             <button  class="btn-playpause">Play</button>
@@ -105,6 +106,11 @@
                                             @else
                                             @endif
 
+                                            @if($premium_campaign->button_status == 1)
+                                                <a href="{{ $premium_campaign->button_link }}" target="_blank" class="nav-link">
+                                                    <span class="btn btn-sm rounded primary _600">{{ $premium_campaign->button_text }}</span>
+                                                </a>
+                                            @endif
                                         </div>
                                         <div class="outer-right">
                                             <div class="border_image">
@@ -140,14 +146,15 @@
                                                 @php
                                                     $videoCode = explode('v=',$premium_campaign->link);
                                                 @endphp
-
-                                                <div class="slide-iframe slide-media" style="background-image:url({{asset(!empty($theme->curator_banner_img) ? $theme->curator_banner_img : 'images/banner_cd.png')}});">
-                                                    <iframe class="iframe-entity" width="560" height="315" src="https://www.youtube.com/embed/{{$videoCode[1]}}?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-{{--                                                    <iframe class="iframe-entity" width="560" height="315" src="https://www.youtube.com/embed/{{$videoCode[1]}}" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>--}}
-{{--                                                    <iframe class="iframe-entity" width="560" height="315"  src="https://www.youtube.com/embed/{{$videoCode[1]}}?rel0&autoplay=1&loop=1" frameborder="0" allow="accelerometer; autoplay; modestbranding; encrypted-media; gyroscope; picture-in-picture"></iframe>--}}
-{{--                                                    <iframe class="iframe-entity" width="560" height="315" src="https://www.youtube.com/embed/{{$videoCode[1]}}?autoplay=1&mute=1&controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>--}}
-                                                    {{--                                                <iframe class="iframe-entity" width="560" height="315"  src="https://www.youtube-nocookie.com/embed/{{$videoCode[1]}}?rel0&autoplay=1&controls=0&loop=1" frameborder="0" allow="accelerometer; autoplay; modestbranding; encrypted-media; gyroscope; picture-in-picture"></iframe>--}}
-                                                </div>
+                                            @if(!empty($videoCode[1]))
+                                                    <div class="slide-iframe slide-media" style="background-image:url({{asset(!empty($theme->curator_banner_img) ? $theme->curator_banner_img : 'images/banner_cd.png')}});">
+                                                        <iframe class="iframe-entity" width="560" height="315" src="https://www.youtube.com/embed/{{$videoCode[1]}}?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                        {{--                                                    <iframe class="iframe-entity" width="560" height="315" src="https://www.youtube.com/embed/{{$videoCode[1]}}" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>--}}
+                                                        {{--                                                    <iframe class="iframe-entity" width="560" height="315"  src="https://www.youtube.com/embed/{{$videoCode[1]}}?rel0&autoplay=1&loop=1" frameborder="0" allow="accelerometer; autoplay; modestbranding; encrypted-media; gyroscope; picture-in-picture"></iframe>--}}
+                                                        {{--                                                    <iframe class="iframe-entity" width="560" height="315" src="https://www.youtube.com/embed/{{$videoCode[1]}}?autoplay=1&mute=1&controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>--}}
+                                                        {{--                                                <iframe class="iframe-entity" width="560" height="315"  src="https://www.youtube-nocookie.com/embed/{{$videoCode[1]}}?rel0&autoplay=1&controls=0&loop=1" frameborder="0" allow="accelerometer; autoplay; modestbranding; encrypted-media; gyroscope; picture-in-picture"></iframe>--}}
+                                                    </div>
+                                            @endif
                                             @else
                                                 <div class="slide-image slide-media" style="background-image:url({{asset(!empty($theme->curator_banner_img) ? $theme->curator_banner_img : 'images/banner_cd.png')}});">
                                                     <img data-lazy="{{asset(!empty($theme->curator_banner_img) ? $theme->curator_banner_img : 'images/banner_cd.png')}}" class="image-entity" />

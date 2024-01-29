@@ -241,9 +241,9 @@
                 </div>
             </div>
 
-        <div class="page-title m-b-2">
-            <h4 class="inline m-a-0 update_profile">Your universe</h4>
-        </div>
+{{--        <div class="page-title m-b-2">--}}
+{{--            <h4 class="inline m-a-0 update_profile">Your universe</h4>--}}
+{{--        </div>--}}
 
         <div class="row">
             <div class="col s12 m6 l10">

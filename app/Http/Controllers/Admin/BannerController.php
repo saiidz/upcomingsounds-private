@@ -62,6 +62,8 @@ class BannerController extends Controller
         $input['add_days']          = IPackages::ADD_DAYS;
         $input['add_remove_banner'] = IPackages::ADD_BANNER;
         $input['banner_img_status'] = $request->banner_img_status;
+        $input['banner_img_one_status'] = $request->banner_img_one_status;
+        $input['button_status']         = $request->button_status;
 
         // upload audio song
         if ($request->file('audio')) {
@@ -148,6 +150,8 @@ class BannerController extends Controller
         $input['add_days']          = IPackages::ADD_DAYS;
         $input['add_remove_banner'] = IPackages::ADD_BANNER;
         $input['banner_img_status'] = $request->banner_img_status;
+        $input['banner_img_one_status'] = $request->banner_img_one_status;
+        $input['button_status']         = $request->button_status;
 
         // upload audio song
         if ($request->hasfile('audio')) {
