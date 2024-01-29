@@ -26,7 +26,7 @@
             justify-content: center!important;
             background-color: #363c43!important;
         }
-        .item-media:after {padding-top: 2% !important;}
+        .itemMed:after {padding-top: 2% !important;}
     </style>
 @endsection
 
@@ -73,7 +73,7 @@
                                             </p>
                                             @if(!empty($premium_campaign->artistTrack) && !empty($premium_campaign->artistTrack->audio))
                                                 <div class="item r" data-id="item-{{$premium_campaign->artistTrack->id}}" data-src="{{URL('/')}}/uploads/audio/{{$premium_campaign->artistTrack->audio}}">
-                                                    <div class="item-media" style=".item-media:after {padding-top: 2% !important;}">
+                                                    <div class="item-media itemMed">
                                                         <div class="item-media-content" id="itemMediaContent"></div>
                                                         <div class="">
                                                             <button class="btn-playpause">Play</button>
@@ -89,7 +89,7 @@
                                                 </div>
                                             @elseif(empty($premium_campaign->artistTrack) && !empty($premium_campaign->audio))
                                                 <div class="item r" data-id="item-{{$premium_campaign->id}}" data-src="{{URL('/')}}/uploads/audio/{{$premium_campaign->audio}}">
-                                                    <div class="item-media" style=".item-media:after {padding-top: 2% !important;}">
+                                                    <div class="item-media itemMed">
                                                         <div class="item-media-content" id="itemMediaContent"></div>
                                                         <div class="">
                                                             <button  class="btn-playpause">Play</button>
