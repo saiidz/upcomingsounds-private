@@ -131,7 +131,7 @@
                                         <div class="col m6 s12 file-field">
                                             <div class="btn float-right">
                                                 <span>Banner Image One</span>
-                                                {!! Form::file('banner_img',['placeholder'=>'Farhan','accept' => 'image/*','class'=>"validate", 'id' => 'banner_img_one', 'required'=>false]) !!}
+                                                {!! Form::file('banner_img_one',['placeholder'=>'Farhan','accept' => 'image/*','class'=>"validate", 'id' => 'banner_img_one', 'required'=>false]) !!}
                                             </div>
 
                                             <div class="file-path-wrapper">

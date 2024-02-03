@@ -93,6 +93,15 @@ class BannerController extends Controller
             $input['banner_img'] = $image_path;
         }
 
+        if ($request->file('banner_img_one')) {
+            $file = $request->file('banner_img_one');
+            $name = str_replace(' ', '', $file->getClientOriginalName());
+            $image_path = 'default_'.time().$name;
+            $file->move(public_path() . '/uploads/banner_img/', $image_path);
+            //store image file into directory and db
+            $input['banner_img_one'] = $image_path;
+        }
+
         Campaign::create($input);
 
         return response()->json(['success' => 'Banner created successfully.']);
@@ -212,6 +221,26 @@ class BannerController extends Controller
             $input['banner_img'] = $image_path;
         }else{
             $input['banner_img'] = $banner->banner_img;
+        }
+
+        if ($request->file('banner_img_one')) {
+            // delete thumbnail previous
+            if(!empty($banner->banner_img_one))
+            {
+                $image = public_path('uploads/banner_img/' . $banner->banner_img_one);
+                if(file_exists($image)) {
+                    unlink($image);
+                }
+            }
+
+            $file = $request->file('banner_img_one');
+            $name = str_replace(' ', '', $file->getClientOriginalName());
+            $image_path = 'default_'.time().$name;
+            $file->move(public_path() . '/uploads/banner_img/', $image_path);
+            //store image file into directory and db
+            $input['banner_img_one'] = $image_path;
+        }else{
+            $input['banner_img_one'] = $banner->banner_img_one;
         }
 
         $banner->update($input);
