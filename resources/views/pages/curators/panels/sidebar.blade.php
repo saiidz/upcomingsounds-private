@@ -169,6 +169,26 @@
 
                         </li>
                         <li>
+                            @if (Auth::check() && auth()->user())
+                                @if (auth()->user()->is_verified == 1)
+                                    <a href="{{route('curator.submit.coverage')}}" id="curatorSubmitCoverage">
+                                       <span class="nav-icon">
+                                            <i class="fa fa-rocket"></i>
+                                       </span>
+                                        <span class="nav-text">Submit Coverage</span>
+                                    </a>
+                                @else
+                                    <a href="{{ route('curator.get.verified') }}" id="curatorSubmitCoverage">
+                                       <span class="nav-icon">
+                                            <i class="fa fa-rocket"></i>
+                                       </span>
+                                        <span class="nav-text">Submit Coverage</span>
+                                    </a>
+                                @endif
+                            @endif
+
+                        </li>
+                        <li>
                             <a href="{{route('curator.saved.artists')}}">
                                 <span class="nav-icon">
                                     <i class="material-icons">
@@ -178,14 +198,7 @@
                                 <span class="nav-text">Saved Artist</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="{{route('curator.submit.coverage')}}" id="curatorSubmitCoverage">
-                           <span class="nav-icon">
-                                <i class="fa fa-rocket"></i>
-                           </span>
-                                <span class="nav-text">Submit Coverage</span>
-                            </a>
-                        </li>
+
 {{--                        <li>--}}
 {{--                            <a href="javascript:void(0)">--}}
 {{--                                <span class="nav-icon">--}}

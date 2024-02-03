@@ -31,7 +31,7 @@ class ArtistSubmissionController extends Controller
     public function curatorDashboard()
     {
         $curator_features = CuratorFeature::all();
-        $standard_campaigns = Campaign::where('package_name', IPackages::STANDARD_NAME)->latest()->get();
+        $standard_campaigns = Campaign::where('package_name', IPackages::STANDARD_NAME)->take(16)->latest()->get();
         $advance_campaigns = Campaign::where('package_name', IPackages::ADVANCED_FEATURED_NAME)->latest()->get();
         $pro_campaigns = Campaign::where('package_name', IPackages::PRO_NAME)->take(4)->latest()->get();
         $premium_campaigns = Campaign::where(['add_remove_banner' => IPackages::ADD_BANNER])->latest()->get();
