@@ -779,258 +779,62 @@
 {{--                    </div>--}}
 
 
-                    <h2 class="widget-title h4 m-b">Recommand for you</h2>
+                    <h2 class="widget-title h4 m-b">Recommend for you</h2>
                     <div class="row item-list item-list-md m-b">
-                        <div class="col-sm-6">
-                            <div class="item r" data-id="item-5" data-src="http://streaming.radionomy.com/JamendoLounge">
-                                <div class="item-media ">
-                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b4.jpg');"></a>
-                                    <div class="item-overlay center">
-                                        <button  class="btn-playpause">Play</button>
+                        @if(count($recommendSubmitCoverages) > 0)
+                            @foreach($recommendSubmitCoverages as $recommendSubmitCoverage)
+                                <div class="col-sm-6">
+                                    <div class="item r" data-id="item-5">
+
+                                        <div class="item-media ">
+                                            @if(!empty($recommendSubmitCoverage->artistTrack->track_thumbnail))
+                                                <a href="javascript:void(0)" class="item-media-content"
+                                                   style="background-image: url({{asset('uploads/track_thumbnail')}}/{{$recommendSubmitCoverage->artistTrack->track_thumbnail}});"></a>
+                                            @else
+                                                <a href="javascript:void(0)" class="item-media-content"
+                                                   style="background-image: url({{asset('images/b4.jpg')}});"></a>
+                                            @endif
+
+{{--                                            <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b4.jpg');"></a>--}}
+                                        </div>
+                                        <div class="item-info">
+                                            <div class="item-title text-ellipsis">
+                                                <a href="javascript:void(0)">{{$recommendSubmitCoverage->artistTrack->name}}</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="item-info">
-                                    <div class="item-overlay bottom text-right">
-                                        <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
-{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
-                                        <div class="dropdown-menu pull-right black lt"></div>
-                                    </div>
-                                    <div class="item-title text-ellipsis">
-                                        <a href="javascript:void(0)">Live Radio</a>
-                                    </div>
-                                    <div class="item-author text-sm text-ellipsis ">
-                                        <a href="javascript:void(0)" class="text-muted">Radionomy</a>
-                                    </div>
-
-
-                                </div>
+                            @endforeach
+                        @else
+                            <div class="item-title text-ellipsis">
+                                <h3 class="white" style="text-align:center;font-size: 15px;">Not Recommend Found</h3>
                             </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="item r" data-id="item-2" data-src="">
-                                <div class="item-media ">
-                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b1.jpg');"></a>
-                                    <div class="item-overlay center">
-                                        <button  class="btn-playpause">Play</button>
-                                    </div>
-                                </div>
-                                <div class="item-info">
-                                    <div class="item-overlay bottom text-right">
-                                        <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
-{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
-                                        <div class="dropdown-menu pull-right black lt"></div>
-                                    </div>
-                                    <div class="item-title text-ellipsis">
-                                        <a href="javascript:void(0)">Fireworks</a>
-                                    </div>
-                                    <div class="item-author text-sm text-ellipsis ">
-                                        <a href="javascript:void(0)" class="text-muted">Kygo</a>
-                                    </div>
+                        @endif
 
+{{--                            <div class="col-sm-6">--}}
+{{--                                <div class="item r" data-id="item-5" data-src="http://streaming.radionomy.com/JamendoLounge">--}}
+{{--                                    <div class="item-media ">--}}
+{{--                                        <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b4.jpg');"></a>--}}
+{{--                                        <div class="item-overlay center">--}}
+{{--                                            <button  class="btn-playpause">Play</button>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="item-info">--}}
+{{--                                        <div class="item-overlay bottom text-right">--}}
+{{--                                            <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>--}}
+{{--                                            --}}{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
+{{--                                            <div class="dropdown-menu pull-right black lt"></div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="item-title text-ellipsis">--}}
+{{--                                            <a href="javascript:void(0)">Live Radio</a>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="item-author text-sm text-ellipsis ">--}}
+{{--                                            <a href="javascript:void(0)" class="text-muted">Radionomy</a>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="item r" data-id="item-11" data-src="">
-                                <div class="item-media ">
-                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b10.jpg');"></a>
-                                    <div class="item-overlay center">
-                                        <button  class="btn-playpause">Play</button>
-                                    </div>
-                                </div>
-                                <div class="item-info">
-                                    <div class="item-overlay bottom text-right">
-                                        <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
-{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
-                                        <div class="dropdown-menu pull-right black lt"></div>
-                                    </div>
-                                    <div class="item-title text-ellipsis">
-                                        <a href="javascript:void(0)">Spring</a>
-                                    </div>
-                                    <div class="item-author text-sm text-ellipsis ">
-                                        <a href="javascript:void(0)" class="text-muted">Pablo Nouvelle</a>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="item r" data-id="item-1" data-src="">
-                                <div class="item-media ">
-                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b0.jpg');"></a>
-                                    <div class="item-overlay center">
-                                        <button  class="btn-playpause">Play</button>
-                                    </div>
-                                </div>
-                                <div class="item-info">
-                                    <div class="item-overlay bottom text-right">
-                                        <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
-{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
-                                        <div class="dropdown-menu pull-right black lt"></div>
-                                    </div>
-                                    <div class="item-title text-ellipsis">
-                                        <a href="javascript:void(0)">Pull Up</a>
-                                    </div>
-                                    <div class="item-author text-sm text-ellipsis ">
-                                        <a href="javascript:void(0)" class="text-muted">Summerella</a>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="item r" data-id="item-12" data-src="">
-                                <div class="item-media ">
-                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b11.jpg');"></a>
-                                    <div class="item-overlay center">
-                                        <button  class="btn-playpause">Play</button>
-                                    </div>
-                                </div>
-                                <div class="item-info">
-                                    <div class="item-overlay bottom text-right">
-                                        <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
-{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
-                                        <div class="dropdown-menu pull-right black lt"></div>
-                                    </div>
-                                    <div class="item-title text-ellipsis">
-                                        <a href="javascript:void(0)">Happy ending</a>
-                                    </div>
-                                    <div class="item-author text-sm text-ellipsis ">
-                                        <a href="javascript:void(0)" class="text-muted">Postiljonen</a>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="item r" data-id="item-4" data-src="">
-                                <div class="item-media ">
-                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b3.jpg');"></a>
-                                    <div class="item-overlay center">
-                                        <button  class="btn-playpause">Play</button>
-                                    </div>
-                                </div>
-                                <div class="item-info">
-                                    <div class="item-overlay bottom text-right">
-                                        <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
-{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
-                                        <div class="dropdown-menu pull-right black lt"></div>
-                                    </div>
-                                    <div class="item-title text-ellipsis">
-                                        <a href="javascript:void(0)">What A Time To Be Alive</a>
-                                    </div>
-                                    <div class="item-author text-sm text-ellipsis ">
-                                        <a href="javascript:void(0)" class="text-muted">Judith Garcia</a>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="item r" data-id="item-7" data-src="">
-                                <div class="item-media ">
-                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b6.jpg');"></a>
-                                    <div class="item-overlay center">
-                                        <button  class="btn-playpause">Play</button>
-                                    </div>
-                                </div>
-                                <div class="item-info">
-                                    <div class="item-overlay bottom text-right">
-                                        <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
-{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
-                                        <div class="dropdown-menu pull-right black lt"></div>
-                                    </div>
-                                    <div class="item-title text-ellipsis">
-                                        <a href="javascript:void(0)">Reflection (Deluxe)</a>
-                                    </div>
-                                    <div class="item-author text-sm text-ellipsis ">
-                                        <a href="javascript:void(0)" class="text-muted">Fifth Harmony</a>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="item r" data-id="item-9" data-src="">
-                                <div class="item-media ">
-                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b8.jpg');"></a>
-                                    <div class="item-overlay center">
-                                        <button  class="btn-playpause">Play</button>
-                                    </div>
-                                </div>
-                                <div class="item-info">
-                                    <div class="item-overlay bottom text-right">
-                                        <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
-{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
-                                        <div class="dropdown-menu pull-right black lt"></div>
-                                    </div>
-                                    <div class="item-title text-ellipsis">
-                                        <a href="javascript:void(0)">All I Need</a>
-                                    </div>
-                                    <div class="item-author text-sm text-ellipsis ">
-                                        <a href="javascript:void(0)" class="text-muted">Pablo Nouvelle</a>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="item r" data-id="item-3" data-src="">
-                                <div class="item-media ">
-                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>
-                                    <div class="item-overlay center">
-                                        <button  class="btn-playpause">Play</button>
-                                    </div>
-                                </div>
-                                <div class="item-info">
-                                    <div class="item-overlay bottom text-right">
-                                        <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
-{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
-                                        <div class="dropdown-menu pull-right black lt"></div>
-                                    </div>
-                                    <div class="item-title text-ellipsis">
-                                        <a href="javascript:void(0)">I Wanna Be In the Cavalry</a>
-                                    </div>
-                                    <div class="item-author text-sm text-ellipsis ">
-                                        <a href="javascript:void(0)" class="text-muted">Jeremy Scott</a>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="item r" data-id="item-10" data-src="">
-                                <div class="item-media ">
-                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b9.jpg');"></a>
-                                    <div class="item-overlay center">
-                                        <button  class="btn-playpause">Play</button>
-                                    </div>
-                                </div>
-                                <div class="item-info">
-                                    <div class="item-overlay bottom text-right">
-                                        <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>
-{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
-                                        <div class="dropdown-menu pull-right black lt"></div>
-                                    </div>
-                                    <div class="item-title text-ellipsis">
-                                        <a href="javascript:void(0)">The Open Road</a>
-                                    </div>
-                                    <div class="item-author text-sm text-ellipsis ">
-                                        <a href="javascript:void(0)" class="text-muted">Postiljonen</a>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

@@ -120,6 +120,15 @@ class ArtistSubmissionController extends Controller
         # submit coverage
         $submitCoverages = SubmitCoverage::where('curator_id', Auth::id())->latest()->get();
 //        dd($submitCoverages);
+
+        # Recommend for you
+        $recommendSubmitCoverages = SubmitCoverage::selectRaw('MAX(id) as id,MAX(curator_id),MAX(artist_id), track_id,MAX(campaign_id), MAX(created_at) as created_at') // Add other columns as needed
+                                        ->whereNull('deleted_at')
+                                            ->groupBy('track_id')
+                                            ->latest('created_at')
+                                            ->get();
+
+
         return view('pages.curators.dashboard', get_defined_vars());
     }
 

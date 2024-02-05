@@ -7,6 +7,7 @@ use App\Models\Campaign;
 use App\Models\Curator\VerifiedCoverage;
 use App\Models\CuratorFeatureTag;
 use App\Models\ReferralRelationship;
+use App\Models\SubmitCoverage;
 use App\Models\TransactionHistory;
 use App\Models\User;
 use App\Models\Language;
@@ -89,6 +90,12 @@ class PromoteYourTrackController extends Controller
             ->latest()
             ->get();
 
+        # Recommend for you
+        $recommendSubmitCoverages = SubmitCoverage::selectRaw('MAX(id) as id,MAX(curator_id),MAX(artist_id), track_id,MAX(campaign_id), MAX(created_at) as created_at') // Add other columns as needed
+        ->whereNull('deleted_at')
+            ->groupBy('track_id')
+            ->latest('created_at')
+            ->get();
         return view('pages.artists.artist-promote-your-track.promote-your-track',get_defined_vars());
     }
 
