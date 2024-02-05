@@ -41,6 +41,9 @@ class ArtistSubmissionController extends Controller
             ->having('coverage_count', '<=', $limit)
             ->latest()
             ->get();
+        $standard_campaigns = $standard_campaigns->reject(function ($standard_campaign) {
+            return $standard_campaign->submitCoverages->where('curator_id', Auth::id())->count() > 0;
+        })->flatten();
 
 //        $advance_campaigns = Campaign::where('package_name', IPackages::ADVANCED_FEATURED_NAME)->latest()->get();
         $advance_campaigns = Campaign::leftJoin('submit_coverages', 'campaigns.track_id', '=', 'submit_coverages.track_id')
@@ -50,6 +53,10 @@ class ArtistSubmissionController extends Controller
             ->having('coverage_count', '<=', $limit)
             ->latest()
             ->get();
+        $advance_campaigns = $advance_campaigns->reject(function ($advance_campaign) {
+            return $advance_campaign->submitCoverages->where('curator_id', Auth::id())->count() > 0;
+        })->flatten();
+
 //        $pro_campaigns = Campaign::where('package_name', IPackages::PRO_NAME)->take(4)->latest()->get();
         $pro_campaigns = Campaign::leftJoin('submit_coverages', 'campaigns.track_id', '=', 'submit_coverages.track_id')
             ->select('campaigns.*', DB::raw('COUNT(submit_coverages.id) as coverage_count'))
@@ -59,6 +66,11 @@ class ArtistSubmissionController extends Controller
             ->take(4)
             ->latest()
             ->get();
+
+        $pro_campaigns = $pro_campaigns->reject(function ($pro_campaign) {
+            return $pro_campaign->submitCoverages->where('curator_id', Auth::id())->count() > 0;
+        })->flatten();
+
         $premium_campaigns = Campaign::where(['add_remove_banner' => IPackages::ADD_BANNER])->latest()->get();
 //        dd($premium_campaigns);
 //        $pro_premium_campaigns = Campaign::where('package_name', IPackages::PRO_NAME)->orWhere('package_name', IPackages::PREMIUM_NAME)
@@ -66,13 +78,19 @@ class ArtistSubmissionController extends Controller
 
         $pro_premium_campaigns = Campaign::leftJoin('submit_coverages', 'campaigns.track_id', '=', 'submit_coverages.track_id')
             ->select('campaigns.*', DB::raw('COUNT(submit_coverages.id) as coverage_count'))
-            ->where('package_name', IPackages::PRO_NAME)
-            ->orWhere('package_name', IPackages::PREMIUM_NAME)
-            ->whereNotNull('campaigns.track_id')
+            ->where(function($query) {
+                $query->where('package_name', IPackages::PRO_NAME)
+                    ->orWhere('package_name', IPackages::PREMIUM_NAME);
+            })
+            ->whereNotNull('campaigns.track_id') // Fix: Use where instead of whereNotNull
             ->groupBy('campaigns.id')
             ->having('coverage_count', '<=', $limit)
             ->latest()
             ->get();
+
+        $pro_premium_campaigns = $pro_premium_campaigns->reject(function ($pro_premium_campaign) {
+            return $pro_premium_campaign->submitCoverages->where('curator_id', Auth::id())->count() > 0;
+        })->flatten();
 
         $theme = Option::where('key', 'curators_settings')->first();
         if(!empty($theme))

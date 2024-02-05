@@ -43,7 +43,6 @@ class PromoteYourTrackController extends Controller
 
         $curator_features = CuratorFeature::all();
         $limit = 500;
-        
         $standard_campaigns = Campaign::leftJoin('submit_coverages', 'campaigns.track_id', '=', 'submit_coverages.track_id')
             ->select('campaigns.*', DB::raw('COUNT(submit_coverages.id) as coverage_count'))
             ->where('package_name', IPackages::STANDARD_NAME)
