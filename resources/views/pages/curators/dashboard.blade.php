@@ -385,20 +385,20 @@
 				    }
 				}">
 
-                        @if(count($advance_campaigns) > 0)
-                            @foreach($advance_campaigns as $advance_campaign)
+                        @if(count($trending_campaigns) > 0)
+                            @foreach($trending_campaigns as $trending_campaign)
                                 <div class="">
-                                    <div class="item r" onclick="openNav({{$advance_campaign->id}})" style="cursor:pointer;" data-id="item-{{$advance_campaign->artistTrack->id}}" data-src="{{URL('/')}}/uploads/audio/{{$advance_campaign->artistTrack->audio}}">
+                                    <div class="item r" onclick="openNav({{$trending_campaign->id}})" style="cursor:pointer;" data-id="item-{{$trending_campaign->artistTrack->id}}" data-src="{{URL('/')}}/uploads/audio/{{$trending_campaign->artistTrack->audio}}">
                                         <div class="item-media item-media-4by3">
-                                            @if(!empty($advance_campaign->artistTrack->track_thumbnail))
-                                                <a href="javascript:void(0)" class="item-media-content" onclick="openNav({{$advance_campaign->id}})"
-                                                   style="background-image: url({{asset('uploads/track_thumbnail')}}/{{$advance_campaign->artistTrack->track_thumbnail}});"></a>
+                                            @if(!empty($trending_campaign->artistTrack->track_thumbnail))
+                                                <a href="javascript:void(0)" class="item-media-content" onclick="openNav({{$trending_campaign->id}})"
+                                                   style="background-image: url({{asset('uploads/track_thumbnail')}}/{{$trending_campaign->artistTrack->track_thumbnail}});"></a>
                                             @else
-                                                <a href="javascript:void(0)" onclick="openNav({{$advance_campaign->id}})" class="item-media-content"
+                                                <a href="javascript:void(0)" onclick="openNav({{$trending_campaign->id}})" class="item-media-content"
                                                    style="background-image: url({{asset('images/b4.jpg')}});"></a>
                                             @endif
 
-                                            @if(!empty($advance_campaign->artistTrack->audio))
+                                            @if(!empty($trending_campaign->artistTrack->audio))
                                                 <div class="item-overlay center">
                                                     <button  class="btn-playpause">Play</button>
                                                 </div>
@@ -406,13 +406,13 @@
                                         </div>
                                         <div class="item-info">
                                             <div class="item-overlay bottom text-right">
-                                                @if(!empty($advance_campaign->curatorFavoriteTrack) && $advance_campaign->curatorFavoriteTrack->status == \App\Templates\IFavoriteTrackStatus::SAVE)
-                                                    <a href="javascript:void(0)" class="btn-favorite" @if($advance_campaign->artistTrack) onclick="favoriteTrack({{$advance_campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>
-                                                        <i class=" {{ !empty($advance_campaign->curatorFavoriteTrack) ? 'fa fa-heart colorAdd' : 'fa fa-heart-o' }}"></i>
+                                                @if(!empty($trending_campaign->curatorFavoriteTrack) && $trending_campaign->curatorFavoriteTrack->status == \App\Templates\IFavoriteTrackStatus::SAVE)
+                                                    <a href="javascript:void(0)" class="btn-favorite" @if($trending_campaign->artistTrack) onclick="favoriteTrack({{$trending_campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>
+                                                        <i class=" {{ !empty($trending_campaign->curatorFavoriteTrack) ? 'fa fa-heart colorAdd' : 'fa fa-heart-o' }}"></i>
                                                     </a>
                                                 @else
-                                                    @if(empty($advance_campaign->curatorFavoriteTrack))
-                                                        <a href="javascript:void(0)" class="btn-favorite" @if($advance_campaign->artistTrack) onclick="favoriteTrack({{$advance_campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>
+                                                    @if(empty($trending_campaign->curatorFavoriteTrack))
+                                                        <a href="javascript:void(0)" class="btn-favorite" @if($trending_campaign->artistTrack) onclick="favoriteTrack({{$trending_campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>
                                                             <i class="fa fa-heart-o"></i>
                                                         </a>
                                                     @endif
@@ -421,7 +421,7 @@
                                                 <div class="dropdown-menu pull-right black lt"></div>
                                             </div>
                                             <div class="item-title text-ellipsis">
-                                                <a href="javascript:void(0)" onclick="openNav({{$advance_campaign->id}})">{{$advance_campaign->artistTrack->name}}</a>
+                                                <a href="javascript:void(0)" onclick="openNav({{$trending_campaign->id}})">{{$trending_campaign->artistTrack->name}}</a>
                                             </div>
                                             <div class="item-author text-sm text-ellipsis ">
                                                 {{--                                                <a href="javascript:void(0)" class="text-muted">Radionomy</a>--}}

@@ -57,6 +57,23 @@ class ArtistSubmissionController extends Controller
             return $advance_campaign->submitCoverages->where('curator_id', Auth::id())->count() > 0;
         })->flatten();
 
+        $trending_campaigns = Campaign::leftJoin('submit_coverages', 'campaigns.track_id', '=', 'submit_coverages.track_id')
+            ->select('campaigns.*', DB::raw('COUNT(submit_coverages.id) as coverage_count'))
+            ->where(function($query) {
+                $query->orWhere('package_name', IPackages::STANDARD_NAME)
+                    ->orWhere('package_name', IPackages::ADVANCED_FEATURED_NAME)
+                    ->orWhere('package_name', IPackages::PRO_NAME)
+                    ->orWhere('package_name', IPackages::PREMIUM_NAME);
+            })
+            ->whereNotNull('campaigns.track_id')
+            ->groupBy('campaigns.id')
+            ->having('coverage_count', '<=', $limit)
+            ->latest()
+            ->get();
+        $trending_campaigns = $trending_campaigns->reject(function ($trending_campaign) {
+            return $trending_campaign->submitCoverages->where('curator_id', Auth::id())->count() > 0;
+        })->flatten();
+
 //        $pro_campaigns = Campaign::where('package_name', IPackages::PRO_NAME)->take(4)->latest()->get();
         $pro_campaigns = Campaign::leftJoin('submit_coverages', 'campaigns.track_id', '=', 'submit_coverages.track_id')
             ->select('campaigns.*', DB::raw('COUNT(submit_coverages.id) as coverage_count'))
