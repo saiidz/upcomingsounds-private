@@ -26,6 +26,7 @@ use Illuminate\Http\JsonResponse;
 use App\Models\ArtistTrackLanguage;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\Artist\AddYourTrackRequest;
 
@@ -41,12 +42,40 @@ class PromoteYourTrackController extends Controller
         $page = 'welcome-your-track';
 
         $curator_features = CuratorFeature::all();
-        $standard_campaigns = Campaign::where('package_name', IPackages::STANDARD_NAME)->latest()->get();
-        $advance_campaigns = Campaign::where('package_name', IPackages::ADVANCED_FEATURED_NAME)->latest()->get();
-        $pro_campaigns = Campaign::where('package_name', IPackages::PRO_NAME)->take(4)->latest()->get();
+        $limit = 500;
+        
+        $standard_campaigns = Campaign::leftJoin('submit_coverages', 'campaigns.track_id', '=', 'submit_coverages.track_id')
+            ->select('campaigns.*', DB::raw('COUNT(submit_coverages.id) as coverage_count'))
+            ->where('package_name', IPackages::STANDARD_NAME)
+            ->groupBy('campaigns.id')
+            ->having('coverage_count', '<=', $limit)
+            ->latest()
+            ->get();
+        $advance_campaigns = Campaign::leftJoin('submit_coverages', 'campaigns.track_id', '=', 'submit_coverages.track_id')
+            ->select('campaigns.*', DB::raw('COUNT(submit_coverages.id) as coverage_count'))
+            ->where('package_name', IPackages::ADVANCED_FEATURED_NAME)
+            ->groupBy('campaigns.id')
+            ->having('coverage_count', '<=', $limit)
+            ->latest()
+            ->get();
+        $pro_campaigns = Campaign::leftJoin('submit_coverages', 'campaigns.track_id', '=', 'submit_coverages.track_id')
+            ->select('campaigns.*', DB::raw('COUNT(submit_coverages.id) as coverage_count'))
+            ->where('package_name', IPackages::PRO_NAME)
+            ->groupBy('campaigns.id')
+            ->having('coverage_count', '<=', $limit)
+            ->take(4)
+            ->latest()
+            ->get();
         $premium_campaigns = Campaign::where(['add_remove_banner' => IPackages::ADD_BANNER])->latest()->get();
-        $pro_premium_campaigns = Campaign::where('package_name', IPackages::PRO_NAME)->orWhere('package_name', IPackages::PREMIUM_NAME)
-            ->whereNotNull('track_id')->latest()->get();
+        $pro_premium_campaigns = Campaign::leftJoin('submit_coverages', 'campaigns.track_id', '=', 'submit_coverages.track_id')
+            ->select('campaigns.*', DB::raw('COUNT(submit_coverages.id) as coverage_count'))
+            ->where('package_name', IPackages::PRO_NAME)
+            ->orWhere('package_name', IPackages::PREMIUM_NAME)
+            ->whereNotNull('campaigns.track_id')
+            ->groupBy('campaigns.id')
+            ->having('coverage_count', '<=', $limit)
+            ->latest()
+            ->get();
 
         return view('pages.artists.artist-promote-your-track.promote-your-track',get_defined_vars());
     }

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
@@ -80,5 +81,13 @@ class Campaign extends Model
     public function sendOffer(): hasOne
     {
         return $this->hasOne(SendOffer::class, 'campaign_id', 'id');
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function submitCoverages(): HasMany
+    {
+        return $this->hasMany(SubmitCoverage::class,'track_id','track_id');
     }
 }
