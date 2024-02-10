@@ -142,9 +142,13 @@
                                                     @endif
                                                 @else
                                                     @if(!empty($premium_campaign->banner_img) && $premium_campaign->banner_img_status == 1)
-                                                        <div class="trackThumbnail">
-                                                            <img class="thumbnail" src="{{asset('uploads/banner_img')}}/{{$premium_campaign->banner_img}}" alt="" />
-                                                        </div>
+                                                        @if($premium_campaign->banner_img_one_status == 0)
+                                                                <img class="border" src="{{asset('uploads/banner_img')}}/{{$premium_campaign->banner_img}}" alt="" />
+                                                        @else
+                                                            <div class="trackThumbnail">
+                                                                <img class="thumbnail"  src="{{asset('uploads/banner_img')}}/{{$premium_campaign->banner_img}}" alt="" />
+                                                            </div>
+                                                        @endif
                                                     @endif
                                                 @endif
                                             </div>
