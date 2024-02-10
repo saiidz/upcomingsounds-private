@@ -41,7 +41,7 @@ class BannerController extends Controller
     {
         $validator = Validator::make($request->all(), [
 //            'track_description' => 'required',
-            'link'              => 'url',
+//            'link'              => 'url',
 //            'link'              => 'required|url',
 //            'track_name'        => 'required',
             'audio'             => 'file|mimes:mp3|max:15000',
