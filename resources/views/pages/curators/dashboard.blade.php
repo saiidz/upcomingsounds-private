@@ -126,25 +126,27 @@
 {{--                                                        <img class="border" src="{{asset('images/border.png')}}" alt="" />--}}
 {{--                                                    @endif--}}
 
+                                                @if(!empty($premium_campaign->track_id))
+                                                    @if(!empty($premium_campaign->artistTrack) && !empty($premium_campaign->artistTrack->track_thumbnail))
+                                                        <div class="trackThumbnail">
+                                                            <img class="thumbnail" src="{{asset('uploads/track_thumbnail')}}/{{$premium_campaign->artistTrack->track_thumbnail}}" alt="" />
+                                                        </div>
+                                                    @elseif(empty($premium_campaign->artistTrack) && !empty($premium_campaign->track_thumbnail))
+                                                        <div class="trackThumbnail">
+                                                            <img class="thumbnail" src="{{asset('uploads/track_thumbnail')}}/{{$premium_campaign->track_thumbnail}}" alt="" />
+                                                        </div>
+                                                    @else
+                                                        <div class="trackThumbnail">
+                                                            <img class="thumbnail" src="{{asset('images/banner_cd.png')}}" alt="" />
+                                                        </div>
+                                                    @endif
+                                                @else
                                                     @if(!empty($premium_campaign->banner_img) && $premium_campaign->banner_img_status == 1)
                                                         <div class="trackThumbnail">
                                                             <img class="thumbnail" src="{{asset('uploads/banner_img')}}/{{$premium_campaign->banner_img}}" alt="" />
                                                         </div>
-                                                   @endif
-
-{{--                                                @if(!empty($premium_campaign->artistTrack) && !empty($premium_campaign->artistTrack->track_thumbnail))--}}
-{{--                                                    <div class="trackThumbnail">--}}
-{{--                                                        <img class="thumbnail" src="{{asset('uploads/track_thumbnail')}}/{{$premium_campaign->artistTrack->track_thumbnail}}" alt="" />--}}
-{{--                                                    </div>--}}
-{{--                                                @elseif(empty($premium_campaign->artistTrack) && !empty($premium_campaign->track_thumbnail))--}}
-{{--                                                    <div class="trackThumbnail">--}}
-{{--                                                        <img class="thumbnail" src="{{asset('uploads/track_thumbnail')}}/{{$premium_campaign->track_thumbnail}}" alt="" />--}}
-{{--                                                    </div>--}}
-{{--                                                @else--}}
-{{--                                                    --}}{{--                                                <div class="trackThumbnail">--}}
-{{--                                                    --}}{{--                                                    <img class="thumbnail" src="{{asset('images/banner_cd.png')}}" alt="" />--}}
-{{--                                                    --}}{{--                                                </div>--}}
-{{--                                                @endif--}}
+                                                    @endif
+                                                @endif
                                             </div>
                                         </div>
                                         <figure>
