@@ -660,7 +660,9 @@
                     }
                     if(data.statusArtist == true)
                     {
-                        window.location.replace('{{route('curator.saved.artists')}}');
+                        location.reload();
+                        return false;
+                        {{--window.location.replace('{{route('curator.saved.artists')}}');--}}
 
                     }
                 }
