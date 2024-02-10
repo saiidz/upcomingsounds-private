@@ -1,103 +1,103 @@
 <div class="col-lg-3 w-xxl w-auto-md">
     <div class="padding" style="bottom: 60px;" data-ui-jp="stick_in_parent">
-        <h6 class="text text-muted">5 Likes</h6>
-        <div class="row item-list item-list-sm m-b">
-            <div class="col-xs-12">
-                <div class="item r" data-id="item-3"
-                     data-src="http://api.soundcloud.com/tracks/79031167/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
-                    <div class="item-media ">
-                        <a href="javascript:void(0)" class="item-media-content"
-                           style="background-image: url('images/b2.jpg');"></a>
-                    </div>
-                    <div class="item-info">
-                        <div class="item-title text-ellipsis">
-                            <a href="javascript:void(0)">I Wanna Be In the Cavalry</a>
-                        </div>
-                        <div class="item-author text-sm text-ellipsis ">
-                            <a href="javascript:void(0)" class="text-muted">Jeremy Scott</a>
-                        </div>
+{{--        <h6 class="text text-muted">5 Likes</h6>--}}
+{{--        <div class="row item-list item-list-sm m-b">--}}
+{{--            <div class="col-xs-12">--}}
+{{--                <div class="item r" data-id="item-3"--}}
+{{--                     data-src="http://api.soundcloud.com/tracks/79031167/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">--}}
+{{--                    <div class="item-media ">--}}
+{{--                        <a href="javascript:void(0)" class="item-media-content"--}}
+{{--                           style="background-image: url('images/b2.jpg');"></a>--}}
+{{--                    </div>--}}
+{{--                    <div class="item-info">--}}
+{{--                        <div class="item-title text-ellipsis">--}}
+{{--                            <a href="javascript:void(0)">I Wanna Be In the Cavalry</a>--}}
+{{--                        </div>--}}
+{{--                        <div class="item-author text-sm text-ellipsis ">--}}
+{{--                            <a href="javascript:void(0)" class="text-muted">Jeremy Scott</a>--}}
+{{--                        </div>--}}
 
 
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12">
-                <div class="item r" data-id="item-1"
-                     data-src="http://api.soundcloud.com/tracks/269944843/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
-                    <div class="item-media ">
-                        <a href="javascript:void(0)" class="item-media-content"
-                           style="background-image: url('images/b0.jpg');"></a>
-                    </div>
-                    <div class="item-info">
-                        <div class="item-title text-ellipsis">
-                            <a href="javascript:void(0)">Pull Up</a>
-                        </div>
-                        <div class="item-author text-sm text-ellipsis ">
-                            <a href="javascript:void(0)" class="text-muted">Summerella</a>
-                        </div>
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-xs-12">--}}
+{{--                <div class="item r" data-id="item-1"--}}
+{{--                     data-src="http://api.soundcloud.com/tracks/269944843/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">--}}
+{{--                    <div class="item-media ">--}}
+{{--                        <a href="javascript:void(0)" class="item-media-content"--}}
+{{--                           style="background-image: url('images/b0.jpg');"></a>--}}
+{{--                    </div>--}}
+{{--                    <div class="item-info">--}}
+{{--                        <div class="item-title text-ellipsis">--}}
+{{--                            <a href="javascript:void(0)">Pull Up</a>--}}
+{{--                        </div>--}}
+{{--                        <div class="item-author text-sm text-ellipsis ">--}}
+{{--                            <a href="javascript:void(0)" class="text-muted">Summerella</a>--}}
+{{--                        </div>--}}
 
 
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12">
-                <div class="item r" data-id="item-12"
-                     data-src="http://api.soundcloud.com/tracks/174495152/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
-                    <div class="item-media ">
-                        <a href="javascript:void(0)" class="item-media-content"
-                           style="background-image: url('images/b11.jpg');"></a>
-                    </div>
-                    <div class="item-info">
-                        <div class="item-title text-ellipsis">
-                            <a href="javascript:void(0)">Happy ending</a>
-                        </div>
-                        <div class="item-author text-sm text-ellipsis ">
-                            <a href="javascript:void(0)" class="text-muted">Postiljonen</a>
-                        </div>
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-xs-12">--}}
+{{--                <div class="item r" data-id="item-12"--}}
+{{--                     data-src="http://api.soundcloud.com/tracks/174495152/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">--}}
+{{--                    <div class="item-media ">--}}
+{{--                        <a href="javascript:void(0)" class="item-media-content"--}}
+{{--                           style="background-image: url('images/b11.jpg');"></a>--}}
+{{--                    </div>--}}
+{{--                    <div class="item-info">--}}
+{{--                        <div class="item-title text-ellipsis">--}}
+{{--                            <a href="javascript:void(0)">Happy ending</a>--}}
+{{--                        </div>--}}
+{{--                        <div class="item-author text-sm text-ellipsis ">--}}
+{{--                            <a href="javascript:void(0)" class="text-muted">Postiljonen</a>--}}
+{{--                        </div>--}}
 
 
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12">
-                <div class="item r" data-id="item-11"
-                     data-src="http://api.soundcloud.com/tracks/218060449/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
-                    <div class="item-media ">
-                        <a href="javascript:void(0)" class="item-media-content"
-                           style="background-image: url('images/b10.jpg');"></a>
-                    </div>
-                    <div class="item-info">
-                        <div class="item-title text-ellipsis">
-                            <a href="javascript:void(0)">Spring</a>
-                        </div>
-                        <div class="item-author text-sm text-ellipsis ">
-                            <a href="javascript:void(0)" class="text-muted">Pablo Nouvelle</a>
-                        </div>
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-xs-12">--}}
+{{--                <div class="item r" data-id="item-11"--}}
+{{--                     data-src="http://api.soundcloud.com/tracks/218060449/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">--}}
+{{--                    <div class="item-media ">--}}
+{{--                        <a href="javascript:void(0)" class="item-media-content"--}}
+{{--                           style="background-image: url('images/b10.jpg');"></a>--}}
+{{--                    </div>--}}
+{{--                    <div class="item-info">--}}
+{{--                        <div class="item-title text-ellipsis">--}}
+{{--                            <a href="javascript:void(0)">Spring</a>--}}
+{{--                        </div>--}}
+{{--                        <div class="item-author text-sm text-ellipsis ">--}}
+{{--                            <a href="javascript:void(0)" class="text-muted">Pablo Nouvelle</a>--}}
+{{--                        </div>--}}
 
 
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12">
-                <div class="item r" data-id="item-6"
-                     data-src="http://api.soundcloud.com/tracks/236107824/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">
-                    <div class="item-media ">
-                        <a href="javascript:void(0)" class="item-media-content"
-                           style="background-image: url('images/b5.jpg');"></a>
-                    </div>
-                    <div class="item-info">
-                        <div class="item-title text-ellipsis">
-                            <a href="javascript:void(0)">Body on me</a>
-                        </div>
-                        <div class="item-author text-sm text-ellipsis ">
-                            <a href="javascript:void(0)" class="text-muted">Rita Ora</a>
-                        </div>
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="col-xs-12">--}}
+{{--                <div class="item r" data-id="item-6"--}}
+{{--                     data-src="http://api.soundcloud.com/tracks/236107824/stream?client_id=a10d44d431ad52868f1bce6d36f5234c">--}}
+{{--                    <div class="item-media ">--}}
+{{--                        <a href="javascript:void(0)" class="item-media-content"--}}
+{{--                           style="background-image: url('images/b5.jpg');"></a>--}}
+{{--                    </div>--}}
+{{--                    <div class="item-info">--}}
+{{--                        <div class="item-title text-ellipsis">--}}
+{{--                            <a href="javascript:void(0)">Body on me</a>--}}
+{{--                        </div>--}}
+{{--                        <div class="item-author text-sm text-ellipsis ">--}}
+{{--                            <a href="javascript:void(0)" class="text-muted">Rita Ora</a>--}}
+{{--                        </div>--}}
 
 
-                    </div>
-                </div>
-            </div>
-        </div>
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 {{--        <h6 class="text text-muted">Go mobile</h6>--}}
 {{--        <div class="btn-groups">--}}
 {{--            <a href="" class="btn btn-sm dark lt m-r-xs" style="width: 135px">--}}
