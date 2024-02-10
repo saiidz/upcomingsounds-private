@@ -119,7 +119,7 @@
                                         @endif
 
                                         <div class="col m6 s12 file-field">
-                                            <span>Banner Status</span>
+                                            <span>Frame Status</span>
                                             <select class="form-control-label" name="banner_img_status">
                                                 <option value="1" {{!empty($banner) ? ($banner->banner_img_status == 1 ? 'selected' : '' ) : ''}}>Active</option>
                                                 <option value="0" {{!empty($banner) ? ($banner->banner_img_status == 0 ? 'selected' : '' ) : ''}}>InActive</option>
@@ -130,7 +130,7 @@
                                     <div class="row">
                                         <div class="col m6 s12 file-field">
                                             <div class="btn float-right">
-                                                <span>Banner Image One</span>
+                                                <span>Frame Image One</span>
                                                 {!! Form::file('banner_img_one',['placeholder'=>'Farhan','accept' => 'image/*','class'=>"validate", 'id' => 'banner_img_one', 'required'=>false]) !!}
                                             </div>
 
@@ -140,7 +140,7 @@
                                         </div>
                                         @if(!empty($banner->banner_img_one))
                                             <a href="javascript:void(0)" data-id="{{ $banner->id }}" class="dropdown-item has-icon remove_banner_image">
-                                                Remove Banner Image One
+                                                Remove Frame Image One
                                             </a>
                                         @endif
 
