@@ -65,7 +65,8 @@
                                                                 <td>{{ $pending_track->name }}</td>
                                                                 <td>{{ getDateFormat($pending_track->release_date) }}</td>
                                                                 <td>
-                                                                    <a href="{{ route('admin.artist.profile', !empty($pending_track->user) ? $pending_track->user->id : null) }}">{{ !empty($pending_track->user) ? $pending_track->user->name : '' }}</a>
+                                                                    {{ !empty($pending_track->user->name) ? $pending_track->user->name : '' }}
+{{--                                                                    <a href="{{ route('admin.artist.profile', !empty($pending_track->user) ? $pending_track->user->id : null) }}">{{ !empty($pending_track->user) ? $pending_track->user->name : '' }}</a>--}}
                                                                 </td>
                                                                 <td>{{ getDateFormat($pending_track->created_at) }}</td>
                                                                 <td>
