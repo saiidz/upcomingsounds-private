@@ -303,6 +303,8 @@ header nav ul li a:hover {
     right: 13%;
     margin: 3px;
     padding: 2px;
+    width: 80%;
+    height: 80%;
     /*width: 190px;*/
     /*min-height: 120px;*/
 }
@@ -310,7 +312,10 @@ header nav ul li a:hover {
     float: right;
     /*width: 40%;*/
     max-height: 237px;
-    max-width: 260px;
+    /*max-width: 260px;*/
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 #itemMediaContent {
