@@ -10,18 +10,15 @@
                 <div class="form-group">
                     <label for="message-text" class="col-form-label">Message:</label>
                     <textarea class="form-control ckeditor" name="description_details" id="descriptionApprovedDetails" required>
-                        Congratulations on your approved submission to UpcomingSounds.com! We are excited to have your music on our platform and to help you share it with the world.
-
-                        Next, you'll want to add credits or funds to your wallet in order to promote your release.
-
-                        We offer a range of packages to choose from, so you can find the one that best fits your needs and budget.
-
-                        Simply visit the wallet section of your account and select the package you'd like to purchase.
-
-                        Thank you for choosing UpcomingSounds.com as your platform for sharing your music. We are committed to helping you succeed and are excited to see what you create. If you have any questions or need support along the way, don't hesitate to reach out to us.
-
-                        Sincerely, Gary
+                        Congratulations on your approved submission to UpcomingSounds.com!<br>
+                        We are excited to have your music on our platform and to help you share it with the world. Next, you'll want to add credits or funds to your wallet to promote your release. We offer a range of packages to choose from, so you can find the one that best fits your needs and budget.<br>
+                        Simply visit the wallet section of your account and select the package you'd like to purchase.<br>
+                        Thank you for choosing UpcomingSounds.com as your platform for sharing your music. We are committed to helping you succeed and are excited to see what you create.<br>
+                        If you have any questions or need support along the way, don't hesitate to reach out to us.<br>
+                        Sincerely,<br>
+                        Gary
                     </textarea>
+
                 </div>
             </div>
         </div>
