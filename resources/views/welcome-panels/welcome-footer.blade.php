@@ -25,37 +25,39 @@
 
                     <div class="m-b m-l-md" id="footerIcons">
                         <a href="{{ !empty($theme->facebook_link) ? $theme->facebook_link : 'https://www.facebook.com/Upcomingsounds' }}" target="_blank"
-                           class="btn btn-icon btn-social btn-social-colored social_color "
+                           class="btn btn-icon btn-social social_color "
+{{--                           class="btn btn-icon btn-social btn-social-colored social_color "--}}
                            title="Facebook">
 {{--                            <i class="{{ !empty($theme->facebook_icon) ? $theme->facebook_icon : 'fab fa-facebook' }}"></i>--}}
-                            <i class="{{ !empty($theme->facebook_icon) ? $theme->facebook_icon : 'fa fa-facebook' }}"></i>
+                            <i class="{{ !empty($theme->facebook_icon) ? $theme->facebook_icon : 'fa fa-facebook' }} text-white" ></i>
                             <i class="{{ !empty($theme->facebook_icon) ? $theme->facebook_icon : 'fa fa-facebook' }}"></i>
                         </a>
                         <a href="{{ !empty($theme->instagram_link) ? $theme->instagram_link : 'https://www.instagram.com/upcomingsounds' }}" target="_blank"
-                           class="btn btn-icon btn-social btn-social-colored social_color"
+                           class="btn btn-icon btn-social social_color"
+{{--                           class="btn btn-icon btn-social btn-social-colored social_color"--}}
                            title="Instagram">
 {{--                            <i class="{{ !empty($theme->instagram_icon) ? $theme->instagram_icon : 'fab fa-instagram' }}"></i>--}}
-                            <i class="{{ !empty($theme->instagram_icon) ? $theme->instagram_icon : 'fa fa-instagram' }}"></i>
+                            <i class="{{ !empty($theme->instagram_icon) ? $theme->instagram_icon : 'fa fa-instagram' }} text-white"></i>
                             <i class="{{ !empty($theme->instagram_icon) ? $theme->instagram_icon : 'fa fa-instagram' }}"></i>
 {{--                            <i class="fa fa-instagram"></i>--}}
 {{--                            <i class="fa fa-instagram"></i>--}}
                         </a>
                         <a href="{{ !empty($theme->spotify_link) ? $theme->spotify_link : 'https://open.spotify.com/user/0ksxb1tbymq3tx778ybi7659r' }}" target="_blank"
-                           class="btn btn-icon btn-social btn-social-colored social_color"
+                           class="btn btn-icon btn-social social_color"
                            title="Spotify">
 {{--                            <i class="{{ !empty($theme->spotify_icon) ? $theme->spotify_icon : 'fab fa-spotify' }}"></i>--}}
-                            <i class="{{ !empty($theme->spotify_icon) ? $theme->spotify_icon : 'fa fa-spotify' }}"></i>
+                            <i class="{{ !empty($theme->spotify_icon) ? $theme->spotify_icon : 'fa fa-spotify' }} text-white"></i>
                             <i class="{{ !empty($theme->spotify_icon) ? $theme->spotify_icon : 'fa fa-spotify' }}"></i>
 {{--                            <i class="fa fa-spotify"></i>--}}
 {{--                            <i class="fa fa-spotify"></i>--}}
                         </a>
                         <a href="{{ !empty($theme->twitter_link) ? $theme->twitter_link : 'https://twitter.com/Upcomingsounds' }}" target="_blank"
-                           class="btn btn-icon btn-social btn-social-colored social_color"
+                           class="btn btn-icon btn-social social_color"
                            title="Twitter">
 {{--                            <i class="{{ !empty($theme->twitter_icon) ? $theme->twitter_icon : 'fab fa-twitter' }}"></i>--}}
 {{--                            <i class="fa fa-x-twitter"></i>--}}
 {{--                            <i class="fa fa-x-twitter"></i>--}}
-                                <i class="x-twitter-icon" style="color: #d9d4d4;"></i>
+                                <i class="x-twitter-icon text-white" style="color: #d9d4d4;"></i>
                                 <i class="x-twitter-icon" style="color: #d9d4d4;"></i>
 {{--                            <i class="{{ !empty($theme->twitter_icon) ? $theme->twitter_icon : 'fa fa-twitter' }}"></i>--}}
 {{--                            <i class="{{ !empty($theme->twitter_icon) ? $theme->twitter_icon : 'fa fa-twitter' }}"></i>--}}
@@ -63,35 +65,35 @@
 {{--                            <i class="fa fa-twitter"></i>--}}
                         </a>
                         <a href="{{ !empty($theme->youtube_link) ? $theme->youtube_link : 'https://www.youtube.com/channel/UC1HUg1XVehD3RAkdQDay32A' }}" target="_blank"
-                           class="btn btn-icon btn-social btn-social-colored social_color"
+                           class="btn btn-icon btn-social social_color"
                            title="Youtube">
 {{--                            <i class="{{ !empty($theme->youtube_icon) ? $theme->youtube_icon : 'fab fa-youtube' }}"></i>--}}
-                            <i class="{{ !empty($theme->youtube_icon) ? $theme->youtube_icon : 'fa fa-youtube' }}"></i>
+                            <i class="{{ !empty($theme->youtube_icon) ? $theme->youtube_icon : 'fa fa-youtube' }} text-white"></i>
                             <i class="{{ !empty($theme->youtube_icon) ? $theme->youtube_icon : 'fa fa-youtube' }}"></i>
 {{--                            <i class="fa fa-youtube"></i>--}}
 {{--                            <i class="fa fa-youtube"></i>--}}
                         </a>
                         <a href="{{ !empty($theme->tiktok_link) ? $theme->tiktok_link : 'https://www.tiktok.com/@upcomingsounds' }}" target="_blank"
-                           class="btn btn-icon btn-social btn-social-colored social_color"
+                           class="btn btn-icon btn-social social_color"
                            title="Tiktok">
 {{--                            <i class="{{ !empty($theme->tiktok_icon) ? $theme->tiktok_icon : 'fa-brands fa-tiktok' }}"></i>--}}
-                            <i class="{{ !empty($theme->tiktok_icon) ? $theme->tiktok_icon : 'fab fa-tiktok' }}"></i>
+                            <i class="{{ !empty($theme->tiktok_icon) ? $theme->tiktok_icon : 'fab fa-tiktok' }} text-white"></i>
                             <i class="{{ !empty($theme->tiktok_icon) ? $theme->tiktok_icon : 'fab fa-tiktok' }}"></i>
 {{--                            <i class="fa-brands fa-tiktok"></i>--}}
                         </a>
 
                         <a href="{{ !empty($theme->reddit_link) ? $theme->reddit_link : 'https://www.reddit.com/r/upcomingsounds/?utm_medium=android_app&utm_source=share' }}" target="_blank"
-                           class="btn btn-icon btn-social btn-social-colored social_color"
+                           class="btn btn-icon btn-social social_color"
                            title="Reddit">
 {{--                            <i class="{{ !empty($theme->reddit_icon) ? $theme->reddit_icon : 'fab fa-reddit' }}"></i>--}}
-                            <i class="{{ !empty($theme->reddit_icon) ? $theme->reddit_icon : 'fa fa-reddit' }}"></i>
+                            <i class="{{ !empty($theme->reddit_icon) ? $theme->reddit_icon : 'fa fa-reddit' }} text-white"></i>
                             <i class="{{ !empty($theme->reddit_icon) ? $theme->reddit_icon : 'fa fa-reddit' }}"></i>
                         </a>
 
                         <a href="https://discord.com/invite/DHDChvkpny" target="_blank"
-                           class="btn btn-icon btn-social btn-social-colored social_color"
+                           class="btn btn-icon btn-social social_color"
                            title="Reddit">
-                            <i class="fab fa-discord"></i>
+                            <i class="fab fa-discord text-white"></i>
                             <i class="fab fa-discord"></i>
                         </a>
 {{--                        <a href="https://www.tiktok.com/@upcomingsounds_" target="_blank"--}}

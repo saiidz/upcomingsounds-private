@@ -44,6 +44,15 @@
             background-size: cover;
             margin-top: 7px;
         }
+        .x-twitter-icon::before {
+            content: "";
+            background-image: url({{asset('/images/x-twitter.png')}});
+            width: 22px;
+            height: 22px;
+            display: inline-block;
+            background-size: cover;
+            /*margin-top: 7px;*/
+        }
     </style>
 @endsection
 
