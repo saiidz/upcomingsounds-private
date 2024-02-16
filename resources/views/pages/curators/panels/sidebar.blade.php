@@ -251,6 +251,24 @@
                             </a>
                         </li>
 
+                        <li>
+                            <a href="{{url('/taste-maker-profile')}}#notifications" class="reloadNotifications">
+                                @if(!empty($unReadNotifications))
+                                    <span class="nav-label">
+                                        <b class="label">{{$unReadNotifications->count()}}</b>
+                                    </span>
+                                @else
+                                    <span class="nav-label">
+                                    <b class="label">0</b>
+                               </span>
+                                @endif
+                                <span class="nav-icon">
+                               <i class="fa fa-bell"></i>
+                             </span>
+                                <span class="nav-text">Notifications</span>
+                            </a>
+                        </li>
+
 {{--                        <li>--}}
 {{--                            <a href="{{url('/taste-maker-profile')}}#stats" class="reloadStats">--}}
 {{--                                <span class="nav-icon">--}}

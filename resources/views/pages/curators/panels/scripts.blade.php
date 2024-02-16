@@ -363,6 +363,12 @@
             '_self' // <- This is what makes it open in a new window.
         );
     });
+    $('.reloadNotifications').on('click', function(){
+        window.open(
+            window.location.origin + '/taste-maker-profile#notifications',
+            '_self' // <- This is what makes it open in a new window.
+        );
+    });
     $('.reloadStats').on('click', function(){
         window.open(
             window.location.origin + '/taste-maker-profile#stats',
