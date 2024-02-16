@@ -76,16 +76,16 @@
                         <div class="b-b b-primary nav-active-primary">
                             <ul class="nav nav-tabs">
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="#" data-toggle="tab" onclick="myHistory()" data-target="#buyUS">Buy UpcomingSounds Credits</a>
+                                    <a class="nav-link active" href="#" data-toggle="tab" onclick="myHistory()" data-target="#buyUS">Buy USC Credits</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="javascript:void(0)" onclick="myHistory()" data-toggle="tab" data-target="#myHistory">My History</a>
+                                    <a class="nav-link" href="javascript:void(0)" onclick="myHistory()" data-toggle="tab" data-target="#myHistory">Purchase History</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="javascript:void(0)" onclick="myHistory()" data-toggle="tab" data-target="#myVerifiedContentCreatorCuratorHistory">Verified Content Creator Curator</a>
+                                    <a class="nav-link" href="javascript:void(0)" onclick="myHistory()" data-toggle="tab" data-target="#myVerifiedContentCreatorCuratorHistory">Offers Contribution</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="javascript:void(0)" onclick="myCouponHistory()" data-toggle="tab" data-target="#myCouponHistory">Coupon/Gift Card</a>
+                                    <a class="nav-link" href="javascript:void(0)" onclick="myCouponHistory()" data-toggle="tab" data-target="#myCouponHistory">Coupons/Giftcard</a>
                                 </li>
 
                                 <li>

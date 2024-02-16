@@ -7,7 +7,7 @@
             <th>Offer Type</th>
             <th>Artist Name</th>
             <th>Offering</th>
-            <th>Fee Offer</th>
+            <th>Handling fees</th>
             <th>Final Total</th>
             <th>Status</th>
             <th>Created At</th>
