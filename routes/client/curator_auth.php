@@ -52,6 +52,9 @@ Route::get('/saved', [ArtistSubmissionController::class,'artistSaved'])->name('a
 Route::get('/accepted', [ArtistSubmissionController::class,'artistAccepted'])->name('accepted.artist');
 Route::get('/rejected', [ArtistSubmissionController::class,'artistRejected'])->name('rejected.artist');
 
+# get artist submission filter
+Route::get('filter-artist-submission', [ArtistSubmissionController::class,'filterArtistSubmission'])->name('filter.artist.submission');
+
 // favorite tracks
 Route::get('favorite-track', [ArtistSubmissionController::class,'favoriteTrack'])->name('curator.favorite.track');
 

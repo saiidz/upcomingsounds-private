@@ -11,6 +11,7 @@ use App\Models\Option;
 use App\Models\SendOffer;
 use App\Models\SubmitCoverage;
 use App\Templates\IFavoriteTrackStatus;
+use App\Templates\IMessageTemplates;
 use App\Templates\IOfferTemplateStatus;
 use App\Templates\IPackages;
 use Illuminate\Contracts\Foundation\Application;
@@ -229,6 +230,10 @@ class ArtistSubmissionController extends Controller
         return view('pages.curators.curator-get-verified.get-verified', get_defined_vars());
     }
 
+    /**
+     * @param Request $request
+     * @return JsonResponse|void
+     */
     public function getActiveStore(Request $request)
     {
         if ($request->campaign_id)
@@ -338,6 +343,53 @@ class ArtistSubmissionController extends Controller
         }else
         {
             return response()->json(['error' => 'Error In Ajax call.']);
+        }
+    }
+
+    public function filterArtistSubmission(Request $request)
+    {
+        if ($request->option_filter)
+        {
+            if ($request->option_filter == IMessageTemplates::OLDEST)
+            {
+                $campaigns = Campaign::whereNotNull('track_id')
+                    ->where('is_expired_campaign', 0)
+                    ->doesntHave('curatorFavoriteTrack')
+                    ->oldest()
+                    ->get();
+
+                $campaigns = $campaigns->reject(function ($campaign)
+                {
+                    $sendOffer =  SendOffer::where(['curator_id' => Auth::id(), 'campaign_id' => $campaign->id])->first();
+                    return $sendOffer == true;
+                })->flatten();
+            }else if ($request->option_filter == IMessageTemplates::NEWEST)
+            {
+                $campaigns = Campaign::whereNotNull('track_id')
+                    ->where('is_expired_campaign', 0)
+                    ->doesntHave('curatorFavoriteTrack')
+                    ->latest()
+                    ->get();
+
+                $campaigns = $campaigns->reject(function ($campaign)
+                {
+                    $sendOffer =  SendOffer::where(['curator_id' => Auth::id(), 'campaign_id' => $campaign->id])->first();
+                    return $sendOffer == true;
+                })->flatten();
+            }
+
+            // render Html in collapse
+            $returnHTML = view('pages.curators.artist-submission.__filter-artist-submission')->with(['campaigns' => $campaigns])->render();
+
+            if($request->ajax()){
+                return response()->json([
+                    'success' => 'Campaign Found successfully',
+                    'campaign'      => $returnHTML,
+                ]);
+            }
+        }else
+        {
+            return response()->json(['error' => 'Campaign Not Found.']);
         }
 
     }
