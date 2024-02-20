@@ -54,4 +54,9 @@ use Illuminate\Support\Facades\Auth;
                                 The 45 days of exposure to our tastemakers begin as soon as payment has been completed.
 
                                 Your application will be declined if it does not meet our criteria, but we will explain why so that you can re-apply based on the reason.";
+    const OLDEST = 'oldest';
+    const NEWEST = 'newest';
+    const RELEASE_DATE = 'release_date';
+    const LIKED_ARTISTS = 'liked_artists';
+    const GENRE = 'genre';
  }

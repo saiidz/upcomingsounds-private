@@ -32,14 +32,14 @@
 {{--                            </div>--}}
                         </div>
                         <div class="btn-group dropdown m-b m-l">
-                            <button class="btn white text-primary">Sort By</button>
+                            <button class="btn white text-primary" id="selectFilter">Sort By</button>
                             <button class="btn white dropdown-toggle text-primary" data-toggle="dropdown"></button>
                             <div class="dropdown-menu pull-right">
-                                <a class="dropdown-item" href="#">Oldest</a>
-                                <a class="dropdown-item" href="#">Newest</a>
-                                <a class="dropdown-item" href="#">Release Date</a>
-                                <a class="dropdown-item" href="#">Liked Artists</a>
-                                <a class="dropdown-item" href="#">Genre</a>
+                                <a class="dropdown-item" href="javascript:void(0)" onclick="filterArtistSubmission('{{ \App\Templates\IMessageTemplates::OLDEST }}')">Oldest</a>
+                                <a class="dropdown-item" href="javascript:void(0)" onclick="filterArtistSubmission('{{ \App\Templates\IMessageTemplates::NEWEST }}')">Newest</a>
+                                <a class="dropdown-item" href="javascript:void(0)" onclick="filterArtistSubmission('{{ \App\Templates\IMessageTemplates::RELEASE_DATE }}')">Release Date</a>
+                                <a class="dropdown-item" href="javascript:void(0)" onclick="filterArtistSubmission('{{ \App\Templates\IMessageTemplates::LIKED_ARTISTS }}')">Liked Artists</a>
+                                <a class="dropdown-item" href="javascript:void(0)" onclick="filterArtistSubmission('{{ \App\Templates\IMessageTemplates::GENRE }}')">Genre</a>
                             </div>
                         </div>
                         <div data-ui-jp="jscroll" class="jscroll-loading-center" data-ui-options="{
@@ -167,6 +167,14 @@
             $('#mySidebarCollapsed').addClass('mySidebarCollapsedRemove');
             // document.getElementById("mySidebarCollapsed").style.width = "0";
             document.getElementById("app-body").style.marginLeft= "0";
+        }
+    </script>
+    <script>
+        function filterArtistSubmission(option)
+        {
+            $('#selectFilter').html('');
+            $('#selectFilter').html(option);
+            // if(option === '')
         }
     </script>
 @endsection
