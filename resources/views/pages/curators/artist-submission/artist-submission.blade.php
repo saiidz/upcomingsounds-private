@@ -38,7 +38,7 @@
                                 <a class="dropdown-item" href="javascript:void(0)" onclick="filterArtistSubmission('{{ \App\Templates\IMessageTemplates::OLDEST }}')">Oldest</a>
                                 <a class="dropdown-item" href="javascript:void(0)" onclick="filterArtistSubmission('{{ \App\Templates\IMessageTemplates::NEWEST }}')">Newest</a>
                                 <a class="dropdown-item" href="javascript:void(0)" onclick="filterArtistSubmission('{{ \App\Templates\IMessageTemplates::RELEASE_DATE }}')">Release Date</a>
-                                <a class="dropdown-item" href="javascript:void(0)" onclick="filterArtistSubmission('{{ \App\Templates\IMessageTemplates::LIKED_ARTISTS }}')">Liked Artists</a>
+{{--                                <a class="dropdown-item" href="javascript:void(0)" onclick="filterArtistSubmission('{{ \App\Templates\IMessageTemplates::LIKED_ARTISTS }}')">Liked Artists</a>--}}
                                 <a class="dropdown-item" href="javascript:void(0)" onclick="filterArtistSubmission('{{ \App\Templates\IMessageTemplates::GENRE }}')">Genre</a>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                     nextSelector: 'a.jscroll-next:last'
                 }">
                             <div class="jscroll-inner">
-                                <div class="row" id="filterArtistSubmission">
+                                <div class="row" id="filterArtistSubmission" style="display: flex;flex-wrap: wrap;">
                                     @include('pages.curators.artist-submission.__filter-artist-submission')
                                 </div>
                             </div>

@@ -1,6 +1,6 @@
 @if(!empty($campaigns))
     @foreach($campaigns as $campaign)
-        <div class="col-xs-4 col-sm-4 col-md-3">
+        <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3 col-xl-3">
             <div class="item r" data-id="item-{{$campaign->artistTrack->id}}" data-src="{{URL('/')}}/uploads/audio/{{$campaign->artistTrack->audio}}">
                 <div class="item-media">
                     @if(!empty($campaign->artistTrack->track_thumbnail))
