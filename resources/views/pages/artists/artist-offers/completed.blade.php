@@ -117,9 +117,7 @@
                                 </div>
                             @endforeach
                         @else
-                            <div class="item-title text-ellipsis">
-                                <h3 class="white" style="text-align:center">There are no result to show</h3>
-                            </div>
+                            @include('pages.curators.__not-found-records')
                         @endif
                     </div>
                 </div>

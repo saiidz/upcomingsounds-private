@@ -19,7 +19,7 @@
             <div class="col-lg-8 b-r no-border-md">
                 <div class="padding p-y-0 m-b-md">
                     <div class="page-title m-b proposition_header">
-                        <h1 class="inline m-a-0">Verified Coverage</h1>
+                        <h1 class="inline m-a-0">Coverage Presets</h1>
                         <a href="{{route('curator.create.verified.coverage')}}"
                            class="btn btn-sm rounded proposition basicbtn">
                             Setup a new verified coverage</a>
@@ -97,9 +97,7 @@
 
                             @endforeach
                         @else
-                            <div class="item-title text-ellipsis">
-                                <h3 class="white" style="text-align:center">There are no result to show</h3>
-                            </div>
+                            @include('pages.curators.__not-found-records')
                         @endif
                     </div>
 

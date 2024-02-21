@@ -382,6 +382,15 @@
 
                         </li>
                         <li>
+                            <a class="dropdown-item" href="{{ route('artist.coverage.verified') }}" id="verifiedContentCreatorArtist">
+                                    <span class="nav-icon">
+                                        <i class="fa fa-chevron-circle-right"></i>
+                                    </span>
+                                <span class="nav-text">Requested Coverage</span>
+                                {{--                                <span class="nav-text">Verified Artist</span>--}}
+                            </a>
+                        </li>
+                        <li>
                             <a class="dropdown-item" href="{{route('curator.pending')}}" id="pendingOffers">
                                     <span class="nav-icon">
                                         <i class="fa fa-clock-o"></i>
@@ -434,15 +443,17 @@
                                     <span class="nav-icon">
                                         <i class="fa fa-edit"></i>
                                     </span>
-                                <span class="nav-text">Proposition</span>
+                                <span class="nav-text">Offer Presets</span>
+{{--                                <span class="nav-text">Proposition</span>--}}
                             </a>
                         </li>
                         <li>
                             <a class="dropdown-item" href="{{route('curator.verified.coverage')}}" id="verifiedCoverage">
                                     <span class="nav-icon">
-                                        <i class="fa fa-edit"></i>
+                                        <i class="fa fa-star-o"></i>
                                     </span>
-                                <span class="nav-text">Verified Coverage</span>
+                                <span class="nav-text">Coverage Presets</span>
+{{--                                <span class="nav-text">Verified Coverage</span>--}}
                             </a>
                         </li>
                         <li>
@@ -451,14 +462,6 @@
                                         <i class="fa fa-check-circle-o"></i>
                                     </span>
                                 <span class="nav-text">Completed</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="{{ route('artist.coverage.verified') }}" id="verifiedContentCreatorArtist">
-                                    <span class="nav-icon">
-                                        <i class="fa fa-bullseye"></i>
-                                    </span>
-                                <span class="nav-text">Verified Artist</span>
                             </a>
                         </li>
                     @endif

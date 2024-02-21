@@ -1,7 +1,7 @@
 @extends('pages.curators.panels.layout')
 
 {{-- page title --}}
-@section('title','Proposition')
+@section('title','Offer Presets')
 
 
 @section('page-style')
@@ -20,7 +20,8 @@
             <div class="col-lg-8 b-r no-border-md">
                 <div class="padding p-y-0 m-b-md">
                     <div class="page-title m-b proposition_header">
-                        <h1 class="inline m-a-0">Proposition</h1>
+                        <h1 class="inline m-a-0">Offer Presets</h1>
+{{--                        <h1 class="inline m-a-0">Proposition</h1>--}}
                         <a href="{{route('curator.create.offer.template')}}"
                            class="btn btn-sm rounded proposition basicbtn">
                             Setup a new offer template</a>
@@ -97,9 +98,7 @@
 
                             @endforeach
                         @else
-                            <div class="item-title text-ellipsis">
-                                <h3 class="white" style="text-align:center">There are no result to show</h3>
-                            </div>
+                            @include('pages.curators.__not-found-records')
                         @endif
                     </div>
 

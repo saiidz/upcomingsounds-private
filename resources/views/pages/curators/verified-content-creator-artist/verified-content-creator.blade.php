@@ -19,7 +19,8 @@
             <div class="col-lg-9 b-r no-border-md">
                 <div class="padding">
                     <div class="page-title m-b">
-                        <h1 class="inline m-a-0">Verified Content Creator</h1>
+                        <h1 class="inline m-a-0">Requested Coverage</h1>
+{{--                        <h1 class="inline m-a-0">Verified Content Creator</h1>--}}
                     </div>
                     <div class="row item-list item-list-by m-b">
                         @if(!empty($verifiedContentCreatorCurators) && count($verifiedContentCreatorCurators) > 0)
@@ -92,9 +93,7 @@
                                 </div>
                             @endforeach
                         @else
-                            <div class="item-title text-ellipsis">
-                                <h3 class="white" style="text-align:center">There are no result to show</h3>
-                            </div>
+                            @include('pages.curators.__not-found-records')
                         @endif
                     </div>
                 </div>
