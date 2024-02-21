@@ -53,6 +53,7 @@ class ReferralController extends Controller
 //            'name'     => ($request->type == 'artist') ? 'required|alpha_dash|max:255|unique:users' : 'required|string|max:255',
             'email'    => 'required|string|email|max:255|unique:users',
             'password' => ['required', Rules\Password::defaults()],
+            'g-recaptcha-response' => 'required|captcha',
         ]);
 
         $user = User::create([
