@@ -42,6 +42,17 @@
                                 <a class="dropdown-item" href="javascript:void(0)" onclick="filterArtistSubmission('{{ \App\Templates\IMessageTemplates::GENRE }}')">Genre</a>
                             </div>
                         </div>
+                        <div class="btn-group dropdown m-b m-l" id="genreFilters" style="display:none">
+                            <button class="btn white text-primary" id="selectFilter">Select Genre</button>
+                            <button class="btn white dropdown-toggle text-primary" data-toggle="dropdown"></button>
+                            @if(!empty($curator_features))
+                                <div class="dropdown-menu pull-right">
+                                    @foreach($curator_features as $curator_feature)
+                                        <a href="javascript:void(0)" class="dropdown-item">{{$curator_feature->name}}</a>
+                                    @endforeach
+                                </div>
+                            @endif
+                        </div>
                         <div data-ui-jp="jscroll" class="jscroll-loading-center" data-ui-options="{
                     autoTrigger: true,
                     loadingHtml: '<i class=\'fa fa-refresh fa-spin text-md text-muted\'></i>',
@@ -109,15 +120,30 @@
         {
             $('#selectFilter').html('');
             if(option === 'oldest')
+            {
+                $('#genreFilters').css('display','none');
                 $('#selectFilter').html('Oldest');
+            }
             else if(option === 'newest')
+            {
+                $('#genreFilters').css('display','none');
                 $('#selectFilter').html('Newest');
+            }
             else if(option === 'release_date')
+            {
+                $('#genreFilters').css('display','none');
                 $('#selectFilter').html('Release Date');
+            }
             else if(option === 'liked_artists')
+            {
+                $('#genreFilters').css('display','none');
                 $('#selectFilter').html('Liked Artists');
+            }
             else if(option === 'genre')
+            {
+                $('#genreFilters').css('display','inline-block');
                 $('#selectFilter').html('Genre');
+            }
 
             showLoader();
             $.ajax({

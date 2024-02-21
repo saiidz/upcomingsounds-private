@@ -141,6 +141,8 @@ class ArtistSubmissionController extends Controller
         $user = Auth::user();
         if(!empty($user) && $user->is_verified == 1)
         {
+            $curator_features = CuratorFeature::all();
+
             $campaigns = Campaign::whereNotNull('track_id')
                                     ->where('is_expired_campaign',0)
                                     ->doesntHave('curatorFavoriteTrack')
@@ -382,6 +384,20 @@ class ArtistSubmissionController extends Controller
                 $campaigns = Campaign::whereHas('artistTrack',function ($q){
                     $q->orderByRaw('YEAR(release_date), MONTH(release_date)');
                 })->whereNotNull('track_id')
+                    ->where('is_expired_campaign', 0)
+                    ->doesntHave('curatorFavoriteTrack')
+                    ->latest()
+                    ->get();
+
+                $campaigns = $campaigns->reject(function ($campaign)
+                {
+                    $sendOffer =  SendOffer::where(['curator_id' => Auth::id(), 'campaign_id' => $campaign->id])->first();
+                    return $sendOffer == true;
+                })->flatten();
+            }
+            else if ($request->option_filter == IMessageTemplates::GENRE)
+            {
+                $campaigns = Campaign::whereNotNull('track_id')
                     ->where('is_expired_campaign', 0)
                     ->doesntHave('curatorFavoriteTrack')
                     ->latest()
