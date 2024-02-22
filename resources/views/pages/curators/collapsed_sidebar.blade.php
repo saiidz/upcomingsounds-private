@@ -164,99 +164,102 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="startCollapse">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h3>{{ !empty($campaign->artistTrack) ? $campaign->artistTrack->name : '----'}}</h3>
+                            <div class="sticky-bar">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h3>{{ !empty($campaign->artistTrack) ? $campaign->artistTrack->name : '----'}}</h3>
 
-                                @if(!empty($campaign->curatorFavoriteArtist) && !empty($campaign->artistTrack->user))
-                                    <a href="javascript:void(0)" class="btn-favorite" @if($campaign->artistTrack) onclick="favoriteArtist({{$campaign->artistTrack->user->id}})" @endif data-toggle="tooltip" title="Saved Artist">
-                                        <i class=" {{ !empty($campaign->curatorFavoriteTrack) ? 'fa fa-heart colorAdd' : 'fa fa-heart-o' }}"></i>
-                                    </a>
-                                @else
-                                    @if(empty($campaign->curatorFavoriteArtist) && !empty($campaign->artistTrack->user))
+                                    @if(!empty($campaign->curatorFavoriteArtist) && !empty($campaign->artistTrack->user))
                                         <a href="javascript:void(0)" class="btn-favorite" @if($campaign->artistTrack) onclick="favoriteArtist({{$campaign->artistTrack->user->id}})" @endif data-toggle="tooltip" title="Saved Artist">
-                                            <i class="fa fa-heart-o"></i>
+                                            <i class=" {{ !empty($campaign->curatorFavoriteTrack) ? 'fa fa-heart colorAdd' : 'fa fa-heart-o' }}"></i>
                                         </a>
+                                    @else
+                                        @if(empty($campaign->curatorFavoriteArtist) && !empty($campaign->artistTrack->user))
+                                            <a href="javascript:void(0)" class="btn-favorite" @if($campaign->artistTrack) onclick="favoriteArtist({{$campaign->artistTrack->user->id}})" @endif data-toggle="tooltip" title="Saved Artist">
+                                                <i class="fa fa-heart-o"></i>
+                                            </a>
+                                        @endif
                                     @endif
-                                @endif
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center p-b-1">
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center p-b-1">
                                 <span class="h6 _800 text-white" >Release Type:
                                     <span style="color: #02b875 !important;">{{ !empty($campaign->artistTrack) ? Str::ucfirst($campaign->artistTrack->audio_cover) .' '. Str::ucfirst($campaign->artistTrack->release_type)  : '----'}}</span>
                                 </span>
-{{--                                <span class="h6 _800 text-white" >Release Kind: <span style="color: #02b875 !important;">{{ !empty($campaign->artistTrack) ? Str::ucfirst($campaign->artistTrack->audio_cover) : '----'}}</span></span>--}}
-{{--                                <span class="h6 _800 text-white">Release Type: <span style="color: #02b875 !important;">{{ !empty($campaign->artistTrack) ? Str::ucfirst($campaign->artistTrack->release_type) : '----'}}</span></span>--}}
-                            </div>
-                            <div class="d-flex p-b-1">
-                                <span class="h6 _800 text-white" >Release Date: <span style="color: #02b875 !important;">{{ !empty($campaign->artistTrack) ? getDateFormat($campaign->artistTrack->release_date) : '----'}}</span></span>
-                            </div>
-
-                            @if(!empty($campaign->artistTrack) && !empty($campaign->artistTrack->audio_description))
-                                <div class="item-except text-sm text-white">
-                                    <p>
-                                        <span class="h6 _800 text-white" style="color:red !important;">{{ ($campaign->artistTrack->release_date < \Illuminate\Support\Carbon::now()) ? 'Embargo:' : 'Embargo:'}} </span>{{ $campaign->artistTrack->audio_description }}
-                                    </p>
+                                    {{--                                <span class="h6 _800 text-white" >Release Kind: <span style="color: #02b875 !important;">{{ !empty($campaign->artistTrack) ? Str::ucfirst($campaign->artistTrack->audio_cover) : '----'}}</span></span>--}}
+                                    {{--                                <span class="h6 _800 text-white">Release Type: <span style="color: #02b875 !important;">{{ !empty($campaign->artistTrack) ? Str::ucfirst($campaign->artistTrack->release_type) : '----'}}</span></span>--}}
                                 </div>
-                            @endif
+                                <div class="d-flex p-b-1">
+                                    <span class="h6 _800 text-white" >Release Date: <span style="color: #02b875 !important;">{{ !empty($campaign->artistTrack) ? getDateFormat($campaign->artistTrack->release_date) : '----'}}</span></span>
+                                </div>
 
-                            @if(!empty($campaign->artistTrack) && count($campaign->artistTrack->artistTrackLanguages) > 0)
-                                <div class="item-info-tag">
-                                    <div class="item-action">
-                                        <div>
-                                            <span class="h6 _800 text-white">Track Languages: </span>
-                                            @foreach($campaign->artistTrack->artistTrackLanguages as $language)
-                                                <span class="btn btn-xs white campaignTag">{{$language->language->name}}</span>
-                                            @endforeach
+                                @if(!empty($campaign->artistTrack) && !empty($campaign->artistTrack->audio_description))
+                                    <div class="item-except text-sm text-white">
+                                        <p>
+                                            <span class="h6 _800 text-white" style="color:red !important;">{{ ($campaign->artistTrack->release_date < \Illuminate\Support\Carbon::now()) ? 'Embargo:' : 'Embargo:'}} </span>{{ $campaign->artistTrack->audio_description }}
+                                        </p>
+                                    </div>
+                                @endif
+
+                                @if(!empty($campaign->artistTrack) && count($campaign->artistTrack->artistTrackLanguages) > 0)
+                                    <div class="item-info-tag">
+                                        <div class="item-action">
+                                            <div>
+                                                <span class="h6 _800 text-white">Track Languages: </span>
+                                                @foreach($campaign->artistTrack->artistTrackLanguages as $language)
+                                                    <span class="btn btn-xs white campaignTag">{{$language->language->name}}</span>
+                                                @endforeach
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endif
-                            <div class="item-except text-sm text-white">
-                                <p>
-                                    <span class="h6 _800 text-white">Description: </span> {{ !empty($campaign->artistTrack) ? $campaign->artistTrack->description : '-----'}}
-                                </p>
-                            </div>
-                            @if(!empty($campaign->artistTrack) && !empty($campaign->artistTrack->pitch_description))
+                                @endif
                                 <div class="item-except text-sm text-white">
                                     <p>
-                                        <span class="h6 _800 text-white">Pitch: </span>{{ !empty($campaign->artistTrack) ? $campaign->artistTrack->pitch_description : '-----'}}
+                                        <span class="h6 _800 text-white">Description: </span> {{ !empty($campaign->artistTrack) ? $campaign->artistTrack->description : '-----'}}
                                     </p>
                                 </div>
-                            @endif
+                                @if(!empty($campaign->artistTrack) && !empty($campaign->artistTrack->pitch_description))
+                                    <div class="item-except text-sm text-white">
+                                        <p>
+                                            <span class="h6 _800 text-white">Pitch: </span>{{ !empty($campaign->artistTrack) ? $campaign->artistTrack->pitch_description : '-----'}}
+                                        </p>
+                                    </div>
+                                @endif
 
 
-                            <div class="row" id="camArtTraLink">
-                                @if(count($campaign->artistTrack->artistTrackLinks) > 0)
-                                    @foreach($campaign->artistTrack->artistTrackLinks as $link)
-                                        @if(!empty($link->link))
+                                <div class="row" id="camArtTraLink">
+                                    @if(count($campaign->artistTrack->artistTrackLinks) > 0)
+                                        @foreach($campaign->artistTrack->artistTrackLinks as $link)
+                                            @if(!empty($link->link))
+                                                <div class="col-sm-12" id="camArtLinks">
+                                                    @php
+                                                        echo $link->link;
+                                                    @endphp
+                                                </div>
+                                            @endif
+                                        @endforeach
+                                    @else
+                                        @if(!empty($campaign->artistTrack) && !empty($campaign->artistTrack->track_thumbnail))
                                             <div class="col-sm-12" id="camArtLinks">
-                                                @php
-                                                    echo $link->link;
-                                                @endphp
+                                                <img src="{{asset('uploads/track_thumbnail')}}/{{$campaign->artistTrack->track_thumbnail}}" style="width:100%" alt="">
                                             </div>
                                         @endif
-                                    @endforeach
-                                @else
-                                    @if(!empty($campaign->artistTrack) && !empty($campaign->artistTrack->track_thumbnail))
-                                        <div class="col-sm-12" id="camArtLinks">
-                                            <img src="{{asset('uploads/track_thumbnail')}}/{{$campaign->artistTrack->track_thumbnail}}" style="width:100%" alt="">
+                                    @endif
+                                </div>
+                                <div class="item-info-tag m-t-2" id="artistTrackTagsHideShow">
+                                    @if(!empty($campaign->artistTrack->artistTrackTags))
+                                        <div class="item-action">
+                                            <div>
+                                                @foreach($campaign->artistTrack->artistTrackTags as $tag)
+                                                    <span class="btn btn-xs white campaignTag">{{$tag->curatorFeatureTag->name}}</span>
+                                                @endforeach
+                                            </div>
                                         </div>
                                     @endif
-                                @endif
+                                </div>
                             </div>
-                            <div class="item-info-tag m-t-2" id="artistTrackTagsHideShow">
-                                @if(!empty($campaign->artistTrack->artistTrackTags))
-                                    <div class="item-action">
-                                        <div>
-                                            @foreach($campaign->artistTrack->artistTrackTags as $tag)
-                                                <span class="btn btn-xs white campaignTag">{{$tag->curatorFeatureTag->name}}</span>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                @endif
-                            </div>
+
                             <div class="campaignBtn" id="campaignBtnHideShow">
-                                <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn">
-                                    Report</a>
+{{--                                <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn">--}}
+{{--                                    Report</a>--}}
                                 {{-- It is for curator dashboard--}}
                                 <a href="javascript:void(0)" style="display:none;" onclick="submitCoverage()" id="submitCoverage" class="btn btn-sm rounded campaign_btn">
                                     Submit Coverage</a>

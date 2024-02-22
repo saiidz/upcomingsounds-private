@@ -717,11 +717,23 @@ header nav ul li a:hover {
       top: 0;
       right: 0;
       background-color: #363c43;
-      overflow-x: hidden;
+      /*overflow-x: hidden;*/
       transition: 0.5s;
       padding-top: 60px;
   }
 
+.sticky-bar {
+    height: 50%;
+    overflow-y: auto;
+    position: fixed;
+    overflow-x: hidden;
+}
+
+#campaignBtnHideShow {
+    position: fixed;
+    bottom: 100px;
+    width: 475px;
+}
   .sidebarCollapsed .closebtn,
   .sidebarCollapsed .btn-favorite {
       padding: 8px 8px 8px 32px;

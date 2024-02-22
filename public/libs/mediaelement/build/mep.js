@@ -68,7 +68,7 @@ window.mep = window.mep || {};
 				$media = $playlist.find( '.mep-audio, audio, .mep-video, video' ),
 				$data = $playlist.find( '.mep-playlist-data, script' ),
 				data, i, trackCount;
-			
+
 			if ( ! $data.length ) {
 				$data = $playlist.closest( settings.mepSelectors.container ).find( '.mep-playlist-data, script' );
 			}
@@ -577,7 +577,7 @@ window.mep = window.mep || {};
 			// Play the next track when one ends.
 			$media.on( 'ended.mep', function() {
 				var index = player.mepCurrentTrack + 1 >= player.options.mepPlaylistTracks.length ? 0 : player.mepCurrentTrack + 1;
-				
+
 				if(player.options.mepPlaylistRepeat){
 					index = player.mepCurrentTrack;
 					player.mepSetCurrentTrack(index);
@@ -744,24 +744,24 @@ window.mep = window.mep || {};
 				return isTracklistVisible ? 'is-tracklist-open' : 'is-tracklist-closed';
 			});
 
-			$( '<div class="mejs-button mejs-toggle-playlist-button mejs-toggle-playlist">' +
-				'<button type="button" aria-controls="' + player.id + '" title="' + mep.l10n.togglePlaylist + '"></button>' +
-				'</div>' )
-			.appendTo( player.controls )
-			.on( 'click', function() {
-				var $button = $( this ),
-					isTracklistVisible = $tracklist.is( ':visible' );
-
-				$button.toggleClass( 'is-open', ! isTracklistVisible ).toggleClass( 'is-closed', isTracklistVisible );
-				$playlist.toggleClass( 'is-tracklist-open', ! isTracklistVisible ).toggleClass( 'is-tracklist-closed', isTracklistVisible );
-
-				if ( $.isFunction( player.options.mepPlaylistToggle ) ) {
-					player.options.mepPlaylistToggle( $tracklist, player );
-				}
-			})
-			.addClass(function() {
-				return isTracklistVisible ? 'is-open' : 'is-closed';
-			});
+			// $( '<div class="mejs-button mejs-toggle-playlist-button mejs-toggle-playlist">' +
+			// 	'<button type="button" aria-controls="' + player.id + '" title="' + mep.l10n.togglePlaylist + '"></button>' +
+			// 	'</div>' )
+			// .appendTo( player.controls )
+			// .on( 'click', function() {
+			// 	var $button = $( this ),
+			// 		isTracklistVisible = $tracklist.is( ':visible' );
+            //
+			// 	$button.toggleClass( 'is-open', ! isTracklistVisible ).toggleClass( 'is-closed', isTracklistVisible );
+			// 	$playlist.toggleClass( 'is-tracklist-open', ! isTracklistVisible ).toggleClass( 'is-tracklist-closed', isTracklistVisible );
+            //
+			// 	if ( $.isFunction( player.options.mepPlaylistToggle ) ) {
+			// 		player.options.mepPlaylistToggle( $tracklist, player );
+			// 	}
+			// })
+			// .addClass(function() {
+			// 	return isTracklistVisible ? 'is-open' : 'is-closed';
+			// });
 		}
 	});
 
@@ -873,7 +873,7 @@ window.mep = window.mep || {};
   $.extend( MediaElementPlayer.prototype, {
     buildmeplike: function( player, controls, layers ) {
       var $like = layers.append( '<div class="mejs-track-actions"><button class="mejs-like-button btn btn-sm no-bg btn-icon"></button></div>' ).find( '.mejs-like-button' );
-      
+
       $like.click(function() {
           player.$node.trigger('like.mep', [$like.attr( 'track-id')] );
       });
