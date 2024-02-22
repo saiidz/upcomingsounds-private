@@ -27,6 +27,9 @@
             background-color: #363c43!important;
         }
         .itemMed:after {padding-top: 2% !important;}
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
     </style>
 @endsection
 
