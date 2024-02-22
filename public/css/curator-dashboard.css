@@ -727,9 +727,10 @@ header nav ul li a:hover {
     overflow-y: auto;
     position: fixed;
     overflow-x: hidden;
+    width: 470px;
 }
 
-#campaignBtnHideShow {
+#campaignBtnHideShow,#campaignBtnSubmitCoverage {
     position: fixed;
     bottom: 100px;
     width: 475px;
@@ -771,7 +772,7 @@ header nav ul li a:hover {
   }
 
   .startCollapse {
-      padding: 0 0 100px 0;
+      /*padding: 0 0 100px 0;*/
   }
 
   span.btn.btn-xs.white {

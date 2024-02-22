@@ -910,11 +910,13 @@
             $('#campaignBtnHideShow').css('display','none');
 
             $('#submitCoverageShowHide').css('display','block');
+            $('#campaignBtnSubmitCoverage').css('display','block');
         }
 
         function backToSubmitCoverageShowHide()
         {
             $('#submitCoverageShowHide').css('display','none');
+            $('#campaignBtnSubmitCoverage').css('display','none');
 
             $('#camArtTraLink').css('display','block');
             $('#artistTrackTagsHideShow').css('display','block');

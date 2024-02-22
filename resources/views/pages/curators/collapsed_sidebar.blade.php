@@ -255,6 +255,68 @@
                                         </div>
                                     @endif
                                 </div>
+
+                                {{--   Submit Coverage     --}}
+                                <div id="submitCoverageShowHide" style="display:none;">
+                                    <div class="collapsed_list">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="startCollapse">
+                                                    <div class="d-flex form-group">
+                                                        <label class="control-label form-control-label text-white">Coverage Type:</label>
+                                                        <div>
+                                                            <select class="form-control" name="offer_type" id="typeSubmitCoverage">
+                                                                <option disabled selected value="">Please Choose Submit Coverage</option>
+                                                                @if(!empty($offer_types))
+                                                                    @foreach($offer_types as $offer_type)
+                                                                        <option value="{{$offer_type->id}}" {{(!empty($offer_template) && $offer_type->id == $offer_template->offer_type) ? 'selected' : '' }}>{{$offer_type->name}}</option>
+                                                                    @endforeach
+                                                                @endif
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex form-group">
+                                                        <label class="control-label form-control-label text-white">Completed Work Url:</label>
+                                                        <div id="TextBoxesGroup">
+                                                            <div id="TextBoxDiv1">
+                                                                <div class="addEmbeded m-b" style="display: block !important;">
+                                                                    <div class="addMoreLinks" style="width: 100% !important;">
+                                                                        <input type="text" name="completion_url[]"
+                                                                               class="form-control moreLinks linksSubmitCoverage"
+                                                                               value="" id="textbox1"
+                                                                               placeholder="Please Add Completion Url">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12">
+                                                            <div class="addMoreRemoveLink">
+                                                                <div class="plusIcon">
+                                                                    <i class="fa fa-plus" onclick="addLinkButton()" style=" cursor: pointer;color: #02b875;">Add New Link</i>
+                                                                </div>
+                                                                <div class="plusIconRemove">
+                                                                    <i class="fa fa-remove" onclick="removeAddButton()" id="removeButton">Remove Link</i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex form-group">
+                                                        <label class="control-label form-control-label text-white">Message:</label>
+                                                        <div>
+                                                            <textarea id="messageSubmitCoverage" class="form-control" cols="30" rows="10"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="campaignBtn" style="margin-top: 10px; !important; text-align: center;" >
+                                                        <a href="javascript:void(0)" onclick="finalSubmitCoverage({{$campaign->user_id}},{{$campaign->track_id}})" class="btn btn-sm rounded campaign_btn ">
+                                                            Submit</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{--   Submit Coverage     --}}
+
                             </div>
 
                             <div class="campaignBtn" id="campaignBtnHideShow">
@@ -307,68 +369,14 @@
                                 @endif
                             </div>
 
-                            {{--   Submit Coverage     --}}
-                            <div id="submitCoverageShowHide" style="display:none;">
-                                <div class="collapsed_list">
-                                    <div class="row">
-                                        <div class="col-xs-12">
-                                            <div class="startCollapse">
-                                                <div class="d-flex form-group">
-                                                    <label class="control-label form-control-label text-white">Coverage Type:</label>
-                                                    <div>
-                                                        <select class="form-control" name="offer_type" id="typeSubmitCoverage">
-                                                            <option disabled selected value="">Please Choose Submit Coverage</option>
-                                                            @if(!empty($offer_types))
-                                                                @foreach($offer_types as $offer_type)
-                                                                    <option value="{{$offer_type->id}}" {{(!empty($offer_template) && $offer_type->id == $offer_template->offer_type) ? 'selected' : '' }}>{{$offer_type->name}}</option>
-                                                                @endforeach
-                                                            @endif
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex form-group">
-                                                    <label class="control-label form-control-label text-white">Completed Work Url:</label>
-                                                    <div id="TextBoxesGroup">
-                                                        <div id="TextBoxDiv1">
-                                                            <div class="addEmbeded m-b" style="display: block !important;">
-                                                                <div class="addMoreLinks" style="width: 100% !important;">
-                                                                    <input type="text" name="completion_url[]"
-                                                                           class="form-control moreLinks linksSubmitCoverage"
-                                                                           value="" id="textbox1"
-                                                                           placeholder="Please Add Completion Url">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-12">
-                                                        <div class="addMoreRemoveLink">
-                                                            <div class="plusIcon">
-                                                                <i class="fa fa-plus" onclick="addLinkButton()" style=" cursor: pointer;color: #02b875;">Add New Link</i>
-                                                            </div>
-                                                            <div class="plusIconRemove">
-                                                                <i class="fa fa-remove" onclick="removeAddButton()" id="removeButton">Remove Link</i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex form-group">
-                                                    <label class="control-label form-control-label text-white">Message:</label>
-                                                    <div>
-                                                        <textarea id="messageSubmitCoverage" class="form-control" cols="30" rows="10"></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="campaignBtn" style="margin-top: 115px; !important;">
-                                                    <a href="javascript:void(0)" onclick="backToSubmitCoverageShowHide()" class="btn btn-sm rounded campaign_btn ">
-                                                        Back</a>
-                                                    <a href="javascript:void(0)" onclick="finalSubmitCoverage({{$campaign->user_id}},{{$campaign->track_id}})" class="btn btn-sm rounded campaign_btn ">
-                                                        Submit</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="campaignBtn" id="campaignBtnSubmitCoverage" style="margin-top: 115px; !important; display:none;" >
+                                <a href="javascript:void(0)" onclick="backToSubmitCoverageShowHide()" class="btn btn-sm rounded campaign_btn ">
+                                    Back</a>
+{{--                                <a href="javascript:void(0)" onclick="finalSubmitCoverage({{$campaign->user_id}},{{$campaign->track_id}})" class="btn btn-sm rounded campaign_btn ">--}}
+{{--                                    Submit</a>--}}
                             </div>
-                            {{--   Submit Coverage     --}}
+
+
 
                         </div>
                     </div>
