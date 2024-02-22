@@ -170,6 +170,8 @@ class ArtistController extends Controller
         if ($request->hasfile('file')) {
             $file = $request->file('file');
             $name = $file->getClientOriginalName();
+            // Remove spaces from the file name
+            $name = str_replace(' ', '_', $name);
             $image_path = 'default_' . time() . $name;
 //            $filePath = 'artistProfile/' . $image_path;
 //            Helper::S3_UPLOAD($filePath,$file);

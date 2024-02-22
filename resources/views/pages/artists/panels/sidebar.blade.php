@@ -290,14 +290,14 @@
                              <span class="nav-text">Offers</span>
                          </a>
                      </li>
-                     <li>
-                         <a class="dropdown-item" href="{{ route('artist.new') }}" id="newOfferArtist">
-                                    <span class="nav-icon">
-                                        <i class="fa fa-bullseye"></i>
-                                    </span>
-                             <span class="nav-text">New</span>
-                         </a>
-                     </li>
+{{--                     <li>--}}
+{{--                         <a class="dropdown-item" href="{{ route('artist.new') }}" id="newOfferArtist">--}}
+{{--                                    <span class="nav-icon">--}}
+{{--                                        <i class="fa fa-bullseye"></i>--}}
+{{--                                    </span>--}}
+{{--                             <span class="nav-text">New</span>--}}
+{{--                         </a>--}}
+{{--                     </li>--}}
                      <li>
                          <a class="dropdown-item" href="{{ route('artist.pending') }}" id="pendingOfferArtist">
                                     <span class="nav-icon">
@@ -338,14 +338,14 @@
 {{--                             <span class="nav-text">Artists Submissions</span>--}}
 {{--                         </a>--}}
 {{--                     </li>--}}
-                     <li>
-                         <a class="dropdown-item" href="{{ route('artist.proposition') }}" id="propositionOfferArtist">
-                                    <span class="nav-icon">
-                                        <i class="fa fa-edit"></i>
-                                    </span>
-                             <span class="nav-text">Proposition</span>
-                         </a>
-                     </li>
+{{--                     <li>--}}
+{{--                         <a class="dropdown-item" href="{{ route('artist.proposition') }}" id="propositionOfferArtist">--}}
+{{--                                    <span class="nav-icon">--}}
+{{--                                        <i class="fa fa-edit"></i>--}}
+{{--                                    </span>--}}
+{{--                             <span class="nav-text">Proposition</span>--}}
+{{--                         </a>--}}
+{{--                     </li>--}}
                      <li>
                          <a class="dropdown-item" href="{{ route('artist.completed') }}" id="completedOfferArtist">
                                     <span class="nav-icon">
