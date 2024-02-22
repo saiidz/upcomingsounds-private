@@ -429,15 +429,16 @@
                                     <h3 id="nameOffer_"></h3>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center p-b-1">
-                                    <span class="_800 text-white" >Offer Type: <span style="color: #02b875 !important;" id="typeOffer_"></span></span>
-                                    <span class="_800 text-white">Alternative Option: <span style="color: #02b875 !important;" id="alternativeOffer_"></span></span>
+                                    <span class="_800 text-white" >Offer Type: <span style="color: inherit !important;opacity: 0.6;" id="typeOffer_"></span></span>
+                                    <span class="_800 text-white">Alternative Option: <span style="color: inherit !important;opacity: 0.6;" id="alternativeOffer_"></span></span>
+{{--                                    <span class="_800 text-white">Alternative Option: <span style="color: #02b875 !important;" id="alternativeOffer_"></span></span>--}}
                                 </div>
                                 <div class="d-flex p-b-1">
                                     <span class="h6 _800 text-white" >Contribution: <span style="color: #02b875 !important;" id="contribution_"></span></span>
                                 </div>
                                 <div class="item-except text-sm text-white">
                                     <p>
-                                        <span class="h6 _800 text-white">Offer Text: <span style="color: #02b875 !important;" id="offerText_"></span></span>
+                                        <span class="h6 _800 text-white">Offer Text: <span style="color: inherit !important;opacity: 0.6;font-size: 0.9rem;" id="offerText_"></span></span>
                                     </p>
                                 </div>
                                 <input type="hidden" id="offerTemplateID" value="">
