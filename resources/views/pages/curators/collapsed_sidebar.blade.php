@@ -405,11 +405,11 @@
                                     <a href="{{route('curator.direct.create.offer.template',['aid' => !empty($campaign->artistTrack) ? encrypt($campaign->artistTrack->user->id) : null,'cid' => encrypt($campaign->id)])}}" class="btn btn-sm rounded tem_btn ">
                                         Create a Offer</a>
                                 </div>
-                                <span class="or_">OR</span>
-                                <div class="submitCBtn text-center">
-                                    <a href="javascript:void(0)" class="btn btn-sm rounded tem_btn ">
-                                        Submit Coverage</a>
-                                </div>
+{{--                                <span class="or_">OR</span>--}}
+{{--                                <div class="submitCBtn text-center">--}}
+{{--                                    <a href="javascript:void(0)" class="btn btn-sm rounded tem_btn ">--}}
+{{--                                        Submit Coverage</a>--}}
+{{--                                </div>--}}
                                 <div class="campaignBtn" style="margin-top: 115px; !important;">
                                     <a href="javascript:void(0)" id="backToOverview" onclick="backToShowHide('overview')" class="btn btn-sm rounded campaign_btn ">
                                         Back to Overview</a>
