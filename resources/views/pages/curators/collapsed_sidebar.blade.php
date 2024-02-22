@@ -410,7 +410,7 @@
 {{--                                    <a href="javascript:void(0)" class="btn btn-sm rounded tem_btn ">--}}
 {{--                                        Submit Coverage</a>--}}
 {{--                                </div>--}}
-                                <div class="campaignBtn" style="margin-top: 115px; !important;">
+                                <div class="campaignBtn" style="margin-top: 40px; !important;">
                                     <a href="javascript:void(0)" id="backToOverview" onclick="backToShowHide('overview')" class="btn btn-sm rounded campaign_btn ">
                                         Back to Overview</a>
                                 </div>
