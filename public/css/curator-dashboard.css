@@ -936,6 +936,9 @@ header nav ul li a:hover {
       .progressBar{
           margin-right : 0px !important;
       }
+      #campaignBtnHideShow, #campaignBtnSubmitCoverage {
+          bottom: 40px !important;
+      }
   }
 
   @media (min-width: 320px) and (max-width: 480px) {
@@ -1022,6 +1025,9 @@ header nav ul li a:hover {
       }
       .progressBar{
           margin-right : 0px !important;
+      }
+      #campaignBtnHideShow, #campaignBtnSubmitCoverage {
+          bottom: 40px !important;
       }
   }
   /*collapse*/
