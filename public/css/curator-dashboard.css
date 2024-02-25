@@ -1027,7 +1027,8 @@ header nav ul li a:hover {
           margin-right : 0px !important;
       }
       #campaignBtnHideShow, #campaignBtnSubmitCoverage {
-          bottom: 40px !important;
+          bottom: 25px !important;
+          text-align: left !important;
       }
   }
   /*collapse*/
