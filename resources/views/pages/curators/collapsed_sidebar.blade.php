@@ -307,7 +307,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="campaignBtn" style="margin-top: 10px; !important; text-align: center;" >
-                                                        <a href="javascript:void(0)" onclick="finalSubmitCoverage({{$campaign->user_id}},{{$campaign->track_id}})" class="btn btn-sm rounded campaign_btn ">
+                                                        <a href="javascript:void(0)" onclick="finalSubmitCoverage({{$campaign->user_id}},{{$campaign->track_id}})" class="btn btn-sm rounded campaign_btn saveColorBgAdd">
                                                             Submit</a>
                                                     </div>
                                                 </div>
@@ -323,12 +323,12 @@
 {{--                                <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn">--}}
 {{--                                    Report</a>--}}
                                 {{-- It is for curator dashboard--}}
-                                <a href="javascript:void(0)" style="display:none;" onclick="submitCoverage()" id="submitCoverage" class="btn btn-sm rounded campaign_btn">
+                                <a href="javascript:void(0)" style="display:none;" onclick="submitCoverage()" id="submitCoverage" class="btn btn-sm rounded campaign_btn saveColorBgAdd">
                                     Submit Coverage</a>
                                 {{-- It is for curator dashboard--}}
 
                                 @if (Auth::check() && auth()->user() && auth()->user()->is_verified == 1)
-                                    <a href="javascript:void(0)" id="hideShowOffer" onclick="offerShowHide()" class="btn btn-sm rounded campaign_btn ">
+                                    <a href="javascript:void(0)" id="hideShowOffer" onclick="offerShowHide()" class="btn btn-sm rounded campaign_btn saveColorBgAdd">
                                         Offer</a>
 
                                 {{--                          @if(!empty($campaign->curatorFavoriteTrack) && $campaign->curatorFavoriteTrack->status == \App\Templates\IFavoriteTrackStatus::ACCEPTED)--}}
@@ -349,7 +349,7 @@
                                             Save</a>
                                     @else
                                         @if(empty($campaign->curatorFavoriteTrack))
-                                            <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn "
+                                            <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn saveColorBgAdd"
                                                @if($campaign->artistTrack) onclick="favoriteTrack({{$campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>
                                                 Save</a>
                                         @endif
@@ -361,7 +361,7 @@
                                             Decline</a>
                                     @else
                                         @if(empty($campaign->curatorFavoriteTrack))
-                                            <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn "
+                                            <a href="javascript:void(0)" class="btn btn-sm rounded campaign_btn declineColorBgAdd"
                                                @if($campaign->artistTrack) onclick="favoriteTrack({{$campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::REJECTED}}')" @endif>
                                                 Decline</a>
                                         @endif
@@ -370,7 +370,7 @@
                             </div>
 
                             <div class="campaignBtn" id="campaignBtnSubmitCoverage" style="margin-top: 115px; !important; display:none;" >
-                                <a href="javascript:void(0)" onclick="backToSubmitCoverageShowHide()" class="btn btn-sm rounded campaign_btn ">
+                                <a href="javascript:void(0)" onclick="backToSubmitCoverageShowHide()" class="btn btn-sm rounded campaign_btn saveColorBgAdd">
                                     Back</a>
 {{--                                <a href="javascript:void(0)" onclick="finalSubmitCoverage({{$campaign->user_id}},{{$campaign->track_id}})" class="btn btn-sm rounded campaign_btn ">--}}
 {{--                                    Submit</a>--}}
@@ -419,7 +419,7 @@
 {{--                                        Submit Coverage</a>--}}
 {{--                                </div>--}}
                                 <div class="campaignBtn" style="margin-top: 40px; !important;">
-                                    <a href="javascript:void(0)" id="backToOverview" onclick="backToShowHide('overview')" class="btn btn-sm rounded campaign_btn ">
+                                    <a href="javascript:void(0)" id="backToOverview" onclick="backToShowHide('overview')" class="btn btn-sm rounded campaign_btn saveColorBgAdd">
                                         Back to Overview</a>
                                 </div>
                             </div>
@@ -466,9 +466,9 @@
                                     </div>
                                 </div>
                                 <div class="campaignBtn" style="margin-top: 115px; !important;">
-                                    <a href="javascript:void(0)" onclick="backToShowHide('back')" class="btn btn-sm rounded campaign_btn ">
+                                    <a href="javascript:void(0)" onclick="backToShowHide('back')" class="btn btn-sm rounded campaign_btn saveColorBgAdd">
                                         Back</a>
-                                    <a href="javascript:void(0)" onclick="sendOffer({{$campaign->user_id}},{{$campaign->track_id}})" class="btn btn-sm rounded campaign_btn ">
+                                    <a href="javascript:void(0)" onclick="sendOffer({{$campaign->user_id}},{{$campaign->track_id}})" class="btn btn-sm rounded campaign_btn saveColorBgAdd">
                                         Send Offer</a>
                                 </div>
                             </div>

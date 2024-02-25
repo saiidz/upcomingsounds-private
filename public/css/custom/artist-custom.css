@@ -653,6 +653,15 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
 .colorBgAdd{
     background-color:#02b875 !important;
 }
+.declineColorBgAdd{
+    background-color:#ED4F32 !important;
+}
+.saveColorBgAdd:hover,
+.saveColorBgAdd:focus{
+    color: rgba(255, 255, 255, 0.87) !important;
+    background-color: #02b875 !important;
+    box-shadow: 0 10px 20px rgba(55, 206, 23, 0.72) !important;
+}
 
 
 
