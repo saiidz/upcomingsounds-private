@@ -8,6 +8,10 @@
         .Item{
             background-color: rgba(120, 120, 120, 0.1);
         }
+        .icon_UP{
+            width:20px;
+            height:20px;
+        }
     </style>
 @endsection
 
@@ -74,7 +78,10 @@
 
                                             <div class="m-t-sm offerAlternative">
                                                 <div>
-                                                    <span style="color:#02b875 !important">Contribution: </span><span class="btn btn-xs white">{{($verifiedContentCreatorCurator->verifiedCoverage->contribution) ? $verifiedContentCreatorCurator->verifiedCoverage->contribution : '----'}}</span>
+                                                    <span style="color:#02b875 !important">Contribution: </span>
+                                                    <span class="btn btn-xs white">{{($verifiedContentCreatorCurator->verifiedCoverage->contribution) ? $verifiedContentCreatorCurator->verifiedCoverage->contribution . ' USC' : '----'}}
+                                                        <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
+                                                    </span>
                                                 </div>
                                                 <div>
                                                     <span style="color:#02b875 !important">Offer Type: </span><span class="btn btn-xs white">{{!empty($verifiedContentCreatorCurator->verifiedCoverage->offerType->name) ? $verifiedContentCreatorCurator->verifiedCoverage->offerType->name : '----'}}</span>
