@@ -9,6 +9,10 @@
         .Item{
             background-color: rgba(120, 120, 120, 0.1);
         }
+        .icon_UP{
+            width:20px;
+            height:20px;
+        }
     </style>
 @endsection
 
@@ -67,7 +71,9 @@
                                             <div class="m-t-sm offerAlternative">
                                                 @if(!empty($offerTemplate->offerType))
                                                     <div>
-                                                        <span style="color:#02b875 !important">Contribution: </span><span class="btn btn-xs white">{{$offerTemplate->contribution ?? 0}} USC</span>
+                                                        <span style="color:#02b875 !important">Contribution: </span><span class="btn btn-xs white">{{$offerTemplate->contribution ?? 0}} USC
+                                                        <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
+                                                        </span>
                                                     </div>
                                                 @endif
                                                 @if(!empty($offerTemplate->offerType))

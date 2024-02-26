@@ -12,6 +12,9 @@
             width:20px;
             height:20px;
         }
+        .blue-tag {
+            color: blue;
+        }
     </style>
 @endsection
 
@@ -50,7 +53,7 @@
                                                 <span class="item-meta-date text-xs">{{($verifiedCoverage->created_at) ? \Carbon\Carbon::parse($verifiedCoverage->created_at)->format('M d Y') : ''}}</span>
                                             </div>
                                             <div
-                                                class="item-except visible-list text-sm text-muted m-t-sm">
+                                                class="item-except visible-list text-sm text-muted m-t-sm" id="descriptionContainer">
                                                 {!! $verifiedCoverage->description ?? '--' !!}
                                             </div>
                                             <div class="m-t-sm offerAlternative">
@@ -196,5 +199,21 @@
             $('#adminMsgModalCenter').modal('show');
 
         }
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Check if the description contains a certain tag (e.g., <a>)
+            var description = document.getElementById("descriptionContainer").innerHTML;
+            var containsTag = description.includes("<a");
+
+            // If the tag exists, add a CSS class to change its color
+            if (containsTag) {
+                var tags = document.querySelectorAll("#descriptionContainer a");
+                tags.forEach(function(tag) {
+                    tag.classList.add("blue-tag");
+                });
+            }
+        });
     </script>
 @endsection

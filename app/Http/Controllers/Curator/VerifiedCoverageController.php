@@ -120,6 +120,7 @@ class VerifiedCoverageController extends Controller
 
         $input['user_id'] = Auth::id();
         $input['v_c_offer_type'] = $request->offer_type ?? null;
+        $input['description'] = $request->description_details ?? null;
         $input['is_active'] = $verified_coverage->is_active;
         $input['is_approved'] = 0;
 
