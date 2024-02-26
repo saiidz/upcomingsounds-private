@@ -8,6 +8,7 @@ use App\Jobs\SendMailableJob;
 use App\Mail\CuratorSignupMailable;
 use App\Models\Country;
 use App\Models\CuratorFeature;
+use App\Models\CuratorFeatureTag;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Carbon\Carbon;
@@ -401,9 +402,16 @@ class CuratorSignupController extends Controller
         $curator_data = $request->session()->get('curator_data');
         $social_media_data = $request->session()->get('social_media_data');
 
-        if(!empty($curator_data) && !empty($curator_signup) && !empty($social_media_data)){
+        if(!empty($curator_data) && !empty($curator_signup) && !empty($social_media_data))
+        {
+            $curator_features_ids = CuratorFeature::pluck('id')->toArray();
+            $curator_featuress = CuratorFeatureTag::with('curatorFeature')->whereHas('curatorFeature', function($q){
+                $q->select('name');
+            })->whereIn('curator_feature_id', $curator_features_ids)->get()
+                ->groupBy('curatorFeature.name');
+
             $curator_features = CuratorFeature::all();
-            return view('pages.curators.curator-signup.curator-signup-step-3',compact('curator_data','curator_signup','social_media_data','curator_features'));
+            return view('pages.curators.curator-signup.curator-signup-step-3',get_defined_vars());
         }else{
             return redirect()->back();
         }

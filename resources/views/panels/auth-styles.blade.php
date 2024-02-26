@@ -37,6 +37,8 @@ success, touch, track, tracks, transparent, united, visibility,
     <link rel="stylesheet" href="{{asset('css/animate.css/animate.min.css')}}" type="text/css" />
     <link rel="stylesheet" href="{{asset('css/glyphicons/glyphicons.css')}}" type="text/css" />
     <link rel="stylesheet" href="{{asset('css/font-awesome/css/font-awesome.min.css')}}" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{asset('css/material-design-icons/material-design-icons.css')}}" type="text/css" />
     <link rel="stylesheet" href="{{asset('css/bootstrap/dist/css/bootstrap.min.css')}}" type="text/css" />
 
@@ -50,7 +52,48 @@ success, touch, track, tracks, transparent, united, visibility,
     <link rel="stylesheet" href="{{asset('libs/owl.carousel/dist/assets/owl.theme.css')}}" type="text/css" />
     <link rel="stylesheet" href="{{asset('libs/mediaelement/build/mediaelementplayer.min.css')}}" type="text/css" />
     <link rel="stylesheet" href="{{asset('libs/mediaelement/build/mep.css')}}" type="text/css" />
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
+    <style>
+        body {
+            font-family: "Segoe UI", "Trebuchet MS", "PT Sans", "Helvetica Neue", "HelveticaNeue-Light", Helvetica, Arial, sans-serif !important;
+        }
+        @media (min-width: 320px) and (max-width: 480px) {
+            .weLcoMeHeaderHide{
+                display:none !important;
+            }
+            .weLcoMeHeaderTopHide{
+                padding-top: 0 !important;
+            }
+        }
+        @media (min-width: 320px) and (max-width: 480px) {
+            #snackbarError{
+                top:113px !important;
+            }
+        }
+        #loadings {
+            background: rgba(255, 255, 255, .4) url({{asset('images/loader.gif')}}) no-repeat center center !important;
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            /*background: #fff url(../images/loader.gif) no-repeat center center;*/
+            z-index: 999999;
+        }
+    </style>
+    <link rel="stylesheet" href="{{asset('css/gijgo.min.css')}}" type="text/css" />
+    <style>
+        .x-twitter-icon::before {
+            content: "";
+            background-image: url({{asset('/images/x-twitter.png')}});
+            width: 22px;
+            height: 22px;
+            display: inline-block;
+            background-size: cover;
+            /*margin-top: 7px;*/
+        }
+    </style>
     <!-- endbuild -->
     @yield('page-style')
 </head>
