@@ -728,6 +728,7 @@ header nav ul li a:hover {
     position: fixed;
     overflow-x: hidden;
     /*width: 470px;*/
+    
 }
 
 #campaignBtnHideShow,#campaignBtnSubmitCoverage {
