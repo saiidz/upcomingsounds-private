@@ -44,6 +44,9 @@
         .update_profile{
             font-size:17px !important;
         }
+        .blue-tag {
+            color: blue;
+        }
     </style>
 @endsection
 
@@ -314,7 +317,7 @@
                         </div>
                         <div class="form-group row">
                             <div
-                                class="col-sm-12 form-control-label text-muted">{!! !empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->offer_text : '----' !!}</div>
+                                class="col-sm-12 form-control-label text-muted" id="descriptionContainerOfferText">{!! !empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->offer_text : '----' !!}</div>
                         </div>
                     </div>
                     @if(!empty($send_offer) && $send_offer->status == \App\Templates\IOfferTemplateStatus::REJECTED)
@@ -535,6 +538,21 @@
                     }
                 }
             });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Check if the description contains a certain tag (e.g., <a>)
+            var description = document.getElementById("descriptionContainerOfferText").innerHTML;
+            var containsTag = description.includes("<a");
+
+            // If the tag exists, add a CSS class to change its color
+            if (containsTag) {
+                var tags = document.querySelectorAll("#descriptionContainerOfferText a");
+                tags.forEach(function(tag) {
+                    tag.classList.add("blue-tag");
+                });
+            }
         });
     </script>
 @endsection
