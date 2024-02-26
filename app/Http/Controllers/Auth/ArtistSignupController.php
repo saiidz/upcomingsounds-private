@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\CuratorFeature;
+use App\Models\CuratorFeatureTag;
 use App\Templates\IEmails;
 use Carbon\Carbon;
 use App\Models\User;
@@ -9,6 +11,10 @@ use App\Models\Country;
 use App\Models\Feature;
 use App\Models\FeatureTag;
 use App\Models\ReApplyUser;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Controller;
@@ -128,10 +134,8 @@ class ArtistSignupController extends Controller
     }
 
     /**
-     * artistSignupStep4
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return mixed
+     * @param Request $request
+     * @return Application|Factory|View|RedirectResponse
      */
     public function artistSignupStep4(Request $request)
     {
@@ -143,6 +147,12 @@ class ArtistSignupController extends Controller
                                                 $q->select('name');
                                             })->whereIn('feature_id', $features_ids)->get()
                                             ->groupBy('feature.name');
+
+            $curator_features_ids = CuratorFeature::pluck('id')->toArray();
+            $curator_featuress = CuratorFeatureTag::with('curatorFeature')->whereHas('curatorFeature', function($q){
+                $q->select('name');
+            })->whereIn('curator_feature_id', $curator_features_ids)->get()
+                ->groupBy('curatorFeature.name');
 
             $features = Feature::all();
             return view('pages.artists.artist-signup.artist-signup-step-4',get_defined_vars());
@@ -354,7 +364,7 @@ class ArtistSignupController extends Controller
                     foreach($artist_tags['tag'] as $tag)
                     {
                         $input['user_id']        = $user->id;
-                        $input['feature_tag_id'] = (int) $tag;
+                        $input['curator_feature_tag_id'] = (int) $tag;
                         $user->userTags()->create($input);
                     }
                 }

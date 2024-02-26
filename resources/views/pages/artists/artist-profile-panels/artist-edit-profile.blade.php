@@ -323,8 +323,8 @@
         <div class="form-group row">
             <div class="col-sm-12">
                 <div class="section" id="faq">
-                    @if(isset($new_features) && !empty($new_features))
-                        @foreach ($new_features as $key => $new_feature)
+                    @if(isset($curator_featuress) && !empty($curator_featuress))
+                        @foreach ($curator_featuress as $key => $new_feature)
                             <div class="faq row">
                                 <div class="col-sm-12">
                                     <div class="collapsible-header features_tAgs">
@@ -351,6 +351,47 @@
                             </div>
                         @endforeach
                     @endif
+
+
+{{--                    @if(isset($new_features) && !empty($new_features))--}}
+{{--                        @foreach ($new_features as $key => $new_feature)--}}
+{{--                            <div class="faq row">--}}
+{{--                                <div class="col-sm-12">--}}
+{{--                                    <div class="collapsible-header features_tAgs">--}}
+{{--                                        {{ $key }}--}}
+{{--                                    </div>--}}
+{{--                                    <div class="features-box">--}}
+{{--                                        <ul class="ks-cboxtags">--}}
+{{--                                            @foreach($new_feature as $feature)--}}
+{{--                                                <li>--}}
+{{--                                                    <input type="checkbox"--}}
+{{--                                                        id="checkboxOne{{$feature->id}}"--}}
+{{--                                                        name="tag[]" value="{{$feature->id}}"--}}
+{{--                                                        {{in_array($feature->id, $selected_feature) ? 'checked' : ''}}--}}
+{{--                                                        class="@error('tag') is-invalid @enderror">--}}
+{{--                                                    <label--}}
+{{--                                                        for="checkboxOne{{$feature->id}}">--}}
+{{--                                                        {{$feature->name}}--}}
+{{--                                                    </label>--}}
+{{--                                                </li>--}}
+{{--                                            @endforeach--}}
+{{--                                        </ul>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        @endforeach--}}
+{{--                    @endif--}}
+
+
+
+
+
+
+
+
+
+
+
                     {{-- @if(isset($features) && !empty($features))
                         @if($features[0]->name == 'Metal')
                             <div class="faq row">

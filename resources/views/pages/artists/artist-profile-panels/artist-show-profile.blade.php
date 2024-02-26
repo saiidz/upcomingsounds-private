@@ -141,7 +141,9 @@
                 @foreach($userTags as $tags)
                     <ul>
                         @foreach($tags as $tag)
-                            <li>{{$tag->featureTag->name}}</li>
+                            @if(!empty($tag->curatorFeatureTag))
+                                <li>{{!empty($tag->curatorFeatureTag->name) ? $tag->curatorFeatureTag->name : null}}</li>
+                            @endif
                         @endforeach
                     </ul>
                 @endforeach

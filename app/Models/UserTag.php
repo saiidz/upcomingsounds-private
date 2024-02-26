@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class UserTag extends Model
 {
@@ -12,14 +13,32 @@ class UserTag extends Model
 
     protected $fillable = [
         'user_id',
+        'curator_feature_tag_id',
         'feature_tag_id',
     ];
 
-    // User
-    public function user(){
+
+    /**
+     * @return BelongsTo
+     */
+    public function user(): BelongsTo
+    {
         return $this->belongsTo(User::class);
     }
-    public function featureTag(){
+
+    /**
+     * @return BelongsTo
+     */
+    public function featureTag(): BelongsTo
+    {
         return $this->belongsTo(FeatureTag::class);
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function curatorFeatureTag(): BelongsTo
+    {
+        return $this->belongsTo(CuratorFeatureTag::class);
     }
 }

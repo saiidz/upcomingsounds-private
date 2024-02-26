@@ -11,6 +11,11 @@ use App\Models\CuratorFeature;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Carbon\Carbon;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -557,7 +562,8 @@ class CuratorSignupController extends Controller
     }
 
     /**
-     * curatorApprovalAdmin
+     * @param Request $request
+     * @return Application|Factory|View|RedirectResponse
      */
     public function curatorApprovalAdmin(Request $request)
     {
@@ -568,7 +574,8 @@ class CuratorSignupController extends Controller
     }
 
     /**
-     * curatorRejectedAdmin
+     * @param Request $request
+     * @return Application|Factory|View|RedirectResponse
      */
     public function curatorRejectedAdmin(Request $request)
     {
@@ -579,7 +586,8 @@ class CuratorSignupController extends Controller
     }
 
     /**
-     * instagramProfileShow.
+     * @param Request $request
+     * @return JsonResponse|void
      */
     public function instagramProfileShow(Request $request)
     {
@@ -612,7 +620,9 @@ class CuratorSignupController extends Controller
     }
 
     /**
-     * tiktokProfileShow.
+     * @param Request $request
+     * @return JsonResponse|void
+     * @throws \Exception
      */
     public function tiktokProfileShow(Request $request)
     {
@@ -650,7 +660,8 @@ class CuratorSignupController extends Controller
     }
 
     /**
-     * youtubeSubscriberShow.
+     * @param Request $request
+     * @return JsonResponse|void
      */
     public function youtubeSubscriberShow(Request $request)
     {

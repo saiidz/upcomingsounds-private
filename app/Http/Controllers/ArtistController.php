@@ -39,7 +39,7 @@ class ArtistController extends Controller
     public function artistProfile()
     {
         $user_artist = Auth::user();
-        $selected_feature = $user_artist->userTags->pluck('feature_tag_id')->toArray();
+        $selected_feature = $user_artist->userTags->pluck('curator_feature_tag_id')->toArray();
         $countries = Country::all();
 //        $countries_flag = new Countries();
 //        $countries_flag = $countries_flag->all();
@@ -118,13 +118,14 @@ class ArtistController extends Controller
                 'artist_representative_publisher' => ($request->get('artist_representative_publisher')) ? $request->get('artist_representative_publisher') : null,
             ]);
 
-            // Feature Tag
-            if($request->get('tag')){
-                $selected_feature = $user->userTags()->pluck('feature_tag_id')->toArray();
-                UserTag::whereIn('feature_tag_id',$selected_feature)->delete();
+            # Feature Tag
+            if($request->get('tag'))
+            {
+                $selected_feature = $user->userTags()->pluck('curator_feature_tag_id')->toArray();
+                UserTag::whereIn('curator_feature_tag_id',$selected_feature)->delete();
                 foreach ($request->get('tag') as $tag){
                     $input['user_id']        = $user->id;
-                    $input['feature_tag_id'] = (int) $tag;
+                    $input['curator_feature_tag_id'] = (int) $tag;
                     $user->userTags()->create($input);
                 }
             }else{

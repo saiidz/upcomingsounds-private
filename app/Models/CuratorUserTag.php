@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class CuratorUserTag extends Model
 {
@@ -16,11 +17,19 @@ class CuratorUserTag extends Model
         'curator_feature_tag_id',
     ];
 
-    // User
-    public function user(){
+    /**
+     * @return BelongsTo
+     */
+    public function user(): BelongsTo
+    {
         return $this->belongsTo(User::class);
     }
-    public function curatorFeatureTag(){
+
+    /**
+     * @return BelongsTo
+     */
+    public function curatorFeatureTag(): BelongsTo
+    {
         return $this->belongsTo(CuratorFeatureTag::class);
     }
 }
