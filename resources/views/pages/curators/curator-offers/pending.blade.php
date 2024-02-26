@@ -26,6 +26,7 @@
                             @foreach($sendOffers as $sendOffer)
                                 <div class="col-xs-12 remove_offer m-b" id="remove_offer-{{$sendOffer->curatorOfferTemplate->id}}">
                                     <div class="item r Item" data-id="item-{{$sendOffer->id}}">
+                                        @include('pages.curators.curator-offers.__artist-profile')
                                         <div class="item-info">
                                             <div class="bottom text-right">
                                                 {{--                                                <div id="deMo">--}}
