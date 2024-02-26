@@ -597,16 +597,18 @@ class FrontendController extends Controller
             $theme_banner = json_decode($theme->value);
         }
 
-        if ($request->hasFile('curator_banner_img')) {
-            if (!empty($theme_banner))
+        if ($request->hasFile('curator_banner_img'))
+        {
+            if (!empty($theme_banner->curator_banner_img))
             {
-                $themeBanner = public_path($theme_banner);
+                $themeBanner = public_path($theme_banner->curator_banner_img);
                 if(file_exists($themeBanner)) {
                     unlink($themeBanner);
                 }
             }
 
             $banner = $request->file('curator_banner_img');
+
             $name = str_replace(' ', '', $banner->getClientOriginalName());
             $image_path = 'curator_banner_img_'. $name;
             $banner->move(public_path() . '/uploads/curatorssetting/', $image_path);

@@ -171,8 +171,8 @@
                                                     </div>
                                             @endif
                                             @else
-                                                <div class="slide-image slide-media" style="background-image:url({{asset(!empty($theme->curator_banner_img) ? $theme->curator_banner_img : 'images/banner_cd.png')}});">
-                                                    <img data-lazy="{{asset(!empty($theme->curator_banner_img) ? $theme->curator_banner_img : 'images/banner_cd.png')}}" class="image-entity" />
+                                                <div class="slide-image slide-media" style="background-image:url({{asset(!empty($theme->curator_banner_img) ? $theme->curator_banner_img : 'images/dahboard_banner.png')}});">
+                                                    <img data-lazy="{{asset(!empty($theme->curator_banner_img) ? $theme->curator_banner_img : 'images/dahboard_banner.png')}}" class="image-entity" />
                                                 </div>
                                             @endif
                                         </figure>
