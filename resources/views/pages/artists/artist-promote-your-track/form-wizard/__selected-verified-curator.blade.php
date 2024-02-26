@@ -3,7 +3,8 @@
         <div class="title__container">
             <div class="separatortrack">
                 <div class="promoteAddTrack" style="display: flex;align-items: center;justify-content: space-between;margin: 0;padding: 0;">
-                    <h4><span style="border-bottom: 5px solid #da4441;padding-bottom: 5px; ">Verified</span> Selected Curator</h4>
+                    <h4><span style="padding-bottom: 5px; ">Verified</span> Selected Curator</h4>
+{{--                    <h4><span style="border-bottom: 5px solid #da4441;padding-bottom: 5px; ">Verified</span> Selected Curator</h4>--}}
                     <div>
                         <h3 id="showCuratorProsSelect" style="color: #02b875 !important;">
                             Total : <span id="totalUSCCredits" style="color: #02b875 !important;"> {{ $uscSelectedCreditSum ?? 0 }}</span>  <img class="icon_UP" src="{{asset('images/coin_bg.png')}}">
@@ -29,7 +30,7 @@
                 <div class="col-lg-9 b-r no-border-md">
                     <div class="padding">
                         <div class="artistTrackInfo">
-                            <h4><span style="border-bottom: 5px solid #da4441;padding-bottom: 5px; ">My</span> Track Recap</h4>
+                            <h4><span style="padding-bottom: 5px; ">My</span> Track Recap</h4>
                             <p class="m-b-md m-t-md">Track, track info and pitch will be shared with {{ $countVerifiedCoverages ?? 0 }} curators</p>
                             <div class="input__container">
                                 <div class="row item-list item-list-md m-b" id="StepFirst">
@@ -69,7 +70,7 @@
 
                     {{-- selected verified coverage curators --}}
                         <div class="selec_Cov_cura">
-                            <h4><span style="border-bottom: 5px solid #da4441;padding-bottom: 5px; ">My {{ $countVerifiedCoverages ?? 0 }}</span> Selected Curators</h4>
+                            <h4><span style="padding-bottom: 5px; ">My {{ $countVerifiedCoverages ?? 0 }}</span> Selected Curators</h4>
                             <div class="input__container">
                                 <div class="row item-list item-list-md m-b" id="StepFirst">
                                     @if(count($verifiedCoverages) > 0)
