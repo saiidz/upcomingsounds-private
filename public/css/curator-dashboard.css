@@ -937,7 +937,10 @@ header nav ul li a:hover {
           margin-right : 0px !important;
       }
       #campaignBtnHideShow, #campaignBtnSubmitCoverage {
-          bottom: 40px !important;
+          bottom: 20px !important;
+      }
+      .sticky-bar {
+          height: 37% !important;
       }
   }
 
