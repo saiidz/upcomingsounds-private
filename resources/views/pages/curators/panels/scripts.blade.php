@@ -81,11 +81,11 @@
         });
         $('#showGetVerifiedRedirect').on('click', function ()
         {
-            window.location.href = '/taste-maker/get-verified';
+            window.location.href = '/taste-maker/get-verified?submissions';
         });
         $('#showGetVerifiedRedirectPOffer').on('click', function ()
         {
-            window.location.href = '/taste-maker/get-verified';
+            window.location.href = '/taste-maker/get-verified?offer';
         });
         $('#curatorSubmitCoverage').on('click', function ()
         {

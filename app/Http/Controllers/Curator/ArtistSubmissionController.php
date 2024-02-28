@@ -224,7 +224,7 @@ class ArtistSubmissionController extends Controller
     /**
      * @return Application|Factory|View
      */
-    public function getVerified()
+    public function getVerified(Request $request)
     {
 //        $curator_verification_form = CuratorVerificationForm::where('user_id', Auth::id())->latest()->first();
         $curatorVerificationForm = CuratorVerificationForm::select('curator_verification_forms.*')
