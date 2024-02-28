@@ -50,6 +50,7 @@
 <div id="verifiedModal" class="modal">
     <form class="new_basicform_verified_with_reload" action="{{ route('admin.store.verified.curator', $user->id) }}" id="verifiedCuratorForm" method="post">
         @csrf
+        <input type="hidden" name="curator_verification_form_id" id="verifiedCuratorVerificationFormID">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Add Reason For Verified</h5>
@@ -67,12 +68,13 @@
         </div>
     </form>
 </div>
-{{--  Approved Modal --}}
+{{--  Verified Modal --}}
 
 {{-- Reject Modal  --}}
 <div id="rejectVerifyModal" class="modal">
     <form class="new_basicform_verified_reject_with_reload" action="{{ route('admin.store.rejected.curator', $user->id) }}" id="rejectCuratorForm" method="post">
         @csrf
+        <input type="hidden" name="curator_verification_form_id" id="rejectCuratorVerificationFormID">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Add Reason For Reject</h5>

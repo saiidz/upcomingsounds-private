@@ -69,10 +69,12 @@ Route::group(['as' => 'admin.','middleware' => ['auth','verify_if_admin']], func
     Route::post('store-curator-reject/{user}',[CuratorController::class,'storeRejectCurator'])->name('store.curator.reject');
     Route::delete('curator/{id}/destroy', [CuratorController::class,'deleteCurator'])->name('curator.destroy');
 
-    // curator verification form
-    Route::get('curator-verification/{user}',[CuratorController::class,'curatorVerifcationShow'])->name('curator.verification.show');
+    # curator verification form
+    Route::get('curator-verification/{user}',[CuratorController::class,'curatorVerificationShow'])->name('curator.verification.show');
     Route::post('store-verified-curator/{user}', [CuratorController::class,'storeVerifiedCurator'])->name('store.verified.curator');
     Route::post('store-rejected-curator/{user}', [CuratorController::class,'storeRejectedCurator'])->name('store.rejected.curator');
+    Route::get('allow-curator-verification/{user}', [CuratorController::class,'allowCuratorVerification'])->name('allow-curator-verification');
+    Route::get('remove-curator-verification/{user}', [CuratorController::class,'removeAllowCuratorVerification'])->name('remove-allow-curator-verification');
 
     // Help Tickets Route
     Route::get('tickets', [TicketHelpController::class,'helpTicket'])->name('help.ticket');

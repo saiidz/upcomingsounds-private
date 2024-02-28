@@ -226,7 +226,19 @@ class ArtistSubmissionController extends Controller
      */
     public function getVerified()
     {
-        $curator_verification_form = CuratorVerificationForm::where('user_id', Auth::id())->latest()->first();
+//        $curator_verification_form = CuratorVerificationForm::where('user_id', Auth::id())->latest()->first();
+        $curatorVerificationForm = CuratorVerificationForm::select('curator_verification_forms.*')
+            ->whereIn('id', function ($query) {
+                $query->select(DB::raw('MAX(id) as id'))
+                    ->from('curator_verification_forms')
+                    ->where('user_id', auth()->id());
+            })
+            ->first();
+
+        $curatorVerificationFormCount = CuratorVerificationForm::where('user_id', Auth::id())->count();
+
+        $user = Auth::user();
+
         $theme = Option::where('key', 'curators_settings')->first();
         $theme = !empty($theme) ? json_decode($theme->value) : '';
         return view('pages.curators.curator-get-verified.get-verified', get_defined_vars());
@@ -348,6 +360,10 @@ class ArtistSubmissionController extends Controller
         }
     }
 
+    /**
+     * @param Request $request
+     * @return JsonResponse|void
+     */
     public function filterArtistSubmission(Request $request)
     {
         if ($request->option_filter)

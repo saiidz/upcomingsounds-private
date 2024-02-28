@@ -14,10 +14,8 @@ use Illuminate\Support\Facades\Validator;
 class CuratorVerificationFormController extends Controller
 {
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return JsonResponse
      */
     public function storeVerificationForm(Request $request): JsonResponse
     {
@@ -35,16 +33,20 @@ class CuratorVerificationFormController extends Controller
             return response()->json(['errors' => $validator->errors()->all()]);
         }
 
-        $curator_verification_form = CuratorVerificationForm::where(['user_id' => Auth::id(), 'apply_count' => 3])->first();
+//        $curator_verification_form = CuratorVerificationForm::where(['user_id' => Auth::id(), 'apply_count' => 3])->first();
+//
+//        if(isset($curator_verification_form))
+//        {
+//            return response()->json(['error' => 'You have completed three chance. You cannot send again submit verification form.']);
+//        }
 
-        if(isset($curator_verification_form))
-        {
-            return response()->json(['error' => 'You have completed three chance. You cannot send again submit verification form.']);
-        }
+        # Update previous records with is_block = 0 for the same user_id
+//        CuratorVerificationForm::where('user_id', Auth::id())->where('is_block', 1)->update(['is_block' => 0]);
 
         $input                 = $request->all();
         $input['user_id']      = Auth::id();
         $input['descriptions'] = $request->get('description_details');
+//        $input['is_block']     = 1;
 
         if ($request->hasfile('image')) {
             $file = $request->file('image');

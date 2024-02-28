@@ -21,6 +21,9 @@ class CuratorVerificationForm extends Model
         'descriptions',
         'embedded_player',
         'apply_count',
+        'message',
+        'is_block',
+        'status',
     ];
     // User
     public function user(){

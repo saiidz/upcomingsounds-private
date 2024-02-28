@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
 use App\Helpers\Helper;
+use App\Templates\IOfferTemplateStatus;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -155,11 +156,12 @@ class CuratorController extends Controller
      * @param User $user
      * @return Application|Factory|View|RedirectResponse
      */
-    public function curatorVerifcationShow(User $user)
+    public function curatorVerificationShow(User $user)
     {
         if(!empty($user))
         {
             $verification_curators = CuratorVerificationForm::where('user_id',$user->id)->latest()->get();
+            $curatorVerificationFormCount = CuratorVerificationForm::where('user_id', $user->id)->count();
             return view('admin.pages.curators.curator_verification_view', get_defined_vars());
         }else{
             return redirect()->back();
@@ -185,6 +187,13 @@ class CuratorController extends Controller
 
         if(!empty($user))
         {
+            $curatorVerificationForm = CuratorVerificationForm::findOrFail($request->curator_verification_form_id);
+            $curatorVerificationForm->update([
+                'message'  => $request->description_details ?? null,
+                'is_block' => 1,
+                'status'   => IOfferTemplateStatus::ACCEPTED
+            ]);
+
             $user->update([
                 'is_verified' => 1,
                 'is_rejected' => 0
@@ -234,22 +243,29 @@ class CuratorController extends Controller
         {
             if(!empty($user->curatorVerificationForm))
             {
-                $count_apply = $user->curatorVerificationForm->last()->apply_count;
+                # find curator_verification_form_id
+                $curatorVerificationForm = CuratorVerificationForm::findOrFail($request->curator_verification_form_id);
+//                $count_apply = $user->curatorVerificationForm->last()->apply_count;
+//
+//                if($count_apply == 3)
+//                {
+                $curatorVerificationForm->update([
+                    'message'  => $request->description_details ?? null,
+                    'status' => IOfferTemplateStatus::REJECTED
+                ]);
 
-                if($count_apply == 3)
-                {
-                    $user->update([
-                        'is_verified' => 0,
-                        'is_rejected' => 1
-                    ]);
+                $user->update([
+                    'is_verified' => 0,
+                    'is_rejected' => 1
+                ]);
 
                     // if($user->phone_number)
                     //     Helper::twilioOtp($user->phone_number, IMessageTemplates::CURATORREJECTEDCOMPLETEDMESSAGE);
-                }else{
+//                }else{
                     // if($user->phone_number)
                     //     Helper::twilioOtp($user->phone_number, IMessageTemplates::CURATORREJECTEDMESSAGE);
 
-                }
+//                }
 
                 $data['email'] = $user->email;
                 $data['username'] = $user->name;
@@ -270,5 +286,41 @@ class CuratorController extends Controller
         }
         return response()->json(['success' => 'Curator Verified Rejected successfully and send email to Curator.']);
         // return redirect()->back()->with('success','Curator Rejected successfully and send message to curator.');
+    }
+
+    /**
+     * @param User $user
+     * @return RedirectResponse
+     */
+    public function allowCuratorVerification(User $user)
+    {
+        if(!empty($user))
+        {
+            $user->update([
+                'is_allow_curator_verification' => 1,
+            ]);
+
+            return redirect()->back()->with('success','Curator verification allow successfully.');
+        }else{
+            return redirect()->back();
+        }
+    }
+
+    /**
+     * @param User $user
+     * @return RedirectResponse
+     */
+    public function removeAllowCuratorVerification(User $user)
+    {
+        if(!empty($user))
+        {
+            $user->update([
+                'is_allow_curator_verification' => 0,
+            ]);
+
+            return redirect()->back()->with('success','Curator verification allow successfully.');
+        }else{
+            return redirect()->back();
+        }
     }
 }

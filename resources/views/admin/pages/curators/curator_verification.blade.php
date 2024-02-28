@@ -78,6 +78,16 @@
                                                         @endforeach
                                                     @endif
 												</tbody>
+                                                <tfoot>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>Name</th>
+                                                    <th>Email</th>
+                                                    <th>Verified</th>
+                                                    <th>Role</th>
+                                                    <th>View</th>
+                                                </tr>
+                                                </tfoot>
                                             </table>
 										</div>
 									</div>

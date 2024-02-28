@@ -48,6 +48,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'is_approved',
         'is_verified',
         'is_rejected',
+        'is_allow_curator_verification',
         'is_public_profile',
         'status',
         'is_phone_verified',

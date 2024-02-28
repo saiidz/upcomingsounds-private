@@ -58,40 +58,54 @@
                                 </div>
                             </div>
                             <div class="col s12 m5 quick-action-btns display-flex justify-content-end align-items-center pt-2">
-                                @if ($user->is_verified == 0 && $user->is_rejected == 0)
 
-                                    <a href="#verifiedModal" data-id={{ $user->id }} class="btn-small btn-light-indigo dropdown-item has-icon modal-trigger verified-curator-confirm">
-                                        Verified
+                                @if($curatorVerificationFormCount >= 3 && $user->is_verified == 0 && $user->is_rejected == 1
+                                        && $user->is_allow_curator_verification == 0)
+                                    <a href="{{ route('admin.allow-curator-verification',$user->id) }}" class="btn-small btn-light-indigo dropdown-item has-icon">
+                                        Allow Curator Verification
                                     </a>
-
-                                    {{-- <a href="javascript:void(0)" data-id={{ $user->id }} class="btn-small btn-light-indigo dropdown-item has-icon verified-curator-confirm">
-                                        Verified
-                                    </a>
-
-                                    <!-- Delete Form -->
-                                    <form class="d-none" id="verified_curator_form_{{ $user->id }}" action="{{ route('admin.store.verified.curator', $user->id) }}" method="POST">
-                                        @csrf
-                                    </form> --}}
-                                @elseif (($user->is_verified == 1 && $user->is_rejected == 0))
-                                    <span class="btn disabled">Verified</span>
                                 @endif
-
-                                @if ($user->is_rejected == 0 && $user->is_verified == 0)
-                                    <a href="#rejectVerifyModal" data-id={{ $user->id }} class="btn-small btn-light-red dropdown-item has-icon modal-trigger rejected-curator-confirm">
-                                        Reject
+                                @if($curatorVerificationFormCount >= 3 && $user->is_verified == 0 && $user->is_rejected == 1
+                                       && $user->is_allow_curator_verification == 1)
+                                    <a href="{{ route('admin.remove-allow-curator-verification',$user->id) }}" class="btn-small btn-light-red dropdown-item has-icon">
+                                        Remove Allow Curator Verification
                                     </a>
-
-                                    {{-- <a href="javascript:void(0)" data-id={{ $user->id }} class="btn-small btn-light-red dropdown-item has-icon rejected-curator-confirm">
-                                        Rejected
-                                    </a>
-
-                                    <!-- Delete Form -->
-                                    <form class="d-none" id="rejected_curator_form_{{ $user->id }}" action="{{ route('admin.store.rejected.curator', $user->id) }}" method="POST">
-                                        @csrf
-                                    </form> --}}
-                                @elseif ($user->is_verified == 0 && $user->is_rejected == 1)
-                                    <span class="btn disabled">Rejected</span>
                                 @endif
+{{--                                @if ($user->is_verified == 0 && $user->is_rejected == 0)--}}
+
+{{--                                    <a href="#verifiedModal" data-id={{ $user->id }} class="btn-small btn-light-indigo dropdown-item has-icon modal-trigger verified-curator-confirm">--}}
+{{--                                        Verified--}}
+{{--                                    </a>--}}
+
+{{--                                    --}}{{-- <a href="javascript:void(0)" data-id={{ $user->id }} class="btn-small btn-light-indigo dropdown-item has-icon verified-curator-confirm">--}}
+{{--                                        Verified--}}
+{{--                                    </a>--}}
+
+{{--                                    <!-- Delete Form -->--}}
+{{--                                    <form class="d-none" id="verified_curator_form_{{ $user->id }}" action="{{ route('admin.store.verified.curator', $user->id) }}" method="POST">--}}
+{{--                                        @csrf--}}
+{{--                                    </form> --}}
+{{--                                @elseif (($user->is_verified == 1 && $user->is_rejected == 0))--}}
+{{--                                    <span class="btn disabled">Verified</span>--}}
+{{--                                @endif--}}
+
+{{--                                @if ($user->is_rejected == 0 && $user->is_verified == 0)--}}
+{{--                                    <a href="#rejectVerifyModal" data-id={{ $user->id }} class="btn-small btn-light-red dropdown-item has-icon modal-trigger rejected-curator-confirm">--}}
+{{--                                        Reject--}}
+{{--                                    </a>--}}
+
+{{--                                    --}}{{-- <a href="javascript:void(0)" data-id={{ $user->id }} class="btn-small btn-light-red dropdown-item has-icon rejected-curator-confirm">--}}
+{{--                                        Rejected--}}
+{{--                                    </a>--}}
+
+{{--                                    <!-- Delete Form -->--}}
+{{--                                    <form class="d-none" id="rejected_curator_form_{{ $user->id }}" action="{{ route('admin.store.rejected.curator', $user->id) }}" method="POST">--}}
+{{--                                        @csrf--}}
+{{--                                    </form> --}}
+{{--                                @elseif ($user->is_verified == 0 && $user->is_rejected == 1)--}}
+{{--                                    <span class="btn disabled">Rejected</span>--}}
+{{--                                @endif--}}
+
                             </div>
                         </div>
                     </div>
@@ -126,19 +140,59 @@
                                                         <td>Descriptions:</td>
                                                         <td>{!! $verification_curator->descriptions ?? '--' !!}</td>
                                                     </tr>
+                                                    <tr>
+                                                        <td>Status:</td>
+                                                        <td>
+                                                            @if ($verification_curator->status == \App\Templates\IOfferTemplateStatus::ACCEPTED)
+                                                                <span class="chip green lighten-5">
+                                                                            <span class="green-text">Approved</span>
+                                                                        </span>
+                                                            @elseif($verification_curator->status == \App\Templates\IOfferTemplateStatus::REJECTED)
+                                                                <span class="chip red lighten-5">
+                                                                    <span class="grey-text">Rejected</span>
+                                                                </span>
+                                                            @else
+                                                                <span class="chip red lighten-5">
+                                                                    <span class="red-text">Pending</span>
+                                                                </span>
+                                                            @endif
+                                                        </td>
+                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>
                                         <div class="col s12 m8">
                                             @if (!empty($verification_curator->image))
                                                 <table class="responsive-table">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>ID/Passport</th>
-                                                        </tr>
-                                                    </thead>
+{{--                                                    <thead>--}}
+{{--                                                        <tr>--}}
+{{--                                                            <th>ID/Passport</th>--}}
+{{--                                                        </tr>--}}
+{{--                                                    </thead>--}}
                                                     <tbody>
+                                                    <tr>
+                                                        <td>Action:</td>
+                                                        <td>
+                                                            @if ($verification_curator->status == \App\Templates\IOfferTemplateStatus::PENDING)
+
+                                                                <a href="#verifiedModal" data-id="{{ $verification_curator->id }}" class="btn-small btn-light-indigo dropdown-item has-icon modal-trigger verified-curator-confirm">
+                                                                    Verified
+                                                                </a>
+                                                            @elseif ($verification_curator->status == \App\Templates\IOfferTemplateStatus::ACCEPTED)
+                                                                <span class="btn disabled">Verified</span>
+                                                            @endif
+
+                                                            @if ($verification_curator->status == \App\Templates\IOfferTemplateStatus::PENDING)
+                                                                <a href="#rejectVerifyModal" data-id="{{ $verification_curator->id }}" class="btn-small btn-light-red dropdown-item has-icon modal-trigger rejected-curator-confirm">
+                                                                    Reject
+                                                                </a>
+                                                            @elseif ($verification_curator->status == \App\Templates\IOfferTemplateStatus::REJECTED)
+                                                                <span class="btn disabled">Rejected</span>
+                                                            @endif
+                                                        </td>
+                                                    </tr>
                                                         <tr>
+                                                            <td>ID/Passport:</td>
                                                             <td>
                                                                 @if(str_contains($verification_curator->image,'.png') || str_contains($verification_curator->image,'.jpeg') || str_contains($verification_curator->image,'.jpg'))
                                                                     <a href="#modal2" class="pop modal-trigger">
@@ -199,16 +253,24 @@
     <script>
         $(function () {
             $('.rejected-curator-confirm').on('click', function () {
-                $(".modal").modal(),
-                $("#modal3").modal("open"),
+                $(".modal").modal()
+                $("#modal3").modal("open")
                 $("#modal3").modal("close")
+
+                var verified_id = $(this).data('id');
+                $('#rejectCuratorVerificationFormID').val('');
+                $('#rejectCuratorVerificationFormID').val(verified_id);
             });
         });
         $(function () {
             $('.verified-curator-confirm').on('click', function () {
-                $(".modal").modal(),
-                $("#modal3").modal("open"),
+                $(".modal").modal()
+                $("#modal3").modal("open")
                 $("#modal3").modal("close")
+
+                var verified_id = $(this).data('id');
+                $('#verifiedCuratorVerificationFormID').val('');
+                $('#verifiedCuratorVerificationFormID').val(verified_id);
             });
         });
     </script>
