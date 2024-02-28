@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Curator;
 use App\Models\Campaign;
 use App\Models\CuratorFavoriteArtist;
 use App\Models\CuratorFavoriteTrack;
+use App\Models\CuratorFeatureTag;
 use App\Models\CuratorOfferTemplate;
 use App\Models\OfferType;
 use App\Models\Option;
@@ -413,9 +414,19 @@ class ArtistSubmissionController extends Controller
             }
             else if ($request->option_filter == IMessageTemplates::GENRE)
             {
-                $campaigns = Campaign::whereNotNull('track_id')
+                $curatorFeatureTagIds = CuratorFeatureTag::where('curator_feature_id', $request->curator_feature_id)
+                    ->pluck('id')
+                    ->toArray();
+
+                $campaigns = Campaign::with('artistTrack')
+                    ->whereHas('artistTrack', function ($query) use ($curatorFeatureTagIds) {
+                        $query->whereHas('artistTrackTags', function ($innerQuery) use ($curatorFeatureTagIds) {
+                            $innerQuery->whereIn('curator_feature_tag_id', $curatorFeatureTagIds);
+                        });
+                    })
+                    ->whereNotNull('track_id')
                     ->where('is_expired_campaign', 0)
-                    ->doesntHave('curatorFavoriteTrack')
+                    ->whereDoesntHave('curatorFavoriteTrack')
                     ->latest()
                     ->get();
 

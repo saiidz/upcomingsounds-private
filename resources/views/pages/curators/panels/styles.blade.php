@@ -95,6 +95,9 @@ success, touch, track, tracks, transparent, united, visibility,
         ::-webkit-scrollbar {
             width: 5px;
         }
+        h1,h2,h3,h4{
+            font-size: 1.5rem !important;
+        }
     </style>
     <link rel="stylesheet" href="{{asset('css/gijgo.min.css')}}" type="text/css" />
 </head>

@@ -43,12 +43,12 @@
                             </div>
                         </div>
                         <div class="btn-group dropdown m-b m-l" id="genreFilters" style="display:none">
-                            <button class="btn white text-primary" id="selectFilter">Select Genre</button>
+                            <button class="btn white text-primary" id="selectFilterTag">Select Genre</button>
                             <button class="btn white dropdown-toggle text-primary" data-toggle="dropdown"></button>
                             @if(!empty($curator_features))
                                 <div class="dropdown-menu pull-right">
                                     @foreach($curator_features as $curator_feature)
-                                        <a href="javascript:void(0)" class="dropdown-item">{{$curator_feature->name}}</a>
+                                        <a href="javascript:void(0)" id="curatorFeatureTag{{$curator_feature->id}}" data-value="{{ $curator_feature->name }}" class="dropdown-item" onclick="filterArtistSubmissionFeature({{ $curator_feature->id }})">{{$curator_feature->name}}</a>
                                     @endforeach
                                 </div>
                             @endif
@@ -119,6 +119,9 @@
         function filterArtistSubmission(option)
         {
             $('#selectFilter').html('');
+            $('#selectFilterTag').html('');
+            $('#selectFilterTag').html('Select Genre');
+
             if(option === 'oldest')
             {
                 $('#genreFilters').css('display','none');
@@ -143,6 +146,7 @@
             {
                 $('#genreFilters').css('display','inline-block');
                 $('#selectFilter').html('Genre');
+                return false;
             }
 
             showLoader();
@@ -154,8 +158,46 @@
                 success: function (data) {
                     loader();
                     if (data.success) {
+                        $('#filterArtistSubmission').css('display','flex');
                         $('#filterArtistSubmission').empty();
                         $('#filterArtistSubmission').html(data.campaign);
+                    }
+                    if (data.error) {
+                        toastr.error(data.error);
+                    }
+                },
+            });
+        }
+
+        function filterArtistSubmissionFeature(curator_feature_id)
+        {
+            var feature_name = $('#curatorFeatureTag'+ curator_feature_id).data('value');
+            $('#selectFilterTag').html('');
+            $('#selectFilterTag').html(feature_name);
+
+            var genre = 'genre';
+            var curatorFeatureId = curator_feature_id;
+            showLoader();
+            $.ajax({
+                type: "GET",
+                url: '{{route('filter.artist.submission')}}',
+                data: {
+                    option_filter:genre,
+                    curator_feature_id:curatorFeatureId,
+                },
+                dataType: 'json',
+                success: function (data) {
+                    loader();
+                    if (data.success) {
+                        $('#filterArtistSubmission').empty();
+                        if(data.campaign)
+                        {
+                            $('#filterArtistSubmission').css('display','flex');
+                            $('#filterArtistSubmission').html(data.campaign);
+                        }else{
+                            $('#filterArtistSubmission').css('display','block');
+                            $('#filterArtistSubmission').html('<div class="item-title text-ellipsis"><h3 class="white" style="text-align:center;font-size: 15px;">Not Campaign Found</h3></div>');
+                        }
                     }
                     if (data.error) {
                         toastr.error(data.error);
