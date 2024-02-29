@@ -1035,10 +1035,12 @@ header nav ul li a:hover {
       #campaignBtnHideShow, #campaignBtnSubmitCoverage {
           bottom: 25px !important;
           text-align: left !important;
+          width: auto !important;
       }
 
       .sticky-bar {
           height: 33% !important;
+          width: auto !important;
       }
   }
   /*collapse*/
