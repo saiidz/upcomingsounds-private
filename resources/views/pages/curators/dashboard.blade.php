@@ -459,7 +459,7 @@
                                 @if(!empty($curator_features))
                                     <div class="dropdown-menu">
                                         @foreach($curator_features as $curator_feature)
-                                            <a href="javascript:void(0)" class="dropdown-item">{{$curator_feature->name}}</a>
+                                            <a href="javascript:void(0)" id="curatorDashboardFeatureTag{{$curator_feature->id}}" data-value="{{ $curator_feature->name }}" onclick="filterArtistSubmissionFeature({{ $curator_feature->id }})" class="dropdown-item">{{$curator_feature->name}}</a>
                                         @endforeach
                                     </div>
                                 @endif
@@ -1060,4 +1060,43 @@
         }
     </script>
     {{--Claim USC --}}
+
+    <script>
+        function filterArtistSubmissionFeature(curator_feature_id)
+        {
+            var feature_name = $('#curatorFeatureTag'+ curator_feature_id).data('value');
+            $('#selectFilterTag').html('');
+            $('#selectFilterTag').html(feature_name);
+
+            var genre = 'genre';
+            var curatorFeatureId = curator_feature_id;
+            showLoader();
+            $.ajax({
+                type: "GET",
+                url: '{{route('filter.artist.submission')}}',
+                data: {
+                    option_filter:genre,
+                    curator_feature_id:curatorFeatureId,
+                },
+                dataType: 'json',
+                success: function (data) {
+                    loader();
+                    if (data.success) {
+                        $('#filterArtistSubmission').empty();
+                        if(data.campaign)
+                        {
+                            $('#filterArtistSubmission').css('display','flex');
+                            $('#filterArtistSubmission').html(data.campaign);
+                        }else{
+                            $('#filterArtistSubmission').css('display','block');
+                            $('#filterArtistSubmission').html('<div class="item-title text-ellipsis"><h3 class="white" style="text-align:center;font-size: 15px;">Not Campaign Found</h3></div>');
+                        }
+                    }
+                    if (data.error) {
+                        toastr.error(data.error);
+                    }
+                },
+            });
+        }
+    </script>
 @endsection
