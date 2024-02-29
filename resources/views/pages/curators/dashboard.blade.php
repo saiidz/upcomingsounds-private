@@ -454,6 +454,7 @@
                             <div class="dropdown inline">
                                 <h2 class="inline widget-title h4">New</h2>
                                 <button class="btn btn-sm no-bg h4 m-y-0 v-b faFIlter dropdown-toggle text-primary" data-toggle="dropdown">
+                                    <span class="selectFilterTag"></span>
                                     <i class="fa fa-filter"></i>
                                 </button>
                                 @if(!empty($curator_features))
@@ -469,324 +470,20 @@
 
 
                     {{--    New    --}}
-{{--                    <div class="row">--}}
-{{--                        @if(count($standard_campaigns) > 0)--}}
-{{--                            @foreach($standard_campaigns as $standard_campaign)--}}
-{{--                                <div class="col-xs-4 col-sm-4 col-md-3">--}}
-{{--                                    <div class="item r" onclick="openNav({{$standard_campaign->id}})" style="cursor:pointer;" data-id="item-{{$standard_campaign->artistTrack->id}}" data-src="{{URL('/')}}/uploads/audio/{{$standard_campaign->artistTrack->audio}}">--}}
-{{--                                        <div class="item-media ">--}}
-{{--                                            @if(!empty($standard_campaign->artistTrack->track_thumbnail))--}}
-{{--                                                <a href="javascript:void(0)" class="item-media-content" onclick="openNav({{$standard_campaign->id}})"--}}
-{{--                                                   style="background-image: url({{asset('uploads/track_thumbnail')}}/{{$standard_campaign->artistTrack->track_thumbnail}});"></a>--}}
-{{--                                            @else--}}
-{{--                                                <a href="javascript:void(0)" class="item-media-content" onclick="openNav({{$standard_campaign->id}})"--}}
-{{--                                                   style="background-image: url({{asset('images/b2.jpg')}});"></a>--}}
-{{--                                            @endif--}}
-
-{{--                                            @if(!empty($standard_campaign->artistTrack->audio))--}}
-{{--                                                <div class="item-overlay center">--}}
-{{--                                                    <button  class="btn-playpause">Play</button>--}}
-{{--                                                </div>--}}
-{{--                                            @endif--}}
-{{--                                        </div>--}}
-{{--                                        <div class="item-info">--}}
-{{--                                            <div class="item-overlay bottom text-right">--}}
-{{--                                                @if(!empty($standard_campaign->curatorFavoriteTrack) && $standard_campaign->curatorFavoriteTrack->status == \App\Templates\IFavoriteTrackStatus::SAVE)--}}
-{{--                                                    <a href="javascript:void(0)" class="btn-favorite" @if($standard_campaign->artistTrack) onclick="favoriteTrack({{$standard_campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>--}}
-{{--                                                        <i class=" {{ !empty($standard_campaign->curatorFavoriteTrack) ? 'fa fa-heart colorAdd' : 'fa fa-heart-o' }}"></i>--}}
-{{--                                                    </a>--}}
-{{--                                                @else--}}
-{{--                                                    @if(empty($standard_campaign->curatorFavoriteTrack))--}}
-{{--                                                        <a href="javascript:void(0)" class="btn-favorite" @if($standard_campaign->artistTrack) onclick="favoriteTrack({{$standard_campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>--}}
-{{--                                                            <i class="fa fa-heart-o"></i>--}}
-{{--                                                        </a>--}}
-{{--                                                    @endif--}}
-{{--                                                @endif--}}
-{{--                                                <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
-{{--                                                <div class="dropdown-menu pull-right black lt"></div>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="item-title text-ellipsis">--}}
-{{--                                                <a href="javascript:void(0)" onclick="openNav({{$standard_campaign->id}})">{{$standard_campaign->artistTrack->name}}</a>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="item-author text-sm text-ellipsis ">--}}
-{{--                                                <a href="javascript:void(0)" class="text-muted">Jeremy Scott</a>--}}
-{{--                                            </div>--}}
-
-
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            @endforeach--}}
-{{--                        @else--}}
-{{--                            <div class="item-title text-ellipsis">--}}
-{{--                                <h3 class="white" style="text-align:center;font-size: 15px;">Not New Found</h3>--}}
-{{--                            </div>--}}
-{{--                        @endif--}}
-{{--                    </div>--}}
                     <div class="row row-sm item-masonry item-info-overlay">
-                        <div class="col-sm-12 text-white m-b-sm">
-                            <div class="owl-carousel owl-theme owl-dots-sm owl-dots-bottom-left " data-ui-jp="owlCarousel" data-ui-options="{
+                        <div class="col-sm-12 text-white m-b-sm" id="findOwlCa">
+                            <div class="owl-carousel owl-theme owl-dots-sm owl-dots-bottom-left " id="filterNewCurator" data-ui-jp="owlCarousel" data-ui-options="{
                              items: 1
                             ,loop: true
                             ,autoplay: true
                             ,nav: true
                             ,animateOut:&#x27;fadeOut&#x27;
                           }">
-                                @if(count($standard_campaigns) > 0)
-                                    @foreach($standard_campaigns as $standard_campaign)
-                                        <div class="item r" onclick="openNav({{$standard_campaign->id}})" style="cursor:pointer;" data-id="item-{{$standard_campaign->artistTrack->id}}" data-src="{{URL('/')}}/uploads/audio/{{$standard_campaign->artistTrack->audio}}">
-                                            <div class="item-media primary">
-                                                @if(!empty($standard_campaign->artistTrack->track_thumbnail))
-                                                    <a href="javascript:void(0)" class="item-media-content" onclick="openNav({{$standard_campaign->id}})"
-                                                       style="background-image: url({{asset('uploads/track_thumbnail')}}/{{$standard_campaign->artistTrack->track_thumbnail}});"></a>
-                                                @else
-                                                    <a href="javascript:void(0)" onclick="openNav({{$standard_campaign->id}})" class="item-media-content"
-                                                       style="background-image: url({{asset('images/b4.jpg')}});"></a>
-                                                @endif
-
-                                                @if(!empty($standard_campaign->artistTrack->audio))
-                                                    <div class="item-overlay center">
-                                                        <button  class="btn-playpause">Play</button>
-                                                    </div>
-                                                @endif
-                                            </div>
-                                            <div class="item-info">
-                                                <div class="item-overlay bottom text-right">
-
-                                                    @if(!empty($standard_campaign->curatorFavoriteTrack) && $standard_campaign->curatorFavoriteTrack->status == \App\Templates\IFavoriteTrackStatus::SAVE)
-                                                        <a href="javascript:void(0)" class="btn-favorite" @if($standard_campaign->artistTrack) onclick="favoriteTrack({{$standard_campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>
-                                                            <i class=" {{ !empty($standard_campaign->curatorFavoriteTrack) ? 'fa fa-heart colorAdd' : 'fa fa-heart-o' }}"></i>
-                                                        </a>
-                                                    @else
-                                                        @if(empty($standard_campaign->curatorFavoriteTrack))
-                                                            <a href="javascript:void(0)" class="btn-favorite" @if($standard_campaign->artistTrack) onclick="favoriteTrack({{$standard_campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>
-                                                                <i class="fa fa-heart-o"></i>
-                                                            </a>
-                                                        @endif
-                                                    @endif
-                                                    <div class="dropdown-menu pull-right black lt"></div>
-                                                </div>
-                                                <div class="item-title text-ellipsis">
-                                                    <a href="javascript:void(0)" onclick="openNav({{$standard_campaign->id}})">{{$standard_campaign->artistTrack->name}}</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                @else
-                                    <div class="item-title text-ellipsis">
-                                        <h3 class="white" style="text-align:center;font-size: 15px;">Not Campaign Found</h3>
-                                    </div>
-                                @endif
+                                @include('pages.curators.dashboard-partial.__new')
                             </div>
                         </div>
                     </div>
                     {{--    New    --}}
-
-
-{{--                    <h2 class="widget-title h4 m-b">Tracks from labels</h2>--}}
-{{--                    <div class="row">--}}
-{{--                        <div class="col-xs-4 col-sm-4 col-md-3">--}}
-{{--                            <div class="item r" data-id="item-3" data-src="">--}}
-{{--                                <div class="item-media ">--}}
-{{--                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b2.jpg');"></a>--}}
-{{--                                    <div class="item-overlay center">--}}
-{{--                                        <button  class="btn-playpause">Play</button>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="item-info">--}}
-{{--                                    <div class="item-overlay bottom text-right">--}}
-{{--                                        <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>--}}
-{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
-{{--                                        <div class="dropdown-menu pull-right black lt"></div>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="item-title text-ellipsis">--}}
-{{--                                        <a href="javascript:void(0)">I Wanna Be In the Cavalry</a>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="item-author text-sm text-ellipsis ">--}}
-{{--                                        <a href="javascript:void(0)" class="text-muted">Jeremy Scott</a>--}}
-{{--                                    </div>--}}
-
-
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-xs-4 col-sm-4 col-md-3">--}}
-{{--                            <div class="item r" data-id="item-5" data-src="http://streaming.radionomy.com/JamendoLounge">--}}
-{{--                                <div class="item-media ">--}}
-{{--                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b4.jpg');"></a>--}}
-{{--                                    <div class="item-overlay center">--}}
-{{--                                        <button  class="btn-playpause">Play</button>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="item-info">--}}
-{{--                                    <div class="item-overlay bottom text-right">--}}
-{{--                                        <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>--}}
-{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
-{{--                                        <div class="dropdown-menu pull-right black lt"></div>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="item-title text-ellipsis">--}}
-{{--                                        <a href="javascript:void(0)">Live Radio</a>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="item-author text-sm text-ellipsis ">--}}
-{{--                                        <a href="javascript:void(0)" class="text-muted">Radionomy</a>--}}
-{{--                                    </div>--}}
-
-
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-xs-4 col-sm-4 col-md-3">--}}
-{{--                            <div class="item r" data-id="item-6" data-src="">--}}
-{{--                                <div class="item-media ">--}}
-{{--                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b5.jpg');"></a>--}}
-{{--                                    <div class="item-overlay center">--}}
-{{--                                        <button  class="btn-playpause">Play</button>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="item-info">--}}
-{{--                                    <div class="item-overlay bottom text-right">--}}
-{{--                                        <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>--}}
-{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
-{{--                                        <div class="dropdown-menu pull-right black lt"></div>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="item-title text-ellipsis">--}}
-{{--                                        <a href="javascript:void(0)">Body on me</a>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="item-author text-sm text-ellipsis ">--}}
-{{--                                        <a href="javascript:void(0)" class="text-muted">Rita Ora</a>--}}
-{{--                                    </div>--}}
-
-
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-xs-4 col-sm-4 col-md-3">--}}
-{{--                            <div class="item r" data-id="item-10" data-src="">--}}
-{{--                                <div class="item-media ">--}}
-{{--                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b9.jpg');"></a>--}}
-{{--                                    <div class="item-overlay center">--}}
-{{--                                        <button  class="btn-playpause">Play</button>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="item-info">--}}
-{{--                                    <div class="item-overlay bottom text-right">--}}
-{{--                                        <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>--}}
-{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
-{{--                                        <div class="dropdown-menu pull-right black lt"></div>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="item-title text-ellipsis">--}}
-{{--                                        <a href="javascript:void(0)">The Open Road</a>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="item-author text-sm text-ellipsis ">--}}
-{{--                                        <a href="javascript:void(0)" class="text-muted">Postiljonen</a>--}}
-{{--                                    </div>--}}
-
-
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-xs-4 col-sm-4 col-md-3">--}}
-{{--                            <div class="item r" data-id="item-12" data-src="">--}}
-{{--                                <div class="item-media ">--}}
-{{--                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b11.jpg');"></a>--}}
-{{--                                    <div class="item-overlay center">--}}
-{{--                                        <button  class="btn-playpause">Play</button>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="item-info">--}}
-{{--                                    <div class="item-overlay bottom text-right">--}}
-{{--                                        <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>--}}
-{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
-{{--                                        <div class="dropdown-menu pull-right black lt"></div>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="item-title text-ellipsis">--}}
-{{--                                        <a href="javascript:void(0)">Happy ending</a>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="item-author text-sm text-ellipsis ">--}}
-{{--                                        <a href="javascript:void(0)" class="text-muted">Postiljonen</a>--}}
-{{--                                    </div>--}}
-
-
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-xs-4 col-sm-4 col-md-3">--}}
-{{--                            <div class="item r" data-id="item-4" data-src="">--}}
-{{--                                <div class="item-media ">--}}
-{{--                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b3.jpg');"></a>--}}
-{{--                                    <div class="item-overlay center">--}}
-{{--                                        <button  class="btn-playpause">Play</button>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="item-info">--}}
-{{--                                    <div class="item-overlay bottom text-right">--}}
-{{--                                        <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>--}}
-{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
-{{--                                        <div class="dropdown-menu pull-right black lt"></div>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="item-title text-ellipsis">--}}
-{{--                                        <a href="javascript:void(0)">What A Time To Be Alive</a>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="item-author text-sm text-ellipsis ">--}}
-{{--                                        <a href="javascript:void(0)" class="text-muted">Judith Garcia</a>--}}
-{{--                                    </div>--}}
-
-
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-xs-4 col-sm-4 col-md-3">--}}
-{{--                            <div class="item r" data-id="item-11" data-src="">--}}
-{{--                                <div class="item-media ">--}}
-{{--                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b10.jpg');"></a>--}}
-{{--                                    <div class="item-overlay center">--}}
-{{--                                        <button  class="btn-playpause">Play</button>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="item-info">--}}
-{{--                                    <div class="item-overlay bottom text-right">--}}
-{{--                                        <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>--}}
-{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
-{{--                                        <div class="dropdown-menu pull-right black lt"></div>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="item-title text-ellipsis">--}}
-{{--                                        <a href="javascript:void(0)">Spring</a>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="item-author text-sm text-ellipsis ">--}}
-{{--                                        <a href="javascript:void(0)" class="text-muted">Pablo Nouvelle</a>--}}
-{{--                                    </div>--}}
-
-
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-xs-4 col-sm-4 col-md-3">--}}
-{{--                            <div class="item r" data-id="item-2" data-src="">--}}
-{{--                                <div class="item-media ">--}}
-{{--                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url('images/b1.jpg');"></a>--}}
-{{--                                    <div class="item-overlay center">--}}
-{{--                                        <button  class="btn-playpause">Play</button>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="item-info">--}}
-{{--                                    <div class="item-overlay bottom text-right">--}}
-{{--                                        <a href="#" class="btn-favorite"><i class="fa fa-heart-o"></i></a>--}}
-{{--                                        <a href="#" class="btn-more" data-toggle="dropdown"><i class="fa fa-ellipsis-h"></i></a>--}}
-{{--                                        <div class="dropdown-menu pull-right black lt"></div>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="item-title text-ellipsis">--}}
-{{--                                        <a href="javascript:void(0)">Fireworks</a>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="item-author text-sm text-ellipsis ">--}}
-{{--                                        <a href="javascript:void(0)" class="text-muted">Kygo</a>--}}
-{{--                                    </div>--}}
-
-
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-
 
                     <h2 class="widget-title h4 m-b">Recommend for you</h2>
                     <div class="row item-list item-list-md m-b">
@@ -1064,38 +761,45 @@
     <script>
         function filterArtistSubmissionFeature(curator_feature_id)
         {
-            var feature_name = $('#curatorFeatureTag'+ curator_feature_id).data('value');
-            $('#selectFilterTag').html('');
-            $('#selectFilterTag').html(feature_name);
+            var feature_name = $('#curatorDashboardFeatureTag'+ curator_feature_id).data('value');
+            $('.selectFilterTag').html('');
+            $('.selectFilterTag').html(feature_name);
 
-            var genre = 'genre';
             var curatorFeatureId = curator_feature_id;
             showLoader();
             $.ajax({
                 type: "GET",
-                url: '{{route('filter.artist.submission')}}',
+                url: '{{route('filter.curator.dashboard')}}',
                 data: {
-                    option_filter:genre,
                     curator_feature_id:curatorFeatureId,
                 },
                 dataType: 'json',
                 success: function (data) {
                     loader();
                     if (data.success) {
-                        $('#filterArtistSubmission').empty();
-                        if(data.campaign)
-                        {
-                            $('#filterArtistSubmission').css('display','flex');
-                            $('#filterArtistSubmission').html(data.campaign);
-                        }else{
-                            $('#filterArtistSubmission').css('display','block');
-                            $('#filterArtistSubmission').html('<div class="item-title text-ellipsis"><h3 class="white" style="text-align:center;font-size: 15px;">Not Campaign Found</h3></div>');
+                        $('#filterNewCurator').empty();
+                        if (data.standard_campaigns) {
+                            $('#filterNewCurator').html(data.standard_campaigns);
+                            // Initialize Owl Carousel manually after new content is loaded
+                            initializeOwlCarousel();
+                        } else {
+                            $('#filterNewCurator').html('<div class="item-title text-ellipsis"><h3 class="white" style="text-align:center;font-size: 15px;">Not Campaign Found</h3></div>');
                         }
                     }
                     if (data.error) {
                         toastr.error(data.error);
                     }
                 },
+            });
+        }
+
+        function initializeOwlCarousel() {
+            $('#filterNewCurator').owlCarousel({
+                items: 1,
+                loop: true,
+                autoplay: true,
+                nav: true,
+                animateOut: 'fadeOut'
             });
         }
     </script>

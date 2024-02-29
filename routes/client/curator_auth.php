@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Curator\FilterController;
 use App\Http\Controllers\Curator\OfferController;
 use App\Http\Controllers\Curator\OfferTemplateController;
 use App\Http\Controllers\Curator\SavedArtistController;
@@ -53,7 +54,10 @@ Route::get('/accepted', [ArtistSubmissionController::class,'artistAccepted'])->n
 Route::get('/rejected', [ArtistSubmissionController::class,'artistRejected'])->name('rejected.artist');
 
 # get artist submission filter
-Route::get('filter-artist-submission', [ArtistSubmissionController::class,'filterArtistSubmission'])->name('filter.artist.submission');
+Route::get('filter-artist-submission', [FilterController::class,'filterArtistSubmission'])->name('filter.artist.submission');
+
+# get curator dashboard filter
+Route::get('filter-curator-dashboard', [FilterController::class,'filterCuratorDashboard'])->name('filter.curator.dashboard');
 
 // favorite tracks
 Route::get('favorite-track', [ArtistSubmissionController::class,'favoriteTrack'])->name('curator.favorite.track');

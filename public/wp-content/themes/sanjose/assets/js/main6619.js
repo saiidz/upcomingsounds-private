@@ -233,7 +233,7 @@
     if( $(".post-detail").length ) {
         $(".post-detail").fitVids();
     }
-    
+
     /*====================
        Countdown counter
      ====================*/
@@ -584,7 +584,7 @@
               $activeContent.fadeIn();
               // Reinit Swiper
               activeSwiper = swipers['swiper-' + $activeContent.find('.swiper-container').attr('id')];
-              
+
               // if current active slide include slider
               if ( activeSwiper !== undefined ) {
                 activeSwiper.updatePagination();
