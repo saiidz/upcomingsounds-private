@@ -275,6 +275,9 @@
                                                             </select>
                                                         </div>
                                                     </div>
+                                                    <div class="item-except text-sm text-white">
+                                                        <p>You may use an image hosting site (such as Imgur.com) Completed Work lUr!e a specific URL.Share the link to your image.</p>
+                                                    </div>
                                                     <div class="d-flex form-group">
                                                         <label class="control-label form-control-label text-white">Completed Work Url:</label>
                                                         <div id="TextBoxesGroup">
