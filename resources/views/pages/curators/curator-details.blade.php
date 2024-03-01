@@ -83,7 +83,8 @@
                                 <span>Redeem Rewards</span>
                             </h5>
                             <p class="text-muted text-md m-t-2">
-                                <span>Artists when submitting their music, they're asking for your feedback about their song. If you respond on time, you will receive a standard Fee of 1 USC coin = 1 GBP standard fee for "Non-verified" Tastemakers / Curators / Professionals. You can always submit your platform to our editors to increase your submissions Fee. Payments are made via PayPal or directly to your bank account.</span>
+                                <span>Regardless of your verification status as a Tastemaker, Curator, or Professional, you'll earn a specific contribution when you feature their submissions. Additionally, submitting your platform to our editors may increase your earning potential. Payments are conveniently processed via PayPal or direct bank deposit. Discover music and earn through your passion with us!</span>
+{{--                                <span>Artists when submitting their music, they're asking for your feedback about their song. If you respond on time, you will receive a standard Fee of 1 USC coin = 1 GBP standard fee for "Non-verified" Tastemakers / Curators / Professionals. You can always submit your platform to our editors to increase your submissions Fee. Payments are made via PayPal or directly to your bank account.</span>--}}
                             </p>
                         </div>
                         <div class="clearfix"></div>
