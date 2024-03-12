@@ -566,6 +566,13 @@
                     }
                     if(data.offer_template)
                     {
+                        // var offerText = data.offer_template.offer_text;
+                        //
+                        // // Replace <p> tags with anchor tags
+                        // offerText = offerText.replace(/<p>((http|https):\/\/[^\s]+)<\/p>/g, '<a href="$1" class="blue-tag" target="_blank">$1</a>');
+                        // // Remove other HTML tags
+                        // offerText = offerText.replace(/<\/?[^>]+(>|$)/g, "");
+                        // $('#offerText_').html(offerText);
                         $('#offerText_').html(data.offer_template.offer_text.replace(/(<([^>]+)>)/gi, ""));
                     }
                     if(data.offer_template)

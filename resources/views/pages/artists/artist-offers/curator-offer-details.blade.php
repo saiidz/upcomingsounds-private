@@ -318,7 +318,15 @@
                         </div>
                         <div class="form-group row">
                             <div
-                                class="col-sm-12 form-control-label text-muted" id="descriptionContainerOfferText">{!! !empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->offer_text : '----' !!}</div>
+                                class="col-sm-12 form-control-label text-muted" id="descriptionContainerOfferText">
+
+                                {!! !empty($send_offer->curatorOfferTemplate) ? preg_replace(
+                                   '/<p>((http|https):\/\/[^\s]+)<\/p>/',
+                                   '<a href="$1" class="blue-tag" target="_blank">$1</a>',
+                                   $send_offer->curatorOfferTemplate->offer_text ?? '--'
+                               ) : '----' !!}
+{{--                                {!! !empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->offer_text : '----' !!}--}}
+                            </div>
                         </div>
                     </div>
                     @if(!empty($send_offer) && $send_offer->status == \App\Templates\IOfferTemplateStatus::REJECTED)

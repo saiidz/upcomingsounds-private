@@ -67,7 +67,12 @@
 
                                             <div
                                                 class="item-except visible-list text-sm text-muted m-t-sm" id="descriptionContainer">
-                                                {!! $offerTemplate->offer_text ?? '--' !!}
+                                                {!! preg_replace(
+                                               '/<p>((http|https):\/\/[^\s]+)<\/p>/',
+                                               '<a href="$1" class="blue-tag" target="_blank">$1</a>',
+                                               $offerTemplate->offer_text ?? '--'
+                                           ) !!}
+{{--                                                {!! $offerTemplate->offer_text ?? '--' !!}--}}
                                             </div>
 
 
