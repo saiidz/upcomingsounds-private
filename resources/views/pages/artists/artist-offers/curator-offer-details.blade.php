@@ -117,7 +117,8 @@
                                 </div>
                                 <p class="item-desc text-ellipsis text-muted" data-ui-toggle-class="text-ellipsis">
                                     @if(!empty($send_offer->userCurator->curatorUser->curator_signup_from))
-                                        {{Str::upper ($send_offer->userCurator->curatorUser->curator_signup_from)}}
+                                        {{Str::upper (ucwords(str_replace("_", " ", $send_offer->userCurator->curatorUser->curator_signup_from)))}}
+{{--                                        {{Str::upper ($send_offer->userCurator->curatorUser->curator_signup_from)}}--}}
                                     @endif
                                 </p>
                                 @if(!empty($send_offer->userCurator->curatorUser->country))
