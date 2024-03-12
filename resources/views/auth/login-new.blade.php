@@ -97,6 +97,7 @@
             box-shadow: inset 0 -10rem 0px rgb(158 158 158 / 10%);
         }
     </style>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 <div data-server-rendered="true" id="app" class="app">
@@ -182,15 +183,17 @@
                                     </div>
                                     <fieldset aria-describedby="" class="form-group md-label">
                                         <!---->
-                                        <div tabindex="-1" role="group" class="bv-no-focus-ring">
-                                            {!! NoCaptcha::renderJs() !!}
-                                            {!! NoCaptcha::display() !!}
-                                            <div class="invalid-feedback" style="display: block;">
-                                                @error('g-recaptcha-response')
-                                                    {{ $message }}
-                                                @enderror
-                                            </div>
-                                        </div>
+                                        <div class="cf-turnstile" data-sitekey="0x4AAAAAAAQHTURBG4V2tGU9" data-theme="light"></div>
+
+{{--                                        <div tabindex="-1" role="group" class="bv-no-focus-ring">--}}
+{{--                                            {!! NoCaptcha::renderJs() !!}--}}
+{{--                                            {!! NoCaptcha::display() !!}--}}
+{{--                                            <div class="invalid-feedback" style="display: block;">--}}
+{{--                                                @error('g-recaptcha-response')--}}
+{{--                                                    {{ $message }}--}}
+{{--                                                @enderror--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
                                     </fieldset>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-outline-primary btn-block text-uppercase">
@@ -288,5 +291,13 @@
         }, 5000);
     </script>
 @endif
+{{--<script>--}}
+{{--    !function (w, d, t) {--}}
+{{--        w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};--}}
+
+{{--        ttq.load('CNAIDJRC77U6KO2RGUE0');--}}
+{{--        ttq.page();--}}
+{{--    }(window, document, 'ttq');--}}
+{{--</script>--}}
 </body>
 </html>
