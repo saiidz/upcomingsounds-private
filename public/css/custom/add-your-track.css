@@ -569,8 +569,8 @@ body{
     margin-bottom: 0.25rem;
 }
 .packageDec p {
-    text-align: justify;
-    color: var(--shadow-color);
+    /*text-align: justify;*/
+    /*color: var(--shadow-color);*/
     font-size: 1rem;
 }
 

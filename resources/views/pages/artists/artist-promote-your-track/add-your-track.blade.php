@@ -129,19 +129,38 @@
 {{--                                        </div>--}}
                                         <div class="packageDec" id="standard_dec" style="display:none">
                                             <h3>Standard Info</h3>
-                                            <p>{{\App\Templates\IMessageTemplates::STANDARD_DEC}} <a href="javascript:void(0)" target="_blank">Learn more</a></p>
+                                            <p>The Basic Campaign includes <a href="https://upcomingsounds.com/" target="_blank">upcomingsounds.com</a> exposure and coverage for the next 45 days to all verified and Non verified curators.</p>
+                                            <p>What to expect?</p>
+                                            <p>You will receive free coverage (playlist placements, social media features, or shoutouts) and you will receive pro coverage offers from our verified curators.</p>
+                                            <p>Your USC Credits will be refunded in case no offers or coverage are received from publications. You can resubmit, select individual curators, or even use them for another release.</p>
+{{--                                            <p>{{\App\Templates\IMessageTemplates::STANDARD_DEC}} <a href="javascript:void(0)" target="_blank">Learn more</a></p>--}}
                                         </div>
                                         <div class="packageDec" id="advanced_dec" style="display:none">
                                             <h3>Advanced Info</h3>
-                                            <p>{{\App\Templates\IMessageTemplates::ADVANCED_DEC}} <a href="javascript:void(0)" target="_blank">Learn more</a></p>
+                                            <p>The Advanced Campaign includes <a href="https://upcomingsounds.com/" target="_blank">upcomingsounds.com</a> exposure and coverage for the next 45 days to all verified and Non verified curators.</p>
+                                            <p>7 Days placement on the upcoming sounds dashboard in the Trending section with 50% to 65% more visibility for influencers, media, curators, and other artists.</p>
+                                            <p>What to expect?</p>
+                                            <p>You will receive free coverage (playlist placements, social media features, or shoutouts) and you will receive pro coverage offers from our verified curators.</p>
+                                            <p>Your USC Credits will be refunded in case no offers or coverage are received from publications. You can resubmit, select individual curators, or even use them for another release.</p>
+{{--                                            <p>{{\App\Templates\IMessageTemplates::ADVANCED_DEC}} <a href="javascript:void(0)" target="_blank">Learn more</a></p>--}}
                                         </div>
                                         <div class="packageDec" id="pro_dec" style="display:none">
                                             <h3>Pro Info</h3>
-                                            <p>{{\App\Templates\IMessageTemplates::PRO_DEC}} <a href="javascript:void(0)" target="_blank">Learn more</a></p>
+                                            <p>The PRO Campaign *Top Pick Among Artists* includes <a href="https://upcomingsounds.com/" target="_blank">upcomingsounds.com</a> exposure and coverage for the next 45 days to all verified and Non verified curators.</p>
+                                            <p>7 Days placement on the upcoming sounds dashboard in the Featured tracks (large thumbnail) section with 70% to 80% more visibility for influencers, media, curators, and other artists.</p>
+                                            <p>What to expect?</p>
+                                            <p>You will receive free coverage (playlist placements, social media features, or shoutouts) and you will receive pro coverage offers from our verified curators.</p>
+                                            <p>Your USC Credits will be refunded in case no offers or coverage are received from publications. You can resubmit, select individual curators, or even use them for another release.</p>
+{{--                                            <p>{{\App\Templates\IMessageTemplates::PRO_DEC}} <a href="javascript:void(0)" target="_blank">Learn more</a></p>--}}
                                         </div>
                                         <div class="packageDec" id="premium_dec" style="display:none">
                                             <h3>Premium Info</h3>
-                                            <p>{{\App\Templates\IMessageTemplates::PREMIUM_DEC}} <a href="javascript:void(0)" target="_blank">Learn more</a></p>
+                                            <p>The Premium Campaign includes <a href="https://upcomingsounds.com/" target="_blank">upcomingsounds.com</a> exposure and coverage for the next 45 days to all verified and Non verified curators.</p>
+                                            <p>7 Days placement on the upcoming sounds dashboard in the TOP BANNER DISPLAY section with 100% more visibility for influencers, media, curators, and other artists.</p>
+                                            <p>What to expect?</p>
+                                            <p>You will receive free coverage (playlist placements, social media features, or shoutouts) and you will receive pro coverage offers from our verified curators.</p>
+                                            <p>Your USC Credits will be refunded in case no offers or coverage are received from publications. You can resubmit, select individual curators, or even use them for another release.</p>
+{{--                                            <p>{{\App\Templates\IMessageTemplates::PREMIUM_DEC}} <a href="javascript:void(0)" target="_blank">Learn more</a></p>--}}
                                         </div>
                                     </div>
                                     <div class="progress__bar__container">
