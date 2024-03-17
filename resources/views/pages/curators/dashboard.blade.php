@@ -84,7 +84,7 @@
                                                     </div>
                                                     <div class="item-info" style="display:none;">
                                                         <div class="item-title text-ellipsis">
-                                                            <a href="javascript:void(0)" class="animated fadeInLeft">
+                                                            <a href="javascript:void(0)" class="artistTrackUserName animated fadeInLeft">
                                                                 {{ !empty($premium_campaign->artistTrack) ? $premium_campaign->artistTrack->user->name : (!empty($premium_campaign->artist_name) ? $premium_campaign->artist_name : '') }}
                                                             </a>
                                                         </div>
@@ -100,7 +100,7 @@
                                                     </div>
                                                     <div class="item-info" style="display:none;">
                                                         <div class="item-title text-ellipsis">
-                                                            <a href="javascript:void(0)" class="animated fadeInLeft">
+                                                            <a href="javascript:void(0)" class="artistTrackUserName animated fadeInLeft">
                                                                 {{ !empty($premium_campaign->artistTrack) ? $premium_campaign->artistTrack->user->name : (!empty($premium_campaign->artist_name) ? $premium_campaign->artist_name : '') }}
                                                             </a>
                                                         </div>

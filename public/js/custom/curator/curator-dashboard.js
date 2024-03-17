@@ -136,6 +136,40 @@ $(function() {
         dots:true,
         cssEase:"cubic-bezier(0.87, 0.03, 0.41, 0.9)"
     });
+
+    // Function to trigger fadeInLeft animation
+    function fadeInLeftAnimation(currentSlide, nextSlide) {
+        // $(nextSlide).addClass('animated fadeInLeft'); // Assuming you're using Animate.css for animations
+        $(nextSlide).find('.headline').addClass('animated fadeInLeft');
+        $(nextSlide).find('.title').addClass('animated bounceInLeft');
+        $(nextSlide).find('.description').addClass('animated fadeInDown delay-06s');
+        $(nextSlide).find('.artistTrackUserName').addClass('animated fadeInLeft');
+        $(nextSlide).find('.border').addClass('animated fadeInLeft');
+        $(nextSlide).find('.thumbnail').addClass('animated fadeInLeft');
+    }
+
+// Attach beforeChange event listener to trigger the fadeInLeft animation
+    slideWrapper.on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+        fadeInLeftAnimation(currentSlide, slick.$slides[nextSlide]);
+    });
+
+// Auto slide after 5 seconds
+    var autoSlideInterval = setInterval(function() {
+        slideWrapper.slick('slickNext');
+    }, 5000);
+
+// Pause auto sliding on mouse hover
+    slideWrapper.on('mouseover', function() {
+        clearInterval(autoSlideInterval);
+    });
+
+// Resume auto sliding on mouse leave
+    slideWrapper.on('mouseleave', function() {
+        autoSlideInterval = setInterval(function() {
+            slideWrapper.slick('slickNext');
+        }, 5000);
+    });
+
 });
 
 // Resize event
