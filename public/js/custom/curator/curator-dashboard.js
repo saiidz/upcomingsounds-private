@@ -128,7 +128,7 @@ $(function() {
 
     //start the slider
     slideWrapper.slick({
-        fade:true,
+        // fade:true,
         autoplaySpeed:4000,
         lazyLoad:"progressive",
         speed:600,
@@ -139,14 +139,21 @@ $(function() {
 
     // Function to trigger fadeInLeft animation
     function fadeInLeftAnimation(currentSlide, nextSlide) {
-        // $(nextSlide).addClass('animated fadeInLeft'); // Assuming you're using Animate.css for animations
-        $(nextSlide).find('.headline').addClass('animated fadeInLeft');
-        $(nextSlide).find('.title').addClass('animated bounceInLeft');
+        console.log(nextSlide);
+        console.log($(nextSlide).find('.headline'));
+        $(nextSlide).find('.headline').removeClass('animated fadeInLeft').addClass('animated fadeInLeft');
+        console.log($(nextSlide).find('.title'));
+        $(nextSlide).find('.title').removeClass('animated bounceInLeft').addClass('animated bounceInLeft');
+        console.log($(nextSlide).find('.description'));
         $(nextSlide).find('.description').addClass('animated fadeInDown delay-06s');
+        console.log($(nextSlide).find('.artistTrackUserName'));
         $(nextSlide).find('.artistTrackUserName').addClass('animated fadeInLeft');
+        console.log($(nextSlide).find('.border'));
         $(nextSlide).find('.border').addClass('animated fadeInLeft');
+        console.log($(nextSlide).find('.thumbnail'));
         $(nextSlide).find('.thumbnail').addClass('animated fadeInLeft');
     }
+
 
 // Attach beforeChange event listener to trigger the fadeInLeft animation
     slideWrapper.on('beforeChange', function(event, slick, currentSlide, nextSlide) {
