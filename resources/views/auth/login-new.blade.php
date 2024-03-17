@@ -119,7 +119,7 @@
                         <div class="auth-form">
                             <div class="auth-form__header">
                                 <div class="auth-form__title">
-                                    Welcome back Artist!
+                                    Welcome back
                                 </div>
                                 <div class="auth-form__text">New user? <a href="{{ route('register') }}">
                                         Join now

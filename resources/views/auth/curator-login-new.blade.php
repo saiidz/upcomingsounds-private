@@ -113,7 +113,7 @@
                         <div class="auth-form">
                             <div class="auth-form__header">
                                 <div class="auth-form__title">
-                                    Welcome back Taste Maker!
+                                    Welcome back
                                 </div>
                                 <div class="auth-form__text">New user? <a href="{{ route('curator.register') }}">
                                         Join now

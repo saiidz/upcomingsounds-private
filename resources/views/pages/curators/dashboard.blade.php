@@ -68,7 +68,7 @@
                                             <h1 class="headline animated fadeInLeft">
                                                 {{ !empty($premium_campaign->artistTrack) ? $premium_campaign->artistTrack->name : (!empty($premium_campaign->track_name) ? $premium_campaign->track_name : '') }}<br />
                                             </h1>
-                                            <h3 class="title animated bounceInLeft" @if($premium_campaign->artistTrack) onclick="openNav({{$premium_campaign->id}})" style="cursor:pointer; color:#e26e6b !important;" @endif>
+                                            <h3 class="title animated bounceInLeft" @if($premium_campaign->artistTrack) onclick="openNav({{$premium_campaign->id}})" style="cursor:pointer; color:#e26e6b !important;" @else style="color:#e26e6b !important;" @endif>
                                                 {{ !empty($premium_campaign->artistTrack) ? $premium_campaign->artistTrack->user->name : (!empty($premium_campaign->artist_name) ? $premium_campaign->artist_name : '') }}
                                             </h3>
                                             <p class="description animated fadeInDown delay-06s">
@@ -84,7 +84,7 @@
                                                     </div>
                                                     <div class="item-info" style="display:none;">
                                                         <div class="item-title text-ellipsis">
-                                                            <a href="javascript:void(0)">
+                                                            <a href="javascript:void(0)" class="animated fadeInLeft">
                                                                 {{ !empty($premium_campaign->artistTrack) ? $premium_campaign->artistTrack->user->name : (!empty($premium_campaign->artist_name) ? $premium_campaign->artist_name : '') }}
                                                             </a>
                                                         </div>
@@ -100,7 +100,7 @@
                                                     </div>
                                                     <div class="item-info" style="display:none;">
                                                         <div class="item-title text-ellipsis">
-                                                            <a href="javascript:void(0)">
+                                                            <a href="javascript:void(0)" class="animated fadeInLeft">
                                                                 {{ !empty($premium_campaign->artistTrack) ? $premium_campaign->artistTrack->user->name : (!empty($premium_campaign->artist_name) ? $premium_campaign->artist_name : '') }}
                                                             </a>
                                                         </div>
@@ -110,7 +110,7 @@
                                             @endif
 
                                             @if($premium_campaign->button_status == 1)
-                                                <a href="{{ $premium_campaign->button_link }}" target="_blank" class="nav-link">
+                                                <a href="{{ $premium_campaign->button_link }}" target="_blank" class="nav-link animated fadeInLeft">
                                                     <span class="btn btn-sm rounded primary _600">{{ $premium_campaign->button_text }}</span>
                                                 </a>
                                             @endif
@@ -118,10 +118,10 @@
                                         <div class="outer-right">
                                             <div class="border_image">
                                                 @if(!empty($premium_campaign->banner_img_one) && $premium_campaign->banner_img_one_status == 1)
-                                                    <img class="border" src="{{asset('uploads/banner_img')}}/{{$premium_campaign->banner_img_one}}" alt="" />
+                                                    <img class="border animated fadeInLeft" src="{{asset('uploads/banner_img')}}/{{$premium_campaign->banner_img_one}}" alt="" />
                                                 @else
                                                     @if(!empty($premium_campaign->track_id))
-                                                        <img class="border" src="{{asset('images/border.png')}}" alt="" />
+                                                        <img class="border animated fadeInLeft" src="{{asset('images/border.png')}}" alt="" />
                                                     @endif
                                                 @endif
 
@@ -132,24 +132,24 @@
                                                 @if(!empty($premium_campaign->track_id))
                                                     @if(!empty($premium_campaign->artistTrack) && !empty($premium_campaign->artistTrack->track_thumbnail))
                                                         <div class="trackThumbnail">
-                                                            <img class="thumbnail" src="{{asset('uploads/track_thumbnail')}}/{{$premium_campaign->artistTrack->track_thumbnail}}" alt="" />
+                                                            <img class="thumbnail animated fadeInLeft" src="{{asset('uploads/track_thumbnail')}}/{{$premium_campaign->artistTrack->track_thumbnail}}" alt="" />
                                                         </div>
                                                     @elseif(empty($premium_campaign->artistTrack) && !empty($premium_campaign->track_thumbnail))
                                                         <div class="trackThumbnail">
-                                                            <img class="thumbnail" src="{{asset('uploads/track_thumbnail')}}/{{$premium_campaign->track_thumbnail}}" alt="" />
+                                                            <img class="thumbnail animated fadeInLeft" src="{{asset('uploads/track_thumbnail')}}/{{$premium_campaign->track_thumbnail}}" alt="" />
                                                         </div>
                                                     @else
                                                         <div class="trackThumbnail">
-                                                            <img class="thumbnail" src="{{asset('images/banner_cd.png')}}" alt="" />
+                                                            <img class="thumbnail animated fadeInLeft" src="{{asset('images/banner_cd.png')}}" alt="" />
                                                         </div>
                                                     @endif
                                                 @else
                                                     @if(!empty($premium_campaign->banner_img) && $premium_campaign->banner_img_status == 1)
                                                         @if($premium_campaign->banner_img_one_status == 0)
-                                                                <img class="border" src="{{asset('uploads/banner_img')}}/{{$premium_campaign->banner_img}}" alt="" />
+                                                                <img class="border animated fadeInLeft" src="{{asset('uploads/banner_img')}}/{{$premium_campaign->banner_img}}" alt="" />
                                                         @else
                                                             <div class="trackThumbnail">
-                                                                <img class="thumbnail"  src="{{asset('uploads/banner_img')}}/{{$premium_campaign->banner_img}}" alt="" />
+                                                                <img class="thumbnail animated fadeInLeft"  src="{{asset('uploads/banner_img')}}/{{$premium_campaign->banner_img}}" alt="" />
                                                             </div>
                                                         @endif
                                                     @endif
@@ -172,7 +172,7 @@
                                             @endif
                                             @else
                                                 <div class="slide-image slide-media" style="background-image:url({{asset(!empty($theme->curator_banner_img) ? $theme->curator_banner_img : 'images/dahboard_banner.png')}});">
-                                                    <img data-lazy="{{asset(!empty($theme->curator_banner_img) ? $theme->curator_banner_img : 'images/dahboard_banner.png')}}" class="image-entity" />
+                                                    <img data-lazy="{{asset(!empty($theme->curator_banner_img) ? $theme->curator_banner_img : 'images/dahboard_banner.png')}}" class="image-entity animated fadeInLeft" />
                                                 </div>
                                             @endif
                                         </figure>
