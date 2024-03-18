@@ -716,4 +716,9 @@
         ttq.load('CNAIDJRC77U6KO2RGUE0');
         ttq.page();
     }(window, document, 'ttq');
+
+    function closeBottom()
+    {
+        $('#playDisplay').css('display','none');
+    }
 </script>

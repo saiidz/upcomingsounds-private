@@ -98,6 +98,19 @@ success, touch, track, tracks, transparent, united, visibility,
         h1,h2,h3,h4{
             font-size: 1.5rem !important;
         }
+        .mejs-container .mejs-controls div {
+            display: flex !important;
+            justify-content: flex-end !important;
+            align-items: center !important;
+        }
+        .bottomMusicHide{
+            left: auto !important;
+            right: 15px !important;
+            position: absolute;
+        }
+        a.closebtnBottom {
+            font-size: 20px;
+        }
     </style>
     <link rel="stylesheet" href="{{asset('css/gijgo.min.css')}}" type="text/css" />
 </head>
