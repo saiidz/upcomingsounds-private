@@ -280,13 +280,16 @@ header nav ul li a:hover {
 }
 .outer-right{
     position: absolute;
-    top: 14%;
-    right:6%;
+    top: 22%;
+    right: 0%;
+    /*top: 14%;*/
+    /*right:6%;*/
     width: 50%;
     z-index:1;
 }
 .border_image .border {
-    width: 60%;
+    width: 100%;
+    /*width: 60%;*/
     float: right;
 }
 .trackThumbnail{
@@ -996,14 +999,32 @@ header nav ul li a:hover {
 
       .outer-right {
           position: absolute;
-          top: 14%;
+          top: 4%;
           right: 1%;
           width: 50%;
           z-index: 1;
+
+          /*position: absolute;*/
+          /*top: 14%;*/
+          /*right: 1%;*/
+          /*width: 50%;*/
+          /*z-index: 1;*/
       }
       .border_image .border {
-          width: 70%;
+          position: relative;
+          z-index: 2;
+          width: 64%;
+          height: 40%;
       }
+      .border_image .thumbnail {
+          top: 1px;
+          left: 80px;
+          width: 35%;
+          height: 40%;
+      }
+      /*.border_image .border {*/
+      /*    width: 70%;*/
+      /*}*/
       .trackThumbnail {
           position: absolute;
           top: 25%;
@@ -1023,14 +1044,23 @@ header nav ul li a:hover {
           width: 50%;
       }
       .outer-left h1.headline.animated.fadeInLeft {
-          font-size: 20px;
+          font-size: 13px !important;
       }
       .outer-left h3.title.animated.bounceInLeft {
-          font-size: 12px;
+          font-size: 13px !important;
       }
       .outer-left p.description.animated.fadeInDown.delay-06s {
-          font-size: 5px;
+          font-size: 8px !important;
           margin-bottom: 2px;
+      }
+      .pBtn{
+          width: 23px !important;
+          height: 23px !important;
+      }
+      .pBtnText{
+          padding-left: 1.2em;
+          padding-right: 1.2em;
+          font-size: 8px;
       }
       .progressBar{
           margin-right : 0px !important;
