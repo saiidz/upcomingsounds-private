@@ -54,14 +54,18 @@
             position: absolute;
             top: 3px;
             left: 70px;
-            width: 50%;
             height: 100%;
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
             z-index: 1;
         }
-
+        .tHmW1{
+            width: 50% !important;
+        }
+        .thWN2{
+            width: 100% !important;
+        }
     </style>
 @endsection
 
@@ -170,18 +174,18 @@
 
                                                 @if(!empty($premium_campaign->track_id))
                                                     @if(!empty($premium_campaign->artistTrack) && !empty($premium_campaign->artistTrack->track_thumbnail))
-                                                        <div class="thumbnail animated fadeInLeft" style="background-image:url({{asset('uploads/track_thumbnail')}}/{{$premium_campaign->artistTrack->track_thumbnail}});"></div>
+                                                        <div class="thumbnail animated fadeInLeft tHmW1" style="background-image:url({{asset('uploads/track_thumbnail')}}/{{$premium_campaign->artistTrack->track_thumbnail}});"></div>
                                                     @elseif(empty($premium_campaign->artistTrack) && !empty($premium_campaign->track_thumbnail))
-                                                        <div class="thumbnail animated fadeInLeft" style="background-image:url({{asset('uploads/track_thumbnail')}}/{{$premium_campaign->track_thumbnail}});"></div>
+                                                        <div class="thumbnail animated fadeInLeft tHmW1" style="background-image:url({{asset('uploads/track_thumbnail')}}/{{$premium_campaign->track_thumbnail}});"></div>
                                                     @else
-                                                        <div class="thumbnail animated fadeInLeft" style="background-image:url({{asset('images/banner_cd.png')}});"></div>
+                                                        <div class="thumbnail animated fadeInLeft tHmW1" style="background-image:url({{asset('images/banner_cd.png')}});"></div>
                                                     @endif
                                                 @else
                                                     @if(!empty($premium_campaign->banner_img) && $premium_campaign->banner_img_status == 1)
                                                         @if($premium_campaign->banner_img_one_status == 0)
                                                             <img class="border animated fadeInLeft" src="{{asset('uploads/banner_img')}}/{{$premium_campaign->banner_img}}" alt="" />
                                                         @else
-                                                            <div class="thumbnail animated fadeInLeft" style="background-image:url({{asset('uploads/banner_img')}}/{{$premium_campaign->banner_img}});"></div>
+                                                            <div class="thumbnail animated fadeInLeft @if(!empty($premium_campaign->banner_img_one) && $premium_campaign->banner_img_one_status == 1) tHmW1 @else thWN2 @endif" style="background-image:url({{asset('uploads/banner_img')}}/{{$premium_campaign->banner_img}});"></div>
                                                         @endif
                                                     @endif
                                                 @endif
