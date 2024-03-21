@@ -75,6 +75,8 @@ class CuratorController extends Controller
         if ($request->hasfile('file')) {
             $file = $request->file('file');
             $name = $file->getClientOriginalName();
+            // Remove spaces from the file name
+            $name = str_replace(' ', '_', $name);
             $image_path = 'default_' . time() . $name;
             $file->move(public_path() . '/uploads/profile/', $image_path);
             //store image file into directory and db
