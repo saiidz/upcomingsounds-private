@@ -40,7 +40,7 @@ class PromoteYourTrackController extends Controller
     {
         $user_artist = Auth::user();
         $curators = User::getReceivedCurstors()->count();
-        $page = 'welcome-your-track';
+        $page = 'artist-dashboard';
 
         $curator_features = CuratorFeature::all();
         $limit = 500;

@@ -17,8 +17,8 @@
                    <span class="text-xs text-muted">Main</span>
                 </li>
                  @if(Request::is('artist-offers') == 'artist-offers' || Request::is('messages') == 'messages')
-                     <li class="{{Request::segment(1) == 'welcome-your-track' || Request::segment(1) == 'promote-your-track' ? 'active' : ''}}">
-                         <a href="{{url('/welcome-your-track')}}" class="reloadWelcomeTrack">
+                     <li class="{{Request::segment(1) == 'artist-dashboard' || Request::segment(1) == 'promote-your-track' ? 'active' : ''}}">
+                         <a href="{{url('/artist-dashboard')}}" class="reloadWelcomeTrack">
                             <span class="nav-icon">
                                <i class="material-icons">
                                play_circle_outline
@@ -28,8 +28,8 @@
                          </a>
                      </li>
                  @else
-                     <li class="{{Request::segment(1) == 'welcome-your-track' || Request::segment(1) == 'promote-your-track' ? 'active' : ''}}">
-                         <a href="{{url('/welcome-your-track')}}" class="reloadWelcomeTrack">
+                     <li class="{{Request::segment(1) == 'artist-dashboard' || Request::segment(1) == 'promote-your-track' ? 'active' : ''}}">
+                         <a href="{{url('/artist-dashboard')}}" class="reloadWelcomeTrack">
                             <span class="nav-icon">
                                <i class="material-icons">
                                play_circle_outline

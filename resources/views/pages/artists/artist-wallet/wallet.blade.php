@@ -244,7 +244,7 @@
                 </div>
                 {{--Claim Coupons Code--}}
 
-                <a href="{{url('welcome-your-track')}}" class="startCampaign">Start a campaign</a>
+                <a href="{{url('artist-dashboard')}}" class="startCampaign">Start a campaign</a>
             </div>
         </div>
     <!-- ############ PAGE END-->
