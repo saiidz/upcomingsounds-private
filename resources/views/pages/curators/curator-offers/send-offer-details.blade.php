@@ -86,7 +86,8 @@
                     </div>
                     <div class="row-col">
                         <div class="col-sm w w-auto-xs m-b">
-                            <div class="item w rounded">
+                            <div class="item w">
+{{--                            <div class="item w rounded">--}}
                                 <div class="item-media">
                                     <div class="item-media-content">
                                         @php

@@ -47,6 +47,24 @@
         .blue-tag {
             color: blue;
         }
+        .profile-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            /*border: 4px solid #fff; !* Add a white border around the profile image *!*/
+            border-radius: 50%; /* Make it a circle for a profile image effect */
+        }
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the image covers the container */
+        }
     </style>
 @endsection
 
@@ -65,38 +83,70 @@
                     </div>
                     <div class="row-col">
                         <div class="col-sm w w-auto-xs m-b">
-                            <div class="item w rounded">
+                            <div class="item w">
                                 <div class="item-media">
-                                    @php
-                                        $mystring = $send_offer->userCurator->profile;
-                                        $findhttps   = 'https';
-                                        $findhttp   = 'http';
-                                        $poshttps = strpos($mystring, $findhttps);
+                                    <div class="item-media-content">
+                                        @php
+                                            $mystring = $send_offer->userCurator->profile;
+                                               $findhttps   = 'https';
+                                               $findhttp   = 'http';
+                                               $poshttps = strpos($mystring, $findhttps);
 
-                                        $poshttp = strpos($mystring, $findhttp);
-                                        if($poshttps != false){
-                                            $pos = $poshttps;
-                                        }else{
-                                            $pos = $poshttp;
-                                        }
-                                    @endphp
-                                    @if($pos === false)
-                                        @if(!empty($send_offer->userCurator->profile))
-                                            <div class="item-media-content" id="upload_profile"
-                                                 style="background-image: url({{URL('/')}}/uploads/profile/{{$send_offer->userCurator->profile}});"></div>
+                                               $poshttp = strpos($mystring, $findhttp);
+                                               if($poshttps != false){
+                                                   $pos = $poshttps;
+                                               }else{
+                                                   $pos = $poshttp;
+                                               }
+                                        @endphp
+                                        @if($pos === false)
+                                            @if(!empty($send_offer->userCurator->profile))
+                                                <img src="{{URL('/')}}/uploads/profile/{{$send_offer->userCurator->profile}}" alt="" class="profile-image">
+                                            @else
+                                                <img src="{{asset('images/profile_images_icons.svg')}}" alt="" class="profile-image">
+                                            @endif
+                                        @elseif($pos == 0)
+                                            <img src="{{asset($send_offer->userCurator->profile)}}" alt="" class="profile-image">
                                         @else
-                                            <div class="item-media-content" id="upload_profile"
-                                                 style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>
+                                            <img src="{{asset('images/profile_images_icons.svg')}}" alt="" class="profile-image">
                                         @endif
-                                    @elseif($pos == 0)
-                                        <div class="item-media-content" id="upload_profile"
-                                             style="background-image: url({{$send_offer->userCurator->profile}});"></div>
-                                    @else
-                                        <div class="item-media-content" id="upload_profile"
-                                             style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>
-                                    @endif
+
+                                        <img src="{{asset('images/bg_curator_profile.png')}}" alt="" class="background-image">
+                                    </div>
                                 </div>
                             </div>
+{{--                            <div class="item w rounded">--}}
+{{--                                <div class="item-media">--}}
+{{--                                    @php--}}
+{{--                                        $mystring = $send_offer->userCurator->profile;--}}
+{{--                                        $findhttps   = 'https';--}}
+{{--                                        $findhttp   = 'http';--}}
+{{--                                        $poshttps = strpos($mystring, $findhttps);--}}
+
+{{--                                        $poshttp = strpos($mystring, $findhttp);--}}
+{{--                                        if($poshttps != false){--}}
+{{--                                            $pos = $poshttps;--}}
+{{--                                        }else{--}}
+{{--                                            $pos = $poshttp;--}}
+{{--                                        }--}}
+{{--                                    @endphp--}}
+{{--                                    @if($pos === false)--}}
+{{--                                        @if(!empty($send_offer->userCurator->profile))--}}
+{{--                                            <div class="item-media-content" id="upload_profile"--}}
+{{--                                                 style="background-image: url({{URL('/')}}/uploads/profile/{{$send_offer->userCurator->profile}});"></div>--}}
+{{--                                        @else--}}
+{{--                                            <div class="item-media-content" id="upload_profile"--}}
+{{--                                                 style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>--}}
+{{--                                        @endif--}}
+{{--                                    @elseif($pos == 0)--}}
+{{--                                        <div class="item-media-content" id="upload_profile"--}}
+{{--                                             style="background-image: url({{$send_offer->userCurator->profile}});"></div>--}}
+{{--                                    @else--}}
+{{--                                        <div class="item-media-content" id="upload_profile"--}}
+{{--                                             style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>--}}
+{{--                                    @endif--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                             <div>
                                 @if (!empty($send_offer->userCurator->curatorUser->curator_bio))
                                     <div class="page-title m-b">

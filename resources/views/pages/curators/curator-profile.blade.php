@@ -37,6 +37,40 @@
         .ItemNotify{
             background-color: rgba(120, 120, 120, 0.1);
         }
+        .item-media {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .item-media-content {
+            position: relative;
+            width: 100%;
+            padding-top: 100%; /* Set the desired aspect ratio, e.g., 4:3 would be 75% */
+            background-size: cover;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the image covers the container */
+        }
+
+        .profile-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            /*border: 4px solid #fff; !* Add a white border around the profile image *!*/
+            border-radius: 50%; /* Make it a circle for a profile image effect */
+        }
+        .item-media:after {
+            padding-top: 2% !important;
+        }
     </style>
 @endsection
 
@@ -48,39 +82,72 @@
     <div class="padding b-b">
         <div class="row-col">
             <div class="col-sm w w-auto-xs m-b">
-                <div class="item w rounded">
+                <div class="item w">
                     <div class="item-media">
-                        @php
-                            $mystring = $user_curator->profile;
-                            $findhttps   = 'https';
-                            $findhttp   = 'http';
-                            $poshttps = strpos($mystring, $findhttps);
+                        <div class="item-media-content">
+                            @php
+                                $mystring = $user_curator->profile;
+                                $findhttps   = 'https';
+                                $findhttp   = 'http';
+                                $poshttps = strpos($mystring, $findhttps);
 
-                            $poshttp = strpos($mystring, $findhttp);
-                            if($poshttps != false){
-                                $pos = $poshttps;
-                            }else{
-                                $pos = $poshttp;
-                            }
-                        @endphp
-                        @if($pos === false)
-                            @if(!empty($user_curator->profile))
-                                <div class="item-media-content" id="upload_profile"
-                                     style="background-image: url({{URL('/')}}/uploads/profile/{{$user_curator->profile}});"></div>
+                                $poshttp = strpos($mystring, $findhttp);
+                                if($poshttps != false){
+                                    $pos = $poshttps;
+                                }else{
+                                    $pos = $poshttp;
+                                }
+                            @endphp
+                            @if($pos === false)
+                                @if(!empty($user_curator->profile))
+                                    <img src="{{URL('/')}}/uploads/profile/{{$user_curator->profile}}" alt="" id="upload_profile" class="profile-image">
+                                @else
+                                    <img src="{{asset('images/profile_images_icons.svg')}}" alt="" id="upload_profile" class="profile-image">
+                                @endif
+                            @elseif($pos == 0)
+                                <img src="{{asset($user_curator->profile)}}" alt="" id="upload_profile" class="profile-image">
                             @else
-                                <div class="item-media-content" id="upload_profile"
-                                     style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>
+                                <img src="{{asset('images/profile_images_icons.svg')}}" alt="" id="upload_profile" class="profile-image">
                             @endif
-                        @elseif($pos == 0)
-                            <div class="item-media-content" id="upload_profile"
-                                 style="background-image: url({{$user_curator->profile}});"></div>
-                        @else
-                            <div class="item-media-content" id="upload_profile"
-                                 style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>
-                        @endif
 
+                            <img src="{{asset('images/bg_curator_profile.png')}}" alt="" id="upload_profile" class="background-image">
+                        </div>
                     </div>
                 </div>
+
+{{--                <div class="item w rounded">--}}
+{{--                    <div class="item-media">--}}
+{{--                        @php--}}
+{{--                            $mystring = $user_curator->profile;--}}
+{{--                            $findhttps   = 'https';--}}
+{{--                            $findhttp   = 'http';--}}
+{{--                            $poshttps = strpos($mystring, $findhttps);--}}
+
+{{--                            $poshttp = strpos($mystring, $findhttp);--}}
+{{--                            if($poshttps != false){--}}
+{{--                                $pos = $poshttps;--}}
+{{--                            }else{--}}
+{{--                                $pos = $poshttp;--}}
+{{--                            }--}}
+{{--                        @endphp--}}
+{{--                        @if($pos === false)--}}
+{{--                            @if(!empty($user_curator->profile))--}}
+{{--                                <div class="item-media-content" id="upload_profile"--}}
+{{--                                     style="background-image: url({{URL('/')}}/uploads/profile/{{$user_curator->profile}});"></div>--}}
+{{--                            @else--}}
+{{--                                <div class="item-media-content" id="upload_profile"--}}
+{{--                                     style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>--}}
+{{--                            @endif--}}
+{{--                        @elseif($pos == 0)--}}
+{{--                            <div class="item-media-content" id="upload_profile"--}}
+{{--                                 style="background-image: url({{$user_curator->profile}});"></div>--}}
+{{--                        @else--}}
+{{--                            <div class="item-media-content" id="upload_profile"--}}
+{{--                                 style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>--}}
+{{--                        @endif--}}
+
+{{--                    </div>--}}
+{{--                </div>--}}
                 <div>
                     @if (!empty($user_curator->curatorUser->curator_bio))
                         <div class="page-title m-b">

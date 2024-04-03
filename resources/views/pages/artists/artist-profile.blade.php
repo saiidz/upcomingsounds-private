@@ -81,39 +81,71 @@
                 <div class="padding b-b">
                     <div class="row-col">
                         <div class="col-sm w w-auto-xs m-b">
-                            <div class="item w rounded">
+                            <div class="item w">
                                 <div class="item-media">
-                                    @php
-                                        $mystring = $user_artist->profile;
-                                        $findhttps   = 'https';
-                                        $findhttp   = 'http';
-                                        $poshttps = strpos($mystring, $findhttps);
+                                    <div class="item-media-content">
+                                        @php
+                                            $mystring = $user_artist->profile;
+                                            $findhttps   = 'https';
+                                            $findhttp   = 'http';
+                                            $poshttps = strpos($mystring, $findhttps);
 
-                                        $poshttp = strpos($mystring, $findhttp);
-                                        if($poshttps != false){
-                                            $pos = $poshttps;
-                                        }else{
-                                            $pos = $poshttp;
-                                        }
-                                    @endphp
-                                    @if($pos === false)
-                                        @if(!empty($user_artist->profile))
-                                            <div class="item-media-content" id="upload_profile"
-                                                 style="background-image: url({{URL('/')}}/uploads/profile/{{$user_artist->profile}});"></div>
+                                            $poshttp = strpos($mystring, $findhttp);
+                                            if($poshttps != false){
+                                                $pos = $poshttps;
+                                            }else{
+                                                $pos = $poshttp;
+                                            }
+                                        @endphp
+                                        @if($pos === false)
+                                            @if(!empty($user_artist->profile))
+                                                <img src="{{URL('/')}}/uploads/profile/{{$user_artist->profile}}" alt="" id="upload_profile" class="profile-image">
+                                            @else
+                                                <img src="{{asset('images/profile_images_icons.svg')}}" alt="" id="upload_profile" class="profile-image">
+                                            @endif
+                                        @elseif($pos == 0)
+                                            <img src="{{asset($user_artist->profile)}}" alt="" id="upload_profile" class="profile-image">
                                         @else
-                                            <div class="item-media-content" id="upload_profile"
-                                                 style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>
+                                            <img src="{{asset('images/profile_images_icons.svg')}}" alt="" id="upload_profile" class="profile-image">
                                         @endif
-                                    @elseif($pos == 0)
-                                        <div class="item-media-content" id="upload_profile"
-                                             style="background-image: url({{$user_artist->profile}});"></div>
-                                    @else
-                                        <div class="item-media-content" id="upload_profile"
-                                             style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>
-                                    @endif
 
+                                        <img src="{{asset('images/bg_curator_profile.png')}}" alt="" id="upload_profile" class="background-image">
+                                    </div>
                                 </div>
                             </div>
+{{--                            <div class="item w rounded">--}}
+{{--                                <div class="item-media">--}}
+{{--                                    @php--}}
+{{--                                        $mystring = $user_artist->profile;--}}
+{{--                                        $findhttps   = 'https';--}}
+{{--                                        $findhttp   = 'http';--}}
+{{--                                        $poshttps = strpos($mystring, $findhttps);--}}
+
+{{--                                        $poshttp = strpos($mystring, $findhttp);--}}
+{{--                                        if($poshttps != false){--}}
+{{--                                            $pos = $poshttps;--}}
+{{--                                        }else{--}}
+{{--                                            $pos = $poshttp;--}}
+{{--                                        }--}}
+{{--                                    @endphp--}}
+{{--                                    @if($pos === false)--}}
+{{--                                        @if(!empty($user_artist->profile))--}}
+{{--                                            <div class="item-media-content" id="upload_profile"--}}
+{{--                                                 style="background-image: url({{URL('/')}}/uploads/profile/{{$user_artist->profile}});"></div>--}}
+{{--                                        @else--}}
+{{--                                            <div class="item-media-content" id="upload_profile"--}}
+{{--                                                 style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>--}}
+{{--                                        @endif--}}
+{{--                                    @elseif($pos == 0)--}}
+{{--                                        <div class="item-media-content" id="upload_profile"--}}
+{{--                                             style="background-image: url({{$user_artist->profile}});"></div>--}}
+{{--                                    @else--}}
+{{--                                        <div class="item-media-content" id="upload_profile"--}}
+{{--                                             style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>--}}
+{{--                                    @endif--}}
+
+{{--                                </div>--}}
+{{--                            </div>--}}
                         </div>
                         <div class="col-sm">
                             <div class="p-l-md no-padding-xs">
