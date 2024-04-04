@@ -57,7 +57,8 @@
             <a class="m-b-md rounded addTrack" data-toggle="modal" data-target="#add-track-promote" href="javascript:void(0)">
                 Submit New Release
             </a>
-            <a class="m-b-md rounded addTrack nxt__btn" id="firstStepBtn" onclick="nextForm('step_one');" style="width: 28%;"> Go To Your Campaigns</a>
+            <a class="m-b-md rounded addTrack nxt__btn" id="firstStepBtnCampaign" href="{{ route('active.campaign') }}"  @if(!empty($SelectedTrack)) style="width: 31%; display:none;" @else style="width: 31%;" @endif> Go To Your Campaigns</a>
+            <a class="m-b-md rounded addTrack nxt__btn" id="firstStepBtn" onclick="nextForm('step_one');" @if(!empty($SelectedTrack)) style="width: 31%; display:block;" @else style="width: 31%; display:none;" @endif> Promote Your TracK</a>
         </div>
     </div>
 </fieldset>

@@ -383,6 +383,8 @@
             $('#oneTrackSelected_'+id).prop('checked', true);
 
             $('#firstStepBtn').addClass('firstStepBtn');
+            $('#firstStepBtnCampaign').css('display','none');
+            $('#firstStepBtn').css('display','block');
             $('#firstStepBtn').html('Promote Your TracK');
 
             $('#ArtistTrack').val('');
