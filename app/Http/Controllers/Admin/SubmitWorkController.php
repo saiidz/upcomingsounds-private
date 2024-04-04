@@ -53,14 +53,25 @@ class SubmitWorkController extends Controller
 
         if(!empty($submitWork))
         {
-            $submitWork->update([
-               'status' => IOfferTemplateStatus::APPROVED,
-            ]);
 
             # update SendOfferTransaction table
             $SendOfferTransaction = SendOfferTransaction::where(['send_offer_id' => $submitWork->send_offer_id, 'curator_id' => $submitWork->curator_id])->latest()->first();
+
+            # amount is greater than 15 then admin fee will be 20%
+            $amountRound = (int) round($SendOfferTransaction->contribution);
+
+            if ($SendOfferTransaction->contribution > 15)
+            {
+                $adminFee = $amountRound * 0.20;
+                $adminFee = (int) round($adminFee);
+            }
+            else
+            {
+                $adminFee = IOfferTemplateStatus::USC_FEE_COMMISSION_ADMIN;
+            }
+
             $SendOfferTransaction->update([
-                'usc_fee_commission' => IOfferTemplateStatus::USC_FEE_COMMISSION_ADMIN,
+                'usc_fee_commission' => $adminFee,
                 'is_approved'        => 1,
                 'is_rejected'        => 0,
             ]);
@@ -71,6 +82,9 @@ class SubmitWorkController extends Controller
                 'message' => $request->description_details ?? null,
             ]);
 
+            $submitWork->update([
+                'status' => IOfferTemplateStatus::APPROVED,
+            ]);
 
             $data['email'] = $submitWork->user->email;
             $data['username'] = $submitWork->user->name;
