@@ -34,13 +34,15 @@
                             @foreach($campaigns as $campaign)
                                 <div class="col-xs-12 remove_campaign" id="remove_campaign-{{$campaign->artistTrack->id}}">
                                     <div class="item r" data-id="item-{{$campaign->artistTrack->id}}" data-src="{{URL('/')}}/uploads/audio/{{$campaign->artistTrack->audio}}">
-                                        <div class="item-media mediaItem">
+                                        <div class="item-media mediaItem" style="width: 140px !important;height: 130px !important;">
                                             @if(!empty($campaign->artistTrack->track_thumbnail))
                                                 <a href="javascript:void(0)" class="item-media-content"
-                                                   style="background-image: url({{asset('uploads/track_thumbnail')}}/{{$campaign->artistTrack->track_thumbnail}});"></a>
+                                                   style="background-image: url({{asset('uploads/track_thumbnail')}}/{{$campaign->artistTrack->track_thumbnail}});background-size: 100%;
+    background-repeat: no-repeat;"></a>
                                             @else
                                                 <a href="javascript:void(0)" class="item-media-content"
-                                                   style="background-image: url({{asset('images/b9.jpg')}});"></a>
+                                                   style="background-image: url({{asset('images/b9.jpg')}});background-size: 100%;
+    background-repeat: no-repeat;"></a>
                                             @endif
 
                                             @if(!empty($campaign->artistTrack->audio))
