@@ -185,3 +185,20 @@ function limitText($text, $limit) {
     }
     return $text;
 }
+
+/**
+ * @param $text
+ * @param $artist
+ * @param $title
+ * @param $releaseDate
+ * @return array|string|string[]
+ */
+function replaceShortcodes($text, $artist, $title, $releaseDate)
+{
+    // Replace the shortcodes with the actual values
+    $text = str_replace('{ARTIST}', $artist, $text);
+    $text = str_replace('{TITLE}', $title, $text);
+    $text = str_replace('{RELEASE_DATE}', getDateFormat($releaseDate), $text);
+
+    return $text;
+}

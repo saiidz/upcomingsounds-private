@@ -538,11 +538,15 @@
 
     function selectOfferTemplate(id)
     {
-        showLoader();
+        let campaign_ID = $('#campaign_ID').val()
+        // showLoader();
         $.ajax({
             type: "GET",
             url: '{{route('curator.show.offer.template')}}',
-            data: {offer_id:id},
+            data: {
+                offer_id:id,
+                campaign_ID:campaign_ID
+            },
             dataType: 'json',
             success: function (data) {
                 console.log(data);
@@ -573,7 +577,8 @@
                         // // Remove other HTML tags
                         // offerText = offerText.replace(/<\/?[^>]+(>|$)/g, "");
                         // $('#offerText_').html(offerText);
-                        $('#offerText_').html(data.offer_template.offer_text.replace(/(<([^>]+)>)/gi, ""));
+                        $('#offerText_').html(data.offer_text.replace(/(<([^>]+)>)/gi, ""));
+                        // $('#offerText_').html(data.offer_template.offer_text.replace(/(<([^>]+)>)/gi, ""));
                     }
                     if(data.offer_template)
                     {

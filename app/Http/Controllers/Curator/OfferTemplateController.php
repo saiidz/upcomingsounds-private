@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Curator;
 
 use App\Http\Controllers\Controller;
 use App\Models\AlternativeOption;
+use App\Models\ArtistTrack;
 use App\Models\Campaign;
 use App\Models\CuratorOfferTemplate;
 use App\Models\OfferType;
@@ -98,17 +99,31 @@ class OfferTemplateController extends Controller
 
 
     /**
-     * @param CuratorOfferTemplate $offer_template
+     * @param Request $request
      * @return JsonResponse
      */
     public function show(Request $request)
     {
         $offer_template = CuratorOfferTemplate::find($request->offer_id);
+        $campaign = Campaign::where('id', $request->campaign_ID)->first();
+        if (!empty($campaign))
+        {
+            #find artist user
+            $artistUser = User::find($campaign->user_id);
+            #find artist track
+            $artistTrack = ArtistTrack::find($campaign->track_id);
+
+            // Get the offer text from the form input or your data source
+            $offerText = $offer_template->offer_text;
+            // Replace the shortcodes in the offer text
+            $personalizedOfferText = replaceShortcodes($offerText, $artistUser->name, $artistTrack->name, $artistTrack->release_date);
+        }
         return response()->json([
             'success' => 'success',
             'offer_template' => $offer_template,
             'offer_type' => !empty($offer_template) ? $offer_template->offerType : null,
             'alternative_option' => !empty($offer_template) ? $offer_template->alternativeOption : null,
+            'offer_text' => !empty($personalizedOfferText) ? $personalizedOfferText : null,
         ]);
     }
 

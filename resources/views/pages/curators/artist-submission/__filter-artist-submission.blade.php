@@ -41,7 +41,8 @@
                         <a href="javascript:void(0)" onclick="openNav({{$campaign->id}})">{{$campaign->artistTrack->name}} ({{!empty($campaign->user) ? $campaign->user->name : '---'}})</a>
                     </div>
                     <div class="item-author text-ellipsis">
-                        <span class="text-muted">Release Date: {{ getDateFormat($campaign->artistTrack->created_at) }}</span>
+                        <span class="text-muted">Release Date: {{ getDateFormat($campaign->artistTrack->release_date) }}</span>
+{{--                        <span class="text-muted">Release Date: {{ getDateFormat($campaign->artistTrack->created_at) }}</span>--}}
                     </div>
                     <div class="item-author text-ellipsis">
                         @if(!empty($campaign->user) && !empty($campaign->user->artistUser->country))
