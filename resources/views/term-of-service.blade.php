@@ -293,6 +293,25 @@
                 </div>
             </div>
         </div>
+          <ol start="26">
+                       <li><strong> SMS Terms and Conditions</strong></li>
+                    </ol>
+                    <p>:
+
+Message Frequency: You will receive a one-time SMS for phone verification. Standard message and data rates may apply, depending on your mobile plan.
+Possible Fees: No fees are required for this service.
+How to Opt-in: Provide your phone number and click "next" on the following page: https://upcomingsounds.com/taste-maker-phone-number.
+How to Opt-out: No subscription is necessary; the SMS is a one-time verification message, so no action is required to opt out.
+Data Handling:
+
+Personal Information We Collect: We collect only phone numbers for the purpose of user verification.
+Why We Collect It: Phone numbers are used for geo-user verification.
+How We Use It: We do not share or sell your data to anyone. Your phone number is solely used for verification purposes. We employ security measures to protect your information.
+User Rights:
+
+Your Rights: You have the right to request the removal of your data from our systems.
+How to Act on Your Rights: To exercise your rights or for any privacy concerns, please contact us at privacy@upcomingsounds.com. We will respond to your inquiry promptly. </strong></p>
+                    <ol>
         <!-- ############ PAGE END-->
 
     </div>
