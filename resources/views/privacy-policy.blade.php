@@ -558,9 +558,9 @@
         </div>
 
           <ol start="18">
-                        <li><strong> </strong></li>
+                        <li><strong> SMS Terms and Conditions</strong></li>
                     </ol>
-                    <p>SMS Terms and Conditions:
+                    <p>:
 
 Message Frequency: You will receive a one-time SMS for phone verification. Standard message and data rates may apply, depending on your mobile plan.
 Possible Fees: No fees are required for this service.
