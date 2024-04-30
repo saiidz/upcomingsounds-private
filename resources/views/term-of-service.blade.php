@@ -284,16 +284,8 @@
                     <p>In the event of a transla3on of these terms and condi3ons into one or more languages, the language of interpreta3on shall be the French language in the event of a contradic3on or dispute as to the meaning of a term or provision.</p>
                     <ol start="24">
                         <li><strong> Applicable law and jurisdicCon </strong></li>
-                    </ol>
-                    <p>The present general condi3ons are governed by French law. In the event of a dispute as to the validity, interpreta3on and/or execu3on of these general condi3ons, the par3es agree that the courts of Paris shall have exclusive jurisdic3on, unless mandatory procedural rules to the contrary exist.</p>
-                    <ol start="25">
-                        <li><strong> Coming into force </strong></li>
-                    </ol>
-                    <p>The present general terms and condi3ons came into force on 02/01/2021.</p>
-                </div>
-            </div>
-        </div>
-          <ol start="26">
+                    
+          <ol start="25">
                        <li><strong> SMS Terms and Conditions</strong></li>
                     </ol>
                     <p>:
@@ -312,6 +304,15 @@ User Rights:
 Your Rights: You have the right to request the removal of your data from our systems.
 How to Act on Your Rights: To exercise your rights or for any privacy concerns, please contact us at privacy@upcomingsounds.com. We will respond to your inquiry promptly. </strong></p>
                     <ol>
+                        </ol>
+                    <p>The present general condi3ons are governed by French law. In the event of a dispute as to the validity, interpreta3on and/or execu3on of these general condi3ons, the par3es agree that the courts of Paris shall have exclusive jurisdic3on, unless mandatory procedural rules to the contrary exist.</p>
+                    <ol start="26">
+                        <li><strong> Coming into force </strong></li>
+                    </ol>
+                    <p>The present general terms and condi3ons came into force on 29/04/2024.</p>
+                </div>
+            </div>
+        </div>
         <!-- ############ PAGE END-->
 
     </div>
