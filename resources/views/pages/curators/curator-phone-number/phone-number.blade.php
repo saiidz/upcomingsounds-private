@@ -78,6 +78,11 @@
                                                         </div>
                                                         <div class="row">
                                                             <div class="input-field col s12">
+                                                               <p>I consent to receive SMS at the number provided above. <a href="{{url('/term-of-service')}}" target="_blank" class="nav-link">Term of Service</a> and <a href="{{url('/privacy-policy')}}" target="_blank" class="nav-link">Policy Privacy</a> apply.</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="input-field col s12">
                                                                 <button class="tellMeMore left LeftSide" onclick="window.history.go(-1); return false;" style="border:none;">Previous</button>
                                                                 <button class="tellMeMore right RightSide" style="border:none;" type="submit">Next
                                                                 </button>
