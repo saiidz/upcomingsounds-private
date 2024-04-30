@@ -558,24 +558,32 @@
         </div>
 
           <ol start="18">
-                        <li><strong> SMS Terms and Conditions</strong></li>
+                        <li><strong> SMS OPT</strong></li>
                     </ol>
-                    <p>:
+                    <h2>Privacy Policy</h2>
 
-Message Frequency: You will receive a one-time SMS for phone verification. Standard message and data rates may apply, depending on your mobile plan.
-Possible Fees: No fees are required for this service.
-How to Opt-in: Provide your phone number and click "next" on the following page: https://upcomingsounds.com/taste-maker-phone-number.
-How to Opt-out: No subscription is necessary; the SMS is a one-time verification message, so no action is required to opt out.
-Data Handling:
+<p>This Privacy Policy outlines how UpcomingSounds collects, uses, and protects the personal information of its users. We are committed to ensuring the privacy and security of your data.</p>
 
-Personal Information We Collect: We collect only phone numbers for the purpose of user verification.
-Why We Collect It: Phone numbers are used for geo-user verification.
-How We Use It: We do not share or sell your data to anyone. Your phone number is solely used for verification purposes. We employ security measures to protect your information.
-User Rights:
+<h3>Information Collection</h3>
 
-Your Rights: You have the right to request the removal of your data from our systems.
-How to Act on Your Rights: To exercise your rights or for any privacy concerns, please contact us at privacy@upcomingsounds.com. We will respond to your inquiry promptly. </strong></p>
-                    <ol>
+<p>We collect only necessary personal information for the purpose of user verification. This may include phone numbers for geo-user verification.</p>
+
+<h3>Information Usage</h3>
+
+<p>We do not share or sell your data to anyone. Your personal information, such as phone numbers, is solely used for verification purposes. We employ strict security measures to safeguard your information.</p>
+
+<h3>User Rights</h3>
+
+<p>You have the right to request the removal of your data from our systems. To exercise this right or for any privacy concerns, please contact us at privacy@upcomingsounds.com. We will respond promptly to your inquiry.</p>
+
+<h3>Updates to Policy</h3>
+
+<p>We may update this Privacy Policy from time to time. Any changes will be posted on this page, and your continued use of our services constitutes acceptance of these changes.</p>
+
+<h3>Contact Us</h3>
+
+<p>If you have any questions or concerns regarding our Privacy Policy, please contact us at privacy@upcomingsounds.com.</p>
+
 
 
         <!-- ############ PAGE END-->
