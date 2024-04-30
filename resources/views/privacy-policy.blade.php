@@ -560,29 +560,29 @@
           <ol start="18">
                         <li><strong> SMS OPT</strong></li>
                     </ol>
-                    <h2>Privacy Policy</h2>
+                   <p> Privacy Policy
 
-<p>This Privacy Policy outlines how UpcomingSounds collects, uses, and protects the personal information of its users. We are committed to ensuring the privacy and security of your data.</p>
+This Privacy Policy outlines how UpcomingSounds collects, uses, and protects the personal information of its users. We are committed to ensuring the privacy and security of your data.
 
-<h3>Information Collection</h3>
+Information Collection
 
-<p>We collect only necessary personal information for the purpose of user verification. This may include phone numbers for geo-user verification.</p>
+We collect only necessary personal information for the purpose of user verification. This may include phone numbers for geo-user verification.
 
-<h3>Information Usage</h3>
+Information Usage
 
-<p>We do not share or sell your data to anyone. Your personal information, such as phone numbers, is solely used for verification purposes. We employ strict security measures to safeguard your information.</p>
+We do not share or sell your data to anyone. Your personal information, such as phone numbers, is solely used for verification purposes. We employ strict security measures to safeguard your information.
 
-<h3>User Rights</h3>
+User Rights
 
-<p>You have the right to request the removal of your data from our systems. To exercise this right or for any privacy concerns, please contact us at privacy@upcomingsounds.com. We will respond promptly to your inquiry.</p>
+You have the right to request the removal of your data from our systems. To exercise this right or for any privacy concerns, please contact us at privacy@upcomingsounds.com. We will respond promptly to your inquiry.
 
-<h3>Updates to Policy</h3>
+Updates to Policy
 
-<p>We may update this Privacy Policy from time to time. Any changes will be posted on this page, and your continued use of our services constitutes acceptance of these changes.</p>
+We may update this Privacy Policy from time to time. Any changes will be posted on this page, and your continued use of our services constitutes acceptance of these changes.
 
-<h3>Contact Us</h3>
+Contact Us
 
-<p>If you have any questions or concerns regarding our Privacy Policy, please contact us at privacy@upcomingsounds.com.</p>
+If you have any questions or concerns regarding our Privacy Policy, please contact us at privacy@upcomingsounds.com.</p>
 
 
 
