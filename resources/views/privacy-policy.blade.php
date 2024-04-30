@@ -557,7 +557,12 @@
             </div>
         </div>
 
-          
+              <td>
+                                <p><strong>SMS OPT  </strong></p>
+                            </td>
+                            <td>
+                        </tbody>
+                    </table>
 
   <p>This Privacy Policy outlines how UpcomingSounds collects, uses, and protects the personal information of its users. We are committed to ensuring the privacy and security of your data.
 
@@ -580,7 +585,14 @@ We may update this Privacy Policy from time to time. Any changes will be posted 
 Contact Us <p>
 
   <p>If you have any questions or concerns regarding our Privacy Policy, please contact us at privacy@upcomingsounds.com.</p>
+        <tbody>
+                        <tr>
 
+       </ul>
+                    <p>&nbsp;</p>
+                </div>
+            </div>
+        </div>
 
         <!-- ############ PAGE END-->
 
