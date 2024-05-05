@@ -284,12 +284,32 @@
                     <p>In the event of a transla3on of these terms and condi3ons into one or more languages, the language of interpreta3on shall be the French language in the event of a contradic3on or dispute as to the meaning of a term or provision.</p>
                     <ol start="24">
                         <li><strong> Applicable law and jurisdicCon </strong></li>
+                    
+          <ol start="25">
+                       <li><strong> SMS Terms and Conditions</strong></li>
                     </ol>
+                    <p>:
+
+Message Frequency: You will receive a one-time SMS for phone verification. Standard message and data rates may apply, depending on your mobile plan.
+Possible Fees: No fees are required for this service.
+How to Opt-in: Provide your phone number and click "next" on the following page: https://upcomingsounds.com/taste-maker-phone-number.
+How to Opt-out: No subscription is necessary; the SMS is a one-time verification message, so no action is required to opt out.
+Data Handling:
+
+Personal Information We Collect: We collect only phone numbers for the purpose of user verification.
+Why We Collect It: Phone numbers are used for geo-user verification.
+How We Use It: We do not share or sell your data to anyone. Your phone number is solely used for verification purposes. We employ security measures to protect your information.
+User Rights:
+
+Your Rights: You have the right to request the removal of your data from our systems.
+How to Act on Your Rights: To exercise your rights or for any privacy concerns, please contact us at privacy@upcomingsounds.com. We will respond to your inquiry promptly. </strong></p>
+                    <ol>
+                        </ol>
                     <p>The present general condi3ons are governed by French law. In the event of a dispute as to the validity, interpreta3on and/or execu3on of these general condi3ons, the par3es agree that the courts of Paris shall have exclusive jurisdic3on, unless mandatory procedural rules to the contrary exist.</p>
-                    <ol start="25">
+                    <ol start="26">
                         <li><strong> Coming into force </strong></li>
                     </ol>
-                    <p>The present general terms and condi3ons came into force on 02/01/2021.</p>
+                    <p>The present general terms and condi3ons came into force on 29/04/2024.</p>
                 </div>
             </div>
         </div>
