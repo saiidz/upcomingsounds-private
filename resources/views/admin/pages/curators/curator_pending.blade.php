@@ -72,7 +72,11 @@
                                                                 <td>{{ ($pending_curator->is_verified == 1) ? 'Yes' : 'No' }}</td>
                                                                 <td>{{ ($pending_curator->type == 'curator') ? 'Curator' : '--' }}</td>
                                                                 <td>
-                                                                    @if ($pending_curator->is_approved == 0)
+                                                                    @if ($pending_curator->is_approved == 0 && $pending_curator->is_rejected == 1)
+                                                                        <span class="chip red lighten-5">
+                                                                            <span class="red-text">Rejected</span>
+                                                                        </span>
+                                                                    @else
                                                                         <span class="chip red lighten-5">
                                                                             <span class="red-text">Pending</span>
                                                                         </span>
@@ -93,6 +97,18 @@
                                                         @endforeach
                                                     @endif
 												</tbody>
+                                                <tfoot>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>Name</th>
+                                                    <th>Phone Number</th>
+                                                    <th>Created At</th>
+                                                    <th>Verified</th>
+                                                    <th>Role</th>
+                                                    <th>Status</th>
+                                                    <th>View</th>
+                                                </tr>
+                                                </tfoot>
                                             </table>
 										</div>
 									</div>

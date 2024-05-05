@@ -25,10 +25,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col s10 m6 l6">
-                            <h5 class="breadcrumbs-title mt-0 mb-0"><span>Verified Coverage Submit Works</span></h5>
+                            <h5 class="breadcrumbs-title mt-0 mb-0"><span>Pending Verified Coverage</span></h5>
                             <ol class="breadcrumbs mb-0">
                                 @include('admin.panels.breadcrumbs')
-                                <li class="breadcrumb-item active">Verified Coverage Submit Works </li>
+                                <li class="breadcrumb-item active">Pending Verified Coverage </li>
                             </ol>
                         </div>
                     </div>

@@ -178,7 +178,7 @@
                     <li class="{{ Request::is('admin/curator-submit-work*') ? 'active' : '' }}">
                         <a class="{{ Request::is('admin/curator-submit-work*') ? 'active' : '' }}" href="{{ route('admin.curator.submit.work') }}">
                             <i class="material-icons">radio_button_unchecked</i>
-                            <span data-i18n="List">Submit Work</span>
+                            <span data-i18n="List">Submitted Work</span>
                         </a>
                     </li>
                     <li class="{{ Request::is('admin/offer-types*') ? 'active' : '' }}">
@@ -197,7 +197,8 @@
                     <li class="{{ Request::is('admin/verified-coverage-submit-work*') ? 'active' : '' }}">
                         <a class="{{ Request::is('admin/verified-coverage-submit-work*') ? 'active' : '' }}" href="{{ route('admin.verified.coverage.submit.work') }}">
                             <i class="material-icons">radio_button_unchecked</i>
-                            <span data-i18n="List">Verified Coverage Submit Work</span>
+                            <span data-i18n="List">Pending Verified Coverage</span>
+{{--                            <span data-i18n="List">Verified Coverage Submit Work</span>--}}
                         </a>
                     </li>
                     {{--      Verified Coverage Submit Work     --}}

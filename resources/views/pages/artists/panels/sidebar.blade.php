@@ -215,16 +215,16 @@
 {{--                       <span class="nav-text">Lists</span>--}}
 {{--                       </a>--}}
 {{--                    </li>--}}
-                    <li>
-                       <a href="{{url('/artist-profile')}}#likes" class="reloadSaved">
-                       <span class="nav-icon">
-                       <i class="material-icons">
-                       favorite_border
-                       </i>
-                       </span>
-                       <span class="nav-text">Saved</span>
-                       </a>
-                    </li>
+{{--                    <li>--}}
+{{--                       <a href="{{url('/artist-profile')}}#likes" class="reloadSaved">--}}
+{{--                       <span class="nav-icon">--}}
+{{--                       <i class="material-icons">--}}
+{{--                       favorite_border--}}
+{{--                       </i>--}}
+{{--                       </span>--}}
+{{--                       <span class="nav-text">Saved</span>--}}
+{{--                       </a>--}}
+{{--                    </li>--}}
                     <li>
                        <a href="{{url('/artist-profile')}}#profile" class="reloadProfile">
                        <span class="nav-icon">
@@ -349,7 +349,8 @@
                      <li>
                          <a class="dropdown-item" href="{{ route('artist.completed') }}" id="completedOfferArtist">
                                     <span class="nav-icon">
-                                        <i class="fa fa-check-square-o"></i>
+{{--                                        <i class="fa fa-check-square-o"></i>--}}
+                                        <i class="fa fa-check-circle-o"></i>
                                     </span>
                              <span class="nav-text">Completed</span>
                          </a>
