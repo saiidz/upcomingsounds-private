@@ -96,7 +96,7 @@
                             <div class="card mb-6">
                                 <div class="card-body cb_code">
                                     <div class="couponCode">
-                                        <span class="_600">USC-145578tn</span>
+                                        <span class="_600">{{ !empty($sessionStripe->coupon_code) ? $sessionStripe->coupon_code : '------' }}</span>
                                     </div>
                                     <img src="{{ asset('images/gift-card/GC-USC_CODE-CLAIM.png') }}" class="card-img-top" alt="">
                                 </div>

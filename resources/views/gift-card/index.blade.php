@@ -66,7 +66,7 @@
                         <div class="card mb-6">
                             <img src="{{ asset('images/gift-card/GC-USC-20.png')  }}" width="100%" class="card-img-top" alt="">
                             <div class="card-body">
-                                <a href="{{route('checkout.gift.card',['price_id' => encrypt(\App\Templates\IGiftCard_Product_Stripe::LIVE_25),'amount' => encrypt(\App\Templates\IGiftCard_Product_Stripe::LIVE_AMOUNT_25)])}}" class="nav-link">
+                                <a href="{{route('checkout.gift.card',['price_id' => encrypt(\App\Templates\IGiftCard_Product_Stripe::SANDBOX_500),'amount' => encrypt(\App\Templates\IGiftCard_Product_Stripe::SANDBOX_AMOUNT_500)])}}" class="nav-link">
                                     <span class="btn btn-small-white rounded primary _600">{{ __('Buy Now') }}</span>
                                 </a>
                             </div>

@@ -88,7 +88,6 @@ class GiftCardController extends Controller
             $couponCode = "USC-{$sixDigitTime}{$randomString}";
 
             $session->metadata = ['coupon_code' => $couponCode];
-
             # Stripe Session Create
             if(!empty($session))
             {
@@ -97,7 +96,7 @@ class GiftCardController extends Controller
                     'coupon_code'    => $couponCode,
                     'amount'         => $amount,
                     'currency'       => $session['currency'],
-                    'live_mode'      => !$session['live_mode'] ? 'sandbox' : 'live',
+                    'live_mode'      => !$session['livemode'] ? 'sandbox' : 'live',
                     'url'            => $session['url'],
                     'payment_status' => $session['payment_status'],
                     'details'        => json_encode($session),
