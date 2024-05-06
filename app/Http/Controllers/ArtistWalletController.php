@@ -42,22 +42,22 @@ class ArtistWalletController extends Controller
          *Sandbox Products Stripe
          */
         // Standard package
-        $standard_products =  $stripe->prices->all(['product' => 'prod_L1zUPPaOgM1c6X']);
+        $standard_products =  $stripe->prices->all(['product' => I_PRODUCTS::STANDARD_PRODUCT_LIVE]);
 
         // Plus package
-        $plus_products =  $stripe->prices->all(['product' => 'prod_L2146ETp1Ff9j1']);
+        $plus_products =  $stripe->prices->all(['product' => I_PRODUCTS::PLUS_PRODUCT_LIVE]);
 
         // Most popular package
-        $most_popular_products =  $stripe->prices->all(['product' => 'prod_L219VceVVRqZgN']);
+        $most_popular_products =  $stripe->prices->all(['product' => I_PRODUCTS::MOST_POPULAR_PRODUCT_LIVE]);
 
         // Premium package
-        $premium_products =  $stripe->prices->all(['product' => 'prod_L21E6DBKjpt0Ya']);
+        $premium_products =  $stripe->prices->all(['product' => I_PRODUCTS::PREMIUM_PRODUCT_LIVE]);
 
         // Platinum package
-        $platinum_products =  $stripe->prices->all(['product' => 'prod_L21JVzBAJvcxEH']);
+        $platinum_products =  $stripe->prices->all(['product' => I_PRODUCTS::PLATINUM_PRODUCT_LIVE]);
 
         # 1 USC package product
-        $one_usc_products =  $stripe->prices->all(['product' => I_PRODUCTS::ONE_USC_PRODUCT]);
+        $one_usc_products =  $stripe->prices->all(['product' => I_PRODUCTS::ONE_USC_PRODUCT_LIVE]);
 //dd($one_usc_products);
         /**
          *Sandbox Products Stripe

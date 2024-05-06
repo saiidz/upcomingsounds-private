@@ -32,6 +32,24 @@
         <!-- ############ PAGE START-->
        <section class="m-t-lg">
            <div class="container">
+               @if(session('success'))
+                   <div class="alert alert-success alert-dismissible show" role="alert">
+                       {{ session('success') }}
+                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                       </button>
+                   </div>
+               @endif
+
+               @if(session('error'))
+                   <div class="alert alert-danger alert-dismissible show" role="alert">
+                       {{ session('error') }}
+                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                       </button>
+                   </div>
+               @endif
+
                <div class="py-5 text-center">
                    <h2>UpcomingSounds Checkout form</h2>
                    <p class="lead">Provide your billing information</p>
@@ -431,6 +449,8 @@
         // Handle form submission.
         var form = document.getElementById('stripe-form');
         document.getElementById('submit-stripe').addEventListener('click', function () {
+            // Show loader
+            showLoader();
             // console.log(form);
             const cardButton = document.getElementById('client_secret');
             const clientSecret = cardButton.getAttribute('value');
@@ -449,10 +469,12 @@
             })
                 .then(function(result) {
                     if (result.error) {
+                        loader();
                         // Inform the user if there was an error.
                         var errorElement = document.getElementById('card-errors');
                         errorElement.textContent = result.error.message;
                     } else {
+                        loader();
                         // Send the token to your server.
                         stripeTokenHandler(result.setupIntent.payment_method);
                         $('#submit-stripe').prop('disabled', true);

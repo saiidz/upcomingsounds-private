@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\TransactionHistory;
 use App\Templates\IStatus;
 use Carbon\Carbon;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
@@ -14,68 +17,73 @@ class PayPalController extends Controller
 {
 
     /**
-     * process transaction.
-     *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Application|RedirectResponse|Redirector
+     * @throws \Throwable
      */
     public function processTransaction(Request $request)
     {
-        if(!$request->get('total_amount_paypal')){
-            return redirect()->back()->with('error','Total Amount is required');
-        }
-        $price = (int) $request->get('total_amount_paypal');
-        $currency_paypal = $request->get('currency_paypal');
+        try {
+            if(!$request->get('total_amount_paypal')){
+                return redirect()->back()->with('error','Total Amount is required');
+            }
+            $price = (int) $request->get('total_amount_paypal');
+            $currency_paypal = $request->get('currency_paypal');
 
-        $provider = new PayPalClient;
-        $provider->setApiCredentials(Config::get('paypal'));
+            $provider = new PayPalClient;
+            $provider->setApiCredentials(Config::get('paypal'));
 
-        $paypalToken = $provider->getAccessToken();
+            $paypalToken = $provider->getAccessToken();
 
-        $response = $provider->createOrder([
-            "intent" => "CAPTURE",
-            "application_context" => [
-                "return_url" => url('/success-transaction'),
-                "cancel_url" => url('/cancel-transaction'),
-            ],
-            "purchase_units" => [
-                0 => [
-                    "amount" => [
-                        "currency_code" => $currency_paypal,
-                        "value" => $price
+            $response = $provider->createOrder([
+                "intent" => "CAPTURE",
+                "application_context" => [
+                    "return_url" => url('/success-transaction'),
+                    "cancel_url" => url('/cancel-transaction'),
+                ],
+                "purchase_units" => [
+                    0 => [
+                        "amount" => [
+                            "currency_code" => $currency_paypal,
+                            "value" => $price
+                        ]
                     ]
                 ]
-            ]
-        ]);
+            ]);
 
-        // add data in session
-        Session::put([
-            'transaction_user_id' => $request->get('transaction_user_id'),
-            'total_amount_paypal' => $price,
-            'contacts'            => $request->get('contacts'),
-            'package_name'        => $request->get('package_name'),
-        ]);
+            // add data in session
+            Session::put([
+                'transaction_user_id' => $request->get('transaction_user_id'),
+                'total_amount_paypal' => $price,
+                'contacts'            => $request->get('contacts'),
+                'package_name'        => $request->get('package_name'),
+            ]);
 
-        if (isset($response['id']) && $response['id'] != null) {
-            // redirect to approve href
-            foreach ($response['links'] as $links) {
-                if ($links['rel'] == 'approve') {
-                    return redirect()->away($links['href']);
+            if (isset($response['id']) && $response['id'] != null) {
+                // redirect to approve href
+                foreach ($response['links'] as $links) {
+                    if ($links['rel'] == 'approve') {
+                        return redirect()->away($links['href']);
+                    }
                 }
+
+                return redirect('/artist-checkout')
+                    ->with('error', 'Something went wrong.');
+
+            } else {
+                return redirect('/artist-checkout')
+                    ->with('error', $response['message'] ?? 'Something went wrong.');
             }
-
-            return redirect('/artist-checkout')
-                ->with('error', 'Something went wrong.');
-
-        } else {
-            return redirect('/artist-checkout')
-                ->with('error', $response['message'] ?? 'Something went wrong.');
+        }catch (\Exception $exception)
+        {
+            return redirect()->back()->with('error', $exception->getMessage());
         }
     }
 
     /**
-     * success transaction.
-     *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Application|RedirectResponse|Redirector
+     * @throws \Throwable
      */
     public function successTransaction(Request $request)
     {
@@ -119,9 +127,8 @@ class PayPalController extends Controller
     }
 
     /**
-     * cancel transaction.
-     *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Application|RedirectResponse|Redirector
      */
     public function cancelTransaction(Request $request)
     {
