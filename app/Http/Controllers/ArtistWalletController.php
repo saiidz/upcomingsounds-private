@@ -189,56 +189,61 @@ class ArtistWalletController extends Controller
      */
     public function handlePost(Request $request)
     {
-        $stripe = new StripeClient(Config('services.stripe.secret'));
-        $user = $request->user();
-        if(empty($user->stripe_id)){
-            // create stripe customer
-            $customer = $stripe->customers->create([
-                'name' => $user->name,
-                'email' => $user->email,
-                'payment_method' => $request->paymentMethod,
-                'description' => 'I am '.$user->type,
-            ]);
-            // update user stripe id
-            $user->update([
-                'stripe_id' => ($customer->id) ? $customer->id : null,
-            ]);
-        }
+        try {
+            $stripe = new StripeClient(Config('services.stripe.secret'));
+            $user = $request->user();
+            if(empty($user->stripe_id)){
+                // create stripe customer
+                $customer = $stripe->customers->create([
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'payment_method' => $request->paymentMethod,
+                    'description' => 'I am '.$user->type,
+                ]);
+                // update user stripe id
+                $user->update([
+                    'stripe_id' => ($customer->id) ? $customer->id : null,
+                ]);
+            }
 
-        // retrieve customer
-        $customer = $stripe->customers->retrieve(
-            $user->stripe_id,
-        );
+            // retrieve customer
+            $customer = $stripe->customers->retrieve(
+                $user->stripe_id,
+            );
 //        $user->createOrGetStripeCustomer();
 
-        // charge payment
-        $charges = $stripe->charges->create(
-            [
-            'amount' => $request->get('total_amount_stripe') * 100,
-            'currency' => $request->get('currency_stripe'),
-            'source' => $request->get('cardMethod'),
-            ]
-        );
+            // charge payment
+            $charges = $stripe->charges->create(
+                [
+                    'amount' => $request->get('total_amount_stripe') * 100,
+                    'currency' => $request->get('currency_stripe'),
+                    'source' => $request->get('cardMethod'),
+                ]
+            );
 
 
-        $payment_response =  json_encode($request->all());
+            $payment_response =  json_encode($request->all());
 
-        TransactionHistory::create([
-            'user_id'                => $user->id,
-            'user_type'              => $user->type,
-            'transaction_user_id'    => $request->transaction_user_id,
-            'package_name'           => $request->package_name,
-            'amount'                 => ($charges->amount) ? $charges->amount/100 : null,
-            'credits'                => $request->contacts,
-            'payment_status'         => IStatus::COMPLETED,
-            'payment_method'         => 'stripe',
-            'payment_response'       => $payment_response,
-            'paid_at'                => Carbon::now(),
-            'transaction_id'         => ($charges->balance_transaction) ? $charges->balance_transaction : null,
-            'customer_id'            => ($customer->id) ? $customer->id : null,
-            'gateway_transaction_id' => ($charges->id) ? $charges->id : null,
-        ]);
+            TransactionHistory::create([
+                'user_id'                => $user->id,
+                'user_type'              => $user->type,
+                'transaction_user_id'    => $request->transaction_user_id,
+                'package_name'           => $request->package_name,
+                'amount'                 => ($charges->amount) ? $charges->amount/100 : null,
+                'credits'                => $request->contacts,
+                'payment_status'         => IStatus::COMPLETED,
+                'payment_method'         => 'stripe',
+                'payment_response'       => $payment_response,
+                'paid_at'                => Carbon::now(),
+                'transaction_id'         => ($charges->balance_transaction) ? $charges->balance_transaction : null,
+                'customer_id'            => ($customer->id) ? $customer->id : null,
+                'gateway_transaction_id' => ($charges->id) ? $charges->id : null,
+            ]);
 
-        return redirect('wallet')->with('success','Payment has been successfully processed');
+            return redirect('wallet')->with('success','Payment has been successfully processed');
+        }catch (\Exception $exception)
+        {
+            return redirect()->back()->with('error', $exception->getMessage());
+        }
     }
 }
