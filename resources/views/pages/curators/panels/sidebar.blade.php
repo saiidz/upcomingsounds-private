@@ -430,14 +430,14 @@
                                 <span class="nav-text">Alternative</span>
                             </a>
                         </li>
-                        <li>
-                            <a class="dropdown-item" href="{{route('curator.artists.submissions')}}" id="submissionsOffers">
-                                    <span class="nav-icon">
-                                        <i class="fa fa-plus"></i>
-                                    </span>
-                                <span class="nav-text">Artists Submissions</span>
-                            </a>
-                        </li>
+{{--                        <li>--}}
+{{--                            <a class="dropdown-item" href="{{route('curator.artists.submissions')}}" id="submissionsOffers">--}}
+{{--                                    <span class="nav-icon">--}}
+{{--                                        <i class="fa fa-plus"></i>--}}
+{{--                                    </span>--}}
+{{--                                <span class="nav-text">Artists Submissions</span>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                         <li>
                             <a class="dropdown-item" href="{{route('curator.proposition')}}" id="propositionOffers">
                                     <span class="nav-icon">
