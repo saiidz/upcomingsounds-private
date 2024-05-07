@@ -357,10 +357,14 @@
                      </li>
                      <li>
                          <a class="dropdown-item" href="{{ route('curator.coverage.verified') }}" id="verifiedContentCreatorCurator">
-                                    <span class="nav-icon">
-                                        <i class="fa fa-bullseye"></i>
+                             <span class="nav-icon">
+                                        <i class="fa fa-chevron-circle-right"></i>
                                     </span>
-                             <span class="nav-text">Verified Curator</span>
+                             <span class="nav-text">Requested Coverage</span>
+{{--                                    <span class="nav-icon">--}}
+{{--                                        <i class="fa fa-bullseye"></i>--}}
+{{--                                    </span>--}}
+{{--                             <span class="nav-text">Verified Curator</span>--}}
                          </a>
                      </li>
                  @endif
