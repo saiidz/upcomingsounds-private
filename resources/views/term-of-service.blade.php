@@ -39,7 +39,7 @@
                     <ul>
                      <li>E-mail address: <a href="mailto:support@upcomingsounds.com%20?subject=Terms%20Of%20Use%20-%20inquiry">support@upcomingsounds.com</a></li>
                     </ul>
-                    <ol start="1.1">
+                   
                     <p>1.1. When you utilize our website ("Website") or our app, you are implicitly accepting these Terms of Use. If you disagree with these terms, you are prohibited from using our Website and/or App, and you should promptly discontinue such usage.&nbsp;<strong>&nbsp;</strong>&nbsp;<strong></strong>.</p>
            
                      <ol start="1.2">
