@@ -60,7 +60,20 @@
                          
                        
                              <p>1.8. Artists may request (via written communication) that Upcomingsounds should delete any of the Artist’s Work/s. Upcomingsounds will undertake such deletion within 30 days of such notice. Notwithstanding the foregoing, Upcomingsounds is unable to ensure the deletion of the Work/s communicated to and held by or reviewed by Content Curators. </p>  
-                         <ol start="2">
+                         
+                             
+                           <p>1.9. Content Curators have the option to sign up as users on Upcomingsounds following the procedures communicated on the Website. Upcomingsounds reserves the right to refuse registration to any Content Curator at its discretion.</p> 
+
+                    <p>1.10. After registration, Content Creators gain access to Upcomingsounds playlists showcasing Artists’ Work/s and have the opportunity to engage in the Upcomingsounds Paid Service. This involves making an offer to an Artist to Review their Work in exchange for a monetary contribution from the Artist towards the Content Curator’s time and expenses. Upcomingsounds carefully evaluates all such offers to maintain the integrity of the Paid Service, ensuring that the monetary amounts are reasonable token contributions for the Content Curator’s efforts and not inflated or tied to positive reviews, thus avoiding any semblance of payola. Any offer that deviates from this principle will be blocked. The Paid Service aims to alleviate the significant financial challenges faced by many individual Content Curators. Therefore, while companies like Spotify, YouTube, or radio stations can utilize Upcomingsounds for Reviews, they are ineligible to use the Paid Service, meaning they cannot make offers to artists requesting contributions of any kind. </p>  
+                    
+                    <p>1.11. If an Artist accepts an offer from a Content Curator, they will make the agreed contribution to Upcomingsounds using USC Credits, which can be purchased from the artist's wallet using Stripe or PayPal checkout payments, following the specified payment procedure on the Website. </p> 
+
+Upcomingsounds will then retain the payment until the Content Curator provides evidence that the Review/work has been completed according to the terms of the Artist's offer.
+
+Once confirmation is received and the process has been completed,  the curator will receive the USC. Subsequently, Upcomingsounds will transfer the payment to the Content Curator, deducting a service charge ranging from 5% to 22%, along with handling fees. The exact percentage of this service charge may vary and will be clearly outlined on the Website.  
+                    
+                    <ol start="2">   
+                              
                         <li><strong> Site Operation and Definition </strong></li>
                     </ol>
 
