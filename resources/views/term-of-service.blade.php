@@ -70,8 +70,8 @@
 
 Upcomingsounds will then retain the payment until the Content Curator provides evidence that the Review/work has been completed according to the terms of the Artist's offer.
 
-Once confirmation is received and the process has been completed,  the curator will receive the USC. Subsequently, Upcomingsounds will transfer the payment to the Content Curator, deducting a service charge ranging from 5% to 22%, along with handling fees. The exact percentage of this service charge may vary and will be clearly outlined on the Website.  
-                    
+Once confirmation is received and the process has been completed,  the curator will receive the USC. Subsequently, Upcomingsounds will transfer the payment to the Content Curator, deducting a service charge ranging from 5% to 22%, along with handling fees. The exact percentage of this service charge may vary and will be clearly outlined on the Website. </p> 
+                    <p>1.12. Upcomingsounds will inform the Content Curator upon the Artist's acceptance of an offer and payment to Upcomingsounds. However, Upcomingsounds holds no responsibility toward the Content Curator if the Artist fails to fulfill the agreed payment or comply with the terms outlined in the Content Curator's offer. </p> 
                     <ol start="2">   
                               
                         <li><strong> Site Operation and Definition </strong></li>
