@@ -42,24 +42,23 @@
                    
                     <p>1.1. When you utilize our website ("Website") or our app, you are implicitly accepting these Terms of Use. If you disagree with these terms, you are prohibited from using our Website and/or App, and you should promptly discontinue such usage.&nbsp;<strong>&nbsp;</strong>&nbsp;<strong></strong>.</p>
            
-                     <ol start="1.2">
+                     
                      <p>1.2. These Terms of Use might mention other third-party entities; however, their sole purpose is to govern your usage of this Website, and they do not pertain to any of those other entities except as explicitly stated herein.&nbsp;<strong>&nbsp;</strong>&nbsp;<strong></strong>.</p>
                     
-                    <ol start="1.3">
                     <p>1.3. The purpose of the Upcomingsounds.com service is to cater to the requirements of artists and their representatives, such as PR companies ("Artists"), who seek reviews and coverage of their creative endeavors ("Work/s" or "Work"). Additionally, it aims to facilitate writers, journalists, commentators, bloggers, YouTubers, podcasters, and/or tastemakers (collectively referred to as "Content Curators"), who wish to produce written pieces, blogs, podcasts, webcasts, or broadcasts about Artists and/or their Work/s, or to curate their Work/s ("Reviews"). &nbsp;<strong>&nbsp;</strong>&nbsp;<strong></strong>.</p>
                     <p>  Artists who desire Reviews can submit their Work/s or releases to this Website following the guidelines outlined on the website, which may specify formats, size limits, and other details. Work/s may encompass audio and/or audio-visual recordings, videos, compositions, lyrics, photos, existing reviews and quotes, social media content, and any other materials pertinent to the Artist and potentially intriguing to Content Curators and the broader audience.</p>
 
-                    <ol start="1.4">
+                   
                           <p>1.4. By uploading their Work/s to the Website, the Artist is granting Upcomingsounds and Content Curators facilitated by Upcomingsounds the non-exclusive right to utilize the Work/s for Review purposes. This includes the rights to utilize the Artist's name/s, image/s, and all materials embodied in the Work/s for Reviews or to obtain Reviews. Additionally, by uploading Work/s, the Artist is also granting Upcomingsounds the right to store and electronically transmit the Work/s to Content Curators for the purpose of obtaining Reviews. Upcomingsounds retains the right (but not the obligation) to feature any uploaded Work/s in a Upcomingsounds playlist designed for Content Curators' attention. Through uploading the Work/s, the Artist grants  Upcomingsounds a non-exclusive license to include the Work/s on such playlists without requiring payment or further formality. Upcomingsounds may also create Reviews of the Work/s or make minor alterations to the Work/s to facilitate reviews, such as editing an Artist biography. </p>
-                  <ol start="1.5">
+               
                         
                  <p>1.5. By uploading Work/s to the Website, the Artist assures that they possess complete rights and permissions to upload such Work/s (including all its components) and to grant the rights as outlined to Upcomingsounds and/or Content Curators herein. The Artist further warrants that the Work/s will not violate the rights of any third parties (including copyrights and/or trademarks) and hereby agrees to fully indemnify and hold harmless Upcomingsounds and/or Content Curators from any and all damages and liabilities (including legal fees) resulting from any breach by the Artist of the warranties stated herein. </p>
-                    <ol start="1.6">
+              
                       <p>1.6. Upcomingsounds will exert reasonable efforts to obtain Reviews for uploaded Work/s. If Upcomingsounds determines that the Artist's Work/s are incomplete or otherwise unsuitable for Reviews, Upcomingsounds team will make an effort to communicate this assessment to the Artist. However, Upcomingsounds does not offer any warranty or assurance regarding its ability to secure Reviews for the Artist's uploaded Work/s. In cases where an Artist has utilized the Upcomingsounds Paid Service (defined as any service where the Artist has consented to make a monetary contribution to a Content Curator to attract the Content Curator’s attention, as periodically outlined on the Website), Upcomingsounds will refund the USC credits used as payment to the Artist within 90 days of the initial payment, serving as the Artist's sole recourse. It's important to note that Upcomingsounds will not refund payments received from artists or artist representatives/agencies using electronic payment methods such as Apple Pay, Stripe Checkout, PayPal, or any other similar method. Instead, Upcomingsounds will only refund credits to the artist's wallet https://upcomingsounds.com/wallet , which can be utilized for future campaigns or verified curator submissions. </p>  
-                     <ol start="1.7">
+                  
                         <p>1.7. Upcomingsounds does not make any warranty as to the nature of any Review, coverage or any feature from any cuartor. </p>  
                          
-                        <ol start="1.9">
+                       
                              <p>1.8. Artists may request (via written communication) that Upcomingsounds should delete any of the Artist’s Work/s. Upcomingsounds will undertake such deletion within 30 days of such notice. Notwithstanding the foregoing, Upcomingsounds is unable to ensure the deletion of the Work/s communicated to and held by or reviewed by Content Curators. </p>  
                          <ol start="2">
                         <li><strong> Site Operation and Definition </strong></li>
