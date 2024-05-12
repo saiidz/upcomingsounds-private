@@ -62,11 +62,12 @@
                         <ol start="1.9">
                              <p>1.8. Artists may request (via written communication) that Upcomingsounds should delete any of the Artist’s Work/s. Upcomingsounds will undertake such deletion within 30 days of such notice. Notwithstanding the foregoing, Upcomingsounds is unable to ensure the deletion of the Work/s communicated to and held by or reviewed by Content Curators. </p>  
                          <ol start="2">
-                        <li><strong> Site OperaCon and DefiniCons </strong></li>
+                        <li><strong> Site Operation and Definition </strong></li>
                     </ol>
-                    <p>3.1. Site Opera3on</p>
-                    <p>The Site allows ar3sts (and their representa3ves) (hereina&lt;er: the "<strong>Customers</strong>") to send music to media, labels and musical influencers (hereina&lt;er: the "<strong>Musical Influencers</strong>") in order to obtain feedback on their music (hereina&lt;er: the "<strong>Feedbacks"</strong>).</p>
-                    <p>3.2. Defini3ons</p>
+                    <p>2.1. Site Operation</p>
+                    <p>The Site enables artists (and their representatives) (hereina&lt;er: the "<strong>Customers</strong>")  to submit music to media, labels, and musical influencers (hereina&lt;er: the "<strong> curators /Influencers/ Media</strong>")  (hereina&lt;er:  to receive any content publication featuring Sercie "<strong>publications and reviews"</strong>).</p>
+                    
+                            <p>3.2. Defini3ons</p>
                     <p><strong>Customer</strong>: designates any legal or physical person using the Site in order to send music to Musical Influencers. These may be musical ar3sts, ar3sts' representa3ves or any other User who wishes to send a piece of music to www.upcomingsounds.com.</p>
                     <p><strong>Piece</strong>: it is the part or the totality of a musical work of which the Customer holds the exploita3on rights.</p>
                     <p><strong>Link to a Piece</strong>: designates a link to an external service hos3ng the Piece and allowing you to listen to it freely and without charge (e.g. Youtube, Soundcloud, Bandcamp - non-exclusive list) and/or from a player integrated on the Site. These links may be public or private. Links to a Piece fall within the scope of ar3cle 19, detailing the use of third-party services.</p>
