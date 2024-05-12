@@ -40,9 +40,11 @@
                         <li>E-mail address: <a href="mailto:support@upcomingsounds.com%20?subject=Terms%20Of%20Use%20-%20inquiry">support@upcomingsounds.com</a></li>
                     </ul>
                     <ol start="1.1">
-                    <p>When you utilize our website ("Website") or our app, you are implicitly accepting these Terms of Use. If you disagree with these terms, you are prohibited from using our Website and/or App, and you should promptly discontinue such usage.&nbsp;<strong>12016861&nbsp;</strong>and our registered office is at&nbsp;<strong>29-31 Parliament Street, Liverpool, England, L8 5RN</strong>.</p>
-                    <p>(hereina&lt;er: "<strong>EDMREKORDS</strong>").</p>
-                    
+                    <p>When you utilize our website ("Website") or our app, you are implicitly accepting these Terms of Use. If you disagree with these terms, you are prohibited from using our Website and/or App, and you should promptly discontinue such usage.&nbsp;<strong>&nbsp;</strong>&nbsp;<strong></strong>.</p>
+                    <p>(hereina&lt;er: "<strong>Upcomingsounds</strong>").</p>
+                     <ol start="1.2">
+                    <p>These Terms of Use might mention other third-party entities; however, their sole purpose is to govern your usage of this Website, and they do not pertain to any of those other entities except as explicitly stated herein.&nbsp;<strong>&nbsp;</strong>&nbsp;<strong></strong>.</p>
+                   
                     
                     <ol start="2">
                         <li><strong> Site OperaCon and DefiniCons </strong></li>
