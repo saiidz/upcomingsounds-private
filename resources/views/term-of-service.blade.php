@@ -64,6 +64,9 @@
                          <ol start="2">
                         <li><strong> Site Operation and Definition </strong></li>
                     </ol>
+                                </div>
+            </div>
+        </div>  
                     <p>2.1. Site Operation</p>
                     <p>The Site enables artists (and their representatives) (hereina&lt;er: the "<strong>Customers</strong>")  to submit music to media, labels, and musical influencers (hereina&lt;er: the "<strong> curators /Influencers/ Media</strong>")  (hereina&lt;er:  to receive any content publication featuring Sercie "<strong>publications and reviews"</strong>).</p>
                     
