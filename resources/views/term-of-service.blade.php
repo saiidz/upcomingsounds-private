@@ -25,21 +25,26 @@
             <div class="row-col h-v">
                 <div class="row-cell v-m">
                     <ol>
-                        <li><strong> Subject </strong></li>
+                   
                     </ol>
-                    <p>Subscribe to DeepL Pro to edit this document. Visit www.DeepL.com/Pro for more information.</p>
+            
                     <p><strong>TERMS OF SERVICES OF &nbsp;WWW.UPCOMINGSOUNDS.COM </strong></p>
                     <p>The purpose of these general condi3ons is to define the terms and condi3ons of use of the services offered on the www.upcomingsounds.com (hereina&lt;er: the "<strong>Services</strong>"), as well as to define the rights and obliga3ons of the par3es in this context. In par3cular, they are accessible and printable at any 3me by a direct link at the boEom of the home page of the site <a href="https://upcomingsounds.com/">www.upcomingsounds.com</a> (hereina&lt;er: the "<strong>Site</strong>"). They may be supplemented, if necessary, by terms of use specific to certain Services. In case of contradic3on, the special condi3ons prevail over these general condi3ons.</p>
-                    <ol start="2">
+                    <ol start="1">
                         <li><strong> Operator of the Site and Services </strong></li>
                     </ol>
-                    <p>The Services are accessible through the Site. The Site and the Services are operated by Upcoming Sounds, registered in England and Wales under company number&nbsp;<strong>12016861&nbsp;</strong>and our registered office is at&nbsp;<strong>29-31 Parliament Street, Liverpool, England, L8 5RN</strong>.</p>
-                    <p>(hereina&lt;er: "<strong>EDMREKORDS</strong>").</p>
+                    <p>The Services are accessible through the Site. The Site and the Services are operated by Upcoming Sounds, registered in England and Wales &nbsp;<strong>&nbsp;</strong>and our registered office is at&nbsp;<strong>29-31 Parliament Street, Liverpool, England, L8 5RN</strong>.</p>
+                    <p>(hereina&lt;er: "<strong>EDMR</strong>").</p>
                     <p>UpcomingSounds can be contacted at the following coordinates:</p>
                     <ul>
                         <li>E-mail address: <a href="mailto:support@upcomingsounds.com%20?subject=Terms%20Of%20Use%20-%20inquiry">support@upcomingsounds.com</a></li>
                     </ul>
-                    <ol start="3">
+                    <ol start="1.1">
+                    <p>When you utilize our website ("Website") or our app, you are implicitly accepting these Terms of Use. If you disagree with these terms, you are prohibited from using our Website and/or App, and you should promptly discontinue such usage.&nbsp;<strong>12016861&nbsp;</strong>and our registered office is at&nbsp;<strong>29-31 Parliament Street, Liverpool, England, L8 5RN</strong>.</p>
+                    <p>(hereina&lt;er: "<strong>EDMREKORDS</strong>").</p>
+                    
+                    
+                    <ol start="2">
                         <li><strong> Site OperaCon and DefiniCons </strong></li>
                     </ol>
                     <p>3.1. Site Opera3on</p>
