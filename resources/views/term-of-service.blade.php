@@ -40,17 +40,17 @@
                         <li>E-mail address: <a href="mailto:support@upcomingsounds.com%20?subject=Terms%20Of%20Use%20-%20inquiry">support@upcomingsounds.com</a></li>
                     </ul>
                     <ol start="1.1">
-                    <p>When you utilize our website ("Website") or our app, you are implicitly accepting these Terms of Use. If you disagree with these terms, you are prohibited from using our Website and/or App, and you should promptly discontinue such usage.&nbsp;<strong>&nbsp;</strong>&nbsp;<strong></strong>.</p>
+                    <p>1.1 When you utilize our website ("Website") or our app, you are implicitly accepting these Terms of Use. If you disagree with these terms, you are prohibited from using our Website and/or App, and you should promptly discontinue such usage.&nbsp;<strong>&nbsp;</strong>&nbsp;<strong></strong>.</p>
            
                      <ol start="1.2">
-                    <p>These Terms of Use might mention other third-party entities; however, their sole purpose is to govern your usage of this Website, and they do not pertain to any of those other entities except as explicitly stated herein.&nbsp;<strong>&nbsp;</strong>&nbsp;<strong></strong>.</p>
+                    <p>1.2 These Terms of Use might mention other third-party entities; however, their sole purpose is to govern your usage of this Website, and they do not pertain to any of those other entities except as explicitly stated herein.&nbsp;<strong>&nbsp;</strong>&nbsp;<strong></strong>.</p>
                     
                     <ol start="1.3">
-                    <p>The purpose of the Upcomingsounds.com service is to cater to the requirements of artists and their representatives, such as PR companies ("Artists"), who seek reviews and coverage of their creative endeavors ("Work/s" or "Work"). Additionally, it aims to facilitate writers, journalists, commentators, bloggers, YouTubers, podcasters, and/or tastemakers (collectively referred to as "Content Curators"), who wish to produce written pieces, blogs, podcasts, webcasts, or broadcasts about Artists and/or their Work/s, or to curate their Work/s ("Reviews"). &nbsp;<strong>&nbsp;</strong>&nbsp;<strong></strong>.</p>
+                    <p>1.3 The purpose of the Upcomingsounds.com service is to cater to the requirements of artists and their representatives, such as PR companies ("Artists"), who seek reviews and coverage of their creative endeavors ("Work/s" or "Work"). Additionally, it aims to facilitate writers, journalists, commentators, bloggers, YouTubers, podcasters, and/or tastemakers (collectively referred to as "Content Curators"), who wish to produce written pieces, blogs, podcasts, webcasts, or broadcasts about Artists and/or their Work/s, or to curate their Work/s ("Reviews"). &nbsp;<strong>&nbsp;</strong>&nbsp;<strong></strong>.</p>
                     <p>  Artists who desire Reviews can submit their Work/s or releases to this Website following the guidelines outlined on the website, which may specify formats, size limits, and other details. Work/s may encompass audio and/or audio-visual recordings, videos, compositions, lyrics, photos, existing reviews and quotes, social media content, and any other materials pertinent to the Artist and potentially intriguing to Content Curators and the broader audience.</p>
 
                     <ol start="1.4">
-                        
+                          <p>1.4 </p>
                     <ol start="2">
                         <li><strong> Site OperaCon and DefiniCons </strong></li>
                     </ol>
