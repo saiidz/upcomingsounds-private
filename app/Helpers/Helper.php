@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Helpers;
+use Aws\Sns\SnsClient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Log;
@@ -43,6 +44,35 @@ class Helper
             'from' => $twilio_number,
             'body' => $msg
         ]);
+    }
+
+    /**
+     * @param String $phone_number
+     * @param String $msg
+     * @return void
+     */
+    public static function amazonSMSApi(String $phone_number, String $msg)
+    {
+        $key = Config::get('services.amazonSms.key');
+        $secret = Config::get('services.amazonSms.secret');
+
+        $SnSclient = new SnsClient([
+            'credentials' => [
+                'key'    => $key,
+                'secret' => $secret,
+            ],
+            'region' => 'us-east-2',
+            'version' => '2010-03-31'
+        ]);
+
+        $response = $SnSclient->publish([
+            'Message' => $msg,
+            'PhoneNumber' => $phone_number,
+        ]);
+
+        Log::info('sms response');
+        Log::info(json_encode($response));
+
     }
 
     /**

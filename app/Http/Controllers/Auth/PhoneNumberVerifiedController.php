@@ -6,6 +6,9 @@ use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
+use Aws\Exception\AwsException;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -46,8 +49,8 @@ class PhoneNumberVerifiedController extends Controller
             // call to otp function
             $otp  = rand(100000,999999);
             try{
-                Helper::twilioOtp($request->get('phone_number'),$otp.' is your verification code for signing into your tastemaker account.');
-            }catch (\Exception   $e){
+                Helper::amazonSMSApi($request->get('phone_number'),$otp.' is your verification code for signing into your tastemaker account.');
+            }catch (AwsException   $e){
                 return redirect()->back()->with('error', $e->getMessage());
             }
 
@@ -118,7 +121,8 @@ class PhoneNumberVerifiedController extends Controller
     }
 
     /**
-     * verifySendAgainOtpCode.
+     * @param Request $request
+     * @return JsonResponse|RedirectResponse
      */
     public function verifySendAgainOtpCode(Request $request)
     {
@@ -128,7 +132,13 @@ class PhoneNumberVerifiedController extends Controller
             $user->update([
                 'otp' => $otp,
             ]);
-            Helper::twilioOtp($user->phone_number,$otp.' is your verification code for signing into your tastemaker account.');
+
+            try{
+                Helper::amazonSMSApi($user->phone_number,$otp.' is your verification code for signing into your tastemaker account.');
+            }catch (AwsException   $e){
+                return redirect()->back()->with('error', $e->getMessage());
+            }
+//            Helper::twilioOtp($user->phone_number,$otp.' is your verification code for signing into your tastemaker account.');
 
             $success = 'OTP sent Successfully.';
             return response()->json(['status'    => TRUE, 'success' => $success, 'otp' => $otp]);
