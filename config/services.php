@@ -54,6 +54,10 @@ return [
         'twilio_token' => env('TWILIO_TOKEN'),
         'twilio_from' => env('TWILIO_FROM')
     ],
+    'amazonSms' => [
+        'key' => env('AMAZON_SMS_KEY'),
+        'secret' => env('AMAZON_SMS_SECRET'),
+    ],
     'Sendgrid' => [
         'SENDGRID_API_KEY' => env('SENDGRID_API_KEY'),
     ],

@@ -22,6 +22,7 @@ Route::get('get-cites/{id}', [AjaxController::class,'getCities']);
 Route::get('get-header', [DefaultController::class,'_header']);
 Route::get('get-footer', [DefaultController::class,'_footer']);
 Route::get('get-style', [DefaultController::class,'_style']);
+Route::post('sms-send', [DefaultController::class,'smsSend']);
 Route::group(['middleware' => ['try_catch']], function() {
 
     /***************************************************** Front *********************************************************/
