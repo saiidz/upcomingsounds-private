@@ -123,10 +123,11 @@ Once confirmation is received and the process has been completed,  the curator w
 
 <p>- Do not alter, modify, delete, interfere with, or misuse data contained on our Website and/or App that is entered by or relates to any third-party user of the platform. </p>   
                     
-                     <p></p>   
+                     <p>6.7. If we incur losses due to your violation of these terms of use, you agree to indemnify us for such losses.</p>   
                     
+                    <p> 6.8. It is your responsibility to ensure that you have adequate protection against computer viruses, worms, Trojan horses, or any other harmful elements while using the internet, and that your connection to our Website and/or App is secure.</p>  
                     
-                    
+                     <p> </p>   
                     
                     
                     
@@ -145,7 +146,7 @@ Once confirmation is received and the process has been completed,  the curator w
       
 
                    
-                    <p>The present general condi3ons are governed by French law. In the event of a dispute as to the validity, interpreta3on and/or execu3on of these general condi3ons, the par3es agree that the courts of Paris shall have exclusive jurisdic3on, unless mandatory procedural rules to the contrary exist.</p>
+                    <p>These general conditions are subject to wales, England  law. In case of any dispute regarding the validity, interpretation, and/or execution of these general conditions, the parties agree that the courts of Paris shall have exclusive jurisdiction, unless there are mandatory procedural rules stating otherwise..</p>
                     <ol start="26">
                         <li><strong> Coming into force </strong></li>
                     </ol>
