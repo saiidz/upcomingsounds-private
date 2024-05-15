@@ -80,24 +80,22 @@ Once confirmation is received and the process has been completed,  the curator w
                     <p>2.1. Site Operation</p>
                     <p>The Site enables artists (and their representatives) (hereina&lt;er: the "<strong>Customers/Artists</strong>")  to submit music to media, labels, and musical influencers (hereina&lt;er: the "<strong>Content curators /Influencers/ Media</strong>")  (hereina&lt;er:  to receive any content publication featuring Sercie "<strong>publications and reviews"</strong>).</p>
                     
-                            <p>3.2. Defini3ons</p>
-                    <p><strong>Customer</strong>: Refers to any individual or entity, whether legally recognized or not, utilizing the website to deliver music to "Content Curators". These individuals or entities could include musicians, their representatives, or any other user interested in submitting music to www.upcomingsounds.com.</p>
-                    <p><strong>work/s</strong>: It represents either a portion or the entirety of a musical composition for which the Customer possesses the exploitation rights.</p>
-                    <p><strong>Links</strong>: Refers to a hyperlink directing to an external service hosting the Piece, enabling free and unrestricted listening (e.g., YouTube, SoundCloud, Bandcamp - not an exhaustive list), and/or through an integrated player on the Site. These hyperlinks can be either public or private. The inclusion of links to a Piece is covered under Article 19, which outlines the utilization of third-party services.</p>
-                     <p><strong>Campaigns</strong>: A Campaign is a promotional initiative provided by Upcomingsounds, aimed at spotlighting a designated duration for a work, release, or musical piece to be showcased on the Curators Dashboard. All of the campaigns, beginning with the Basic campaign, will offer exposure through various coverage avenues, including exclusive submissions for the dashboards of verified and impactful curators..</p>
-                    <p><strong>&nbsp;USC</strong>:  USC is an abbreviation for Upcoming Sounds Coin. It represents the credits used for internal transactions on the Site. Customers must purchase <strong>USC</strong> coins to enable users to buy campaigns, solicit coverage from verified curators, acquire weekly banners and promotion spots for highlighting a particular release, and also compensate or contribute to content curators for their work or coverage. <strong>USC</strong> .</p>
-                    <p><strong>Services </strong>: Refers to the entirety of services offered by UpcomingSounds on the Site, including but not limited to: facilitating Customers in pitching their Songs to content curators for providing blog reviews, online revies and other promotional services available on UpcomingSounds, enabling Customers to submit their Songs for event participation; offering a music discovery service for Content Curators;  providing billing tools and payment methods; and offering services to aid Customers in searching for and selecting Content Curators to pitch their Music to.</p>
-                    rvices in accordance with the terms and condi3ons set forth in Ar3cle 20. Any User who uses the Services a&lt;er the modified general terms and condi3ons come into force is deemed to have accepted these modifica3ons.</p>
-                
-                        <li><strong> SMS Terms and Conditions</strong></li>
+                            <p>2.3. Definition </p>
+                    <p><strong>2.4. Customer</strong>: Refers to any individual or entity, whether legally recognized or not, utilizing the website to deliver music to "Content Curators". These individuals or entities could include musicians, their representatives, or any other user interested in submitting music to www.upcomingsounds.com.</p>
+                    <p><strong>2.5. work/s</strong>: It represents either a portion or the entirety of a musical composition for which the Customer possesses the exploitation rights.</p>
+                    <p><strong>2.6. Links</strong>: Refers to a hyperlink directing to an external service hosting the Piece, enabling free and unrestricted listening (e.g., YouTube, SoundCloud, Bandcamp - not an exhaustive list), and/or through an integrated player on the Site. These hyperlinks can be either public or private. The inclusion of links to a Piece is covered under Article 19, which outlines the utilization of third-party services.</p>
+                     <p><strong>2.7. Campaigns</strong>: A Campaign is a promotional initiative provided by Upcomingsounds, aimed at spotlighting a designated duration for a work, release, or musical piece to be showcased on the Curators Dashboard. All of the campaigns, beginning with the Basic campaign, will offer exposure through various coverage avenues, including exclusive submissions for the dashboards of verified and impactful curators..</p>
+                    <p><strong>&nbsp;2.8. USC</strong>:  USC is an abbreviation for Upcoming Sounds Coin. It represents the credits used for internal transactions on the Site. Customers must purchase <strong>USC</strong> coins to enable users to buy campaigns, solicit coverage from verified curators, acquire weekly banners and promotion spots for highlighting a particular release, and also compensate or contribute to content curators for their work or coverage. <strong>USC</strong> .</p>
+                    <p><strong>2.9. Services </strong>: Refers to the entirety of services offered by UpcomingSounds on the Site, including but not limited to: facilitating Customers in pitching their Songs to content curators for providing blog reviews, online revies and other promotional services available on UpcomingSounds, enabling Customers to submit their Songs for event participation; offering a music discovery service for Content Curators;  providing billing tools and payment methods; and offering services to aid Customers in searching for and selecting Content Curators to pitch their Music to.</p>
+                     
+                        <li><strong>4.SMS Terms and Conditions</strong></li>
                     </ol>
-                    <p>T
-Message Frequency: You will receive a one-time SMS for phone verification. Standard message and data rates may apply, depending on your mobile plan.
-Possible Fees: No fees are required for this service.</p>
-                    <p>Message Frequency: You will receive a one-time SMS for phone verification. Standard message and data rates may apply, depending on your mobile plan.</p>
-                  <p>Possible Fees: if you reply to any messages </p>
-                    <p>  How to Opt-in: No subscription is necessary; the SMS is a one-time verification message, so no action is required to opt out.</p>
-<p>Data Handling:  Provide your phone number and click "next" on the following page: https://upcomingsounds.com/taste-maker-phone-number, or reply stop.</p>
+                <p>4.1. Message Frequency: You will receive a one-time SMS for phone verification. Standard message and data rates may apply, depending on your mobile plan.
+                <p>4.2. Possible Fees: No fees are required for this service.</p>
+                <p>4.3. Message Frequency: You will receive a one-time SMS for phone verification. Standard message and data rates may apply, depending on your mobile plan.</p>
+                <p>4.4. Possible Fees: if you reply to any messages </p>
+                <p>4.5. How to Opt-in: No subscription is necessary; the SMS is a one-time verification message, so no action is required to opt out.</p>
+                <p>4.6. Data Handling:  Provide your phone number and click "next" on the following page: https://upcomingsounds.com/taste-maker-phone-number, or reply stop.</p>
                      <li><strong> Data Handling:</strong></li>
 
 <p>Personal Information We Collect: We collect only phone numbers for the purpose of user verification.</p>
@@ -106,10 +104,31 @@ Possible Fees: No fees are required for this service.</p>
 <p>User Rights:  You have the right to request the removal of your data from our systems.</p>
 <p>How to Act on Your Rights: To exercise your rights or for any privacy concerns, please contact us at privacy@upcomingsounds.com. We will respond to your inquiry promptly. </strong></p>
                     
-                        <li><strong> Language </strong></li>
+                    <li><strong>3. Content Usage; Limitations; Privacy Policy </strong></li>
                     </ol>
-                    <p>In the event of a transla3on of these terms and condi3ons into one or more languages, the language of interpreta3on shall be the French language in the event of a contradic3on or dispute as to the meaning of a term or provision.</p>
+                    <p>3.1The Services are accessible through the Site. The Site and the Services are operated by Upcoming Sounds, registered in England and Wales &nbsp;<strong>&nbsp;</strong>and our registered office is at&nbsp;<strong>29-31 Parliament Street, Liverpool, England, L8 5RN</strong>.</p>
+                    <p>(hereina&lt;er: "<strong>Upcomingsounds</strong>").</p>     
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li><strong> Language </strong></li>
+                    </ol>
+                    <p>If these terms and conditions are translated into one or more languages, the English language shall prevail in case of contradiction or dispute regarding the interpretation of a term or provision</p>
                     <ol start="24">
+                        
+
+
+                        
                         <li><strong> Applicable law and jurisdicCon </strong></li>
       
 
