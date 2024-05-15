@@ -110,8 +110,19 @@ Once confirmation is received and the process has been completed,  the curator w
                     <p> 6.2. You are prohibited from copying or utilizing any software, proprietary processes, or technology presented or described on our Website or App.</p>     
                     <p> 6.3. You agree to adhere to all relevant laws, both from your country of access and the country where our Website and App services are hosted, when accessing and utilizing our Website and/or App.</p>   
                      <p>6.4. You acknowledge that we may utilize your personal information and data in accordance with our <a href="https://upcomingsounds.com/privacy-policy" target="_blank"><strong>Privacy Statement</strong></a> and <a href="https://upcomingsounds.com/privacy-policy" target="_blank"> <strong>Cookie Policy</strong></a>, which are hereby included by reference. By accessing this link, you agree to the terms outlined in our <a href="https://upcomingsounds.com/privacy-policy" target="_blank"><strong>Privacy Statement</strong></a> and <a href="https://upcomingsounds.com/privacy-policy" target="_blank"><strong>Cookie Policy</strong></a>, including any obligations imposed therein.</p>   
-                     <p></p>   
-                     <p></p>   
+                     <p>6.5. We retain the right to revoke your access to our Website and/or App if we determine that your usage is harmful to the Website, the App, and/or other users.</p>   
+                     <p>6.6.By accessing any part of our Website and/or App, you agree to the following:
+
+- Refrain from using our Website and/or App in a manner that disrupts, interferes with, or restricts the use of the platform by other third-party users.
+
+- Ensure that any information and/or materials you upload, display, or transmit through or to our Website and/or App are not offensive, defamatory, obscene, or unlawful, and do not violate or infringe upon the rights (including copyright) of any person, firm, or corporation worldwide.
+
+- Abstain from reverse engineering, decompiling, copying, or adapting any software or other code or scripts that are part of our Website and/or App, and refrain from attempting to transmit any information containing viruses, worms, Trojan horses, or other harmful or disruptive components through or to our Website and/or App.
+
+- Avoid sending 'spam' email or any unsolicited correspondence unrelated to our business to any addresses provided on our Website and/or App.
+
+- Do not alter, modify, delete, interfere with, or misuse data contained on our Website and/or App that is entered by or relates to any third-party user of the platform. </p>   
+                    
                      <p></p>   
                     
                     
