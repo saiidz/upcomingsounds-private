@@ -7,6 +7,7 @@ use App\Models\City;
 use App\Models\Country;
 use App\Models\State;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Validator;
 use Aws\Exception\AwsException;
 use Aws\Sns\SnsClient;
@@ -112,10 +113,13 @@ class DefaultController extends Controller
      */
     public function smsSend(Request $request)
     {
+        $key = Config::get('services.amazonSms.key');
+        $secret = Config::get('services.amazonSms.secret');
+
         $SnSclient = new SnsClient([
             'credentials' => [
-                'key'    => 'AKIA34RGWFTKOURJGURV',
-                'secret' => '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',
+                'key'    => $key,
+                'secret' => $secret,
             ],
             'region' => 'us-east-2',
             'version' => '2010-03-31'

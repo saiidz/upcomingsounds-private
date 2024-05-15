@@ -49,7 +49,8 @@ class PhoneNumberVerifiedController extends Controller
             // call to otp function
             $otp  = rand(100000,999999);
             try{
-                Helper::amazonSMSApi($request->get('phone_number'),$otp.' is your verification code for signing into your tastemaker account.');
+//                Helper::amazonSMSApi($request->get('phone_number'),$otp.' is your verification code for signing into your tastemaker account.');
+                Helper::amazonSMSApi($request->get('phone_number'),'Your Upcomingsounds verification code is ' .$otp.' Keep it safe and  strictly refrain from sharing this code with unfamiliar individuals.');
             }catch (AwsException   $e){
                 return redirect()->back()->with('error', $e->getMessage());
             }
@@ -134,7 +135,8 @@ class PhoneNumberVerifiedController extends Controller
             ]);
 
             try{
-                Helper::amazonSMSApi($user->phone_number,$otp.' is your verification code for signing into your tastemaker account.');
+                Helper::amazonSMSApi($user->phone_number,'Your Upcomingsounds verification code is' .$otp.' Keep it safe and  strictly refrain from sharing this code with unfamiliar individuals.');
+//                Helper::amazonSMSApi($user->phone_number,$otp.' is your verification code for signing into your tastemaker account.');
             }catch (AwsException   $e){
                 return redirect()->back()->with('error', $e->getMessage());
             }
