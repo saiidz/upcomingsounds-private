@@ -103,9 +103,7 @@ Possible Fees: No fees are required for this service.</p>
 <p>Personal Information We Collect: We collect only phone numbers for the purpose of user verification.</p>
 <p>Why We Collect It: Phone numbers are used for geo-user verification.</p>
 <p>How We Use It: We do not share or sell your data to anyone. Your phone number is solely used for verification purposes. We employ security measures to protect your information.</p>
-<p>User Rights:</p>
-
-<p>Your Rights: You have the right to request the removal of your data from our systems.</p>
+<p>User Rights:  You have the right to request the removal of your data from our systems.</p>
 <p>How to Act on Your Rights: To exercise your rights or for any privacy concerns, please contact us at privacy@upcomingsounds.com. We will respond to your inquiry promptly. </strong></p>
                     
                         <li><strong> Language </strong></li>
