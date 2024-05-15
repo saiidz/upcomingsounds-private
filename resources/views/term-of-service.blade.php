@@ -113,15 +113,15 @@ Once confirmation is received and the process has been completed,  the curator w
                      <p>6.5. We retain the right to revoke your access to our Website and/or App if we determine that your usage is harmful to the Website, the App, and/or other users.</p>   
                      <p>6.6.By accessing any part of our Website and/or App, you agree to the following:
 
-- Refrain from using our Website and/or App in a manner that disrupts, interferes with, or restricts the use of the platform by other third-party users.
+<p>- Refrain from using our Website and/or App in a manner that disrupts, interferes with, or restricts the use of the platform by other third-party users.</p>  
 
-- Ensure that any information and/or materials you upload, display, or transmit through or to our Website and/or App are not offensive, defamatory, obscene, or unlawful, and do not violate or infringe upon the rights (including copyright) of any person, firm, or corporation worldwide.
+<p>- Ensure that any information and/or materials you upload, display, or transmit through or to our Website and/or App are not offensive, defamatory, obscene, or unlawful, and do not violate or infringe upon the rights (including copyright) of any person, firm, or corporation worldwide.</p>  
 
-- Abstain from reverse engineering, decompiling, copying, or adapting any software or other code or scripts that are part of our Website and/or App, and refrain from attempting to transmit any information containing viruses, worms, Trojan horses, or other harmful or disruptive components through or to our Website and/or App.
+<p>- Abstain from reverse engineering, decompiling, copying, or adapting any software or other code or scripts that are part of our Website and/or App, and refrain from attempting to transmit any information containing viruses, worms, Trojan horses, or other harmful or disruptive components through or to our Website and/or App.</p>  
 
-- Avoid sending 'spam' email or any unsolicited correspondence unrelated to our business to any addresses provided on our Website and/or App.
+<p>- Avoid sending 'spam' email or any unsolicited correspondence unrelated to our business to any addresses provided on our Website and/or App.</p>  
 
-- Do not alter, modify, delete, interfere with, or misuse data contained on our Website and/or App that is entered by or relates to any third-party user of the platform. </p>   
+<p>- Do not alter, modify, delete, interfere with, or misuse data contained on our Website and/or App that is entered by or relates to any third-party user of the platform. </p>   
                     
                      <p></p>   
                     
