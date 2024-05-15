@@ -96,22 +96,23 @@ Once confirmation is received and the process has been completed,  the curator w
                 <p>4.4. Possible Fees: if you reply to any messages </p>
                 <p>4.5. How to Opt-in: No subscription is necessary; the SMS is a one-time verification message, so no action is required to opt out.</p>
                 <p>4.6. Data Handling:  Provide your phone number and click "next" on the following page: https://upcomingsounds.com/taste-maker-phone-number, or reply stop.</p>
-                     <li><strong> Data Handling:</strong></li>
+                     <li><strong>5.0. Data Handling:</strong></li>
 
-<p>Personal Information We Collect: We collect only phone numbers for the purpose of user verification.</p>
-<p>Why We Collect It: Phone numbers are used for geo-user verification.</p>
-<p>How We Use It: We do not share or sell your data to anyone. Your phone number is solely used for verification purposes. We employ security measures to protect your information.</p>
-<p>User Rights:  You have the right to request the removal of your data from our systems.</p>
-<p>How to Act on Your Rights: To exercise your rights or for any privacy concerns, please contact us at privacy@upcomingsounds.com. We will respond to your inquiry promptly. </strong></p>
+<p>5.1. Personal Information We Collect: We collect only phone numbers for the purpose of user verification.</p>
+<p>5.2. Why We Collect It: Phone numbers are used for geo-user verification.</p>
+<p>5.3. How We Use It: We do not share or sell your data to anyone. Your phone number is solely used for verification purposes. We employ security measures to protect your information.</p>
+<p>5.4. User Rights:  You have the right to request the removal of your data from our systems.</p>
+<p>5.5 How to Act on Your Rights: To exercise your rights or for any privacy concerns, please contact us at privacy@upcomingsounds.com. We will respond to your inquiry promptly. </strong></p>
                     
-                    <li><strong>3. Content Usage; Limitations; Privacy Policy </strong></li>
+                    <li><strong>6 Content Usage; Limitations; Privacy Policy </strong></li>
                     </ol>
-                    <p>3.1The Services are accessible through the Site. The Site and the Services are operated by Upcoming Sounds, registered in England and Wales &nbsp;<strong>&nbsp;</strong>and our registered office is at&nbsp;<strong>29-31 Parliament Street, Liverpool, England, L8 5RN</strong>.</p>
-                    <p>(hereina&lt;er: "<strong>Upcomingsounds</strong>").</p>     
-                    
-                    
-                    
-                    
+                    <p>6.1. Unless explicitly stated otherwise in the specific content and under the condition that you adhere to all obligations outlined in these Terms of Use, you are not permitted to copy, print, distribute, or modify the content on our Website and/or our App. If permission is granted in the relevant content, you may copy (without modification) such content only for informational, noncommercial purposes, provided that (i) the use is strictly noncommercial, and (ii) any copies of the content include the appropriate copyright notice or other attributions associated with the content.</p>
+                    <p> 6.2. You are prohibited from copying or utilizing any software, proprietary processes, or technology presented or described on our Website or App.</p>     
+                    <p> 6.3. You agree to adhere to all relevant laws, both from your country of access and the country where our Website and App services are hosted, when accessing and utilizing our Website and/or App.</p>   
+                     <p>6.4. You acknowledge that we may utilize your personal information and data in accordance with our <a href="https://upcomingsounds.com/privacy-policy" target="_blank">Privacy Statement</a> and <a href="https://upcomingsounds.com/privacy-policy" target="_blank">Cookie Policy</a>, which are hereby included by reference. By accessing this link, you agree to the terms outlined in our <a href="https://upcomingsounds.com/privacy-policy" target="_blank">Privacy Statement</a> and <a href="https://upcomingsounds.com/privacy-policy" target="_blank">Cookie Policy</a>, including any obligations imposed therein.</p>   
+                     <p></p>   
+                     <p></p>   
+                     <p></p>   
                     
                     
                     
