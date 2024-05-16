@@ -76,7 +76,7 @@ Once confirmation is received and the process has been completed,  the curator w
                         <li><strong> 2.0 Site Operation and Definition </strong></li>
                     </ol>
 
-                    <ol start="2">
+                    
                     <p>2.1. Site Operation</p>
                     <p>The Site enables artists (and their representatives) (hereina&lt;er: the "<strong>Customers/Artists</strong>")  to submit music to media, labels, and musical influencers (hereina&lt;er: the "<strong>Content curators /Influencers/ Media</strong>")  (hereina&lt;er:  to receive any content publication featuring Sercie "<strong>publications and reviews"</strong>).</p>
                     
