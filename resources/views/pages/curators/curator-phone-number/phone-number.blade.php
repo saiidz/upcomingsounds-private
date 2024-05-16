@@ -78,7 +78,7 @@
                                                         </div>
                                                         <div class="row">
                                                             <div class="input-field col s12">
-                                                               <p>I consent to receive SMS at the number provided above. <a href="{{url('/term-of-service')}}" target="_blank" class="nav-link">Term of Service</a> and <a href="{{url('/privacy-policy')}}" target="_blank" class="nav-link">Policy Privacy</a> apply.</p>
+                                                               <p>I consent to receive SMS at the number provided above. <a href="{{url('/term-of-service')}}" target="_blank" class="nav-link"><strong>Term of Service</strong></a> and <a href="{{url('/privacy-policy')}}" target="_blank" class="nav-link"><strong>Policy Privacy</strong></a> apply.</p>
                                                             </div>
                                                         </div>
                                                         <div class="row">
