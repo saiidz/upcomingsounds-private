@@ -13,7 +13,7 @@
         <div class="row-col amber h-v">
             <div class="row-cell v-m">
                 <div class="text-center col-sm-6 offset-sm-3 p-y-lg">
-                    <h1 class="display-3 m-y-lg">Term of service</h1>
+                    <h1 class="display-3 m-y-lg">Terms of service</h1>
                     {{--                    <p class="m-y text-muted h4">--}}
                     {{--                        -- 404 ----}}
                     {{--                    </p>--}}
