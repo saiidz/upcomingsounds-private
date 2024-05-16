@@ -127,12 +127,23 @@ Once confirmation is received and the process has been completed,  the curator w
                     
                     <p> 6.8. It is your responsibility to ensure that you have adequate protection against computer viruses, worms, Trojan horses, or any other harmful elements while using the internet, and that your connection to our Website and/or App is secure.</p>  
                     
-                     <p> </p>   
+       
+                    <li><strong>7. INTELLECTUAL PROPERTY RIGHTS </strong></li>
+                    </ol>
+                    <p>7.1.  Unless explicitly stated otherwise, the content found on our Website and App is provided by Upcomingsounds (hereinafter also referred to as “we” and/or “us”) and/or another affiliated entity.</p> 
                     
+                    <p>7.2. Our Website and App, along with their contents, are safeguarded by copyright, trademark, and other applicable laws of England and Wales and/or other jurisdictions. We and our licensors retain all rights not expressly granted in these Terms of Use. </p> 
+                    <p>7.3. The Upcomingsounds  name, logo, and any variations thereof in local languages displayed on our Website and/or App (collectively referred to as the “Upcomingsounds  Marks”) are trademarks or registered trademarks representing reputation and goodwill. Except as expressly allowed in these Terms of Use, you are prohibited from using any Upcomingsounds  Marks independently or in conjunction with other words or design elements, whether in press releases, advertisements, or any other promotional or marketing materials, in any form, be it written, oral, electronic, visual, or otherwise.</p>  
+                     <p>7.4. Any references to trademarks of other parties on our Website and/or App are solely for identification purposes and do not imply endorsement of our Website and/or App or any of its contents by those parties. These Terms of Use do not grant you the right to use the trademarks of other parties. </p> 
                     
-                    
-                    
-                    
+                            <li><strong>8. LIABILITY DISCLAIMERS AND LIMITATIONS </strong></li>
+
+                      <p>8.1. Our Website and/or App are provided on an "as is" basis, and we do not make any express or implied representations or warranties regarding their functionality. Specifically, we do not guarantee that our Website and/or App will be secure, free from errors, viruses, or malicious code, or that they will meet any particular standards of performance or quality. We explicitly disclaim all implied warranties, including but not limited to merchantability, title, fitness for a specific purpose, non-infringement, compatibility, security, and accuracy.</p>  
+                     <p>8.2. Your use of our Website and/or App is at your own risk, and you accept full responsibility and risk for any loss incurred, including loss of service, data, or Works. We shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages, or any other damages whatsoever, arising from the use of our Website and/or App, regardless of whether we were aware or should have been aware of the possibility of such damages, whether in contract, statute, tort (including negligence), or otherwise. </p>  
+                     <p>8.3. Certain links on our Website and/or App may direct you to websites, resources, or tools maintained by third parties over which we have no control. We do not make any express or implied representations or warranties concerning such third-party websites, resources, and tools, and providing links to them should not be interpreted as an endorsement of their content by us. </p>  
+                      <p>8.4.The disclaimers and limitations of liability outlined above apply not only to us but also to every other entity affiliated with Musosoup and to our respective personnel. </p>  
+                      <p>8.5. Should a Content Curator fail to deliver a Review or otherwise adhere to the terms of their agreement with the Artist, Musosoup's sole liability to the Artist will be to refund any payments made by the Artist to Musosoup in connection with the Content Curator's offer. The Artist explicitly waives any other rights or claims for damages against Musosoup regarding such noncompliance by the Content Curator. </p>  
+                      <p>8.6.  The aforementioned disclaimers and limitations of liability apply to the maximum extent permitted by law, whether in contract, statute, tort (including negligence), or any other legal theory.  </p> 
                     
                     <li><strong> Language </strong></li>
                     </ol>
@@ -142,12 +153,7 @@ Once confirmation is received and the process has been completed,  the curator w
 
 
                         
-                        <li><strong> Applicable law and jurisdicCon </strong></li>
-      
-
-                   
-                    <p>These general conditions are subject to wales, England  law. In case of any dispute regarding the validity, interpretation, and/or execution of these general conditions, the parties agree that the courts of Paris shall have exclusive jurisdiction, unless there are mandatory procedural rules stating otherwise..</p>
-                    <ol start="26">
+    
                         <li><strong> Coming into force </strong></li>
                     </ol>
                     <p>The present general terms and condi3ons came into force on 29/04/2024.</p>
