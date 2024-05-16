@@ -88,8 +88,8 @@ Once confirmation is received and the process has been completed,  the curator w
                     <p><strong>&nbsp;2.8. USC</strong>:  USC is an abbreviation for Upcoming Sounds Coin. It represents the credits used for internal transactions on the Site. Customers must purchase <strong>USC</strong> coins to enable users to buy campaigns, solicit coverage from verified curators, acquire weekly banners and promotion spots for highlighting a particular release, and also compensate or contribute to content curators for their work or coverage. <strong>USC</strong> .</p>
                     <p><strong>2.9. Services </strong>: Refers to the entirety of services offered by UpcomingSounds on the Site, including but not limited to: facilitating Customers in pitching their Songs to content curators for providing blog reviews, online revies and other promotional services available on UpcomingSounds, enabling Customers to submit their Songs for event participation; offering a music discovery service for Content Curators;  providing billing tools and payment methods; and offering services to aid Customers in searching for and selecting Content Curators to pitch their Music to.</p>
                      
-                        <li><strong>3.SMS Terms and Conditions</strong></li>
-                    </ol>
+                        <li><strong>3. SMS </strong></li>
+    
                 <p>3.1. Message Frequency: You will receive a one-time SMS for phone verification. Standard message and data rates may apply, depending on your mobile plan.
                 <p>3.2. Possible Fees: No fees are required for this service.</p>
                 <p>3.3. Message Frequency: You will receive a one-time SMS for phone verification. Standard message and data rates may apply, depending on your mobile plan.</p>
