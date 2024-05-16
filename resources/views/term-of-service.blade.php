@@ -73,7 +73,7 @@ Upcomingsounds will then retain the payment until the Content Curator provides e
 Once confirmation is received and the process has been completed,  the curator will receive the USC. Subsequently, Upcomingsounds will transfer the payment to the Content Curator, deducting a service charge ranging from 5% to 22%, along with handling fees. The exact percentage of this service charge may vary and will be clearly outlined on the Website. </p> 
                     <p>1.12. Upcomingsounds will inform the Content Curator upon the Artist's acceptance of an offer and payment to Upcomingsounds. However, Upcomingsounds holds no responsibility toward the Content Curator if the Artist fails to fulfill the agreed payment or comply with the terms outlined in the Content Curator's offer. </p> 
                               
-                        <li><strong> Site Operation and Definition </strong></li>
+                        <li><strong> 2.0 Site Operation and Definition </strong></li>
                     </ol>
 
                     <ol start="2">
@@ -88,30 +88,30 @@ Once confirmation is received and the process has been completed,  the curator w
                     <p><strong>&nbsp;2.8. USC</strong>:  USC is an abbreviation for Upcoming Sounds Coin. It represents the credits used for internal transactions on the Site. Customers must purchase <strong>USC</strong> coins to enable users to buy campaigns, solicit coverage from verified curators, acquire weekly banners and promotion spots for highlighting a particular release, and also compensate or contribute to content curators for their work or coverage. <strong>USC</strong> .</p>
                     <p><strong>2.9. Services </strong>: Refers to the entirety of services offered by UpcomingSounds on the Site, including but not limited to: facilitating Customers in pitching their Songs to content curators for providing blog reviews, online revies and other promotional services available on UpcomingSounds, enabling Customers to submit their Songs for event participation; offering a music discovery service for Content Curators;  providing billing tools and payment methods; and offering services to aid Customers in searching for and selecting Content Curators to pitch their Music to.</p>
                      
-                        <li><strong>4.SMS Terms and Conditions</strong></li>
+                        <li><strong>3.SMS Terms and Conditions</strong></li>
                     </ol>
-                <p>4.1. Message Frequency: You will receive a one-time SMS for phone verification. Standard message and data rates may apply, depending on your mobile plan.
-                <p>4.2. Possible Fees: No fees are required for this service.</p>
-                <p>4.3. Message Frequency: You will receive a one-time SMS for phone verification. Standard message and data rates may apply, depending on your mobile plan.</p>
-                <p>4.4. Possible Fees: if you reply to any messages </p>
-                <p>4.5. How to Opt-in: No subscription is necessary; the SMS is a one-time verification message, so no action is required to opt out.</p>
-                <p>4.6. Data Handling:  Provide your phone number and click "next" on the following page: https://upcomingsounds.com/taste-maker-phone-number, or reply stop.</p>
-                     <li><strong>5.0. Data Handling:</strong></li>
+                <p>3.1. Message Frequency: You will receive a one-time SMS for phone verification. Standard message and data rates may apply, depending on your mobile plan.
+                <p>3.2. Possible Fees: No fees are required for this service.</p>
+                <p>3.3. Message Frequency: You will receive a one-time SMS for phone verification. Standard message and data rates may apply, depending on your mobile plan.</p>
+                <p>3.4. Possible Fees: if you reply to any messages </p>
+                <p>3.5. How to Opt-in: No subscription is necessary; the SMS is a one-time verification message, so no action is required to opt out.</p>
+                <p>3.6. Data Handling:  Provide your phone number and click "next" on the following page: https://upcomingsounds.com/taste-maker-phone-number, or reply stop.</p>
+                     <li><strong>4. Data Handling:</strong></li>
 
-<p>5.1. Personal Information We Collect: We collect only phone numbers for the purpose of user verification.</p>
-<p>5.2. Why We Collect It: Phone numbers are used for geo-user verification.</p>
-<p>5.3. How We Use It: We do not share or sell your data to anyone. Your phone number is solely used for verification purposes. We employ security measures to protect your information.</p>
-<p>5.4. User Rights:  You have the right to request the removal of your data from our systems.</p>
-<p>5.5 How to Act on Your Rights: To exercise your rights or for any privacy concerns, please contact us at privacy@upcomingsounds.com. We will respond to your inquiry promptly. </strong></p>
+<p>4.1. Personal Information We Collect: We collect only phone numbers for the purpose of user verification.</p>
+<p>4.2. Why We Collect It: Phone numbers are used for geo-user verification.</p>
+<p>4.3. How We Use It: We do not share or sell your data to anyone. Your phone number is solely used for verification purposes. We employ security measures to protect your information.</p>
+<p>4.4. User Rights:  You have the right to request the removal of your data from our systems.</p>
+<p>4.5 How to Act on Your Rights: To exercise your rights or for any privacy concerns, please contact us at privacy@upcomingsounds.com. We will respond to your inquiry promptly. </strong></p>
                     
-                    <li><strong>6 Content Usage; Limitations; Privacy Policy </strong></li>
+                    <li><strong>5. Content Usage; Limitations; Privacy Policy </strong></li>
                     </ol>
-                    <p>6.1. Unless explicitly stated otherwise in the specific content and under the condition that you adhere to all obligations outlined in these Terms of Use, you are not permitted to copy, print, distribute, or modify the content on our Website and/or our App. If permission is granted in the relevant content, you may copy (without modification) such content only for informational, noncommercial purposes, provided that (i) the use is strictly noncommercial, and (ii) any copies of the content include the appropriate copyright notice or other attributions associated with the content.</p>
-                    <p> 6.2. You are prohibited from copying or utilizing any software, proprietary processes, or technology presented or described on our Website or App.</p>     
-                    <p> 6.3. You agree to adhere to all relevant laws, both from your country of access and the country where our Website and App services are hosted, when accessing and utilizing our Website and/or App.</p>   
-                     <p>6.4. You acknowledge that we may utilize your personal information and data in accordance with our <a href="https://upcomingsounds.com/privacy-policy" target="_blank"><strong>Privacy Statement</strong></a> and <a href="https://upcomingsounds.com/privacy-policy" target="_blank"> <strong>Cookie Policy</strong></a>, which are hereby included by reference. By accessing this link, you agree to the terms outlined in our <a href="https://upcomingsounds.com/privacy-policy" target="_blank"><strong>Privacy Statement</strong></a> and <a href="https://upcomingsounds.com/privacy-policy" target="_blank"><strong>Cookie Policy</strong></a>, including any obligations imposed therein.</p>   
-                     <p>6.5. We retain the right to revoke your access to our Website and/or App if we determine that your usage is harmful to the Website, the App, and/or other users.</p>   
-                     <p>6.6.By accessing any part of our Website and/or App, you agree to the following:
+                    <p>5.1. Unless explicitly stated otherwise in the specific content and under the condition that you adhere to all obligations outlined in these Terms of Use, you are not permitted to copy, print, distribute, or modify the content on our Website and/or our App. If permission is granted in the relevant content, you may copy (without modification) such content only for informational, noncommercial purposes, provided that (i) the use is strictly noncommercial, and (ii) any copies of the content include the appropriate copyright notice or other attributions associated with the content.</p>
+                    <p> 5.2. You are prohibited from copying or utilizing any software, proprietary processes, or technology presented or described on our Website or App.</p>     
+                    <p>5.3. You agree to adhere to all relevant laws, both from your country of access and the country where our Website and App services are hosted, when accessing and utilizing our Website and/or App.</p>   
+                     <p>5.4. You acknowledge that we may utilize your personal information and data in accordance with our <a href="https://upcomingsounds.com/privacy-policy" target="_blank"><strong>Privacy Statement</strong></a> and <a href="https://upcomingsounds.com/privacy-policy" target="_blank"> <strong>Cookie Policy</strong></a>, which are hereby included by reference. By accessing this link, you agree to the terms outlined in our <a href="https://upcomingsounds.com/privacy-policy" target="_blank"><strong>Privacy Statement</strong></a> and <a href="https://upcomingsounds.com/privacy-policy" target="_blank"><strong>Cookie Policy</strong></a>, including any obligations imposed therein.</p>   
+                     <p>5.5. We retain the right to revoke your access to our Website and/or App if we determine that your usage is harmful to the Website, the App, and/or other users.</p>   
+                     <p>5.6.By accessing any part of our Website and/or App, you agree to the following:
 
 <p>- Refrain from using our Website and/or App in a manner that disrupts, interferes with, or restricts the use of the platform by other third-party users.</p>  
 
@@ -123,32 +123,31 @@ Once confirmation is received and the process has been completed,  the curator w
 
 <p>- Do not alter, modify, delete, interfere with, or misuse data contained on our Website and/or App that is entered by or relates to any third-party user of the platform. </p>   
                     
-                     <p>6.7. If we incur losses due to your violation of these terms of use, you agree to indemnify us for such losses.</p>   
+                     <p>5.7. If we incur losses due to your violation of these terms of use, you agree to indemnify us for such losses.</p>   
                     
-                    <p> 6.8. It is your responsibility to ensure that you have adequate protection against computer viruses, worms, Trojan horses, or any other harmful elements while using the internet, and that your connection to our Website and/or App is secure.</p>  
+                    <p> 5.8. It is your responsibility to ensure that you have adequate protection against computer viruses, worms, Trojan horses, or any other harmful elements while using the internet, and that your connection to our Website and/or App is secure.</p>  
                     
        
-                    <li><strong>7. INTELLECTUAL PROPERTY RIGHTS </strong></li>
+                    <li><strong>6. INTELLECTUAL PROPERTY RIGHTS </strong></li>
                     </ol>
-                    <p>7.1.  Unless explicitly stated otherwise, the content found on our Website and App is provided by Upcomingsounds (hereinafter also referred to as “we” and/or “us”) and/or another affiliated entity.</p> 
+                    <p>6.1.  Unless explicitly stated otherwise, the content found on our Website and App is provided by Upcomingsounds (hereinafter also referred to as “we” and/or “us”) and/or another affiliated entity.</p> 
                     
-                    <p>7.2. Our Website and App, along with their contents, are safeguarded by copyright, trademark, and other applicable laws of England and Wales and/or other jurisdictions. We and our licensors retain all rights not expressly granted in these Terms of Use. </p> 
-                    <p>7.3. The Upcomingsounds  name, logo, and any variations thereof in local languages displayed on our Website and/or App (collectively referred to as the “Upcomingsounds  Marks”) are trademarks or registered trademarks representing reputation and goodwill. Except as expressly allowed in these Terms of Use, you are prohibited from using any Upcomingsounds  Marks independently or in conjunction with other words or design elements, whether in press releases, advertisements, or any other promotional or marketing materials, in any form, be it written, oral, electronic, visual, or otherwise.</p>  
-                     <p>7.4. Any references to trademarks of other parties on our Website and/or App are solely for identification purposes and do not imply endorsement of our Website and/or App or any of its contents by those parties. These Terms of Use do not grant you the right to use the trademarks of other parties. </p> 
+                    <p>6.2. Our Website and App, along with their contents, are safeguarded by copyright, trademark, and other applicable laws of England and Wales and/or other jurisdictions. We and our licensors retain all rights not expressly granted in these Terms of Use. </p> 
+                    <p>6.3. The Upcomingsounds  name, logo, and any variations thereof in local languages displayed on our Website and/or App (collectively referred to as the “Upcomingsounds  Marks”) are trademarks or registered trademarks representing reputation and goodwill. Except as expressly allowed in these Terms of Use, you are prohibited from using any Upcomingsounds  Marks independently or in conjunction with other words or design elements, whether in press releases, advertisements, or any other promotional or marketing materials, in any form, be it written, oral, electronic, visual, or otherwise.</p>  
+                     <p>6.4. Any references to trademarks of other parties on our Website and/or App are solely for identification purposes and do not imply endorsement of our Website and/or App or any of its contents by those parties. These Terms of Use do not grant you the right to use the trademarks of other parties. </p> 
                     
-                            <li><strong>8. LIABILITY DISCLAIMERS AND LIMITATIONS </strong></li>
+                            <li><strong>7. LIABILITY DISCLAIMERS AND LIMITATIONS </strong></li>
 
-                      <p>8.1. Our Website and/or App are provided on an "as is" basis, and we do not make any express or implied representations or warranties regarding their functionality. Specifically, we do not guarantee that our Website and/or App will be secure, free from errors, viruses, or malicious code, or that they will meet any particular standards of performance or quality. We explicitly disclaim all implied warranties, including but not limited to merchantability, title, fitness for a specific purpose, non-infringement, compatibility, security, and accuracy.</p>  
-                     <p>8.2. Your use of our Website and/or App is at your own risk, and you accept full responsibility and risk for any loss incurred, including loss of service, data, or Works. We shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages, or any other damages whatsoever, arising from the use of our Website and/or App, regardless of whether we were aware or should have been aware of the possibility of such damages, whether in contract, statute, tort (including negligence), or otherwise. </p>  
-                     <p>8.3. Certain links on our Website and/or App may direct you to websites, resources, or tools maintained by third parties over which we have no control. We do not make any express or implied representations or warranties concerning such third-party websites, resources, and tools, and providing links to them should not be interpreted as an endorsement of their content by us. </p>  
-                      <p>8.4.The disclaimers and limitations of liability outlined above apply not only to us but also to every other entity affiliated with Musosoup and to our respective personnel. </p>  
-                      <p>8.5. Should a Content Curator fail to deliver a Review or otherwise adhere to the terms of their agreement with the Artist, Musosoup's sole liability to the Artist will be to refund any payments made by the Artist to Musosoup in connection with the Content Curator's offer. The Artist explicitly waives any other rights or claims for damages against Musosoup regarding such noncompliance by the Content Curator. </p>  
-                      <p>8.6.  The aforementioned disclaimers and limitations of liability apply to the maximum extent permitted by law, whether in contract, statute, tort (including negligence), or any other legal theory.  </p> 
+                      <p>7.1. Our Website and/or App are provided on an "as is" basis, and we do not make any express or implied representations or warranties regarding their functionality. Specifically, we do not guarantee that our Website and/or App will be secure, free from errors, viruses, or malicious code, or that they will meet any particular standards of performance or quality. We explicitly disclaim all implied warranties, including but not limited to merchantability, title, fitness for a specific purpose, non-infringement, compatibility, security, and accuracy.</p>  
+                     <p>7.2. Your use of our Website and/or App is at your own risk, and you accept full responsibility and risk for any loss incurred, including loss of service, data, or Works. We shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages, or any other damages whatsoever, arising from the use of our Website and/or App, regardless of whether we were aware or should have been aware of the possibility of such damages, whether in contract, statute, tort (including negligence), or otherwise. </p>  
+                     <p>7.3. Certain links on our Website and/or App may direct you to websites, resources, or tools maintained by third parties over which we have no control. We do not make any express or implied representations or warranties concerning such third-party websites, resources, and tools, and providing links to them should not be interpreted as an endorsement of their content by us. </p>  
+                      <p>7.4.The disclaimers and limitations of liability outlined above apply not only to us but also to every other entity affiliated with Musosoup and to our respective personnel. </p>  
+                      <p>7.5. Should a Content Curator fail to deliver a Review or otherwise adhere to the terms of their agreement with the Artist, Musosoup's sole liability to the Artist will be to refund any payments made by the Artist to Musosoup in connection with the Content Curator's offer. The Artist explicitly waives any other rights or claims for damages against Musosoup regarding such noncompliance by the Content Curator. </p>  
+                      <p>7.6.  The aforementioned disclaimers and limitations of liability apply to the maximum extent permitted by law, whether in contract, statute, tort (including negligence), or any other legal theory.  </p> 
                     
-                    <li><strong> Language </strong></li>
+                    <li><strong>8. Language </strong></li>
                     </ol>
-                    <p>If these terms and conditions are translated into one or more languages, the English language shall prevail in case of contradiction or dispute regarding the interpretation of a term or provision</p>
-                    <ol start="24">
+                    <p>8.1. If these terms and conditions are translated into one or more languages, the English language shall prevail in case of contradiction or dispute regarding the interpretation of a term or provision</p>
                         
 
 
