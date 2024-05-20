@@ -337,7 +337,7 @@ class AuthenticationSocializeController extends Controller
     public function storeCuratorSocializePassword(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name'     => 'required',
+            'name'     => 'required|alpha_dash|max:255|unique:users,name,'. auth()->user()->id,
             'email'    => 'required|string|email|max:255|unique:users,email,'. auth()->user()->id,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
