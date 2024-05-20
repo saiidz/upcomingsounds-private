@@ -394,10 +394,11 @@ Route::get('/taste-maker-reject', [CuratorSignupController::class, 'curatorRejec
 ->name('curator.rejected');
 
 // Curator Create Password
-Route::get('/taste-maker-create-password', [AuthenticationSocializeController::class, 'createCuratorSocializePassword'])
+Route::get('/curator-create-password', [AuthenticationSocializeController::class, 'createCuratorSocializePassword'])
+//Route::get('/taste-maker-create-password', [AuthenticationSocializeController::class, 'createCuratorSocializePassword'])
     ->middleware('auth')
     ->name('curator.create.password');
-Route::post('/taste-maker-create-password', [AuthenticationSocializeController::class, 'storeCuratorSocializePassword'])
+Route::post('/curator-create-password', [AuthenticationSocializeController::class, 'storeCuratorSocializePassword'])
     ->middleware('auth')
     ->name('curator.create.password.post');
 
