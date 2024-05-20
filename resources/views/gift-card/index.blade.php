@@ -61,6 +61,15 @@
                         @endif
                     </div>
                 </div>
+                <div tabindex="-1" role="group" class="bv-no-focus-ring" style="display:none">
+                    {!! NoCaptcha::renderJs() !!}
+                    {!! NoCaptcha::display() !!}
+                    <div class="invalid-feedback" style="display: block;">
+                        @error('g-recaptcha-response')
+                        {{ $message }}
+                        @enderror
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-md-6 col-xs-12">
                         <div class="card mb-6">
