@@ -44,6 +44,10 @@
         .text-muted {
             color: #818a91!important;
         }
+    
+<meta name="description" content="Join UpcomingSounds, the newest platform for music promotion and pitching service. Submit your music now and access music industry jobs, record labels, and A&R opportunities. Discover advice, playlists, streaming platforms, and career resources for artists, bands, and producers in rock, EDM, jazz, indie, and more." />
+
+
     </style>
 {{--    <link type="text/css" href="{{ asset('welcome-home-page/css/animate.css') }}" rel="stylesheet">--}}
 {{--    <link type="text/css" href="{{ asset('welcome-home-page/css/bootstrap.min.css') }}" rel="stylesheet">--}}
