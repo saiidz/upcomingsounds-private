@@ -2,7 +2,7 @@
 @extends('layouts.welcomeLayout')
 
 {{-- page title --}}
-@section('title','Welcome to the newest platform for new sounds and upcoming sounds, pitching service with effective results. Submit your music now!')
+@section('title','Discover the Best Platform for New and Upcoming Sounds - Effective Music Pitching Service | Submit Your Music Today!')
 @section('page-style')
     <style>
         .videoWlcome{
