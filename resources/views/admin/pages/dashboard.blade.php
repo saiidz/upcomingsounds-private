@@ -21,7 +21,7 @@
     <!-- BEGIN: Page Main-->
     <div id="main">
         <div class="row">
-            <div class="content-wrapper-before gradient-45deg-indigo-purple"></div>
+            @include('admin.panels.bg-color')
             <div class="col s12">
                 <div class="container">
                     <div class="section">

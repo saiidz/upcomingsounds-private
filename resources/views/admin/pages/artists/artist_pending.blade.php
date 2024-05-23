@@ -19,7 +19,7 @@
 <!-- BEGIN: Page Main-->
 <div id="main">
 	<div class="row">
-		<div class="content-wrapper-before gradient-45deg-indigo-purple"></div>
+		@include('admin.panels.bg-color')
 		<div class="breadcrumbs-dark pb-0 pt-4" id="breadcrumbs-wrapper">
 			<!-- Search for small screen-->
 			<div class="container">
@@ -91,6 +91,17 @@
                                                         @endforeach
                                                     @endif
 												</tbody>
+                                                <tfoot>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>Name</th>
+                                                    <th>Created At</th>
+                                                    <th>Verified</th>
+                                                    <th>Role</th>
+                                                    <th>Status</th>
+                                                    <th>View</th>
+                                                </tr>
+                                                </tfoot>
                                             </table>
 										</div>
 									</div>

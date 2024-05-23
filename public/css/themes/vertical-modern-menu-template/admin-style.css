@@ -7383,7 +7383,8 @@ nav.display-none.search-sm .nav-wrapper form .input-field i {
 }
 
 .sidenav li a.active {
-    background: linear-gradient(45deg, #303f9f, #7b1fa2);
+    background: linear-gradient(45deg, #8e24aa, #ff6e40) !important;
+    /*background: linear-gradient(45deg, #303f9f, #7b1fa2);*/
     box-shadow: 3px 3px 20px 0 rgba(123, 31, 162, 0.5);
     color: #fff;
     margin: 0;
@@ -9629,25 +9630,25 @@ span.page-link {
     0% {
         transform: scale3d(1, 1, 1);
     }
-    
+
     10%,
     20% {
         transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
     }
-    
+
     30%,
     50%,
     70%,
     90% {
         transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
     }
-    
+
     40%,
     60%,
     80% {
         transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
     }
-    
+
     100% {
         transform: scale3d(1, 1, 1);
     }

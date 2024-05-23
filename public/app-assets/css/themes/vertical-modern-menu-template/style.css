@@ -4333,7 +4333,7 @@ li.home:before
 }
 
 /*----------------------------------------
-  Grid 
+  Grid
 ------------------------------------------*/
 .section
 {
@@ -9234,7 +9234,8 @@ nav.display-none.search-sm .nav-wrapper form .input-field i
 
     color: #fff;
     background: -webkit-linear-gradient(45deg, #303f9f, #7b1fa2);
-    background:         linear-gradient(45deg, #303f9f, #7b1fa2);
+    background:         linear-gradient(45deg, #8e24aa, #ff6e40) !important;
+    /*background:         linear-gradient(45deg, #303f9f, #7b1fa2);*/
     box-shadow: 3px 3px 20px 0 rgba(123, 31, 162, .5);
 }
 
