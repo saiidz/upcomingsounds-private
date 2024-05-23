@@ -66,6 +66,10 @@
         .thWN2{
             width: 100% !important;
         }
+        .titleTextColor{
+            color: black !important;
+            font-size: 20px !important;
+        }
     </style>
 @endsection
 
@@ -390,7 +394,7 @@
             <div class="col-lg-8 b-r no-border-md">
                 <div class="padding">
                     @if(count($advance_campaigns) > 0)
-                        <h2 class="widget-title h4 m-b">Trending</h2>
+                        <h2 class="widget-title h4 m-b titleTextColor">Trending</h2>
                         <div class="owl-carousel owl-theme owl-dots-center" data-ui-jp="owlCarousel" data-ui-options="{
                         margin: 20,
                         responsiveClass:true,
@@ -460,7 +464,7 @@
                     @endif
                     {{-- Trendng Handle Admin Side --}}
                         @if(count($trending_campaigns) > 0)
-                            <h2 class="widget-title h4 m-b">Trending</h2>
+                            <h2 class="widget-title h4 m-b titleTextColor">Trending</h2>
                             <div class="owl-carousel owl-theme owl-dots-center" data-ui-jp="owlCarousel" data-ui-options="{
                             margin: 20,
                             responsiveClass:true,
@@ -533,7 +537,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="dropdown inline">
-                                <h2 class="inline widget-title h4">New</h2>
+                                <h2 class="inline widget-title h4 titleTextColor">New</h2>
                                 <button class="btn btn-sm no-bg h4 m-y-0 v-b faFIlter dropdown-toggle text-primary" data-toggle="dropdown">
                                     <span class="selectFilterTag"></span>
                                     <i class="fa fa-filter"></i>
@@ -614,7 +618,7 @@
 {{--                    @include('pages.curators.dashboard-partial.__new')--}}
                     {{--    New    --}}
 
-                    <h2 class="widget-title h4 m-b">Recommend for you</h2>
+                    <h2 class="widget-title h4 m-b titleTextColor">Recommend for you</h2>
                     <div class="row item-list item-list-md m-b">
                         @if(count($recommendSubmitCoverages) > 0)
                             @foreach($recommendSubmitCoverages as $recommendSubmitCoverage)
@@ -642,7 +646,7 @@
                             @endforeach
                         @else
                             <div class="item-title text-ellipsis">
-                                <h3 class="white" style="text-align:center;font-size: 15px;">Not Recommend Found</h3>
+                                <h3 class="white titleTextColor" style="text-align:center;font-size: 15px;">Not Recommend Found</h3>
                             </div>
                         @endif
 
