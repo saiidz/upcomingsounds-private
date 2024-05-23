@@ -272,7 +272,7 @@
             </div>
 
             <div class="page-title m-b">
-                <h1 class="inline m-a-0">{{ __('Upcoming Sounds featured tracks') }}</h1>
+                <h1 class="inline m-a-0 titleTextColor">{{ __('Upcoming Sounds featured tracks') }}</h1>
             </div>
 
             <div class="row row-sm item-masonry item-info-overlay">
@@ -538,9 +538,9 @@
                         <div class="col-md-12">
                             <div class="dropdown inline">
                                 <h2 class="inline widget-title h4 titleTextColor">New</h2>
-                                <button class="btn btn-sm no-bg h4 m-y-0 v-b faFIlter dropdown-toggle text-primary" data-toggle="dropdown">
+                                <button class="btn btn-sm no-bg h4 m-y-0 v-b faFIlter dropdown-toggle text-black" data-toggle="dropdown">
                                     <span class="selectFilterTag"></span>
-                                    <i class="fa fa-filter"></i>
+                                    <i class="fa fa-filter titleTextColor"></i>
                                 </button>
                                 @if(!empty($curator_features))
                                     <div class="dropdown-menu">
