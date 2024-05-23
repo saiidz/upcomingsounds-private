@@ -152,7 +152,8 @@ class GiftCardController extends Controller
 
                 try {
                     Mail::send('gift-card.gift-card-email', $data, function($message)use($data) {
-                        $message->from('info@upcomingsounds.com');
+                        $message->from('no-reply@upcomingsounds.com');
+//                        $message->from('info@upcomingsounds.com');
                         $message->to($data["email"], $data["email"])
                             ->subject($data["title"]);
                     });

@@ -146,7 +146,8 @@
                                             @endif
 
                                             @if($premium_campaign->button_status == 1)
-                                                <a href="{{ $premium_campaign->button_link }}" target="_blank" class="nav-link animated fadeInLeft">
+                                                <a href="{{ $premium_campaign->button_link }}" onclick="window.open('{{ $premium_campaign->button_link }}', '_blank'); return false;"
+                                                   target="_blank" class="nav-link animated fadeInLeft">
                                                     <span class="btn btn-sm rounded primary _600 pBtnText">{{ $premium_campaign->button_text }}</span>
                                                 </a>
                                             @endif
