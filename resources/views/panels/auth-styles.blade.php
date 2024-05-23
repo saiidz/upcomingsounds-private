@@ -93,6 +93,17 @@ success, touch, track, tracks, transparent, united, visibility,
             background-size: cover;
             /*margin-top: 7px;*/
         }
+        .cookiealert .acceptcookies {
+            margin-left: 10px!important;
+            vertical-align: baseline!important;
+            border-radius: 500px!important;
+            color: rgba(255, 255, 255, 0.87)!important;
+            padding: 0.3445rem 0.75rem!important;
+            font-weight: 500!important;
+            outline: 0 !important;
+            font-size: .875rem!important;
+            border-width: 0!important;
+        }
     </style>
     <!-- endbuild -->
     @yield('page-style')

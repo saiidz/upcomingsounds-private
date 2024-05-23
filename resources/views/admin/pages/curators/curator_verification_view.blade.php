@@ -68,7 +68,8 @@
                                 @if($curatorVerificationFormCount >= 3 && $user->is_verified == 0 && $user->is_rejected == 1
                                        && $user->is_allow_curator_verification == 1)
                                     <a href="{{ route('admin.remove-allow-curator-verification',$user->id) }}" class="btn-small btn-light-red dropdown-item has-icon">
-                                        Remove Allow Curator Verification
+                                        Deny Curator Verification
+{{--                                        Remove Allow Curator Verification--}}
                                     </a>
                                 @endif
 {{--                                @if ($user->is_verified == 0 && $user->is_rejected == 0)--}}
@@ -176,10 +177,11 @@
                                                             @if ($verification_curator->status == \App\Templates\IOfferTemplateStatus::PENDING)
 
                                                                 <a href="#verifiedModal" data-id="{{ $verification_curator->id }}" class="btn-small btn-light-indigo dropdown-item has-icon modal-trigger verified-curator-confirm">
-                                                                    Verified
+                                                                    Verify
+{{--                                                                    Verified--}}
                                                                 </a>
                                                             @elseif ($verification_curator->status == \App\Templates\IOfferTemplateStatus::ACCEPTED)
-                                                                <span class="btn disabled">Verified</span>
+                                                                <span class="btn disabled">Verify</span>
                                                             @endif
 
                                                             @if ($verification_curator->status == \App\Templates\IOfferTemplateStatus::PENDING)
