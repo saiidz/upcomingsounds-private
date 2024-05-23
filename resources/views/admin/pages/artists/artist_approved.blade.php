@@ -90,6 +90,17 @@
                                                         @endforeach
                                                     @endif
 												</tbody>
+                                                <tfoot>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>Name</th>
+                                                    <th>Created At</th>
+                                                    <th>Verified</th>
+                                                    <th>Role</th>
+                                                    <th>Status</th>
+                                                    <th>View</th>
+                                                </tr>
+                                                </tfoot>
                                             </table>
 										</div>
 									</div>
