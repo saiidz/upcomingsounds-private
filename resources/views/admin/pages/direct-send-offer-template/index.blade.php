@@ -117,13 +117,14 @@
                                                     <tfoot>
                                                     <tr>
                                                         <th>S#</th>
-{{--                                                        <th>Curator Name</th>--}}
+                                                        <th>Curator Name</th>
                                                         <th>Title</th>
                                                         <th>Contribution</th>
                                                         <th>Offer Type</th>
                                                         <th>Alternative Type</th>
                                                         <th>Created At</th>
                                                         <th>Status</th>
+                                                        <th>Offer Status</th>
                                                         <th>View</th>
                                                     </tr>
                                                     </tfoot>
