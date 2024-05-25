@@ -298,6 +298,7 @@
         setTimeout(function () {
             x.className = x.className.replace("show", "");
         }, 5000);
+    </script>
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GFQ5K0QQGY"></script>
 <script>
