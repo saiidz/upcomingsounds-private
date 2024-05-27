@@ -147,9 +147,10 @@
                                                     </div>
                                                     <div class="" style="justify-content: space-between !important;align-items: center !important;display: flex !important;">
                                                         @if(!empty($curator->user->name))
+                                                            <a href="javascript:void(0)" id="curatorPublicProfile{{$curator->user->id}}" data-value="{{route('taste.maker.public.profile',$curator->user->name)}}" onclick="publicProfileCurator({{$curator->user->id}})" id="publicProfileBlank">
 {{--                                                            <a href="{{route('taste.maker.public.profile',$curator->user->name)}}" target="_blank">--}}
                                                                 <h3>{{ $curator->user->name}}</h3>
-{{--                                                            </a>--}}
+                                                            </a>
                                                         @endif
 
                                                         @if(!empty($curator->user->curatorUser->country))
@@ -177,7 +178,8 @@
                                                             <span class="text-muted">
                                                                 {{--                                                        @if($curator->time_to_publish)--}}
                                                                 {{--                                                        @else--}}
-                                                                {{ !empty($curator->time_to_publish) ? $curator->time_to_publish : '------' }} days for coverage
+                                                                {{ !empty($curator->time_to_publish) ? $curator->time_to_publish : '------' }} days for Publication
+{{--                                                                coverage--}}
     {{--                                                        @endif--}}
                                                             </span>
                                                         </div>

@@ -68,7 +68,8 @@ function selectCuratorVerifiedCoverage(id)
         $('#verifiedCoverageIDS').val('');
         return false;
     }else {
-        $('#showCuratorProsSelect').html(selectedCount + ' Pros Selected');
+        $('#showCuratorProsSelect').html(selectedCount + ' Curator Selected');
+        // $('#showCuratorProsSelect').html(selectedCount + ' Pros Selected');
         $('#showContributionTotal').css('display','block');
         $('.show_C_Amount').html(sumTotalContribution);
 

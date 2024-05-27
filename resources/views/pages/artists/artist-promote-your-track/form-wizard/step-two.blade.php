@@ -89,7 +89,8 @@
                         </div>
                         <div>
                             <div class="item-title text-ellipsis center" style="top: 10%;">
-                                <div>Choose verified content creator / curator</div>
+                                <div>Requests Content Curators Coverage</div>
+{{--                                <div>Choose verified content creator / curator</div>--}}
                                 <div class="item-author text-sm text-ellipsis text-muted">Your choice of this option may result in a much higher cost than an automated campaign</div>
                             </div>
                         </div>

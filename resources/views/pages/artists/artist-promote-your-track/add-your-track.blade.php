@@ -267,6 +267,15 @@
         function showLoader(){
             preload.style.display='block';
         }
+
+        function publicProfileCurator(id)
+        {
+            let url = $('#curatorPublicProfile'+id).data('value');
+            window.open(
+                url,
+                '_blank' // <- This is what makes it open in a new window.
+            );
+        }
     </script>
     <script>
         $('.audioCover').change(function(e){

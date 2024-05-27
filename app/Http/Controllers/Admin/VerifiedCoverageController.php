@@ -82,12 +82,14 @@ class VerifiedCoverageController extends Controller
 
             $data['email'] = $verified_coverage->user->email;
             $data['username'] = $verified_coverage->user->name;
-            $data["title"] = "Approved Verified Coverage Upcoming Sounds";
+            $data["title"] = "Coverage Request Approved | Upcoming Sounds";
+//            $data["title"] = "Approved Verified Coverage Upcoming Sounds";
             $data['approvedMessage'] = $request->description_details ?? null;
 
             try {
                 Mail::send('admin.emails.curator_email.send_approved_email_to_curator', $data, function($message)use($data) {
-                    $message->from('gary@upcomingsounds.com');
+                    $message->from('no-reply@upcomingsounds.com');
+//                    $message->from('gary@upcomingsounds.com');
                     $message->to($data["email"], $data["email"])
                         ->subject($data["title"]);
                 });

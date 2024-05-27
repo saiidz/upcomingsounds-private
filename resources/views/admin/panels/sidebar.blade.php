@@ -103,7 +103,7 @@
                     <li class="{{ Request::is('admin/curator-approved') ? 'active' : '' }}">
                         <a class="{{ Request::is('admin/curator-approved') ? 'active' : '' }}" href="{{ route('admin.approved.curator') }}">
                             <i class="material-icons">radio_button_unchecked</i>
-                            <span data-i18n="List">Curator Approved</span>
+                            <span data-i18n="List">Approved Curators</span>
                         </a>
                     </li>
                     <li class="{{ Request::is('admin/curator-pending') ? 'active' : '' }}">
@@ -121,7 +121,8 @@
                     <li class="{{ Request::is('admin/curator-features*') || Request::is('admin/curator-sub-feature*') ? 'active' : '' }}">
                         <a class="{{ Request::is('admin/curator-features*') || Request::is('admin/curator-sub-feature*') ? 'active' : '' }}" href="{{ route('admin.curator-features.index') }}">
                             <i class="material-icons">radio_button_unchecked</i>
-                            <span data-i18n="List">Curator Features</span>
+                            <span data-i18n="List">Curator Genres</span>
+{{--                            <span data-i18n="List">Curator Features</span>--}}
                         </a>
                     </li>
                     <li class="{{ Request::is('admin/curator-withdrawal-request*') ? 'active' : '' }}">
@@ -154,7 +155,8 @@
                                 <li class="{{ Request::is('admin/curator-verified-coverage*') || Request::is('admin/verified-coverage-curator*') ? 'active' : '' }}">
                                     <a class="{{ Request::is('admin/curator-verified-coverage*') || Request::is('admin/verified-coverage-curator*') ? 'active' : '' }}" href="{{ route('admin.curator.verified.coverage') }}">
                                         <i class="material-icons">radio_button_unchecked</i>
-                                        <span data-i18n="List">Verified Coverage</span>
+                                        <span data-i18n="List">VC-Requests</span>
+{{--                                        <span data-i18n="List">Verified Coverage</span>--}}
                                     </a>
                                 </li>
                             </ul>
