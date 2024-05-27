@@ -99,7 +99,8 @@
                            <span class="nav-icon">
                                 <i class="fa fa-rocket"></i>
                            </span>
-                           <span class="nav-text">Purposed Coverage</span>
+                           <span class="nav-text">Requested Coverage</span>
+{{--                           <span class="nav-text">Purposed Coverage</span>--}}
                        </a>
                     </li>
                      <li>
