@@ -25,10 +25,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col s10 m6 l6">
-                            <h5 class="breadcrumbs-title mt-0 mb-0"><span>Curator Offer Templates</span></h5>
+                            <h5 class="breadcrumbs-title mt-0 mb-0"><span>Curator Offer Presets</span></h5>
                             <ol class="breadcrumbs mb-0">
                                 @include('admin.panels.breadcrumbs')
-                                <li class="breadcrumb-item active">Curator Offer Templates </li>
+                                <li class="breadcrumb-item active">Curator Offer Presets </li>
                             </ol>
                         </div>
                     </div>

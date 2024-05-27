@@ -94,12 +94,15 @@
                                                         @if($pos === false)
                                                             @if(!empty($verifiedCoverage->user->profile))
                                                                 <img src="{{URL('/')}}/uploads/profile/{{$verifiedCoverage->user->profile}}" alt="" class="profile-image">
-                                                                <a href="javascript:void(0)" class="item-media-content" style="background-image: url({{URL('/')}}/uploads/profile/{{$verifiedCoverage->user->profile}});"></a>
+                                                                <a href="javascript:void(0)" id="curatorPublicProfilePic{{$verifiedCoverage->user->id}}" data-value="{{route('taste.maker.public.profile',$verifiedCoverage->user->name)}}" onclick="publicProfilePictureCurator({{$verifiedCoverage->user->id}})"
+                                                                   class="item-media-content" style="background-image: url({{URL('/')}}/uploads/profile/{{$verifiedCoverage->user->profile}});"></a>
                                                             @else
-                                                                <a href="javascript:void(0)" class="item-media-content" style="background-image: url({{asset('images/profile_images_icons.svg')}});"></a>
+                                                                <a href="javascript:void(0)" id="curatorPublicProfilePic{{$verifiedCoverage->user->id}}" data-value="{{route('taste.maker.public.profile',$verifiedCoverage->user->name)}}" onclick="publicProfilePictureCurator({{$verifiedCoverage->user->id}})"
+                                                                   class="item-media-content" style="background-image: url({{asset('images/profile_images_icons.svg')}});"></a>
                                                             @endif
                                                         @elseif($pos == 0)
-                                                            <a href="javascript:void(0)" class="item-media-content" style="background-image: url({{asset($verifiedCoverage->user->profile)}});"></a>
+                                                            <a href="javascript:void(0)" id="curatorPublicProfilePic{{$verifiedCoverage->user->id}}" data-value="{{route('taste.maker.public.profile',$verifiedCoverage->user->name)}}" onclick="publicProfilePictureCurator({{$verifiedCoverage->user->id}})"
+                                                               class="item-media-content" style="background-image: url({{asset($verifiedCoverage->user->profile)}});"></a>
                                                         @else
 
                                                         @endif
@@ -111,7 +114,9 @@
                                                                   style="font-size:15px">{{($verifiedCoverage->user->curatorUser->country) ? $verifiedCoverage->user->curatorUser->country->name : ''}}</span>
                                                         </div>
                                                         <div class="item-title text-ellipsis">
-                                                            <div>{{ !empty($verifiedCoverage->user) ? $verifiedCoverage->user->name : '------'}}</div>
+                                                            <a href="javascript:void(0)" id="curatorPublicProfile{{$verifiedCoverage->user->id}}" data-value="{{route('taste.maker.public.profile',$verifiedCoverage->user->name)}}" onclick="publicProfileCurator({{$verifiedCoverage->user->id}})" id="publicProfileBlank">
+                                                                {{ !empty($verifiedCoverage->user) ? $verifiedCoverage->user->name : '------'}}
+                                                            </a>
                                                         </div>
                                                         <div class="item-author text-sm text-ellipsis ">
                                                             <div class="text-muted">

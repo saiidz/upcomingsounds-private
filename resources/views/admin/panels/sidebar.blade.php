@@ -134,7 +134,8 @@
                     <li class="{{ Request::is('admin/offers*') || Request::is('admin/offer-template-curator*') ? 'active' : '' }}">
                         <a class="{{ Request::is('admin/offers*') || Request::is('admin/offer-template-curator*') ? 'active' : '' }}" href="{{ route('admin.offers') }}">
                             <i class="material-icons">radio_button_unchecked</i>
-                            <span data-i18n="List">Offers - Proposition</span>
+                            <span data-i18n="List">Offers Presets - Pending</span>
+{{--                            <span data-i18n="List">Offers - Proposition</span>--}}
                         </a>
                     </li>
 

@@ -187,12 +187,14 @@ class OfferTypeController extends Controller
 
             $data['email'] = $offer_template->user->email;
             $data['username'] = $offer_template->user->name;
-            $data["title"] = "Approved Offer Template Upcoming Sounds";
+            $data["title"] = "Offer Preset Approved | Upcoming Sounds";
+//            $data["title"] = "Approved Offer Template Upcoming Sounds";
             $data['approvedMessage'] = $request->description_details ?? null;
 
             try {
                 Mail::send('admin.emails.curator_email.send_approved_email_to_curator', $data, function($message)use($data) {
-                    $message->from('gary@upcomingsounds.com');
+                    $message->from('no-reply@upcomingsounds.com');
+//                    $message->from('gary@upcomingsounds.com');
                     $message->to($data["email"], $data["email"])
                         ->subject($data["title"]);
                 });
