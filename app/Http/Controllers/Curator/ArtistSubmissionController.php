@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Curator;
 
+use App\Models\AlternativeOption;
 use App\Models\Campaign;
 use App\Models\CuratorFavoriteArtist;
 use App\Models\CuratorFavoriteTrack;
@@ -259,7 +260,9 @@ class ArtistSubmissionController extends Controller
             $offerTemplates = CuratorOfferTemplate::where(['user_id' => Auth::id(),'type' => IOfferTemplateStatus::TYPE_OFFER ,'is_active' => 1, 'is_approved' => 1])->latest()->get();
 
             //offer_types
-            $offer_types = OfferType::get();
+            $offer_types = AlternativeOption::get();
+//            dd($offer_types);
+//            $offer_types = OfferType::get();
 
             // render Html in collapse
             $returnHTML = view('pages.curators.collapsed_sidebar')->with(['campaign' => $campaign, 'offerTemplates' => $offerTemplates, 'offer_types' => $offer_types])->render();

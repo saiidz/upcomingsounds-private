@@ -244,7 +244,7 @@
                             <div class="col-sm-2 form-control-label">Coverage Type:</div>
                             <div class="col-sm-9">
                                 <div
-                                    class="col-sm-3 form-control-label text-muted">{{!empty($submitCoverage->offerType) ? $submitCoverage->offerType->name : '----'}}</div>
+                                    class="col-sm-3 form-control-label text-muted">{{!empty($submitCoverage->alternativeOption) ? $submitCoverage->alternativeOption->name : '----'}}</div>
                             </div>
                         </div>
                         <div class="form-group row">

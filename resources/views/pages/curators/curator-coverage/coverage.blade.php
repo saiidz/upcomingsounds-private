@@ -78,7 +78,8 @@
 
                                             <div class="m-t-sm offerAlternative">
                                                 <div>
-                                                    <span style="color:#02b875 !important">Coverage Type: </span><span class="btn btn-xs white">{{!empty($submitCoverage->offerType) ? $submitCoverage->offerType->name : '----'}}</span>
+                                                    <span style="color:#02b875 !important">Coverage Type: </span><span class="btn btn-xs white">{{!empty($submitCoverage->alternativeOption) ? $submitCoverage->alternativeOption->name : '----'}}</span>
+{{--                                                    <span style="color:#02b875 !important">Coverage Type: </span><span class="btn btn-xs white">{{!empty($submitCoverage->offerType) ? $submitCoverage->offerType->name : '----'}}</span>--}}
                                                 </div>
                                             </div>
                                         </div>

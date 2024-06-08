@@ -19,6 +19,7 @@ class SubmitCoverage extends Model
         'track_id',
         'campaign_id',
         'offer_type_id',
+        'alternative_option_id',
         'links',
         'message',
         'submit_at',
@@ -64,5 +65,13 @@ class SubmitCoverage extends Model
     public function offerType(): BelongsTo
     {
         return $this->belongsTo(OfferType::class,'offer_type_id');
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function alternativeOption(): BelongsTo
+    {
+        return $this->belongsTo(AlternativeOption::class,'alternative_option_id');
     }
 }

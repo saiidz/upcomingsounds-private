@@ -59,7 +59,8 @@
         <div class="title__container">
             <div class="separatortrack">
                 <div class="promoteAddTrack" style="display: flex;align-items: center;justify-content: space-between;margin: 0;padding: 0;">
-                    <h4>{{ !empty($curators) ? $curators->count() : '' }} curators & pros recommended for you</h4>
+                    <h4>{{ !empty($curators) ? $curators->count() : '' }} curators recommended for you</h4>
+{{--                    <h4>{{ !empty($curators) ? $curators->count() : '' }} curators & pros recommended for you</h4>--}}
                     <div>
                         <h3 id="showCuratorProsSelect" style="color: #da4441 !important;"></h3>
                         <h3 id="showContributionTotal" style="display:none;">
