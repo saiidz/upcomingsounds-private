@@ -86,7 +86,7 @@
 
         <div class="padding p-b-0">
             <div class="page-title m-b">
-                <h1 class="inline m-a-0">Welcome {{($user_artist) ? $user_artist->name : ''}} ready to promote your track?</h1>
+                <h1 class="inline m-a-0 titleColor">Welcome {{($user_artist) ? $user_artist->name : ''}} ready to promote your track?</h1>
             </div>
             <div class="page-title m-b-2">
                 <a class="btn btn-lg rounded add_your_track" href="{{url('/promote-your-track')}}">

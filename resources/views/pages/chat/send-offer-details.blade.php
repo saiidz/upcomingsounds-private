@@ -61,7 +61,7 @@
             <div class="col-lg-8 b-r no-border-md">
                 <div class="padding">
                     <div class="page-title m-b proposition_header">
-                        <h1 class="inline m-a-0">Send Offer Details</h1>
+                        <h1 class="inline m-a-0 titleColor">Send Offer Details</h1>
                         <a href="{{ url()->previous() }}"
                            class="btn btn-sm rounded proposition basicbtn">
                             Back</a>

@@ -26,7 +26,7 @@
             <div class="col-lg-8 b-r no-border-md">
                 <div class="padding p-y-0 m-b-md">
                     <div class="page-title m-b proposition_header">
-                        <h1 class="inline m-a-0">Coverage Presets</h1>
+                        <h1 class="inline m-a-0 titleColor">Coverage Presets</h1>
                         <a href="{{route('curator.create.verified.coverage')}}"
                            class="btn btn-sm rounded proposition basicbtn">
                             Setup a new verified coverage</a>

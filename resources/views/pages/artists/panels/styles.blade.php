@@ -80,5 +80,8 @@ success, touch, track, tracks, transparent, united, visibility,
             width: 234px;
             margin-top: 280px;
         }
+        .titleColor{
+            color: black !important;
+        }
     </style>
 </head>

@@ -27,7 +27,7 @@
             <div class="col-lg-9 b-r no-border-md">
                 <div class="padding p-y-0 m-b-md">
                     <div class="page-title m-b m-t-2">
-                        <h2 class="widget-title inline m-a-0">Active Campaigns</h2>
+                        <h2 class="widget-title inline m-a-0 titleColor">Active Campaigns</h2>
                     </div>
                     <div class="row item-list item-list-by m-b">
                         @if(count($campaigns) > 0)

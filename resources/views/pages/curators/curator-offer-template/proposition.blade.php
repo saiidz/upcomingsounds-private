@@ -27,11 +27,11 @@
             <div class="col-lg-8 b-r no-border-md">
                 <div class="padding p-y-0 m-b-md">
                     <div class="page-title m-b proposition_header">
-                        <h1 class="inline m-a-0">Offer Presets</h1>
+                        <h1 class="inline m-a-0 titleColor">Offer Presets</h1>
 {{--                        <h1 class="inline m-a-0">Proposition</h1>--}}
                         <a href="{{route('curator.create.offer.template')}}"
                            class="btn btn-sm rounded proposition basicbtn">
-                            Setup a new offer template</a>
+                            Setup a preset template</a>
                     </div>
 
                     <div class="row item-list item-list-by m-b">
@@ -65,6 +65,12 @@
                                                 <span class="item-meta-date text-xs">{{($offerTemplate->created_at) ? \Carbon\Carbon::parse($offerTemplate->created_at)->format('M d Y') : ''}}</span>
                                             </div>
 
+{{--                                            @php--}}
+{{--                                                // Get the offer text from the form input or your data source--}}
+{{--                                                $offerText = $offerTemplate->offer_text;--}}
+{{--                                                // Replace the shortcodes in the offer text--}}
+{{--                                                $personalizedOfferText = replaceShortcodes($offerText, $artistUser->name, $artistTrack->name, $artistTrack->release_date);--}}
+{{--                                            @endphp--}}
                                             <div
                                                 class="item-except visible-list text-sm text-muted m-t-sm" id="descriptionContainer">
                                                 {!! preg_replace(

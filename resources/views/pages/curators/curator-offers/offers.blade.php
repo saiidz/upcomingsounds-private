@@ -20,7 +20,7 @@
             <div class="col-lg-9 b-r no-border-md">
                 <div class="padding p-y-0 m-b-md">
                     <div class="page-title m-b m-t-2">
-                        <h1 class="widget-title inline m-a-0">Offers</h1>
+                        <h1 class="widget-title inline m-a-0 titleColor">Offers</h1>
                     </div>
                     <div class="row item-list item-list-by m-b">
                         @if(!empty($sendOffers) && count($sendOffers) > 0)

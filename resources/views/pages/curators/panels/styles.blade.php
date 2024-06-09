@@ -111,6 +111,9 @@ success, touch, track, tracks, transparent, united, visibility,
         a.closebtnBottom {
             font-size: 20px;
         }
+        .titleColor{
+            color: black !important;
+        }
     </style>
     <link rel="stylesheet" href="{{asset('css/gijgo.min.css')}}" type="text/css" />
 </head>

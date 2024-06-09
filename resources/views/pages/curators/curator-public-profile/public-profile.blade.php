@@ -239,7 +239,8 @@
                                         <i class="fab fa-tiktok"></i>
                                     </a>
                                 @endif
-                                @if($user->is_public_profile == 1)
+{{--                                    {{dd($user)}}--}}
+                                @if($user->is_public_profile == 1 && $user->type == 'artist')
                                     <a href="{{route('artist.public.profile',$user->name)}}" target="_blank" id="Public_Profile"
                                        class="btn btn-icon btn-social rounded btn-social-colored"
                                        style="background-color:#333 !important;" title="Public Profile">
@@ -249,7 +250,8 @@
                                 @else
                                     <a href="{{route('taste.maker.public.profile',$user->name)}}" target="_blank" id="Public_Profile"
                                        class="btn btn-icon btn-social rounded btn-social-colored"
-                                       style="background-color:#333 !important; display:none;" title="Public Profile">
+                                       style="background-color:#333 !important;" title="Public Profile">
+{{--                                       style="background-color:#333 !important; display:none;" title="Public Profile">--}}
                                         <i class="custom-icon"></i>
                                         <i class="custom-icon"></i>
                                     </a>

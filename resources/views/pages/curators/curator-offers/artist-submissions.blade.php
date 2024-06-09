@@ -12,7 +12,7 @@
             <div class="col-lg-9 b-r no-border-md">
                 <div class="padding">
                     <div class="page-title m-b">
-                        <h1 class="inline m-a-0">Artists Submissions</h1>
+                        <h1 class="inline m-a-0 titleColor">Artists Submissions</h1>
                     </div>
                 </div>
             </div>

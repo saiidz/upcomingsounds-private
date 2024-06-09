@@ -40,7 +40,7 @@
             <div class="col-lg-8 b-r no-border-md">
                 <div class="padding">
                     <div class="page-title m-b proposition_header">
-                        <h1 class="inline m-a-0">{{ !empty($offer_template) ? "Update Offer Preset" : "Offer Preset" }}</h1>
+                        <h1 class="inline m-a-0 titleColor">{{ !empty($offer_template) ? "Update Offer Preset" : "Offer Preset" }}</h1>
 {{--                        <h1 class="inline m-a-0">{{ !empty($offer_template) ? "Update Offer Template" : "Offer Template" }}</h1>--}}
                     </div>
                     <form method="POST" action="{{!empty($offer_template)

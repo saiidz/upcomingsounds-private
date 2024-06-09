@@ -19,7 +19,7 @@
             <div class="col-lg-9 b-r no-border-md">
                 <div class="padding">
                     <div class="page-title m-b m-t-2">
-                        <h1 class="inline m-a-0">Completed</h1>
+                        <h1 class="inline m-a-0 titleColor">Completed</h1>
                     </div>
                     <div class="row item-list item-list-by m-b">
                         @if(!empty($sendOffers) && count($sendOffers) > 0)

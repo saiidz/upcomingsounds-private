@@ -40,7 +40,7 @@
             <div class="col-lg-8 b-r no-border-md">
                 <div class="padding">
                     <div class="page-title m-b proposition_header">
-                        <h1 class="inline m-a-0">{{ !empty($verified_coverage) ? "Edit Verified Coverage" : "Verified Coverage" }}</h1>
+                        <h1 class="inline m-a-0 titleColor">{{ !empty($verified_coverage) ? "Edit Verified Coverage" : "Verified Coverage" }}</h1>
                     </div>
                     <form method="POST" action="{{!empty($verified_coverage)
                                     ? route('curator.update.verified.coverage', encrypt($verified_coverage->id))
