@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Artist\ArtistFavoriteCurator;
 use App\Models\Campaign;
+use App\Models\Conversation;
 use App\Models\Curator\VerifiedCoverage;
 use App\Models\CuratorFeatureTag;
+use App\Models\Message;
 use App\Models\ReferralRelationship;
 use App\Models\SubmitCoverage;
 use App\Models\TransactionHistory;
@@ -16,6 +18,7 @@ use App\Notifications\SendNotification;
 use App\Templates\IMessageTemplates;
 use App\Templates\IPackages;
 use App\Templates\IStatus;
+use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -386,5 +389,50 @@ class PromoteYourTrackController extends Controller
             return response()->json(['error' => 'Error In Ajax call.']);
         }
 
+    }
+
+    /**
+     * @param $verified_coverage
+     * @return Application|Factory|View|void
+     */
+    public function coverageDetailShow($verified_coverage)
+    {
+        try {
+            $verifiedCoverage = VerifiedCoverage::find(decrypt($verified_coverage));
+
+            $receiver_id = $verifiedCoverage->user_id;
+
+            // create conversation
+            $conversation_id = Conversation::where('sender_id', Auth::Id())->where('receiver_id', $receiver_id)->pluck('id')->first();
+
+            if(is_null($conversation_id))
+            {
+                $conversation_id = Conversation::where('receiver_id', Auth::Id())->where('sender_id', $receiver_id)->pluck('id')->first();
+            }
+
+            if(is_null($conversation_id))
+            {
+                $conversation_id = Conversation::create([
+                    'sender_id' => Auth::Id(),
+                    'receiver_id' => $receiver_id
+                ]);
+
+                $conversation_id = $conversation_id->id;
+            }
+
+            $conversation_default = Conversation::where('sender_id', Auth::Id())->where('receiver_id',$receiver_id)->first();
+
+            if(isset($conversation_default))
+            {
+                // get default chat
+                $messages = Message::where('conversation_id', $conversation_default->id)->get();
+                $messages = view('pages.chat.render_messages')->with('messages' , $messages)->render();
+            }
+
+            return view('pages.artists.artist-promote-your-track.form-wizard.coverage-details', get_defined_vars());
+        }catch (DecryptException $exception)
+        {
+            abort('404','Not Found');
+        }
     }
 }

@@ -1261,5 +1261,18 @@
     });
 </script>
     <script src="{{asset('js/custom/artist/verified-coverage.js')}}"></script>
+    <script>
+        function coverageVerifiedOpen(verified_coverage_id)
+        {
+            var linkRedirect = $('#coverageVerifiedID'+verified_coverage_id).data('link');
+            console.log(verified_coverage_id);
+            console.log(linkRedirect);
+            console.log(window.location.origin);
+            window.open(
+                linkRedirect,
+                '_blank' // <- This is what makes it open in a new window.
+            );
+        }
+    </script>
 @endsection
 

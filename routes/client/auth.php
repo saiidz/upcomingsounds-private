@@ -45,6 +45,7 @@ Route::get('promote-your-track', [PromoteYourTrackController::class, 'addYourTra
 Route::post('store/track/campaign', [PromoteYourTrackController::class, 'storeTrackCampaign'])->name('store.Track.Campaign');
 Route::get('get-curators', [PromoteYourTrackController::class, 'getCurators']);
 Route::post('track-add-store', [PromoteYourTrackController::class, 'storeAddTrack'])->name('storeTrack');
+Route::get('coverage-details/{verified_coverage}', [PromoteYourTrackController::class,'coverageDetailShow'])->name('artist.coverage.details');
 
 # favorite curator
 Route::get('favorite-curator', [PromoteYourTrackController::class,'favoriteCurator'])->name('artist.favorite.curator');

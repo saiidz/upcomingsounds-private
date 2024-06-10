@@ -93,7 +93,7 @@
                                 @if(!empty($curators) && count($curators) > 0)
                                     @foreach($curators as $curator)
                                         <div class="col-xs-12 col-sm-4 col-md-3">
-                                            <div class="item r" data-id="item-100">
+                                            <div class="item r" onclick="coverageVerifiedOpen({{$curator->id}})" id="coverageVerifiedID{{$curator->id}}" data-link="{{route('artist.coverage.details',encrypt($curator->id))}}" style="cursor:pointer;"  data-id="item-100">
                                                 <div class="item-media itemCurator">
 {{--                                                    <a href="javascript:void(0)" class="item-media-content" style="background-image: url(http://localhost:8001/uploads/track_thumbnail/default_1683229746Payfast-logo.png);"></a>--}}
                                                     <div class="item-media-content itemMediaCurator">
