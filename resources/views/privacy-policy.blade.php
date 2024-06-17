@@ -30,17 +30,15 @@
 
 This page outlines our policies on collecting, using, and disclosing personal data when you use our Service, along with the choices available to you concerning that data.</p>
                     <p>We utilize your data to deliver and enhance the Service. By using the Service, you consent to the collection and use of information as described in this policy. Unless specified otherwise in this Privacy Policy, terms used here have the same meanings as those in our Terms and Conditions, which can be accessed at https://upcomingsounds.com/term-of-service.</p>
-                    <p>The term "personal data" refers to all data that allows an individual to be iden'fied, which corres- ponds in par'cular to your surname, first names, pseudonym, photograph, postal and e-mail ad- dresses, telephone numbers, date of birth, data rela'ng to your transac'ons on the Site, details of your purchases and subscrip'ons, credit card numbers, SIRET, intra-Community VAT number, as well as any other informa'on that you choose to communicate to us about you.</p>
-                    <ol start="2">
-                        <li><strong> Purpose of this charter<br /> </strong>The purpose of this charter (hereinaSer the "<strong>Charter</strong>") is to inform you about the means we use to</li>
-                    </ol>
+                    <p>The term "personal data" refers to any information that can identify an individual. This includes, but is not limited to, your surname, first names, pseudonym, photograph, postal and email addresses, phone numbers, date of birth, transaction data on the Site, purchase and subscription details, credit card numbers, SIRET, VAT number, as well as any other information you choose to share with us.</p>
+                      </ol>
                     <p>collect your personal data, in the strictest respect of your rights.</p>
-                    <p>In this respect, we inform you that we comply, in the collec'on and management of your personal data, with Law No. 78-17 of January 6, 1978 rela'ng to computers, files and freedoms, in its current version (hereinaSer: the "<strong>Data Protec7on Act</strong>"), as well as Regula'on (EU) 2016/679 of April 27, 2016 on the protec'on of individuals with regard to the processing of personal data and on the free movement of such data (hereinaSer: the "<strong>RGPD"</strong>).</p>
-                    <ol start="3">
+                    <p>In this respect, we inform you that we comply, in the collection and management of your personal data, with Law No. 78-17 of January 6, 1978 rela'ng to computers, files and freedoms, in its current version (hereinaSer: the "<strong>Data Protec7on Act</strong>"), as well as Regula'on (EU) 2016/679 of April 27, 2016 on the protec'on of individuals with regard to the processing of personal data and on the free movement of such data (hereinaSer: the "<strong>RGPD"</strong>).</p>
+                    <ol start="2">
                         <li><strong> Iden7ty of the person responsible for data collec7on </strong></li>
                     </ol>
-                    <p>The person responsible for collec'ng your personal data is the company upcomingsounds runinig under EDM REKORDS, We are registered in England and Wales under company number&nbsp;12016861&nbsp;and our registered office is at&nbsp;29-31 Parliament Street, Liverpool, England, L8 5RN. &nbsp;</p>
-                    <ol start="4">
+                    <p>The person responsible for collec'ng your personal data is the company Upcoming Sounds, We are registered in England and Wales &nbsp;&nbsp;and our registered office is at&nbsp;29-31 Parliament Street, Liverpool, England, L8 5RN. &nbsp;</p>
+                    <ol start="3">
                         <li><strong> Collec7on of personal data </strong></li>
                     </ol>
                     <p>The legal basis for our collec'on of your personal data is as follows:</p>
