@@ -22,12 +22,14 @@
             <div class="row-col h-v">
                 <div class="row-cell v-m">
                     <p><strong>UPCOMOING SOUNDS &nbsp;PRIVACY STATEMENT </strong></p>
-                    <p>Effec've date: (30/04/2024)</p>
+                    <p>Effective date: (30/04/2024)</p>
                     <ol>
-                        <li><strong> Defini7on and nature of personal data </strong></li>
+                        <li><strong> Introduction  </strong></li>
                     </ol>
-                    <p>The following terms and expressions, when used with uppercase ini'als, have the meaning aBribu- ted to them in the General Terms and Condi'ons of Use of the Services of</p>
-                    <p>When you use our Site, we may ask you to provide us with personal data about yourself.</p>
+                    <p>Upcoming Sounds ("we," "us," or "our") manages and operates  the website www.upcomingsounds.com (the "Service").
+
+This page outlines our policies on collecting, using, and disclosing personal data when you use our Service, along with the choices available to you concerning that data.</p>
+                    <p>We utilize your data to deliver and enhance the Service. By using the Service, you consent to the collection and use of information as described in this policy. Unless specified otherwise in this Privacy Policy, terms used here have the same meanings as those in our Terms and Conditions, which can be accessed at https://upcomingsounds.com/term-of-service.</p>
                     <p>The term "personal data" refers to all data that allows an individual to be iden'fied, which corres- ponds in par'cular to your surname, first names, pseudonym, photograph, postal and e-mail ad- dresses, telephone numbers, date of birth, data rela'ng to your transac'ons on the Site, details of your purchases and subscrip'ons, credit card numbers, SIRET, intra-Community VAT number, as well as any other informa'on that you choose to communicate to us about you.</p>
                     <ol start="2">
                         <li><strong> Purpose of this charter<br /> </strong>The purpose of this charter (hereinaSer the "<strong>Charter</strong>") is to inform you about the means we use to</li>
