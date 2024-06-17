@@ -32,12 +32,10 @@ This page outlines our policies on collecting, using, and disclosing personal da
                     <p>We utilize your data to deliver and enhance the Service. By using the Service, you consent to the collection and use of information as described in this policy. Unless specified otherwise in this Privacy Policy, terms used here have the same meanings as those in our Terms and Conditions, which can be accessed at https://upcomingsounds.com/term-of-service.</p>
                     <p>The term "personal data" refers to any information that can identify an individual. This includes, but is not limited to, your surname, first names, pseudonym, photograph, postal and email addresses, phone numbers, date of birth, transaction data on the Site, purchase and subscription details, credit card numbers, SIRET, VAT number, as well as any other information you choose to share with us.</p>
                       </ol>
-                    <p>collect your personal data, in the strictest respect of your rights.</p>
-                    <p>In this respect, we inform you that we comply, in the collection and management of your personal data, with Law No. 78-17 of January 6, 1978 rela'ng to computers, files and freedoms, in its current version (hereinaSer: the "<strong>Data Protec7on Act</strong>"), as well as Regula'on (EU) 2016/679 of April 27, 2016 on the protec'on of individuals with regard to the processing of personal data and on the free movement of such data (hereinaSer: the "<strong>RGPD"</strong>).</p>
                     <ol start="2">
-                        <li><strong> Iden7ty of the person responsible for data collec7on </strong></li>
+                        <li><strong>  Identity of the person responsible for data collection </strong></li>
                     </ol>
-                    <p>The person responsible for collec'ng your personal data is the company Upcoming Sounds, We are registered in England and Wales &nbsp;&nbsp;and our registered office is at&nbsp;29-31 Parliament Street, Liverpool, England, L8 5RN. &nbsp;</p>
+                    <p>The entity responsible for collecting your data is Upcoming Sounds, We are registered in England and Wales &nbsp;&nbsp;and our registered office is at&nbsp;, Liverpool, England. &nbsp;</p>
                     <ol start="3">
                         <li><strong> Collec7on of personal data </strong></li>
                     </ol>
