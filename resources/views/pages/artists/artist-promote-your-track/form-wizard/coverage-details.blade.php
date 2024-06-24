@@ -76,7 +76,7 @@
             <div class="col-lg-8 b-r no-border-md">
                 <div class="padding">
                     <div class="page-title m-b proposition_header">
-                        <h1 class="inline m-a-0 titleColor">Coverage Details</h1>
+                        <h1 class="inline m-a-0 titleColor" style="font-size:2rem !important;">Coverage Details</h1>
                         <a href="{{ url()->previous() }}"
                            class="btn btn-sm rounded proposition basicbtn">
                             Back</a>
@@ -128,9 +128,9 @@
                         <div class="col-sm">
                             <div class="p-l-md no-padding-xs">
                                 <div class="page-title">
-                                    <h1 class="inline">{{($verifiedCoverage->user) ? $verifiedCoverage->user->name : ''}}</h1>
+                                    <h1 class="inline" style="font-size: 1.5rem !important;">{{($verifiedCoverage->user) ? $verifiedCoverage->user->name : ''}}</h1>
                                     @if ($verifiedCoverage->user->is_verified == 1)
-                                        <img src="{{ asset('images/verified_icon.svg') }}" style="width: 22px;" alt="">
+                                        <img src="{{ asset('images/verified_icon.svg') }}" style="width: 22px; vertical-align: sub !important;" alt="">
                                     @endif
                                 </div>
                                 <p class="item-desc text-ellipsis text-muted" data-ui-toggle-class="text-ellipsis">
@@ -232,6 +232,27 @@
                         </div>
                     </div>
                     <div class="padding p-y-0 m-b-md m-t-3">
+                        @if(!empty($verifiedCoverage->user->curatorUserTags) && count($verifiedCoverage->user->curatorUserTags) > 0)
+                            <div class="page-title m-b-1">
+                                <h4 class="inline m-a-0 update_profile">Genres</h4>
+                            </div>
+                            <div class="form-group row">
+                                <div class="artist-features">
+                                    @if(count($verifiedCoverage->user->curatorUserTags) > 0)
+                                        @php
+                                            $userTags = $verifiedCoverage->user->curatorUserTags->chunk(6);
+                                        @endphp
+                                        @foreach($userTags as $tags)
+                                            <ul>
+                                                @foreach($tags as $tag)
+                                                    <li>{{$tag->curatorFeatureTag->name}}</li>
+                                                @endforeach
+                                            </ul>
+                                        @endforeach
+                                    @endif
+                                </div>
+                            </div>
+                        @endif
                         <div class="page-title m-b">
                             <h4 class="inline m-a-0 update_profile">Coverage Details</h4>
                         </div>
@@ -255,6 +276,16 @@
                             <div class="col-sm-9">
                                 <div
                                     class="col-sm-3 form-control-label text-muted">{{!empty($verifiedCoverage->offerType->name) ? $verifiedCoverage->offerType->name : '----'}}</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-2 form-control-label">Offer Text:</div>
+                            <div class="col-sm-9">
+                                <div
+                                    class="col-sm-12 form-control-label text-muted">
+                                    {!! !empty($verifiedCoverage->description) ? $verifiedCoverage->description : '----' !!}
+                                </div>
                             </div>
                         </div>
                     </div>
