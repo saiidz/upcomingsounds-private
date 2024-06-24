@@ -437,39 +437,41 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="startCollapse">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <h3 id="nameOffer_"></h3>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center p-b-1">
-                                    <span class="_800 text-white" >Offer Type: <span style="color: inherit !important;opacity: 0.6;" id="typeOffer_"></span></span>
-                                    <span class="_800 text-white">Alternative Option: <span style="color: inherit !important;opacity: 0.6;" id="alternativeOffer_"></span></span>
-{{--                                    <span class="_800 text-white">Alternative Option: <span style="color: #02b875 !important;" id="alternativeOffer_"></span></span>--}}
-                                </div>
-                                <div class="d-flex p-b-1">
-                                    <span class="h6 _800 text-white" >Contribution: <span style="color: #02b875 !important;" id="contribution_"></span></span>
-                                </div>
-                                <div class="item-except text-sm text-white">
-                                    <p>
-                                        <span class="h6 _800 text-white">Offer Text: <span style="color: inherit !important;opacity: 0.6;font-size: 0.9rem;" id="offerText_"></span></span>
-                                    </p>
-                                </div>
-                                <input type="hidden" id="offerTemplateID" value="">
-                                <input type="hidden" id="campaign_ID" value="">
-                                <div class="d-flex form-group">
-                                    <label class="control-label form-control-label text-white">Offer Expiry Date:</label>
-                                    <div>
-                                        <input id="datePickerOfferExpiry" value="{{getDateNewFormat(\Illuminate\Support\Carbon::today(),30)}}"
-                                               class="form-control datePickerE" style="background-color:white;">
+                                <div class="sticky-bar-offer-type">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h3 id="nameOffer_"></h3>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center p-b-1">
+                                        <span class="_800 text-white" >Offer Type: <span style="color: inherit !important;opacity: 0.6;" id="typeOffer_"></span></span>
+                                        <span class="_800 text-white">Alternative Option: <span style="color: inherit !important;opacity: 0.6;" id="alternativeOffer_"></span></span>
+                                        {{--                                    <span class="_800 text-white">Alternative Option: <span style="color: #02b875 !important;" id="alternativeOffer_"></span></span>--}}
+                                    </div>
+                                    <div class="d-flex p-b-1">
+                                        <span class="h6 _800 text-white" >Contribution: <span style="color: #02b875 !important;" id="contribution_"></span></span>
+                                    </div>
+                                    <div class="item-except text-sm text-white">
+                                        <p>
+                                            <span class="h6 _800 text-white">Offer Text: <span style="color: inherit !important;opacity: 0.6;font-size: 0.9rem;" id="offerText_"></span></span>
+                                        </p>
+                                    </div>
+                                    <input type="hidden" id="offerTemplateID" value="">
+                                    <input type="hidden" id="campaign_ID" value="">
+                                    <div class="d-flex form-group">
+                                        <label class="control-label form-control-label text-white">Offer Expiry Date:</label>
+                                        <div>
+                                            <input id="datePickerOfferExpiry" value="{{getDateNewFormat(\Illuminate\Support\Carbon::today(),30)}}"
+                                                   class="form-control datePickerE" style="background-color:white;">
+                                        </div>
+                                    </div>
+                                    <div class="d-flex form-group">
+                                        <label class="control-label form-control-label text-white">Approx Approximate Publish Date:</label>
+                                        <div>
+                                            <input id="datePickerPublishDate" value=""
+                                                   class="form-control datePickerP" style="background-color:white;">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="d-flex form-group">
-                                    <label class="control-label form-control-label text-white">Approx Approximate Publish Date:</label>
-                                    <div>
-                                        <input id="datePickerPublishDate" value=""
-                                               class="form-control datePickerP" style="background-color:white;">
-                                    </div>
-                                </div>
-                                <div class="campaignBtn" style="margin-top: 115px; !important;">
+                                <div class="campaignBtn" style="margin-top: 115px; !important;" id="sendOfferHideShowCampaign">
                                     <a href="javascript:void(0)" onclick="backToShowHide('back')" class="btn btn-sm rounded campaign_btn saveColorBgAdd">
                                         Back</a>
                                     <a href="javascript:void(0)" onclick="sendOffer({{$campaign->user_id}},{{$campaign->track_id}})" class="btn btn-sm rounded campaign_btn saveColorBgAdd">

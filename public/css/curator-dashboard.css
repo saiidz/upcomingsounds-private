@@ -734,8 +734,14 @@ header nav ul li a:hover {
     overflow-x: hidden;
     /*width: 470px;*/
 }
+.sticky-bar-offer-type {
+    height: 75%;
+    overflow-y: auto;
+    position: fixed;
+    overflow-x: hidden;
+}
 
-#campaignBtnHideShow,#campaignBtnSubmitCoverage {
+#campaignBtnHideShow,#campaignBtnSubmitCoverage, #sendOfferHideShowCampaign {
     position: fixed;
     bottom: 25px;
     /*bottom: 100px;*/
@@ -951,6 +957,9 @@ header nav ul li a:hover {
       .sticky-bar {
           height: 37% !important;
       }
+      .sticky-bar-offer-type {
+          height: 75% !important;
+      }
   }
 
   @media (min-width: 320px) and (max-width: 480px) {
@@ -1073,6 +1082,11 @@ header nav ul li a:hover {
       }
 
       .sticky-bar {
+          height: 33% !important;
+          width: auto !important;
+          position: relative !important;
+      }
+      .sticky-bar-offer-type {
           height: 33% !important;
           width: auto !important;
           position: relative !important;
