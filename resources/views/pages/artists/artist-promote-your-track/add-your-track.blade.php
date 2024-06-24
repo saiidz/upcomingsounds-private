@@ -720,7 +720,7 @@
                 success: function (data) {
                     loader();
                     if (data.success) {
-                        toastr.success(data.success);
+                        // toastr.success(data.success);
                         $('#selectionHide').hide();
                         $('#selectionSHow').append(data.curators);
 
