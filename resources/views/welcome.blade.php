@@ -1,6 +1,14 @@
 {{-- layout --}}
 @extends('layouts.welcomeLayout')
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+      <title>Discover the Best Platform for New and Upcoming Sounds - Effective Music Pitching Service | Submit Your Music Today!</title>
+    </body>
+</html>
 {{-- page title --}}
 @section('title','Discover the Best Platform for New and Upcoming Sounds - Effective Music Pitching Service | Submit Your Music Today!')
 @section('page-style')
