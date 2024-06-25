@@ -11,10 +11,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
-      <title>Discover the Best Platform for New and Upcoming Sounds - Effective Music Pitching Service | Submit Your Music Today!</title>
-    <meta name="description" content=" Submit your music now and access music industry content curators." />
-<meta name="keywords" content="acoustic, advice, answers, apply, artist, artists, audiences, band, Belgium, best, blog, brazil, budget, build, Canadian, careers, cheating, choice, classic, contact, a curator, curatorS, days, discover, electronic, explore, feedback, folk, United kingdom, german, getting, great, rock, guaranteed, help, important, indie, industry, info, instrumental, island, Italy, jazz, join, label, labels, Lebanon, listened, mentors, metal, MUSiC, musicians musique need network open opportunities, platform, playlist, playlists, pricing, producer, professionals, promote, promotion, ProS, publishers, punk, radio, radios, record, records, EDM, release, results, rock music, select, simple, Reels, soul, Spotify, states, Tiktok, stories, streaming, streams, success, touch, track, tracks, transparent, united, visibility, to access music industry jobs, record labels, music promotion, A&R & further your career in music, Music, Gateway, a worldwide music industry, marketplace, where you find music industry jobs, music cloud storage, music news, music industry jobs, record labels companies, music business worldwide, music industry news, music industry careers, career, in music, business, how to start a career in music.">
-
+    <title>Discover the Best Platform for New and Upcoming Sounds - Effective Music Pitching Service | Submit Your Music Today!</title>
+    <meta name="description" content="Submit your music now and access music industry content curators." />
+    <meta name="keywords" content="acoustic, advice, answers, apply, artist, artists, audiences, band, Belgium, best, blog, brazil, budget, build, Canadian, careers, cheating, choice, classic, contact, curator, curators, days, discover, electronic, explore, feedback, folk, United Kingdom, German, getting, great, rock, guaranteed, help, important, indie, industry, info, instrumental, island, Italy, jazz, join, label, labels, Lebanon, listened, mentors, metal, music, musicians, musique, need, network, open, opportunities, platform, playlist, playlists, pricing, producer, professionals, promote, promotion, pros, publishers, punk, radio, radios, record, records, EDM, release, results, rock music, select, simple, reels, soul, Spotify, states, Tiktok, stories, streaming, streams, success, touch, track, tracks, transparent, united, visibility, music industry jobs, record labels, music promotion, A&R, further your career in music, Music Gateway, worldwide music industry, marketplace, music cloud storage, music news, music industry careers, career in music, business, how to start a career in music.">
+    <link rel="canonical" href="https://upcomingsounds.com/">
+    
     </body>
 </html>
     <link rel="canonical" href="https://upcomingsounds.com/">
