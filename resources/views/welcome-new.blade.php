@@ -6,16 +6,14 @@
 @section('page-style')
    
 <!DOCTYPE html>
-<html lang="en">
-<head>
-      <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
     <meta name="robots" content="index, follow">
     <title>Discover the Best Platform for New and Upcoming Sounds - Effective Music Pitching Service | Submit Your Music Today!</title>
     <meta name="description" content="Submit your music now and access music industry content curators. Discover the best platform for new and upcoming sounds, offering guaranteed promotion and feedback from industry professionals.">
     <meta name="keywords" content="acoustic, advice, answers, apply, artist, artists, audiences, band, Belgium, best, blog, Brazil, budget, build, Canadian, careers, choice, classic, contact, curator, curators, discover, electronic, explore, feedback, folk, United Kingdom, German, rock, indie, industry, instrumental, Italy, jazz, join, label, labels, Lebanon, mentors, metal, music, musicians, network, opportunities, platform, playlist, playlists, pricing, producer, professionals, promote, promotion, publishers, punk, radio, record, records, EDM, release, results, rock music, simple, reels, soul, Spotify, states, Tiktok, stories, streaming, streams, success, track, tracks, transparent, united, visibility, music industry jobs, record labels, music promotion, A&R, further your career in music, Music Gateway, worldwide music industry, marketplace, music cloud storage, music news, music industry careers, career in music, music business, how to start a career in music.">
     <link rel="canonical" href="https://upcomingsounds.com/">
-    <style>
+   
     </body>
 </html>
     <link rel="canonical" href="https://upcomingsounds.com/">
