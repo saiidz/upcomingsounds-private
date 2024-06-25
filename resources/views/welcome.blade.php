@@ -9,6 +9,8 @@
       <title>Discover the Best Platform for New and Upcoming Sounds - Effective Music Pitching Service | Submit Your Music Today!</title>
     </body>
 </html>
+    <link rel="canonical" href="https://upcomingsounds.com/">
+
 {{-- page title --}}
 @section('title','Discover the Best Platform for New and Upcoming Sounds - Effective Music Pitching Service | Submit Your Music Today!')
 @section('page-style')
