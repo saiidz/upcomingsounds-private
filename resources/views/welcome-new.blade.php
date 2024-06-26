@@ -20,11 +20,7 @@
     <meta property="og:image" content="https://upcomingsounds.com/logo.png" />
     <meta property="og:description" content="Submit your music now and access music industry content curators. Discover the best platform for new and upcoming sounds, offering guaranteed promotion and feedback from industry professionals." />
     <meta property="og:site_name" content="UpcomingSounds.com" />
-<div class="h-card">
-  <a class="p-name u-url" href="https://upcomingsounds.com">Upcoming Sounds</a>
-  <img class="u-photo" src="https://upcomingsounds.com/logo.png" alt="Upcoming Sounds Logo" />
 
-</div>
 
     </body>
 </html>
