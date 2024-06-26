@@ -2,7 +2,7 @@
 @extends('layouts.welcomeLayout')
 
 {{-- page title --}}
-@section('title','Discover the Best Platform for New and Upcoming Sounds - Effective Music Pitching Service | Submit Your Music Today!')
+@section('title','Discover the Best Platform for New and Upcoming Sounds - offering guaranteed promotion and impactful coverage  from industry professionals | Submit Your Music Today!')
 @section('page-style')
    
 <!DOCTYPE html>
@@ -20,6 +20,14 @@
     <meta property="og:image" content="https://upcomingsounds.com/logo.png" />
     <meta property="og:description" content="Submit your music now and access music industry content curators. Discover the best platform for new and upcoming sounds, offering guaranteed promotion and feedback from industry professionals." />
     <meta property="og:site_name" content="UpcomingSounds.com" />
+<div class="h-card">
+  <a class="p-name u-url" href="https://upcomingsounds.com">Upcoming Sounds</a>
+  <img class="u-photo" src="https://upcomingsounds.com/logo.png" alt="Upcoming Sounds Logo" />
+  <p class="p-org">Music Group</p>
+  <p class="p-note">Discover the best platform for new and upcoming sounds, offering guaranteed promotion and impactful coverage  from industry professionals.</p>
+  <a class="u-url" href="https://www.twitter.com/upcomingsounds">@upcomingsounds</a>
+</div>
+
     </body>
 </html>
     <link rel="canonical" href="https://upcomingsounds.com/">
