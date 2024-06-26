@@ -23,9 +23,7 @@
 <div class="h-card">
   <a class="p-name u-url" href="https://upcomingsounds.com">Upcoming Sounds</a>
   <img class="u-photo" src="https://upcomingsounds.com/logo.png" alt="Upcoming Sounds Logo" />
-  <p class="p-org">Music Group</p>
-  <p class="p-note">Discover the best platform for new and upcoming sounds, offering guaranteed promotion and impactful coverage  from industry professionals.</p>
-  <a class="u-url" href="https://www.twitter.com/upcomingsounds">@upcomingsounds</a>
+
 </div>
 
     </body>
