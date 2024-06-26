@@ -20,32 +20,12 @@
     <meta property="og:image" content="https://upcomingsounds.com/logo.png" />
     <meta property="og:description" content="Submit your music now and access music industry content curators. Discover the best platform for new and upcoming sounds, offering guaranteed promotion and feedback from industry professionals." />
     <meta property="og:site_name" content="upcomingSounds.com" />
-
+</style>
     </body>
 </html>
     <link rel="canonical" href="https://upcomingsounds.com/">
 
-        <!-- Schema.org -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "MusicGroup",
-      "name": "Upcoming Sounds",
-      "description": "Discover the best platform for new and upcoming sounds, offering guaranteed promotion and effective coverage  from industry professionals.",
-      "url": "https://upcomingsounds.com",
-      "sameAs": [
-        "https://www.facebook.com/Upcomingsounds",
-        "https://twitter.com/Upcomingsounds_",
-        "https://www.instagram.com/upcomingsounds_",
-         "https://www.youtube.com/channel/UC1HUg1XVehD3RAkdQDay32A",
-         "https://www.tiktok.com/@upcomingsounds_",
-      ],
-      "potentialAction": {
-        "@type": "ListenAction",
-        "target": "https://upcomingsounds.com/"
-      }
-    }
-    </script>
+  
         .videoWlcome{
             position: relative;
             display: flex;
