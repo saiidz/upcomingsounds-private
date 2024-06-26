@@ -24,7 +24,7 @@
     </body>
 </html>
     <link rel="canonical" href="https://upcomingsounds.com/">
-    <style>
+
         <!-- Schema.org -->
     <script type="application/ld+json">
     {
