@@ -7,6 +7,13 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
+     <!-- Open Graph Protocol -->
+    <meta property="og:title" content="Upcoming Sounds" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://upcomingsounds.com" />
+    <meta property="og:image" content="https://upcomingsounds.com/logo.png" />
+    <meta property="og:description" content="Submit your music now and access music industry content curators. Discover the best platform for new and upcoming sounds, offering guaranteed promotion and feedback from industry professionals." />
+    <meta property="og:site_name" content="UpcomingSounds.com" />
     <!-- for ios 7 style, multi-resolution icon of 152x152 -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
