@@ -2,7 +2,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@yield('title') | {{ config('app.name', 'Upcoming Sound') }}</title>
-    <meta name="description" content="Become a curator, Submit your music online, submit your music now,  make money from your playlist, get access to worldwide music and media content coverage, apply to join, Get impactful results." />
+        <meta name="description" content="Submit your music now and access music industry content curators. Discover the best platform for new and upcoming sounds, offering guaranteed promotion and feedback from industry professionals, Become a curator, Submit your music online, submit your music now,  make money from your playlist, get access to worldwide music and media content coverage, apply to join, Get impactful results.">
+   <meta name="keywords" content="Music Pitching, Music Submission, Effective Results, Promote Music, Submit Music, Music Promotion, Music Industry, Music Careers, Music Jobs, Record Labels, A&R, Music Feedback, Guaranteed Promotion, Music Curators, Music Industry Professionals, Music Opportunities, Music Network, Music Platform, Music Playlists, Music Streaming, Music Producers, Indie Music, Emerging Artists, Music Marketing, Music Distribution, Artist Development, Music Mentors, Music Industry Tips, Music Promotion Services, Access Music Industry, Music Industry Connections, Submit Your Music, Music Promotion Platform, Music Industry Success, Music Visibility, Music Discovery, Music Industry Content, Best Music Platform, Upcoming Artists, Music Feedback from Professionals, Music Promotion Results, Music Industry Marketplace, Music Business, Career in Music, Music Industry Jobs, Discover New Music, Pitch Music to Labels, Submit Music to Playlists, Pitch Your Music, Music Submission Tips, Effective Music Promotion, Music Marketing Strategies" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- for ios 7 style, multi-resolution icon of 152x152 -->
