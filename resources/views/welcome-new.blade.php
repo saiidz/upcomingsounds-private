@@ -11,14 +11,7 @@
     <meta name="robots" content="index, follow">
     <title>Discover the Best Platform for New and Upcoming Sounds!</title>
     <link rel="canonical" href="https://upcomingsounds.com/">
-    <!-- Open Graph Protocol -->
-    <meta property="og:title" content="Discover the Best Platform for New and Upcoming Sounds" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://upcomingsounds.com" />
-    <meta property="og:image" content="https://upcomingsounds.com/logo.png" />
-    <meta property="og:description" content="Submit your music now and access music industry content curators. Discover the best platform for new and upcoming sounds, offering guaranteed promotion and feedback from industry professionals." />
-    <meta property="og:site_name" content="UpcomingSounds.com" />
-
+  
 
     </body>
 </html>
