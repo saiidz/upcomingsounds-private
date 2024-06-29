@@ -10,9 +10,6 @@
   
     <meta name="robots" content="index, follow">
     <title>Discover the Best Platform for New and Upcoming Sounds!</title>
-    <meta name="description" content="Submit your music now and access music industry content curators. Discover the best platform for new and upcoming sounds, offering guaranteed promotion and feedback from industry professionals.">
-    <meta name="keywords" content="Music Pitching, Music Submission, Effective Results, Promote Music, Submit Music, Music Promotion, Music Industry, Music Careers, Music Jobs, Record Labels, A&R, Music Feedback, Guaranteed Promotion, Music Curators, Music Industry Professionals, Music Opportunities, Music Network, Music Platform, Music Playlists, Music Streaming, Music Producers, Indie Music, Emerging Artists, Music Marketing, Music Distribution, Artist Development, Music Mentors, Music Industry Tips, Music Promotion Services, Access Music Industry, Music Industry Connections, Submit Your Music, Music Promotion Platform, Music Industry Success, Music Visibility, Music Discovery, Music Industry Content, Best Music Platform, Upcoming Artists, Music Feedback from Professionals, Music Promotion Results, Music Industry Marketplace, Music Business, Career in Music, Music Industry Jobs, Discover New Music, Pitch Music to Labels, Submit Music to Playlists, Pitch Your Music, Music Submission Tips, Effective Music Promotion, Music Marketing Strategies" />
-
     <link rel="canonical" href="https://upcomingsounds.com/">
     <!-- Open Graph Protocol -->
     <meta property="og:title" content="Discover the Best Platform for New and Upcoming Sounds" />
