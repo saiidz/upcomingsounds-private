@@ -4,7 +4,107 @@
 {{-- page title --}}
 @section('title','Upcoming Sounds| Submit Your Music Today!')
 @section('page-style')
-   
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Sounds</title>
+    <!-- Your other meta tags and head content -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite/app",
+      "name": "Upcoming Sounds",
+      "url": "https://upcomingsounds.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://upcomingsounds.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "Artists & curators HUB",
+              "name": "Upcoming Sounds",
+              "startDate": "2024-07-15T19:30:00",
+              "endDate": "2024-07-15T23:00:00",
+              "location": {
+                "@type": "Place",
+                "name": "UK",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Parliament Street",
+                  "addressLocality": "Liverpool",
+                  "addressRegion": "LP,
+                  "postalCode": "L8 5RN",
+                  "addressCountry": "UK"
+                }
+              },
+              "performer": {
+                "@type": "MusicGroup",
+                "name": "Upcoming Sounds"
+              },
+              "image": "https://upcomingsounds.com/images/logo.png",
+              "offers": {
+                "@type": "Offer",
+                "url": "https://upcomingsounds.com/tickets",
+                "price": "0",
+                "priceCurrency": "GBP",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2024-06-01T12:00:00"
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "MusicGroup",
+              "name": "submit your music",
+              "startDate": "2024-08-20T19:30:00",
+              "endDate": "2024-08-20T23:00:00",
+              "location": {
+                "@type": "Place",
+                "name": "Another Venue",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "456 Another St",
+                  "addressLocality": "Othertown",
+                  "addressRegion": "TX",
+                  "postalCode": "75001",
+                  "addressCountry": "US"
+                }
+              },
+              "performer": {
+                "@type": "Apply to join as a curator",
+                "name": "Another Band"
+              },
+              "image": "https://upcomingsounds.com/uploads/homesection/default_1701165997.webp",
+              "offers": {
+                "@type": "Offer",
+                "url": "https://upcomingsounds.com/tickets",
+                "price": "30.00",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock",
+                "validFrom": "2024-07-01T12:00:00"
+              }
+            }
+          }
+        ]
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Your website content -->
+</body>
+</html>
+
 <!DOCTYPE html>
 
   
