@@ -5,6 +5,14 @@
 @section('title','Upcoming Sounds| Submit Your Music Today!')
 @section('page-style')
  
+It looks like there are a couple of issues in the JSON-LD code:
+1. An extra curly brace `{` at the beginning.
+2. Invalid `@type` values such as "WebSite/app", "Artists & curators HUB", and "Apply to join as a curator". These should be standard types defined by Schema.org.
+3. Missing closing quotes for `addressRegion`.
+
+Let's correct these errors:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +22,8 @@
     <!-- Your other meta tags and head content -->
     <script type="application/ld+json">
     {
-  {
       "@context": "https://schema.org",
-      "@type": "WebSite/app",
+      "@type": "WebSite",
       "name": "Upcoming Sounds",
       "url": "https://upcomingsounds.com",
       "potentialAction": {
@@ -31,7 +38,7 @@
             "@type": "ListItem",
             "position": 1,
             "item": {
-              "@type": "Artists & curators HUB",
+              "@type": "MusicEvent",
               "name": "Upcoming Sounds",
               "startDate": "2024-07-15T19:30:00",
               "endDate": "2024-07-15T23:00:00",
@@ -42,7 +49,7 @@
                   "@type": "PostalAddress",
                   "streetAddress": "Parliament Street",
                   "addressLocality": "Liverpool",
-                  "addressRegion": "LP,
+                  "addressRegion": "LP",
                   "postalCode": "L8 5RN",
                   "addressCountry": "UK"
                 }
@@ -57,7 +64,7 @@
                 "url": "https://upcomingsounds.com/for-artists",
                 "price": "0",
                 "priceCurrency": "GBP",
-                "availability": "https://upcomingsounds.com/for-artists",
+                "availability": "https://schema.org/InStock",
                 "validFrom": "2024-06-01T12:00:00"
               }
             }
@@ -66,8 +73,8 @@
             "@type": "ListItem",
             "position": 2,
             "item": {
-              "@type": "Artist Submission",
-              "name": "submit your music",
+              "@type": "MusicEvent",
+              "name": "Submit Your Music",
               "startDate": "2024-08-20T19:30:00",
               "endDate": "2024-08-20T23:00:00",
               "location": {
@@ -83,7 +90,7 @@
                 }
               },
               "performer": {
-                "@type": "Apply to join as a curator",
+                "@type": "MusicGroup",
                 "name": "Curator"
               },
               "image": "https://upcomingsounds.com/uploads/homesection/default_1701165997.webp",
@@ -92,7 +99,7 @@
                 "url": "https://upcomingsounds.com/for-curators",
                 "price": "0",
                 "priceCurrency": "GBP",
-                "availability": "https://upcomingsounds.com",
+                "availability": "https://schema.org/InStock",
                 "validFrom": "2024-07-01T12:00:00"
               }
             }
@@ -101,8 +108,7 @@
       }
     }
     </script>
-</head>
-<body>
+
   
     <meta name="robots" content="index, follow">
     <title>Discover the Best Platform for New and Upcoming Sounds!</title>
