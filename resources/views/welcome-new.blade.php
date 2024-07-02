@@ -5,14 +5,7 @@
 @section('title','Upcoming Sounds| Submit Your Music Today!')
 @section('page-style')
  
-It looks like there are a couple of issues in the JSON-LD code:
-1. An extra curly brace `{` at the beginning.
-2. Invalid `@type` values such as "WebSite/app", "Artists & curators HUB", and "Apply to join as a curator". These should be standard types defined by Schema.org.
-3. Missing closing quotes for `addressRegion`.
 
-Let's correct these errors:
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
