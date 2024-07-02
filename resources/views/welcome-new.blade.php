@@ -4,7 +4,8 @@
 {{-- page title --}}
 @section('title','Upcoming Sounds| Submit Your Music Today!')
 @section('page-style')
-   <!DOCTYPE html>
+ 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,6 +14,7 @@
     <!-- Your other meta tags and head content -->
     <script type="application/ld+json">
     {
+  {
       "@context": "https://schema.org",
       "@type": "WebSite/app",
       "name": "Upcoming Sounds",
@@ -52,10 +54,10 @@
               "image": "https://upcomingsounds.com/images/logo.png",
               "offers": {
                 "@type": "Offer",
-                "url": "https://upcomingsounds.com/tickets",
+                "url": "https://upcomingsounds.com/for-artists",
                 "price": "0",
                 "priceCurrency": "GBP",
-                "availability": "https://schema.org/InStock",
+                "availability": "https://upcomingsounds.com/for-artists",
                 "validFrom": "2024-06-01T12:00:00"
               }
             }
@@ -64,7 +66,7 @@
             "@type": "ListItem",
             "position": 2,
             "item": {
-              "@type": "MusicGroup",
+              "@type": "Artist Submission",
               "name": "submit your music",
               "startDate": "2024-08-20T19:30:00",
               "endDate": "2024-08-20T23:00:00",
@@ -82,15 +84,15 @@
               },
               "performer": {
                 "@type": "Apply to join as a curator",
-                "name": "Another Band"
+                "name": "Curator"
               },
               "image": "https://upcomingsounds.com/uploads/homesection/default_1701165997.webp",
               "offers": {
                 "@type": "Offer",
-                "url": "https://upcomingsounds.com/tickets",
-                "price": "30.00",
-                "priceCurrency": "USD",
-                "availability": "https://schema.org/InStock",
+                "url": "https://upcomingsounds.com/for-curators",
+                "price": "0",
+                "priceCurrency": "GBP",
+                "availability": "https://upcomingsounds.com",
                 "validFrom": "2024-07-01T12:00:00"
               }
             }
@@ -101,12 +103,6 @@
     </script>
 </head>
 <body>
-    <!-- Your website content -->
-</body>
-</html>
-
-<!DOCTYPE html>
-
   
     <meta name="robots" content="index, follow">
     <title>Discover the Best Platform for New and Upcoming Sounds!</title>
