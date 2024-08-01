@@ -185,15 +185,15 @@
                                         <!---->
 {{--                                        <div class="cf-turnstile" data-sitekey="0x4AAAAAAAQHTURBG4V2tGU9" data-theme="light"></div>--}}
 
-{{--                                        <div tabindex="-1" role="group" class="bv-no-focus-ring">--}}
-{{--                                            {!! NoCaptcha::renderJs() !!}--}}
-{{--                                            {!! NoCaptcha::display() !!}--}}
-{{--                                            <div class="invalid-feedback" style="display: block;">--}}
-{{--                                                @error('g-recaptcha-response')--}}
-{{--                                                    {{ $message }}--}}
-{{--                                                @enderror--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
+                                        <div tabindex="-1" role="group" class="bv-no-focus-ring">
+                                            {!! NoCaptcha::renderJs() !!}
+                                            {!! NoCaptcha::display() !!}
+                                            <div class="invalid-feedback" style="display: block;">
+                                                @error('g-recaptcha-response')
+                                                    {{ $message }}
+                                                @enderror
+                                            </div>
+                                        </div>
                                     </fieldset>
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-outline-primary btn-block text-uppercase">
