@@ -20,6 +20,7 @@ class CoverageController extends Controller
     public function coverage()
     {
         $submitCoverages = SubmitCoverage::where('artist_id', Auth::id())->latest()->get();
+//        dd($submitCoverages,Auth::id());
         return view('pages.artists.artist-coverage.coverage',get_defined_vars());
     }
 

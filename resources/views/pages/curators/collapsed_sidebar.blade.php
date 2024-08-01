@@ -437,7 +437,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="startCollapse">
-                                <div class="sticky-bar-offer-type">
+                                <div class="sticky-bar-offer-type heightChange">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <h3 id="nameOffer_"></h3>
                                     </div>

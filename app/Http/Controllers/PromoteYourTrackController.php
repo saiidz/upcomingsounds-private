@@ -393,13 +393,14 @@ class PromoteYourTrackController extends Controller
 
     /**
      * @param $verified_coverage
-     * @return Application|Factory|View|void
+     * @return Application|Factory|View|\Illuminate\View\View|void
+     * @throws \Throwable
      */
     public function coverageDetailShow($verified_coverage)
     {
         try {
             $verifiedCoverage = VerifiedCoverage::find(decrypt($verified_coverage));
-
+dd($verifiedCoverage);
             $receiver_id = $verifiedCoverage->user_id;
 
             // create conversation

@@ -41,7 +41,6 @@ class VerifiedCoverageArtistController extends Controller
         $verifiedContentCreatorCurators = $this->verifiedContentCreatorCurator->where([
             'curator_id' => Auth::id(),
         ])->latest()->get();
-
         return view('pages.curators.verified-content-creator-artist.verified-content-creator', get_defined_vars());
     }
 

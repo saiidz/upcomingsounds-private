@@ -538,83 +538,125 @@
                         <div class="col-md-12">
                             <div class="dropdown inline">
                                 <h2 class="inline widget-title h4 titleTextColor">New</h2>
-                                <button class="btn btn-sm no-bg h4 m-y-0 v-b faFIlter dropdown-toggle text-black" data-toggle="dropdown">
-                                    <span class="selectFilterTag"></span>
-                                    <i class="fa fa-filter titleTextColor"></i>
-                                </button>
-                                @if(!empty($curator_features))
-                                    <div class="dropdown-menu">
-                                        @foreach($curator_features as $curator_feature)
-                                            <a href="javascript:void(0)" id="curatorDashboardFeatureTag{{$curator_feature->id}}" data-value="{{ $curator_feature->name }}" onclick="filterArtistSubmissionFeature({{ $curator_feature->id }})" class="dropdown-item">{{$curator_feature->name}}</a>
-                                        @endforeach
-                                    </div>
-                                @endif
+
+{{--                                <button class="btn btn-sm no-bg h4 m-y-0 v-b faFIlter dropdown-toggle text-black" data-toggle="dropdown">--}}
+{{--                                    <span class="selectFilterTag"></span>--}}
+{{--                                    <i class="fa fa-filter titleTextColor"></i>--}}
+{{--                                </button>--}}
+{{--                                @if(!empty($curator_features))--}}
+{{--                                    <div class="dropdown-menu">--}}
+{{--                                        @foreach($curator_features as $curator_feature)--}}
+{{--                                            <a href="javascript:void(0)" id="curatorDashboardFeatureTag{{$curator_feature->id}}" data-value="{{ $curator_feature->name }}" onclick="filterArtistSubmissionFeature({{ $curator_feature->id }})" class="dropdown-item">{{$curator_feature->name}}</a>--}}
+{{--                                        @endforeach--}}
+{{--                                    </div>--}}
+{{--                                @endif--}}
                             </div>
                         </div>
                     </div>
-
-
-                    {{--    New    --}}
-                        @if(!empty($standard_campaigns))
-                            <div class="row row-sm item-masonry item-info-overlay">
-                                <div class="col-sm-12 text-white m-b-sm" id="findOwlCa">
-                                    <div class="owl-carousel owl-theme owl-dots-sm owl-dots-bottom-left " id="filterNewCurator" data-ui-jp="owlCarousel" data-ui-options="{
-                                     items: 1
-                                    ,loop: true
-                                    ,autoplay: true
-                                    ,nav: true
-                                    ,animateOut:&#x27;fadeOut&#x27;
-                                  }">
-        {{--                                @if(!empty($standard_campaigns))--}}
-                                            @foreach($standard_campaigns as $standard_campaign)
-                                                <div class="item r" onclick="openNav({{$standard_campaign->id}})" style="cursor:pointer;" data-id="item-{{$standard_campaign->artistTrack->id}}" data-src="{{URL('/')}}/uploads/audio/{{$standard_campaign->artistTrack->audio}}">
-                                                    <div class="item-media primary">
-                                                        @if(!empty($standard_campaign->artistTrack->track_thumbnail))
-                                                            <a href="javascript:void(0)" class="item-media-content" onclick="openNav({{$standard_campaign->id}})"
-                                                               style="background-image: url({{asset('uploads/track_thumbnail')}}/{{$standard_campaign->artistTrack->track_thumbnail}});"></a>
-                                                        @else
-                                                            <a href="javascript:void(0)" onclick="openNav({{$standard_campaign->id}})" class="item-media-content"
-                                                               style="background-image: url({{asset('images/b4.jpg')}});"></a>
-                                                        @endif
-
-                                                        @if(!empty($standard_campaign->artistTrack->audio))
-                                                            <div class="item-overlay center">
-                                                                <button  class="btn-playpause">Play</button>
-                                                            </div>
-                                                        @endif
-                                                    </div>
-                                                    <div class="item-info">
-                                                        <div class="item-overlay bottom text-right">
-
-                                                            @if(!empty($standard_campaign->curatorFavoriteTrack) && $standard_campaign->curatorFavoriteTrack->status == \App\Templates\IFavoriteTrackStatus::SAVE)
-                                                                <a href="javascript:void(0)" class="btn-favorite" @if($standard_campaign->artistTrack) onclick="favoriteTrack({{$standard_campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>
-                                                                    <i class=" {{ !empty($standard_campaign->curatorFavoriteTrack) ? 'fa fa-heart colorAdd' : 'fa fa-heart-o' }}"></i>
-                                                                </a>
-                                                            @else
-                                                                @if(empty($standard_campaign->curatorFavoriteTrack))
-                                                                    <a href="javascript:void(0)" class="btn-favorite" @if($standard_campaign->artistTrack) onclick="favoriteTrack({{$standard_campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>
-                                                                        <i class="fa fa-heart-o"></i>
-                                                                    </a>
-                                                                @endif
-                                                            @endif
-                                                            <div class="dropdown-menu pull-right black lt"></div>
-                                                        </div>
-                                                        <div class="item-title text-ellipsis">
-                                                            <a href="javascript:void(0)" onclick="openNav({{$standard_campaign->id}})">{{$standard_campaign->artistTrack->name}}</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endforeach
-        {{--                                @else--}}
-        {{--                                    <div class="item-title text-ellipsis">--}}
-        {{--                                        <h3 class="white" style="text-align:center;font-size: 15px;">Not Campaign Found</h3>--}}
-        {{--                                    </div>--}}
-        {{--                                @endif--}}
-
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="btn-group dropdown m-b">
+                                    <button class="btn white text-primary" id="selectFilter">Sort By</button>
+                                    <button class="btn white dropdown-toggle text-primary" data-toggle="dropdown"></button>
+                                    <div class="dropdown-menu pull-right">
+                                        <a class="dropdown-item" href="javascript:void(0)" onclick="filterArtistSubmission('{{ \App\Templates\IMessageTemplates::OLDEST }}')">Oldest</a>
+                                        <a class="dropdown-item" href="javascript:void(0)" onclick="filterArtistSubmission('{{ \App\Templates\IMessageTemplates::NEWEST }}')">Newest</a>
+                                        <a class="dropdown-item" href="javascript:void(0)" onclick="filterArtistSubmission('{{ \App\Templates\IMessageTemplates::RELEASE_DATE }}')">Release Date</a>
+                                        <a class="dropdown-item" href="javascript:void(0)" onclick="filterArtistSubmission('{{ \App\Templates\IMessageTemplates::GENRE }}')">Genre</a>
                                     </div>
                                 </div>
+                                <div class="btn-group dropdown m-b m-l" id="genreFilters" style="display:none">
+                                    <button class="btn white text-primary" id="selectFilterTag">Select Genre</button>
+                                    <button class="btn white dropdown-toggle text-primary" data-toggle="dropdown"></button>
+                                    @if(!empty($curator_features))
+                                        <div class="dropdown-menu pull-right">
+                                            @foreach($curator_features as $curator_feature)
+                                                <a href="javascript:void(0)" id="curatorFeatureTag{{$curator_feature->id}}" data-value="{{ $curator_feature->name }}" class="dropdown-item" onclick="filterArtistSubmissionFeature({{ $curator_feature->id }})">{{$curator_feature->name}}</a>
+                                            @endforeach
+                                        </div>
+                                    @endif
+                                </div>
                             </div>
-                        @endif
+                        </div>
+
+                    {{--    New    --}}
+                        <div id="filterArtistSubmissionNew">
+                            <div class="owl-carousel owl-theme owl-dots-center" data-ui-jp="owlCarousel" data-ui-options="{
+                            margin: 20,
+                            responsiveClass:true,
+                            responsive:{
+                                0:{
+                                    items: 2
+                                },
+                                543:{
+                                    items: 3
+                                }
+                            }
+                        }">
+                            @include('pages.curators.__filter-artist-submission-dashboard')
+                            </div>
+
+{{--                            @if(!empty($standard_campaigns))--}}
+{{--                                <div class="row row-sm item-masonry item-info-overlay">--}}
+{{--                                    <div class="col-sm-12 text-white m-b-sm" id="findOwlCa">--}}
+{{--                                        <div class="owl-carousel owl-theme owl-dots-sm owl-dots-bottom-left " id="filterNewCurator" data-ui-jp="owlCarousel" data-ui-options="{--}}
+{{--                                     items: 1--}}
+{{--                                    ,loop: true--}}
+{{--                                    ,autoplay: true--}}
+{{--                                    ,nav: true--}}
+{{--                                    ,animateOut:&#x27;fadeOut&#x27;--}}
+{{--                                  }">--}}
+{{--                                            --}}{{--                                @if(!empty($standard_campaigns))--}}
+{{--                                            @foreach($standard_campaigns as $standard_campaign)--}}
+{{--                                                <div class="item r" onclick="openNav({{$standard_campaign->id}})" style="cursor:pointer;" data-id="item-{{$standard_campaign->artistTrack->id}}" data-src="{{URL('/')}}/uploads/audio/{{$standard_campaign->artistTrack->audio}}">--}}
+{{--                                                    <div class="item-media primary">--}}
+{{--                                                        @if(!empty($standard_campaign->artistTrack->track_thumbnail))--}}
+{{--                                                            <a href="javascript:void(0)" class="item-media-content" onclick="openNav({{$standard_campaign->id}})"--}}
+{{--                                                               style="background-image: url({{asset('uploads/track_thumbnail')}}/{{$standard_campaign->artistTrack->track_thumbnail}});"></a>--}}
+{{--                                                        @else--}}
+{{--                                                            <a href="javascript:void(0)" onclick="openNav({{$standard_campaign->id}})" class="item-media-content"--}}
+{{--                                                               style="background-image: url({{asset('images/b4.jpg')}});"></a>--}}
+{{--                                                        @endif--}}
+
+{{--                                                        @if(!empty($standard_campaign->artistTrack->audio))--}}
+{{--                                                            <div class="item-overlay center">--}}
+{{--                                                                <button  class="btn-playpause">Play</button>--}}
+{{--                                                            </div>--}}
+{{--                                                        @endif--}}
+{{--                                                    </div>--}}
+{{--                                                    <div class="item-info">--}}
+{{--                                                        <div class="item-overlay bottom text-right">--}}
+
+{{--                                                            @if(!empty($standard_campaign->curatorFavoriteTrack) && $standard_campaign->curatorFavoriteTrack->status == \App\Templates\IFavoriteTrackStatus::SAVE)--}}
+{{--                                                                <a href="javascript:void(0)" class="btn-favorite" @if($standard_campaign->artistTrack) onclick="favoriteTrack({{$standard_campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>--}}
+{{--                                                                    <i class=" {{ !empty($standard_campaign->curatorFavoriteTrack) ? 'fa fa-heart colorAdd' : 'fa fa-heart-o' }}"></i>--}}
+{{--                                                                </a>--}}
+{{--                                                            @else--}}
+{{--                                                                @if(empty($standard_campaign->curatorFavoriteTrack))--}}
+{{--                                                                    <a href="javascript:void(0)" class="btn-favorite" @if($standard_campaign->artistTrack) onclick="favoriteTrack({{$standard_campaign->artistTrack->id}},'{{\App\Templates\IFavoriteTrackStatus::SAVE}}')" @endif>--}}
+{{--                                                                        <i class="fa fa-heart-o"></i>--}}
+{{--                                                                    </a>--}}
+{{--                                                                @endif--}}
+{{--                                                            @endif--}}
+{{--                                                            <div class="dropdown-menu pull-right black lt"></div>--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="item-title text-ellipsis">--}}
+{{--                                                            <a href="javascript:void(0)" onclick="openNav({{$standard_campaign->id}})">{{$standard_campaign->artistTrack->name}}</a>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                            @endforeach--}}
+{{--                                            --}}{{--                                @else--}}
+{{--                                            --}}{{--                                    <div class="item-title text-ellipsis">--}}
+{{--                                            --}}{{--                                        <h3 class="white" style="text-align:center;font-size: 15px;">Not Campaign Found</h3>--}}
+{{--                                            --}}{{--                                    </div>--}}
+{{--                                            --}}{{--                                @endif--}}
+
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            @endif--}}
+                        </div>
 {{--                    @include('pages.curators.dashboard-partial.__new')--}}
                     {{--    New    --}}
 
@@ -933,6 +975,99 @@
                 autoplay: true,
                 nav: true,
                 animateOut: 'fadeOut'
+            });
+        }
+    </script>
+
+    <script>
+        function filterArtistSubmission(option)
+        {
+            $('#selectFilter').html('');
+            $('#selectFilterTag').html('');
+            $('#selectFilterTag').html('Select Genre');
+
+            if(option === 'oldest')
+            {
+                $('#genreFilters').css('display','none');
+                $('#selectFilter').html('Oldest');
+            }
+            else if(option === 'newest')
+            {
+                $('#genreFilters').css('display','none');
+                $('#selectFilter').html('Newest');
+            }
+            else if(option === 'release_date')
+            {
+                $('#genreFilters').css('display','none');
+                $('#selectFilter').html('Release Date');
+            }
+            else if(option === 'liked_artists')
+            {
+                $('#genreFilters').css('display','none');
+                $('#selectFilter').html('Liked Artists');
+            }
+            else if(option === 'genre')
+            {
+                $('#genreFilters').css('display','inline-block');
+                $('#selectFilter').html('Genre');
+                return false;
+            }
+
+            showLoader();
+            $.ajax({
+                type: "GET",
+                url: '{{route('filter.artist.submission.dashboard')}}',
+                data: {option_filter:option},
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data.campaignsArtistSubmissions);
+                    loader();
+                    if (data.success) {
+                        $('#filterArtistSubmissionNew').css('display','flex');
+                        $('#filterArtistSubmissionNew').empty();
+                        $('#filterArtistSubmissionNew').html(data.campaignsArtistSubmissions);
+                    }
+                    if (data.error) {
+                        toastr.error(data.error);
+                    }
+                },
+            });
+        }
+
+        function filterArtistSubmissionFeature(curator_feature_id)
+        {
+            var feature_name = $('#curatorFeatureTag'+ curator_feature_id).data('value');
+            $('#selectFilterTag').html('');
+            $('#selectFilterTag').html(feature_name);
+
+            var genre = 'genre';
+            var curatorFeatureId = curator_feature_id;
+            showLoader();
+            $.ajax({
+                type: "GET",
+                url: '{{route('filter.artist.submission.dashboard')}}',
+                data: {
+                    option_filter:genre,
+                    curator_feature_id:curatorFeatureId,
+                },
+                dataType: 'json',
+                success: function (data) {
+                    loader();
+                    if (data.success) {
+                        $('#filterArtistSubmissionNew').empty();
+                        if(data.campaignsArtistSubmissions)
+                        {
+                            $('#filterArtistSubmissionNew').css('display','flex');
+                            $('#filterArtistSubmissionNew').html(data.campaignsArtistSubmissions);
+                        }else{
+                            $('#filterArtistSubmissionNew').css('display','block');
+                            $('#filterArtistSubmissionNew').html('<div class="item-title text-ellipsis"><h3 class="white" style="text-align:center;font-size: 15px;">Not Campaign Found</h3></div>');
+                        }
+                    }
+                    if (data.error) {
+                        toastr.error(data.error);
+                    }
+                },
             });
         }
     </script>

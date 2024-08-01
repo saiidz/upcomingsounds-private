@@ -734,6 +734,9 @@ header nav ul li a:hover {
     overflow-x: hidden;
     /*width: 470px;*/
 }
+.heightChange{
+    height: 85% !important;
+}
 .sticky-bar-offer-type {
     height: 75%;
     overflow-y: auto;

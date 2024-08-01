@@ -34,8 +34,27 @@ class ArtistSubmissionController extends Controller
      */
     public function curatorDashboard()
     {
-        $curator_features = CuratorFeature::all();
         $limit = 500;
+        $curator_features = CuratorFeature::all();
+        $campaignsArtistSubmissions = Campaign::leftJoin('submit_coverages', 'campaigns.track_id', '=', 'submit_coverages.track_id')
+            ->select('campaigns.*', DB::raw('COUNT(submit_coverages.id) as coverage_count'))
+            ->whereNotNull('campaigns.track_id')
+            ->where('is_expired_campaign',0)
+            ->doesntHave('curatorFavoriteTrack')
+            ->groupBy('campaigns.id')
+            ->having('coverage_count', '<=', $limit)
+            ->latest()->get();
+
+        $campaignsArtistSubmissions = $campaignsArtistSubmissions->reject(function ($campaignsArtistSubmission) {
+            return $campaignsArtistSubmission->submitCoverages->where('curator_id', Auth::id())->count() > 0;
+        })->flatten();
+
+        $campaignsArtistSubmissions = $campaignsArtistSubmissions->reject(function ($campaign)
+        {
+            $sendOffer =  SendOffer::where(['curator_id' => Auth::id(), 'campaign_id' => $campaign->id])->first();
+            return $sendOffer == true;
+        })->flatten();
+
 //        $standard_campaigns = Campaign::where('package_name', IPackages::STANDARD_NAME)->take(16)->latest()->get();
         $standard_campaigns = Campaign::leftJoin('submit_coverages', 'campaigns.track_id', '=', 'submit_coverages.track_id')
             ->select('campaigns.*', DB::raw('COUNT(submit_coverages.id) as coverage_count'))

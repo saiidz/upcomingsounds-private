@@ -70,7 +70,7 @@ Route::delete('delete-campaign/{campaign}',[CampaignController::class,'destroy']
 
 // coverage routes
 Route::get('coverages', [CoverageController::class,'coverage'])->name('artist.coverage');
-Route::get('coverage-details/{submitCoverage}', [CoverageController::class,'viewSubmitCoverageDetails'])->name('artist.view.submit.coverage');
+Route::get('details-coverage/{submitCoverage}', [CoverageController::class,'viewSubmitCoverageDetails'])->name('artist.view.submit.coverage');
 
 // get cites
 Route::get('get-cites-artist/{id}', [AjaxController::class,'getCities']);

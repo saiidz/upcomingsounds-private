@@ -55,6 +55,7 @@ Route::get('/rejected', [ArtistSubmissionController::class,'artistRejected'])->n
 
 # get artist submission filter
 Route::get('filter-artist-submission', [FilterController::class,'filterArtistSubmission'])->name('filter.artist.submission');
+Route::get('filter-artist-submission-dashboard', [FilterController::class,'filterArtistSubmissionDashboard'])->name('filter.artist.submission.dashboard');
 
 # get curator dashboard filter
 Route::get('filter-curator-dashboard', [FilterController::class,'filterCuratorDashboard'])->name('filter.curator.dashboard');
