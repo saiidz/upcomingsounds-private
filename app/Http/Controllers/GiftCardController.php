@@ -42,26 +42,28 @@ class GiftCardController extends Controller
      */
     public function checkout(Request $request)
     {
-        try {
-            $priceID = decrypt($request['price_id']);
-            $amount  = decrypt($request['amount']);
-        }catch (DecryptException $e){
-            return abort(404,'Not Found');
-        }
+        if (Auth::check())
+        {
+            try {
+                $priceID = decrypt($request['price_id']);
+                $amount  = decrypt($request['amount']);
+            }catch (DecryptException $e){
+                return abort(404,'Not Found');
+            }
 
 
-        if(empty($priceID))
-            return redirect()->back()->with('error','Something went wrong');
+            if(empty($priceID))
+                return redirect()->back()->with('error','Something went wrong');
 
-        try {
-            Stripe::setApiKey(Config::get('services.stripe.secret'));
+            try {
+                Stripe::setApiKey(Config::get('services.stripe.secret'));
 
 //            header('Content-Type: application/json');
-            $session = Session::create([
+                $session = Session::create([
 //                'payment_method_types' => ['card'],
-                'line_items' => [[
-                    # Provide the exact Price ID (e.g. pr_1234) of the product you want to sell
-                    'price' => $priceID,
+                    'line_items' => [[
+                        # Provide the exact Price ID (e.g. pr_1234) of the product you want to sell
+                        'price' => $priceID,
 //                    'price_data' => [
 //                        'currency' => 'usd',
 //                        'unit_amount' => 1000,
@@ -69,45 +71,48 @@ class GiftCardController extends Controller
 //                            'name' => 'Your Product Name',
 //                        ],
 //                    ],
-                    'quantity' => 1,
-                ]],
-                'phone_number_collection' => [
-                    'enabled' => true,
-                ],
-                'mode' => 'payment',
-                'client_reference_id' => Str::random(6),
+                        'quantity' => 1,
+                    ]],
+                    'phone_number_collection' => [
+                        'enabled' => true,
+                    ],
+                    'mode' => 'payment',
+                    'client_reference_id' => Str::random(6),
 //                'success_url' => route('checkout.success',['session_id' => CHECKOUT_SESSION_ID]),
-                'success_url' => url('success-checkout/session_id={CHECKOUT_SESSION_ID}'),
-                'cancel_url'  => url('failure-checkout/session_id={CHECKOUT_SESSION_ID}'),
+                    'success_url' => url('success-checkout/session_id={CHECKOUT_SESSION_ID}'),
+                    'cancel_url'  => url('failure-checkout/session_id={CHECKOUT_SESSION_ID}'),
 //                'cancel_url' => route('checkout.failure'),
-            ]);
-            $timestamp = now()->timestamp;
-            $sixDigitTime = substr($timestamp, -6);
-            $randomString = Str::random(2); // You can adjust the length as needed
-
-            $couponCode = "USC-{$sixDigitTime}{$randomString}";
-
-            $session->metadata = ['coupon_code' => $couponCode];
-            # Stripe Session Create
-            if(!empty($session))
-            {
-                SessionStripe::create([
-                    'session_id'     => $session['id'],
-                    'coupon_code'    => $couponCode,
-                    'amount'         => $amount,
-                    'currency'       => $session['currency'],
-                    'live_mode'      => !$session['livemode'] ? 'sandbox' : 'live',
-                    'url'            => $session['url'],
-                    'payment_status' => $session['payment_status'],
-                    'details'        => json_encode($session),
                 ]);
-            }
+                $timestamp = now()->timestamp;
+                $sixDigitTime = substr($timestamp, -6);
+                $randomString = Str::random(2); // You can adjust the length as needed
 
-            return redirect($session->url);
+                $couponCode = "USC-{$sixDigitTime}{$randomString}";
+
+                $session->metadata = ['coupon_code' => $couponCode];
+                # Stripe Session Create
+                if(!empty($session))
+                {
+                    SessionStripe::create([
+                        'session_id'     => $session['id'],
+                        'coupon_code'    => $couponCode,
+                        'amount'         => $amount,
+                        'currency'       => $session['currency'],
+                        'live_mode'      => !$session['livemode'] ? 'sandbox' : 'live',
+                        'url'            => $session['url'],
+                        'payment_status' => $session['payment_status'],
+                        'details'        => json_encode($session),
+                    ]);
+                }
+
+                return redirect($session->url);
 //            return response()->json(['id' => $session->id]);
-        } catch(\Exception $e) {
-            return redirect('gift-card')->with('error', $e->getMessage());
+            } catch(\Exception $e) {
+                return redirect('gift-card')->with('error', $e->getMessage());
 //            return response()->json(['error' => $e->getMessage()]);
+            }
+        }else{
+            return redirect('login')->with('error', 'Please login first');
         }
     }
 
