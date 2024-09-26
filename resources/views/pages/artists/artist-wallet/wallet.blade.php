@@ -299,363 +299,363 @@
             });
         }
     </script>
-    <script>
-        //eur currency
-        //Standard package
-        var standard_eur = {!! (isset($standard_products)) ? json_encode(number_format($standard_products['data'][0]['unit_amount'] / 100, 2)) : '' !!};
-        //Plus package
-        var plus_eur = {!! (isset($plus_products)) ? json_encode(number_format($plus_products['data'][0]['unit_amount'] / 100, 2)) : '' !!};
-        //Most popular package
-        var most_popular_eur = {!! (isset($most_popular_products)) ? json_encode(number_format($most_popular_products['data'][0]['unit_amount'] / 100, 2)) : '' !!};
-        //Premium package
-        var premium_eur = {!! (isset($premium_products)) ? json_encode(number_format($premium_products['data'][0]['unit_amount'] / 100, 2)) : '' !!};
-        //Platinum package
-        var platinum_eur = {!! (isset($platinum_products)) ? json_encode(number_format($platinum_products['data'][0]['unit_amount'] / 100, 2)) : '' !!};
+{{--    <script>--}}
+{{--        //eur currency--}}
+{{--        //Standard package--}}
+{{--        var standard_eur = {!! (isset($standard_products)) ? json_encode(number_format($standard_products['data'][0]['unit_amount'] / 100, 2)) : '' !!};--}}
+{{--        //Plus package--}}
+{{--        var plus_eur = {!! (isset($plus_products)) ? json_encode(number_format($plus_products['data'][0]['unit_amount'] / 100, 2)) : '' !!};--}}
+{{--        //Most popular package--}}
+{{--        var most_popular_eur = {!! (isset($most_popular_products)) ? json_encode(number_format($most_popular_products['data'][0]['unit_amount'] / 100, 2)) : '' !!};--}}
+{{--        //Premium package--}}
+{{--        var premium_eur = {!! (isset($premium_products)) ? json_encode(number_format($premium_products['data'][0]['unit_amount'] / 100, 2)) : '' !!};--}}
+{{--        //Platinum package--}}
+{{--        var platinum_eur = {!! (isset($platinum_products)) ? json_encode(number_format($platinum_products['data'][0]['unit_amount'] / 100, 2)) : '' !!};--}}
 
-        //cad currency
-        //Standard package
-        var standard_cad = {!! (isset($standard_products)) ? json_encode(number_format($standard_products['data'][1]['unit_amount'] / 100, 2)) : '' !!};
-        //Plus package
-        var plus_cad = {!! (isset($plus_products)) ? json_encode(number_format($plus_products['data'][1]['unit_amount'] / 100, 2)) : '' !!};
-        //Most popular package
-        var most_popular_cad = {!! (isset($most_popular_products)) ? json_encode(number_format($most_popular_products['data'][1]['unit_amount'] / 100, 2)) : '' !!};
-        //Premium package
-        var premium_cad = {!! (isset($premium_products)) ? json_encode(number_format($premium_products['data'][1]['unit_amount'] / 100, 2)) : '' !!};
-        //Platinum package
-        var platinum_cad = {!! (isset($platinum_products)) ? json_encode(number_format($platinum_products['data'][1]['unit_amount'] / 100, 2)) : '' !!};
+{{--        //cad currency--}}
+{{--        //Standard package--}}
+{{--        var standard_cad = {!! (isset($standard_products)) ? json_encode(number_format($standard_products['data'][1]['unit_amount'] / 100, 2)) : '' !!};--}}
+{{--        //Plus package--}}
+{{--        var plus_cad = {!! (isset($plus_products)) ? json_encode(number_format($plus_products['data'][1]['unit_amount'] / 100, 2)) : '' !!};--}}
+{{--        //Most popular package--}}
+{{--        var most_popular_cad = {!! (isset($most_popular_products)) ? json_encode(number_format($most_popular_products['data'][1]['unit_amount'] / 100, 2)) : '' !!};--}}
+{{--        //Premium package--}}
+{{--        var premium_cad = {!! (isset($premium_products)) ? json_encode(number_format($premium_products['data'][1]['unit_amount'] / 100, 2)) : '' !!};--}}
+{{--        //Platinum package--}}
+{{--        var platinum_cad = {!! (isset($platinum_products)) ? json_encode(number_format($platinum_products['data'][1]['unit_amount'] / 100, 2)) : '' !!};--}}
 
-        //aud currency
-        //Standard package
-        var standard_aud = {!! (isset($standard_products)) ? json_encode(number_format($standard_products['data'][2]['unit_amount'] / 100, 2)) : '' !!};
-        //Plus package
-        var plus_aud = {!! (isset($plus_products)) ? json_encode(number_format($plus_products['data'][2]['unit_amount'] / 100, 2)) : '' !!};
-        //Most popular package
-        var most_popular_aud = {!! (isset($most_popular_products)) ? json_encode(number_format($most_popular_products['data'][2]['unit_amount'] / 100, 2)) : '' !!};
-        //Premium package
-        var premium_aud = {!! (isset($premium_products)) ? json_encode(number_format($premium_products['data'][2]['unit_amount'] / 100, 2)) : '' !!};
-        //Platinum package
-        var platinum_aud = {!! (isset($platinum_products)) ? json_encode(number_format($platinum_products['data'][2]['unit_amount'] / 100, 2)) : '' !!};
+{{--        //aud currency--}}
+{{--        //Standard package--}}
+{{--        var standard_aud = {!! (isset($standard_products)) ? json_encode(number_format($standard_products['data'][2]['unit_amount'] / 100, 2)) : '' !!};--}}
+{{--        //Plus package--}}
+{{--        var plus_aud = {!! (isset($plus_products)) ? json_encode(number_format($plus_products['data'][2]['unit_amount'] / 100, 2)) : '' !!};--}}
+{{--        //Most popular package--}}
+{{--        var most_popular_aud = {!! (isset($most_popular_products)) ? json_encode(number_format($most_popular_products['data'][2]['unit_amount'] / 100, 2)) : '' !!};--}}
+{{--        //Premium package--}}
+{{--        var premium_aud = {!! (isset($premium_products)) ? json_encode(number_format($premium_products['data'][2]['unit_amount'] / 100, 2)) : '' !!};--}}
+{{--        //Platinum package--}}
+{{--        var platinum_aud = {!! (isset($platinum_products)) ? json_encode(number_format($platinum_products['data'][2]['unit_amount'] / 100, 2)) : '' !!};--}}
 
-        //usd currency
-        //Standard package
-        var standard_usd = {!! (isset($standard_products)) ? json_encode(number_format($standard_products['data'][3]['unit_amount'] / 100, 2)) : '' !!};
-        //Plus package
-        var plus_usd = {!! (isset($plus_products)) ? json_encode(number_format($plus_products['data'][3]['unit_amount'] / 100, 2)) : '' !!};
-        //Most popular package
-        var most_popular_usd = {!! (isset($most_popular_products)) ? json_encode(number_format($most_popular_products['data'][3]['unit_amount'] / 100, 2)) : '' !!};
-        //Premium package
-        var premium_usd = {!! (isset($premium_products)) ? json_encode(number_format($premium_products['data'][3]['unit_amount'] / 100, 2)) : '' !!};
-        //Platinum package
-        var platinum_usd = {!! (isset($platinum_products)) ? json_encode(number_format($platinum_products['data'][3]['unit_amount'] / 100, 2)) : '' !!};
+{{--        //usd currency--}}
+{{--        //Standard package--}}
+{{--        var standard_usd = {!! (isset($standard_products)) ? json_encode(number_format($standard_products['data'][3]['unit_amount'] / 100, 2)) : '' !!};--}}
+{{--        //Plus package--}}
+{{--        var plus_usd = {!! (isset($plus_products)) ? json_encode(number_format($plus_products['data'][3]['unit_amount'] / 100, 2)) : '' !!};--}}
+{{--        //Most popular package--}}
+{{--        var most_popular_usd = {!! (isset($most_popular_products)) ? json_encode(number_format($most_popular_products['data'][3]['unit_amount'] / 100, 2)) : '' !!};--}}
+{{--        //Premium package--}}
+{{--        var premium_usd = {!! (isset($premium_products)) ? json_encode(number_format($premium_products['data'][3]['unit_amount'] / 100, 2)) : '' !!};--}}
+{{--        //Platinum package--}}
+{{--        var platinum_usd = {!! (isset($platinum_products)) ? json_encode(number_format($platinum_products['data'][3]['unit_amount'] / 100, 2)) : '' !!};--}}
 
-        //gbp currency
-        //Standard package
-        var standard_gbp = {!! (isset($standard_products)) ? json_encode(number_format($standard_products['data'][4]['unit_amount'] / 100, 2)) : '' !!};
-        //Plus package
-        var plus_gbp = {!! (isset($plus_products)) ? json_encode(number_format($plus_products['data'][4]['unit_amount'] / 100, 2)) : '' !!};
-        //Most popular package
-        var most_popular_gbp = {!! (isset($most_popular_products)) ? json_encode(number_format($most_popular_products['data'][4]['unit_amount'] / 100, 2)) : '' !!};
-        //Premium package
-        var premium_gbp = {!! (isset($premium_products)) ? json_encode(number_format($premium_products['data'][4]['unit_amount'] / 100, 2)) : '' !!};
-        //Platinum package
-        var platinum_gbp = {!! (isset($platinum_products)) ? json_encode(number_format($platinum_products['data'][4]['unit_amount'] / 100, 2)) : '' !!};
+{{--        //gbp currency--}}
+{{--        //Standard package--}}
+{{--        var standard_gbp = {!! (isset($standard_products)) ? json_encode(number_format($standard_products['data'][4]['unit_amount'] / 100, 2)) : '' !!};--}}
+{{--        //Plus package--}}
+{{--        var plus_gbp = {!! (isset($plus_products)) ? json_encode(number_format($plus_products['data'][4]['unit_amount'] / 100, 2)) : '' !!};--}}
+{{--        //Most popular package--}}
+{{--        var most_popular_gbp = {!! (isset($most_popular_products)) ? json_encode(number_format($most_popular_products['data'][4]['unit_amount'] / 100, 2)) : '' !!};--}}
+{{--        //Premium package--}}
+{{--        var premium_gbp = {!! (isset($premium_products)) ? json_encode(number_format($premium_products['data'][4]['unit_amount'] / 100, 2)) : '' !!};--}}
+{{--        //Platinum package--}}
+{{--        var platinum_gbp = {!! (isset($platinum_products)) ? json_encode(number_format($platinum_products['data'][4]['unit_amount'] / 100, 2)) : '' !!};--}}
 
-        function selectCurrency(value){
-            if(value == 'eur'){
-                //Standard package
-                $('#priceCurrencyStandard').html('');
-                // empty data-standard-price
-                $('.buyStandardNow').attr('data-standard-price','');
-                $('.buyStandardNow').attr('data-standard-currency','');
+{{--        function selectCurrency(value){--}}
+{{--            if(value == 'eur'){--}}
+{{--                //Standard package--}}
+{{--                $('#priceCurrencyStandard').html('');--}}
+{{--                // empty data-standard-price--}}
+{{--                $('.buyStandardNow').attr('data-standard-price','');--}}
+{{--                $('.buyStandardNow').attr('data-standard-currency','');--}}
 
-                //Plus package
-                $('#priceCurrencyPlus').html('');
-                // empty data-plus-price
-                $('.buyPlusNow').attr('data-plus-price','');
-                $('.buyPlusNow').attr('data-plus-currency','');
+{{--                //Plus package--}}
+{{--                $('#priceCurrencyPlus').html('');--}}
+{{--                // empty data-plus-price--}}
+{{--                $('.buyPlusNow').attr('data-plus-price','');--}}
+{{--                $('.buyPlusNow').attr('data-plus-currency','');--}}
 
-                //Most popular package
-                $('#priceCurrencyMostPopular').html('');
-                // empty data-most-price
-                $('.buyMostNow').attr('data-most-price','');
-                $('.buyMostNow').attr('data-most-currency','');
+{{--                //Most popular package--}}
+{{--                $('#priceCurrencyMostPopular').html('');--}}
+{{--                // empty data-most-price--}}
+{{--                $('.buyMostNow').attr('data-most-price','');--}}
+{{--                $('.buyMostNow').attr('data-most-currency','');--}}
 
-                //Premium package
-                $('#priceCurrencyPremium').html('');
-                // empty data-premium-price
-                $('.buyPremiumNow').attr('data-premium-price','');
-                $('.buyPremiumNow').attr('data-premium-currency','');
+{{--                //Premium package--}}
+{{--                $('#priceCurrencyPremium').html('');--}}
+{{--                // empty data-premium-price--}}
+{{--                $('.buyPremiumNow').attr('data-premium-price','');--}}
+{{--                $('.buyPremiumNow').attr('data-premium-currency','');--}}
 
-                //Platinum package
-                $('#priceCurrencyPlatinum').html('');
-                // empty data-plantinum-price
-                $('.buyPlantinumNow').attr('data-plantinum-price','');
-                $('.buyPlantinumNow').attr('data-plantinum-currency','');
+{{--                //Platinum package--}}
+{{--                $('#priceCurrencyPlatinum').html('');--}}
+{{--                // empty data-plantinum-price--}}
+{{--                $('.buyPlantinumNow').attr('data-plantinum-price','');--}}
+{{--                $('.buyPlantinumNow').attr('data-plantinum-currency','');--}}
 
-                //Standard package
-                $('#priceCurrencyStandard').append('<span class="currencyWrap">'+standard_eur+'<span></span></span><span class="currencySymbolWrapper">€</span>');
-                $('.buyStandardNow').attr('data-standard-price',standard_eur);
-                $('.buyStandardNow').attr('data-standard-currency',value);
+{{--                //Standard package--}}
+{{--                $('#priceCurrencyStandard').append('<span class="currencyWrap">'+standard_eur+'<span></span></span><span class="currencySymbolWrapper">€</span>');--}}
+{{--                $('.buyStandardNow').attr('data-standard-price',standard_eur);--}}
+{{--                $('.buyStandardNow').attr('data-standard-currency',value);--}}
 
-                //Plus package
-                $('#priceCurrencyPlus').append('<span class="currencyWrap">'+plus_eur+'<span></span></span><span class="currencySymbolWrapper">€</span>');
-                $('.buyPlusNow').attr('data-plus-price',plus_eur);
-                $('.buyPlusNow').attr('data-plus-currency',value);
+{{--                //Plus package--}}
+{{--                $('#priceCurrencyPlus').append('<span class="currencyWrap">'+plus_eur+'<span></span></span><span class="currencySymbolWrapper">€</span>');--}}
+{{--                $('.buyPlusNow').attr('data-plus-price',plus_eur);--}}
+{{--                $('.buyPlusNow').attr('data-plus-currency',value);--}}
 
-                //Most popular package
-                $('#priceCurrencyMostPopular').append('<span class="currencyWrap">'+most_popular_eur+'<span></span></span><span class="currencySymbolWrapper">€</span>');
-                $('.buyMostNow').attr('data-most-price',most_popular_eur);
-                $('.buyMostNow').attr('data-most-currency',value);
+{{--                //Most popular package--}}
+{{--                $('#priceCurrencyMostPopular').append('<span class="currencyWrap">'+most_popular_eur+'<span></span></span><span class="currencySymbolWrapper">€</span>');--}}
+{{--                $('.buyMostNow').attr('data-most-price',most_popular_eur);--}}
+{{--                $('.buyMostNow').attr('data-most-currency',value);--}}
 
-                //Premium package
-                $('#priceCurrencyPremium').append('<span class="currencyWrap">'+premium_eur+'<span></span></span><span class="currencySymbolWrapper">€</span>');
-                $('.buyPremiumNow').attr('data-premium-price',premium_eur);
-                $('.buyPremiumNow').attr('data-premium-currency',value);
+{{--                //Premium package--}}
+{{--                $('#priceCurrencyPremium').append('<span class="currencyWrap">'+premium_eur+'<span></span></span><span class="currencySymbolWrapper">€</span>');--}}
+{{--                $('.buyPremiumNow').attr('data-premium-price',premium_eur);--}}
+{{--                $('.buyPremiumNow').attr('data-premium-currency',value);--}}
 
-                //Platinum package
-                $('#priceCurrencyPlatinum').append('<span class="currencyWrap">'+platinum_eur+'<span></span></span><span class="currencySymbolWrapper">€</span>');
-                $('.buyPlantinumNow').attr('data-plantinum-price',platinum_eur);
-                $('.buyPlantinumNow').attr('data-plantinum-currency',value);
+{{--                //Platinum package--}}
+{{--                $('#priceCurrencyPlatinum').append('<span class="currencyWrap">'+platinum_eur+'<span></span></span><span class="currencySymbolWrapper">€</span>');--}}
+{{--                $('.buyPlantinumNow').attr('data-plantinum-price',platinum_eur);--}}
+{{--                $('.buyPlantinumNow').attr('data-plantinum-currency',value);--}}
 
-            }else if(value == 'cad'){
-                //Standard package
-                $('#priceCurrencyStandard').html('');
-                // empty data-standard-price
-                $('.buyStandardNow').attr('data-standard-price','');
-                $('.buyStandardNow').attr('data-standard-currency','');
+{{--            }else if(value == 'cad'){--}}
+{{--                //Standard package--}}
+{{--                $('#priceCurrencyStandard').html('');--}}
+{{--                // empty data-standard-price--}}
+{{--                $('.buyStandardNow').attr('data-standard-price','');--}}
+{{--                $('.buyStandardNow').attr('data-standard-currency','');--}}
 
-                //Plus package
-                $('#priceCurrencyPlus').html('');
-                // empty data-plus-price
-                $('.buyPlusNow').attr('data-plus-price','');
-                $('.buyPlusNow').attr('data-plus-currency','');
+{{--                //Plus package--}}
+{{--                $('#priceCurrencyPlus').html('');--}}
+{{--                // empty data-plus-price--}}
+{{--                $('.buyPlusNow').attr('data-plus-price','');--}}
+{{--                $('.buyPlusNow').attr('data-plus-currency','');--}}
 
-                //Most popular package
-                $('#priceCurrencyMostPopular').html('');
-                // empty data-most-price
-                $('.buyMostNow').attr('data-most-price','');
-                $('.buyMostNow').attr('data-most-currency','');
+{{--                //Most popular package--}}
+{{--                $('#priceCurrencyMostPopular').html('');--}}
+{{--                // empty data-most-price--}}
+{{--                $('.buyMostNow').attr('data-most-price','');--}}
+{{--                $('.buyMostNow').attr('data-most-currency','');--}}
 
-                //Premium package
-                $('#priceCurrencyPremium').html('');
-                // empty data-premium-price
-                $('.buyPremiumNow').attr('data-premium-price','');
-                $('.buyPremiumNow').attr('data-premium-currency','');
+{{--                //Premium package--}}
+{{--                $('#priceCurrencyPremium').html('');--}}
+{{--                // empty data-premium-price--}}
+{{--                $('.buyPremiumNow').attr('data-premium-price','');--}}
+{{--                $('.buyPremiumNow').attr('data-premium-currency','');--}}
 
-                //Platinum package
-                $('#priceCurrencyPlatinum').html('');
-                // empty data-plantinum-price
-                $('.buyPlantinumNow').attr('data-plantinum-price','');
-                $('.buyPlantinumNow').attr('data-plantinum-currency','');
+{{--                //Platinum package--}}
+{{--                $('#priceCurrencyPlatinum').html('');--}}
+{{--                // empty data-plantinum-price--}}
+{{--                $('.buyPlantinumNow').attr('data-plantinum-price','');--}}
+{{--                $('.buyPlantinumNow').attr('data-plantinum-currency','');--}}
 
-                //Standard package
-                $('#priceCurrencyStandard').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+standard_cad+'<span></span></span>');
-                $('.buyStandardNow').attr('data-standard-price',standard_cad);
-                $('.buyStandardNow').attr('data-standard-currency',value);
+{{--                //Standard package--}}
+{{--                $('#priceCurrencyStandard').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+standard_cad+'<span></span></span>');--}}
+{{--                $('.buyStandardNow').attr('data-standard-price',standard_cad);--}}
+{{--                $('.buyStandardNow').attr('data-standard-currency',value);--}}
 
-                //Plus package
-                $('#priceCurrencyPlus').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+plus_cad+'<span></span></span>');
-                $('.buyPlusNow').attr('data-plus-price',plus_cad);
-                $('.buyPlusNow').attr('data-plus-currency',value);
+{{--                //Plus package--}}
+{{--                $('#priceCurrencyPlus').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+plus_cad+'<span></span></span>');--}}
+{{--                $('.buyPlusNow').attr('data-plus-price',plus_cad);--}}
+{{--                $('.buyPlusNow').attr('data-plus-currency',value);--}}
 
-                //Most popular package
-                $('#priceCurrencyMostPopular').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+most_popular_cad+'<span></span></span>');
-                $('.buyMostNow').attr('data-most-price',most_popular_cad);
-                $('.buyMostNow').attr('data-most-currency',value);
+{{--                //Most popular package--}}
+{{--                $('#priceCurrencyMostPopular').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+most_popular_cad+'<span></span></span>');--}}
+{{--                $('.buyMostNow').attr('data-most-price',most_popular_cad);--}}
+{{--                $('.buyMostNow').attr('data-most-currency',value);--}}
 
-                //Premium package
-                $('#priceCurrencyPremium').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+premium_cad+'<span></span></span>');
-                $('.buyPremiumNow').attr('data-premium-price',premium_cad);
-                $('.buyPremiumNow').attr('data-premium-currency',value);
+{{--                //Premium package--}}
+{{--                $('#priceCurrencyPremium').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+premium_cad+'<span></span></span>');--}}
+{{--                $('.buyPremiumNow').attr('data-premium-price',premium_cad);--}}
+{{--                $('.buyPremiumNow').attr('data-premium-currency',value);--}}
 
-                //Platinum package
-                $('#priceCurrencyPlatinum').append('<span class="currencySymbolWrapper">£</span><span class="currencyWrap">'+platinum_gbp+'<span></span></span>');
-                $('.buyPlantinumNow').attr('data-plantinum-price',platinum_gbp);
-                $('.buyPlantinumNow').attr('data-plantinum-currency','gbp');
+{{--                //Platinum package--}}
+{{--                $('#priceCurrencyPlatinum').append('<span class="currencySymbolWrapper">£</span><span class="currencyWrap">'+platinum_gbp+'<span></span></span>');--}}
+{{--                $('.buyPlantinumNow').attr('data-plantinum-price',platinum_gbp);--}}
+{{--                $('.buyPlantinumNow').attr('data-plantinum-currency','gbp');--}}
 
-                // $('#priceCurrencyPlatinum').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+platinum_cad+'<span></span></span>');
-                // $('.buyPlantinumNow').attr('data-plantinum-price',platinum_cad);
-                // $('.buyPlantinumNow').attr('data-plantinum-currency',value);
+{{--                // $('#priceCurrencyPlatinum').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+platinum_cad+'<span></span></span>');--}}
+{{--                // $('.buyPlantinumNow').attr('data-plantinum-price',platinum_cad);--}}
+{{--                // $('.buyPlantinumNow').attr('data-plantinum-currency',value);--}}
 
-            }else if(value == 'aud'){
-                //Standard package
-                $('#priceCurrencyStandard').html('');
-                // empty data-standard-price
-                $('.buyStandardNow').attr('data-standard-price','');
-                $('.buyStandardNow').attr('data-standard-currency','');
+{{--            }else if(value == 'aud'){--}}
+{{--                //Standard package--}}
+{{--                $('#priceCurrencyStandard').html('');--}}
+{{--                // empty data-standard-price--}}
+{{--                $('.buyStandardNow').attr('data-standard-price','');--}}
+{{--                $('.buyStandardNow').attr('data-standard-currency','');--}}
 
-                //Plus package
-                $('#priceCurrencyPlus').html('');
-                // empty data-plus-price
-                $('.buyPlusNow').attr('data-plus-price','');
-                $('.buyPlusNow').attr('data-plus-currency','');
+{{--                //Plus package--}}
+{{--                $('#priceCurrencyPlus').html('');--}}
+{{--                // empty data-plus-price--}}
+{{--                $('.buyPlusNow').attr('data-plus-price','');--}}
+{{--                $('.buyPlusNow').attr('data-plus-currency','');--}}
 
-                //Most popular package
-                $('#priceCurrencyMostPopular').html('');
-                // empty data-most-price
-                $('.buyMostNow').attr('data-most-price','');
-                $('.buyMostNow').attr('data-most-currency','');
+{{--                //Most popular package--}}
+{{--                $('#priceCurrencyMostPopular').html('');--}}
+{{--                // empty data-most-price--}}
+{{--                $('.buyMostNow').attr('data-most-price','');--}}
+{{--                $('.buyMostNow').attr('data-most-currency','');--}}
 
-                //Premium package
-                $('#priceCurrencyPremium').html('');
-                // empty data-premium-price
-                $('.buyPremiumNow').attr('data-premium-price','');
-                $('.buyPremiumNow').attr('data-premium-currency','');
+{{--                //Premium package--}}
+{{--                $('#priceCurrencyPremium').html('');--}}
+{{--                // empty data-premium-price--}}
+{{--                $('.buyPremiumNow').attr('data-premium-price','');--}}
+{{--                $('.buyPremiumNow').attr('data-premium-currency','');--}}
 
-                //Platinum package
-                $('#priceCurrencyPlatinum').html('');
-                // empty data-plantinum-price
-                $('.buyPlantinumNow').attr('data-plantinum-price','');
-                $('.buyPlantinumNow').attr('data-plantinum-currency','');
+{{--                //Platinum package--}}
+{{--                $('#priceCurrencyPlatinum').html('');--}}
+{{--                // empty data-plantinum-price--}}
+{{--                $('.buyPlantinumNow').attr('data-plantinum-price','');--}}
+{{--                $('.buyPlantinumNow').attr('data-plantinum-currency','');--}}
 
-                //Standard package
-                $('#priceCurrencyStandard').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+standard_aud+'<span></span></span>');
-                $('.buyStandardNow').attr('data-standard-price',standard_aud);
-                $('.buyStandardNow').attr('data-standard-currency',value);
+{{--                //Standard package--}}
+{{--                $('#priceCurrencyStandard').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+standard_aud+'<span></span></span>');--}}
+{{--                $('.buyStandardNow').attr('data-standard-price',standard_aud);--}}
+{{--                $('.buyStandardNow').attr('data-standard-currency',value);--}}
 
-                //Plus package
-                $('#priceCurrencyPlus').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+plus_aud+'<span></span></span>');
-                $('.buyPlusNow').attr('data-plus-price',plus_aud);
-                $('.buyPlusNow').attr('data-plus-currency',value);
+{{--                //Plus package--}}
+{{--                $('#priceCurrencyPlus').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+plus_aud+'<span></span></span>');--}}
+{{--                $('.buyPlusNow').attr('data-plus-price',plus_aud);--}}
+{{--                $('.buyPlusNow').attr('data-plus-currency',value);--}}
 
-                //Most popular package
-                $('#priceCurrencyMostPopular').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+most_popular_aud+'<span></span></span>');
-                $('.buyMostNow').attr('data-most-price',most_popular_aud);
-                $('.buyMostNow').attr('data-most-currency',value);
+{{--                //Most popular package--}}
+{{--                $('#priceCurrencyMostPopular').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+most_popular_aud+'<span></span></span>');--}}
+{{--                $('.buyMostNow').attr('data-most-price',most_popular_aud);--}}
+{{--                $('.buyMostNow').attr('data-most-currency',value);--}}
 
-                //Premium package
-                $('#priceCurrencyPremium').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+premium_aud+'<span></span></span>');
-                $('.buyPremiumNow').attr('data-premium-price',premium_aud);
-                $('.buyPremiumNow').attr('data-premium-currency',value);
+{{--                //Premium package--}}
+{{--                $('#priceCurrencyPremium').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+premium_aud+'<span></span></span>');--}}
+{{--                $('.buyPremiumNow').attr('data-premium-price',premium_aud);--}}
+{{--                $('.buyPremiumNow').attr('data-premium-currency',value);--}}
 
-                //Platinum package
-                $('#priceCurrencyPlatinum').append('<span class="currencySymbolWrapper">£</span><span class="currencyWrap">'+platinum_gbp+'<span></span></span>');
-                $('.buyPlantinumNow').attr('data-plantinum-price',platinum_gbp);
-                $('.buyPlantinumNow').attr('data-plantinum-currency','gbp');
+{{--                //Platinum package--}}
+{{--                $('#priceCurrencyPlatinum').append('<span class="currencySymbolWrapper">£</span><span class="currencyWrap">'+platinum_gbp+'<span></span></span>');--}}
+{{--                $('.buyPlantinumNow').attr('data-plantinum-price',platinum_gbp);--}}
+{{--                $('.buyPlantinumNow').attr('data-plantinum-currency','gbp');--}}
 
-                // $('#priceCurrencyPlatinum').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+platinum_aud+'<span></span></span>');
-                // $('.buyPlantinumNow').attr('data-plantinum-price',platinum_aud);
-                // $('.buyPlantinumNow').attr('data-plantinum-currency',value);
+{{--                // $('#priceCurrencyPlatinum').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+platinum_aud+'<span></span></span>');--}}
+{{--                // $('.buyPlantinumNow').attr('data-plantinum-price',platinum_aud);--}}
+{{--                // $('.buyPlantinumNow').attr('data-plantinum-currency',value);--}}
 
-            }else if(value == 'usd'){
-                //Standard package
-                $('#priceCurrencyStandard').html('');
-                // empty data-standard-price
-                $('.buyStandardNow').attr('data-standard-price','');
-                $('.buyStandardNow').attr('data-standard-currency','');
+{{--            }else if(value == 'usd'){--}}
+{{--                //Standard package--}}
+{{--                $('#priceCurrencyStandard').html('');--}}
+{{--                // empty data-standard-price--}}
+{{--                $('.buyStandardNow').attr('data-standard-price','');--}}
+{{--                $('.buyStandardNow').attr('data-standard-currency','');--}}
 
-                //Plus package
-                $('#priceCurrencyPlus').html('');
-                // empty data-plus-price
-                $('.buyPlusNow').attr('data-plus-price','');
-                $('.buyPlusNow').attr('data-plus-currency','');
+{{--                //Plus package--}}
+{{--                $('#priceCurrencyPlus').html('');--}}
+{{--                // empty data-plus-price--}}
+{{--                $('.buyPlusNow').attr('data-plus-price','');--}}
+{{--                $('.buyPlusNow').attr('data-plus-currency','');--}}
 
-                //Most popular package
-                $('#priceCurrencyMostPopular').html('');
-                // empty data-most-price
-                $('.buyMostNow').attr('data-most-price','');
-                $('.buyMostNow').attr('data-most-currency','');
+{{--                //Most popular package--}}
+{{--                $('#priceCurrencyMostPopular').html('');--}}
+{{--                // empty data-most-price--}}
+{{--                $('.buyMostNow').attr('data-most-price','');--}}
+{{--                $('.buyMostNow').attr('data-most-currency','');--}}
 
-                //Premium package
-                $('#priceCurrencyPremium').html('');
-                // empty data-premium-price
-                $('.buyPremiumNow').attr('data-premium-price','');
-                $('.buyPremiumNow').attr('data-premium-currency','');
+{{--                //Premium package--}}
+{{--                $('#priceCurrencyPremium').html('');--}}
+{{--                // empty data-premium-price--}}
+{{--                $('.buyPremiumNow').attr('data-premium-price','');--}}
+{{--                $('.buyPremiumNow').attr('data-premium-currency','');--}}
 
-                //Platinum package
-                $('#priceCurrencyPlatinum').html('');
-                // empty data-plantinum-price
-                $('.buyPlantinumNow').attr('data-plantinum-price','');
-                $('.buyPlantinumNow').attr('data-plantinum-currency','');
+{{--                //Platinum package--}}
+{{--                $('#priceCurrencyPlatinum').html('');--}}
+{{--                // empty data-plantinum-price--}}
+{{--                $('.buyPlantinumNow').attr('data-plantinum-price','');--}}
+{{--                $('.buyPlantinumNow').attr('data-plantinum-currency','');--}}
 
-                //Standard package
-                $('#priceCurrencyStandard').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+standard_usd+'<span></span></span>');
-                $('.buyStandardNow').attr('data-standard-price',standard_usd);
-                $('.buyStandardNow').attr('data-standard-currency',value);
+{{--                //Standard package--}}
+{{--                $('#priceCurrencyStandard').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+standard_usd+'<span></span></span>');--}}
+{{--                $('.buyStandardNow').attr('data-standard-price',standard_usd);--}}
+{{--                $('.buyStandardNow').attr('data-standard-currency',value);--}}
 
-                //Plus package
-                $('#priceCurrencyPlus').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+plus_usd+'<span></span></span>');
-                $('.buyPlusNow').attr('data-plus-price',plus_usd);
-                $('.buyPlusNow').attr('data-plus-currency',value);
+{{--                //Plus package--}}
+{{--                $('#priceCurrencyPlus').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+plus_usd+'<span></span></span>');--}}
+{{--                $('.buyPlusNow').attr('data-plus-price',plus_usd);--}}
+{{--                $('.buyPlusNow').attr('data-plus-currency',value);--}}
 
-                //Most popular package
-                $('#priceCurrencyMostPopular').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+most_popular_usd+'<span></span></span>');
-                $('.buyMostNow').attr('data-most-price',most_popular_usd);
-                $('.buyMostNow').attr('data-most-currency',value);
+{{--                //Most popular package--}}
+{{--                $('#priceCurrencyMostPopular').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+most_popular_usd+'<span></span></span>');--}}
+{{--                $('.buyMostNow').attr('data-most-price',most_popular_usd);--}}
+{{--                $('.buyMostNow').attr('data-most-currency',value);--}}
 
-                //Premium package
-                $('#priceCurrencyPremium').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+premium_usd+'<span></span></span>');
-                $('.buyPremiumNow').attr('data-premium-price',premium_usd);
-                $('.buyPremiumNow').attr('data-premium-currency',value);
+{{--                //Premium package--}}
+{{--                $('#priceCurrencyPremium').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+premium_usd+'<span></span></span>');--}}
+{{--                $('.buyPremiumNow').attr('data-premium-price',premium_usd);--}}
+{{--                $('.buyPremiumNow').attr('data-premium-currency',value);--}}
 
-                //Platinum package
-                $('#priceCurrencyPlatinum').append('<span class="currencySymbolWrapper">£</span><span class="currencyWrap">'+platinum_gbp+'<span></span></span>');
-                $('.buyPlantinumNow').attr('data-plantinum-price',platinum_gbp);
-                $('.buyPlantinumNow').attr('data-plantinum-currency','gbp');
+{{--                //Platinum package--}}
+{{--                $('#priceCurrencyPlatinum').append('<span class="currencySymbolWrapper">£</span><span class="currencyWrap">'+platinum_gbp+'<span></span></span>');--}}
+{{--                $('.buyPlantinumNow').attr('data-plantinum-price',platinum_gbp);--}}
+{{--                $('.buyPlantinumNow').attr('data-plantinum-currency','gbp');--}}
 
-                // $('#priceCurrencyPlatinum').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+platinum_usd+'<span></span></span>');
-                // $('.buyPlantinumNow').attr('data-plantinum-price',platinum_usd);
-                // $('.buyPlantinumNow').attr('data-plantinum-currency',value);
+{{--                // $('#priceCurrencyPlatinum').append('<span class="currencySymbolWrapper">$</span><span class="currencyWrap">'+platinum_usd+'<span></span></span>');--}}
+{{--                // $('.buyPlantinumNow').attr('data-plantinum-price',platinum_usd);--}}
+{{--                // $('.buyPlantinumNow').attr('data-plantinum-currency',value);--}}
 
-            }else if(value == 'gbp'){
-                //Standard package
-                $('#priceCurrencyStandard').html('');
-                // empty data-standard-price
-                $('.buyStandardNow').attr('data-standard-price','');
-                $('.buyStandardNow').attr('data-standard-currency','');
+{{--            }else if(value == 'gbp'){--}}
+{{--                //Standard package--}}
+{{--                $('#priceCurrencyStandard').html('');--}}
+{{--                // empty data-standard-price--}}
+{{--                $('.buyStandardNow').attr('data-standard-price','');--}}
+{{--                $('.buyStandardNow').attr('data-standard-currency','');--}}
 
-                //Plus package
-                $('#priceCurrencyPlus').html('');
-                // empty data-plus-price
-                $('.buyPlusNow').attr('data-plus-price','');
-                $('.buyPlusNow').attr('data-plus-currency','');
+{{--                //Plus package--}}
+{{--                $('#priceCurrencyPlus').html('');--}}
+{{--                // empty data-plus-price--}}
+{{--                $('.buyPlusNow').attr('data-plus-price','');--}}
+{{--                $('.buyPlusNow').attr('data-plus-currency','');--}}
 
-                //Most popular package
-                $('#priceCurrencyMostPopular').html('');
-                // empty data-most-price
-                $('.buyMostNow').attr('data-most-price','');
-                $('.buyMostNow').attr('data-most-currency','');
+{{--                //Most popular package--}}
+{{--                $('#priceCurrencyMostPopular').html('');--}}
+{{--                // empty data-most-price--}}
+{{--                $('.buyMostNow').attr('data-most-price','');--}}
+{{--                $('.buyMostNow').attr('data-most-currency','');--}}
 
-                //Premium package
-                $('#priceCurrencyPremium').html('');
-                // empty data-premium-price
-                $('.buyPremiumNow').attr('data-premium-price','');
-                $('.buyPremiumNow').attr('data-premium-currency','');
+{{--                //Premium package--}}
+{{--                $('#priceCurrencyPremium').html('');--}}
+{{--                // empty data-premium-price--}}
+{{--                $('.buyPremiumNow').attr('data-premium-price','');--}}
+{{--                $('.buyPremiumNow').attr('data-premium-currency','');--}}
 
-                //Platinum package
-                $('#priceCurrencyPlatinum').html('');
-                // empty data-plantinum-price
-                $('.buyPlantinumNow').attr('data-plantinum-price','');
-                $('.buyPlantinumNow').attr('data-plantinum-currency','');
+{{--                //Platinum package--}}
+{{--                $('#priceCurrencyPlatinum').html('');--}}
+{{--                // empty data-plantinum-price--}}
+{{--                $('.buyPlantinumNow').attr('data-plantinum-price','');--}}
+{{--                $('.buyPlantinumNow').attr('data-plantinum-currency','');--}}
 
-                //Standard package
-                $('#priceCurrencyStandard').append('<span class="currencySymbolWrapper">£</span><span class="currencyWrap">'+standard_gbp+'<span></span></span>');
-                $('.buyStandardNow').attr('data-standard-price',standard_gbp);
-                $('.buyStandardNow').attr('data-standard-currency',value);
+{{--                //Standard package--}}
+{{--                $('#priceCurrencyStandard').append('<span class="currencySymbolWrapper">£</span><span class="currencyWrap">'+standard_gbp+'<span></span></span>');--}}
+{{--                $('.buyStandardNow').attr('data-standard-price',standard_gbp);--}}
+{{--                $('.buyStandardNow').attr('data-standard-currency',value);--}}
 
-                //Plus package
-                $('#priceCurrencyPlus').append('<span class="currencySymbolWrapper">£</span><span class="currencyWrap">'+plus_gbp+'<span></span></span>');
-                $('.buyPlusNow').attr('data-plus-price',plus_gbp);
-                $('.buyPlusNow').attr('data-plus-currency',value);
+{{--                //Plus package--}}
+{{--                $('#priceCurrencyPlus').append('<span class="currencySymbolWrapper">£</span><span class="currencyWrap">'+plus_gbp+'<span></span></span>');--}}
+{{--                $('.buyPlusNow').attr('data-plus-price',plus_gbp);--}}
+{{--                $('.buyPlusNow').attr('data-plus-currency',value);--}}
 
-                //Most popular package
-                $('#priceCurrencyMostPopular').append('<span class="currencySymbolWrapper">£</span><span class="currencyWrap">'+most_popular_gbp+'<span></span></span>');
-                $('.buyMostNow').attr('data-most-price',most_popular_gbp);
-                $('.buyMostNow').attr('data-most-currency',value);
+{{--                //Most popular package--}}
+{{--                $('#priceCurrencyMostPopular').append('<span class="currencySymbolWrapper">£</span><span class="currencyWrap">'+most_popular_gbp+'<span></span></span>');--}}
+{{--                $('.buyMostNow').attr('data-most-price',most_popular_gbp);--}}
+{{--                $('.buyMostNow').attr('data-most-currency',value);--}}
 
-                //Premium package
-                $('#priceCurrencyPremium').append('<span class="currencySymbolWrapper">£</span><span class="currencyWrap">'+premium_gbp+'<span></span></span>');
-                $('.buyPremiumNow').attr('data-premium-price',premium_gbp);
-                $('.buyPremiumNow').attr('data-premium-currency',value);
+{{--                //Premium package--}}
+{{--                $('#priceCurrencyPremium').append('<span class="currencySymbolWrapper">£</span><span class="currencyWrap">'+premium_gbp+'<span></span></span>');--}}
+{{--                $('.buyPremiumNow').attr('data-premium-price',premium_gbp);--}}
+{{--                $('.buyPremiumNow').attr('data-premium-currency',value);--}}
 
-                //Platinum package
-                $('#priceCurrencyPlatinum').append('<span class="currencySymbolWrapper">£</span><span class="currencyWrap">'+platinum_gbp+'<span></span></span>');
-                $('.buyPlantinumNow').attr('data-plantinum-price',platinum_gbp);
-                $('.buyPlantinumNow').attr('data-plantinum-currency',value);
+{{--                //Platinum package--}}
+{{--                $('#priceCurrencyPlatinum').append('<span class="currencySymbolWrapper">£</span><span class="currencyWrap">'+platinum_gbp+'<span></span></span>');--}}
+{{--                $('.buyPlantinumNow').attr('data-plantinum-price',platinum_gbp);--}}
+{{--                $('.buyPlantinumNow').attr('data-plantinum-currency',value);--}}
 
-            }
-        }
-    </script>
+{{--            }--}}
+{{--        }--}}
+{{--    </script>--}}
     <script>
         // stripe javascript
         {{--var stripe = Stripe("{{ \Config::get('services.stripe.key') }}");--}}

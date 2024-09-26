@@ -36,38 +36,38 @@ class ArtistWalletController extends Controller
                 'status' => IOfferTemplateStatus::PAID,
             ])->get();
 
-        $stripe = new StripeClient(Config('services.stripe.secret'));
-
-        /**
-         *Sandbox Products Stripe
-         */
-        // Standard package
-        $standard_products =  $stripe->prices->all(['product' => I_PRODUCTS::STANDARD_PRODUCT_LIVE]);
-
-        // Plus package
-        $plus_products =  $stripe->prices->all(['product' => I_PRODUCTS::PLUS_PRODUCT_LIVE]);
-
-        // Most popular package
-        $most_popular_products =  $stripe->prices->all(['product' => I_PRODUCTS::MOST_POPULAR_PRODUCT_LIVE]);
-
-        // Premium package
-        $premium_products =  $stripe->prices->all(['product' => I_PRODUCTS::PREMIUM_PRODUCT_LIVE]);
-
-        // Platinum package
-        $platinum_products =  $stripe->prices->all(['product' => I_PRODUCTS::PLATINUM_PRODUCT_LIVE]);
-
-        # 1 USC package product
-        $one_usc_products =  $stripe->prices->all(['product' => I_PRODUCTS::ONE_USC_PRODUCT_LIVE]);
+//        $stripe = new StripeClient(Config('services.stripe.secret'));
+//
+//        /**
+//         *Sandbox Products Stripe
+//         */
+//        // Standard package
+//        $standard_products =  $stripe->prices->all(['product' => I_PRODUCTS::STANDARD_PRODUCT_LIVE]);
+//
+//        // Plus package
+//        $plus_products =  $stripe->prices->all(['product' => I_PRODUCTS::PLUS_PRODUCT_LIVE]);
+//
+//        // Most popular package
+//        $most_popular_products =  $stripe->prices->all(['product' => I_PRODUCTS::MOST_POPULAR_PRODUCT_LIVE]);
+//
+//        // Premium package
+//        $premium_products =  $stripe->prices->all(['product' => I_PRODUCTS::PREMIUM_PRODUCT_LIVE]);
+//
+//        // Platinum package
+//        $platinum_products =  $stripe->prices->all(['product' => I_PRODUCTS::PLATINUM_PRODUCT_LIVE]);
+//
+//        # 1 USC package product
+//        $one_usc_products =  $stripe->prices->all(['product' => I_PRODUCTS::ONE_USC_PRODUCT_LIVE]);
 //dd($one_usc_products);
         /**
          *Sandbox Products Stripe
          */
 
-        Stripe::setApiKey(Config::get('services.stripe.secret'));
-
-        $intent = SetupIntent::create([
-            'usage' => 'on_session',  // The default usage is off_session
-        ]);
+//        Stripe::setApiKey(Config::get('services.stripe.secret'));
+//
+//        $intent = SetupIntent::create([
+//            'usage' => 'on_session',  // The default usage is off_session
+//        ]);
 
         $artist_transaction_user = TransactionUserInfo::where('user_id',Auth::id())->first();
 
@@ -128,11 +128,11 @@ class ArtistWalletController extends Controller
         }
         $countries = Country::all();
 
-        Stripe::setApiKey(Config::get('services.stripe.secret'));
-
-        $intent = SetupIntent::create([
-            'usage' => 'on_session',  // The default usage is off_session
-        ]);
+//        Stripe::setApiKey(Config::get('services.stripe.secret'));
+//
+//        $intent = SetupIntent::create([
+//            'usage' => 'on_session',  // The default usage is off_session
+//        ]);
 
         // get billing info if exists
         $artist_billing_info = TransactionUserInfo::where('user_id',Auth::id())->latest()->first();
