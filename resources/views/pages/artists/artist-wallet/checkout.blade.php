@@ -191,10 +191,10 @@
                                    <p class="card-text">How would you like to pay?</p>
                                    <div class="row m-t-sm">
                                        <div class="col-md-12 mb-3">
-                                           <div class="custom-control custom-radio">
-                                               <input id="credit" class="stripeChanged" onchange="stripeChanged()" name="paymentMethod" type="radio" checked required>
-                                               <label class="custom-control-label" for="credit"><i class="fab fa-cc-stripe"></i> PAY WITH CARD</label>
-                                           </div>
+{{--                                           <div class="custom-control custom-radio">--}}
+{{--                                               <input id="credit" class="stripeChanged" onchange="stripeChanged()" name="paymentMethod" type="radio" checked required>--}}
+{{--                                               <label class="custom-control-label" for="credit"><i class="fab fa-cc-stripe"></i> PAY WITH CARD</label>--}}
+{{--                                           </div>--}}
                                            <div class="custom-control custom-radio">
                                                <input id="paypal" class="paypalChanged" onchange="paypalChanged()" name="paymentMethod" type="radio" required>
                                                <label class="custom-control-label" for="paypal"><i class="fab fa-paypal"></i> PAY WITH PAYPAL</label>
