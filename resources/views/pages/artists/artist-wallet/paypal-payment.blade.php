@@ -1,5 +1,6 @@
 
-<div id="paypalHideShowForm" style="display:none">
+<div id="paypalHideShowForm">
+{{--<div id="paypalHideShowForm" style="display:none">--}}
     <form action="{{ url('process-transaction') }}" method="post" id="paypal-form">
         @csrf
         <input type="hidden" name="transaction_user_id" value="{{isset($artist_billing_info) ? $artist_billing_info->id : ''}}">
