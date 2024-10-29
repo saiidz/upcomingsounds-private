@@ -97,7 +97,8 @@
                      <li>
                        <a href="{{route('artist.coverage')}}" id="artistSubmitCoverage">
                            <span class="nav-icon">
-                                <i class="fa fa-rocket"></i>
+{{--                                <i class="fa fa-rocket"></i>--}}
+                               <i class="fa fa-chevron-circle-right"></i>
                            </span>
                            <span class="nav-text">Requested Coverage</span>
 {{--                           <span class="nav-text">Purposed Coverage</span>--}}

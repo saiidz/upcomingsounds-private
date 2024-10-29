@@ -58,7 +58,7 @@ class NewsLetterSubscriptionSendEmail extends Command
                     $this->info('Processing NewsletterID: ' . $newsletter->id);
 
                     $emailData = [
-                        'Source' => "info@upcomingsounds.com",
+                        'Source' => "no-reply@upcomingsounds.com",
                         'Destination' => [
                             'ToAddresses' => [$newsletter->email],
                         ],
