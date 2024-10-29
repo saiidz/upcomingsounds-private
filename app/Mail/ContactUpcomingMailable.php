@@ -29,7 +29,7 @@ class ContactUpcomingMailable extends Mailable
      */
     public function build()
     {
-        return $this->subject($this->contact_details['subject'])->from('info@upcomingsounds.com', 'UpcomingSounds')
+        return $this->subject($this->contact_details['subject'])->from('contact@upcomingsounds.com', 'UpcomingSounds')
             ->view('emails.contactUpcomingEmail')->with('contact_details', );
     }
 }
