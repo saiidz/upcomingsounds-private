@@ -94,16 +94,15 @@
     {{--                   <span class="nav-text">Artist</span>--}}
     {{--                   </a>--}}
     {{--                </li>--}}
-                     <li>
-                       <a href="{{route('artist.coverage')}}" id="artistSubmitCoverage">
-                           <span class="nav-icon">
+{{--                     <li>--}}
+{{--                       <a href="{{route('artist.coverage')}}" id="artistSubmitCoverage">--}}
+{{--                           <span class="nav-icon">--}}
 {{--                                <i class="fa fa-rocket"></i>--}}
-                               <i class="fa fa-chevron-circle-right"></i>
-                           </span>
-                           <span class="nav-text">Requested Coverage</span>
+{{--                           </span>--}}
+{{--                           <span class="nav-text">Requested Coverage</span>--}}
 {{--                           <span class="nav-text">Purposed Coverage</span>--}}
-                       </a>
-                    </li>
+{{--                       </a>--}}
+{{--                    </li>--}}
                      <li>
                        <a href="{{route('active.campaign')}}" id="artistCampaign">
                            <span class="nav-icon">
@@ -360,7 +359,8 @@
                      <li>
                          <a class="dropdown-item" href="{{ route('curator.coverage.verified') }}" id="verifiedContentCreatorCurator">
                              <span class="nav-icon">
-                                        <i class="fa fa-chevron-circle-right"></i>
+{{--                                        <i class="fa fa-chevron-circle-right"></i>--}}
+                                        <i class="fa fa-rocket"></i>
                                     </span>
                              <span class="nav-text">Requested Coverage</span>
 {{--                                    <span class="nav-icon">--}}
