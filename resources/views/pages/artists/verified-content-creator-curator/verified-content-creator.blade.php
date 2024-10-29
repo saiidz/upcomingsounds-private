@@ -12,7 +12,7 @@
             <div class="col-lg-9 b-r no-border-md">
                 <div class="padding">
                     <div class="page-title m-b">
-                        <h1 class="inline m-a-0 titleColor">Verified Content Creator</h1>
+                        <h1 class="inline m-a-0 titleColor">Requested Coverage</h1>
                     </div>
                     <div class="row item-list item-list-by m-b">
                         @if(!empty($verifiedContentCreatorCurators) && count($verifiedContentCreatorCurators) > 0)
