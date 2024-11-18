@@ -56,7 +56,7 @@
                                                             <div class="col s12">
                                                                 <div class="input-field col s12">
                                                                     <input id="tastemaker_name" class="@error('tastemaker_name') is-invalid @enderror" name="tastemaker_name" value="{{old('tastemaker_name')}}" type="text">
-                                                                    <label for="tastemaker_name">Your Tastemaker name</label>
+                                                                    <label for="tastemaker_name">Your Brand Name</label>
                                                                     @error('tastemaker_name')
                                                                     <small class="red-text" role="alert">
                                                                         {{ $message }}
