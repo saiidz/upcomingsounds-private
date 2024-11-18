@@ -295,7 +295,8 @@
                            </li>
                        </ul>
                         <div class="imaGe m-t">
-                            <img src="{{asset('images/artist/stripe-paypal.png')}}" alt="">
+                            <img src="{{asset('images/artist/paypal.png')}}" alt="">
+{{--                            <img src="{{asset('images/artist/stripe-paypal.png')}}" alt="">--}}
                         </div>
                    </div>
                </div>
