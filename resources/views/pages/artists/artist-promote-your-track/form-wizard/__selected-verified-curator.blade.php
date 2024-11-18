@@ -3,7 +3,8 @@
         <div class="title__container">
             <div class="separatortrack">
                 <div class="promoteAddTrack" style="display: flex;align-items: center;justify-content: space-between;margin: 0;padding: 0;">
-                    <h4><span style="padding-bottom: 5px; ">Verified</span> Selected Curator</h4>
+                    <h4><span style="padding-bottom: 5px; ">Recap </span>Of Verified Curator</h4>
+{{--                    <h4><span style="padding-bottom: 5px; ">Verified</span> Selected Curator</h4>--}}
 {{--                    <h4><span style="border-bottom: 5px solid #da4441;padding-bottom: 5px; ">Verified</span> Selected Curator</h4>--}}
                     <div>
                         <h3 id="showCuratorProsSelect" style="color: #02b875 !important;">
