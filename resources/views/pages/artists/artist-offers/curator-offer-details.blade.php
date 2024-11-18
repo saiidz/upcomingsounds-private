@@ -165,7 +165,7 @@
                                 <div class="page-title">
                                     <h1 class="inline">{{($send_offer->userCurator) ? $send_offer->userCurator->name : ''}}</h1>
                                     @if ($send_offer->userCurator->is_verified == 1)
-                                        <img src="{{ asset('images/verified_icon.svg') }}" style="width: 22px;" alt="">
+                                        <img src="{{ asset('images/verified_icon.svg') }}" style="width: 22px;vertical-align: inherit!important;" alt="">
                                     @endif
                                 </div>
                                 <p class="item-desc text-ellipsis text-muted" data-ui-toggle-class="text-ellipsis">
