@@ -61,7 +61,7 @@
                                <h5 class="card-title">Billing Information</h5>
                                <p class="card-text">Enter the required information and choose your payment method</p>
                                <form class="form-contact"
-                                     method="POST" action="{{route('artist.billing.info')}}" autocomplete="off"
+                                     method="POST" action="{{url('/artist-billing-info')}}" autocomplete="off"
                                      id="checkoutForm" novalidate>
                                    @csrf
                                    <input type="hidden" name="transaction_user_infos_id" value="{{isset($artist_billing_info) ? $artist_billing_info->id : ''}}">
@@ -187,12 +187,16 @@
                        @else
                            <div class="card">
                                <div class="card-body billing_address">
-                                   <h5 class="card-title">Continue To Payment</h5>
-{{--                                   <p class="card-text">How would you like to pay?</p>--}}
+                                   <h5 class="card-title">Payment options</h5>
+                                   <p class="card-text">How would you like to pay?</p>
                                    <div class="row m-t-sm">
                                        <div class="col-md-12 mb-3">
+{{--                                           <div class="custom-control custom-radio">--}}
+{{--                                               <input id="credit" class="stripeChanged" onchange="stripeChanged()" name="paymentMethod" type="radio" checked required>--}}
+{{--                                               <label class="custom-control-label" for="credit"><i class="fab fa-cc-stripe"></i> PAY WITH CARD</label>--}}
+{{--                                           </div>--}}
                                            <div class="custom-control custom-radio">
-                                               <input id="paypal" class="paypalChanged" onchange="paypalChanged()" name="paymentMethod" checked type="radio" required>
+                                               <input id="paypal" class="paypalChanged" onchange="paypalChanged()" name="paymentMethod" type="radio" required>
                                                <label class="custom-control-label" for="paypal"><i class="fab fa-paypal"></i> PAY WITH PAYPAL</label>
                                            </div>
                                        </div>
@@ -389,6 +393,7 @@
         </script>
         {{--    payment for offer send--}}
     @else
+{{--    <script src="https://js.stripe.com/v3/"></script>--}}
     <script>
 
         $('#submit-paypal').click(function (){
@@ -404,9 +409,111 @@
             $("#paypal-form").submit();
         });
 
+        // stripe javascript
+        {{--var stripe = Stripe("{{ \Config::get('services.stripe.key') }}");--}}
+        {{--// Create an instance of Elements.--}}
+        {{--var elements = stripe.elements();--}}
+        {{--// Custom styling can be passed to options when creating an Element.--}}
+        {{--// (Note that this demo uses a wider set of styles than the guide below.)--}}
+        {{--var style = {--}}
+        {{--    base: {--}}
+        {{--        color: '#32325d',--}}
+        {{--        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',--}}
+        {{--        fontSmoothing: 'antialiased',--}}
+        {{--        fontSize: '16px',--}}
+        {{--        '::placeholder': {--}}
+        {{--            color: '#aab7c4'--}}
+        {{--        }--}}
+        {{--    },--}}
+        {{--    invalid: {--}}
+        {{--        color: '#fa755a',--}}
+        {{--        iconColor: '#fa755a'--}}
+        {{--    }--}}
+        {{--};--}}
+        {{--// Create an instance of the card Element.--}}
+        {{--var card = elements.create('card', {--}}
+        {{--    hidePostalCode: true,--}}
+        {{--    style: style--}}
+        {{--});--}}
+        {{--// Add an instance of the card Element into the `card-element` <div>.--}}
+        {{--card.mount('#card-element');--}}
+        {{--// Handle real-time validation errors from the card Element.--}}
+        {{--card.on('change', function (event) {--}}
+        {{--    var displayError = document.getElementById('card-errors');--}}
+        {{--    if (event.error) {--}}
+        {{--        displayError.textContent = event.error.message;--}}
+        {{--    } else {--}}
+        {{--        displayError.textContent = '';--}}
+        {{--    }--}}
+        {{--});--}}
+        {{--// Handle form submission.--}}
+        {{--var form = document.getElementById('stripe-form');--}}
+        {{--document.getElementById('submit-stripe').addEventListener('click', function () {--}}
+        {{--    // Show loader--}}
+        {{--    showLoader();--}}
+        {{--    // console.log(form);--}}
+        {{--    const cardButton = document.getElementById('client_secret');--}}
+        {{--    const clientSecret = cardButton.getAttribute('value');--}}
+        {{--    console.log(clientSecret);--}}
+        {{--    stripe.createToken(card).then(function(result) {--}}
+        {{--        var form = document.getElementById('stripe-form');--}}
+        {{--        var hiddenCardInput = document.createElement('input');--}}
+        {{--        hiddenCardInput.setAttribute('type', 'hidden');--}}
+        {{--        hiddenCardInput.setAttribute('name', 'cardMethod');--}}
+        {{--        hiddenCardInput.setAttribute('value', result.token.id);--}}
+        {{--        form.appendChild(hiddenCardInput);--}}
+        {{--    });--}}
+        {{--    stripe.handleCardSetup(clientSecret, card, {--}}
+        {{--        payment_method_data: {--}}
+        {{--        }--}}
+        {{--    })--}}
+        {{--        .then(function(result) {--}}
+        {{--            if (result.error) {--}}
+        {{--                loader();--}}
+        {{--                // Inform the user if there was an error.--}}
+        {{--                var errorElement = document.getElementById('card-errors');--}}
+        {{--                errorElement.textContent = result.error.message;--}}
+        {{--            } else {--}}
+        {{--                loader();--}}
+        {{--                // Send the token to your server.--}}
+        {{--                stripeTokenHandler(result.setupIntent.payment_method);--}}
+        {{--                $('#submit-stripe').prop('disabled', true);--}}
+        {{--                $('#submit-stripe').addClass('no-click');--}}
+
+        {{--                $('.backPage').prop('disabled', true);--}}
+        {{--                $('.backPage').addClass('no-click');--}}
+
+        {{--                $('.billingInfo').prop('disabled', true);--}}
+        {{--                $('.billingInfo').addClass('no-click');--}}
+        {{--                // $('#confirmMsg').modal('show');--}}
+        {{--            }--}}
+        {{--        });--}}
+        {{--});--}}
+        {{--// Submit the form with the token ID.--}}
+        {{--function stripeTokenHandler(paymentMethod) {--}}
+        {{--    // Insert the token ID into the form so it gets submitted to the server--}}
+        {{--    var form = document.getElementById('stripe-form');--}}
+        {{--    var hiddenInput = document.createElement('input');--}}
+        {{--    hiddenInput.setAttribute('type', 'hidden');--}}
+        {{--    hiddenInput.setAttribute('name', 'paymentMethod');--}}
+        {{--    hiddenInput.setAttribute('value', paymentMethod);--}}
+        {{--    form.appendChild(hiddenInput);--}}
+        {{--    // Submit the form--}}
+        {{--    form.submit();--}}
+        {{--}--}}
+
+        // check stripe
+        function stripeChanged(){
+            if($('.stripeChanged').is(":checked")){
+                $("#paypalHideShowForm").hide();
+                $("#stripeHideShowForm").show();
+            }
+        }
+
         // check paypal
         function paypalChanged(){
             if($('.paypalChanged').is(":checked")){
+                card.clear();
                 $("#stripeHideShowForm").hide();
                 $("#paypalHideShowForm").show();
             }

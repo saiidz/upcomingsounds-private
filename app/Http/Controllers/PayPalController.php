@@ -10,6 +10,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 
@@ -24,11 +25,13 @@ class PayPalController extends Controller
     public function processTransaction(Request $request)
     {
         try {
-            if(!$request->get('total_amount_paypal')){
+            $totalAmountPaypal = decrypt($request->get('total_amount_paypal'));
+
+            if(!$totalAmountPaypal)
                 return redirect()->back()->with('error','Total Amount is required');
-            }
-            $price = (int) $request->get('total_amount_paypal');
-            $currency_paypal = $request->get('currency_paypal');
+
+            $price = (int) $totalAmountPaypal;
+            $currencyPaypal = decrypt($request->get('currency_paypal'));
 
             $provider = new PayPalClient;
             $provider->setApiCredentials(Config::get('paypal'));
@@ -44,19 +47,23 @@ class PayPalController extends Controller
                 "purchase_units" => [
                     0 => [
                         "amount" => [
-                            "currency_code" => $currency_paypal,
+                            "currency_code" => $currencyPaypal,
                             "value" => $price
                         ]
                     ]
                 ]
             ]);
 
+            $transactionUserID = decrypt($request->get('transaction_user_id'));
+            $contacts_ = decrypt($request->get('contacts'));
+            $packageName = decrypt($request->get('package_name'));
+
             // add data in session
             Session::put([
-                'transaction_user_id' => $request->get('transaction_user_id'),
+                'transaction_user_id' => $transactionUserID,
                 'total_amount_paypal' => $price,
-                'contacts'            => $request->get('contacts'),
-                'package_name'        => $request->get('package_name'),
+                'contacts'            => $contacts_,
+                'package_name'        => $packageName,
             ]);
 
             if (isset($response['id']) && $response['id'] != null) {

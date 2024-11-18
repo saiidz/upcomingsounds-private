@@ -13,6 +13,9 @@ use App\Templates\IOfferTemplateStatus;
 use App\Templates\IStatus;
 use Carbon\Carbon;
 use Illuminate\Contracts\Encryption\DecryptException;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +28,7 @@ use Stripe\StripeClient;
 class ArtistWalletController extends Controller
 {
     /**
-     * shop
+     * @return Application|Factory|View|\Illuminate\View\View
      */
     public function wallet()
     {
@@ -35,39 +38,6 @@ class ArtistWalletController extends Controller
                 'user_id' => Auth::id(),
                 'status' => IOfferTemplateStatus::PAID,
             ])->get();
-
-//        $stripe = new StripeClient(Config('services.stripe.secret'));
-//
-//        /**
-//         *Sandbox Products Stripe
-//         */
-//        // Standard package
-//        $standard_products =  $stripe->prices->all(['product' => I_PRODUCTS::STANDARD_PRODUCT_LIVE]);
-//
-//        // Plus package
-//        $plus_products =  $stripe->prices->all(['product' => I_PRODUCTS::PLUS_PRODUCT_LIVE]);
-//
-//        // Most popular package
-//        $most_popular_products =  $stripe->prices->all(['product' => I_PRODUCTS::MOST_POPULAR_PRODUCT_LIVE]);
-//
-//        // Premium package
-//        $premium_products =  $stripe->prices->all(['product' => I_PRODUCTS::PREMIUM_PRODUCT_LIVE]);
-//
-//        // Platinum package
-//        $platinum_products =  $stripe->prices->all(['product' => I_PRODUCTS::PLATINUM_PRODUCT_LIVE]);
-//
-//        # 1 USC package product
-//        $one_usc_products =  $stripe->prices->all(['product' => I_PRODUCTS::ONE_USC_PRODUCT_LIVE]);
-//dd($one_usc_products);
-        /**
-         *Sandbox Products Stripe
-         */
-
-//        Stripe::setApiKey(Config::get('services.stripe.secret'));
-//
-//        $intent = SetupIntent::create([
-//            'usage' => 'on_session',  // The default usage is off_session
-//        ]);
 
         $artist_transaction_user = TransactionUserInfo::where('user_id',Auth::id())->first();
 

@@ -52,15 +52,15 @@ Route::get('favorite-curator', [PromoteYourTrackController::class,'favoriteCurat
 
 // Wallet Shop Route
 Route::get('/wallet',[ArtistWalletController::class,'wallet']);
-Route::post('/checkout',[ArtistWalletController::class,'checkout']);
+Route::post('/checkout',[ArtistWalletController::class,'checkout'])->name('artist.checkout');
 Route::get('/artist-checkout',[ArtistWalletController::class,'artistCheckout'])->name('checkout.artist');
-Route::post('/artist-billing-info',[ArtistWalletController::class,'artistBillingInfo']);
+Route::post('/artist-billing-info',[ArtistWalletController::class,'artistBillingInfo'])->name('artist.billing.info');
 
 // Stripe Route
 Route::post('/stripe-payment', [ArtistWalletController::class, 'handlePost']);
 
 // PayPal Route
-Route::post('process-transaction', [PayPalController::class, 'processTransaction']);
+Route::post('process-transaction', [PayPalController::class, 'processTransaction'])->name('process.transaction');
 Route::get('success-transaction', [PayPalController::class, 'successTransaction']);
 Route::get('cancel-transaction', [PayPalController::class, 'cancelTransaction']);
 
