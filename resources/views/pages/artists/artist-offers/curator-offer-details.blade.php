@@ -65,6 +65,9 @@
             height: 100%;
             object-fit: cover; /* Ensure the image covers the container */
         }
+        .cke_notifications_area {
+            display: none;
+        }
     </style>
 @endsection
 
