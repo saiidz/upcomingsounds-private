@@ -30,7 +30,7 @@
                             <span class="nav-icon">
                                 <i class="fa fa-dashboard"></i>
                             </span>
-                            <span class="nav-text">Dashboard</span>
+                            <span class="nav-text">Dashboard-BETA</span>
                         </a>
                     </li>
                     @if(Request::is('artist-submission') == 'artist-submission' || Request::is('saved') == 'saved'

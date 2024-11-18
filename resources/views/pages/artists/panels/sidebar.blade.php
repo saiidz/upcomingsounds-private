@@ -24,7 +24,7 @@
                                play_circle_outline
                                </i>
                             </span>
-                             <span class="nav-text">Dashboard</span>
+                             <span class="nav-text">Dashboard-BETA</span>
                          </a>
                      </li>
                  @else
@@ -35,7 +35,7 @@
                                play_circle_outline
                                </i>
                             </span>
-                            <span class="nav-text">Dashboard</span>
+                            <span class="nav-text">Dashboard-BETA</span>
                          </a>
                      </li>
                  @endif
