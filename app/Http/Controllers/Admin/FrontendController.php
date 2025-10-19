@@ -72,9 +72,7 @@ class FrontendController extends Controller
         ]);
 
         if ($validator->fails())
-        {
             return response()->json(['errors' => $validator->errors()->all()]);
-        }
 
         $theme = Option::where('key','home_new_settings')->first();
 
