@@ -152,7 +152,7 @@
             color: #818a91!important;
         }
     
-
+<script src="//code.tidio.co/nlzrwdckpawqcjxqkphkdskehwmmre38.js" async></script>
 
     </style>
 {{--    <link type="text/css" href="{{ asset('welcome-home-page/css/animate.css') }}" rel="stylesheet">--}}
