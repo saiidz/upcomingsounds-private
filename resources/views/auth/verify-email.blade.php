@@ -1,146 +1,191 @@
-@extends('layouts.guest')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta property="og:title" content="Upcomingsounds.com">
+    <meta property="og:description" content="Add description here">
+    <meta property="og:image" content="https://upcomingsounds.com/og-image.png">
+    <meta property="og:url" content="https://upcomingsounds.com">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Content Curator Login | UpcomingSounds</title>
 
-@section('title','Email Verification')
+    <meta name="description" content="Join UpcomingSounds, the newest platform for music promotion and pitching service. Submit your music now and access music industry jobs, record labels, and A&R opportunities. Discover advice, playlists, streaming platforms, and career resources for artists, bands, and producers in rock, EDM, jazz, indie, and more." />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
 
-@section('page-style')
-<style>
-    .verify-wrapper{
-        min-height:80vh;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-    }
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    .verify-card{
-        background:#fff;
-        border-radius:14px;
-        box-shadow:0 10px 30px rgba(0,0,0,0.08);
-        padding:28px 26px;
-        width:100%;
-        max-width:420px;
-    }
+    <link rel="apple-touch-icon" href="{{asset('images/logo.png')}}">
+    <link rel="shortcut icon" sizes="196x196" href="{{asset('images/favicon.png')}}">
 
-    .verify-icon{
-        width:80px;
-        height:80px;
-        border-radius:50%;
-        background:#e9f8f4;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        margin:0 auto 16px;
-    }
+    <link rel="stylesheet" href="{{asset('css/login/login-new.css')}}" type="text/css" />
 
-    .verify-title{
-        margin-bottom:6px;
-        font-weight:600;
-    }
+    <style>
+        /* ===== FULL PAGE BACKGROUND ===== */
+        .page-bg._auth {
+            position: fixed;
+            inset: 0;
+            background: url("{{ asset('images/login-bg.jpg') }}") center center / cover no-repeat;
+            z-index: -1;
+        }
 
-    .verify-text{
-        font-size:14px;
-        line-height:1.6;
-    }
+        .page-bg._auth::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+        }
 
-    .verify-hint{
-        display:inline-block;
-        margin-top:8px;
-        background:#fcf8e3;
-        color:#8a6d3b;
-        padding:6px 10px;
-        border-radius:6px;
-        font-size:12px;
-    }
+        .app, .main, .auth {
+            position: relative;
+            z-index: 1;
+        }
 
-    .verify-actions .btn{
-        width:100%;
-        padding:10px;
-        font-weight:600;
-    }
+        /* ===== CARD ENHANCEMENT ===== */
+        .auth-card {
+            background: rgba(255,255,255,0.96);
+            border-radius: 14px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+            backdrop-filter: blur(6px);
+        }
 
-    .verify-logout{
-        background:none;
-        border:none;
-        color:#777;
-        font-size:13px;
-        margin-top:10px;
-        cursor:pointer;
-    }
+        .create_password {
+            position: absolute;
+            right: 7px;
+            top: 16px;
+        }
 
-    .verify-logout:hover{
-        text-decoration:underline;
-        color:#444;
-    }
+        #passwordDisplay {
+            position: relative;
+        }
+    </style>
+</head>
 
-    .alert-success{
-        background:#e8f7ee;
-        color:#1f7a4d;
-        padding:10px 12px;
-        border-radius:8px;
-        font-size:13px;
-        text-align:center;
-        margin:12px 0;
-    }
-</style>
-@endsection
+<body>
 
-@section('content')
+<div id="app" class="app">
 
-<div class="verify-wrapper">
-    <div class="center-block w-xxl w-auto-xs">
+    <!-- BACKGROUND -->
+    <div class="page-bg _auth"></div>
 
-        <div class="verify-card text-center">
+    <main class="main">
+        <div class="auth container-fluid">
+            <div class="auth__row">
 
-            {{-- Icon --}}
-            <div class="verify-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#0cc2aa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
-            </div>
-
-            {{-- Title & Text --}}
-            <h4 class="verify-title">Verify your email</h4>
-
-            <p class="text-muted verify-text">
-                We have sent a verification link to your email address.  
-                Please click the link to activate your account.
-                <br>
-                <span class="verify-hint">
-                    If you don’t see it, please check your spam folder.
-                </span>
-            </p>
-
-            {{-- Success Message --}}
-            @if (session('status') == 'verification-link-sent')
-                <div class="alert-success">
-                    A new verification link has been sent to your email address.
+                <div class="auth__info-col">
+                    <div class="free-trial">
+                        <a href="{{url('/')}}">
+                            <img src="{{asset('images/logo.png')}}" width="300" alt="Logo">
+                        </a>
+                    </div>
                 </div>
-            @endif
 
-            {{-- Actions --}}
-            <div class="verify-actions m-t-md">
+                <div class="auth__card-col">
+                    <div class="auth-card">
+                        <div class="auth-form">
 
-                <form method="POST" action="{{ route('verification.send') }}">
-                    @csrf
-                    <button type="submit"
-                        class="btn btn-outline b-primary auth_btn"
-                        onclick="this.disabled=true; this.innerText='Sending…'; this.form.submit();">
-                        Resend Verification Email
-                    </button>
-                </form>
+                            <div class="auth-form__header">
+                                <div class="auth-form__title">Welcome back</div>
+                                <div class="auth-form__text">
+                                    New user? <a href="{{ route('curator.register') }}">Join now</a>
+                                </div>
+                            </div>
 
-                <form method="POST" action="{{ url('/logout') }}">
-                    @csrf
-                    <button type="submit" class="verify-logout">
-                        ← Log Out
-                    </button>
-                </form>
+                            <div class="auth-form__body">
+                                <form method="POST" action="{{ route('curator.login') }}" autocomplete="off">
+                                    @csrf
+
+                                    <input type="hidden" name="user_check" value="artist">
+
+                                    <div class="form-group md-label">
+                                        <input type="email" name="email" value="{{ old('email') }}"
+                                               class="form-control @error('email') is-invalid @enderror" required>
+                                        <label>Email Address</label>
+                                        @error('email')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                                    </div>
+
+                                    <div class="form-group md-label position-relative">
+                                        <input id="passwordAdd" type="password"
+                                               class="form-control @error('password') is-invalid @enderror"
+                                               name="password" required>
+
+                                        <label>Password</label>
+
+                                        @error('password')<div class="invalid-feedback">{{ $message }}</div>@enderror
+
+                                        <span toggle="#passwordAdd" class="toggle-password create_password">
+                                            <img src="{{asset('images/toggle.svg')}}" id="showEyes">
+                                            <img src="{{asset('images/show-pas_black.svg')}}" id="hideEyes" style="display:none;">
+                                        </span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" name="remember" class="custom-control-input" id="remember">
+                                            <label class="custom-control-label" for="remember">Keep me signed in</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        {!! NoCaptcha::renderJs() !!}
+                                        {!! NoCaptcha::display() !!}
+                                        @error('g-recaptcha-response')
+                                        <div class="invalid-feedback d-block">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-outline-primary btn-block text-uppercase">
+                                            Continue
+                                        </button>
+                                    </div>
+
+                                    <a href="{{ route('password.request') }}" class="auth-form__forgot-link">
+                                        Forgot your password?
+                                    </a>
+                                </form>
+                            </div>
+
+                            <div class="auth-form__footer">
+                                <div class="auth-or">or</div>
+
+                                <div class="form-group">
+                                    <a href="{{ url('/login/google/?request_from=curator') }}"
+                                       class="btn btn-social btn-google btn-block">
+                                        Continue with Google
+                                    </a>
+                                </div>
+
+                                <div class="auth-form__text _sm">
+                                    Protected by reCAPTCHA and subject to Google Privacy Policy and Terms of Service.
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
 
             </div>
-
         </div>
-
-    </div>
+    </main>
 </div>
 
-@endsection
+<script src="{{asset('libs/jquery/dist/jquery.js')}}"></script>
+<script src="{{asset('libs/bootstrap/dist/js/bootstrap.js')}}"></script>
+
+<script>
+    $(".toggle-password").click(function () {
+        var input = $($(this).attr("toggle"));
+        if (input.attr("type") === "password") {
+            $('#showEyes').hide();
+            $('#hideEyes').show();
+            input.attr("type", "text");
+        } else {
+            $('#hideEyes').hide();
+            $('#showEyes').show();
+            input.attr("type", "password");
+        }
+    });
+</script>
+
+</body>
+</html>
