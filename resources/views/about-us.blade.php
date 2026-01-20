@@ -2,220 +2,208 @@
 @extends('layouts.welcomeLayout')
 
 {{-- page title --}}
-@section('title','About-us')
+@section('title','About Us')
 
+{{-- page style --}}
 @section('page-style')
-    <style>
-        /*.probootstrap-main {*/
-        /*    position: relative;*/
-        /*    margin-bottom: 300px;*/
-        /*    background: #fff;*/
-        /*    z-index: 2;*/
-        /*}*/
-        .flex, .probootstrap-section-half, .probootstrap-section-half .probootstrap-text {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-orient: horizontal;
-            -webkit-box-direction: normal;
-            -ms-flex-flow: row wrap;
-            flex-flow: row wrap
-        }
-        .probootstrap-section-half.probootstrap-no-hover .probootstrap-image, .probootstrap-section-half.probootstrap-no-hover .probootstrap-text {
-            width: 50%;
-        }
-        .probootstrap-section-half .probootstrap-image {
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: 100%;
-        }
-        .probootstrap-section-half .probootstrap-image, .probootstrap-section-half .probootstrap-text {
-            /*height: 100vh;*/
-            /*height: 500px;*/
-            -webkit-transition: .3s all ease;
-            transition: .3s all ease;
-        }
-        .probootstrap-image{
-            height: 500px;
-        }
-        .probootstrap-section-half .probootstrap-text {
-            border-bottom: 1px solid #f2f2f2;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-        }
-        .probootstrap-section-half .probootstrap-text>.probootstrap-inner {
-            align-self: center;
-            max-width: 500px;
-            padding: 30px;
-        }
-        /*.probootstrap-animate {*/
-        /*    opacity: 0;*/
-        /*    visibility: hidden;*/
-        /*}*/
-        figure, ol, p, ul {
-            margin-bottom: 1.3em;
-        }
-        .probootstrap-section {
-            position: relative;
-            /*padding: 10em 0;*/
-            padding-top:5rem
-        }
-        .mb70 {
-            margin-bottom: 70px!important;
-        }
-        .mb50 {
-            margin-bottom: 50px!important;
-        }
-        .text-center {
-            text-align: center;
-        }
-        .carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
-            display: block;
-            max-width: 100%;
-            height: auto;
-        }
-        img {
-            vertical-align: middle;
-        }
-        p{
-            text-align: justify;
-        }
-        .probootstrap-card-text{
-            margin-top:25px;
-        }
-        .app-header ~ .app-body {
-            padding-bottom: 0rem !important;
-        }
-        .display-inline {
-            min-height: 280px;
-        }
-        @media (min-width: 481px) and (max-width: 767px) {
+<style>
+    /* Modern About Us Variables */
+    :root {
+        --primary-color: #4a90e2; /* Friendly Blue */
+        --primary-hover: #357abd;
+        --text-dark: #2d3748;
+        --text-body: #4a5568;
+        --bg-light: #f7fafc;
+        --white: #ffffff;
+        --radius: 12px;
+        --shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
 
-            /* CSS */
-            .probootstrap-section-half.probootstrap-no-hover .probootstrap-image, .probootstrap-section-half.probootstrap-no-hover .probootstrap-text {
-                width: 100% !important;
-            }
-            .display-inline {
-                min-height: 1px!important;
-            }
-        }
+    body {
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-light);
+    }
 
-        /*
-          ##Device = Most of the Smartphones Mobiles (Portrait)
-          ##Screen = B/w 320px to 479px
-        */
+    /* Hero Section */
+    .about-hero {
+        position: relative;
+        height: 400px;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: var(--white);
+        margin-bottom: 60px;
+    }
 
-        @media (min-width: 320px) and (max-width: 480px) {
+    /* Dark overlay for text readability */
+    .about-hero::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+    }
 
-            /* CSS */
-            .probootstrap-section-half.probootstrap-no-hover .probootstrap-image, .probootstrap-section-half.probootstrap-no-hover .probootstrap-text {
-                width: 100% !important;
-            }
-            .display-inline {
-                min-height: 1px!important;
-            }
-        }
-    </style>
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        padding: 0 20px;
+    }
+
+    .hero-title {
+        font-size: 48px;
+        font-weight: 800;
+        margin-bottom: 15px;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .hero-subtitle {
+        font-size: 20px;
+        opacity: 0.9;
+        font-weight: 500;
+    }
+
+    /* Main Container */
+    .main-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px 80px;
+    }
+
+    /* Story Section (Split Layout) */
+    .story-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        margin-bottom: 80px;
+    }
+
+    .story-block h2 {
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    .story-block h2::after {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 3px;
+        background: var(--primary-color);
+        margin-top: 10px;
+        border-radius: 2px;
+    }
+
+    .story-block p {
+        color: var(--text-body);
+        line-height: 1.8;
+        font-size: 16px;
+        text-align: justify;
+    }
+
+    /* Features / Cards Section */
+    .section-heading {
+        text-align: center;
+        font-size: 32px;
+        font-weight: 800;
+        color: var(--text-dark);
+        margin-bottom: 50px;
+    }
+
+    .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+
+    .feature-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    }
+
+    .card-img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+    }
+
+    .card-body {
+        padding: 30px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-text {
+        color: var(--text-body);
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 25px;
+        flex-grow: 1;
+    }
+
+    /* Buttons */
+    .btn-action {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        text-align: center;
+        background-color: transparent;
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+        font-weight: 600;
+        border-radius: 50px;
+        text-transform: uppercase;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+        transition: all 0.2s;
+        text-decoration: none;
+    }
+
+    .btn-action:hover {
+        background-color: var(--primary-color);
+        color: var(--white);
+        text-decoration: none;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .about-hero { height: 300px; }
+        .hero-title { font-size: 32px; }
+        .story-grid { grid-template-columns: 1fr; gap: 30px; }
+    }
+</style>
 @endsection
 
 {{-- page content --}}
 @section('content')
-    <div class="{{Auth::check() ? 'app-bodynew' : 'app-body'}}">
-
-        <!-- ############ PAGE START-->
-
-        <div class="probootstrap-main">
-            <section class="probootstrap-section-half probootstrap-no-hover">
-                <div class="probootstrap-image"
-                     style="background-image: url({{asset(!empty($theme->banner) ? $theme->banner : 'images/upcoming-aboutus.jpg')}})"></div>
-                <div class="probootstrap-text">
-                    <div class="probootstrap-inner probootstrap-animate">
-                        <h1 class="heading">{{ !empty($theme->heading) ? $theme->heading : 'About Us'}}</h1>
-                        <p class="m-y text-muted">{{ !empty($theme->description) ? $theme->description : 'Headquarters
- 29-31 Parliament Street, Liverpool, England, L8 5RN'}}</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="probootstrap-section">
-                <div class="container">
-                    <div class="row mb70 probootstrap-animate" data-animate-effect="fadeIn">
-                        <div class="col-md-6">
-                            <h2>{{ !empty($theme->heading_one) ? $theme->heading_one : 'How We Started'}}</h2>
-                            <p class="m-y text-muted">{{ !empty($theme->content_one) ? $theme->content_one : 'UpcomingSounds.com was launched in response to the demand for a fair but rewarding way to get noticed by those who are in search of talent.
-                            where new and known artists can share their work and where new and known artists can share their work and find artist mentors to help them reach a higher level.'}}</p>
-                            <p class="m-y text-muted"> </div>
-                        <div class="col-md-6">
-                            <h2>{{ !empty($theme->heading_two) ? $theme->heading_two : 'Our Philosophy'}}</h2>
-                            <p class="m-y text-muted">{{ !empty($theme->content_two) ? $theme->content_two : 'Our philosophy has always been to make music promotion simple and effective for artists of all genres. With an intuitive user interface and seamless experience, we can connect curators directly with the artist community. No middleman, no contracts, just pure curation.'}}
-                            </p>
-                            <p class="m-y text-muted"></p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 section-heading text-center probootstrap-animate">
-                            <h2 class="mb70">{{ !empty($theme->about_us_title) ? $theme->about_us_title : 'About Us'}}</h2>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4 probootstrap-animate mb50">
-                            <div class="probootstrap-card probootstrap-person text-center">
-                                <div class="probootstrap-card-media">
-                                    <img src="{{asset(!empty($theme->banner_one) ? $theme->banner_one : 'images/Banner_UCSWEB1.jpg')}}" class="img-responsive"
-                                         alt="webp">
-                                </div>
-                                <div class="probootstrap-card-text">
-                                    <div class="display-inline">
-                                        <p class="m-y text-muted">{{ !empty($theme->description_one) ? $theme->description_one : 'UpcomingSounds.com is a unique place where musicians can gain attention, promotion and greater prospects in the world of entertainment. It does not matter if you are just starting and sending demos or if your work is already established and ready to be shown, we are here to help. you can expect your submission decision within 96 hours of receiving it. We will connect you with curators, blogs, journalists and other professionals that can get you the exposure you need in the industry. We can guarantee that you will get feedback from every track you submit. Sometimes the feedback you receive when your song is declined will be useful.'}}</p>
-                                    </div>
-                                    <div class="form-group mt-3">
-                                        <a href="{{url(!empty($theme->btn_link_one) ? $theme->btn_link_one : '/artist-home')}}" class="btn circle btn-outline b-primary p-x-md auth_btn Rigister">{{ !empty($theme->btn_text_one) ? $theme->btn_text_one : 'Find out more'}}</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 probootstrap-animate mb50">
-                            <div class="probootstrap-card probootstrap-person text-center">
-                                <div class="probootstrap-card-media">
-                                    <img src="{{asset(!empty($theme->banner_two) ? $theme->banner_two : 'images/Banner_UCSWEB2.jpg')}}" class="img-responsive"
-                                         alt="webp">
-                                </div>
-                                <div class="probootstrap-card-text">
-                                    <div class="display-inline">
-                                        <p class="m-y text-muted">{{ !empty($theme->description_two) ? $theme->description_two : 'Whether you are a composer, band member, producer or sound designer, Upcoming Sounds is the platform you have been waiting for. The site provides promotional opportunities to artists worldwide that might not have been otherwise available to them. UpcomingSounds is a platform that connects the creative community honestly and authentically. Our philosophy has always been to make music promotion simple and effective for artists of all genres. With an intuitive user interface and seamless experience, we can connect curators directly with the artist community. No middleman, no contracts, just pure curation.'}}</p>
-                                    </div>
-                                    <div class="form-group mt-3">
-                                        <a href="{{url(!empty($theme->btn_link_two) ? $theme->btn_link_two : '/register')}}" class="btn circle btn-outline b-primary p-x-md auth_btn Rigister">{{ !empty($theme->btn_text_two) ? $theme->btn_text_two : 'signup'}}</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 probootstrap-animate mb50">
-                            <div class="probootstrap-card probootstrap-person text-center">
-                                <div class="probootstrap-card-media">
-                                    <img src="{{asset(!empty($theme->banner_three) ? $theme->banner_three : 'images/Banner_UCSWEB3.jpg')}}" class="img-responsive"
-                                         alt="webp">
-                                </div>
-                                <div class="probootstrap-card-text">
-                                    <div class="display-inline">
-                                        <p class="m-y text-muted">{{ !empty($theme->description_three) ? $theme->description_three : 'UpcomingSounds.com was launched in response to the demand for a fair but rewarding way to get noticed by those who are in search of talent. where new and known artists can share their work and where new and known artists can share their work and find artist mentors to help them reach a higher level. It is important to keep in mind that most curators are doing this as a hobby only verified users with an orange tick will provide professional feedback and impactful results, sometimes it is hard to find the perfect words for why they do not like a song. It is never been easier to share your music with the world.'}}</p>
-                                    </div>
-                                    <div class="form-group tasteMakerReg">
-                                        <a href="{{url(!empty($theme->btn_link_three) ? $theme->btn_link_three : '/taste-maker-register')}}" class="btn circle btn-outline b-primary p-x-md auth_btn Rigister">{{ !empty($theme->btn_text_three) ? $theme->btn_text_three : 'Apply as tastemaker / pro'}}</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+<div class="{{Auth::check() ? 'app-bodynew' : 'app-body'}}">
+    
+    <div class="about-hero" style="background-image: url({{asset(!empty($theme->banner) ? $theme->banner : 'images/upcoming-aboutus.jpg')}})">
+        <div class="hero-content">
+            <h1 class="hero-title">{{ !empty($theme->heading) ? $theme->heading : 'About Us'}}</h1>
+            <p class="hero-subtitle">{{ !empty($theme->description) ? $theme->description : 'Headquarters 29-31 Parliament Street, Liverpool, England, L8 5RN'}}</p>
         </div>
-
-
-        <!-- ############ PAGE END-->
-
     </div>
-    @include('welcome-panels.welcome-footer')
-@endsection
+
+    <div class="main-wrapper">
+        
+        <div class="story-grid">
+            <div class="story-block">
+                <h2>{{ !empty($theme->heading_one) ? $theme->heading_one : 'How We Started'}}</h2>
+                <p>{{ !empty($theme->content_one
