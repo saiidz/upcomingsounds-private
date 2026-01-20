@@ -11,7 +11,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Upcoming Sounds</title>
+<script src="//code.tidio.co/nlzrwdckpawqcjxqkphkdskehwmmre38.js" async></script>
     <!-- Your other meta tags and head content -->
     <script type="application/ld+json">
     {
@@ -152,7 +154,6 @@
             color: #818a91!important;
         }
     
-<script src="//code.tidio.co/nlzrwdckpawqcjxqkphkdskehwmmre38.js" async></script>
 
     </style>
 {{--    <link type="text/css" href="{{ asset('welcome-home-page/css/animate.css') }}" rel="stylesheet">--}}
