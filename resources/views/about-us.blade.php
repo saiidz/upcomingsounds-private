@@ -1,3 +1,4 @@
+
 {{-- layout --}}
 @extends('layouts.welcomeLayout')
 
