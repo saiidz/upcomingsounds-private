@@ -193,13 +193,19 @@
         color: var(--white);
         text-decoration: none;
     }
+.card-img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        display: block;
+    }
 </style>
 @endsection
 
 {{-- page content --}}
 @section('content')
 <div class="{{Auth::check() ? 'app-bodynew' : 'app-body'}}">
-    
     <div class="about-hero" style="background-image: url({{ asset($theme->banner ?? 'images/upcoming-aboutus.jpg') }})">
         <div class="hero-content">
             <h1 class="hero-title">{{ $theme->heading ?? 'About Us' }}</h1>
