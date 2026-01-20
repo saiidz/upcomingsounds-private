@@ -2,164 +2,67 @@
 @extends('layouts.guest')
 
 {{-- page title --}}
-@section('title','Forget Password')
+@section('title','Forgot Password')
 
-{{-- page style --}}
 @section('page-style')
-    {{--    <link rel="stylesheet" type="text/css" href="{{asset('css/pages/forgot.css')}}">--}}
-@endsection
+<style>
+    /* Modern UI/UX Variables - MATCHING LOGIN PAGE */
+    :root {
+        --primary-color: #4a90e2; /* Friendly Blue */
+        --primary-hover: #357abd;
+        --text-dark: #333333;
+        --text-muted: #6c757d;
+        --border-radius: 12px;
+        --input-bg: #f8f9fa;
+    }
 
-{{-- page content --}}
-@section('content')
+    body {
+        background-color: #f0f2f5;
+    }
 
-    <div class="b-t">
-        <div class="center-block w-xxl w-auto-xs p-y-md text-center">
-            <div class="p-a-md">
-                <div>
-                    <h4>Forgot your password?</h4>
-                    <p class="text-muted m-y">
-                        Enter your email below and we will send you instructions on how to change your password.
-                    </p>
-                </div>
-                <div id="snackbar"></div>
-                <div id="snackbarError"></div>
-                <form name="reset" method="POST" action="{{ route('password.email') }}">
-                    @csrf
-                    <div class="form-group">
-                        <input id="email" type="email"
-                               class="form-control @error('email') is-invalid @enderror" name="email"
-                               value="{{ old('email') }}" placeholder="Email" required autocomplete="off"
-                               autofocus>
-                        @error('email')
-                        <small class="red-text ml-10" role="alert">
-                            {{ $message }}
-                        </small>
-                        @enderror
-                    </div>
-                    <button type="submit" class="btn circle btn-outline b-primary p-x-md auth_btn">Send</button>
-{{--                    <button type="submit" class="btn black btn-block p-x-md" >Send</button>--}}
-                </form>
-                <div class="p-y-lg">
-                    Return to
-                    <a href="{{route('register')}}" class="text-primary _600">Sign in</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    /* Centered Card Container */
+    .auth-wrapper {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
 
+    .auth-card {
+        background: #ffffff;
+        width: 100%;
+        max-width: 420px;
+        padding: 40px;
+        border-radius: var(--border-radius);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        text-align: center;
+    }
 
-{{--    <div id="main" class="bg-gradiant-purple authentication-page">--}}
-{{--        <section class="bg-login login_main">--}}
-{{--            <div class="container">--}}
-{{--                <div class="main-flex-box">--}}
-{{--                    <div class="text-box">--}}
-{{--                        <h1>Forgot Password</h1>--}}
-{{--                        <p>--}}
-{{--                            Enter email and click the button to get a link in your <br/>--}}
+    /* Typography */
+    .auth-title {
+        font-size: 26px;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 10px;
+    }
 
-{{--                            email inbox.--}}
-{{--                        </p>--}}
-{{--                        --}}{{-- success status --}}
-{{--                        @if (session('status'))--}}
-{{--                            <div class="card-alert card green lighten-5 remove_message">--}}
-{{--                                <div class="card-content green-text">--}}
-{{--                                    <p>{{ session('status') }}</p>--}}
-{{--                                </div>--}}
-{{--                                <button type="button" class="close green-text" data-dismiss="alert" aria-label="Close">--}}
-{{--                                    <span aria-hidden="true">×</span>--}}
-{{--                                </button>--}}
-{{--                            </div>--}}
-{{--                        @endif--}}
-{{--                        <form class="login-form" method="POST" action="{{ route('password.email') }}">--}}
-{{--                            @csrf--}}
-{{--                            <div class="login_input">--}}
-{{--                                <div class="input-group">--}}
-{{--                                    <span><img src="{{asset('images/email.svg')}}" alt=""/></span>--}}
-{{--                                    <input id="email" type="email"--}}
-{{--                                           class="form-control @error('email') is-invalid @enderror" name="email"--}}
-{{--                                           value="{{ old('email') }}" placeholder="Email" required autocomplete="off"--}}
-{{--                                           autofocus>--}}
-{{--                                    @error('email')--}}
-{{--                                    <small class="red-text ml-10" role="alert">--}}
-{{--                                        {{ $message }}--}}
-{{--                                    </small>--}}
+    .auth-subtitle {
+        color: var(--text-muted);
+        font-size: 15px;
+        line-height: 1.5;
+        margin-bottom: 30px;
+    }
 
-{{--                                --}}
-{{--                                    @enderror--}}
-{{--                                </div>--}}
-{{--                                <button type="submit"--}}
-{{--                                        class="btn-white">Send--}}
-{{--                                </button>--}}
-{{--                            </div>--}}
+    /* Modern Input Fields */
+    .form-group {
+        margin-bottom: 20px;
+        text-align: left;
+    }
 
-{{--                            <div class="login_terms">--}}
-{{--                                <p>Don't have account? <a href="{{route('register')}}">SIGN UP </a></p>--}}
-{{--                            </div>--}}
-{{--                        </form>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </section>--}}
-{{--    </div>--}}
-
-
-    {{--    <div id="forgot-password" class="row">--}}
-    {{--        <div class="col s12 m6 l4 z-depth-4 offset-m4 card-panel border-radius-6 forgot-card bg-opacity-8">--}}
-    {{--            --}}{{-- success status --}}
-    {{--            @if (session('status'))--}}
-    {{--                <div class="card-alert card green lighten-5">--}}
-    {{--                    <div class="card-content green-text">--}}
-    {{--                        <p>{{ session('status') }}</p>--}}
-    {{--                    </div>--}}
-    {{--                    <button type="button" class="close green-text" data-dismiss="alert" aria-label="Close">--}}
-    {{--                        <span aria-hidden="true">×</span>--}}
-    {{--                    </button>--}}
-    {{--                </div>--}}
-    {{--            @endif--}}
-    {{--            <form class="login-form" method="POST" action="{{ route('password.email') }}">--}}
-    {{--                @csrf--}}
-
-    {{--                <div class="row">--}}
-    {{--                    <div class="input-field col s12">--}}
-    {{--                        <h5 class="ml-4">Forgot Password</h5>--}}
-    {{--                        <p class="ml-4">You can reset your password</p>--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-    {{--                <div class="row">--}}
-    {{--                    <div class="input-field col s12">--}}
-    {{--                        <i class="material-icons prefix pt-2">person_outline</i>--}}
-    {{--                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"--}}
-    {{--                               value="{{ old('email') }}" required autocomplete="email" autofocus>--}}
-    {{--                        <label for="email" class="center-align">Email</label>--}}
-    {{--                        @error('email')--}}
-    {{--                        <span class="red-text ml-10" role="alert">--}}
-    {{--            <strong>{{ $message }}</strong>--}}
-    {{--          </span>--}}
-    {{--                        @enderror--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-    {{--                <div class="row">--}}
-    {{--                    <div class="input-field col s12">--}}
-    {{--                        <button type="submit"--}}
-    {{--                                class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12 mb-1">Reset--}}
-    {{--                            Password</button>--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-    {{--                <div class="row">--}}
-    {{--                    <div class="input-field col s6 m6 l6">--}}
-    {{--                        <p class="margin medium-small"><a href="{{ route('login')}}">Login</a></p>--}}
-    {{--                    </div>--}}
-    {{--                    <div class="input-field col s6 m6 l6">--}}
-    {{--                        <p class="margin right-align medium-small"><a href="{{route('register')}}">Register</a></p>--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-    {{--            </form>--}}
-    {{--        </div>--}}
-    {{--    </div>--}}
-@endsection
-
-
-{{-- page script --}}
-@section('page-script')
-{{--    <script src="{{asset('js/scripts/ui-alerts.js')}}"></script>--}}
-@endsection
+    .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        font-size: 15px;
+        border: 1px solid #e1e1e1;
+        border-radius: 8px;
