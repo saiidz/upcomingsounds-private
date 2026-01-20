@@ -2,7 +2,7 @@
 @extends('layouts.welcomeLayout')
 
 {{-- page title --}}
-@section('title','Upcoming Sounds| Submit Your Music Today!')
+@section('title','Upcoming Sounds| Get Your Music Heard!')
 @section('page-style')
  
 
