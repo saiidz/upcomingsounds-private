@@ -15,6 +15,7 @@
     <title>Upcoming Sounds</title>
 <script src="//code.tidio.co/nlzrwdckpawqcjxqkphkdskehwmmre38.js" async></script>
 
+    <style>
     /* ============================================
    RESPONSIVE MEDIA QUERIES - MOBILE FIXES
    Add these to the end of your existing styles
