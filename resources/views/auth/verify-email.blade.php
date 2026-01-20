@@ -1,73 +1,146 @@
-{{-- layout --}}
 @extends('layouts.guest')
 
-{{-- page title --}}
-@section('title','Email verification')
+@section('title','Email Verification')
 
-{{-- page content --}}
-@section('content')
+@section('page-style')
+<style>
+    .verify-wrapper{
+        min-height:80vh;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
 
-    <div class="b-t">
-        <div class="center-block w-xxl w-auto-xs p-y-md text-center">
-            <div class="p-a-md">
-                <div>
-                    <h4>Verify your email</h4>
-                    <p class="text-muted m-y">
-                        Thanks for signing up! Before getting started,could you verify your email address by clicking on the link we just emailed to you? <span  style="color: red !important;">If you didn't receive the email make sure to check your spam inbox </span>, we will gladly send you another.
-                    </p>
-                </div>
-                <div id="snackbar"></div>
-                <div id="snackbarError"></div>
-                @if (session('status') == 'verification-link-sent')
-                    <p class="verify_msg" style="color: red !important;">{{ __('A new verification link has been sent to the email address you provided during registration. If you did not receive the email make sure to check your spam inbox') }}</p>
-                @endif
+    .verify-card{
+        background:#fff;
+        border-radius:14px;
+        box-shadow:0 10px 30px rgba(0,0,0,0.08);
+        padding:28px 26px;
+        width:100%;
+        max-width:420px;
+    }
 
-                <div class="verify-btn">
-                    <form method="POST" action="{{ route('verification.send') }}">
-                        @csrf
-                        <button type="submit" class="btn circle btn-outline b-primary p-x-md auth_btn verification btn-one">Resend Verification Email.</button>
-{{--                        <button type="submit" class="btn black btn-block p-x-md verification btn-one">Resend Verification Email</button>--}}
-                    </form>
-                    <br>
-                    <form method="POST" action="{{ url('/logout') }}">
-                        @csrf
-                        <button type="submit" class="btn circle btn-outline b-primary p-x-md auth_btn verification btn-two">Log Out</button>
-{{--                        <button type="submit" class="btn black btn-block p-x-md verification btn-two">Log Out</button>--}}
-                    </form>
-                </div>
+    .verify-icon{
+        width:80px;
+        height:80px;
+        border-radius:50%;
+        background:#e9f8f4;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        margin:0 auto 16px;
+    }
 
+    .verify-title{
+        margin-bottom:6px;
+        font-weight:600;
+    }
 
-            </div>
-        </div>
-    </div>
+    .verify-text{
+        font-size:14px;
+        line-height:1.6;
+    }
+
+    .verify-hint{
+        display:inline-block;
+        margin-top:8px;
+        background:#fcf8e3;
+        color:#8a6d3b;
+        padding:6px 10px;
+        border-radius:6px;
+        font-size:12px;
+    }
+
+    .verify-actions .btn{
+        width:100%;
+        padding:10px;
+        font-weight:600;
+    }
+
+    .verify-logout{
+        background:none;
+        border:none;
+        color:#777;
+        font-size:13px;
+        margin-top:10px;
+        cursor:pointer;
+    }
+
+    .verify-logout:hover{
+        text-decoration:underline;
+        color:#444;
+    }
+
+    .alert-success{
+        background:#e8f7ee;
+        color:#1f7a4d;
+        padding:10px 12px;
+        border-radius:8px;
+        font-size:13px;
+        text-align:center;
+        margin:12px 0;
+    }
+</style>
 @endsection
 
-{{--        <div class="mb-4 text-sm text-gray-600">--}}
-{{--            {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}--}}
-{{--        </div>--}}
+@section('content')
 
-{{--        @if (session('status') == 'verification-link-sent')--}}
-{{--            <div class="mb-4 font-medium text-sm text-green-600">--}}
-{{--                {{ __('A new verification link has been sent to the email address you provided during registration.') }}--}}
-{{--            </div>--}}
-{{--        @endif--}}
+<div class="verify-wrapper">
+    <div class="center-block w-xxl w-auto-xs">
 
-{{--        <div class="mt-4 flex items-center justify-between">--}}
-{{--            <form method="POST" action="{{ route('verification.send') }}">--}}
-{{--                @csrf--}}
+        <div class="verify-card text-center">
 
-{{--                <div>--}}
-{{--                    <x-button>--}}
-{{--                        {{ __('Resend Verification Email') }}--}}
-{{--                    </x-button>--}}
-{{--                </div>--}}
-{{--            </form>--}}
+            {{-- Icon --}}
+            <div class="verify-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#0cc2aa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+            </div>
 
-{{--            <form method="POST" action="{{ url('/logout') }}">--}}
-{{--                @csrf--}}
+            {{-- Title & Text --}}
+            <h4 class="verify-title">Verify your email</h4>
 
-{{--                <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900">--}}
-{{--                    {{ __('Log Out') }}--}}
-{{--                </button>--}}
-{{--            </form>--}}
-{{--        </div>--}}
+            <p class="text-muted verify-text">
+                We have sent a verification link to your email address.  
+                Please click the link to activate your account.
+                <br>
+                <span class="verify-hint">
+                    If you don’t see it, please check your spam folder.
+                </span>
+            </p>
+
+            {{-- Success Message --}}
+            @if (session('status') == 'verification-link-sent')
+                <div class="alert-success">
+                    A new verification link has been sent to your email address.
+                </div>
+            @endif
+
+            {{-- Actions --}}
+            <div class="verify-actions m-t-md">
+
+                <form method="POST" action="{{ route('verification.send') }}">
+                    @csrf
+                    <button type="submit"
+                        class="btn btn-outline b-primary auth_btn"
+                        onclick="this.disabled=true; this.innerText='Sending…'; this.form.submit();">
+                        Resend Verification Email
+                    </button>
+                </form>
+
+                <form method="POST" action="{{ url('/logout') }}">
+                    @csrf
+                    <button type="submit" class="verify-logout">
+                        ← Log Out
+                    </button>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+@endsection
