@@ -14,6 +14,356 @@
     
     <title>Upcoming Sounds</title>
 <script src="//code.tidio.co/nlzrwdckpawqcjxqkphkdskehwmmre38.js" async></script>
+
+    /* ============================================
+   RESPONSIVE MEDIA QUERIES - MOBILE FIXES
+   Add these to the end of your existing styles
+   ============================================ */
+
+/* Tablet and below (991px) */
+@media (max-width: 991px) {
+    /* Make columns stack on tablet */
+    .col-md-6 {
+        width: 100% !important;
+        float: none !important;
+        margin-bottom: 30px;
+    }
+    
+    .col-lg-6 {
+        width: 100% !important;
+        float: none !important;
+    }
+    
+    /* Adjust curator section padding */
+    .curatorHomePage {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    
+    /* Center align on mobile */
+    .xs-text-center {
+        text-align: center !important;
+    }
+    
+    /* Stack display table cells */
+    .display-table {
+        display: block !important;
+        width: 100% !important;
+    }
+    
+    .display-table-cell-vertical-middle {
+        display: block !important;
+        width: 100% !important;
+    }
+    
+    /* Text alignment for mobile */
+    .text-right {
+        text-align: center !important;
+    }
+    
+    /* Reduce title sizes */
+    .title-extra-large {
+        font-size: 32px !important;
+        line-height: 1.3 !important;
+    }
+    
+    .title-extra-large-6 {
+        font-size: 36px !important;
+        line-height: 1.2 !important;
+    }
+    
+    /* Adjust slider content */
+    .slider-content {
+        padding: 20px !important;
+    }
+    
+    /* Features section - stack on mobile */
+    .features-section .row .col-lg-6,
+    .features-section .row .col-md-6 {
+        width: 100% !important;
+        float: none !important;
+    }
+    
+    /* Show feature image first on mobile */
+    .features-section .col-lg-6:last-child {
+        order: -1;
+    }
+    
+    /* Award section responsive */
+    .welcome_UpcomingSounds {
+        margin-bottom: 20px;
+    }
+}
+
+/* Mobile (767px and below) */
+@media (max-width: 767px) {
+    /* Reduce padding on sections */
+    .padding-110px-tb {
+        padding-top: 60px !important;
+        padding-bottom: 60px !important;
+    }
+    
+    .xs-padding-60px-tb {
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+    }
+    
+    /* Video section height */
+    .videoWlcome {
+        min-height: 70vh !important;
+    }
+    
+    /* Heading sizes */
+    .title-extra-large,
+    .sm-title-large,
+    .xs-section-title-large {
+        font-size: 24px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .title-extra-large-6 {
+        font-size: 28px !important;
+        line-height: 1.2 !important;
+    }
+    
+    /* Text sizes */
+    .text-extra-large {
+        font-size: 16px !important;
+    }
+    
+    .text-medium {
+        font-size: 14px !important;
+    }
+    
+    .text-light-gray {
+        font-size: 16px !important;
+    }
+    
+    /* Width adjustments */
+    .width-90,
+    .sm-width-100,
+    .xs-width-100 {
+        width: 100% !important;
+    }
+    
+    /* Margin adjustments */
+    .xs-margin-nineteen-bottom {
+        margin-bottom: 30px !important;
+    }
+    
+    .xs-margin-twenty-bottom {
+        margin-bottom: 30px !important;
+    }
+    
+    .sm-margin-ten-bottom {
+        margin-bottom: 20px !important;
+    }
+    
+    .sm-margin-ten-top {
+        margin-top: 20px !important;
+    }
+    
+    /* Buttons - stack and full width */
+    .btn-dual {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .btn-dual a {
+        width: 100% !important;
+        text-align: center !important;
+    }
+    
+    /* Slider positioning */
+    .slider-text-middle-main {
+        padding: 20px !important;
+    }
+    
+    /* Container padding */
+    .container {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    
+    /* Remove float on columns */
+    .col-xs-12 {
+        float: none !important;
+        width: 100% !important;
+    }
+    
+    /* No padding on mobile */
+    .xs-no-padding {
+        padding: 0 !important;
+    }
+    
+    .xs-no-padding-lr {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    
+    .xs-no-padding-15 {
+        padding: 0 !important;
+    }
+    
+    /* Feature section mobile */
+    .features-section .col-md-2 {
+        width: 20% !important;
+        float: left !important;
+    }
+    
+    .features-section .col-md-10 {
+        width: 80% !important;
+        float: left !important;
+    }
+    
+    .xs-float-none {
+        float: none !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+    
+    .xs-clear-both {
+        clear: both !important;
+    }
+    
+    /* Feature image height */
+    .xs-height-300-px {
+        height: 300px !important;
+        min-height: 300px !important;
+    }
+    
+    /* Award section columns */
+    .award-section .col-md-4 {
+        width: 100% !important;
+        float: none !important;
+        margin-bottom: 20px;
+    }
+    
+    /* Testimonial responsive */
+    .testimonial-slider {
+        width: 100% !important;
+        padding: 0 15px;
+    }
+    
+    .testim .wrap {
+        padding: 20px 10px !important;
+    }
+    
+    .testim .cont div p {
+        width: 100% !important;
+        font-size: 14px !important;
+    }
+    
+    .testim .arrow {
+        font-size: 1.5em !important;
+    }
+    
+    .testim .arrow.left {
+        left: 10px !important;
+    }
+    
+    .testim .arrow.right {
+        right: 10px !important;
+    }
+}
+
+/* Small mobile (480px and below) */
+@media (max-width: 480px) {
+    /* Further reduce headings */
+    .title-extra-large-6 {
+        font-size: 24px !important;
+    }
+    
+    .title-extra-large {
+        font-size: 20px !important;
+    }
+    
+    /* Mouse wheel indicator */
+    .mouse-wheel {
+        font-size: 40px !important;
+    }
+    
+    /* Button padding */
+    .btn,
+    .btn-sm {
+        padding: 12px 20px !important;
+        font-size: 14px !important;
+    }
+    
+    /* Content box spacing */
+    .content-box {
+        padding: 15px !important;
+    }
+    
+    /* Feature numbers smaller */
+    .feature-number {
+        font-size: 30px !important;
+    }
+    
+    /* Award image */
+    .award-section img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Ensure equalize works on mobile */
+@media (max-width: 991px) {
+    .equalize.xs-equalize-auto {
+        display: block !important;
+    }
+    
+    .equalize-display-inherit {
+        display: block !important;
+    }
+}
+
+/* Fix for Owl Carousel on mobile */
+@media (max-width: 767px) {
+    .owl-carousel .owl-item {
+        text-align: center;
+    }
+    
+    .owl-slider-full .item {
+        padding: 40px 15px !important;
+    }
+    
+    .one-sixth-screen {
+        min-height: 400px !important;
+    }
+    
+    .xs-one-third-screen {
+        min-height: 300px !important;
+    }
+}
+
+/* Ensure text is readable on all devices */
+@media (max-width: 767px) {
+    body {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    
+    /* Make sure images don't overflow */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Prevent horizontal scroll */
+    .row {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    
+    [class*="col-"] {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+</style>
+
     <!-- Your other meta tags and head content -->
     <script type="application/ld+json">
     {
