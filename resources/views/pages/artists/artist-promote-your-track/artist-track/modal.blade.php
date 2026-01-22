@@ -1,4 +1,33 @@
 <!-- Add Track Modal -->
+<style>
+    /* Responsive Modal Sizing */
+    .modal-dialog {
+        width: 90%;
+        max-width: 600px; /* Prevents it from getting too wide on desktop */
+        margin: 1.75rem auto;
+    }
+
+    /* Scrollable Text Area */
+    .modal-body.scrollable-content {
+        max-height: 60vh; /* Limits height to 60% of screen */
+        overflow-y: auto; /* Adds scrollbar if text is too long */
+        padding: 1.5rem;
+    }
+
+    /* Responsive Text */
+    .responsive-text p {
+        font-size: clamp(0.9rem, 2.5vw, 1.1rem); /* Scales text size automatically */
+        line-height: 1.6;
+        color: #333;
+        margin-bottom: 1rem;
+    }
+    
+    .responsive-text strong {
+        color: #000;
+        display: block;
+        margin-bottom: 0.25rem;
+    }
+</style>
 <div id="add-track-promote" class="modal black-overlay" data-backdrop="false">
     <div class="modal-dialog">
         <div class="modal-content">
