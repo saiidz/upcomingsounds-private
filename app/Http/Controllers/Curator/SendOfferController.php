@@ -7,6 +7,7 @@ use App\Models\Conversation;
 use App\Models\CuratorOfferTemplate;
 use App\Models\Message;
 use App\Models\SendOffer;
+use App\Models\User;
 use App\Notifications\SendNotification;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -23,18 +24,20 @@ class SendOfferController extends Controller
      */
     public function sendOffer(Request $request)
     {
-        if($request->ajax()){
+        if($request->ajax())
+        {
             if ($request->offer_template_ID)
-           // --- START OF CUSTOM CODE ---
-            // 1. Get the Template and the Artist
-            $templateObj = CuratorOfferTemplate::find($request->offer_template_ID);
-            $artistObj = \App\Models\User::find($request->artistID);
-
-            // 2. Swap {ARTIST} with the real name
-            // (Note: If your template column is named 'message' instead of 'description', change it below)
-            $finalMessage = str_replace('{ARTIST}', $artistObj->name, $templateObj->description);
-            // --- END OF CUSTOM CODE ---
             {
+                // --- STEP 1: PREPARE THE MESSAGE ---
+                $templateObj = CuratorOfferTemplate::find($request->offer_template_ID);
+                $artistObj = User::find($request->artistID);
+
+                // Swap {ARTIST} with the real name
+                // Note: using 'description' column from the template. Change if needed.
+                $finalMessage = str_replace('{ARTIST}', $artistObj->name, $templateObj->description);
+
+
+                // --- STEP 2: CREATE THE OFFER ---
                 $sendOffer = SendOffer::create([
                     'curator_id'  => Auth::id(),
                     'offer_template_id' => $request->offer_template_ID,
@@ -44,44 +47,41 @@ class SendOfferController extends Controller
                     'expiry_date' => $request->offer_expiry,
                     'publish_date' => $request->offer_publish,
                     'is_approved' => 1,
-                    // --- START OF CUSTOM CODE ---
-            // 1. Get the Template and the Artist
-            $templateObj = CuratorOfferTemplate::find($request->offer_template_ID);
-            $artistObj = \App\Models\User::find($request->artistID);
-
-            // 2. Swap {ARTIST} with the real name
-            // (Note: If your template column is named 'message' instead of 'description', change it below)
-            $finalMessage = str_replace('{ARTIST}', $artistObj->name, $templateObj->description);
-            // --- END OF CUSTOM CODE ---
-                'message' => $finalMessage,
+                    'message' => $finalMessage, // <--- Using the swapped message here
                 ]);
 
-                // send notification
-                $data   =   [
-                    'title' =>  Auth::user()->name.' (New Offer)',
-                    'link'  =>  url("/artist-offers"),
-                    'date'  =>  getDateFormat($sendOffer->created_at),
+
+                // --- STEP 3: SEND NOTIFICATION ---
+                $data = [
+                    'title' => Auth::user()->name.' (New Offer)',
+                    'link'  => url("/artist-offers"),
+                    'date'  => getDateFormat($sendOffer->created_at),
                 ];
 
-                $params =   [
-                    'channel_name'  =>  'offer_notification',
-                    'data'          =>  $data,
+                $params = [
+                    'channel_name'  => 'offer_notification',
+                    'data'          => $data,
                 ];
 
                 $user = !empty($sendOffer->userArtist) ? $sendOffer->userArtist : null;
+
                 if(!empty($user))
                 {
-                    $user->notify(new SendNotification($params));
+                    // Using full path to ensure no "Class not found" error
+                    $user->notify(new \App\Notifications\SendNotification($params));
                 }
 
                 return response()->json([
                     'success' => 'Offer send successfully',
                 ]);
-            }else
+
+            }
+            else
             {
                 return response()->json(['error' => 'Error In Ajax call.']);
             }
-        }else
+        }
+        else
         {
             return response()->json(['error' => 'Error In Ajax call.']);
         }
