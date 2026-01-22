@@ -1,53 +1,3 @@
-<style>
-  /* --- WIDGET STYLES --- */
-  :root {
-    --us-green: #00dda2;    /* Change to #D32F2F if you want Red */
-    --us-text: #ffffff;
-  }
-  .us-widget {
-    background: #1e1e1e;
-    color: var(--us-text);
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  }
-  .us-widget.size-visual {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://upcomingsounds.com/images/logo.png'); /* Ensure this path is correct */
-    background-size: cover;
-    background-position: center;
-    padding: 20px;
-  }
-  .us-widget h3 { margin: 0 0 5px; font-size: 18px; color: #fff; }
-  .us-widget p { margin: 0 0 15px; color: #ccc; font-size: 13px; }
-  
-  .input-group { display: flex; height: 35px; }
-  .link-input {
-    flex: 1;
-    background: #000;
-    border: 1px solid #333;
-    color: var(--us-green);
-    padding: 0 10px;
-    font-size: 12px;
-    outline: none;
-    border-radius: 4px 0 0 4px;
-  }
-  .btn-copy {
-    width: 60px;
-    background: var(--us-green);
-    color: #000;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 11px;
-    border-radius: 0 4px 4px 0;
-  }
-  .btn-copy:hover { background: #fff; }
-</style>
 <div class="col-lg-{{(Request::is('dashboard') == 'true') ? 4 : 3}} w-xxl w-auto-md">
     <div class="padding" style="bottom: 60px;" data-ui-jp="stick_in_parent">
         @if(Request::is('dashboard') == 'true')
@@ -466,7 +416,7 @@
                 @endforelse
             @endif
         @endif
-{{-- 3. DISPLAY AREA (Formal Layout) --}}
+                                        {{-- 3. DISPLAY AREA (Formal Layout) --}}
 <div class="padding">
     <h6 class="text-white m-b-md">Embeddable Widgets</h6>
     <p class="text-muted text-xs m-b-lg">Choose a style below. These previews are scaled down 50% to fit your screen.</p>
@@ -583,6 +533,7 @@
     </div>
 
 </div>
+
         {{-- <h6 class="text text-muted">Go mobile</h6>
         <div class="btn-groups">
             <a href="" class="btn btn-sm dark lt m-r-xs" style="width: 135px">
@@ -615,34 +566,3 @@
         <p class="text-muted text-xs p-b-lg">&copy; Copyright {{ date('Y') }}</p>
     </div>
 </div>
-<script>
-    // Function for the Link Copy Button
-    function copyLink(elementId) {
-      var copyText = document.getElementById(elementId);
-      copyText.select();
-      copyText.setSelectionRange(0, 99999);
-      navigator.clipboard.writeText(copyText.value);
-      
-      // Visual feedback
-      var btn = event.target;
-      btn.innerText = "Copied!";
-      setTimeout(function(){ btn.innerText = "Copy"; }, 2000);
-    }
-
-    // Function for the HTML Embed Code Button
-    function copyEmbed(elementId) {
-      var copyText = document.getElementById(elementId);
-      copyText.select();
-      copyText.setSelectionRange(0, 99999);
-      navigator.clipboard.writeText(copyText.value);
-
-      // Visual feedback
-      var btn = event.target;
-      btn.innerText = "COPIED!";
-      btn.style.background = "#fff";
-      setTimeout(function(){ 
-          btn.innerText = "COPY CODE"; 
-          btn.style.background = "#00dda2";
-      }, 2000);
-    }
-</script>
