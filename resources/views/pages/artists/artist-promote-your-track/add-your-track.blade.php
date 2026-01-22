@@ -115,16 +115,16 @@
                                             <p>Step 1. <span id="inProgress">Add your release</span></p>
                                         </div>
                                         <div class="title__name">
-                                            <h3>My Selection</h3>
+                                            <h3> Campaign Type Selection</h3>
                                             <p>Step 2. <span id="inComplete">Choose a campaign</span></p>
                                         </div>
                                         <div class="title__name">
                                             <h3>Activate your campaign</h3>
-{{--                                            <h3>My messages</h3>--}}
+{{--                                            <h3>campaign Activation</h3>--}}
                                             <p>Step 3 <span id="myMessage">Complete</span></p>
                                         </div>
 {{--                                        <div class="title__name">--}}
-{{--                                            <h3>My recap</h3>--}}
+{{--                                            <h3>Recap</h3>--}}
 {{--                                            <p>Step 4 <span id="myRecap"></span></p>--}}
 {{--                                        </div>--}}
                                         <div class="packageDec" id="standard_dec" style="display:none">
