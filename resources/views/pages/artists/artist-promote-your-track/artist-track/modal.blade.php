@@ -3,14 +3,14 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Add a song</h5>
+                <h5 class="modal-title">Submit a New Track</h5>
             </div>
 
             <div class="modal-body p-lg">
                 <form method="post" action="{{ route('artist.track.store',['promote' => 'true']) }}" enctype="multipart/form-data" id="ddTrackPromote" class="basicform_with_track_store">
                     @csrf
                     <div class="item-except text-sm text-muted h-2x m-t-sm">
-                        Complete your discography and let influencers discover your songs when they visit your profile.
+                        Complete your discography and Showcase your best work and help curators find your next big hit..
                     </div>
 
                     <div class="form-group">
@@ -53,7 +53,7 @@
                     <div class="form-group">
                         <div>
                             <p class="mb-1">
-                                <p class="text-muted">Is This a Cover or a remix</p>
+                                <p class="text-muted"> Select your track Version</p>
                                 <div class="remix">
                                     <label>
                                         <input type="checkbox" class="radio audioCover" value="original" name="audio_cover" />   Original</label>
@@ -241,7 +241,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label form-control-label text-muted">Pitch Description</label>
+                        <label class="control-label form-control-label text-muted"> Add a pitch description</label>
                         <div>
                                    <textarea name="pitch_description" value="" id="trackEditPitchDescription"
                                              placeholder="Your description..."
@@ -309,15 +309,13 @@
                 <h5 class="modal-title">What's the deal with copyrights?</h5>
             </div>
             <div class="modal-body">
-                When submitting your song, you'll probably see a prompt asking if you're willing to sign a copyright agreement so that someone can upload the song to their channel.
+               When submitting your song, you may be asked to sign a copyright agreement. This is primarily for YouTube channels (and occasionally Facebook or radio) to ensure they can upload your music without facing copyright strikes. 
+                By signing, you simply grant them permission to feature your track.
 
-                The copyright agreements are 90% for YouTube channels (occasionally others might ask if they can upload to their Facebook or a radio show, for example). The copyright is you giving them permission to upload the song without getting in trouble. YouTube has all sorts of automatic copyright stuff going on, so if they do get in trouble, they can just show the copyright agreement you signed and say "see, they gave us permission!"
+Regarding Monetization: Many YouTube channels support themselves by running ads. If you allow monetization, they keep the ad revenue in exchange for providing you with exposure and promotion. 
+                Importantly, granting this permission does not stop you from uploading the song to your own official channel.
 
-                As for the monetization -- a lot of those YouTube channels run ads on their videos. If you give them permission to monetize your video, they can run ads and keep all the money. The idea is that in exchange, you get exposure. (Also worth noting that YouTube has some of the worst monetization of any music platform, so it's not like you're losing out on much).
-
-                Them having your song on their channel doesn't mean you can't put it on your own official channel.
-
-                Will it make a difference if you allow monetization or not? Nope! SubmitHub will automatically filter out any channels who require monetization, so if your preference is non-monetization, you'll never be sending your song to someone who requires that.
+Does this affect who hears your music? No! Upcoming Sounds automatically filters curators based on your settings. If you prefer not to allow monetization, your track will simply not be sent to channels that require it.
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
