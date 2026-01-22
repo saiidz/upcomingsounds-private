@@ -466,137 +466,123 @@
                 @endforelse
             @endif
         @endif
-{{-- --- WIDGET GENERATION & DISPLAY SECTION --- --}}
-@php
-    // 1. PREPARE DATA
-    // Get Avatar (Fallback to Logo)
-    $avatarImg = !empty(auth()->user()->avatar) ? auth()->user()->avatar : asset('images/logo.png');
-    $refUrl = $referral->link;
-    $uniqueID = $referral->id;
-
-    // 2. DEFINE THE WIDGET HTML CODES (Inline Styles for Portability)
-    
-    // STYLE A: CARD (300x380)
-    $codeCard = '
-    <div style="width: 300px; height: 380px; background: #1e1e1e; font-family: Helvetica, Arial, sans-serif; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.5); text-align: center;">
-        <div style="height: 200px; background: url(\''.$avatarImg.'\') center/cover;"></div>
-        <div style="padding: 20px; color: #fff;">
-            <h3 style="margin: 0 0 5px; font-size: 20px;">Refer & Earn</h3>
-            <p style="font-size: 13px; color: #b3b3b3; margin: 0 0 15px 0;">Get 10 USC for every artist you refer!</p>
-            <a href="'.$refUrl.'" target="_blank" style="display: block; background: #00dda2; color: #000; padding: 12px; text-decoration: none; font-weight: bold; border-radius: 4px; font-size: 14px;">GET STARTED</a>
-        </div>
-    </div>';
-
-    // STYLE B: WIDE (100% x 160) - Good for Blogs
-    $codeWide = '
-    <div style="width: 100%; max-width: 600px; height: 160px; background: #1e1e1e; display: flex; align-items: center; border-radius: 8px; overflow: hidden; font-family: Helvetica, Arial, sans-serif; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
-        <div style="width: 140px; height: 100%; background: url(\''.$avatarImg.'\') center/cover;"></div>
-        <div style="flex: 1; padding: 20px; color: #fff;">
-            <h3 style="margin: 0 0 5px; font-size: 22px;">Invite Artists</h3>
-            <p style="font-size: 13px; color: #b3b3b3; margin: 0 0 15px 0;">Share your unique link and earn rewards.</p>
-            <a href="'.$refUrl.'" target="_blank" style="background: #00dda2; color: #000; padding: 8px 15px; text-decoration: none; font-weight: bold; border-radius: 4px; font-size: 12px;">JOIN NOW</a>
-        </div>
-    </div>';
-
-    // STYLE C: COMPACT (100% x 80) - Good for Footers
-    $codeCompact = '
-    <div style="width: 100%; max-width: 600px; height: 80px; background: #1e1e1e; display: flex; align-items: center; padding: 0 15px; border-radius: 8px; font-family: Helvetica, Arial, sans-serif; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
-        <div style="width: 50px; height: 50px; background: #00dda2; color: #000; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 24px; border-radius: 4px; margin-right: 15px;">$</div>
-        <div style="flex: 1; color: #fff;">
-            <h3 style="font-size: 16px; margin: 0;">Referral Program</h3>
-            <span style="font-size: 12px; color: #b3b3b3;">Earn 10 USC per signup</span>
-        </div>
-        <a href="'.$refUrl.'" target="_blank" style="background: #333; color: #fff; padding: 6px 12px; text-decoration: none; font-size: 11px; border-radius: 4px; border: 1px solid #444;">LINK</a>
-    </div>';
-
-@endphp
-
-{{-- 3. DISPLAY AREA (Visuals are scaled down 50% for the dashboard) --}}
+{{-- 3. DISPLAY AREA (Formal Layout) --}}
 <div class="padding">
     <h6 class="text-white m-b-md">Embeddable Widgets</h6>
-    <p class="text-muted text-xs m-b-lg">Choose a style, copy the code, and paste it on your website.</p>
+    <p class="text-muted text-xs m-b-lg">Choose a style below. These previews are scaled down 50% to fit your screen.</p>
 
-    {{-- CSS to shrink the previews without changing the actual code --}}
     <style>
-        .widget-preview-row { margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 20px; }
-        .scale-wrapper { 
-            transform: scale(0.5); 
-            transform-origin: top left; 
-            margin-bottom: -50%; /* Pulls up the empty space left by scaling */
+        /* A formal box for each widget row */
+        .widget-box {
+            background: #252525;
+            border: 1px solid #3a3a3a;
+            border-radius: 6px;
+            margin-bottom: 25px; /* Spacing between widgets */
+            overflow: hidden;
         }
-        /* Adjust wrapper sizes to match the 50% scale */
-        .wrap-card { width: 150px; height: 190px; } 
-        .wrap-wide { width: 100%; height: 80px; }
-        .wrap-compact { width: 100%; height: 40px; }
+
+        /* The header bar inside the box */
+        .widget-header {
+            background: #333;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #444;
+        }
+
+        /* The container that holds the scaled widget */
+        .scale-viewport {
+            position: relative;
+            width: 100%;
+            overflow: hidden; /* Cuts off any overflow */
+            background: #1e1e1e; /* Match widget bg */
+        }
+
+        /* Set fixed heights for the viewports (Original Height / 2) */
+        .h-card { height: 190px; }      /* 380px / 2 */
+        .h-wide { height: 80px; }       /* 160px / 2 */
+        .h-compact { height: 40px; }    /* 80px / 2 */
+
+        /* The scaler that shrinks the content */
+        .scaler {
+            transform: scale(0.5);
+            transform-origin: top left;
+        }
+
+        /* For responsive widgets (Wide/Compact), we need to double the width 
+           so when scaled by 0.5, it fills the container perfectly */
+        .w-double { width: 200%; }
         
-        .copy-actions { margin-top: 10px; display: flex; justify-content: space-between; align-items: center; }
-        .btn-copy-code { background: #00dda2; color: #000; border: none; padding: 5px 10px; font-size: 11px; font-weight: bold; cursor: pointer; border-radius: 3px; }
+        .btn-copy-code {
+            background: #00dda2;
+            color: #000;
+            border: none;
+            padding: 5px 12px;
+            font-size: 11px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 3px;
+            text-transform: uppercase;
+        }
+        .btn-copy-code:hover { background: #fff; }
     </style>
 
-    {{-- WIDGET 1: CARD --}}
-    <div class="widget-preview-row">
-        <h6 class="text-muted text-xs">1. Card Style (300x380)</h6>
-        <div class="scale-wrapper wrap-card">
-            {!! $codeCard !!}
+    {{-- WIDGET 1: CARD STYLE --}}
+    <div class="widget-box">
+        <div class="widget-header">
+            <div>
+                <strong class="text-white text-sm">1. Card Style</strong>
+                <span class="text-muted text-xs m-l-xs">- Great for Sidebars</span>
+            </div>
+            <button class="btn-copy-code" onclick="copyEmbed('code-card-{{$uniqueID}}', this)">Copy Code</button>
         </div>
-        <div class="copy-actions">
-            <span class="text-muted text-xs">Great for Sidebars</span>
-            <textarea id="code-card-{{$uniqueID}}" style="display:none;">{{ $codeCard }}</textarea>
-            <button class="btn-copy-code" onclick="copyEmbed('code-card-{{$uniqueID}}', this)">COPY CODE</button>
+        
+        <div class="scale-viewport h-card">
+            <div class="scaler">
+                {!! $codeCard !!}
+            </div>
         </div>
+        <textarea id="code-card-{{$uniqueID}}" style="display:none;">{{ $codeCard }}</textarea>
     </div>
 
-    {{-- WIDGET 2: WIDE --}}
-    <div class="widget-preview-row">
-        <h6 class="text-muted text-xs">2. Wide Style (Responsive)</h6>
-        <div class="scale-wrapper wrap-wide">
-            {!! $codeWide !!}
+    {{-- WIDGET 2: WIDE STYLE --}}
+    <div class="widget-box">
+        <div class="widget-header">
+            <div>
+                <strong class="text-white text-sm">2. Wide Style</strong>
+                <span class="text-muted text-xs m-l-xs">- Great for Blog Posts</span>
+            </div>
+            <button class="btn-copy-code" onclick="copyEmbed('code-wide-{{$uniqueID}}', this)">Copy Code</button>
         </div>
-        <div class="copy-actions">
-            <span class="text-muted text-xs">Great for Blog Posts</span>
-            <textarea id="code-wide-{{$uniqueID}}" style="display:none;">{{ $codeWide }}</textarea>
-            <button class="btn-copy-code" onclick="copyEmbed('code-wide-{{$uniqueID}}', this)">COPY CODE</button>
+
+        <div class="scale-viewport h-wide">
+            <div class="scaler w-double">
+                {!! $codeWide !!}
+            </div>
         </div>
+        <textarea id="code-wide-{{$uniqueID}}" style="display:none;">{{ $codeWide }}</textarea>
     </div>
 
-    {{-- WIDGET 3: COMPACT --}}
-    <div class="widget-preview-row" style="border: none;">
-        <h6 class="text-muted text-xs">3. Compact Style</h6>
-        <div class="scale-wrapper wrap-compact">
-            {!! $codeCompact !!}
+    {{-- WIDGET 3: COMPACT STYLE --}}
+    <div class="widget-box">
+        <div class="widget-header">
+            <div>
+                <strong class="text-white text-sm">3. Compact Style</strong>
+                <span class="text-muted text-xs m-l-xs">- Great for Footers</span>
+            </div>
+            <button class="btn-copy-code" onclick="copyEmbed('code-compact-{{$uniqueID}}', this)">Copy Code</button>
         </div>
-        <div class="copy-actions">
-            <span class="text-muted text-xs">Great for Footers</span>
-            <textarea id="code-compact-{{$uniqueID}}" style="display:none;">{{ $codeCompact }}</textarea>
-            <button class="btn-copy-code" onclick="copyEmbed('code-compact-{{$uniqueID}}', this)">COPY CODE</button>
+
+        <div class="scale-viewport h-compact">
+            <div class="scaler w-double">
+                {!! $codeCompact !!}
+            </div>
         </div>
+        <textarea id="code-compact-{{$uniqueID}}" style="display:none;">{{ $codeCompact }}</textarea>
     </div>
-    
+
 </div>
-
-{{-- 4. JAVASCRIPT FOR COPY BUTTON (Use the existing one or add this at the bottom) --}}
-<script>
-    function copyEmbed(elementId, btnElement) {
-      var copyText = document.getElementById(elementId);
-      copyText.style.display = 'block'; // Show briefly to select
-      copyText.select();
-      copyText.setSelectionRange(0, 99999);
-      
-      try {
-          document.execCommand('copy');
-          var originalText = btnElement.innerText;
-          btnElement.innerText = "COPIED!";
-          btnElement.style.background = "#fff";
-          setTimeout(function(){ 
-              btnElement.innerText = originalText; 
-              btnElement.style.background = "#00dda2";
-          }, 2000);
-      } catch (err) {
-          alert('Oops, unable to copy');
-      }
-      copyText.style.display = 'none'; // Hide again
-    }
-</script>
         {{-- <h6 class="text text-muted">Go mobile</h6>
         <div class="btn-groups">
             <a href="" class="btn btn-sm dark lt m-r-xs" style="width: 135px">
