@@ -44,7 +44,16 @@ class SendOfferController extends Controller
                     'expiry_date' => $request->offer_expiry,
                     'publish_date' => $request->offer_publish,
                     'is_approved' => 1,
-                    'message' => $finalMessage,                           
+                    // --- START OF CUSTOM CODE ---
+            // 1. Get the Template and the Artist
+            $templateObj = CuratorOfferTemplate::find($request->offer_template_ID);
+            $artistObj = \App\Models\User::find($request->artistID);
+
+            // 2. Swap {ARTIST} with the real name
+            // (Note: If your template column is named 'message' instead of 'description', change it below)
+            $finalMessage = str_replace('{ARTIST}', $artistObj->name, $templateObj->description);
+            // --- END OF CUSTOM CODE ---
+                'message' => $finalMessage,
                 ]);
 
                 // send notification
