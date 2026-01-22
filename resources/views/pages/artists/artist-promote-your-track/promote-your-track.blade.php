@@ -276,7 +276,7 @@
                         @endforeach
                     @else
                         <div class="item-title text-ellipsis notFoundCampaign">
-                            <h3 class="" style="text-align:center;font-size: 30px;">Not Campaign Found</h3>
+                            <h3 class="" style="text-align:center;font-size: 30px;">No Campaign Found</h3>
                         </div>
                     @endif
                 </section>
@@ -610,7 +610,7 @@
                             @endforeach
                         @else
                             <div class="item-title text-ellipsis">
-                                <h3 class="white" style="text-align:center;font-size: 15px;">Not New Found</h3>
+                                <h3 class="white" style="text-align:center;font-size: 15px;">Nothing To Show</h3>
                             </div>
                         @endif
                     </div>
