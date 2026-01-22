@@ -466,7 +466,50 @@
                 @endforelse
             @endif
         @endif
+{{-- --- START EMBED SECTION --- --}}
+    
+    {{-- 1. Generate the HTML String for the Curator's Widget --}}
+    @php
+        // Try to get user avatar, fallback to logo if missing
+        $avatarUrl = !empty(auth()->user()->avatar) ? auth()->user()->avatar : asset('images/logo.png');
+        
+        // This is the HTML code that will appear inside the text box
+        $widgetHTML = '
+<div style="width: 300px; background: #1e1e1e; border-radius: 8px; overflow: hidden; font-family: Arial, sans-serif; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+    <div style="height: 120px; background: url(\''.$avatarUrl.'\') center/cover; position: relative;">
+        <div style="position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, #1e1e1e, transparent); padding: 15px;">
+            <h3 style="margin: 0; color: #fff; font-size: 18px; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">'.Auth::user()->name.'</h3>
+        </div>
+    </div>
+    <div style="padding: 20px; text-align: center;">
+        <p style="color: #ccc; font-size: 13px; margin: 0 0 15px 0; line-height: 1.5;">
+            Submit your music to my playlist on UpcomingSounds!
+        </p>
+        <a href="'.$referral->link.'" target="_blank" style="display: block; width: 100%; background: #00dda2; color: #000; padding: 12px 0; text-decoration: none; font-weight: bold; border-radius: 4px; font-size: 14px; text-transform: uppercase;">
+            Submit Now
+        </a>
+    </div>
+</div>';
+    @endphp
 
+    {{-- 2. Display the "Get Embed Code" Box to the Curator --}}
+    <div class="m-t-lg" style="border-top: 1px solid #333; padding-top: 20px;">
+        <h6 class="text-white">Embed on your Website</h6>
+        <p class="text-muted text-xs">Copy this code to add your badge to your blog or website:</p>
+        
+        <div style="position: relative;">
+            <textarea id="embedCode-{{$referral->id}}" class="form-control" rows="3" 
+                style="font-size: 11px; background: #000; border: 1px solid #333; color: #888; white-space: nowrap; overflow-x: auto;" 
+                readonly onclick="this.select()">{{ $widgetHTML }}</textarea>
+            
+            <button onclick="copyEmbed('embedCode-{{$referral->id}}')" 
+                style="position: absolute; top: 5px; right: 5px; background: #00dda2; color: #000; border: none; padding: 4px 10px; font-size: 11px; font-weight:bold; border-radius: 3px; cursor: pointer;">
+                COPY CODE
+            </button>
+        </div>
+    </div>
+    
+    {{-- --- END EMBED SECTION --- --}}
         {{-- <h6 class="text text-muted">Go mobile</h6>
         <div class="btn-groups">
             <a href="" class="btn btn-sm dark lt m-r-xs" style="width: 135px">
