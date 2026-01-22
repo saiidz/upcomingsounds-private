@@ -270,10 +270,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label form-control-label text-muted"> Add a pitch description</label>
+                        <label class="control-label form-control-label text-muted"> Pitch Your Track to Curators</label>
                         <div>
                                    <textarea name="pitch_description" value="" id="trackEditPitchDescription"
-                                             placeholder="Your description..."
+                                             placeholder="Give the curator a reason to connect with your music."
                                              class="form-control @error('pitch_description') is-invalid @enderror"></textarea>
                         </div>
                     </div>
