@@ -392,6 +392,369 @@
                                 <input id="tastemaker_name" class="form-control" value="{{ $referral->link }}">
                             </div>
                         </div>
+                    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UpcomingSounds Widget Generator</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --bg: #0f172a;
+            --surface: #1e293b;
+            --text: #f8fafc;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* --- Generator UI --- */
+        .generator-container {
+            width: 100%;
+            max-width: 1000px;
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        h1 { margin-top: 0; text-align: center; background: linear-gradient(to right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #334155;
+        }
+
+        .input-group { display: flex; flex-direction: column; gap: 8px; }
+        label { font-size: 0.85rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        input[type="text"] {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            background: #0f172a;
+            color: #fff;
+            font-size: 1rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        input[type="text"]:focus { border-color: var(--primary); outline: none; }
+
+        .size-selector { display: flex; gap: 10px; }
+        .size-btn {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #334155;
+            background: #0f172a;
+            color: #94a3b8;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+            text-align: center;
+        }
+        .size-btn:hover { background: #1e293b; border-color: var(--primary); }
+        .size-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Preview Area */
+        .preview-wrapper {
+            background: #0f172a;
+            border: 2px dashed #334155;
+            border-radius: 12px;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        .preview-label {
+            position: absolute;
+            top: 10px; left: 10px;
+            font-size: 0.75rem; color: #475569;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        /* Code Output */
+        .output-section { margin-top: 30px; }
+        textarea {
+            width: 100%; height: 120px;
+            background: #0b1120;
+            border: 1px solid #334155;
+            color: #cbd5e1;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            resize: none;
+            box-sizing: border-box;
+        }
+        
+        .action-row {
+            display: flex; justify-content: flex-end; margin-top: 10px;
+        }
+        .copy-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white; border: none;
+            padding: 12px 24px; border-radius: 8px;
+            font-weight: bold; cursor: pointer;
+            transition: transform 0.1s;
+        }
+        .copy-btn:active { transform: scale(0.98); }
+
+        /* --- WIDGET INTERNAL STYLES (Hidden from view, used for injection) --- */
+        .us-widget-root {
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, #111, #1a1a1a);
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            box-sizing: border-box;
+            border: 1px solid #333;
+        }
+        /* Logo styling updated to fit your specific logo better */
+        .us-logo-img { display: block; object-fit: contain; max-width: 100%; }
+        
+        .us-cta {
+            background: white; color: black;
+            text-decoration: none; padding: 8px 18px;
+            border-radius: 20px; font-size: 13px; font-weight: 700;
+            white-space: nowrap; transition: background 0.2s;
+        }
+        .us-cta:hover { background: #e2e8f0; }
+        .us-slider {
+            overflow: hidden; position: relative;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .us-slide-track {
+            display: flex; flex-direction: column; text-align: center;
+            animation: scrollText 9s infinite cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .us-slide-item {
+            display: flex; align-items: center; justify-content: center;
+            line-height: 1.3; color: #e2e8f0; text-align: center; padding: 0 5px;
+        }
+
+        /* --- VARIANT SPECIFIC STYLES --- */
+        /* Sidebar (300x250) */
+        .us-widget-sidebar { flex-direction: column; align-items: center; justify-content: center; padding: 20px; }
+        .us-widget-sidebar .us-logo-img { height: 50px; margin-bottom: 15px; } /* Increased height for your logo */
+        .us-widget-sidebar .us-slider { width: 100%; height: 60px; margin-bottom: 15px; }
+        .us-widget-sidebar .us-slide-item { height: 60px; font-size: 15px; }
+        .us-widget-sidebar .us-slide-track { animation-name: scrSidebar; }
+        @keyframes scrSidebar{0%,25%{transform:translateY(0)}33%,58%{transform:translateY(-60px)}66%,92%{transform:translateY(-120px)}100%{transform:translateY(0)}}
+
+        /* Banner (728x90) */
+        .us-widget-banner { flex-direction: row; align-items: center; justify-content: space-between; padding: 0 25px; }
+        .us-widget-banner .us-logo-img { height: 40px; margin-right: 15px; flex-shrink: 0; }
+        .us-widget-banner .us-slider { flex: 1; height: 50px; margin: 0 15px; }
+        .us-widget-banner .us-slide-item { height: 50px; font-size: 16px; }
+        .us-widget-banner .us-cta { flex-shrink: 0; }
+        .us-widget-banner .us-slide-track { animation-name: scrBanner; }
+        @keyframes scrBanner{0%,25%{transform:translateY(0)}33%,58%{transform:translateY(-50px)}66%,92%{transform:translateY(-100px)}100%{transform:translateY(0)}}
+
+        /* Large Banner (970x250) */
+        .us-widget-large { flex-direction: row; align-items: center; justify-content: space-around; padding: 0 40px; }
+        .us-widget-large .us-logo-img { height: 60px; }
+        .us-widget-large .us-slider { width: 50%; height: 80px; }
+        .us-widget-large .us-slide-item { height: 80px; font-size: 22px; }
+        .us-widget-large .us-cta { font-size: 16px; padding: 12px 24px; }
+        .us-widget-large .us-slide-track { animation-name: scrLarge; }
+        @keyframes scrLarge{0%,25%{transform:translateY(0)}33%,58%{transform:translateY(-80px)}66%,92%{transform:translateY(-160px)}100%{transform:translateY(0)}}
+
+        /* RESPONSIVE TWEAKS */
+        @media (max-width: 600px) {
+            .us-widget-banner { padding: 0 10px; }
+            .us-widget-banner .us-logo-img { height: 28px; margin-right: 8px; }
+            .us-widget-banner .us-slide-item { font-size: 13px; }
+            .us-widget-banner .us-cta { padding: 6px 12px; font-size: 11px; }
+            .us-widget-large { flex-direction: column; justify-content: center; padding: 20px; text-align: center; }
+            .us-widget-large .us-logo-img { margin-bottom: 10px; }
+            .us-widget-large .us-slider { width: 100%; margin-bottom: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="generator-container">
+    <h1>Widget Generator</h1>
+    
+    <div class="controls">
+        <div class="input-group">
+            <label>Referral URL</label>
+            <input type="text" id="refUrl" value="https://upcomingsounds.com/ref/curator123">
+        </div>
+
+        <div class="input-group">
+            <label>Select Widget Layout</label>
+            <div class="size-selector">
+                <div class="size-btn active" onclick="setSize('sidebar')">Sidebar<br><small>300x250</small></div>
+                <div class="size-btn" onclick="setSize('banner')">Banner<br><small>728x90</small></div>
+                <div class="size-btn" onclick="setSize('large')">Big Banner<br><small>970x250</small></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="preview-wrapper">
+        <span class="preview-label">Live Preview</span>
+        <div id="previewContainer">
+            </div>
+    </div>
+
+    <div class="output-section">
+        <label>Copy & Paste this code to your website:</label>
+        <textarea id="codeOutput" readonly></textarea>
+        <div class="action-row">
+            <button class="copy-btn" onclick="copyCode()">Copy Code</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // --- CONFIGURATION ---
+    const LOGO_URL = "https://upcomingsounds.com/images/logo.png";
+    // ---------------------
+
+    let currentSize = 'sidebar';
+    const dims = {
+        sidebar: { w: 300, h: 250, class: 'us-widget-sidebar' },
+        banner: { w: 728, h: 90, class: 'us-widget-banner' },
+        large: { w: 970, h: 250, class: 'us-widget-large' }
+    };
+
+    function setSize(size) {
+        currentSize = size;
+        document.querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('active'));
+        event.currentTarget.classList.add('active');
+        updateWidget();
+    }
+
+    function updateWidget() {
+        const url = document.getElementById('refUrl').value;
+        const config = dims[currentSize];
+
+        // 1. Build Preview
+        const previewHtml = `
+            <div class="us-widget-root ${config.class}" style="width:${config.w}px; height:${config.h}px;">
+                <img src="${LOGO_URL}" alt="UpcomingSounds" class="us-logo-img">
+                <div class="us-slider">
+                    <div class="us-slide-track">
+                        <div class="us-slide-item">Submit your music to my playlist</div>
+                        <div class="us-slide-item">Join our community for free</div>
+                        <div class="us-slide-item">Be heard on UpcomingSounds.com</div>
+                    </div>
+                </div>
+                <a href="${url}" target="_blank" class="us-cta">Get Started</a>
+            </div>
+        `;
+        document.getElementById('previewContainer').innerHTML = previewHtml;
+
+        // 2. Build Code (Self-contained Iframe)
+        const iframeCss = `
+<style>
+body{margin:0;overflow:hidden;font-family:sans-serif;}
+.us-widget-root{width:100%;height:100%;background:linear-gradient(135deg,#111,#222);color:white;display:flex;box-sizing:border-box;position:relative;border:1px solid #333;}
+.us-logo-img{display:block;object-fit:contain;max-width:100%;}
+.us-cta{background:white;color:black;text-decoration:none;padding:8px 16px;border-radius:20px;font-size:12px;font-weight:bold;white-space:nowrap;}
+.us-slider{overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;}
+.us-slide-track{display:flex;flex-direction:column;text-align:center;animation:scr 9s infinite cubic-bezier(0.4,0,0.2,1);}
+.us-slide-item{display:flex;align-items:center;justify-content:center;line-height:1.3;color:#ddd;text-align:center;padding:0 5px;}
+/* Sidebar */
+.us-widget-sidebar{flex-direction:column;align-items:center;justify-content:center;padding:20px;}
+.us-widget-sidebar .us-logo-img{height:50px;margin-bottom:10px;}
+.us-widget-sidebar .us-slider{width:100%;height:60px;margin-bottom:10px;}
+.us-widget-sidebar .us-slide-item{height:60px;font-size:14px;}
+.us-widget-sidebar .us-slide-track{animation-name:scrSidebar;}
+@keyframes scrSidebar{0%,25%{transform:translateY(0)}33%,58%{transform:translateY(-60px)}66%,92%{transform:translateY(-120px)}100%{transform:translateY(0)}}
+/* Banner */
+.us-widget-banner{flex-direction:row;align-items:center;justify-content:space-between;padding:0 25px;}
+.us-widget-banner .us-logo-img{height:40px;margin-right:15px;flex-shrink:0;}
+.us-widget-banner .us-slider{flex:1;height:50px;margin:0 10px;}
+.us-widget-banner .us-slide-item{height:50px;font-size:16px;}
+.us-widget-banner .us-cta{flex-shrink:0;}
+.us-widget-banner .us-slide-track{animation-name:scrBanner;}
+@keyframes scrBanner{0%,25%{transform:translateY(0)}33%,58%{transform:translateY(-50px)}66%,92%{transform:translateY(-100px)}100%{transform:translateY(0)}}
+/* Large */
+.us-widget-large{flex-direction:row;align-items:center;justify-content:space-around;padding:0 40px;}
+.us-widget-large .us-logo-img{height:60px;}
+.us-widget-large .us-slider{width:50%;height:80px;}
+.us-widget-large .us-slide-item{height:80px;font-size:22px;}
+.us-widget-large .us-slide-track{animation-name:scrLarge;}
+@keyframes scrLarge{0%,25%{transform:translateY(0)}33%,58%{transform:translateY(-80px)}66%,92%{transform:translateY(-160px)}100%{transform:translateY(0)}}
+/* Mobile Responsiveness inside Iframe */
+@media (max-width: 600px) {
+    .us-widget-banner{padding:0 10px;}
+    .us-widget-banner .us-logo-img{height:28px;margin-right:5px;}
+    .us-widget-banner .us-slide-item{font-size:12px;}
+    .us-widget-banner .us-cta{padding:5px 10px;font-size:10px;}
+    .us-widget-large{flex-direction:column;justify-content:center;padding:20px;text-align:center;}
+    .us-widget-large .us-logo-img{margin-bottom:10px;}
+    .us-widget-large .us-slider{width:100%;}
+}
+</style>
+        `;
+
+        const iframeBody = `
+<div class="us-widget-root ${config.class}">
+    <img src="${LOGO_URL}" alt="UpcomingSounds" class="us-logo-img">
+    <div class="us-slider"><div class="us-slide-track">
+        <div class="us-slide-item">Submit your music to my playlist</div>
+        <div class="us-slide-item">Join our community for free</div>
+        <div class="us-slide-item">Be heard on UpcomingSounds.com</div>
+    </div></div>
+    <a href="${url}" target="_blank" class="us-cta">Get Started</a>
+</div>`;
+
+        const srcDoc = `<html><head>${iframeCss}</head><body>${iframeBody}</body></html>`.replace(/"/g, '&quot;');
+        
+        // Final code with max-width:100% for responsiveness
+        const finalCode = `<iframe srcdoc="${srcDoc}" width="${config.w}" height="${config.h}" frameborder="0" scrolling="no" style="width:100%; max-width:${config.w}px; height:${config.h}px; border:none; overflow:hidden; display:block; margin:0 auto;"></iframe>`;
+        
+        document.getElementById('codeOutput').value = finalCode;
+    }
+
+    function copyCode() {
+        const copyText = document.getElementById("codeOutput");
+        copyText.select();
+        document.execCommand("copy");
+        const btn = document.querySelector('.copy-btn');
+        const oldText = btn.innerText;
+        btn.innerText = "Copied!";
+        setTimeout(() => btn.innerText = oldText, 2000);
+    }
+
+    document.getElementById('refUrl').addEventListener('input', updateWidget);
+    // Initial Load
+    updateWidget();
+</script>
+
+</body>
+</html>
+
+```
                         @php
                             $relationships = \App\Models\ReferralRelationship::where('referral_link_id',$referral->id)->get();
                             $count = 0;
