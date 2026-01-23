@@ -416,7 +416,83 @@
                 @endforelse
             @endif
         @endif
+<style>
+    /* ---- CONTAINER ---- */
+    .widget-box{
+        background:linear-gradient(180deg,#1b1f2a,#121520);
+        border:1px solid rgba(255,255,255,.08);
+        border-radius:12px;
+        margin-bottom:26px;
+        overflow:hidden;
+        box-shadow:0 12px 30px rgba(0,0,0,.45);
+        transition:.25s ease;
+    }
 
+    .widget-box:hover{
+        transform:translateY(-2px);
+        box-shadow:0 18px 40px rgba(0,0,0,.65);
+    }
+
+    /* ---- HEADER ---- */
+    .widget-header{
+        background:linear-gradient(90deg,#0b1020,#111633);
+        padding:12px 16px;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .widget-header strong{
+        letter-spacing:.3px;
+    }
+
+    /* ---- PREVIEW AREA ---- */
+    .scale-viewport{
+        position:relative;
+        width:100%;
+        overflow:hidden;
+        background:
+            radial-gradient(circle at top,#1a1f35,#0b0f1e 60%);
+        padding:10px 0;
+    }
+
+    .h-card{ height:210px; }
+    .h-wide{ height:95px; }
+    .h-compact{ height:55px; }
+
+    .scaler{
+        transform:scale(.55);
+        transform-origin:top left;
+    }
+
+    .w-double{ width:200%; }
+
+    /* ---- COPY BUTTON (ORIGINAL STYLE, POLISHED) ---- */
+    .btn-copy-code{
+        background:linear-gradient(135deg,#00f5b8,#00c896);
+        color:#02140f;
+        border:none;
+        padding:6px 14px;
+        font-size:11px;
+        font-weight:800;
+        cursor:pointer;
+        border-radius:999px;
+        text-transform:uppercase;
+        letter-spacing:.4px;
+        transition:.2s ease;
+        box-shadow:0 4px 12px rgba(0,245,184,.35);
+    }
+
+    .btn-copy-code:hover{
+        background:linear-gradient(135deg,#ffffff,#eafff8);
+        box-shadow:0 6px 18px rgba(255,255,255,.45);
+    }
+
+    .btn-copy-code:active{
+        transform:scale(.95);
+    }
+</style>
         {{-- <h6 class="text text-muted">Go mobile</h6>
         <div class="btn-groups">
             <a href="" class="btn btn-sm dark lt m-r-xs" style="width: 135px">
