@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{asset('css/custom/chat.css')}}" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
         #loadings {
             background: rgba(255, 255, 255, .4) url({{asset('images/loader.gif')}}) no-repeat center center !important;
@@ -16,9 +17,6 @@
         svg.svg-inline--fa {
             font-size: inherit !important;
         }
-        /*.profile_public{*/
-        /*    margin-left: 12.5rem;*/
-        /*}*/
         .artist-features {
             display: flex;
             align-items: center;
@@ -54,8 +52,7 @@
             transform: translate(-50%, -50%);
             width: 100%;
             height: 100%;
-            /*border: 4px solid #fff; !* Add a white border around the profile image *!*/
-            border-radius: 50%; /* Make it a circle for a profile image effect */
+            border-radius: 50%; 
         }
         .background-image {
             position: absolute;
@@ -63,17 +60,16 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensure the image covers the container */
+            object-fit: cover; 
         }
     </style>
 @endsection
 
 @section('content')
-    <!-- ############ PAGE START-->
-
     <div class="page-content">
         <div class="row-col">
-            <div class="col-lg-8 b-r no-border-md">
+            {{-- CHANGED: col-lg-8 to col-lg-12 to make it full width --}}
+            <div class="col-lg-12 b-r no-border-md">
                 <div class="padding">
                     <div class="page-title m-b proposition_header">
                         <h1 class="inline m-a-0 titleColor" style="font-size:2rem !important;">Coverage Details</h1>
@@ -136,7 +132,6 @@
                                 <p class="item-desc text-ellipsis text-muted" data-ui-toggle-class="text-ellipsis">
                                     @if(!empty($verifiedCoverage->user->curatorUser->curator_signup_from))
                                         {{Str::upper (ucwords(str_replace("_", " ", $verifiedCoverage->user->curatorUser->curator_signup_from)))}}
-{{--                                        {{Str::upper ($verifiedCoverage->user->curatorUser->curator_signup_from)}}--}}
                                     @endif
                                 </p>
                                 @if(!empty($verifiedCoverage->user->curatorUser->country))
@@ -220,12 +215,6 @@
                                                 <i class="fab fa-tiktok"></i>
                                             </a>
                                         @endif
-{{--                                        <a href="{{route('taste.maker.public.profile',$verifiedCoverage->user->name)}}" target="_blank" id="Public_Profile"--}}
-{{--                                           class="btn btn-icon btn-social rounded btn-social-colored"--}}
-{{--                                           style="background-color:#333 !important;" title="Public Profile">--}}
-{{--                                            <i class="custom-icon"></i>--}}
-{{--                                            <i class="custom-icon"></i>--}}
-{{--                                        </a>--}}
                                     </div>
                                 </div>
                             </div>
@@ -292,12 +281,12 @@
                 </div>
             </div>
 
-            @include('pages.curators.panels.right-sidebar')
+            {{-- CHANGED: Commented out the right sidebar to hide it --}}
+            {{-- @include('pages.curators.panels.right-sidebar') --}}
         </div>
     </div>
 
-    <!-- ############ PAGE END-->
-@endsection
+    @endsection
 
 
 @section('page-script')
@@ -305,9 +294,7 @@
     <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
     <script>
         $(document).ready(function() {
-
             $('.ckeditor').ckeditor();
-
         });
     </script>
     <script>
@@ -320,25 +307,15 @@
         }
     </script>
     <script>
-
         var curator_bio = {!! json_encode($verifiedCoverage->user->curatorUser->curator_bio) !!};
         if(curator_bio)
         {
-            // var counter = 0
             function seeMoreBio()
             {
-                // counter += 1
-                // if(counter == 2)
-                // {
-                //     $('#bioInfo').empty();
-                //     $('#bioInfo').text(curator_bio.substring(0,50) + '.....');
-                //     // $('#bioInfo').html(curator_bio);
-                // }
                 $('#bioInfo').empty();
                 $('#bioInfo').html(curator_bio);
             }
         }
-
     </script>
 
     <script>
