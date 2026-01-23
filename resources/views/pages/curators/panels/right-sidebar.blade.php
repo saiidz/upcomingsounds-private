@@ -432,15 +432,48 @@
             padding: 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             box-sizing: border-box;
+            transition: all 0.3s ease;
         }
 
+        /* Title Area with Toggle Button */
         #us-widget-tool h2 {
-            margin: 0 0 20px 0;
+            margin: 0 0 15px 0;
             text-align: center;
             font-size: 1.4rem;
             background: linear-gradient(to right, #fff, #cbd5e1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* The Show/Hide Button - Updated to Green Hover */
+        .us-toggle-btn {
+            background: transparent;
+            border: 1px solid #475569;
+            color: #94a3b8;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 15px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            -webkit-text-fill-color: #94a3b8;
+            transition: all 0.2s;
+        }
+        .us-toggle-btn:hover {
+            color: white;
+            border-color: #02b875; /* Green Border */
+            background: rgba(2, 184, 117, 0.1); /* Green Tint Background */
+            -webkit-text-fill-color: white;
+        }
+
+        /* Collapsible Content Wrapper */
+        #us-widget-content {
+            display: block;
+            overflow: hidden;
         }
 
         /* Controls Section */
@@ -463,136 +496,124 @@
             letter-spacing: 0.5px;
         }
 
-        /* Size Selector Buttons */
-        #us-widget-tool .us-size-selector {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
+        /* Size Selector Buttons - Updated to Green */
+        #us-widget-tool .us-size-selector { display: flex; gap: 10px; flex-wrap: wrap; }
         #us-widget-tool .us-size-btn {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #334155;
-            background: #0f172a;
-            color: #94a3b8;
-            border-radius: 6px;
-            cursor: pointer;
-            text-align: center;
-            font-size: 0.85rem;
-            transition: all 0.2s;
+            flex: 1; padding: 10px; border: 1px solid #334155; background: #0f172a;
+            color: #94a3b8; border-radius: 6px; cursor: pointer; text-align: center;
+            font-size: 0.85rem; transition: all 0.2s;
         }
-
-        #us-widget-tool .us-size-btn:hover { background: #1e293b; border-color: #6366f1; color: white; }
+        #us-widget-tool .us-size-btn:hover { 
+            background: #1e293b; 
+            border-color: #02b875; /* Green Hover Border */
+            color: white; 
+        }
         #us-widget-tool .us-size-btn.active {
-            background: #6366f1;
-            color: white;
-            border-color: #6366f1;
-            box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+            background: #02b875; /* Green Active Background */
+            color: white; 
+            border-color: #02b875;
+            box-shadow: 0 0 10px rgba(2, 184, 117, 0.3); /* Green Glow */
         }
 
         /* Preview Area */
         #us-widget-tool .us-preview-wrapper {
-            background: #0f172a;
-            border: 2px dashed #334155;
-            border-radius: 8px;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 150px;
-            margin-bottom: 20px;
-            position: relative;
+            background: #0f172a; border: 2px dashed #334155; border-radius: 8px;
+            padding: 20px; display: flex; justify-content: center; align-items: center;
+            min-height: 150px; margin-bottom: 20px; position: relative;
         }
-        
         #us-widget-tool .us-preview-label {
             position: absolute; top: 8px; left: 10px; font-size: 10px; color: #475569; text-transform: uppercase;
         }
-
         #usPreviewContainer { max-width: 100%; display: flex; justify-content: center; }
 
         /* Code Output Area */
         #us-widget-tool textarea {
-            width: 100%;
-            height: 80px;
-            background: #0b1120;
-            border: 1px solid #334155;
-            color: #cbd5e1;
-            padding: 12px;
-            border-radius: 6px;
-            font-family: monospace;
-            font-size: 0.8rem;
-            resize: none;
-            box-sizing: border-box;
-            display: block;
-        }
-
-        #us-widget-tool .us-copy-btn {
-            background: linear-gradient(135deg, #6366f1, #a855f7);
-            color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.9rem;
-            margin-top: 10px; float: right;
+            width: 100%; height: 80px; background: #0b1120; border: 1px solid #334155;
+            color: #cbd5e1; padding: 12px; border-radius: 6px; font-family: monospace;
+            font-size: 0.8rem; resize: none; box-sizing: border-box; display: block;
         }
         
-        /* Clearfix for float */
+        /* Copy Button - Updated to Green */
+        #us-widget-tool .us-copy-btn {
+            background: #02b875; /* Solid Green */
+            color: white; border: none;
+            padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer;
+            font-size: 0.9rem; margin-top: 10px; float: right;
+            transition: background 0.2s;
+        }
+        #us-widget-tool .us-copy-btn:hover {
+            background: #029e63; /* Slightly darker green on hover */
+        }
+        
         #us-widget-tool::after { content: ""; display: table; clear: both; }
 
-        /* Responsive Mobile Tweaks */
         @media (max-width: 600px) {
             #us-widget-tool { width: 95%; padding: 15px; }
             #us-widget-tool .us-size-selector { flex-direction: row; }
         }
     </style>
 
-    <h2>Widget Generator</h2>
+    <h2>
+        Widget Generator
+        <button id="usToggleBtn" class="us-toggle-btn" onclick="usToggleTool()">Hide</button>
+    </h2>
     
-    <div class="us-controls">
-        <div>
-            <label>Select Widget Design</label>
-            <div class="us-size-selector">
-                <div class="us-size-btn active" onclick="usSetSize('sidebar')">Sidebar<br><small>300px</small></div>
-                <div class="us-size-btn" onclick="usSetSize('banner')">Banner<br><small>728px</small></div>
-                <div class="us-size-btn" onclick="usSetSize('large')">Large<br><small>970px</small></div>
+    <div id="us-widget-content">
+        <div class="us-controls">
+            <div>
+                <label>Select Widget Design</label>
+                <div class="us-size-selector">
+                    <div class="us-size-btn active" onclick="usSetSize('sidebar')">Sidebar<br><small>300px</small></div>
+                    <div class="us-size-btn" onclick="usSetSize('banner')">Banner<br><small>728px</small></div>
+                    <div class="us-size-btn" onclick="usSetSize('large')">Large<br><small>970px</small></div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="us-preview-wrapper">
-        <span class="us-preview-label">Preview</span>
-        <div id="usPreviewContainer"></div>
-    </div>
+        <div class="us-preview-wrapper">
+            <span class="us-preview-label">Preview</span>
+            <div id="usPreviewContainer"></div>
+        </div>
 
-    <div>
-        <label>Copy Code</label>
-        <textarea id="usCodeOutput" readonly></textarea>
-        <button class="us-copy-btn" onclick="usCopyCode(this)">Copy Code</button>
+        <div>
+            <label>Copy Code</label>
+            <textarea id="usCodeOutput" readonly></textarea>
+            <button class="us-copy-btn" onclick="usCopyCode(this)">Copy Code</button>
+        </div>
     </div>
 </div>
 
 <script>
-    // Wait for the entire page to load so we can find the referral link
     window.addEventListener('load', function() {
         
         // --- CONFIG ---
         const LOGO = "https://upcomingsounds.com/images/logo.png";
         let currentSize = 'sidebar';
         
+        // --- SHOW / HIDE FUNCTION ---
+        window.usToggleTool = function() {
+            const content = document.getElementById('us-widget-content');
+            const btn = document.getElementById('usToggleBtn');
+            
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                btn.innerText = 'Hide';
+            } else {
+                content.style.display = 'none';
+                btn.innerText = 'Show';
+            }
+        };
+
         // --- AUTO-DETECT REFERRAL LINK ---
         function getReferralLink() {
-            // 1. Search for any input field that contains '/ref/' in its value
             const inputs = document.getElementsByTagName('input');
             for(let i=0; i<inputs.length; i++) {
-                if(inputs[i].value && inputs[i].value.includes('/ref/')) {
-                    return inputs[i].value;
-                }
+                if(inputs[i].value && inputs[i].value.includes('/ref/')) return inputs[i].value;
             }
-            // 2. Search for any visible link that contains '/ref/'
             const links = document.getElementsByTagName('a');
             for(let i=0; i<links.length; i++) {
-                if(links[i].href && links[i].href.includes('/ref/')) {
-                    return links[i].href;
-                }
+                if(links[i].href && links[i].href.includes('/ref/')) return links[i].href;
             }
-            // 3. Fallback
             return "https://upcomingsounds.com/";
         }
 
@@ -602,14 +623,12 @@
             large: { w: 970, h: 250, cls: 'us-layout-large' }
         };
 
-        // Make functions available globally so HTML onclick works
         window.usSetSize = function(size) {
             currentSize = size;
             const tool = document.getElementById('us-widget-tool');
             if(tool) {
                 const btns = tool.querySelectorAll('.us-size-btn');
                 btns.forEach(b => b.classList.remove('active'));
-                // Find the clicked button safely
                 const clickedBtn = event.target.closest('.us-size-btn');
                 if(clickedBtn) clickedBtn.classList.add('active');
             }
@@ -629,7 +648,6 @@
             const url = getReferralLink();
             const cfg = layouts[currentSize];
             
-            // Render Preview
             const previewHTML = `
                 <style>
                     .us-w-root { font-family:sans-serif; background:linear-gradient(135deg,#111,#222); color:#fff; display:flex; box-sizing:border-box; position:relative; overflow:hidden; border:1px solid #333; }
@@ -640,7 +658,6 @@
                     .us-w-track { display:flex; flex-direction:column; text-align:center; animation:usS 9s infinite cubic-bezier(.4,0,.2,1); }
                     .us-w-item { display:flex; align-items:center; justify-content:center; line-height:1.2; color:#ddd; text-align:center; padding:0 4px; }
                     @keyframes usS { 0%,25%{transform:translateY(0)} 33%,58%{transform:translateY(-100%)} 66%,92%{transform:translateY(-200%)} 100%{transform:translateY(0)} }
-                    /* Layouts */
                     .us-layout-sidebar { flex-direction:column; align-items:center; justify-content:center; padding:15px; }
                     .us-layout-sidebar .us-w-img { height:40px; margin-bottom:8px; }
                     .us-layout-sidebar .us-w-slider { width:100%; height:50px; margin-bottom:8px; }
@@ -653,7 +670,6 @@
                     .us-layout-large .us-w-img { height:50px; }
                     .us-layout-large .us-w-slider { width:50%; height:70px; }
                     .us-layout-large .us-w-item { height:100%; font-size:18px; }
-                    /* Preview Mobile Fix */
                     @media(max-width:600px){ .us-layout-large { flex-direction:column; padding:10px; text-align:center; } .us-layout-large .us-w-slider { width:100%; margin:10px 0; } }
                 </style>
                 <div class="us-w-root ${cfg.cls}" style="width:${cfg.w}px; height:${cfg.h}px; max-width:100%;">
@@ -669,23 +685,17 @@
             const previewContainer = document.getElementById('usPreviewContainer');
             if(previewContainer) previewContainer.innerHTML = previewHTML;
 
-            // Generate Embed Code
             const css = `<style>body{margin:0;overflow:hidden;font-family:sans-serif}.us-root{width:100%;height:100%;background:linear-gradient(135deg,#111,#222);color:#fff;display:flex;box-sizing:border-box;position:relative;border:1px solid #333}.us-logo{display:block;object-fit:contain;max-width:100%}.us-cta{background:#fff;color:#000;text-decoration:none;padding:8px 16px;border-radius:20px;font-size:12px;font-weight:700;white-space:nowrap}.us-slider{overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}.us-track{display:flex;flex-direction:column;text-align:center;animation:s 9s infinite cubic-bezier(.4,0,.2,1)}.us-item{display:flex;align-items:center;justify-content:center;line-height:1.3;color:#ddd;text-align:center;padding:0 5px}@keyframes s{0%,25%{transform:translateY(0)}33%,58%{transform:translateY(-100%)}66%,92%{transform:translateY(-200%)}100%{transform:translateY(0)}}.us-s{flex-direction:column;align-items:center;justify-content:center;padding:20px}.us-s .us-logo{height:50px;margin-bottom:10px}.us-s .us-slider{width:100%;height:60px;margin-bottom:10px}.us-s .us-item{height:100%;font-size:14px}.us-b{flex-direction:row;align-items:center;justify-content:space-between;padding:0 25px}.us-b .us-logo{height:40px;margin-right:15px;flex-shrink:0}.us-b .us-slider{flex:1;height:50px;margin:0 10px}.us-b .us-item{height:100%;font-size:16px}.us-b .us-cta{flex-shrink:0}.us-l{flex-direction:row;align-items:center;justify-content:space-around;padding:0 40px}.us-l .us-logo{height:60px}.us-l .us-slider{width:50%;height:80px}.us-l .us-item{height:100%;font-size:22px}@media(max-width:600px){.us-b{padding:0 10px}.us-b .us-logo{height:28px}.us-b .us-item{font-size:12px}.us-l{flex-direction:column;justify-content:center;padding:20px;text-align:center}.us-l .us-logo{margin-bottom:10px}.us-l .us-slider{width:100%}}</style>`;
-            
             let frameClass = 'us-s';
             if(currentSize === 'banner') frameClass = 'us-b';
             if(currentSize === 'large') frameClass = 'us-l';
-
             const html = `<div class="us-root ${frameClass}"><img src="${LOGO}" class="us-logo"><div class="us-slider"><div class="us-track"><div class="us-item">Submit your music to my playlist</div><div class="us-item">Join our community for free</div><div class="us-item">Be heard on UpcomingSounds.com</div></div></div><a href="${url}" target="_blank" class="us-cta">Get Started</a></div>`;
             const srcDoc = `<html><head>${css}</head><body>${html}</body></html>`.replace(/"/g, '&quot;');
-            
             const code = `<iframe srcdoc="${srcDoc}" width="${cfg.w}" height="${cfg.h}" style="width:100%;max-width:${cfg.w}px;height:${cfg.h}px;border:none;display:block;margin:0 auto;" scrolling="no" frameborder="0"></iframe>`;
-            
             const outputBox = document.getElementById('usCodeOutput');
             if(outputBox) outputBox.value = code;
         }
 
-        // Initialize immediately just in case, then again on load
         usUpdate();
     });
 </script>
