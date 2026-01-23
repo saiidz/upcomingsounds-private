@@ -329,12 +329,6 @@
                                             </div>
                                         @endif
                                     @endif
-                                    {{-- Claim Button show --}}
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 <div id="us-widget-tool">
     <style>
         /* Tool Container - 65% Width & Centered */
@@ -591,6 +585,16 @@
         usUpdate();
     })();
 </script>
+
+
+                                        
+                                    {{-- Claim Button show --}}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     {{--                <div class="row item-list item-list-sm m-b">--}}
                     {{--                    <div class="col-xs-12">--}}
                     {{--                        <div class="item r" data-id="item-3"--}}
