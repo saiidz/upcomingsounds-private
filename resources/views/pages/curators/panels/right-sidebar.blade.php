@@ -574,20 +574,32 @@
         </div>
     </div>
 </div> 
+
 <script>
     window.addEventListener('load', function() {
         const LOGO = "https://upcomingsounds.com/images/logo.png";
         let currentSize = 'sidebar';
         
+        // --- 1. CHECK SAVED STATE ON LOAD ---
+        const savedState = localStorage.getItem('usWidgetState');
+        const content = document.getElementById('us-widget-content');
+        const btn = document.getElementById('usToggleBtn');
+        
+        if (savedState === 'hidden') {
+            content.style.display = 'none';
+            btn.innerText = 'Show';
+        }
+
+        // --- 2. TOGGLE AND SAVE STATE ---
         window.usToggleTool = function() {
-            const content = document.getElementById('us-widget-content');
-            const btn = document.getElementById('usToggleBtn');
             if (content.style.display === 'none') {
                 content.style.display = 'block';
                 btn.innerText = 'Hide';
+                localStorage.setItem('usWidgetState', 'visible');
             } else {
                 content.style.display = 'none';
                 btn.innerText = 'Show';
+                localStorage.setItem('usWidgetState', 'hidden');
             }
         };
 
