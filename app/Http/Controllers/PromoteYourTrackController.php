@@ -400,7 +400,7 @@ class PromoteYourTrackController extends Controller
     {
         try {
             $verifiedCoverage = VerifiedCoverage::find(decrypt($verified_coverage));
-dd($verifiedCoverage);
+
             $receiver_id = $verifiedCoverage->user_id;
 
             // create conversation
