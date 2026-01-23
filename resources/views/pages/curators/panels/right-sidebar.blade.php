@@ -435,7 +435,6 @@
             transition: all 0.3s ease;
         }
 
-        /* Title Area with Toggle Button */
         #us-widget-tool h2 {
             margin: 0 0 15px 0;
             text-align: center;
@@ -449,7 +448,6 @@
             gap: 10px;
         }
 
-        /* The Show/Hide Button - Updated to Green Hover */
         .us-toggle-btn {
             background: transparent;
             border: 1px solid #475569;
@@ -465,18 +463,16 @@
         }
         .us-toggle-btn:hover {
             color: white;
-            border-color: #02b875; /* Green Border */
-            background: rgba(2, 184, 117, 0.1); /* Green Tint Background */
+            border-color: #02b875;
+            background: rgba(2, 184, 117, 0.1);
             -webkit-text-fill-color: white;
         }
 
-        /* Collapsible Content Wrapper */
         #us-widget-content {
             display: block;
             overflow: hidden;
         }
 
-        /* Controls Section */
         #us-widget-tool .us-controls {
             display: flex;
             flex-direction: column;
@@ -496,7 +492,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Size Selector Buttons - Updated to Green */
         #us-widget-tool .us-size-selector { display: flex; gap: 10px; flex-wrap: wrap; }
         #us-widget-tool .us-size-btn {
             flex: 1; padding: 10px; border: 1px solid #334155; background: #0f172a;
@@ -505,17 +500,16 @@
         }
         #us-widget-tool .us-size-btn:hover { 
             background: #1e293b; 
-            border-color: #02b875; /* Green Hover Border */
+            border-color: #02b875; 
             color: white; 
         }
         #us-widget-tool .us-size-btn.active {
-            background: #02b875; /* Green Active Background */
+            background: #02b875; 
             color: white; 
             border-color: #02b875;
-            box-shadow: 0 0 10px rgba(2, 184, 117, 0.3); /* Green Glow */
+            box-shadow: 0 0 10px rgba(2, 184, 117, 0.3);
         }
 
-        /* Preview Area */
         #us-widget-tool .us-preview-wrapper {
             background: #0f172a; border: 2px dashed #334155; border-radius: 8px;
             padding: 20px; display: flex; justify-content: center; align-items: center;
@@ -526,23 +520,21 @@
         }
         #usPreviewContainer { max-width: 100%; display: flex; justify-content: center; }
 
-        /* Code Output Area */
         #us-widget-tool textarea {
             width: 100%; height: 80px; background: #0b1120; border: 1px solid #334155;
             color: #cbd5e1; padding: 12px; border-radius: 6px; font-family: monospace;
             font-size: 0.8rem; resize: none; box-sizing: border-box; display: block;
         }
         
-        /* Copy Button - Updated to Green */
         #us-widget-tool .us-copy-btn {
-            background: #02b875; /* Solid Green */
+            background: #02b875;
             color: white; border: none;
             padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer;
             font-size: 0.9rem; margin-top: 10px; float: right;
             transition: background 0.2s;
         }
         #us-widget-tool .us-copy-btn:hover {
-            background: #029e63; /* Slightly darker green on hover */
+            background: #029e63;
         }
         
         #us-widget-tool::after { content: ""; display: table; clear: both; }
@@ -581,20 +573,15 @@
             <button class="us-copy-btn" onclick="usCopyCode(this)">Copy Code</button>
         </div>
     </div>
-</div>
-
+</div> 
 <script>
     window.addEventListener('load', function() {
-        
-        // --- CONFIG ---
         const LOGO = "https://upcomingsounds.com/images/logo.png";
         let currentSize = 'sidebar';
         
-        // --- SHOW / HIDE FUNCTION ---
         window.usToggleTool = function() {
             const content = document.getElementById('us-widget-content');
             const btn = document.getElementById('usToggleBtn');
-            
             if (content.style.display === 'none') {
                 content.style.display = 'block';
                 btn.innerText = 'Hide';
@@ -604,7 +591,6 @@
             }
         };
 
-        // --- AUTO-DETECT REFERRAL LINK ---
         function getReferralLink() {
             const inputs = document.getElementsByTagName('input');
             for(let i=0; i<inputs.length; i++) {
