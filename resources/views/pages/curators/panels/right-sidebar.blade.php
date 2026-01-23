@@ -521,13 +521,60 @@
             btn.innerText = "Copied!";
             setTimeout(() => btn.innerText = oldText, 2000);
         };
+<script>
+    // CHANGE 1: We use 'window.addEventListener' to wait for the whole page to load
+    window.addEventListener('load', function() {
+        
+        // --- CONFIG ---
+        const LOGO = "https://upcomingsounds.com/images/logo.png";
+        let currentSize = 'sidebar';
+        
+        // --- AUTO-DETECT REFERRAL LINK ---
+        function getReferralLink() {
+            // 1. Search for any input field that contains '/ref/' in its value
+            const inputs = document.getElementsByTagName('input');
+            for(let i=0; i<inputs.length; i++) {
+                if(inputs[i].value && inputs[i].value.includes('/ref/')) {
+                    return inputs[i].value;
+                }
+            }
+            // 2. Search for any visible link that contains '/ref/'
+            const links = document.getElementsByTagName('a');
+            for(let i=0; i<links.length; i++) {
+                if(links[i].href && links[i].href.includes('/ref/')) {
+                    return links[i].href;
+                }
+            }
+            // 3. Fallback
+            return "https://upcomingsounds.com/";
+        }
+
+        const layouts = {
+            sidebar: { w: 300, h: 250, cls: 'us-layout-sidebar' },
+            banner: { w: 728, h: 90, cls: 'us-layout-banner' },
+            large: { w: 970, h: 250, cls: 'us-layout-large' }
+        };
+
+        window.usSetSize = function(size) {
+            currentSize = size;
+            document.querySelectorAll('#us-widget-tool .us-size-btn').forEach(b => b.classList.remove('active'));
+            event.target.closest('.us-size-btn').classList.add('active');
+            usUpdate();
+        };
+
+        window.usCopyCode = function(btn) {
+            const txt = document.getElementById("usCodeOutput");
+            txt.select();
+            document.execCommand("copy");
+            const oldText = btn.innerText;
+            btn.innerText = "Copied!";
+            setTimeout(() => btn.innerText = oldText, 2000);
+        };
 
         function usUpdate() {
-            // Grab the link dynamically every time we update
-            const url = getReferralLink();
+            const url = getReferralLink(); // Now this will find the link because the page is loaded!
             const cfg = layouts[currentSize];
             
-            // Render Preview
             const previewHTML = `
                 <style>
                     .us-w-root { font-family:sans-serif; background:linear-gradient(135deg,#111,#222); color:#fff; display:flex; box-sizing:border-box; position:relative; overflow:hidden; border:1px solid #333; }
@@ -538,7 +585,6 @@
                     .us-w-track { display:flex; flex-direction:column; text-align:center; animation:usS 9s infinite cubic-bezier(.4,0,.2,1); }
                     .us-w-item { display:flex; align-items:center; justify-content:center; line-height:1.2; color:#ddd; text-align:center; padding:0 4px; }
                     @keyframes usS { 0%,25%{transform:translateY(0)} 33%,58%{transform:translateY(-100%)} 66%,92%{transform:translateY(-200%)} 100%{transform:translateY(0)} }
-                    /* Layouts */
                     .us-layout-sidebar { flex-direction:column; align-items:center; justify-content:center; padding:15px; }
                     .us-layout-sidebar .us-w-img { height:40px; margin-bottom:8px; }
                     .us-layout-sidebar .us-w-slider { width:100%; height:50px; margin-bottom:8px; }
@@ -551,7 +597,6 @@
                     .us-layout-large .us-w-img { height:50px; }
                     .us-layout-large .us-w-slider { width:50%; height:70px; }
                     .us-layout-large .us-w-item { height:100%; font-size:18px; }
-                    /* Preview Mobile Fix */
                     @media(max-width:600px){ .us-layout-large { flex-direction:column; padding:10px; text-align:center; } .us-layout-large .us-w-slider { width:100%; margin:10px 0; } }
                 </style>
                 <div class="us-w-root ${cfg.cls}" style="width:${cfg.w}px; height:${cfg.h}px; max-width:100%;">
@@ -566,7 +611,6 @@
             
             document.getElementById('usPreviewContainer').innerHTML = previewHTML;
 
-            // Generate Embed Code (Compressed)
             const css = `<style>body{margin:0;overflow:hidden;font-family:sans-serif}.us-root{width:100%;height:100%;background:linear-gradient(135deg,#111,#222);color:#fff;display:flex;box-sizing:border-box;position:relative;border:1px solid #333}.us-logo{display:block;object-fit:contain;max-width:100%}.us-cta{background:#fff;color:#000;text-decoration:none;padding:8px 16px;border-radius:20px;font-size:12px;font-weight:700;white-space:nowrap}.us-slider{overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}.us-track{display:flex;flex-direction:column;text-align:center;animation:s 9s infinite cubic-bezier(.4,0,.2,1)}.us-item{display:flex;align-items:center;justify-content:center;line-height:1.3;color:#ddd;text-align:center;padding:0 5px}@keyframes s{0%,25%{transform:translateY(0)}33%,58%{transform:translateY(-100%)}66%,92%{transform:translateY(-200%)}100%{transform:translateY(0)}}.us-s{flex-direction:column;align-items:center;justify-content:center;padding:20px}.us-s .us-logo{height:50px;margin-bottom:10px}.us-s .us-slider{width:100%;height:60px;margin-bottom:10px}.us-s .us-item{height:100%;font-size:14px}.us-b{flex-direction:row;align-items:center;justify-content:space-between;padding:0 25px}.us-b .us-logo{height:40px;margin-right:15px;flex-shrink:0}.us-b .us-slider{flex:1;height:50px;margin:0 10px}.us-b .us-item{height:100%;font-size:16px}.us-b .us-cta{flex-shrink:0}.us-l{flex-direction:row;align-items:center;justify-content:space-around;padding:0 40px}.us-l .us-logo{height:60px}.us-l .us-slider{width:50%;height:80px}.us-l .us-item{height:100%;font-size:22px}@media(max-width:600px){.us-b{padding:0 10px}.us-b .us-logo{height:28px}.us-b .us-item{font-size:12px}.us-l{flex-direction:column;justify-content:center;padding:20px;text-align:center}.us-l .us-logo{margin-bottom:10px}.us-l .us-slider{width:100%}}</style>`;
             
             let frameClass = 'us-s';
@@ -578,6 +622,13 @@
             
             const code = `<iframe srcdoc="${srcDoc}" width="${cfg.w}" height="${cfg.h}" style="width:100%;max-width:${cfg.w}px;height:${cfg.h}px;border:none;display:block;margin:0 auto;" scrolling="no" frameborder="0"></iframe>`;
             
+            document.getElementById('usCodeOutput').value = code;
+        }
+
+        // Initialize
+        usUpdate();
+    });
+</script>
             document.getElementById('usCodeOutput').value = code;
         }
 
