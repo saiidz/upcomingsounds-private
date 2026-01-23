@@ -9,7 +9,21 @@
     <link rel="stylesheet" href="{{asset('css/custom/chat.css')}}" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
+        /* --- NEW CODE TO HIDE SIDEBAR --- */
+        #aside, .app-aside, .left-sidebar, .sidebar { 
+            display: none !important; 
+        }
+        #content, .app-content, .app-header, .app-footer {
+            margin-left: 0 !important;
+            width: 100% !important;
+        }
+        .sidebar-toggle, .nav-icon {
+            display: none !important;
+        }
+        /* -------------------------------- */
+
         #loadings {
             background: rgba(255, 255, 255, .4) url({{asset('images/loader.gif')}}) no-repeat center center !important;
         }
@@ -17,7 +31,7 @@
             font-size: inherit !important;
         }
         /*.profile_public{*/
-        /*    margin-left: 12.5rem;*/
+        /* margin-left: 12.5rem;*/
         /*}*/
         .artist-features {
             display: flex;
@@ -69,8 +83,6 @@
 @endsection
 
 @section('content')
-    <!-- ############ PAGE START-->
-
     <div class="page-content">
         <div class="row-col">
             <div class="col-lg-8 b-r no-border-md">
@@ -296,8 +308,7 @@
         </div>
     </div>
 
-    <!-- ############ PAGE END-->
-@endsection
+    @endsection
 
 
 @section('page-script')
