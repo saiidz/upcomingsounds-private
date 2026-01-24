@@ -221,7 +221,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 no-padding bg-gray tz-builder-bg-image cover-background" 
-                     style="background-image: url('{{ asset($theme_home->upcoming_home_new_section ?? 'welcome-home-page/images/upcomingSounds.png') }}'); height: 600px;">
+                     style="background-image: url('{{ asset($theme_home->upcoming_home_new_section ?? 'welcome-home-page/images/upcomingSounds.webp') }}'); height: 600px;">
                 </div>
             </div>
         </div>
