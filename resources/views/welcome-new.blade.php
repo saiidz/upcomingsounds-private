@@ -201,7 +201,7 @@
 
         <div class="feature-row">
             <div class="feature-number">01.</div>
-            <div class="feature-content">
+      <img src="{{ asset('path/to/your/award-icon.png') }}" alt="Award" class="award-icon">
                 <h3>Real Connections</h3>
                 <p>Upcoming Sounds connects artists, labels, and managers with curators, bloggers, and influencers. We provide real exposure and quality coverage for artists while fairly compensating content curators for their time and efforts.</p>
             </div>
