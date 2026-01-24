@@ -1,770 +1,106 @@
-{{-- layout --}}
-@extends('layouts.welcomeLayout')
-
-{{-- page title --}}
-@section('title','Upcoming Sounds| Get Your Music Heard!')
-@section('page-style')
- 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Upcoming Sounds</title>
-<script src="//code.tidio.co/nlzrwdckpawqcjxqkphkdskehwmmre38.js" async></script>
 
-   
+    {{-- 1. TITLE LOGIC --}}
+    <title>
+        @hasSection('title')
+            @yield('title') | UpcomingSounds - Submit Music to Playlists
+        @else
+            UpcomingSounds | Submit Music to Verified Spotify Curators
+        @endif
+    </title>
 
-    <!-- Your other meta tags and head content -->
+    {{-- 2. META TAGS --}}
+    <meta name="description" content="Submit your music to verified curators, playlist owners, and labels. The most logical way to get your music heard.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    {{-- 3. SCRIPTS --}}
+    <script src="//code.tidio.co/nlzrwdckpawqcjxqkphkdskehwmmre38.js" async></script>
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Upcoming Sounds",
-      "url": "https://upcomingsounds.com",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://upcomingsounds.com/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      },
-      "mainEntity": {
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@type": "MusicEvent",
-              "name": "Upcoming Sounds",
-              "startDate": "2024-07-15T19:30:00",
-              "endDate": "2024-07-15T23:00:00",
-              "location": {
-                "@type": "Place",
-                "name": "UK",
-                "address": {
-                  "@type": "PostalAddress",
-                  "streetAddress": "Parliament Street",
-                  "addressLocality": "Liverpool",
-                  "addressRegion": "LP",
-                  "postalCode": "L8 5RN",
-                  "addressCountry": "UK"
-                }
-              },
-              "performer": {
-                "@type": "MusicGroup",
-                "name": "Upcoming Sounds"
-              },
-              "image": "https://upcomingsounds.com/images/logo.png",
-              "offers": {
-                "@type": "Offer",
-                "url": "https://upcomingsounds.com/for-artists",
-                "price": "0",
-                "priceCurrency": "GBP",
-                "availability": "https://schema.org/InStock",
-                "validFrom": "2024-06-01T12:00:00"
-              }
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@type": "MusicEvent",
-              "name": "Submit Your Music",
-              "startDate": "2024-08-20T19:30:00",
-              "endDate": "2024-08-20T23:00:00",
-              "location": {
-                "@type": "Place",
-                "name": "Another Venue",
-                "address": {
-                  "@type": "PostalAddress",
-                  "streetAddress": "456 Another St",
-                  "addressLocality": "Othertown",
-                  "addressRegion": "TX",
-                  "postalCode": "75001",
-                  "addressCountry": "US"
-                }
-              },
-              "performer": {
-                "@type": "MusicGroup",
-                "name": "Curator"
-              },
-              "image": "https://upcomingsounds.com/uploads/homesection/default_1701165997.webp",
-              "offers": {
-                "@type": "Offer",
-                "url": "https://upcomingsounds.com/for-curators",
-                "price": "0",
-                "priceCurrency": "GBP",
-                "availability": "https://schema.org/InStock",
-                "validFrom": "2024-07-01T12:00:00"
-              }
-            }
-          }
-        ]
-      }
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Upcoming Sounds",
+        "url": "https://upcomingsounds.com",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://upcomingsounds.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
     }
     </script>
 
-  
-    <meta name="robots" content="index, follow">
-    <title>Discover the Best Platform for New and Upcoming Sounds!</title>
-    <link rel="canonical" href="https://upcomingsounds.com/">
-  
-
-    </body>
-</html>
-    <link rel="canonical" href="https://upcomingsounds.com/">
-    <style>
-        .videoWlcome{
-            position: relative;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            width: 100%;
-            min-height: 89vh;
-            overflow: hidden;
-            background-color: #000;
-        }
-        .welcome_video > video{
-            position: absolute;
-            /*top: 50%;*/
-            top: 36%;
-            left: 50%;
-            z-index: 0;
-            width: auto;
-            min-width: 100%;
-            height: auto;
-            min-height: 100%;
-            transform: translateX(-50%) translateY(-50%);
-        }
-        .mouse-wheel {
-            height: 80px;
-            margin: 0 auto 0;
-            display: block;
-            width: 30px;
-            background: transparent;
-            border-radius: 50%;
-            animation: 1.6s ease infinite wheel-up-down;
-            font-size: 50px;
-            line-height: 1;
-        }
-        .fa-angle-down {
-            font-size: 3.5rem;
-        }
-        .text-muted {
-            color: #818a91!important;
-        }
-    
-
-    </style>
-{{--    <link type="text/css" href="{{ asset('welcome-home-page/css/animate.css') }}" rel="stylesheet">--}}
-{{--    <link type="text/css" href="{{ asset('welcome-home-page/css/bootstrap.min.css') }}" rel="stylesheet">--}}
-{{--    <link type="text/css" href="{{ asset('welcome-home-page/css/themify-icons.css') }}" rel="stylesheet">--}}
+    {{-- 4. CSS FILES --}}
     <link type="text/css" href="{{ asset('welcome-home-page/css/owl.transitions.css') }}" rel="stylesheet">
     <link type="text/css" href="{{ asset('welcome-home-page/css/owl.carousel.css') }}" rel="stylesheet">
-{{--    <link type="text/css" href="{{ asset('welcome-home-page/css/magnific-popup.css') }}" rel="stylesheet">--}}
-{{--    <link type="text/css" href="{{ asset('welcome-home-page/css/magnific-popup.css') }}" rel="stylesheet">--}}
     <link type="text/css" href="{{ asset('welcome-home-page/css/base.css') }}" rel="stylesheet">
-{{--    <link type="text/css" href="{{ asset('welcome-home-page/css/elements.css') }}" rel="stylesheet">--}}
     <link type="text/css" href="{{ asset('welcome-home-page/css/responsive.css') }}" rel="stylesheet">
 
+    {{-- 5. INLINE STYLES --}}
     <style>
-        .testim {
-            width: 100%;
-            /*position: absolute;*/
-            top: 50%;
-            -webkit-transform: translatey(-50%);
-            -moz-transform: translatey(-50%);
-            -ms-transform: translatey(-50%);
-            -o-transform: translatey(-50%);
-            transform: translatey(-50%);
-        }
-
-        .testim .wrap {
-            position: relative;
-            width: 100%;
-            max-width: 1020px;
-            padding: 40px 20px;
-            margin: auto;
-        }
-
-        .testim .arrow {
-            display: block;
-            position: absolute;
-            color: #333;
-            cursor: pointer;
-            font-size: 2em;
-            top: 50%;
-            -webkit-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-            -moz-transform: translateY(-50%);
-            -o-transform: translateY(-50%);
-            transform: translateY(-50%);
-            -webkit-transition: all .3s ease-in-out;
-            -ms-transition: all .3s ease-in-out;
-            -moz-transition: all .3s ease-in-out;
-            -o-transition: all .3s ease-in-out;
-            transition: all .3s ease-in-out;
-            padding: 5px;
-            z-index: 22222222;
-        }
-
-        .testim .arrow:before {
-            cursor: pointer;
-        }
-
-        .testim .arrow:hover {
-            color: green;
-        }
-
-
-        .testim .arrow.left {
-            left: 70px;
-        }
-
-        .testim .arrow.right {
-            right: 70px;
-        }
-
-        .testim .dots {
-            text-align: center;
-            position: absolute;
-            width: 100%;
-            bottom: 60px;
-            left: 0;
-            display: block;
-            z-index: 3333;
-            height: 12px;
-        }
-
-        .testim .dots .dot {
-            list-style-type: none;
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            border: 1px solid green;
-            margin: 0 10px;
-            cursor: pointer;
-            -webkit-transition: all .5s ease-in-out;
-            -ms-transition: all .5s ease-in-out;
-            -moz-transition: all .5s ease-in-out;
-            -o-transition: all .5s ease-in-out;
-            transition: all .5s ease-in-out;
-            position: relative;
-        }
-
-        .testim .dots .dot.active,
-        .testim .dots .dot:hover {
-            background: green;
-            border-color: green;
-        }
-
-        .testim .dots .dot.active {
-            -webkit-animation: testim-scale .5s ease-in-out forwards;
-            -moz-animation: testim-scale .5s ease-in-out forwards;
-            -ms-animation: testim-scale .5s ease-in-out forwards;
-            -o-animation: testim-scale .5s ease-in-out forwards;
-            animation: testim-scale .5s ease-in-out forwards;
-        }
-
-        .testim .cont {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .testim .cont > div {
-            text-align: center;
-            position: absolute;
-            top: 0;
-            left: 0;
-            padding: 0 0 70px 0;
-            opacity: 0;
-        }
-
-        .testim .cont > div.inactive {
-            opacity: 1;
-        }
-
-
-        .testim .cont > div.active {
-            position: relative;
-            opacity: 1;
-        }
-
-
-        .testim .cont div .img img {
-            display: block;
-            width: 100px;
-            height: 100px;
-            margin: auto;
-            border-radius: 50%;
-        }
-
-        .testim .cont div h2 {
-            color: green;
-            font-size: 1em;
-            margin: 15px 0;
-        }
-
-        .testim .cont div p {
-            font-size: 1.15em;
-            color: #333;
-            width: 70%;
-            margin: auto;
-        }
-
-        .testim .cont div.active .img img {
-            -webkit-animation: testim-show .5s ease-in-out forwards;
-            -moz-animation: testim-show .5s ease-in-out forwards;
-            -ms-animation: testim-show .5s ease-in-out forwards;
-            -o-animation: testim-show .5s ease-in-out forwards;
-            animation: testim-show .5s ease-in-out forwards;
-        }
-
-        .testim .cont div.active h2 {
-            -webkit-animation: testim-content-in .4s ease-in-out forwards;
-            -moz-animation: testim-content-in .4s ease-in-out forwards;
-            -ms-animation: testim-content-in .4s ease-in-out forwards;
-            -o-animation: testim-content-in .4s ease-in-out forwards;
-            animation: testim-content-in .4s ease-in-out forwards;
-        }
-
-        .testim .cont div.active p {
-            -webkit-animation: testim-content-in .5s ease-in-out forwards;
-            -moz-animation: testim-content-in .5s ease-in-out forwards;
-            -ms-animation: testim-content-in .5s ease-in-out forwards;
-            -o-animation: testim-content-in .5s ease-in-out forwards;
-            animation: testim-content-in .5s ease-in-out forwards;
-        }
-
-        .testim .cont div.inactive .img img {
-            -webkit-animation: testim-hide .5s ease-in-out forwards;
-            -moz-animation: testim-hide .5s ease-in-out forwards;
-            -ms-animation: testim-hide .5s ease-in-out forwards;
-            -o-animation: testim-hide .5s ease-in-out forwards;
-            animation: testim-hide .5s ease-in-out forwards;
-        }
-
-        .testim .cont div.inactive h2 {
-            -webkit-animation: testim-content-out .4s ease-in-out forwards;
-            -moz-animation: testim-content-out .4s ease-in-out forwards;
-            -ms-animation: testim-content-out .4s ease-in-out forwards;
-            -o-animation: testim-content-out .4s ease-in-out forwards;
-            animation: testim-content-out .4s ease-in-out forwards;
-        }
-
-        .testim .cont div.inactive p {
-            -webkit-animation: testim-content-out .5s ease-in-out forwards;
-            -moz-animation: testim-content-out .5s ease-in-out forwards;
-            -ms-animation: testim-content-out .5s ease-in-out forwards;
-            -o-animation: testim-content-out .5s ease-in-out forwards;
-            animation: testim-content-out .5s ease-in-out forwards;
-        }
-
-        @-webkit-keyframes testim-scale {
-            0% {
-                -webkit-box-shadow: 0px 0px 0px 0px #eee;
-                box-shadow: 0px 0px 0px 0px #eee;
-            }
-
-            35% {
-                -webkit-box-shadow: 0px 0px 10px 5px #eee;
-                box-shadow: 0px 0px 10px 5px #eee;
-            }
-
-            70% {
-                -webkit-box-shadow: 0px 0px 10px 5px #ea830e;
-                box-shadow: 0px 0px 10px 5px #ea830e;
-            }
-
-            100% {
-                -webkit-box-shadow: 0px 0px 0px 0px #ea830e;
-                box-shadow: 0px 0px 0px 0px #ea830e;
-            }
-        }
-
-        @-moz-keyframes testim-scale {
-            0% {
-                -moz-box-shadow: 0px 0px 0px 0px #eee;
-                box-shadow: 0px 0px 0px 0px #eee;
-            }
-
-            35% {
-                -moz-box-shadow: 0px 0px 10px 5px #eee;
-                box-shadow: 0px 0px 10px 5px #eee;
-            }
-
-            70% {
-                -moz-box-shadow: 0px 0px 10px 5px #ea830e;
-                box-shadow: 0px 0px 10px 5px #ea830e;
-            }
-
-            100% {
-                -moz-box-shadow: 0px 0px 0px 0px #ea830e;
-                box-shadow: 0px 0px 0px 0px #ea830e;
-            }
-        }
-
-        @-ms-keyframes testim-scale {
-            0% {
-                -ms-box-shadow: 0px 0px 0px 0px #eee;
-                box-shadow: 0px 0px 0px 0px #eee;
-            }
-
-            35% {
-                -ms-box-shadow: 0px 0px 10px 5px #eee;
-                box-shadow: 0px 0px 10px 5px #eee;
-            }
-
-            70% {
-                -ms-box-shadow: 0px 0px 10px 5px #ea830e;
-                box-shadow: 0px 0px 10px 5px #ea830e;
-            }
-
-            100% {
-                -ms-box-shadow: 0px 0px 0px 0px #ea830e;
-                box-shadow: 0px 0px 0px 0px #ea830e;
-            }
-        }
-
-        @-o-keyframes testim-scale {
-            0% {
-                -o-box-shadow: 0px 0px 0px 0px #eee;
-                box-shadow: 0px 0px 0px 0px #eee;
-            }
-
-            35% {
-                -o-box-shadow: 0px 0px 10px 5px #eee;
-                box-shadow: 0px 0px 10px 5px #eee;
-            }
-
-            70% {
-                -o-box-shadow: 0px 0px 10px 5px #ea830e;
-                box-shadow: 0px 0px 10px 5px #ea830e;
-            }
-
-            100% {
-                -o-box-shadow: 0px 0px 0px 0px #ea830e;
-                box-shadow: 0px 0px 0px 0px #ea830e;
-            }
-        }
-
-        @keyframes testim-scale {
-            0% {
-                box-shadow: 0px 0px 0px 0px #eee;
-            }
-
-            35% {
-                box-shadow: 0px 0px 10px 5px #eee;
-            }
-
-            70% {
-                box-shadow: 0px 0px 10px 5px #ea830e;
-            }
-
-            100% {
-                box-shadow: 0px 0px 0px 0px #ea830e;
-            }
-        }
-
-        @-webkit-keyframes testim-content-in {
-            from {
-                opacity: 0;
-                -webkit-transform: translateY(100%);
-                transform: translateY(100%);
-            }
-
-            to {
-                opacity: 1;
-                -webkit-transform: translateY(0);
-                transform: translateY(0);
-            }
-        }
-
-        @-moz-keyframes testim-content-in {
-            from {
-                opacity: 0;
-                -moz-transform: translateY(100%);
-                transform: translateY(100%);
-            }
-
-            to {
-                opacity: 1;
-                -moz-transform: translateY(0);
-                transform: translateY(0);
-            }
-        }
-
-        @-ms-keyframes testim-content-in {
-            from {
-                opacity: 0;
-                -ms-transform: translateY(100%);
-                transform: translateY(100%);
-            }
-
-            to {
-                opacity: 1;
-                -ms-transform: translateY(0);
-                transform: translateY(0);
-            }
-        }
-
-        @-o-keyframes testim-content-in {
-            from {
-                opacity: 0;
-                -o-transform: translateY(100%);
-                transform: translateY(100%);
-            }
-
-            to {
-                opacity: 1;
-                -o-transform: translateY(0);
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes testim-content-in {
-            from {
-                opacity: 0;
-                transform: translateY(100%);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @-webkit-keyframes testim-content-out {
-            from {
-                opacity: 1;
-                -webkit-transform: translateY(0);
-                transform: translateY(0);
-            }
-
-            to {
-                opacity: 0;
-                -webkit-transform: translateY(-100%);
-                transform: translateY(-100%);
-            }
-        }
-
-        @-moz-keyframes testim-content-out {
-            from {
-                opacity: 1;
-                -moz-transform: translateY(0);
-                transform: translateY(0);
-            }
-
-            to {
-                opacity: 0;
-                -moz-transform: translateY(-100%);
-                transform: translateY(-100%);
-            }
-        }
-
-        @-ms-keyframes testim-content-out {
-            from {
-                opacity: 1;
-                -ms-transform: translateY(0);
-                transform: translateY(0);
-            }
-
-            to {
-                opacity: 0;
-                -ms-transform: translateY(-100%);
-                transform: translateY(-100%);
-            }
-        }
-
-        @-o-keyframes testim-content-out {
-            from {
-                opacity: 1;
-                -o-transform: translateY(0);
-                transform: translateY(0);
-            }
-
-            to {
-                opacity: 0;
-                transform: translateY(-100%);
-                transform: translateY(-100%);
-            }
-        }
-
-        @keyframes testim-content-out {
-            from {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            to {
-                opacity: 0;
-                transform: translateY(-100%);
-            }
-        }
-
-        @-webkit-keyframes testim-show {
-            from {
-                opacity: 0;
-                -webkit-transform: scale(0);
-                transform: scale(0);
-            }
-
-            to {
-                opacity: 1;
-                -webkit-transform: scale(1);
-                transform: scale(1);
-            }
-        }
-
-        @-moz-keyframes testim-show {
-            from {
-                opacity: 0;
-                -moz-transform: scale(0);
-                transform: scale(0);
-            }
-
-            to {
-                opacity: 1;
-                -moz-transform: scale(1);
-                transform: scale(1);
-            }
-        }
-
-        @-ms-keyframes testim-show {
-            from {
-                opacity: 0;
-                -ms-transform: scale(0);
-                transform: scale(0);
-            }
-
-            to {
-                opacity: 1;
-                -ms-transform: scale(1);
-                transform: scale(1);
-            }
-        }
-
-        @-o-keyframes testim-show {
-            from {
-                opacity: 0;
-                -o-transform: scale(0);
-                transform: scale(0);
-            }
-
-            to {
-                opacity: 1;
-                -o-transform: scale(1);
-                transform: scale(1);
-            }
-        }
-
-        @keyframes testim-show {
-            from {
-                opacity: 0;
-                transform: scale(0);
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @-webkit-keyframes testim-hide {
-            from {
-                opacity: 1;
-                -webkit-transform: scale(1);
-                transform: scale(1);
-            }
-
-            to {
-                opacity: 0;
-                -webkit-transform: scale(0);
-                transform: scale(0);
-            }
-        }
-
-        @-moz-keyframes testim-hide {
-            from {
-                opacity: 1;
-                -moz-transform: scale(1);
-                transform: scale(1);
-            }
-
-            to {
-                opacity: 0;
-                -moz-transform: scale(0);
-                transform: scale(0);
-            }
-        }
-
-        @-ms-keyframes testim-hide {
-            from {
-                opacity: 1;
-                -ms-transform: scale(1);
-                transform: scale(1);
-            }
-
-            to {
-                opacity: 0;
-                -ms-transform: scale(0);
-                transform: scale(0);
-            }
-        }
-
-        @-o-keyframes testim-hide {
-            from {
-                opacity: 1;
-                -o-transform: scale(1);
-                transform: scale(1);
-            }
-
-            to {
-                opacity: 0;
-                -o-transform: scale(0);
-                transform: scale(0);
-            }
-        }
-
-        @keyframes testim-hide {
-            from {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            to {
-                opacity: 0;
-                transform: scale(0);
-            }
-        }
-
-        @media all and (max-width: 300px) {
-            body {
-                font-size: 14px;
-            }
-        }
-
-        @media all and (max-width: 500px) {
-            .testim .arrow {
-                font-size: 1.5em;
-            }
-
-            .testim .cont div p {
-                line-height: 25px;
-            }
-
-        }
+        .testim { width: 100%; top: 50%; transform: translatey(-50%); }
+        .testim .wrap { position: relative; width: 100%; max-width: 1020px; padding: 40px 20px; margin: auto; }
+        .testim .arrow { display: block; position: absolute; color: #333; cursor: pointer; font-size: 2em; top: 50%; transform: translateY(-50%); transition: all .3s ease-in-out; padding: 5px; z-index: 22222222; }
+        .testim .arrow:hover { color: green; }
+        .testim .arrow.left { left: 70px; }
+        .testim .arrow.right { right: 70px; }
+        .testim .dots { text-align: center; position: absolute; width: 100%; bottom: 60px; left: 0; display: block; z-index: 3333; height: 12px; }
+        .testim .dots .dot { list-style-type: none; display: inline-block; width: 12px; height: 12px; border-radius: 50%; border: 1px solid green; margin: 0 10px; cursor: pointer; transition: all .5s ease-in-out; position: relative; }
+        .testim .dots .dot.active, .testim .dots .dot:hover { background: green; border-color: green; }
+        .testim .cont { position: relative; overflow: hidden; }
+        .testim .cont > div { text-align: center; position: absolute; top: 0; left: 0; padding: 0 0 70px 0; opacity: 0; }
+        .testim .cont > div.inactive { opacity: 1; }
+        .testim .cont > div.active { position: relative; opacity: 1; }
+        .testim .cont div .img img { display: block; width: 100px; height: 100px; margin: auto; border-radius: 50%; }
+        .testim .cont div h2 { color: green; font-size: 1em; margin: 15px 0; }
+        .testim .cont div p { font-size: 1.15em; color: #333; width: 70%; margin: auto; }
+        
+        /* Animations */
+        @keyframes testim-scale { 0% { box-shadow: 0px 0px 0px 0px #eee; } 35% { box-shadow: 0px 0px 10px 5px #eee; } 70% { box-shadow: 0px 0px 10px 5px #ea830e; } 100% { box-shadow: 0px 0px 0px 0px #ea830e; } }
+        @keyframes testim-content-in { from { opacity: 0; transform: translateY(100%); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes testim-content-out { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(-100%); } }
+        @keyframes testim-show { from { opacity: 0; transform: scale(0); } to { opacity: 1; transform: scale(1); } }
+        @keyframes testim-hide { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(0); } }
+
+        @media all and (max-width: 300px) { body { font-size: 14px; } }
+        @media all and (max-width: 500px) { .testim .arrow { font-size: 1.5em; } .testim .cont div p { line-height: 25px; } }
     </style>
-    <!-- Include Slick carousel CSS -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <!-- Include Slick theme CSS (optional) -->
+
+   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-    <!-- Include your custom CSS (optional) -->
+
     <style>
+        /* Testimonial Slider Styles */
+        .testimonial-slider { width: 80%; margin: 0 auto; height: 300px; }
+        .testimonial-slide { text-align: center; }
+        .testimonial-slide img { display: inline-block; max-width: 100%; height: auto; }
+        .testimonial-slide h2 { font-size: 24px; margin: 15px 0; }
+        .testimonial-slide p { font-size: 16px; }
+
+        /* Animation Keyframes (Moved inside style tag) */
+        @-moz-keyframes testim-show { from { opacity: 0; -moz-transform: scale(0); transform: scale(0); } to { opacity: 1; -moz-transform: scale(1); transform: scale(1); } }
+        @-ms-keyframes testim-show { from { opacity: 0; -ms-transform: scale(0); transform: scale(0); } to { opacity: 1; -ms-transform: scale(1); transform: scale(1); } }
+        @-o-keyframes testim-show { from { opacity: 0; -o-transform: scale(0); transform: scale(0); } to { opacity: 1; -o-transform: scale(1); transform: scale(1); } }
+        @keyframes testim-show { from { opacity: 0; transform: scale(0); } to { opacity: 1; transform: scale(1); } }
+        
+        @-webkit-keyframes testim-hide { from { opacity: 1; -webkit-transform: scale(1); transform: scale(1); } to { opacity: 0; -webkit-transform: scale(0); transform: scale(0); } }
+        @-moz-keyframes testim-hide { from { opacity: 1; -moz-transform: scale(1); transform: scale(1); } to { opacity: 0; -moz-transform: scale(0); transform: scale(0); } }
+        @-ms-keyframes testim-hide { from { opacity: 1; -ms-transform: scale(1); transform: scale(1); } to { opacity: 0; -ms-transform: scale(0); transform: scale(0); } }
+        @-o-keyframes testim-hide { from { opacity: 1; -o-transform: scale(1); transform: scale(1); } to { opacity: 0; -o-transform: scale(0); transform: scale(0); } }
+        @keyframes testim-hide { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(0); } }
+    </style>
+
+    <link rel="stylesheet" href="{{asset('css/gijgo.min.css')}}" type="text/css" />
+</head>
+<body>
+    <div class="{{Auth::check() ? 'app-bodynew' : 'app-body'}} @if(Request::is('welcome-new') == 'true') weLcoMeHeaderTopHide @endif">
+
+
+     
         /* Customize your slider styles here */
         .testimonial-slider {
             width: 80%;
@@ -787,13 +123,11 @@
             font-size: 16px;
         }
     </style>
-    <link rel="stylesheet" href="{{asset('css/gijgo.min.css')}}" type="text/css" />
-@endsection
-{{-- page content --}}
-@section('content')
+  
+</head>
+<body>
 
-            <div class="{{Auth::check() ? 'app-bodynew' : 'app-body'}} @if(Request::is('welcome-new') == 'true') weLcoMeHeaderTopHide @endif">
-
+    <div class="{{Auth::check() ? 'app-bodynew' : 'app-body'}} @if(Request::is('welcome-new') == 'true') weLcoMeHeaderTopHide @endif">
                 <!-- ############ PAGE START-->
 
 
