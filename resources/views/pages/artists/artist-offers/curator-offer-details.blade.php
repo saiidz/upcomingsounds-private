@@ -135,11 +135,19 @@
                                     @endif
                                 </p>
 
-                                {{-- RATING PLACEMENT --}}
+                                {{-- SAFE RATING LOGIC --}}
                                 @php
-                                    $ratings = \App\Models\CuratorRating::where('curator_id', $send_offer->userCurator->id);
-                                    $avgRating = $ratings->avg('rating_stars') ?? 0;
-                                    $totalReviews = $ratings->count();
+                                    $avgRating = 0;
+                                    $totalReviews = 0;
+                                    try {
+                                        if(isset($send_offer->userCurator) && class_exists('\App\Models\CuratorRating')) {
+                                            $ratingsQuery = \App\Models\CuratorRating::where('curator_id', $send_offer->userCurator->id);
+                                            $avgRating = $ratingsQuery->avg('rating_stars') ?? 0;
+                                            $totalReviews = $ratingsQuery->count();
+                                        }
+                                    } catch (\Exception $e) {
+                                        // Prevents page crash if table missing
+                                    }
                                 @endphp
 
                                 <div class="curator-rating-inline m-b-sm">
@@ -160,7 +168,7 @@
                                     </div>
                                 @endif
 
-                                {{-- Socials --}}
+                                {{-- Social Icons --}}
                                 <div class="row-col" id="socialView_S">
                                     <div class="col-xs">
                                         @if(!empty($send_offer->userCurator->curatorUser->instagram_url))
@@ -233,12 +241,11 @@
                     </div>
 
                     {{-- ACTIONS SECTION --}}
-                    <div class="padding">
+                    <div class="padding m-t">
                         @if($send_offer->status == \App\Templates\IOfferTemplateStatus::REJECTED)
                              <div class="alert alert-danger text-center">This offer was declined.</div>
                         @elseif($send_offer->status == \App\Templates\IOfferTemplateStatus::COMPLETED)
                              <div class="alert alert-success text-center">This submission is completed.</div>
-                             {{-- Optional: Show Work Link here --}}
                         @else
                             <div class="text-center">
                                 <a href="javascript:void(0)" data-toggle="modal" data-target="#declineOffer" class="btn btn-sm rounded btn-danger m-r-sm">Decline</a>
@@ -247,7 +254,6 @@
                             </div>
                         @endif
                     </div>
-
                 </div>
             </div>
 
@@ -263,25 +269,25 @@
     </div>
 
     @include('pages.artists.artist-offers.modal.modal')
-    @endsection
+@endsection
 
 @section('page-script')
     <script src="{{asset('app-assets/js/artist/artist.js')}}"></script>
     <script>
-        // Bio Expansion
+        // Bio Expansion logic
         var curator_bio_full = {!! json_encode($send_offer->userCurator->curatorUser->curator_bio ?? '') !!};
         function seeMoreBio() {
             $('#bioInfo').html(curator_bio_full);
             $('.seeMoreBio').hide();
         }
 
-        // Pitch Expansion
+        // Pitch Expansion logic
         var pitch_full = {!! json_encode($send_offer->artistTrack->pitch_description ?? '') !!};
         function seeMorePitch() {
             $('#pitchInfo').html(pitch_full);
         }
 
-        // AJAX Payment
+        // AJAX Payment Logic
         $('#payUSCOffer').click(function (event) {
             event.preventDefault();
             var send_offer_id = "{!! encrypt($send_offer->id) !!}";
