@@ -8,7 +8,7 @@ use App\Models\Message;
 use App\Models\SendOffer;
 use App\Models\SendOfferTransaction;
 use App\Models\User;
-use App\Models\CuratorRating; // Added this import
+use App\Models\CuratorRating; 
 use App\Notifications\SendNotification;
 use App\Templates\IOfferTemplateStatus;
 use Illuminate\Contracts\Foundation\Application;
@@ -52,7 +52,13 @@ class OfferController extends Controller
 
     public function accepted()
     {
-        $sendOffers = $this->sendOffer->where(['artist_id' => Auth::id(), 'status' => IOfferTemplateStatus::ACCEPTED,'is_approved' => self::APPROVED])->latest()->get();
+        // FIX: Include 'delivered' status so the Review button can appear after curator finishes work
+        $sendOffers = $this->sendOffer->where('artist_id', Auth::id())
+            ->whereIn('status', [IOfferTemplateStatus::ACCEPTED, 'delivered'])
+            ->where('is_approved', self::APPROVED)
+            ->latest()
+            ->get();
+            
         return view('pages.artists.artist-offers.accepted', get_defined_vars());
     }
 
@@ -231,16 +237,24 @@ class OfferController extends Controller
             return response()->json(['error' => 'We are facing problem in your offer']);
         }
 
-        $balance = User::artistBalance();
-        $contribution = decrypt($request->contribution);
-        if ($contribution > $balance)
-        {
-            return response()->json(['error_wallet' => 'You have insufficient '.$balance.'USC credits, please go to wallet and purchased credits']);
-        }
+        $offerId = decrypt($request->send_offer_id);
+        $sendOffer = SendOffer::where('id', $offerId)->first();
 
-        $sendOffer = SendOffer::where('id', decrypt($request->send_offer_id))->first();
         if(!empty($sendOffer))
         {
+            // FIX: Stop double-payment if offer is already accepted or delivered
+            if (in_array($sendOffer->status, [IOfferTemplateStatus::ACCEPTED, 'delivered', IOfferTemplateStatus::COMPLETED])) {
+                return response()->json(['error' => 'This offer has already been paid and accepted.']);
+            }
+
+            $balance = User::artistBalance();
+            $contribution = decrypt($request->contribution);
+            
+            if ($contribution > $balance)
+            {
+                return response()->json(['error_wallet' => 'You have insufficient '.$balance.'USC credits, please go to wallet and purchased credits']);
+            }
+
             $sendOffer->update([
                 'status'      => IOfferTemplateStatus::ACCEPTED,
             ]);
@@ -287,9 +301,6 @@ class OfferController extends Controller
         return response()->json(['success' => 'Payment USC successfully Paid and Email send successfully to taste maker']);
     }
 
-    /**
-     * New Rating Method
-     */
     public function submitCuratorRating(Request $request) {
         $request->validate([
             'rating_stars' => 'required|integer|between:1,5',
@@ -313,4 +324,4 @@ class OfferController extends Controller
 
         return back()->with('success', 'Thank you! Your rating helps the community.');
     }
-} // Final closing brace
+}
