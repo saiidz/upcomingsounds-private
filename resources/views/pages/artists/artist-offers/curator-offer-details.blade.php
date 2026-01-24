@@ -16,6 +16,22 @@
         svg.svg-inline--fa {
             font-size: inherit !important;
         }
+        .artist-features {
+            display: flex;
+            align-items: center;
+            margin: 0 28px 20px 10px;
+            flex-wrap: wrap;
+        }
+        .artist-features ul {
+            margin: 0;
+            padding: 0 0px 0 40px;
+        }
+        .artist-features ul li {
+            color: #8d8ca4;
+            font-size: 16px;
+            line-height: 16px;
+            margin: 10px 0 0 0;
+        }
         .artist-features ul li::marker {
             color: #02b875;
         }
@@ -45,6 +61,9 @@
             height: 100%;
             object-fit: cover;
         }
+        .cke_notifications_area {
+            display: none;
+        }
     </style>
 @endsection
 
@@ -60,6 +79,7 @@
                             Back</a>
                     </div>
                     <div class="row-col">
+                        {{-- LEFT COLUMN --}}
                         <div class="col-sm w w-auto-xs m-b">
                             <div class="item w">
                                 <div class="item-media">
@@ -70,7 +90,11 @@
                                             $findhttp   = 'http';
                                             $poshttps = strpos($mystring, $findhttps);
                                             $poshttp = strpos($mystring, $findhttp);
-                                            $pos = ($poshttps !== false) ? $poshttps : $poshttp;
+                                            if($poshttps != false){
+                                                $pos = $poshttps;
+                                            }else{
+                                                $pos = $poshttp;
+                                            }
                                         @endphp
                                         @if($pos === false)
                                             @if(!empty($send_offer->userCurator->profile))
@@ -98,6 +122,8 @@
                                 @endif
                             </div>
                         </div>
+
+                        {{-- RIGHT COLUMN --}}
                         <div class="col-sm">
                             <div class="p-l-md no-padding-xs">
                                 <div class="page-title">
@@ -112,14 +138,14 @@
                                     @endif
                                 </p>
 
-                                {{-- SAFE RATING LOGIC ADDED HERE --}}
+                                {{-- RATING BLOCK INSERTED HERE --}}
                                 @php
                                     $avgRating = 0; $totalReviews = 0;
                                     try {
                                         if(isset($send_offer->userCurator) && class_exists('\App\Models\CuratorRating')) {
-                                            $q = \App\Models\CuratorRating::where('curator_id', $send_offer->userCurator->id);
-                                            $avgRating = $q->avg('rating_stars') ?? 0;
-                                            $totalReviews = $q->count();
+                                            $ratingsQuery = \App\Models\CuratorRating::where('curator_id', $send_offer->userCurator->id);
+                                            $avgRating = $ratingsQuery->avg('rating_stars') ?? 0;
+                                            $totalReviews = $ratingsQuery->count();
                                         }
                                     } catch (\Exception $e) {}
                                 @endphp
@@ -131,9 +157,9 @@
                                         @endfor
                                     </div>
                                     <span class="font-weight-bold" style="color: #02b875;">{{ number_format($avgRating, 1) }}</span>
-                                    <span class="text-muted small">({{ $totalReviews }} reviews)</span>
+                                    <span class="text-muted small">({{ $totalReviews }} {{ Str::plural('review', $totalReviews) }})</span>
                                 </div>
-                                {{-- END RATING LOGIC --}}
+                                {{-- END RATING BLOCK --}}
 
                                 @if(!empty($send_offer->userCurator->curatorUser->country))
                                     <div class="block flag_style clearfix m-b">
@@ -152,6 +178,14 @@
                                                 <i class="fa fa-instagram"></i>
                                             </a>
                                         @endif
+                                        @if(!empty($send_offer->userCurator->curatorUser->facebook_url))
+                                            <a href="{{$send_offer->userCurator->curatorUser->facebook_url}}" target="_blank"
+                                               class="btn btn-icon btn-social rounded btn-social-colored indigo"
+                                               title="Facebook">
+                                                <i class="fa fa-facebook"></i>
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        @endif
                                         @if(!empty($send_offer->userCurator->curatorUser->spotify_url))
                                             <a href="{{$send_offer->userCurator->curatorUser->spotify_url}}" target="_blank"
                                                class="btn btn-icon btn-social rounded btn-social-colored light-green-500"
@@ -165,9 +199,90 @@
                             </div>
                         </div>
                     </div>
+
+                    {{-- Send Offer Info --}}
                     <div class="padding p-y-0 m-b-md m-t-3">
                         <div class="page-title m-b">
                             <h4 class="inline m-a-0 update_profile">Send Offer Info</h4>
                         </div>
                         <div class="form-group row">
-                            <div class="col-sm-3
+                            <div class="col-sm-3 form-control-label text-muted">Expiry Date:</div>
+                            <div class="col-sm-9">{{!empty($send_offer) ? getDateFormat($send_offer->expiry_date) : '----'}}</div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-3 form-control-label text-muted">Contribution:</div>
+                            <div class="col-sm-9 font-weight-bold" style="color: #02b875;">{{!empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->contribution : 0}} USC</div>
+                        </div>
+                    </div>
+
+                    {{-- Track Info --}}
+                    <div class="padding p-y-0 m-b-md m-t-3">
+                        <div class="page-title m-b">
+                            <h4 class="inline m-a-0 update_profile">Track Info</h4>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-3 form-control-label text-muted">Track Name:</div>
+                            <div class="col-sm-9">{{ !empty($send_offer->artistTrack) ? $send_offer->artistTrack->name : '----'}}</div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-3 form-control-label text-muted">Pitch:</div>
+                            <div class="col-sm-9 text-muted italic" id="pitchInfo">
+                                {{ !empty($send_offer->artistTrack->pitch_description) ? Str::limit($send_offer->artistTrack->pitch_description, 100) : '-----'}}
+                                <a href="javascript:void(0)" class="seeMoreBio" onclick="seeMorePitch()">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- Accept/Decline Actions --}}
+                    <div class="padding text-center m-t-lg">
+                        @if($send_offer->status == \App\Templates\IOfferTemplateStatus::REJECTED)
+                             <div class="alert alert-danger">This Offer has been declined.</div>
+                        @elseif($send_offer->status == \App\Templates\IOfferTemplateStatus::COMPLETED)
+                             <div class="alert alert-success">This offer is completed.</div>
+                        @else
+                            <div id="curatorOfferBtn">
+                                <a href="javascript:void(0)" data-toggle="modal" data-target="#declineOffer" class="btn btn-sm rounded btn-danger m-r-sm">Decline</a>
+                                <a href="javascript:void(0)" data-toggle="modal" data-target="#confirmPayUSCModal" class="btn btn-sm rounded btn-success">Pay USC</a>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+
+            @if($send_offer->status == \App\Templates\IOfferTemplateStatus::EXPIRED)
+                @include('pages.curators.panels.right-sidebar')
+            @else
+                @include('pages.chat.right-sidebar-chat')
+            @endif
+        </div>
+    </div>
+
+    @include('pages.artists.artist-offers.modal.modal')
+
+@endsection
+
+@section('page-script')
+    <script src="{{asset('app-assets/js/artist/artist.js')}}"></script>
+    <script>
+        var curator_bio = {!! json_encode($send_offer->userCurator->curatorUser->curator_bio ?? '') !!};
+        function seeMoreBio() { $('#bioInfo').html(curator_bio); }
+
+        var track_pitch = {!! json_encode($send_offer->artistTrack->pitch_description ?? '') !!};
+        function seeMorePitch() { $('#pitchInfo').html(track_pitch); }
+
+        $('#payUSCOffer').click(function (event) {
+            event.preventDefault();
+            var send_offer_id = "{!! encrypt(!empty($send_offer) ? $send_offer->id : null) !!}";
+            var contribution = $('.UscOfferPay').attr('data-contribution');
+            $.ajax({
+                type: "POST",
+                url: "{{route('artist.offer.pay')}}",
+                data:{"_token": "{{ csrf_token() }}", "send_offer_id": send_offer_id, "contribution": contribution},
+                success: function (data) {
+                    if(data.success) window.location = '{{ URL::to('/accepted-offer') }}';
+                    else toastr.error(data.error || data.error_wallet);
+                }
+            });
+        });
+    </script>
+@endsection
