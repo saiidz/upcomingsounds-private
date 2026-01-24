@@ -5,8 +5,6 @@
 
 
 @section('content')
-    <!-- ############ PAGE START-->
-
     <div class="page-content">
         <div class="row-col">
             <div class="col-lg-9 b-r no-border-md">
@@ -27,7 +25,7 @@
                                                 $poshttps = strpos($mystring, $findhttps);
 
                                                 $poshttp = strpos($mystring, $findhttp);
-                                                if($poshttps != false){
+                                                if($poshttps !== false){
                                                     $pos = $poshttps;
                                                 }else{
                                                     $pos = $poshttp;
@@ -51,11 +49,7 @@
                                         </div>
                                         <div class="item-info">
                                             <div class="bottom text-right">
-                                                @if($sendOffer->status == \App\Templates\IOfferTemplateStatus::PENDING)
-                                                    <span style="color:#02b875 !important">Offer Status: </span><span class="text-danger">{{$sendOffer->status}}</span>
-                                                @else
-                                                    <span style="color:#02b875 !important">Offer Status: </span><span class="text-primary">{{$sendOffer->status}}</span>
-                                                @endif
+                                                <span style="color:#02b875 !important">Offer Status: </span><span class="text-primary">{{$sendOffer->status}}</span>
                                             </div>
                                             <div class="item-title text-ellipsis">
                                                 <span class="text-muted">{{!empty($sendOffer->userCurator) ? $sendOffer->userCurator->name : '----'}}</span>
@@ -77,40 +71,40 @@
                                                     <span style="color:#02b875 !important">Approximate Publish Date: </span><span class="btn btn-xs white">{{($sendOffer->publish_date) ? \Carbon\Carbon::parse($sendOffer->publish_date)->format('M d Y') : ''}}</span>
                                                 </div>
                                             </div>
-                                            <div class="m-t-sm campaignBtn" id="cOfferBtn">
+
+                                            {{-- UPDATED CAMPAIGN BUTTON SECTION --}}
+                                            <div class="m-t-sm campaignBtn" id="cOfferBtn" style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
                                                 <div>
                                                     <form id="form-offer{{$sendOffer->id}}" action="{{route('artist.offer.show',encrypt($sendOffer->id))}}">
                                                         <a href="javascript:void(0)" class="btn btn-xs white" onclick="OfferShow({{$sendOffer->id}})" id="offerTemplateEdit">View Offer</a>
                                                     </form>
                                                 </div>
+
+                                                {{-- Check if the artist has already rated this completed curator --}}
+                                                @php 
+                                                    $isRated = \App\Models\CuratorRating::where('offer_id', $sendOffer->id)->exists(); 
+                                                @endphp
+
+                                                @if(!$isRated)
+                                                    <button type="button" class="btn btn-xs btn-primary rounded-pill" data-toggle="modal" data-target="#rateModal{{$sendOffer->id}}">
+                                                        Rate Experience
+                                                    </button>
+                                                    @include('partials.rating_modal', ['offer' => $sendOffer])
+                                                @else
+                                                    <span class="text-success text-xs font-weight-bold" style="padding-left: 5px;">
+                                                        <i class="fa fa-check-circle"></i> Feedback Rated
+                                                    </span>
+                                                @endif
+
                                                 @if(!empty($sendOffer) && $sendOffer->status == \App\Templates\IOfferTemplateStatus::COMPLETED
                                                 && !empty($sendOffer->sendOfferTransaction) && $sendOffer->sendOfferTransaction->status == \App\Templates\IOfferTemplateStatus::REFUND)
                                                     <div>
                                                         <span id="mgAdmin{{$sendOffer->id}}" style="display:none">{!! $sendOffer->sendOfferTransaction->refund_message !!}</span>
                                                         <a href="javascript:void(0)" class="btn btn-xs white"  onclick="completedOfferMsgModal({{$sendOffer->id}})">
-                                                            Refund Offer Completed Message
+                                                            Refund Offer Message
                                                         </a>
                                                     </div>
                                                 @endif
-{{--                                                @if(!empty($sendOffer) && $sendOffer->status == \App\Templates\IOfferTemplateStatus::COMPLETED--}}
-{{--                                                && !empty($sendOffer->sendOfferTransaction) && $sendOffer->sendOfferTransaction->status == \App\Templates\IOfferTemplateStatus::PAID)--}}
-{{--                                                    <div>--}}
-{{--                                                        <span id="mgAdmin{{$sendOffer->id}}" style="display:none">{!! $sendOffer->message !!}</span>--}}
-{{--                                                        <a href="javascript:void(0)" class="btn btn-xs white"  onclick="completedOfferMsgModal({{$sendOffer->id}})">--}}
-{{--                                                            Offer Completed Message--}}
-{{--                                                        </a>--}}
-{{--                                                    </div>--}}
-{{--                                                @elseif(!empty($sendOffer) && $sendOffer->status == \App\Templates\IOfferTemplateStatus::COMPLETED--}}
-{{--                                                       && !empty($sendOffer->sendOfferTransaction) && $sendOffer->sendOfferTransaction->status == \App\Templates\IOfferTemplateStatus::REFUND)--}}
-{{--                                                    <div>--}}
-{{--                                                        <span id="mgAdmin{{$sendOffer->id}}" style="display:none">{!! $sendOffer->message !!}</span>--}}
-{{--                                                        <a href="javascript:void(0)" class="btn btn-xs white"  onclick="completedOfferMsgModal({{$sendOffer->id}})">--}}
-{{--                                                            Refund Offer Completed Message--}}
-{{--                                                        </a>--}}
-{{--                                                    </div>--}}
-{{--                                                @else--}}
-{{--                                                    --}}
-{{--                                                @endif--}}
                                             </div>
                                         </div>
                                     </div>
@@ -126,9 +120,6 @@
         </div>
     </div>
 
-    <!-- ############ PAGE END-->
-
-    <!-- Completed Modal -->
     <div id="completedMsgModalCenter" class="modal fade black-overlay" data-backdrop="false">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -141,16 +132,17 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
-            </div><!-- /.modal-content -->
-        </div>
+            </div></div>
     </div>
-    <!-- Completed Modal -->
 @endsection
 
 @section('page-script')
     <script>
-        function completedOfferMsgModal(id)
-        {
+        function OfferShow(id) {
+            $("#form-offer" + id).submit();
+        }
+
+        function completedOfferMsgModal(id) {
             let msg = $('#mgAdmin'+id).html();
             $('#msgCompletedCurator').html(msg);
             $('#completedMsgModalCenter').modal('show');
