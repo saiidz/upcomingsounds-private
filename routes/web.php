@@ -85,6 +85,8 @@ Route::group(['middleware' => ['try_catch']], function() {
     Route::group(['middleware' => ['auth','verify_if_user','create_password','verified','artist_signup','approved_artist_admin','re_apply','rejected_artist_admin']], function() {
         Route::prefix('')->group(base_path('routes/client/auth.php'));
     });
+    // Change the conflicting route to something like this:
+Route::get('/rejected-details', [OfferController::class, 'rejected'])->name('artist.rejected_details');
 
     /***************************************************** Curators Routes *********************************************************/
     Route::group(['middleware' => ['auth','verify_if_curator','create_curator_password','verified','verified_phone_number_curator','curator_signup','approved_curator_admin','re_apply','rejected_curator_admin']], function() {
