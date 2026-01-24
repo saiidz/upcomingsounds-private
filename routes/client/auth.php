@@ -86,7 +86,7 @@ Route::get('accepted-offer', [OfferController::class,'accepted'])->name('artist.
 Route::get('rejected-offer', [OfferController::class,'rejected'])->name('artist.rejected_list');
 Route::get('alternative-offer', [OfferController::class,'alternative'])->name('artist.alternative');
 Route::get('artists-submissions-offer', [OfferController::class,'artistsSubmissions'])->name('artist.artists.submissions');
-Route::get('completed-offer', [OfferController::class,'completed'])->name('artist.completed');
+Route::get('completed-offer', [\App\Http\Controllers\Artist\OfferController::class, 'completed'])->name('artist.completed');
 Route::get('new-offer', [OfferController::class,'new'])->name('artist.new');
 Route::get('proposition-offer', [OfferController::class,'proposition'])->name('artist.proposition');
 # offers routes
