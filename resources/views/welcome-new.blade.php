@@ -103,7 +103,7 @@
                             {{ !empty($theme_home->artist_title) ? $theme_home->artist_title : 'For Artists, Labels, Manager' }}
                         </h2>
                         <div class="text-extra-large tz-text width-90 margin-five-bottom">
-                            {{ !empty($theme_home->artist_description) ? $theme_home->artist_description : 'Don\'t stress about pushing out your music to the world, Upcoming Sounds has you covered!' }}
+                            {{ !empty($theme_home->artist_description) ? $theme_home->artist_description : 'Don't stress about pushing out your music to the world, Upcoming Sounds has you covered!' }}
                         </div>
                         <div class="text-medium tz-text width-90 margin-ten-bottom">
                             <p>{{ !empty($theme_home->artist_description_two) ? $theme_home->artist_description_two : 'Our platform will deal with marketing and promoting your music.' }}</p>
@@ -159,7 +159,7 @@
                         <h2 class="alt-font title-extra-large text-dark-gray margin-eight-bottom tz-text">
                             {{ !empty($theme_home->curator_title) ? $theme_home->curator_title : ' For Curators & Influencers' }}
                         </h2>
-                        <div class="text-extra-large tz-text margin-five-bottom">{{ $theme_home->curator_description ?? 'Join our family of trendsetters.' }}</div>
+                        <div class="text-extra-large tz-text margin-five-bottom">{{ $theme_home->curator_description ?? 'Join our family of music enthusiasts .' }}</div>
                         <a class="btn-circle border-2-dark-aqua nav-link" href="{{ url($theme_home->curator_btn_link ?? '/for-curators') }}">
                             <span class="tz-text btn btn-sm rounded primary _600">{{ !empty($theme_home->curator_btn_text) ? $theme_home->curator_btn_text : 'Join Our Family' }}</span>
                         </a>
