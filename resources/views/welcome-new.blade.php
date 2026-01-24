@@ -600,4 +600,6 @@
     <script src="{{asset('welcome-home-page/js/counter.js')}}"></script>
     <script src="{{asset('welcome-home-page/js/twitterFetcher_min.js')}}"></script>
     <script src="{{asset('welcome-home-page/js/main.js')}}"></script>
-@endsection
+
+</body>
+</html>
