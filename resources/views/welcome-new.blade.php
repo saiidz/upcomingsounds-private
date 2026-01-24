@@ -431,7 +431,7 @@
 
             @include('welcome-panels.welcome-footer')
 
-@endsection
+
 {{-- page script --}}
 @section('page-script')
 
