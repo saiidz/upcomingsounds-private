@@ -95,35 +95,7 @@
     </style>
 
     <link rel="stylesheet" href="{{asset('css/gijgo.min.css')}}" type="text/css" />
-</head>
-<body>
-    <div class="{{Auth::check() ? 'app-bodynew' : 'app-body'}} @if(Request::is('welcome-new') == 'true') weLcoMeHeaderTopHide @endif">
 
-
-     
-        /* Customize your slider styles here */
-        .testimonial-slider {
-            width: 80%;
-            margin: 0 auto;
-            height: 300px; /* Set your desired fixed height */
-        }
-        .testimonial-slide {
-            text-align: center;
-        }
-        .testimonial-slide img {
-            display: inline-block;
-            max-width: 100%;
-            height: auto;
-        }
-        .testimonial-slide h2 {
-            font-size: 24px;
-            margin: 15px 0;
-        }
-        .testimonial-slide p {
-            font-size: 16px;
-        }
-    </style>
-  
 </head>
 <body>
 
