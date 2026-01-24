@@ -90,7 +90,7 @@
                                             $findhttp   = 'http';
                                             $poshttps = strpos($mystring, $findhttps);
                                             $poshttp = strpos($mystring, $findhttp);
-                                            if($poshttps != false){
+                                            if($poshttps !== false){
                                                 $pos = $poshttps;
                                             }else{
                                                 $pos = $poshttp;
@@ -138,7 +138,7 @@
                                     @endif
                                 </p>
 
-                                {{-- RATING BLOCK INSERTED HERE --}}
+                                {{-- RATING BLOCK --}}
                                 @php
                                     $avgRating = 0; $totalReviews = 0;
                                     try {
@@ -159,7 +159,6 @@
                                     <span class="font-weight-bold" style="color: #02b875;">{{ number_format($avgRating, 1) }}</span>
                                     <span class="text-muted small">({{ $totalReviews }} {{ Str::plural('review', $totalReviews) }})</span>
                                 </div>
-                                {{-- END RATING BLOCK --}}
 
                                 @if(!empty($send_offer->userCurator->curatorUser->country))
                                     <div class="block flag_style clearfix m-b">
@@ -233,13 +232,32 @@
                         </div>
                     </div>
 
-                    {{-- Accept/Decline Actions --}}
+                    {{-- UPDATED: Accept/Decline Logic --}}
                     <div class="padding text-center m-t-lg">
-                        @if($send_offer->status == \App\Templates\IOfferTemplateStatus::REJECTED)
-                             <div class="alert alert-danger">This Offer has been declined.</div>
-                        @elseif($send_offer->status == \App\Templates\IOfferTemplateStatus::COMPLETED)
-                             <div class="alert alert-success">This offer is completed.</div>
+                        @php $status = strtolower($send_offer->status); @endphp
+
+                        @if($status == \App\Templates\IOfferTemplateStatus::REJECTED)
+                             <div class="alert alert-danger" style="border-radius: 8px; font-weight: bold;">This Offer has been declined.</div>
+                        
+                        @elseif($status == 'accepted')
+                             <div class="alert alert-info" style="background-color: #e3f2fd; color: #0d47a1; border-radius: 8px; font-weight: bold; border: 1px solid #90caf9;">
+                                <i class="fa fa-clock-o"></i> Artist Completed Payment. Awaiting curator completion.
+                             </div>
+
+                        @elseif($status == 'delivered')
+                            <div class="alert alert-success" style="background-color: #e8f5e9; color: #1b5e20; border-radius: 8px; font-weight: bold; border: 1px solid #a5d6a7;">
+                                <i class="fa fa-check-circle"></i> Work has been delivered!
+                                <button type="button" class="btn btn-sm btn-primary rounded-pill ml-2" data-toggle="modal" data-target="#rateModal{{$send_offer->id}}">
+                                    Rate Curator & Finish
+                                </button>
+                            </div>
+                            @include('partials.rating_modal', ['offer' => $send_offer])
+
+                        @elseif($status == \App\Templates\IOfferTemplateStatus::COMPLETED)
+                             <div class="alert alert-success" style="border-radius: 8px; font-weight: bold;">This offer is completed.</div>
+                        
                         @else
+                            {{-- PENDING STATE --}}
                             <div id="curatorOfferBtn">
                                 <a href="javascript:void(0)" data-toggle="modal" data-target="#declineOffer" class="btn btn-sm rounded btn-danger m-r-sm">Decline</a>
                                 <a href="javascript:void(0)" data-toggle="modal" data-target="#confirmPayUSCModal" class="btn btn-sm rounded btn-success">Pay USC</a>
@@ -279,7 +297,10 @@
                 url: "{{route('artist.offer.pay')}}",
                 data:{"_token": "{{ csrf_token() }}", "send_offer_id": send_offer_id, "contribution": contribution},
                 success: function (data) {
-                    if(data.success) window.location = '{{ URL::to('/accepted-offer') }}';
+                    if(data.success) {
+                        toastr.success(data.success);
+                        window.location = '{{ URL::to('/accepted-offer') }}';
+                    }
                     else toastr.error(data.error || data.error_wallet);
                 }
             });
