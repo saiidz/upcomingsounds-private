@@ -93,7 +93,7 @@ Route::get('proposition-offer', [OfferController::class,'proposition'])->name('a
 
 
 // offer detail route
-Route::get('curator-offer/{send_offer}', [SendOfferController::class,'sendOfferShow'])->name('artist.offer.show');
+Route::get('curator-offer/{send_offer}', [OfferController::class,'offerShow'])->name('artist.offer.show');
 //Route::get('curator-offer/{send_offer}', [OfferController::class,'offerShow'])->name('artist.offer.show');
 // offer detail route
 
