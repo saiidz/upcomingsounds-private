@@ -8,6 +8,7 @@ use App\Models\Message;
 use App\Models\SendOffer;
 use App\Models\SendOfferTransaction;
 use App\Models\User;
+use App\Models\CuratorRating; // Added this import
 use App\Notifications\SendNotification;
 use App\Templates\IOfferTemplateStatus;
 use Illuminate\Contracts\Foundation\Application;
@@ -37,93 +38,60 @@ class OfferController extends Controller
         $this->sendOffer = $sendOffer;
     }
 
-    /**
-     * @return Application|Factory|View
-     */
     public function offers()
     {
         $sendOffers = $this->sendOffer->where(['artist_id' => Auth::id(), 'is_approved' => self::APPROVED])->latest()->get();
         return view('pages.artists.artist-offers.offers', get_defined_vars());
     }
 
-    /**
-     * @return Application|Factory|View
-     */
     public function pending()
     {
         $sendOffers = $this->sendOffer->where(['artist_id' => Auth::id(), 'status' => IOfferTemplateStatus::PENDING, 'is_approved' => self::APPROVED])->latest()->get();
         return view('pages.artists.artist-offers.pending', get_defined_vars());
     }
 
-    /**
-     * @return Application|Factory|View
-     */
     public function accepted()
     {
         $sendOffers = $this->sendOffer->where(['artist_id' => Auth::id(), 'status' => IOfferTemplateStatus::ACCEPTED,'is_approved' => self::APPROVED])->latest()->get();
         return view('pages.artists.artist-offers.accepted', get_defined_vars());
     }
 
-    /**
-     * @return Application|Factory|View
-     */
     public function rejected()
     {
         $sendOffers = $this->sendOffer->where(['artist_id' => Auth::id(), 'status' => IOfferTemplateStatus::REJECTED, 'is_approved' => self::APPROVED])->latest()->get();
         return view('pages.artists.artist-offers.rejected', get_defined_vars());
     }
 
-    /**
-     * @return Application|Factory|View
-     */
     public function alternative()
     {
         $sendOffers = $this->sendOffer->where(['artist_id' => Auth::id(), 'status' => IOfferTemplateStatus::ALTERNATIVE, 'is_approved' => self::APPROVED])->latest()->get();
         return view('pages.artists.artist-offers.alternative', get_defined_vars());
     }
 
-    /**
-     * @return Application|Factory|View
-     */
     public function artistsSubmissions()
     {
         return view('pages.artists.artist-offers.artist-submissions', get_defined_vars());
     }
 
-    /**
-     * @return Application|Factory|View
-     */
     public function completed()
     {
         $sendOffers = $this->sendOffer->where(['artist_id' => Auth::id(), 'status' => IOfferTemplateStatus::COMPLETED,'is_approved' => self::APPROVED])->latest()->get();
         return view('pages.artists.artist-offers.completed', get_defined_vars());
     }
 
-    /**
-     * @return Application|Factory|View
-     */
     public function new()
     {
         return view('pages.artists.artist-offers.new', get_defined_vars());
     }
 
-    /**
-     * @return Application|Factory|View
-     */
     public function proposition()
     {
         return view('pages.artists.artist-offers.proposition', get_defined_vars());
     }
 
-    /**
-     * @param $send_offer
-     * @return Application|Factory|View
-     */
     public function offerShow($send_offer)
     {
         $send_offer = SendOffer::find(decrypt($send_offer));
-
-        // create conversation
         $conversation_id = Conversation::where('sender_id', Auth::Id())->where('receiver_id', $send_offer->artist_id)->pluck('id')->first();
 
         if(is_null($conversation_id))
@@ -137,7 +105,6 @@ class OfferController extends Controller
                 'sender_id' => Auth::Id(),
                 'receiver_id' => $send_offer->artist_id
             ]);
-
             $conversation_id = $conversation_id->id;
         }
 
@@ -145,7 +112,6 @@ class OfferController extends Controller
 
         if(isset($conversation_default))
         {
-            // get default chat
             $messages = Message::where('conversation_id', $conversation_default->id)->get();
             $messages = view('pages.chat.render_messages')->with('messages' , $messages)->render();
         }
@@ -153,10 +119,6 @@ class OfferController extends Controller
         return view('pages.artists.artist-offers.curator-offer-details', get_defined_vars());
     }
 
-    /**
-     * @param Request $request
-     * @return JsonResponse
-     */
     public function declineOffer(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -185,23 +147,19 @@ class OfferController extends Controller
             try {
                 Mail::send('admin.emails.curator_email.send_reject_email_to_curator', $data, function($message)use($data) {
                     $message->from('no_reply@upcomingsounds.com');
-                    $message->to($data["email"], $data["email"])
-                        ->subject($data["title"]);
+                    $message->to($data["email"], $data["email"])->subject($data["title"]);
                 });
-            } catch (\Throwable $th) {
-                //throw $th;
-            }
+            } catch (\Throwable $th) {}
 
-            // send notification
-            $data   =   [
-                'title' =>  Auth::user()->name.' (Decline Offer)',
-                'link'  =>  route('curator.send.offer.show',encrypt($sendOffer->id)),
-                'date'  =>  getDateFormat($sendOffer->created_at),
+            $data = [
+                'title' => Auth::user()->name.' (Decline Offer)',
+                'link'  => route('curator.send.offer.show',encrypt($sendOffer->id)),
+                'date'  => getDateFormat($sendOffer->created_at),
             ];
 
-            $params =   [
-                'channel_name'  =>  'decline_offer_notification',
-                'data'          =>  $data,
+            $params = [
+                'channel_name' => 'decline_offer_notification',
+                'data'         => $data,
             ];
 
             $user = !empty($sendOffer->userCurator) ? $sendOffer->userCurator : null;
@@ -209,15 +167,10 @@ class OfferController extends Controller
             {
                 $user->notify(new SendNotification($params));
             }
-
         }
         return response()->json(['success' => 'Email and notify send successfully to taste maker']);
     }
 
-    /**
-     * @param Request $request
-     * @return JsonResponse
-     */
     public function freeAlternativeOffer(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -247,23 +200,19 @@ class OfferController extends Controller
             try {
                 Mail::send('admin.emails.curator_email.send_reject_email_to_curator', $data, function($message)use($data) {
                     $message->from('no_reply@upcomingsounds.com');
-                    $message->to($data["email"], $data["email"])
-                        ->subject($data["title"]);
+                    $message->to($data["email"], $data["email"])->subject($data["title"]);
                 });
-            } catch (\Throwable $th) {
-                //throw $th;
-            }
+            } catch (\Throwable $th) {}
 
-            // send notification
-            $data   =   [
-                'title' =>  Auth::user()->name.' (Free Alternative Offer)',
-                'link'  =>  route('curator.send.offer.show',encrypt($sendOffer->id)),
-                'date'  =>  getDateFormat($sendOffer->created_at),
+            $data = [
+                'title' => Auth::user()->name.' (Free Alternative Offer)',
+                'link'  => route('curator.send.offer.show',encrypt($sendOffer->id)),
+                'date'  => getDateFormat($sendOffer->created_at),
             ];
 
-            $params =   [
-                'channel_name'  =>  'free_alternative_offer_notification',
-                'data'          =>  $data,
+            $params = [
+                'channel_name' => 'free_alternative_offer_notification',
+                'data'         => $data,
             ];
 
             $user = !empty($sendOffer->userCurator) ? $sendOffer->userCurator : null;
@@ -271,15 +220,10 @@ class OfferController extends Controller
             {
                 $user->notify(new SendNotification($params));
             }
-
         }
         return response()->json(['success' => 'Email and notify send successfully to taste maker']);
     }
 
-    /**
-     * @param Request $request
-     * @return JsonResponse
-     */
     public function payUSCeOffer(Request $request)
     {
         if(empty($request->send_offer_id))
@@ -287,7 +231,6 @@ class OfferController extends Controller
             return response()->json(['error' => 'We are facing problem in your offer']);
         }
 
-        // check artist balance
         $balance = User::artistBalance();
         $contribution = decrypt($request->contribution);
         if ($contribution > $balance)
@@ -302,7 +245,6 @@ class OfferController extends Controller
                 'status'      => IOfferTemplateStatus::ACCEPTED,
             ]);
 
-            // save pay offer transaction
             $sendOfferTransaction = SendOfferTransaction::create([
                 'send_offer_id' => $sendOffer->id,
                 'artist_id'     => $sendOffer->artist_id,
@@ -312,8 +254,6 @@ class OfferController extends Controller
                 'is_rejected'   => 0,
                 'status'        => IOfferTemplateStatus::PAID,
             ]);
-            Log::info('sendOfferTransaction');
-            Log::info(json_encode($sendOfferTransaction));
 
             $data['email'] = $sendOffer->userCurator->email;
             $data['username'] = $sendOffer->userCurator->name;
@@ -323,23 +263,19 @@ class OfferController extends Controller
             try {
                 Mail::send('admin.emails.curator_email.send_reject_email_to_curator', $data, function($message)use($data) {
                     $message->from('no_reply@upcomingsounds.com');
-                    $message->to($data["email"], $data["email"])
-                        ->subject($data["title"]);
+                    $message->to($data["email"], $data["email"])->subject($data["title"]);
                 });
-            } catch (\Throwable $th) {
-                //throw $th;
-            }
+            } catch (\Throwable $th) {}
 
-            // send notification
-            $data   =   [
-                'title' =>  Auth::user()->name.' (Paid Offer)',
-                'link'  =>  route('curator.send.offer.show',encrypt($sendOffer->id)),
-                'date'  =>  getDateFormat($sendOffer->created_at),
+            $data = [
+                'title' => Auth::user()->name.' (Paid Offer)',
+                'link'  => route('curator.send.offer.show',encrypt($sendOffer->id)),
+                'date'  => getDateFormat($sendOffer->created_at),
             ];
 
-            $params =   [
-                'channel_name'  =>  'paid_offer_notification',
-                'data'          =>  $data,
+            $params = [
+                'channel_name' => 'paid_offer_notification',
+                'data'         => $data,
             ];
 
             $user = !empty($sendOffer->userCurator) ? $sendOffer->userCurator : null;
@@ -347,9 +283,34 @@ class OfferController extends Controller
             {
                 $user->notify(new SendNotification($params));
             }
-
         }
         return response()->json(['success' => 'Payment USC successfully Paid and Email send successfully to taste maker']);
     }
 
-}
+    /**
+     * New Rating Method
+     */
+    public function submitCuratorRating(Request $request) {
+        $request->validate([
+            'rating_stars' => 'required|integer|between:1,5',
+            'offer_id' => 'required|exists:send_offers,id',
+        ]);
+
+        $exists = CuratorRating::where('offer_id', $request->offer_id)->exists();
+        if($exists) {
+            return back()->with('error', 'You have already rated this submission.');
+        }
+
+        $offer = SendOffer::findOrFail($request->offer_id);
+
+        CuratorRating::create([
+            'artist_id' => auth()->id(),
+            'curator_id' => $offer->curator_id,
+            'offer_id' => $offer->id,
+            'rating_stars' => $request->rating_stars,
+            'artist_feedback' => $request->artist_feedback,
+        ]);
+
+        return back()->with('success', 'Thank you! Your rating helps the community.');
+    }
+} // Final closing brace
