@@ -79,7 +79,7 @@ Route::post('store-verification-form', [CuratorVerificationFormController::class
 Route::get('offers', [OfferController::class,'offers'])->name('curator.offers');
 Route::get('offer-pending', [OfferController::class,'pending'])->name('curator.pending');
 Route::get('offer-accepted', [OfferController::class,'accepted'])->name('curator.accepted');
-Route::get('offer-rejected', [OfferController::class,'rejected'])->name('curator.rejected');
+Route::get('offer-rejected', [OfferController::class,'rejected'])->name('curator.rejected_list');
 Route::get('offer-expired', [OfferController::class,'expired'])->name('curator.expired');
 Route::get('offer-alternative', [OfferController::class,'alternative'])->name('curator.alternative');
 Route::get('offer-artists-submissions', [OfferController::class,'artistsSubmissions'])->name('curator.artists.submissions');
