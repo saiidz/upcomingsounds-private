@@ -83,7 +83,7 @@ Route::post('artist/change-public-profile',[ArtistController::class,'artistChang
 Route::get('artist-offers', [OfferController::class,'offers'])->name('artist.offers');
 Route::get('pending-offer', [OfferController::class,'pending'])->name('artist.pending');
 Route::get('accepted-offer', [OfferController::class,'accepted'])->name('artist.accepted');
-Route::get('rejected-offer', [OfferController::class,'rejected'])->name('artist.rejected');
+Route::get('rejected-offer', [OfferController::class,'rejected'])->name('artist.rejected_list');
 Route::get('alternative-offer', [OfferController::class,'alternative'])->name('artist.alternative');
 Route::get('artists-submissions-offer', [OfferController::class,'artistsSubmissions'])->name('artist.artists.submissions');
 Route::get('completed-offer', [OfferController::class,'completed'])->name('artist.completed');
