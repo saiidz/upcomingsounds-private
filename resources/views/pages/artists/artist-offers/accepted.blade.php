@@ -17,7 +17,6 @@
                                 <div class="col-xs-12 remove_offer m-b" id="remove_offer-{{$sendOffer->id}}">
                                     <div class="item r Item" data-id="item-{{$sendOffer->id}}">
                                         <div class="item-media">
-                                            {{-- Profile Image Logic --}}
                                             @php
                                                 $mystring = $sendOffer->userCurator->profile;
                                                 $findhttps = 'https';
@@ -39,8 +38,8 @@
                                         <div class="item-info">
                                             <div class="bottom text-right">
                                                 <span style="color:#02b875 !important">Offer Status: </span>
-                                                <span class="{{ $sendOffer->status == \App\Templates\IOfferTemplateStatus::PENDING ? 'text-danger' : 'text-primary' }}">
-                                                    {{$sendOffer->status}}
+                                                <span class="text-primary font-weight-bold">
+                                                    {{ strtoupper($sendOffer->status) }}
                                                 </span>
                                             </div>
                                             
@@ -58,25 +57,42 @@
                                                 <div><span style="color:#02b875 !important">Publish Date: </span><span class="btn btn-xs white">{{($sendOffer->publish_date) ? \Carbon\Carbon::parse($sendOffer->publish_date)->format('M d Y') : ''}}</span></div>
                                             </div>
 
-                                            <div class="m-t-sm campaignBtn" style="display:flex; gap: 10px; align-items: center;">
-                                                {{-- View Offer Button --}}
+                                            <div class="m-t-sm campaignBtn" style="display:flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                                                
+                                                {{-- View Offer Button (Always Visible for Context) --}}
                                                 <form id="form-offer{{$sendOffer->id}}" action="{{route('artist.offer.show',encrypt($sendOffer->id))}}">
                                                     <a href="javascript:void(0)" class="btn btn-xs white" onclick="OfferShow({{$sendOffer->id}})" id="offerTemplateEdit">View Offer</a>
                                                 </form>
 
-                                                {{-- NEW: Rating Logic Integrated --}}
-                                                @php 
-                                                    $isRated = \App\Models\CuratorRating::where('offer_id', $sendOffer->id)->exists(); 
-                                                @endphp
+                                                {{-- Status Bar / Action Logic --}}
+                                                @if($sendOffer->status == \App\Templates\IOfferTemplateStatus::ACCEPTED)
+                                                    {{-- Case: Paid & Accepted --}}
+                                                    <span class="badge warning p-2" style="font-size: 11px;">
+                                                        <i class="fa fa-clock-o"></i> Awaiting curator completion
+                                                    </span>
 
-                                                @if(!$isRated)
-                                                    <button type="button" class="btn btn-xs btn-primary rounded-pill" data-toggle="modal" data-target="#rateModal{{$sendOffer->id}}">
-                                                        Rate Curator
-                                                    </button>
-                                                    @include('partials.rating_modal', ['offer' => $sendOffer])
-                                                @else
-                                                    <span class="text-success text-xs font-weight-bold"><i class="fa fa-check"></i> Feedback Rated</span>
+                                                @elseif($sendOffer->status == 'delivered')
+                                                    {{-- Case: Work Delivered, Ready for Review --}}
+                                                    @php 
+                                                        $isRated = \App\Models\CuratorRating::where('offer_id', $sendOffer->id)->exists(); 
+                                                    @endphp
+
+                                                    @if(!$isRated)
+                                                        <button type="button" class="btn btn-xs btn-primary rounded-pill" data-toggle="modal" data-target="#rateModal{{$sendOffer->id}}">
+                                                            Review & Rate Work
+                                                        </button>
+                                                        @include('partials.rating_modal', ['offer' => $sendOffer])
+                                                    @else
+                                                        <span class="text-success text-xs font-weight-bold"><i class="fa fa-check"></i> Feedback Submitted</span>
+                                                    @endif
+
+                                                @elseif($sendOffer->status == \App\Templates\IOfferTemplateStatus::COMPLETED)
+                                                    {{-- Case: Finished --}}
+                                                    <span class="badge light p-2" style="font-size: 11px; color: #666;">
+                                                        This offer is completed.
+                                                    </span>
                                                 @endif
+
                                             </div>
                                         </div>
                                     </div>
@@ -91,4 +107,12 @@
             @include('pages.artists.panels.right-sidebar')
         </div>
     </div>
-    @endsection
+@endsection
+
+@section('page-script')
+<script>
+    function OfferShow(id) {
+        $("#form-offer" + id).submit();
+    }
+</script>
+@endsection
