@@ -81,7 +81,13 @@ class OfferController extends Controller
 
     public function completed()
     {
-        $sendOffers = $this->sendOffer->where(['artist_id' => Auth::id(), 'status' => IOfferTemplateStatus::COMPLETED,'is_approved' => self::APPROVED])->latest()->get();
+        // FIX: Check for both uppercase and lowercase 'completed'
+        $sendOffers = $this->sendOffer->where('artist_id', Auth::id())
+            ->whereIn('status', [IOfferTemplateStatus::COMPLETED, 'completed'])
+            ->where('is_approved', self::APPROVED)
+            ->latest()
+            ->get();
+
         return view('pages.artists.artist-offers.completed', get_defined_vars());
     }
 
@@ -243,7 +249,7 @@ class OfferController extends Controller
         if(!empty($sendOffer))
         {
             // FIX: Stop double-payment if offer is already accepted or delivered
-            if (in_array($sendOffer->status, [IOfferTemplateStatus::ACCEPTED, 'delivered', IOfferTemplateStatus::COMPLETED])) {
+            if (in_array(strtolower($sendOffer->status), ['accepted', 'delivered', 'completed'])) {
                 return response()->json(['error' => 'This offer has already been paid and accepted.']);
             }
 
@@ -307,6 +313,7 @@ class OfferController extends Controller
             'offer_id' => 'required|exists:send_offers,id',
         ]);
 
+        // FIX: Prevent double-rating
         $exists = CuratorRating::where('offer_id', $request->offer_id)->exists();
         if($exists) {
             return back()->with('error', 'You have already rated this submission.');
