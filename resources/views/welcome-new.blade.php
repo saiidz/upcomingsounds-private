@@ -103,7 +103,7 @@
                             {{ !empty($theme_home->artist_title) ? $theme_home->artist_title : 'For Artists, Labels, Manager' }}
                         </h2>
                         <div class="text-extra-large tz-text width-90 margin-five-bottom">
-                            {{ !empty($theme_home->artist_description) ? $theme_home->artist_description : 'Don't stress about pushing out your music to the world, Upcoming Sounds has you covered!' }}
+                            {{ !empty($theme_home->artist_description) ? $theme_home->artist_description : 'Don\'t stress about pushing out your music to the world, Upcoming Sounds has you covered!' }}
                         </div>
                         <div class="text-medium tz-text width-90 margin-ten-bottom">
                             <p>{{ !empty($theme_home->artist_description_two) ? $theme_home->artist_description_two : 'Our platform will deal with marketing and promoting your music.' }}</p>
