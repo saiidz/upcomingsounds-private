@@ -11,11 +11,11 @@ class CuratorRating extends Model
     use HasFactory;
 
     protected $fillable = [
-        'artist_id',      // Changed from user_id to match Controller
+        'artist_id',
         'curator_id',
         'offer_id',
-        'rating_stars',   // Changed from rating to match Controller
-        'artist_feedback' // Changed from comment to match Controller
+        'rating_stars',
+        'artist_feedback'
     ];
 
     public function user()
