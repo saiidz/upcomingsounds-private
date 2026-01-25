@@ -40,18 +40,23 @@ class OfferController extends Controller
 
     public function offers()
     {
+        $user_artist = Auth::user(); // Sidebar Fix
         $sendOffers = $this->sendOffer->where(['artist_id' => Auth::id(), 'is_approved' => self::APPROVED])->latest()->get();
         return view('pages.artists.artist-offers.offers', get_defined_vars());
     }
 
     public function pending()
     {
+        $user_artist = Auth::user(); // Sidebar Fix
         $sendOffers = $this->sendOffer->where(['artist_id' => Auth::id(), 'status' => IOfferTemplateStatus::PENDING, 'is_approved' => self::APPROVED])->latest()->get();
         return view('pages.artists.artist-offers.pending', get_defined_vars());
     }
 
     public function accepted()
     {
+        // FIX: Define variable for the right-sidebar
+        $user_artist = Auth::user(); 
+
         // FIX: Include 'delivered' status so the Review button can appear after curator finishes work
         $sendOffers = $this->sendOffer->where('artist_id', Auth::id())
             ->whereIn('status', [IOfferTemplateStatus::ACCEPTED, 'delivered'])
@@ -64,23 +69,29 @@ class OfferController extends Controller
 
     public function rejected()
     {
+        $user_artist = Auth::user(); // Sidebar Fix
         $sendOffers = $this->sendOffer->where(['artist_id' => Auth::id(), 'status' => IOfferTemplateStatus::REJECTED, 'is_approved' => self::APPROVED])->latest()->get();
         return view('pages.artists.artist-offers.rejected', get_defined_vars());
     }
 
     public function alternative()
     {
+        $user_artist = Auth::user(); // Sidebar Fix
         $sendOffers = $this->sendOffer->where(['artist_id' => Auth::id(), 'status' => IOfferTemplateStatus::ALTERNATIVE, 'is_approved' => self::APPROVED])->latest()->get();
         return view('pages.artists.artist-offers.alternative', get_defined_vars());
     }
 
     public function artistsSubmissions()
     {
+        $user_artist = Auth::user(); // Sidebar Fix
         return view('pages.artists.artist-offers.artist-submissions', get_defined_vars());
     }
 
     public function completed()
     {
+        // FIX: Define variable for the right-sidebar
+        $user_artist = Auth::user();
+
         // FIX: Check for both uppercase and lowercase 'completed'
         $sendOffers = $this->sendOffer->where('artist_id', Auth::id())
             ->whereIn('status', [IOfferTemplateStatus::COMPLETED, 'completed'])
@@ -93,16 +104,19 @@ class OfferController extends Controller
 
     public function new()
     {
+        $user_artist = Auth::user(); // Sidebar Fix
         return view('pages.artists.artist-offers.new', get_defined_vars());
     }
 
     public function proposition()
     {
+        $user_artist = Auth::user(); // Sidebar Fix
         return view('pages.artists.artist-offers.proposition', get_defined_vars());
     }
 
     public function offerShow($send_offer)
     {
+        $user_artist = Auth::user(); // Sidebar Fix
         $send_offer = SendOffer::find(decrypt($send_offer));
         $conversation_id = Conversation::where('sender_id', Auth::Id())->where('receiver_id', $send_offer->artist_id)->pluck('id')->first();
 
@@ -248,7 +262,7 @@ class OfferController extends Controller
 
         if(!empty($sendOffer))
         {
-            // FIX: Stop double-payment if offer is already accepted or delivered
+            // FIX: Stop double-payment if offer is already accepted, delivered, or completed
             if (in_array(strtolower($sendOffer->status), ['accepted', 'delivered', 'completed'])) {
                 return response()->json(['error' => 'This offer has already been paid and accepted.']);
             }
