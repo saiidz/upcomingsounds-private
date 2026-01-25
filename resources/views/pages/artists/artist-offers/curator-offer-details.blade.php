@@ -236,7 +236,7 @@
                     <div class="padding text-center m-t-lg">
                         @php $status = strtolower($send_offer->status); @endphp
 
-                        @if($status == \App\Templates\IOfferTemplateStatus::REJECTED)
+                       @if($status == 'rejected')
                              <div class="alert alert-danger" style="border-radius: 8px; font-weight: bold;">This Offer has been declined.</div>
                         
                         @elseif($status == 'accepted')
