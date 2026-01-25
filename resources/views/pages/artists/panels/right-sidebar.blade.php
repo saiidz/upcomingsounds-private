@@ -1,8 +1,8 @@
 <div class="col-lg-3 w-xxl w-auto-md">
     <div class="padding" style="bottom: 60px;" data-ui-jp="stick_in_parent">
         <div class="nav text-sm _600">
-            {{-- This line uses the global helper so it never crashes --}}
-            <p class="text-muted">Logged in as: <strong>{{ auth()->user()->name ?? 'Artist' }}</strong></p>
+            {{-- Use the global auth() helper to avoid 'Undefined variable' crashes --}}
+            <p class="text-muted">Logged in as: <strong>{{ auth()->check() ? auth()->user()->name : 'Artist' }}</strong></p>
         </div>
         <div class="b-b m-y"></div>
         <div class="nav text-sm _600">
