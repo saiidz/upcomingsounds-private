@@ -1,7 +1,7 @@
 <div class="col-lg-3 w-xxl w-auto-md">
     <div class="padding" style="bottom: 60px;" data-ui-jp="stick_in_parent">
         <div class="nav text-sm _600">
-            {{-- Using auth() directly prevents the 500 error --}}
+            {{-- This helper works globally without needing a variable from the controller --}}
             <p class="text-muted">Logged in as: <strong>{{ auth()->check() ? auth()->user()->name : 'Artist' }}</strong></p>
         </div>
         <div class="b-b m-y"></div>
