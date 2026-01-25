@@ -253,7 +253,7 @@
                             </div>
                             @include('partials.rating_modal', ['offer' => $send_offer])
 
-                        @elseif($status == \App\Templates\IOfferTemplateStatus::COMPLETED)
+                        @elseif($status == 'completed')
                              <div class="alert alert-success" style="border-radius: 8px; font-weight: bold;">This offer is completed.</div>
                         
                         @else
