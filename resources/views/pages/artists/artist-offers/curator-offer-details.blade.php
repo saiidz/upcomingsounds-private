@@ -142,8 +142,8 @@
                                 @php
                                     $avgRating = 0; $totalReviews = 0;
                                     try {
-                                        if(isset($send_offer->userCurator) && class_exists('\App\Models\CuratorRating')) {
-                                            $ratingsQuery = \App\Models\CuratorRating::where('curator_id', $send_offer->userCurator->id);
+                                       if(isset($send_offer->userCurator) && class_exists('App\Models\CuratorRating')) {
+                                        $ratingsQuery = \App\Models\CuratorRating::where('curator_id', $send_offer->userCurator->id);
                                             $avgRating = $ratingsQuery->avg('rating_stars') ?? 0;
                                             $totalReviews = $ratingsQuery->count();
                                         }
@@ -267,7 +267,7 @@
                 </div>
             </div>
 
-            @if($send_offer->status == \App\Templates\IOfferTemplateStatus::EXPIRED)
+            @if($send_offer->status == 'expired')
                 @include('pages.curators.panels.right-sidebar')
             @else
                 @include('pages.chat.right-sidebar-chat')
