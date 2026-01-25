@@ -1,6 +1,5 @@
 @extends('pages.artists.panels.layout')
 
-{{-- page title --}}
 @section('title','Accepted')
 
 @section('content')
@@ -18,15 +17,11 @@
                                     <div class="item r Item" data-id="item-{{$sendOffer->id}}">
                                         <div class="item-media">
                                             @php
-                                                $mystring = $sendOffer->userCurator->profile;
-                                                $findhttps = 'https';
-                                                $findhttp = 'http';
-                                                $poshttps = strpos($mystring, $findhttps);
-                                                $poshttp = strpos($mystring, $findhttp);
-                                                $pos = ($poshttps !== false) ? $poshttps : $poshttp;
+                                                $mystring = $sendOffer->userCurator->profile ?? '';
+                                                $pos = (strpos($mystring, 'https') !== false || strpos($mystring, 'http') !== false);
                                             @endphp
                                             
-                                            @if($pos === false)
+                                            @if(!$pos)
                                                 <div class="item-media-content" id="upload_profile"
                                                      style="background-image: url({{ !empty($sendOffer->userCurator->profile) ? URL('/').'/uploads/profile/'.$sendOffer->userCurator->profile : asset('images/profile_images_icons.svg') }});"></div>
                                             @else
@@ -58,22 +53,18 @@
                                             </div>
 
                                             <div class="m-t-sm campaignBtn" style="display:flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-                                                
-                                                {{-- View Offer Button (Always Visible for Context) --}}
                                                 <form id="form-offer{{$sendOffer->id}}" action="{{route('artist.offer.show',encrypt($sendOffer->id))}}">
                                                     <a href="javascript:void(0)" class="btn btn-xs white" onclick="OfferShow({{$sendOffer->id}})" id="offerTemplateEdit">View Offer</a>
                                                 </form>
 
-                                                {{-- Status Bar / Action Logic --}}
                                                 @if($sendOffer->status == \App\Templates\IOfferTemplateStatus::ACCEPTED)
-                                                    {{-- Case: Paid & Accepted --}}
                                                     <span class="badge warning p-2" style="font-size: 11px;">
                                                         <i class="fa fa-clock-o"></i> Awaiting curator completion
                                                     </span>
 
                                                 @elseif($sendOffer->status == 'delivered')
-                                                    {{-- Case: Work Delivered, Ready for Review --}}
                                                     @php 
+                                                        // FIX: Added leading backslash to prevent 500 error
                                                         $isRated = \App\Models\CuratorRating::where('offer_id', $sendOffer->id)->exists(); 
                                                     @endphp
 
@@ -86,13 +77,11 @@
                                                         <span class="text-success text-xs font-weight-bold"><i class="fa fa-check"></i> Feedback Submitted</span>
                                                     @endif
 
-                                                @elseif($sendOffer->status == \App\Templates\IOfferTemplateStatus::COMPLETED)
-                                                    {{-- Case: Finished --}}
+                                                @elseif($sendOffer->status == 'completed' || $sendOffer->status == \App\Templates\IOfferTemplateStatus::COMPLETED)
                                                     <span class="badge light p-2" style="font-size: 11px; color: #666;">
                                                         This offer is completed.
                                                     </span>
                                                 @endif
-
                                             </div>
                                         </div>
                                     </div>
