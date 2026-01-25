@@ -9,12 +9,8 @@ use App\Models\SendOffer;
 use App\Models\SendOfferTransaction;
 use App\Models\User;
 use App\Models\CuratorRating;
-use App\Notifications\SendNotification;
-use App\Templates\IOfferTemplateStatus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Validator;
 
 class OfferController extends Controller
 {
@@ -26,9 +22,6 @@ class OfferController extends Controller
         $this->sendOffer = $sendOffer;
     }
 
-    /**
-     * Helper to ensure the Sidebar never crashes again
-     */
     private function getCommonData()
     {
         return [
@@ -40,6 +33,7 @@ class OfferController extends Controller
     {
         $data = $this->getCommonData();
         $data['sendOffers'] = $this->sendOffer
+            ->with('ratings')
             ->where(['artist_id' => Auth::id(), 'is_approved' => self::APPROVED])
             ->latest()
             ->get();
@@ -50,9 +44,10 @@ class OfferController extends Controller
     {
         $data = $this->getCommonData();
         $data['sendOffers'] = $this->sendOffer
+            ->with('ratings')
             ->where([
                 'artist_id' => Auth::id(),
-                'status' => IOfferTemplateStatus::PENDING,
+                'status' => 'pending',
                 'is_approved' => self::APPROVED
             ])
             ->latest()
@@ -60,44 +55,28 @@ class OfferController extends Controller
         return view('pages.artists.artist-offers.pending', $data);
     }
 
-    // ---------------- FIXED METHOD ----------------
     public function accepted()
     {
         $data = $this->getCommonData();
-
-        // Load offers with relationships
-        $sendOffers = $this->sendOffer
-            ->with([
-                'userCurator',
-                'curatorOfferTemplate.offerType',
-            ])
+        $data['sendOffers'] = $this->sendOffer
+            ->with(['userCurator', 'curatorOfferTemplate.offerType', 'ratings'])
             ->where('artist_id', Auth::id())
-            ->whereIn('status', [IOfferTemplateStatus::ACCEPTED, 'delivered', 'completed'])
+            ->whereIn('status', ['accepted', 'delivered', 'completed'])
             ->where('is_approved', self::APPROVED)
             ->latest()
             ->get();
 
-        // Find which offers already have ratings
-        $offerIds = $sendOffers->pluck('id');
-
-        $ratedOffers = CuratorRating::whereIn('offer_id', $offerIds)
-            ->pluck('offer_id')
-            ->toArray();
-
-        $data['sendOffers']  = $sendOffers;
-        $data['ratedOffers'] = $ratedOffers;
-
         return view('pages.artists.artist-offers.accepted', $data);
     }
-    // ---------------- END FIX ----------------
 
     public function rejected()
     {
         $data = $this->getCommonData();
         $data['sendOffers'] = $this->sendOffer
+            ->with('ratings')
             ->where([
                 'artist_id' => Auth::id(),
-                'status' => IOfferTemplateStatus::REJECTED,
+                'status' => 'rejected',
                 'is_approved' => self::APPROVED
             ])
             ->latest()
@@ -109,9 +88,10 @@ class OfferController extends Controller
     {
         $data = $this->getCommonData();
         $data['sendOffers'] = $this->sendOffer
+            ->with('ratings')
             ->where([
                 'artist_id' => Auth::id(),
-                'status' => IOfferTemplateStatus::ALTERNATIVE,
+                'status' => 'alternative',
                 'is_approved' => self::APPROVED
             ])
             ->latest()
@@ -119,31 +99,17 @@ class OfferController extends Controller
         return view('pages.artists.artist-offers.alternative', $data);
     }
 
-    public function artistsSubmissions()
-    {
-        return view('pages.artists.artist-offers.artist-submissions', $this->getCommonData());
-    }
-
     public function completed()
     {
         $data = $this->getCommonData();
         $data['sendOffers'] = $this->sendOffer
+            ->with('ratings')
             ->where('artist_id', Auth::id())
-            ->whereIn('status', [IOfferTemplateStatus::COMPLETED, 'completed'])
+            ->whereIn('status', ['completed'])
             ->where('is_approved', self::APPROVED)
             ->latest()
             ->get();
         return view('pages.artists.artist-offers.completed', $data);
-    }
-
-    public function new()
-    {
-        return view('pages.artists.artist-offers.new', $this->getCommonData());
-    }
-
-    public function proposition()
-    {
-        return view('pages.artists.artist-offers.proposition', $this->getCommonData());
     }
 
     public function offerShow($send_offer)
@@ -191,16 +157,16 @@ class OfferController extends Controller
                 return response()->json(['error_wallet' => 'Insufficient USC credits']);
             }
 
-            $sendOffer->update(['status' => IOfferTemplateStatus::ACCEPTED]);
+            $sendOffer->update(['status' => 'accepted']);
 
             SendOfferTransaction::create([
                 'send_offer_id' => $sendOffer->id,
                 'artist_id'     => $sendOffer->artist_id,
                 'contribution'  => $contribution,
                 'curator_id'    => $sendOffer->curator_id,
-                'is_approved'   => 0,
-                'is_rejected'   => 0,
-                'status'        => IOfferTemplateStatus::PAID,
+                'is_approved'    => 0,
+                'is_rejected'    => 0,
+                'status'         => 'paid',
             ]);
         }
         return response()->json(['success' => 'Payment successful']);
@@ -209,22 +175,22 @@ class OfferController extends Controller
     public function submitCuratorRating(Request $request) 
     {
         $request->validate([
-            'rating_stars' => 'required|integer|between:1,5',
-            'offer_id' => 'required|exists:send_offers,id',
+            'rating' => 'required|integer|between:1,5',
+            'send_offer_id' => 'required|exists:send_offers,id',
         ]);
 
-        if(CuratorRating::where('offer_id', $request->offer_id)->exists()) {
+        if(CuratorRating::where('send_offer_id', $request->send_offer_id)->exists()) {
             return back()->with('error', 'Already rated.');
         }
 
-        $offer = SendOffer::findOrFail($request->offer_id);
+        $offer = SendOffer::findOrFail($request->send_offer_id);
 
         CuratorRating::create([
             'artist_id' => Auth::id(),
             'curator_id' => $offer->curator_id,
-            'offer_id' => $offer->id,
-            'rating_stars' => $request->rating_stars,
-            'artist_feedback' => $request->artist_feedback,
+            'send_offer_id' => $offer->id,
+            'rating' => $request->rating,
+            'review' => $request->review,
         ]);
 
         $offer->update(['status' => 'completed']);
