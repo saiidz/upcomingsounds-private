@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models; // Add the semicolon here
+namespace App\Models\Curator;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
