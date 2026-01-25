@@ -39,39 +39,83 @@ class OfferController extends Controller
     public function offers()
     {
         $data = $this->getCommonData();
-        $data['sendOffers'] = $this->sendOffer->where(['artist_id' => Auth::id(), 'is_approved' => self::APPROVED])->latest()->get();
+        $data['sendOffers'] = $this->sendOffer
+            ->where(['artist_id' => Auth::id(), 'is_approved' => self::APPROVED])
+            ->latest()
+            ->get();
         return view('pages.artists.artist-offers.offers', $data);
     }
 
     public function pending()
     {
         $data = $this->getCommonData();
-        $data['sendOffers'] = $this->sendOffer->where(['artist_id' => Auth::id(), 'status' => IOfferTemplateStatus::PENDING, 'is_approved' => self::APPROVED])->latest()->get();
+        $data['sendOffers'] = $this->sendOffer
+            ->where([
+                'artist_id' => Auth::id(),
+                'status' => IOfferTemplateStatus::PENDING,
+                'is_approved' => self::APPROVED
+            ])
+            ->latest()
+            ->get();
         return view('pages.artists.artist-offers.pending', $data);
     }
 
+    // ---------------- FIXED METHOD ----------------
     public function accepted()
     {
         $data = $this->getCommonData();
-        $data['sendOffers'] = $this->sendOffer->where('artist_id', Auth::id())
-            ->whereIn('status', [IOfferTemplateStatus::ACCEPTED, 'delivered'])
+
+        // Load offers with relationships
+        $sendOffers = $this->sendOffer
+            ->with([
+                'userCurator',
+                'curatorOfferTemplate.offerType',
+            ])
+            ->where('artist_id', Auth::id())
+            ->whereIn('status', [IOfferTemplateStatus::ACCEPTED, 'delivered', 'completed'])
             ->where('is_approved', self::APPROVED)
             ->latest()
             ->get();
+
+        // Find which offers already have ratings
+        $offerIds = $sendOffers->pluck('id');
+
+        $ratedOffers = CuratorRating::whereIn('offer_id', $offerIds)
+            ->pluck('offer_id')
+            ->toArray();
+
+        $data['sendOffers']  = $sendOffers;
+        $data['ratedOffers'] = $ratedOffers;
+
         return view('pages.artists.artist-offers.accepted', $data);
     }
+    // ---------------- END FIX ----------------
 
     public function rejected()
     {
         $data = $this->getCommonData();
-        $data['sendOffers'] = $this->sendOffer->where(['artist_id' => Auth::id(), 'status' => IOfferTemplateStatus::REJECTED, 'is_approved' => self::APPROVED])->latest()->get();
+        $data['sendOffers'] = $this->sendOffer
+            ->where([
+                'artist_id' => Auth::id(),
+                'status' => IOfferTemplateStatus::REJECTED,
+                'is_approved' => self::APPROVED
+            ])
+            ->latest()
+            ->get();
         return view('pages.artists.artist-offers.rejected', $data);
     }
 
     public function alternative()
     {
         $data = $this->getCommonData();
-        $data['sendOffers'] = $this->sendOffer->where(['artist_id' => Auth::id(), 'status' => IOfferTemplateStatus::ALTERNATIVE, 'is_approved' => self::APPROVED])->latest()->get();
+        $data['sendOffers'] = $this->sendOffer
+            ->where([
+                'artist_id' => Auth::id(),
+                'status' => IOfferTemplateStatus::ALTERNATIVE,
+                'is_approved' => self::APPROVED
+            ])
+            ->latest()
+            ->get();
         return view('pages.artists.artist-offers.alternative', $data);
     }
 
@@ -83,7 +127,8 @@ class OfferController extends Controller
     public function completed()
     {
         $data = $this->getCommonData();
-        $data['sendOffers'] = $this->sendOffer->where('artist_id', Auth::id())
+        $data['sendOffers'] = $this->sendOffer
+            ->where('artist_id', Auth::id())
             ->whereIn('status', [IOfferTemplateStatus::COMPLETED, 'completed'])
             ->where('is_approved', self::APPROVED)
             ->latest()
@@ -105,11 +150,13 @@ class OfferController extends Controller
     {
         $data = $this->getCommonData();
         $data['send_offer'] = SendOffer::findOrFail(decrypt($send_offer));
-        
+
         $conversation = Conversation::where(function($query) use ($data) {
-            $query->where('sender_id', Auth::id())->where('receiver_id', $data['send_offer']->curator_id);
+            $query->where('sender_id', Auth::id())
+                  ->where('receiver_id', $data['send_offer']->curator_id);
         })->orWhere(function($query) use ($data) {
-            $query->where('receiver_id', Auth::id())->where('sender_id', $data['send_offer']->curator_id);
+            $query->where('receiver_id', Auth::id())
+                  ->where('sender_id', $data['send_offer']->curator_id);
         })->first();
 
         if(!$conversation) {
@@ -139,7 +186,7 @@ class OfferController extends Controller
 
             $balance = User::artistBalance();
             $contribution = decrypt($request->contribution);
-            
+
             if ($contribution > $balance) {
                 return response()->json(['error_wallet' => 'Insufficient USC credits']);
             }
