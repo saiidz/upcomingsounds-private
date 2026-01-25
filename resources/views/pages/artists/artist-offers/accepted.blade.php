@@ -1,5 +1,6 @@
 @extends('pages.artists.panels.layout')
 
+{{-- page title --}}
 @section('title','Accepted')
 
 @section('content')
@@ -17,16 +18,16 @@
                                     <div class="item r Item" data-id="item-{{$sendOffer->id}}">
                                         <div class="item-media">
                                             @php
-                                                $mystring = $sendOffer->userCurator->profile ?? '';
-                                                $pos = (strpos($mystring, 'https') !== false || strpos($mystring, 'http') !== false);
+                                                $profileImg = $sendOffer->userCurator->profile ?? '';
+                                                $isExternal = (strpos($profileImg, 'http') !== false);
                                             @endphp
                                             
-                                            @if(!$pos)
+                                            @if(!$isExternal)
                                                 <div class="item-media-content" id="upload_profile"
-                                                     style="background-image: url({{ !empty($sendOffer->userCurator->profile) ? URL('/').'/uploads/profile/'.$sendOffer->userCurator->profile : asset('images/profile_images_icons.svg') }});"></div>
+                                                     style="background-image: url({{ !empty($profileImg) ? URL('/').'/uploads/profile/'.$profileImg : asset('images/profile_images_icons.svg') }});"></div>
                                             @else
                                                 <div class="item-media-content" id="upload_profile"
-                                                     style="background-image: url({{$sendOffer->userCurator->profile}});"></div>
+                                                     style="background-image: url({{$profileImg}});"></div>
                                             @endif
                                         </div>
 
@@ -64,7 +65,7 @@
 
                                                 @elseif($sendOffer->status == 'delivered')
                                                     @php 
-                                                        // FIX: Added leading backslash to prevent 500 error
+                                                        // Namespace fix with leading backslash
                                                         $isRated = \App\Models\CuratorRating::where('offer_id', $sendOffer->id)->exists(); 
                                                     @endphp
 
@@ -93,7 +94,8 @@
                     </div>
                 </div>
             </div>
-            @include('pages.artists.panels.right-sidebar')
+            {{-- CRITICAL FIX: Explicitly passing the user variable to prevent Sidebar 500 crash --}}
+            @include('pages.artists.panels.right-sidebar', ['user_artist' => $user_artist ?? auth()->user()])
         </div>
     </div>
 @endsection
