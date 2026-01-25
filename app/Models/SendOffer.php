@@ -3,15 +3,18 @@
 namespace App\Models;
 
 use App\Models\Curator\SubmitWork;
+use App\Models\Curator\CuratorRating;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class SendOffer extends Model
 {
     use HasFactory, SoftDeletes;
+
     protected $table = 'send_offers';
 
     protected $fillable = [
@@ -35,7 +38,7 @@ class SendOffer extends Model
      */
     public function userCurator(): BelongsTo
     {
-        return $this->belongsTo(User::class,'curator_id');
+        return $this->belongsTo(User::class, 'curator_id');
     }
 
     /**
@@ -43,7 +46,7 @@ class SendOffer extends Model
      */
     public function curatorOfferTemplate(): BelongsTo
     {
-        return $this->belongsTo(CuratorOfferTemplate::class,'offer_template_id');
+        return $this->belongsTo(CuratorOfferTemplate::class, 'offer_template_id');
     }
 
     /**
@@ -51,7 +54,7 @@ class SendOffer extends Model
      */
     public function userArtist(): BelongsTo
     {
-        return $this->belongsTo(User::class,'artist_id');
+        return $this->belongsTo(User::class, 'artist_id');
     }
 
     /**
@@ -59,7 +62,7 @@ class SendOffer extends Model
      */
     public function artistTrack(): BelongsTo
     {
-        return $this->belongsTo(ArtistTrack::class,'track_id');
+        return $this->belongsTo(ArtistTrack::class, 'track_id');
     }
 
     /**
@@ -67,7 +70,7 @@ class SendOffer extends Model
      */
     public function campaign(): BelongsTo
     {
-        return $this->belongsTo(Campaign::class,'campaign_id');
+        return $this->belongsTo(Campaign::class, 'campaign_id');
     }
 
     /**
@@ -75,7 +78,7 @@ class SendOffer extends Model
      */
     public function submitWork(): HasOne
     {
-        return $this->hasOne(SubmitWork::class,'send_offer_id');
+        return $this->hasOne(SubmitWork::class, 'send_offer_id');
     }
 
     /**
@@ -83,6 +86,15 @@ class SendOffer extends Model
      */
     public function sendOfferTransaction(): HasOne
     {
-        return $this->hasOne(SendOfferTransaction::class,'send_offer_id');
+        return $this->hasOne(SendOfferTransaction::class, 'send_offer_id');
+    }
+
+    /**
+     * Relationship for Curator Ratings
+     * @return HasMany
+     */
+    public function ratings(): HasMany
+    {
+        return $this->hasMany(CuratorRating::class, 'send_offer_id');
     }
 }
