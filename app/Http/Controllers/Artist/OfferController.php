@@ -11,12 +11,12 @@ class OfferController extends Controller
     const IS_APPROVED = 1;
 
     /**
-     * This provides the "Missing Pieces" for your sidebar and layout.
-     * It ensures the 500 error goes away by feeding the layout exactly what it wants.
+     * The Master Context: This feeds every variable name your sidebar or layout
+     * could possibly ask for. This is the "shield" against 500 errors.
      */
     private function getDashboardContext($extraData = []) {
         $user = Auth::user();
-        return array_merge([
+        $base = [
             'user_artist'     => $user,
             'user'            => $user,
             'artist'          => $user,
@@ -24,7 +24,8 @@ class OfferController extends Controller
             'conversation_id' => null, 
             'receiver_id'     => null,
             'messages'        => collect([]),
-        ], $extraData);
+        ];
+        return array_merge($base, $extraData);
     }
 
     public function offers() {
