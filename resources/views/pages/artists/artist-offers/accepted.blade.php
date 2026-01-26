@@ -8,7 +8,7 @@
         <div class="col-lg-9 b-r no-border-md">
             <div class="padding">
                 <div class="page-title m-b">
-                    <h1 class="inline m-a-0 titleColor">Accepted</h1>
+                    <h1 class="inline m-a-0 titleColor">Accepted Campaigns</h1>
                 </div>
 
                 <div class="row item-list item-list-by m-b">
@@ -17,7 +17,7 @@
                             <div class="col-xs-12 remove_offer m-b" id="remove_offer-{{ $sendOffer->id }}">
                                 <div class="item r Item" data-id="item-{{ $sendOffer->id }}">
 
-                                    {{-- Curator Profile Image --}}
+                                    {{-- Curator Profile Image Safety --}}
                                     <div class="item-media">
                                         @php
                                             $profileImg = asset('images/profile_images_icons.svg');
@@ -32,17 +32,18 @@
 
                                     <div class="item-info">
                                         <div class="bottom text-right">
-                                            <span style="color:#02b875 !important">Offer Status: </span>
-                                            <span class="text-primary font-weight-bold">{{ strtoupper($sendOffer->status) }}</span>
+                                            <span style="color:#02b875 !important">Status: </span>
+                                            <span class="text-primary font-weight-bold">{{ strtoupper($sendOffer->status ?? 'UNKNOWN') }}</span>
                                         </div>
 
                                         <div class="item-title text-ellipsis">
-                                            <span class="text-muted">{{ $sendOffer->userCurator->name ?? '----' }}</span>
+                                            {{-- Safety Check for Curator Name --}}
+                                            <span class="text-muted">{{ $sendOffer->userCurator->name ?? 'Deleted Curator' }}</span>
                                         </div>
 
                                         <div class="item-meta text-sm text-muted">
                                             <span class="item-meta-date text-xs">
-                                                {{ $sendOffer->created_at ? $sendOffer->created_at->format('M d Y') : '' }}
+                                                {{ $sendOffer->created_at ? $sendOffer->created_at->format('M d Y') : 'Date N/A' }}
                                             </span>
                                         </div>
 
@@ -50,11 +51,12 @@
                                             <div>
                                                 <span style="color:#02b875 !important">Offer Type: </span>
                                                 <span class="btn btn-xs white">
-                                                    {{ $sendOffer->curatorOfferTemplate->offerType->name ?? '----' }}
+                                                    {{-- Safety Check for Template and Type --}}
+                                                    {{ $sendOffer->curatorOfferTemplate->offerType->name ?? 'Standard' }}
                                                 </span>
                                             </div>
                                             <div>
-                                                <span style="color:#02b875 !important">Expiry Date: </span>
+                                                <span style="color:#02b875 !important">Expiry: </span>
                                                 <span class="btn btn-xs white">
                                                     {{ $sendOffer->expiry_date ? \Carbon\Carbon::parse($sendOffer->expiry_date)->format('M d Y') : 'N/A' }}
                                                 </span>
@@ -65,45 +67,50 @@
 
                                             {{-- View Offer --}}
                                             <form id="form-offer{{ $sendOffer->id }}" action="{{ route('artist.offer.show', encrypt($sendOffer->id)) }}" method="GET">
-                                                <a href="javascript:void(0)" class="btn btn-xs white"
+                                                <a href="javascript:void(0)" class="btn btn-xs white shadow-sm"
                                                    onclick="document.getElementById('form-offer{{ $sendOffer->id }}').submit();">
-                                                    View Offer
+                                                    View Details
                                                 </a>
                                             </form>
 
-                                            {{-- Status Logic --}}
-                                            @if($sendOffer->status == \App\Templates\IOfferTemplateStatus::ACCEPTED)
-                                                <span class="badge warning p-2" style="font-size:11px;">
-                                                    <i class="fa fa-clock-o"></i> Awaiting completion
+                                            {{-- Status & Pulse Integration --}}
+                                            @php $status = strtolower($sendOffer->status ?? ''); @endphp
+
+                                            @if($status == 'accepted')
+                                                <span class="badge warning p-2 shadow-sm" style="font-size:11px; border-radius: 20px;">
+                                                    <i class="fa fa-clock-o"></i> Awaiting Delivery
                                                 </span>
 
-                                            @elseif($sendOffer->status == 'delivered')
-
+                                            @elseif($status == 'delivered')
                                                 @php
-                                                    $alreadyRated = in_array($sendOffer->id, $ratedOffers ?? []);
+                                                    // Defensive check for existing rating to avoid missing class errors
+                                                    $alreadyRated = false;
+                                                    try {
+                                                        if(isset($sendOffer->ratings) && $sendOffer->ratings->count() > 0) {
+                                                            $alreadyRated = true;
+                                                        }
+                                                    } catch (\Exception $e) { $alreadyRated = false; }
                                                 @endphp
 
                                                 @if(!$alreadyRated)
                                                     <button type="button"
-                                                            class="btn btn-xs btn-primary rounded-pill"
+                                                            class="btn btn-xs btn-primary rounded-pill shadow-sm"
                                                             data-toggle="modal"
                                                             data-target="#rateModal{{ $sendOffer->id }}">
-                                                        Review & Rate
+                                                        Review & Finish
                                                     </button>
-
                                                     @include('partials.rating_modal', ['offer' => $sendOffer])
                                                 @else
                                                     <span class="text-success text-xs font-weight-bold">
-                                                        <i class="fa fa-check"></i> Feedback Submitted
+                                                        <i class="fa fa-check"></i> Feedback Sent
                                                     </span>
                                                 @endif
 
-                                            @elseif(in_array($sendOffer->status, ['completed', \App\Templates\IOfferTemplateStatus::COMPLETED]))
-                                                <span class="badge light p-2" style="font-size:11px; color:#666;">
-                                                    Offer completed
+                                            @elseif($status == 'completed')
+                                                <span class="badge light p-2" style="font-size:11px; color:#666; border: 1px solid #ddd;">
+                                                    Completed
                                                 </span>
                                             @endif
-
                                         </div>
                                     </div>
                                 </div>
@@ -116,7 +123,7 @@
             </div>
         </div>
 
-        {{-- Right Sidebar --}}
+        {{-- Sidebar Safety --}}
         @include('pages.artists.panels.right-sidebar', ['user_artist' => $user_artist ?? auth()->user()])
     </div>
 </div>
