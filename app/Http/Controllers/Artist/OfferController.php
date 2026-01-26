@@ -55,9 +55,26 @@ class OfferController extends Controller
         return view('pages.artists.artist-offers.completed', compact('sendOffers'));
     }
 
+    // --- ADDED MISSING METHODS ---
+
+    public function rejected()
+    {
+        $sendOffers = SendOffer::whereHas('userCurator')
+            ->where(['artist_id' => Auth::id(), 'status' => 'rejected', 'is_approved' => self::APPROVED])
+            ->latest()->get();
+        return view('pages.artists.artist-offers.rejected', compact('sendOffers'));
+    }
+
+    public function alternative()
+    {
+        $sendOffers = SendOffer::whereHas('userCurator')
+            ->where(['artist_id' => Auth::id(), 'status' => 'alternative', 'is_approved' => self::APPROVED])
+            ->latest()->get();
+        return view('pages.artists.artist-offers.alternative', compact('sendOffers'));
+    }
+
     public function offerShow($send_offer)
     {
-        // Decrypt the ID and load the offer details
         $send_offer = SendOffer::with(['userCurator', 'curatorOfferTemplate.offerType'])
             ->findOrFail(decrypt($send_offer));
             
