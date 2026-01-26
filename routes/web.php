@@ -46,24 +46,24 @@ Route::group(['middleware' => ['try_catch']], function() {
         });
     });
 
-    /**************** Artist Routes (Unified Fix) ****************/
+    /**************** Artist Routes (Bulletproof Fix) ****************/
     Route::group(['middleware' => ['auth','verify_if_user','create_password','verified','artist_signup','approved_artist_admin','re_apply','rejected_artist_admin']], function() {
         
-        // Loads legacy auth routes. Keep for compatibility.
+        // Load legacy routes
         Route::prefix('')->group(base_path('routes/client/auth.php'));
         
-        // DASHBOARD FIX: Unified route for the main offers list
-        Route::get('/artist-offers', [OfferController::class, 'offers'])->name('artist.custom.index');
+        // UNIFIED DASHBOARD: Using a unique name 'artist.custom.dashboard'
+        Route::get('/artist-offers-dashboard', [OfferController::class, 'offers'])->name('artist.custom.dashboard');
         
-        // STATUS PAGES: Isolated to prevent 500 errors
+        // ISOLATED STATUS LISTS: Using '-list' suffix to prevent collisions
         Route::get('/pending-offer-list', [OfferController::class, 'pending'])->name('artist.custom.pending');
         Route::get('/accepted-offer-list', [OfferController::class, 'accepted'])->name('artist.custom.accepted');
         Route::get('/completed-offer-list', [OfferController::class, 'completed'])->name('artist.custom.completed');
         Route::get('/rejected-offer-list', [OfferController::class, 'rejected'])->name('artist.custom.rejected');
         Route::get('/alternative-offer-list', [OfferController::class, 'alternative'])->name('artist.custom.alternative');
 
-        // DETAILS FIX: Unique detail route ensures the "View Offer" button works
-        Route::get('/view-offer-details/{send_offer}', [OfferController::class, 'offerShow'])->name('artist.custom.show');
+        // ISOLATED DETAILS: Ensures 'View' buttons always work
+        Route::get('/offer-details-view/{send_offer}', [OfferController::class, 'offerShow'])->name('artist.custom.show');
     });
 
     /**************** Curator Routes ****************/
