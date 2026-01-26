@@ -2,67 +2,53 @@
 
 namespace App\Providers;
 
-use Carbon\Carbon;
 use App\Models\Option;
 use App\Models\ArtistTrack;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
     public function register()
     {
         //
     }
 
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
     public function boot()
     {
         Paginator::useBootstrap();
 
-        // Unified View Composer for all views
+        // Use the composer to safely inject variables into all views
         View::composer('*', function ($view) {
+            
             // 1. Handle User Data (Artist/Curator)
             if (Auth::check()) {
                 $user = Auth::user();
                 
-                // Share with all names used in your various layouts
-                View::share('user_artist', $user);
-                
-                if($user->type == 'curator') {
-                    View::share('user_curator', $user);
-                }
-
-                // Track count for artists
-                $artist_track_count = ArtistTrack::where('user_id', $user->id)->count();
-                View::share('artist_track_count', $artist_track_count);
+                // Pass all variations of the user object to prevent sidebar crashes
+                $view->with([
+                    'user_artist'        => $user,
+                    'user_curator'       => ($user->type == 'curator') ? $user : null,
+                    'artist_track_count' => ArtistTrack::where('user_id', $user->id)->count(),
+                    'user'               => $user,
+                    'artist'             => $user
+                ]);
             }
 
-            // 2. Handle Theme Data (This prevents the 500 Layout crash)
-            // We check for 'theme_settings' first, then 'home_new_settings' as backup
-            $theme_option = Option::where('key', 'theme_settings')->first();
-            if (!$theme_option) {
-                $theme_option = Option::where('key', 'home_new_settings')->first();
-            }
+            // 2. Handle Theme Data (Bulletproof Fallback)
+            $theme_option = Option::whereIn('key', ['theme_settings', 'home_new_settings'])->first();
 
             if ($theme_option) {
-                $theme = json_decode($theme_option->value);
-                View::share('theme', $theme);
+                $themeData = json_decode($theme_option->value);
+                $view->with('theme', $themeData);
             } else {
-                // Fail-safe object so !empty($theme->logo) doesn't crash
-                View::share('theme', (object)['logo' => 'images/logo.png']);
+                // Return a safe object so your blade files don't crash on $theme->property
+                $view->with('theme', (object)[
+                    'logo' => 'images/logo.png',
+                    'footer_text' => 'Upcoming Sounds'
+                ]);
             }
         });
     }
