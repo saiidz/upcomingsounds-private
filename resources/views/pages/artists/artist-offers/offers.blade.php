@@ -1,110 +1,78 @@
 @extends('pages.artists.panels.layout')
 
-{{-- page title --}}
 @section('title','Offers')
 
-@section('page-style')
-    <style>
-        .Item{
-            background-color: rgba(120, 120, 120, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .status-badge {
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 11px;
-        }
-    </style>
-@endsection
-
 @section('content')
-    <div class="page-content">
-        <div class="row-col">
-            <div class="col-lg-9 b-r no-border-md">
-                <div class="padding">
-                    <div class="page-title m-b m-t-2">
-                        <h1 class="inline m-a-0 titleColor">My Offers</h1>
-                    </div>
-                    <div class="row item-list item-list-by m-b">
-                        @if(!empty($sendOffers) && $sendOffers->count() > 0)
-                            @foreach($sendOffers as $sendOffer)
-                                <div class="col-xs-12 remove_offer m-b" id="remove_offer-{{$sendOffer->id}}">
-                                    <div class="item r Item" data-id="item-{{$sendOffer->id}}">
-                                        
-                                        {{-- Fixed Profile Image Logic --}}
-                                        <div class="item-media">
-                                            @php
-                                                $profile = $sendOffer->userCurator->profile ?? '';
-                                                $isExternal = (strpos($profile, 'http') !== false);
-                                                
-                                                if ($isExternal) {
-                                                    $imgUrl = $profile;
-                                                } elseif (!empty($profile)) {
-                                                    $imgUrl = url('/uploads/profile/' . $profile);
-                                                } else {
-                                                    $imgUrl = asset('images/profile_images_icons.svg');
-                                                }
-                                            @endphp
-                                            <div class="item-media-content" style="background-image: url('{{ $imgUrl }}');"></div>
+<div class="page-content">
+    <div class="row-col">
+        <div class="col-lg-9 b-r no-border-md">
+            <div class="padding">
+                <div class="page-title m-b m-t-2">
+                    <h1 class="inline m-a-0 titleColor">My Campaigns</h1>
+                </div>
+
+                <div class="row item-list item-list-by m-b">
+                    @if(!empty($sendOffers) && $sendOffers->count() > 0)
+                        @foreach($sendOffers as $sendOffer)
+                            <div class="col-xs-12 m-b" id="offer-row-{{ $sendOffer->id }}">
+                                <div class="item r Item p-a-sm shadow-sm" style="background: rgba(120, 120, 120, 0.05); border-radius: 12px; border: 1px solid #eee;">
+                                    
+                                    {{-- Safe Profile Image --}}
+                                    <div class="item-media">
+                                        @php
+                                            $profile = $sendOffer->userCurator->profile ?? '';
+                                            $imgUrl = asset('images/profile_images_icons.svg');
+                                            if (!empty($profile)) {
+                                                $imgUrl = (str_starts_with($profile, 'http')) ? $profile : url('/uploads/profile/' . $profile);
+                                            }
+                                        @endphp
+                                        <div class="item-media-content" style="background-image: url('{{ $imgUrl }}');"></div>
+                                    </div>
+
+                                    <div class="item-info">
+                                        <div class="bottom text-right">
+                                            @php $status = strtolower($sendOffer->status ?? 'pending'); @endphp
+                                            <span class="status-badge {{ in_array($status, ['rejected', 'expired']) ? 'text-danger' : 'text-primary' }} font-weight-bold">
+                                                {{ strtoupper($status) }}
+                                            </span>
                                         </div>
 
-                                        <div class="item-info">
-                                            {{-- Defensive Status Coloring --}}
-                                            <div class="bottom text-right">
-                                                <span style="color:#02b875 !important">Status: </span>
-                                                @php 
-                                                    $status = strtolower($sendOffer->status ?? 'pending');
-                                                    $colorClass = in_array($status, ['rejected', 'expired', 'pending']) ? 'text-danger' : 'text-primary';
-                                                @endphp
-                                                <span class="{{ $colorClass }} status-badge">{{ $status }}</span>
-                                            </div>
+                                        <div class="item-title text-ellipsis">
+                                            <span class="text-muted font-weight-bold">{{ $sendOffer->userCurator->name ?? 'Deleted Curator' }}</span>
+                                        </div>
 
-                                            <div class="item-title text-ellipsis">
-                                                <span class="text-muted font-weight-bold">{{ $sendOffer->userCurator->name ?? 'Curator Not Found' }}</span>
+                                        <div class="m-t-sm" style="display:flex; flex-wrap:wrap; gap:15px;">
+                                            <div class="text-xs">
+                                                <span style="color:#02b875">Type:</span> {{ $sendOffer->curatorOfferTemplate->offerType->name ?? 'Standard' }}
                                             </div>
+                                            <div class="text-xs">
+                                                <span style="color:#02b875">Sent:</span> {{ $sendOffer->created_at ? $sendOffer->created_at->format('M d, Y') : 'N/A' }}
+                                            </div>
+                                        </div>
 
-                                            <div class="item-meta text-sm text-muted">
-                                                <span class="item-meta-date text-xs">
-                                                    Sent: {{ $sendOffer->created_at ? $sendOffer->created_at->format('M d Y') : 'N/A' }}
-                                                </span>
-                                            </div>
+                                        <div class="m-t-md" style="display:flex; gap:10px;">
+                                            <form action="{{ route('artist.offer.show', encrypt($sendOffer->id)) }}" method="GET">
+                                                <button type="submit" class="btn btn-xs white shadow-sm">View Details</button>
+                                            </form>
 
-                                            <div class="m-t-sm offerAlternative">
-                                                <div>
-                                                    <span style="color:#02b875 !important">Type: </span>
-                                                    <span class="btn btn-xs white">{{ $sendOffer->curatorOfferTemplate->offerType->name ?? 'Standard' }}</span>
-                                                </div>
-                                                <div>
-                                                    <span style="color:#02b875 !important">Expires: </span>
-                                                    <span class="btn btn-xs white">{{ $sendOffer->expiry_date ? \Carbon\Carbon::parse($sendOffer->expiry_date)->format('M d Y') : 'N/A' }}</span>
-                                                </div>
-                                            </div>
-
-                                            <div class="m-t-sm campaignBtn">
-                                                <form id="form-offer{{$sendOffer->id}}" action="{{route('artist.offer.show', encrypt($sendOffer->id))}}">
-                                                    <button type="submit" class="btn btn-xs white shadow-sm">View Full Details</button>
-                                                </form>
-                                            </div>
+                                            {{-- Safe Rating Logic --}}
+                                            @if(isset($sendOffer->ratings) && $sendOffer->ratings->count() > 0)
+                                                <span class="text-success text-xs"><i class="fa fa-star"></i> Rated</span>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
-                            @endforeach
-                        @else
-                            @include('pages.curators.__not-found-records')
-                        @endif
-                    </div>
+                            </div>
+                        @endforeach
+                    @else
+                        <div class="text-center p-a-lg">
+                            <h4 class="text-muted">No campaigns found.</h4>
+                        </div>
+                    @endif
                 </div>
             </div>
-            @include('pages.artists.panels.right-sidebar')
         </div>
+        @include('pages.artists.panels.right-sidebar', ['user_artist' => auth()->user()])
     </div>
-@endsection
-
-@section('page-script')
-    <script>
-        function OfferShow(id) {
-            document.getElementById("form-offer" + id).submit();
-        }
-    </script>
+</div>
 @endsection
