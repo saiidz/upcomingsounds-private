@@ -10,10 +10,6 @@ class OfferController extends Controller
 {
     const IS_APPROVED = 1;
 
-    /**
-     * Unified Context: Ensures sidebar variables ($user_artist, etc.) 
-     * are always present to prevent 500 layout crashes.
-     */
     private function getDashboardContext($extraData = []) {
         $user = Auth::user();
         return array_merge([
@@ -36,39 +32,28 @@ class OfferController extends Controller
 
     public function pending() {
         $offers = SendOffer::where(['artist_id' => Auth::id(), 'status' => 'pending'])->latest()->get();
-        return view('pages.artists.artist-offers.pending', $this->getDashboardContext([
-            'sendOffers' => $offers
-        ]));
+        return view('pages.artists.artist-offers.pending', $this->getDashboardContext(['sendOffers' => $offers]));
     }
 
     public function accepted() {
         $offers = SendOffer::where('artist_id', Auth::id())
             ->whereIn('status', ['accepted', 'delivered'])->latest()->get();
-
-        return view('pages.artists.artist-offers.accepted', $this->getDashboardContext([
-            'sendOffers' => $offers
-        ]));
+        return view('pages.artists.artist-offers.accepted', $this->getDashboardContext(['sendOffers' => $offers]));
     }
 
     public function completed() {
         $offers = SendOffer::where(['artist_id' => Auth::id(), 'status' => 'completed'])->latest()->get();
-        return view('pages.artists.artist-offers.completed', $this->getDashboardContext([
-            'sendOffers' => $offers
-        ]));
+        return view('pages.artists.artist-offers.completed', $this->getDashboardContext(['sendOffers' => $offers]));
     }
 
     public function rejected() {
         $offers = SendOffer::where(['artist_id' => Auth::id(), 'status' => 'rejected'])->latest()->get();
-        return view('pages.artists.artist-offers.rejected', $this->getDashboardContext([
-            'sendOffers' => $offers
-        ]));
+        return view('pages.artists.artist-offers.rejected', $this->getDashboardContext(['sendOffers' => $offers]));
     }
 
     public function alternative() {
         $offers = SendOffer::where(['artist_id' => Auth::id(), 'status' => 'alternative'])->latest()->get();
-        return view('pages.artists.artist-offers.alternative', $this->getDashboardContext([
-            'sendOffers' => $offers
-        ]));
+        return view('pages.artists.artist-offers.alternative', $this->getDashboardContext(['sendOffers' => $offers]));
     }
 
     public function offerShow($send_offer) {
