@@ -1,190 +1,73 @@
-<?php
+@extends('pages.artists.panels.layout')
 
-namespace App\Http\Controllers\Artist;
+@section('title','My Offers')
 
-use App\Http\Controllers\Controller;
-use App\Models\Conversation;
-use App\Models\Message;
-use App\Models\SendOffer;
-use App\Models\SendOfferTransaction;
-use App\Models\User;
-use App\Models\CuratorRating;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+@section('content')
+<div class="page-content">
+    <div class="row-col">
+        <div class="col-lg-9 b-r no-border-md">
+            <div class="padding">
+                <div class="page-title m-b m-t-2">
+                    <h1 class="inline m-a-0 titleColor">My Campaigns</h1>
+                </div>
 
-class OfferController extends Controller
-{
-    const APPROVED = 1;
-    private $sendOffer;
+                <div class="row item-list item-list-by m-b">
+                    @if(!empty($sendOffers) && $sendOffers->count() > 0)
+                        @foreach($sendOffers as $sendOffer)
+                            <div class="col-xs-12 m-b" id="offer-{{ $sendOffer->id }}">
+                                <div class="item r Item p-a-sm shadow-sm" style="background: rgba(120, 120, 120, 0.05); border-radius: 12px; border: 1px solid #eee;">
+                                    
+                                    {{-- Safe Profile Image --}}
+                                    <div class="item-media">
+                                        @php
+                                            $profile = $sendOffer->userCurator->profile ?? '';
+                                            $imgUrl = asset('images/profile_images_icons.svg');
+                                            if (!empty($profile)) {
+                                                $imgUrl = (str_starts_with($profile, 'http')) ? $profile : url('/uploads/profile/' . $profile);
+                                            }
+                                        @endphp
+                                        <div class="item-media-content" style="background-image: url('{{ $imgUrl }}');"></div>
+                                    </div>
 
-    public function __construct(SendOffer $sendOffer)
-    {
-        $this->sendOffer = $sendOffer;
-    }
+                                    <div class="item-info">
+                                        <div class="bottom text-right">
+                                            <span class="text-primary font-weight-bold">{{ strtoupper($sendOffer->status ?? 'PENDING') }}</span>
+                                        </div>
 
-    private function getCommonData()
-    {
-        return [
-            'user_artist' => Auth::user(),
-        ];
-    }
+                                        <div class="item-title text-ellipsis">
+                                            <span class="text-muted font-weight-bold">{{ $sendOffer->userCurator->name ?? 'Curator' }}</span>
+                                        </div>
 
-    public function offers()
-    {
-        $data = $this->getCommonData();
-        $data['sendOffers'] = $this->sendOffer
-            ->whereHas('userCurator') 
-            ->with(['ratings' => function($query) {
-                $query->whereNotNull('send_offer_id'); 
-            }])
-            ->where(['artist_id' => Auth::id(), 'is_approved' => self::APPROVED])
-            ->latest()
-            ->get();
-        return view('pages.artists.artist-offers.offers', $data);
-    }
+                                        <div class="m-t-sm" style="display:flex; gap:15px;">
+                                            <div class="text-xs">
+                                                <span style="color:#02b875">Type:</span> {{ $sendOffer->curatorOfferTemplate->offerType->name ?? 'Standard' }}
+                                            </div>
+                                            <div class="text-xs">
+                                                <span style="color:#02b875">Sent:</span> {{ $sendOffer->created_at ? $sendOffer->created_at->format('M d, Y') : 'N/A' }}
+                                            </div>
+                                        </div>
 
-    public function pending()
-    {
-        $data = $this->getCommonData();
-        $data['sendOffers'] = $this->sendOffer
-            ->whereHas('userCurator')
-            ->with(['ratings' => function($query) {
-                $query->whereNotNull('send_offer_id');
-            }])
-            ->where(['artist_id' => Auth::id(), 'status' => 'pending', 'is_approved' => self::APPROVED])
-            ->latest()
-            ->get();
-        return view('pages.artists.artist-offers.pending', $data);
-    }
+                                        <div class="m-t-md">
+                                            <form action="{{ route('artist.offer.show', encrypt($sendOffer->id)) }}" method="GET">
+                                                <button type="submit" class="btn btn-xs white shadow-sm">View Details</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @else
+                        <div class="text-center p-a-lg">
+                            <h4 class="text-muted">No campaigns found.</h4>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
 
-    public function accepted()
-    {
-        $data = $this->getCommonData();
-        $data['sendOffers'] = $this->sendOffer
-            ->whereHas('userCurator')
-            ->with(['userCurator', 'curatorOfferTemplate.offerType', 'ratings' => function($query) {
-                $query->whereNotNull('send_offer_id');
-            }])
-            ->where('artist_id', Auth::id())
-            ->whereIn('status', ['accepted', 'delivered', 'completed'])
-            ->where('is_approved', self::APPROVED)
-            ->latest()
-            ->get();
-        return view('pages.artists.artist-offers.accepted', $data);
-    }
-
-    public function rejected()
-    {
-        $data = $this->getCommonData();
-        $data['sendOffers'] = $this->sendOffer
-            ->whereHas('userCurator')
-            ->with(['ratings' => function($query) {
-                $query->whereNotNull('send_offer_id');
-            }])
-            ->where(['artist_id' => Auth::id(), 'status' => 'rejected', 'is_approved' => self::APPROVED])
-            ->latest()
-            ->get();
-        return view('pages.artists.artist-offers.rejected', $data);
-    }
-
-    public function alternative()
-    {
-        $data = $this->getCommonData();
-        $data['sendOffers'] = $this->sendOffer
-            ->whereHas('userCurator')
-            ->with(['ratings' => function($query) {
-                $query->whereNotNull('send_offer_id');
-            }])
-            ->where(['artist_id' => Auth::id(), 'status' => 'alternative', 'is_approved' => self::APPROVED])
-            ->latest()
-            ->get();
-        return view('pages.artists.artist-offers.alternative', $data);
-    }
-
-    public function completed()
-    {
-        $data = $this->getCommonData();
-        $data['sendOffers'] = $this->sendOffer
-            ->whereHas('userCurator')
-            ->with(['ratings' => function($query) {
-                $query->whereNotNull('send_offer_id');
-            }])
-            ->where('artist_id', Auth::id())
-            ->whereIn('status', ['completed'])
-            ->where('is_approved', self::APPROVED)
-            ->latest()
-            ->get();
-        return view('pages.artists.artist-offers.completed', $data);
-    }
-
-    public function offerShow($send_offer)
-    {
-        $data = $this->getCommonData();
-        $data['send_offer'] = SendOffer::with('userCurator')->findOrFail(decrypt($send_offer));
-
-        $conversation = Conversation::where(function($query) use ($data) {
-            $query->where('sender_id', Auth::id())->where('receiver_id', $data['send_offer']->curator_id);
-        })->orWhere(function($query) use ($data) {
-            $query->where('receiver_id', Auth::id())->where('sender_id', $data['send_offer']->curator_id);
-        })->first();
-
-        if(!$conversation) {
-            $conversation = Conversation::create(['sender_id' => Auth::id(), 'receiver_id' => $data['send_offer']->curator_id]);
-        }
-
-        $data['messages'] = Message::where('conversation_id', $conversation->id)->get();
-        return view('pages.artists.artist-offers.curator-offer-details', $data);
-    }
-
-    public function payUSCeOffer(Request $request)
-    {
-        if(empty($request->send_offer_id)) { return response()->json(['error' => 'Offer problem detected']); }
-        $offerId = decrypt($request->send_offer_id);
-        $sendOffer = SendOffer::where('id', $offerId)->first();
-
-        if(!empty($sendOffer)) {
-            if (in_array(strtolower($sendOffer->status), ['accepted', 'delivered', 'completed'])) {
-                return response()->json(['error' => 'Already paid.']);
-            }
-            $balance = User::artistBalance();
-            $contribution = decrypt($request->contribution);
-            if ($contribution > $balance) { return response()->json(['error_wallet' => 'Insufficient USC credits']); }
-
-            $sendOffer->update(['status' => 'accepted']);
-            SendOfferTransaction::create([
-                'send_offer_id' => $sendOffer->id,
-                'artist_id' => $sendOffer->artist_id,
-                'contribution' => $contribution,
-                'curator_id' => $sendOffer->curator_id,
-                'is_approved' => 0,
-                'is_rejected' => 0,
-                'status' => 'paid',
-            ]);
-        }
-        return response()->json(['success' => 'Payment successful']);
-    }
-
-    public function submitCuratorRating(Request $request) 
-    {
-        $request->validate([
-            'rating' => 'required|integer|between:1,5',
-            'send_offer_id' => 'required|exists:send_offers,id',
-        ]);
-
-        if(CuratorRating::where('send_offer_id', $request->send_offer_id)->exists()) {
-            return back()->with('error', 'Already rated.');
-        }
-
-        $offer = SendOffer::findOrFail($request->send_offer_id);
-        CuratorRating::create([
-            'artist_id' => Auth::id(),
-            'curator_id' => $offer->curator_id,
-            'send_offer_id' => $offer->id,
-            'rating' => $request->rating,
-            'review' => $request->review,
-        ]);
-
-        $offer->update(['status' => 'completed']);
-        return back()->with('success', 'Rating submitted!');
-    }
-}
+        {{-- THE FIX: Passing explicit data to the sidebar to prevent 500 crashes --}}
+        @php $sidebarUser = $user_artist ?? auth()->user(); @endphp
+        @include('pages.artists.panels.right-sidebar', ['user_artist' => $sidebarUser])
+    </div>
+</div>
+@endsection
