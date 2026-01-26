@@ -11,22 +11,24 @@ class OfferController extends Controller
     const IS_APPROVED = 1;
 
     /**
-     * The Master Context: This feeds EVERY variable name your sidebar or layout
-     * could possibly ask for. This is the "shield" against 500 errors.
+     * The Master Context: This provides every variable a layout might need.
      */
     private function getDashboardContext($extraData = []) {
         $user = Auth::user();
-        return array_merge([
+        $base = [
             'user_artist'     => $user,
             'user'            => $user,
             'artist'          => $user,
+            'profile'         => $user,
+            'user_id'         => Auth::id(),
             'conversation_id' => null, 
             'receiver_id'     => null,
             'messages'        => collect([]),
-        ], $extraData);
+            'notifications'   => collect([]),
+        ];
+        return array_merge($base, $extraData);
     }
 
-    // Main Dashboard
     public function offers() {
         $data = SendOffer::whereHas('userCurator')
             ->with(['curatorOfferTemplate.offerType'])
