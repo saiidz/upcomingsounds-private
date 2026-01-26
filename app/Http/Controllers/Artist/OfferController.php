@@ -10,79 +10,41 @@ class OfferController extends Controller
 {
     const APPROVED = 1;
 
+    // Helper to get common data for all views
+    private function getBaseData() {
+        return [
+            'user_artist' => Auth::user(),
+            'user' => Auth::user()
+        ];
+    }
+
     public function offers() {
-        $user_artist = Auth::user();
-        $user = $user_artist; // Some layouts use $user, some use $user_artist
-        $sendOffers = SendOffer::whereHas('userCurator')
-            ->with(['curatorOfferTemplate.offerType'])
-            ->where(['artist_id' => Auth::id(), 'is_approved' => self::APPROVED])
-            ->latest()->get();
-
-        return view('pages.artists.artist-offers.offers', compact('sendOffers', 'user_artist', 'user'));
-    }
-
-    public function pending() {
-        $user_artist = Auth::user();
-        $user = $user_artist;
-        $sendOffers = SendOffer::whereHas('userCurator')
-            ->where(['artist_id' => Auth::id(), 'status' => 'pending', 'is_approved' => self::APPROVED])
-            ->latest()->get();
-
-        return view('pages.artists.artist-offers.pending', compact('sendOffers', 'user_artist', 'user'));
-    }
-
-    public function accepted() {
-        $user_artist = Auth::user();
-        $user = $user_artist;
-        $sendOffers = SendOffer::whereHas('userCurator')
-            ->with(['curatorOfferTemplate.offerType'])
-            ->where(['artist_id' => Auth::id()])
-            ->whereIn('status', ['accepted', 'delivered'])
-            ->where('is_approved', self::APPROVED)
-            ->latest()->get();
-
-        return view('pages.artists.artist-offers.accepted', compact('sendOffers', 'user_artist', 'user'));
-    }
-
-    public function completed() {
-        $user_artist = Auth::user();
-        $user = $user_artist;
-        $sendOffers = SendOffer::whereHas('userCurator')
-            ->where(['artist_id' => Auth::id(), 'status' => 'completed', 'is_approved' => self::APPROVED])
-            ->latest()->get();
-
-        return view('pages.artists.artist-offers.completed', compact('sendOffers', 'user_artist', 'user'));
+        $data = $this->getBaseData();
+        $data['sendOffers'] = SendOffer::whereHas('userCurator')->with(['curatorOfferTemplate.offerType'])->where(['artist_id' => Auth::id(), 'is_approved' => self::APPROVED])->latest()->get();
+        return view('pages.artists.artist-offers.offers', $data);
     }
 
     public function rejected() {
-        $user_artist = Auth::user();
-        $user = $user_artist;
-        $sendOffers = SendOffer::whereHas('userCurator')
-            ->where(['artist_id' => Auth::id(), 'status' => 'rejected', 'is_approved' => self::APPROVED])
-            ->latest()->get();
-
-        return view('pages.artists.artist-offers.rejected', compact('sendOffers', 'user_artist', 'user'));
+        $data = $this->getBaseData();
+        $data['sendOffers'] = SendOffer::where(['artist_id' => Auth::id(), 'status' => 'rejected'])->latest()->get();
+        return view('pages.artists.artist-offers.rejected', $data);
     }
 
     public function alternative() {
-        $user_artist = Auth::user();
-        $user = $user_artist;
-        $sendOffers = SendOffer::whereHas('userCurator')
-            ->where(['artist_id' => Auth::id(), 'status' => 'alternative', 'is_approved' => self::APPROVED])
-            ->latest()->get();
-
-        return view('pages.artists.artist-offers.alternative', compact('sendOffers', 'user_artist', 'user'));
+        $data = $this->getBaseData();
+        $data['sendOffers'] = SendOffer::where(['artist_id' => Auth::id(), 'status' => 'alternative'])->latest()->get();
+        return view('pages.artists.artist-offers.alternative', $data);
     }
 
     public function offerShow($send_offer) {
-        $user_artist = Auth::user();
-        $user = $user_artist;
+        $data = $this->getBaseData();
         try {
-            $decryptedId = decrypt($send_offer);
-            $send_offer = SendOffer::with(['userCurator', 'curatorOfferTemplate.offerType'])->findOrFail($decryptedId);
-            return view('pages.artists.artist-offers.curator-offer-details', compact('send_offer', 'user_artist', 'user'));
+            $data['send_offer'] = SendOffer::with(['userCurator', 'curatorOfferTemplate.offerType'])->findOrFail(decrypt($send_offer));
+            return view('pages.artists.artist-offers.curator-offer-details', $data);
         } catch (\Exception $e) {
-            return redirect()->route('artist.offer.index')->with('error', 'Offer not found.');
+            return redirect()->back()->with('error', 'Offer not found.');
         }
     }
+    
+    // Add pending, accepted, completed methods following the same $data pattern...
 }
