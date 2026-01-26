@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Curator\SendOfferController;
 use App\Http\Controllers\MessengerController;
+use App\Http\Controllers\Artist\OfferController; // Added correct import
 use App\Models\HomeSlider;
 use App\Models\Option;
 use App\Helpers\Helper;
@@ -22,18 +23,11 @@ use App\Http\Controllers\Admin\BinshopsCommentWriterController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Route::get('/clear-cache', function(){
-//    Artisan::call('cache:clear');
-//    Artisan::call('config:clear');
-//    Artisan::call('route:clear');
-//    Artisan::call('view:clear');
-//    return "Cache Clear";
-//});
 
 Route::get('/', function () {
     $theme_home = Option::where('key', 'home_new_settings')->first();
     $homeSliders = HomeSlider::where('status',1)->latest()->get();
-    $testimonials = Testimonial::where('status',1)->latest()->get();
+    $testimonials = Testimonial::latest()->where('status',1)->get();
 
     if(!empty($theme_home))
     {
@@ -42,21 +36,7 @@ Route::get('/', function () {
     return view('welcome-new', get_defined_vars());
 });
 
-//Route::get('/', function () {
-//    $theme_home = Option::where('key', 'home_settings')->first();
-//    if(!empty($theme_home))
-//    {
-//        $theme_home = json_decode($theme_home->value);
-//    }
-//    return view('welcome', get_defined_vars());
-//});
-
-//Route::get('/', function () {
-//    return view('welcome');
-//})->middleware('guest');
-
 require __DIR__.'/auth.php';
-
 
 Route::group(['middleware' => ['try_catch']], function() {
 
@@ -85,23 +65,24 @@ Route::group(['middleware' => ['try_catch']], function() {
     Route::group(['middleware' => ['auth','verify_if_user','create_password','verified','artist_signup','approved_artist_admin','re_apply','rejected_artist_admin']], function() {
         Route::prefix('')->group(base_path('routes/client/auth.php'));
     });
-    // Change the conflicting route to something like this:
-Route::get('/rejected-details', [OfferController::class, 'rejected'])->name('artist.rejected_details');
+    
+    // Fixed: Now uses the imported OfferController class
+    Route::get('/rejected-details', [OfferController::class, 'rejected'])->name('artist.rejected_details');
 
     /***************************************************** Curators Routes *********************************************************/
     Route::group(['middleware' => ['auth','verify_if_curator','create_curator_password','verified','verified_phone_number_curator','curator_signup','approved_curator_admin','re_apply','rejected_curator_admin']], function() {
         Route::prefix('')->group(base_path('routes/client/curator_auth.php'));
     });
-    Route::post('/submit-curator-rating', [App\Http\Controllers\ArtistOfferController::class, 'submitCuratorRating'])->name('artist.submit-rating');
-    /***************************************************** Curators Routes *********************************************************/
+
+    // Fixed: Changed ArtistOfferController to OfferController to match your file system
+    Route::post('/submit-curator-rating', [OfferController::class, 'submitCuratorRating'])->name('artist.submit-rating');
+
+    /***************************************************** Shared Routes *********************************************************/
     Route::group(['middleware' => ['auth']], function () {
         Route::get('get-chat', [MessengerController::class,'getChat'])->name('get.chat');
         Route::get('get-customer-chat', [MessengerController::class,'getCustomerChat'])->name('get.customer.chat');
         Route::post('save-message', [MessengerController::class,'saveMessage'])->name('save.messsage');
-//        Route::get('send-offer/{send_offer}', [SendOfferController::class,'sendOfferShow'])->name('curator.send.offer.show');
     });
-
-
 
     Route::prefix('')->group(base_path('routes/client/no_auth.php'));
 });
