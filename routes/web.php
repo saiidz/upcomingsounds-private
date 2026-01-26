@@ -90,3 +90,5 @@ Route::get('/t', function () {
 });
 
 Route::any('{url?}/{sub_url?}', [Helper::class, 'fallback']);
+// This ONLY handles the "View Details" click
+    Route::get('/curator-offer/{send_offer}', [OfferController::class, 'offerShow'])->name('artist.offer.details_hijack');
