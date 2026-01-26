@@ -64,6 +64,16 @@
         .cke_notifications_area {
             display: none;
         }
+        /* Custom Pulse Bar Styles */
+        .pulse-step-active {
+            background-color: #06b6d4 !important;
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+            color: white !important;
+        }
+        .pulse-text-active {
+            color: #06b6d4 !important;
+            font-weight: 700;
+        }
     </style>
 @endsection
 
@@ -78,8 +88,58 @@
                            class="btn btn-sm rounded proposition basicbtn">
                             Back</a>
                     </div>
+
+                    {{-- MASTER DESIGN FIX: THE UNIVERSAL PULSE BAR --}}
+                    @php $status = strtolower($send_offer->status); @endphp
+                    <div class="m-b-lg p-a-md rounded shadow-sm bg-white" style="border: 1px solid #edf2f7;">
+                        <div class="row-col text-center items-center">
+                            <div class="col-xs">
+                                <div class="m-b-xs">
+                                    <span class="btn btn-sm btn-icon rounded {{ $status != 'rejected' ? 'pulse-step-active' : 'bg-light' }}">
+                                        <i class="fa fa-paper-plane"></i>
+                                    </span>
+                                </div>
+                                <div class="text-xs {{ $status != 'rejected' ? 'pulse-text-active' : 'text-muted' }}">SENT</div>
+                            </div>
+
+                            <div class="col-xs p-y-sm text-muted" style="max-width: 30px;"> <i class="fa fa-angle-right"></i> </div>
+
+                            <div class="col-xs">
+                                <div class="m-b-xs">
+                                    <span class="btn btn-sm btn-icon rounded {{ in_array($status, ['accepted', 'delivered', 'completed']) ? 'pulse-step-active' : 'bg-light' }}">
+                                        <i class="fa fa-usd"></i>
+                                    </span>
+                                </div>
+                                <div class="text-xs {{ in_array($status, ['accepted', 'delivered', 'completed']) ? 'pulse-text-active' : 'text-muted' }}">PAID</div>
+                            </div>
+
+                            <div class="col-xs p-y-sm text-muted" style="max-width: 30px;"> <i class="fa fa-angle-right"></i> </div>
+
+                            <div class="col-xs">
+                                <div class="m-b-xs">
+                                    <span class="btn btn-sm btn-icon rounded {{ in_array($status, ['delivered', 'completed']) ? 'pulse-step-active' : 'bg-light' }}">
+                                        <i class="fa fa-gift"></i>
+                                    </span>
+                                </div>
+                                <div class="text-xs {{ in_array($status, ['delivered', 'completed']) ? 'pulse-text-active' : 'text-muted' }}">DELIVERED</div>
+                            </div>
+
+                            <div class="col-xs p-y-sm text-muted" style="max-width: 30px;"> <i class="fa fa-angle-right"></i> </div>
+
+                            <div class="col-xs">
+                                <div class="m-b-xs">
+                                    <span class="btn btn-sm btn-icon rounded {{ $status == 'completed' ? 'pulse-step-active' : 'bg-light' }}">
+                                        <i class="fa fa-check-circle"></i>
+                                    </span>
+                                </div>
+                                <div class="text-xs {{ $status == 'completed' ? 'pulse-text-active' : 'text-muted' }}">FINISHED</div>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- END PULSE BAR --}}
+
                     <div class="row-col">
-                        {{-- LEFT COLUMN --}}
+                        {{-- LEFT COLUMN: PROFILE & BIO --}}
                         <div class="col-sm w w-auto-xs m-b">
                             <div class="item w">
                                 <div class="item-media">
@@ -123,7 +183,7 @@
                             </div>
                         </div>
 
-                        {{-- RIGHT COLUMN --}}
+                        {{-- RIGHT COLUMN: IDENTITY & VISION RATING --}}
                         <div class="col-sm">
                             <div class="p-l-md no-padding-xs">
                                 <div class="page-title">
@@ -138,7 +198,7 @@
                                     @endif
                                 </p>
 
-                                {{-- RATING BLOCK --}}
+                                {{-- RATING BLOCK: PREPPED FOR RADIAL SVG VISION --}}
                                 @php
                                     $avgRating = 0; $totalReviews = 0;
                                     try {
@@ -151,6 +211,7 @@
                                 @endphp
 
                                 <div class="m-b-sm" style="display: flex; align-items: center; gap: 8px;">
+                                    {{-- Temporary Star Layout (Will be replaced by your Radial Logic) --}}
                                     <div class="text-warning" style="font-size: 14px;">
                                         @for ($i = 1; $i <= 5; $i++)
                                             <i class="fa {{ $i <= round($avgRating) ? 'fa-star' : 'fa-star-o' }}"></i>
@@ -163,34 +224,25 @@
                                 @if(!empty($send_offer->userCurator->curatorUser->country))
                                     <div class="block flag_style clearfix m-b">
                                         <img class="flag_icon" src="{{asset('images/flags')}}/{{$send_offer->userCurator->curatorUser->country->flag_icon}}.png" alt="{{$send_offer->userCurator->curatorUser->country->flag_icon}}">
-                                        <span class="text-muted"
-                                              style="font-size:15px">{{($send_offer->userCurator->curatorUser->country) ? $send_offer->userCurator->curatorUser->country->name : ''}}</span>
+                                        <span class="text-muted" style="font-size:15px">{{($send_offer->userCurator->curatorUser->country) ? $send_offer->userCurator->curatorUser->country->name : ''}}</span>
                                     </div>
                                 @endif
+
                                 <div class="row-col m-b" id="socialView_S">
                                     <div class="col-xs">
                                         @if(!empty($send_offer->userCurator->curatorUser->instagram_url))
-                                            <a href="{{$send_offer->userCurator->curatorUser->instagram_url}}" target="_blank"
-                                               class="btn btn-icon btn-social rounded btn-social-colored light-blue-800"
-                                               title="Instagram">
-                                                <i class="fa fa-instagram"></i>
-                                                <i class="fa fa-instagram"></i>
+                                            <a href="{{$send_offer->userCurator->curatorUser->instagram_url}}" target="_blank" class="btn btn-icon btn-social rounded btn-social-colored light-blue-800" title="Instagram">
+                                                <i class="fa fa-instagram"></i><i class="fa fa-instagram"></i>
                                             </a>
                                         @endif
                                         @if(!empty($send_offer->userCurator->curatorUser->facebook_url))
-                                            <a href="{{$send_offer->userCurator->curatorUser->facebook_url}}" target="_blank"
-                                               class="btn btn-icon btn-social rounded btn-social-colored indigo"
-                                               title="Facebook">
-                                                <i class="fa fa-facebook"></i>
-                                                <i class="fa fa-facebook"></i>
+                                            <a href="{{$send_offer->userCurator->curatorUser->facebook_url}}" target="_blank" class="btn btn-icon btn-social rounded btn-social-colored indigo" title="Facebook">
+                                                <i class="fa fa-facebook"></i><i class="fa fa-facebook"></i>
                                             </a>
                                         @endif
                                         @if(!empty($send_offer->userCurator->curatorUser->spotify_url))
-                                            <a href="{{$send_offer->userCurator->curatorUser->spotify_url}}" target="_blank"
-                                               class="btn btn-icon btn-social rounded btn-social-colored light-green-500"
-                                               title="Spotify">
-                                                <i class="fa fa-spotify"></i>
-                                                <i class="fa fa-spotify"></i>
+                                            <a href="{{$send_offer->userCurator->curatorUser->spotify_url}}" target="_blank" class="btn btn-icon btn-social rounded btn-social-colored light-green-500" title="Spotify">
+                                                <i class="fa fa-spotify"></i><i class="fa fa-spotify"></i>
                                             </a>
                                         @endif
                                     </div>
@@ -199,74 +251,54 @@
                         </div>
                     </div>
 
-                    {{-- Send Offer Info --}}
+                    {{-- SUBMISSION INFO --}}
                     <div class="padding p-y-0 m-b-md m-t-3">
                         <div class="page-title m-b">
-                            <h4 class="inline m-a-0 update_profile">Send Offer Info</h4>
+                            <h4 class="inline m-a-0 update_profile">Campaign Overview</h4>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-3 form-control-label text-muted">Expiry Date:</div>
                             <div class="col-sm-9">{{!empty($send_offer) ? getDateFormat($send_offer->expiry_date) : '----'}}</div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-sm-3 form-control-label text-muted">Contribution:</div>
+                            <div class="col-sm-3 form-control-label text-muted">Investment:</div>
                             <div class="col-sm-9 font-weight-bold" style="color: #02b875;">{{!empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->contribution : 0}} USC</div>
-                        </div>
-                    </div>
-
-                    {{-- Track Info --}}
-                    <div class="padding p-y-0 m-b-md m-t-3">
-                        <div class="page-title m-b">
-                            <h4 class="inline m-a-0 update_profile">Track Info</h4>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-3 form-control-label text-muted">Track Name:</div>
-                            <div class="col-sm-9">{{ !empty($send_offer->artistTrack) ? $send_offer->artistTrack->name : '----'}}</div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-sm-3 form-control-label text-muted">Pitch:</div>
-                            <div class="col-sm-9 text-muted italic" id="pitchInfo">
-                                {{ !empty($send_offer->artistTrack->pitch_description) ? Str::limit($send_offer->artistTrack->pitch_description, 100) : '-----'}}
-                                <a href="javascript:void(0)" class="seeMoreBio" onclick="seeMorePitch()">Read more</a>
-                            </div>
+                            <div class="col-sm-9 font-weight-bold">{{ !empty($send_offer->artistTrack) ? $send_offer->artistTrack->name : '----'}}</div>
                         </div>
                     </div>
 
-                    {{-- UPDATED: Accept/Decline Logic --}}
+                    {{-- ACTION AREA: ACCEPT/PAY/RATE --}}
                     <div class="padding text-center m-t-lg">
-                        @php $status = strtolower($send_offer->status); @endphp
-
                        @if($status == 'rejected')
                              <div class="alert alert-danger" style="border-radius: 8px; font-weight: bold;">This Offer has been declined.</div>
-                        
                         @elseif($status == 'accepted')
-                             <div class="alert alert-info" style="background-color: #e3f2fd; color: #0d47a1; border-radius: 8px; font-weight: bold; border: 1px solid #90caf9;">
-                                <i class="fa fa-clock-o"></i> Artist Completed Payment. Awaiting curator completion.
+                             <div class="alert alert-info shadow-sm" style="background-color: #f0f9ff; color: #0369a1; border-radius: 12px; font-weight: bold; border: 1px solid #bae6fd;">
+                                <i class="fa fa-clock-o"></i> Payment Successful. Awaiting curator delivery.
                              </div>
-
                         @elseif($status == 'delivered')
-                            <div class="alert alert-success" style="background-color: #e8f5e9; color: #1b5e20; border-radius: 8px; font-weight: bold; border: 1px solid #a5d6a7;">
-                                <i class="fa fa-check-circle"></i> Work has been delivered!
-                                <button type="button" class="btn btn-sm btn-primary rounded-pill ml-2" data-toggle="modal" data-target="#rateModal{{$send_offer->id}}">
-                                    Rate Curator & Finish
+                            <div class="alert alert-success shadow-sm" style="background-color: #f0fdf4; color: #15803d; border-radius: 12px; font-weight: bold; border: 1px solid #bbf7d0;">
+                                <div class="m-b-sm"><i class="fa fa-check-circle"></i> Work has been delivered!</div>
+                                <button type="button" class="btn btn-sm btn-primary rounded-pill shadow-sm" data-toggle="modal" data-target="#rateModal{{$send_offer->id}}">
+                                    Rate Curator & Close Campaign
                                 </button>
                             </div>
                             @include('partials.rating_modal', ['offer' => $send_offer])
-
                         @elseif($status == 'completed')
-                             <div class="alert alert-success" style="border-radius: 8px; font-weight: bold;">This offer is completed.</div>
-                        
+                             <div class="alert alert-success" style="border-radius: 8px; font-weight: bold;">Campaign Successfully Completed.</div>
                         @else
-                            {{-- PENDING STATE --}}
                             <div id="curatorOfferBtn">
-                                <a href="javascript:void(0)" data-toggle="modal" data-target="#declineOffer" class="btn btn-sm rounded btn-danger m-r-sm">Decline</a>
-                                <a href="javascript:void(0)" data-toggle="modal" data-target="#confirmPayUSCModal" class="btn btn-sm rounded btn-success">Pay USC</a>
+                                <a href="javascript:void(0)" data-toggle="modal" data-target="#declineOffer" class="btn btn-sm rounded btn-danger m-r-sm shadow-sm">Decline</a>
+                                <a href="javascript:void(0)" data-toggle="modal" data-target="#confirmPayUSCModal" class="btn btn-sm rounded btn-success shadow-sm">Pay USC</a>
                             </div>
                         @endif
                     </div>
                 </div>
             </div>
 
+            {{-- SIDEBAR --}}
             @if($send_offer->status == 'expired')
                 @include('pages.curators.panels.right-sidebar')
             @else
@@ -276,7 +308,6 @@
     </div>
 
     @include('pages.artists.artist-offers.modal.modal')
-
 @endsection
 
 @section('page-script')
