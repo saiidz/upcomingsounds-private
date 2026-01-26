@@ -14,7 +14,6 @@ class OfferController extends Controller
 
     public function offers()
     {
-        // This logic gathers the data the Blade file needs to loop
         $sendOffers = SendOffer::whereHas('userCurator')
             ->with(['ratings', 'curatorOfferTemplate.offerType'])
             ->where('artist_id', Auth::id())
@@ -23,6 +22,25 @@ class OfferController extends Controller
             ->get();
 
         return view('pages.artists.artist-offers.offers', compact('sendOffers'));
+    }
+
+    public function pending()
+    {
+        $sendOffers = SendOffer::whereHas('userCurator')
+            ->where(['artist_id' => Auth::id(), 'status' => 'pending', 'is_approved' => self::APPROVED])
+            ->latest()->get();
+        return view('pages.artists.artist-offers.pending', compact('sendOffers'));
+    }
+
+    public function accepted()
+    {
+        $sendOffers = SendOffer::whereHas('userCurator')
+            ->with(['userCurator', 'curatorOfferTemplate.offerType'])
+            ->where('artist_id', Auth::id())
+            ->whereIn('status', ['accepted', 'delivered'])
+            ->where('is_approved', self::APPROVED)
+            ->latest()->get();
+        return view('pages.artists.artist-offers.accepted', compact('sendOffers'));
     }
 
     public function completed()
@@ -35,5 +53,14 @@ class OfferController extends Controller
             ->get();
 
         return view('pages.artists.artist-offers.completed', compact('sendOffers'));
+    }
+
+    public function offerShow($send_offer)
+    {
+        // Decrypt the ID and load the offer details
+        $send_offer = SendOffer::with(['userCurator', 'curatorOfferTemplate.offerType'])
+            ->findOrFail(decrypt($send_offer));
+            
+        return view('pages.artists.artist-offers.curator-offer-details', compact('send_offer'));
     }
 }
