@@ -46,24 +46,23 @@ Route::group(['middleware' => ['try_catch']], function() {
         });
     });
 
-    /**************** Artist Routes (Bulletproof Fix) ****************/
+    /**************** Artist Routes (Final Alignment) ****************/
     Route::group(['middleware' => ['auth','verify_if_user','create_password','verified','artist_signup','approved_artist_admin','re_apply','rejected_artist_admin']], function() {
         
         // Load legacy routes
         Route::prefix('')->group(base_path('routes/client/auth.php'));
         
-        // UNIFIED DASHBOARD: Using a unique name 'artist.custom.dashboard'
-        Route::get('/artist-offers-dashboard', [OfferController::class, 'offers'])->name('artist.custom.dashboard');
-        
-        // ISOLATED STATUS LISTS: Using '-list' suffix to prevent collisions
-        Route::get('/pending-offer-list', [OfferController::class, 'pending'])->name('artist.custom.pending');
-        Route::get('/accepted-offer-list', [OfferController::class, 'accepted'])->name('artist.custom.accepted');
-        Route::get('/completed-offer-list', [OfferController::class, 'completed'])->name('artist.custom.completed');
-        Route::get('/rejected-offer-list', [OfferController::class, 'rejected'])->name('artist.custom.rejected');
-        Route::get('/alternative-offer-list', [OfferController::class, 'alternative'])->name('artist.custom.alternative');
+        // FORCED OVERRIDES: These match the URLs on your live site perfectly
+        // We use the names the Blade files expect to see.
+        Route::get('/artist-offers', [OfferController::class, 'offers'])->name('artist.custom.dashboard');
+        Route::get('/pending-offer', [OfferController::class, 'pending'])->name('artist.custom.pending');
+        Route::get('/accepted-offer', [OfferController::class, 'accepted'])->name('artist.custom.accepted');
+        Route::get('/completed-offer', [OfferController::class, 'completed'])->name('artist.custom.completed');
+        Route::get('/rejected-offer', [OfferController::class, 'rejected'])->name('artist.custom.rejected');
+        Route::get('/alternative-offer', [OfferController::class, 'alternative'])->name('artist.custom.alternative');
 
-        // ISOLATED DETAILS: Ensures 'View' buttons always work
-        Route::get('/offer-details-view/{send_offer}', [OfferController::class, 'offerShow'])->name('artist.custom.show');
+        // DETAIL VIEW: This hijacks the URL that was 500ing
+        Route::get('/curator-offer/{send_offer}', [OfferController::class, 'offerShow'])->name('artist.offer.details_hijack');
     });
 
     /**************** Curator Routes ****************/
@@ -90,5 +89,3 @@ Route::get('/t', function () {
 });
 
 Route::any('{url?}/{sub_url?}', [Helper::class, 'fallback']);
-// This ONLY handles the "View Details" click
-    Route::get('/curator-offer/{send_offer}', [OfferController::class, 'offerShow'])->name('artist.offer.details_hijack');
