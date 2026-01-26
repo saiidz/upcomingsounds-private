@@ -48,18 +48,16 @@ Route::group(['middleware' => ['try_catch']], function() {
 
     /**************** Artist Routes ****************/
     Route::group(['middleware' => ['auth','verify_if_user','create_password','verified','artist_signup','approved_artist_admin','re_apply','rejected_artist_admin']], function() {
+        
+        // This file already contains artist.offer.index, show, etc.
         Route::prefix('')->group(base_path('routes/client/auth.php'));
         
-        // Artist Offer Dashboard Routes
-        Route::get('/artist-offers', [OfferController::class, 'offers'])->name('artist.offer.index');
-        Route::get('/pending-offer', [OfferController::class, 'pending'])->name('artist.offer.pending');
-        Route::get('/accepted-offer', [OfferController::class, 'accepted'])->name('artist.offer.accepted');
-        Route::get('/completed-offer', [OfferController::class, 'completed'])->name('artist.offer.completed');
-        Route::get('/rejected-offer', [OfferController::class, 'rejected'])->name('artist.offer.rejected');
-        Route::get('/alternative-offer', [OfferController::class, 'alternative'])->name('artist.offer.alternative');
+        // We only add the missing status pages with UNIQUE names to prevent 500 errors
+        Route::get('/rejected-offer', [OfferController::class, 'rejected'])->name('artist.offer.rejected_list');
+        Route::get('/alternative-offer', [OfferController::class, 'alternative'])->name('artist.offer.alternative_list');
         
-        // Changed name to 'artist.offer.details' to avoid LogicException conflict
-        Route::get('/artist-offer/{send_offer}', [OfferController::class, 'offerShow'])->name('artist.offer.details');
+        // Use a unique name for the custom details view
+        Route::get('/artist-offer-view/{send_offer}', [OfferController::class, 'offerShow'])->name('artist.offer.custom_details');
     });
 
     /**************** Curator Routes ****************/
