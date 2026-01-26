@@ -11,17 +11,16 @@ class OfferController extends Controller
     const IS_APPROVED = 1;
 
     /**
-     * Unified Context: Ensures layout variables ($user_artist, etc.) 
-     * are always present to prevent sidebar crashes.
+     * Unified Context: Ensures sidebar variables ($user_artist, etc.) 
+     * are always present to prevent 500 layout crashes.
      */
     private function getDashboardContext($extraData = []) {
         $user = Auth::user();
-        $base = [
+        return array_merge([
             'user_artist' => $user,
             'user'        => $user,
             'artist'      => $user,
-        ];
-        return array_merge($base, $extraData);
+        ], $extraData);
     }
 
     public function offers() {
@@ -44,8 +43,7 @@ class OfferController extends Controller
 
     public function accepted() {
         $offers = SendOffer::where('artist_id', Auth::id())
-            ->whereIn('status', ['accepted', 'delivered'])
-            ->latest()->get();
+            ->whereIn('status', ['accepted', 'delivered'])->latest()->get();
 
         return view('pages.artists.artist-offers.accepted', $this->getDashboardContext([
             'sendOffers' => $offers
@@ -73,23 +71,14 @@ class OfferController extends Controller
         ]));
     }
 
-    /**
-     * Detail View Fix: Handles decryption and variable alignment.
-     */
     public function offerShow($send_offer) {
         try {
             $decryptedId = decrypt($send_offer);
-            
-            $offer = SendOffer::with([
-                'userCurator', 
-                'curatorOfferTemplate.offerType', 
-                'artistTrack'
-            ])->findOrFail($decryptedId);
+            $offer = SendOffer::with(['userCurator', 'curatorOfferTemplate.offerType', 'artistTrack'])->findOrFail($decryptedId);
 
             return view('pages.artists.artist-offers.curator-offer-details', $this->getDashboardContext([
                 'send_offer' => $offer
             ]));
-
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Offer details could not be loaded.');
         }
