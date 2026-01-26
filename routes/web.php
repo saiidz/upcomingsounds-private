@@ -53,8 +53,8 @@ Route::group(['middleware' => ['try_catch']], function() {
         // 1. Load legacy routes (compatibility)
         Route::prefix('')->group(base_path('routes/client/auth.php'));
         
-        // 2. HARD OVERRIDES: These force the app to use our new logic
-        // We use the exact URLs that were 500ing
+        // 2. HARD OVERRIDES: Priority routing for the Artist Dashboard
+        // These URLs will now bypass old logic and use the new OfferController
         Route::get('/artist-offers', [OfferController::class, 'offers'])->name('artist.custom.dashboard');
         Route::get('/pending-offer', [OfferController::class, 'pending'])->name('artist.custom.pending');
         Route::get('/accepted-offer', [OfferController::class, 'accepted'])->name('artist.custom.accepted');
@@ -62,7 +62,7 @@ Route::group(['middleware' => ['try_catch']], function() {
         Route::get('/rejected-offer', [OfferController::class, 'rejected'])->name('artist.custom.rejected');
         Route::get('/alternative-offer', [OfferController::class, 'alternative'])->name('artist.custom.alternative');
 
-        // 3. DETAIL VIEW HIJACK: This handles the /curator-offer/ URL specifically
+        // 3. DETAIL VIEW HIJACK: Specific fix for the /curator-offer/ URL path
         Route::get('/curator-offer/{send_offer}', [OfferController::class, 'offerShow'])->name('artist.offer.details_hijack');
     });
 
