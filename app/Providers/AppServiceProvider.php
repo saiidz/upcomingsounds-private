@@ -30,46 +30,40 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Paginator::useBootstrap();
+
+        // Unified View Composer for all views
         View::composer('*', function ($view) {
+            // 1. Handle User Data (Artist/Curator)
             if (Auth::check()) {
-                $artist_track_count = ArtistTrack::where('user_id',Auth::id())->count();
+                $user = Auth::user();
+                
+                // Share with all names used in your various layouts
+                View::share('user_artist', $user);
+                
+                if($user->type == 'curator') {
+                    View::share('user_curator', $user);
+                }
+
+                // Track count for artists
+                $artist_track_count = ArtistTrack::where('user_id', $user->id)->count();
                 View::share('artist_track_count', $artist_track_count);
             }
-        });
 
-        // user artist
-        View::composer('*', function ($view) {
-            if (Auth::check()) {
-                $user_artist = Auth::user();
-                View::share('user_artist', $user_artist);
+            // 2. Handle Theme Data (This prevents the 500 Layout crash)
+            // We check for 'theme_settings' first, then 'home_new_settings' as backup
+            $theme_option = Option::where('key', 'theme_settings')->first();
+            if (!$theme_option) {
+                $theme_option = Option::where('key', 'home_new_settings')->first();
             }
-        });
-        // Using closure based composers...
-        View::composer('*', function ($view) {
-            if (Auth::check())
-            {
-                if(Auth::user()->type == 'curator')
-                {
-                    $user_curator = Auth::user();
-                    View::share('user_curator', $user_curator);
-                }
-            }
-        });
 
-        // theme setting composer
-        View::composer('*', function ($view) {
-            $theme = Option::where('key', 'theme_settings')->first();
-            if(!empty($theme))
-            {
-                $theme = json_decode($theme->value);
+            if ($theme_option) {
+                $theme = json_decode($theme_option->value);
                 View::share('theme', $theme);
+            } else {
+                // Fail-safe object so !empty($theme->logo) doesn't crash
+                View::share('theme', (object)['logo' => 'images/logo.png']);
             }
         });
-
-//        Artisan::call('cache:clear');
-//        Artisan::call('config:clear');
-//        Artisan::call('route:clear');
-//        Artisan::call('view:clear');
-        Paginator::useBootstrap();
     }
 }
