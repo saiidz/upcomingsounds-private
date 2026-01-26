@@ -71,3 +71,4 @@
     </div>
 </div>
 @endsection
+{{-- @include('pages.artists.panels.right-sidebar') --}}
