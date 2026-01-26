@@ -30,6 +30,7 @@ Route::get('/', function () {
     return view('welcome-new', get_defined_vars());
 });
 
+// Load standard auth first
 require __DIR__.'/auth.php';
 
 Route::group(['middleware' => ['try_catch']], function() {
@@ -46,14 +47,14 @@ Route::group(['middleware' => ['try_catch']], function() {
         });
     });
 
-    /**************** Artist Routes (Final Alignment) ****************/
+    /**************** Artist Routes (The Global Fix) ****************/
     Route::group(['middleware' => ['auth','verify_if_user','create_password','verified','artist_signup','approved_artist_admin','re_apply','rejected_artist_admin']], function() {
         
-        // Load legacy routes
+        // 1. Load legacy routes (compatibility)
         Route::prefix('')->group(base_path('routes/client/auth.php'));
         
-        // FORCED OVERRIDES: These match the URLs on your live site perfectly
-        // We use the names the Blade files expect to see.
+        // 2. HARD OVERRIDES: These force the app to use our new logic
+        // We use the exact URLs that were 500ing
         Route::get('/artist-offers', [OfferController::class, 'offers'])->name('artist.custom.dashboard');
         Route::get('/pending-offer', [OfferController::class, 'pending'])->name('artist.custom.pending');
         Route::get('/accepted-offer', [OfferController::class, 'accepted'])->name('artist.custom.accepted');
@@ -61,7 +62,7 @@ Route::group(['middleware' => ['try_catch']], function() {
         Route::get('/rejected-offer', [OfferController::class, 'rejected'])->name('artist.custom.rejected');
         Route::get('/alternative-offer', [OfferController::class, 'alternative'])->name('artist.custom.alternative');
 
-        // DETAIL VIEW: This hijacks the URL that was 500ing
+        // 3. DETAIL VIEW HIJACK: This handles the /curator-offer/ URL specifically
         Route::get('/curator-offer/{send_offer}', [OfferController::class, 'offerShow'])->name('artist.offer.details_hijack');
     });
 
