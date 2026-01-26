@@ -11,7 +11,8 @@ class OfferController extends Controller
     const IS_APPROVED = 1;
 
     /**
-     * Unified Context: Mirroring the Dashboard variables to prevent Sidebar crashes.
+     * Unified Context: Ensures layout variables ($user_artist, etc.) 
+     * are always present to prevent sidebar crashes.
      */
     private function getDashboardContext($extraData = []) {
         $user = Auth::user();
@@ -23,7 +24,7 @@ class OfferController extends Controller
         return array_merge($base, $extraData);
     }
 
-    // URL: /artist-offers
+    // URL: /artist-offers-dashboard
     public function offers() {
         $offers = SendOffer::whereHas('userCurator')
             ->with(['curatorOfferTemplate.offerType'])
@@ -72,23 +73,4 @@ class OfferController extends Controller
 
     // URL: /alternative-offer-list
     public function alternative() {
-        $offers = SendOffer::where(['artist_id' => Auth::id(), 'status' => 'alternative'])->latest()->get();
-        return view('pages.artists.artist-offers.alternative', $this->getDashboardContext([
-            'sendOffers' => $offers
-        ]));
-    }
-
-    // URL: /view-offer-details/{id}
-    public function offerShow($id) {
-        try {
-            $offer = SendOffer::with(['userCurator', 'curatorOfferTemplate.offerType'])
-                ->findOrFail(decrypt($id));
-
-            return view('pages.artists.artist-offers.curator-offer-details', $this->getDashboardContext([
-                'send_offer' => $offer
-            ]));
-        } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Could not load offer details.');
-        }
-    }
-}
+        $offers = SendOffer::where(['artist
