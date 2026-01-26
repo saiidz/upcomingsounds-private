@@ -46,22 +46,23 @@ Route::group(['middleware' => ['try_catch']], function() {
         });
     });
 
-  /**************** Artist Routes ****************/
-Route::group(['middleware' => ['auth','verify_if_user','create_password','verified','artist_signup','approved_artist_admin','re_apply','rejected_artist_admin']], function() {
-    
-    // This loads the core routes (index, show, etc.) from the sub-file
-    Route::prefix('')->group(base_path('routes/client/auth.php'));
-    
-    // We only add the NEW status-specific pages here with UNIQUE names
-    Route::get('/pending-offer', [OfferController::class, 'pending'])->name('artist.offer.pending_list');
-    Route::get('/accepted-offer', [OfferController::class, 'accepted'])->name('artist.offer.accepted_list');
-    Route::get('/completed-offer', [OfferController::class, 'completed'])->name('artist.offer.completed_list');
-    Route::get('/rejected-offer', [OfferController::class, 'rejected'])->name('artist.offer.rejected_list');
-    Route::get('/alternative-offer', [OfferController::class, 'alternative'])->name('artist.offer.alternative_list');
+    /**************** Artist Routes (Isolated) ****************/
+    Route::group(['middleware' => ['auth','verify_if_user','create_password','verified','artist_signup','approved_artist_admin','re_apply','rejected_artist_admin']], function() {
+        
+        // This loads the core routes (index, show, etc.) from the sub-file. Do not remove.
+        Route::prefix('')->group(base_path('routes/client/auth.php'));
+        
+        // We use 'custom' names here to stop the 500 Error Loop caused by name collisions
+        Route::get('/pending-offer-list', [OfferController::class, 'pending'])->name('artist.custom.pending');
+        Route::get('/accepted-offer-list', [OfferController::class, 'accepted'])->name('artist.custom.accepted');
+        Route::get('/completed-offer-list', [OfferController::class, 'completed'])->name('artist.custom.completed');
+        Route::get('/rejected-offer-list', [OfferController::class, 'rejected'])->name('artist.custom.rejected');
+        Route::get('/alternative-offer-list', [OfferController::class, 'alternative'])->name('artist.custom.alternative');
 
-    // Custom Detail View (to avoid conflict with the one in auth.php)
-    Route::get('/view-offer-details/{send_offer}', [OfferController::class, 'offerShow'])->name('artist.offer.custom_details');
-});
+        // This unique detail route ensures the "View Offer" button always works
+        Route::get('/view-offer-details/{send_offer}', [OfferController::class, 'offerShow'])->name('artist.custom.show');
+    });
+
     /**************** Curator Routes ****************/
     Route::group(['middleware' => ['auth','verify_if_curator','create_curator_password','verified','verified_phone_number_curator','curator_signup','approved_curator_admin','re_apply','rejected_curator_admin']], function() {
         Route::prefix('')->group(base_path('routes/client/curator_auth.php'));
