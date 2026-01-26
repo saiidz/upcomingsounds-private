@@ -16,15 +16,14 @@ class OfferController extends Controller
      */
     private function getDashboardContext($extraData = []) {
         $user = Auth::user();
-        $base = [
+        return array_merge([
             'user_artist'     => $user,
             'user'            => $user,
             'artist'          => $user,
-            'conversation_id' => null, // Prevents chat sidebar crash
+            'conversation_id' => null, 
             'receiver_id'     => null,
             'messages'        => collect([]),
-        ];
-        return array_merge($base, $extraData);
+        ], $extraData);
     }
 
     // Main Dashboard
