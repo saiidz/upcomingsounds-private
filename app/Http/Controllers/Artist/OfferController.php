@@ -24,7 +24,6 @@ class OfferController extends Controller
         return array_merge($base, $extraData);
     }
 
-    // URL: /artist-offers-dashboard
     public function offers() {
         $offers = SendOffer::whereHas('userCurator')
             ->with(['curatorOfferTemplate.offerType'])
@@ -36,7 +35,6 @@ class OfferController extends Controller
         ]));
     }
 
-    // URL: /pending-offer-list
     public function pending() {
         $offers = SendOffer::where(['artist_id' => Auth::id(), 'status' => 'pending'])->latest()->get();
         return view('pages.artists.artist-offers.pending', $this->getDashboardContext([
@@ -44,7 +42,6 @@ class OfferController extends Controller
         ]));
     }
 
-    // URL: /accepted-offer-list
     public function accepted() {
         $offers = SendOffer::where('artist_id', Auth::id())
             ->whereIn('status', ['accepted', 'delivered'])
@@ -55,7 +52,6 @@ class OfferController extends Controller
         ]));
     }
 
-    // URL: /completed-offer-list
     public function completed() {
         $offers = SendOffer::where(['artist_id' => Auth::id(), 'status' => 'completed'])->latest()->get();
         return view('pages.artists.artist-offers.completed', $this->getDashboardContext([
@@ -63,7 +59,6 @@ class OfferController extends Controller
         ]));
     }
 
-    // URL: /rejected-offer-list
     public function rejected() {
         $offers = SendOffer::where(['artist_id' => Auth::id(), 'status' => 'rejected'])->latest()->get();
         return view('pages.artists.artist-offers.rejected', $this->getDashboardContext([
@@ -71,6 +66,32 @@ class OfferController extends Controller
         ]));
     }
 
-    // URL: /alternative-offer-list
     public function alternative() {
-        $offers = SendOffer::where(['artist
+        $offers = SendOffer::where(['artist_id' => Auth::id(), 'status' => 'alternative'])->latest()->get();
+        return view('pages.artists.artist-offers.alternative', $this->getDashboardContext([
+            'sendOffers' => $offers
+        ]));
+    }
+
+    /**
+     * Detail View Fix: Handles decryption and variable alignment.
+     */
+    public function offerShow($send_offer) {
+        try {
+            $decryptedId = decrypt($send_offer);
+            
+            $offer = SendOffer::with([
+                'userCurator', 
+                'curatorOfferTemplate.offerType', 
+                'artistTrack'
+            ])->findOrFail($decryptedId);
+
+            return view('pages.artists.artist-offers.curator-offer-details', $this->getDashboardContext([
+                'send_offer' => $offer
+            ]));
+
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Offer details could not be loaded.');
+        }
+    }
+}
