@@ -1,73 +1,68 @@
-@extends('pages.artists.panels.layout')
+<?php
 
-@section('title','My Offers')
+namespace App\Http\Controllers\Artist;
 
-@section('content')
-<div class="page-content">
-    <div class="row-col">
-        <div class="col-lg-9 b-r no-border-md">
-            <div class="padding">
-                <div class="page-title m-b m-t-2">
-                    <h1 class="inline m-a-0 titleColor">My Campaigns</h1>
-                </div>
+use App\Http\Controllers\Controller;
+use App\Models\Conversation;
+use App\Models\Message;
+use App\Models\SendOffer;
+use App\Models\SendOfferTransaction;
+use App\Models\User;
+use App\Models\CuratorRating;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-                <div class="row item-list item-list-by m-b">
-                    @if(!empty($sendOffers) && $sendOffers->count() > 0)
-                        @foreach($sendOffers as $sendOffer)
-                            <div class="col-xs-12 m-b" id="offer-{{ $sendOffer->id }}">
-                                <div class="item r Item p-a-sm shadow-sm" style="background: rgba(120, 120, 120, 0.05); border-radius: 12px; border: 1px solid #eee;">
-                                    
-                                    {{-- Safe Profile Image --}}
-                                    <div class="item-media">
-                                        @php
-                                            $profile = $sendOffer->userCurator->profile ?? '';
-                                            $imgUrl = asset('images/profile_images_icons.svg');
-                                            if (!empty($profile)) {
-                                                $imgUrl = (str_starts_with($profile, 'http')) ? $profile : url('/uploads/profile/' . $profile);
-                                            }
-                                        @endphp
-                                        <div class="item-media-content" style="background-image: url('{{ $imgUrl }}');"></div>
-                                    </div>
+class OfferController extends Controller
+{
+    const APPROVED = 1;
+    private $sendOffer;
 
-                                    <div class="item-info">
-                                        <div class="bottom text-right">
-                                            <span class="text-primary font-weight-bold">{{ strtoupper($sendOffer->status ?? 'PENDING') }}</span>
-                                        </div>
+    public function __construct(SendOffer $sendOffer)
+    {
+        $this->sendOffer = $sendOffer;
+    }
 
-                                        <div class="item-title text-ellipsis">
-                                            <span class="text-muted font-weight-bold">{{ $sendOffer->userCurator->name ?? 'Curator' }}</span>
-                                        </div>
+    private function getCommonData()
+    {
+        return ['user_artist' => Auth::user()];
+    }
 
-                                        <div class="m-t-sm" style="display:flex; gap:15px;">
-                                            <div class="text-xs">
-                                                <span style="color:#02b875">Type:</span> {{ $sendOffer->curatorOfferTemplate->offerType->name ?? 'Standard' }}
-                                            </div>
-                                            <div class="text-xs">
-                                                <span style="color:#02b875">Sent:</span> {{ $sendOffer->created_at ? $sendOffer->created_at->format('M d, Y') : 'N/A' }}
-                                            </div>
-                                        </div>
+    public function offers()
+    {
+        $data = $this->getCommonData();
+        $data['sendOffers'] = $this->sendOffer
+            ->whereHas('userCurator') 
+            ->with(['ratings' => function($query) { $query->whereNotNull('send_offer_id'); }])
+            ->where(['artist_id' => Auth::id(), 'is_approved' => self::APPROVED])
+            ->latest()->get();
+        return view('pages.artists.artist-offers.offers', $data);
+    }
 
-                                        <div class="m-t-md">
-                                            <form action="{{ route('artist.offer.show', encrypt($sendOffer->id)) }}" method="GET">
-                                                <button type="submit" class="btn btn-xs white shadow-sm">View Details</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    @else
-                        <div class="text-center p-a-lg">
-                            <h4 class="text-muted">No campaigns found.</h4>
-                        </div>
-                    @endif
-                </div>
-            </div>
-        </div>
+    public function pending()
+    {
+        $data = $this->getCommonData();
+        $data['sendOffers'] = $this->sendOffer
+            ->whereHas('userCurator')
+            ->where(['artist_id' => Auth::id(), 'status' => 'pending', 'is_approved' => self::APPROVED])
+            ->latest()->get();
+        return view('pages.artists.artist-offers.pending', $data);
+    }
 
-        {{-- THE FIX: Passing explicit data to the sidebar to prevent 500 crashes --}}
-        @php $sidebarUser = $user_artist ?? auth()->user(); @endphp
-        @include('pages.artists.panels.right-sidebar', ['user_artist' => $sidebarUser])
-    </div>
-</div>
-@endsection
+    public function completed()
+    {
+        $data = $this->getCommonData();
+        $data['sendOffers'] = $this->sendOffer
+            ->whereHas('userCurator')
+            ->with(['ratings' => function($query) { $query->whereNotNull('send_offer_id'); }])
+            ->where(['artist_id' => Auth::id(), 'status' => 'completed', 'is_approved' => self::APPROVED])
+            ->latest()->get();
+        return view('pages.artists.artist-offers.completed', $data);
+    }
+
+    public function offerShow($send_offer)
+    {
+        $data = $this->getCommonData();
+        $data['send_offer'] = SendOffer::with('userCurator')->findOrFail(decrypt($send_offer));
+        return view('pages.artists.artist-offers.curator-offer-details', $data);
+    }
+}
