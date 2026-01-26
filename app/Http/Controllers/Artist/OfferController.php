@@ -61,8 +61,12 @@ class OfferController extends Controller
             $decryptedId = decrypt($send_offer);
             $offer = SendOffer::with(['userCurator', 'curatorOfferTemplate.offerType', 'artistTrack'])->findOrFail($decryptedId);
 
+            // Here we provide the chat variables that the 'right-sidebar-chat' expects
             return view('pages.artists.artist-offers.curator-offer-details', $this->getDashboardContext([
-                'send_offer' => $offer
+                'send_offer'      => $offer,
+                'conversation_id' => null,
+                'receiver_id'     => null,
+                'messages'        => collect([]), // Empty collection to prevent loop errors
             ]));
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Offer details could not be loaded.');
