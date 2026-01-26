@@ -8,12 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class OfferController extends Controller
 {
-    // Constant for approved status
     const IS_APPROVED = 1;
 
     /**
-     * This private helper ensures EVERY view gets the variables
-     * the layout/sidebar needs to stay alive.
+     * Ensures EVERY view gets the variables the layout/sidebar needs.
+     * This prevents the 500 errors caused by missing sidebar data.
      */
     private function getDashboardContext($extraData = []) {
         $user = Auth::user();
@@ -25,28 +24,62 @@ class OfferController extends Controller
         return array_merge($base, $extraData);
     }
 
-    public function rejected() {
-        $offers = SendOffer::where('artist_id', Auth::id())
-            ->where('status', 'rejected')
-            ->latest()
-            ->get();
+    // Main Dashboard / All Offers
+    public function offers() {
+        $offers = SendOffer::whereHas('userCurator')
+            ->with(['curatorOfferTemplate.offerType'])
+            ->where(['artist_id' => Auth::id(), 'is_approved' => self::IS_APPROVED])
+            ->latest()->get();
 
+        return view('pages.artists.artist-offers.offers', $this->getDashboardContext([
+            'sendOffers' => $offers
+        ]));
+    }
+
+    // Pending Offers
+    public function pending() {
+        $offers = SendOffer::where(['artist_id' => Auth::id(), 'status' => 'pending'])->latest()->get();
+        return view('pages.artists.artist-offers.pending', $this->getDashboardContext([
+            'sendOffers' => $offers
+        ]));
+    }
+
+    // Accepted Offers
+    public function accepted() {
+        $offers = SendOffer::where('artist_id', Auth::id())
+            ->whereIn('status', ['accepted', 'delivered'])
+            ->latest()->get();
+
+        return view('pages.artists.artist-offers.accepted', $this->getDashboardContext([
+            'sendOffers' => $offers
+        ]));
+    }
+
+    // Completed Offers
+    public function completed() {
+        $offers = SendOffer::where(['artist_id' => Auth::id(), 'status' => 'completed'])->latest()->get();
+        return view('pages.artists.artist-offers.completed', $this->getDashboardContext([
+            'sendOffers' => $offers
+        ]));
+    }
+
+    // Rejected Offers
+    public function rejected() {
+        $offers = SendOffer::where(['artist_id' => Auth::id(), 'status' => 'rejected'])->latest()->get();
         return view('pages.artists.artist-offers.rejected', $this->getDashboardContext([
             'sendOffers' => $offers
         ]));
     }
 
+    // Alternative Offers
     public function alternative() {
-        $offers = SendOffer::where('artist_id', Auth::id())
-            ->where('status', 'alternative')
-            ->latest()
-            ->get();
-
+        $offers = SendOffer::where(['artist_id' => Auth::id(), 'status' => 'alternative'])->latest()->get();
         return view('pages.artists.artist-offers.alternative', $this->getDashboardContext([
             'sendOffers' => $offers
         ]));
     }
 
+    // View Offer Details
     public function offerShow($id) {
         try {
             $offer = SendOffer::with(['userCurator', 'curatorOfferTemplate.offerType'])
