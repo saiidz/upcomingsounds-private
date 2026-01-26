@@ -29,11 +29,17 @@ class OfferController extends Controller
         ];
     }
 
+    /**
+     * Optimized to prevent 500 errors on the index page
+     */
     public function offers()
     {
         $data = $this->getCommonData();
         $data['sendOffers'] = $this->sendOffer
-            ->with('ratings')
+            ->whereHas('userCurator') // Ensures the curator still exists
+            ->with(['ratings' => function($query) {
+                $query->whereNotNull('send_offer_id'); // Safety check for broken ratings
+            }])
             ->where(['artist_id' => Auth::id(), 'is_approved' => self::APPROVED])
             ->latest()
             ->get();
@@ -44,7 +50,10 @@ class OfferController extends Controller
     {
         $data = $this->getCommonData();
         $data['sendOffers'] = $this->sendOffer
-            ->with('ratings')
+            ->whereHas('userCurator')
+            ->with(['ratings' => function($query) {
+                $query->whereNotNull('send_offer_id');
+            }])
             ->where([
                 'artist_id' => Auth::id(),
                 'status' => 'pending',
@@ -59,7 +68,10 @@ class OfferController extends Controller
     {
         $data = $this->getCommonData();
         $data['sendOffers'] = $this->sendOffer
-            ->with(['userCurator', 'curatorOfferTemplate.offerType', 'ratings'])
+            ->whereHas('userCurator')
+            ->with(['userCurator', 'curatorOfferTemplate.offerType', 'ratings' => function($query) {
+                $query->whereNotNull('send_offer_id');
+            }])
             ->where('artist_id', Auth::id())
             ->whereIn('status', ['accepted', 'delivered', 'completed'])
             ->where('is_approved', self::APPROVED)
@@ -73,7 +85,10 @@ class OfferController extends Controller
     {
         $data = $this->getCommonData();
         $data['sendOffers'] = $this->sendOffer
-            ->with('ratings')
+            ->whereHas('userCurator')
+            ->with(['ratings' => function($query) {
+                $query->whereNotNull('send_offer_id');
+            }])
             ->where([
                 'artist_id' => Auth::id(),
                 'status' => 'rejected',
@@ -88,7 +103,10 @@ class OfferController extends Controller
     {
         $data = $this->getCommonData();
         $data['sendOffers'] = $this->sendOffer
-            ->with('ratings')
+            ->whereHas('userCurator')
+            ->with(['ratings' => function($query) {
+                $query->whereNotNull('send_offer_id');
+            }])
             ->where([
                 'artist_id' => Auth::id(),
                 'status' => 'alternative',
@@ -103,7 +121,10 @@ class OfferController extends Controller
     {
         $data = $this->getCommonData();
         $data['sendOffers'] = $this->sendOffer
-            ->with('ratings')
+            ->whereHas('userCurator')
+            ->with(['ratings' => function($query) {
+                $query->whereNotNull('send_offer_id');
+            }])
             ->where('artist_id', Auth::id())
             ->whereIn('status', ['completed'])
             ->where('is_approved', self::APPROVED)
@@ -115,7 +136,8 @@ class OfferController extends Controller
     public function offerShow($send_offer)
     {
         $data = $this->getCommonData();
-        $data['send_offer'] = SendOffer::findOrFail(decrypt($send_offer));
+        // Use findOrFail to catch decryption errors or missing records
+        $data['send_offer'] = SendOffer::with('userCurator')->findOrFail(decrypt($send_offer));
 
         $conversation = Conversation::where(function($query) use ($data) {
             $query->where('sender_id', Auth::id())
