@@ -58,8 +58,8 @@ Route::group(['middleware' => ['try_catch']], function() {
         Route::get('/rejected-offer', [OfferController::class, 'rejected'])->name('artist.offer.rejected');
         Route::get('/alternative-offer', [OfferController::class, 'alternative'])->name('artist.offer.alternative');
         
-        // The View Offer Details route
-        Route::get('/artist-offer/{send_offer}', [OfferController::class, 'offerShow'])->name('artist.offer.show');
+        // Changed name to 'artist.offer.details' to avoid LogicException conflict
+        Route::get('/artist-offer/{send_offer}', [OfferController::class, 'offerShow'])->name('artist.offer.details');
     });
 
     /**************** Curator Routes ****************/
