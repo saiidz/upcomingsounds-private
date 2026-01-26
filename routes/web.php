@@ -46,20 +46,22 @@ Route::group(['middleware' => ['try_catch']], function() {
         });
     });
 
-    /**************** Artist Routes ****************/
-    Route::group(['middleware' => ['auth','verify_if_user','create_password','verified','artist_signup','approved_artist_admin','re_apply','rejected_artist_admin']], function() {
-        
-        // This file already contains artist.offer.index, show, etc.
-        Route::prefix('')->group(base_path('routes/client/auth.php'));
-        
-        // We only add the missing status pages with UNIQUE names to prevent 500 errors
-        Route::get('/rejected-offer', [OfferController::class, 'rejected'])->name('artist.offer.rejected_list');
-        Route::get('/alternative-offer', [OfferController::class, 'alternative'])->name('artist.offer.alternative_list');
-        
-        // Use a unique name for the custom details view
-        Route::get('/artist-offer-view/{send_offer}', [OfferController::class, 'offerShow'])->name('artist.offer.custom_details');
-    });
+  /**************** Artist Routes ****************/
+Route::group(['middleware' => ['auth','verify_if_user','create_password','verified','artist_signup','approved_artist_admin','re_apply','rejected_artist_admin']], function() {
+    
+    // This loads the core routes (index, show, etc.) from the sub-file
+    Route::prefix('')->group(base_path('routes/client/auth.php'));
+    
+    // We only add the NEW status-specific pages here with UNIQUE names
+    Route::get('/pending-offer', [OfferController::class, 'pending'])->name('artist.offer.pending_list');
+    Route::get('/accepted-offer', [OfferController::class, 'accepted'])->name('artist.offer.accepted_list');
+    Route::get('/completed-offer', [OfferController::class, 'completed'])->name('artist.offer.completed_list');
+    Route::get('/rejected-offer', [OfferController::class, 'rejected'])->name('artist.offer.rejected_list');
+    Route::get('/alternative-offer', [OfferController::class, 'alternative'])->name('artist.offer.alternative_list');
 
+    // Custom Detail View (to avoid conflict with the one in auth.php)
+    Route::get('/view-offer-details/{send_offer}', [OfferController::class, 'offerShow'])->name('artist.offer.custom_details');
+});
     /**************** Curator Routes ****************/
     Route::group(['middleware' => ['auth','verify_if_curator','create_curator_password','verified','verified_phone_number_curator','curator_signup','approved_curator_admin','re_apply','rejected_curator_admin']], function() {
         Route::prefix('')->group(base_path('routes/client/curator_auth.php'));
