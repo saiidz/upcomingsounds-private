@@ -1,80 +1,36 @@
 <?php
-
 namespace App\Http\Controllers\Artist;
 
 use App\Http\Controllers\Controller;
-use App\Models\SendOffer;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Models\ArtistTrack;
+use App\Models\Genre;
+use App\Models\Language;
+use App\Models\Country;
+use App\Models\CuratorFeature;
+use Illuminate\Http\Request;
 
-class OfferController extends Controller
-{
-    const IS_APPROVED = 1;
-
-    /**
-     * The Master Context: This feeds every variable name your sidebar or layout
-     * could possibly ask for. This is the "shield" against 500 errors.
-     */
-    private function getDashboardContext($extraData = []) {
-        $user = Auth::user();
-        $base = [
-            'user_artist'     => $user,
-            'user'            => $user,
-            'artist'          => $user,
-            'profile'         => $user,
-            'conversation_id' => null, 
-            'receiver_id'     => null,
-            'messages'        => collect([]),
-        ];
-        return array_merge($base, $extraData);
-    }
-
+class OfferController extends Controller {
     public function offers() {
-        $data = SendOffer::whereHas('userCurator')
-            ->with(['curatorOfferTemplate.offerType'])
-            ->where(['artist_id' => Auth::id(), 'is_approved' => self::IS_APPROVED])
-            ->latest()->get();
+        $user = auth()->user();
+        if (!$user) return redirect()->route('login');
 
-        return view('pages.artists.artist-offers.offers', $this->getDashboardContext([
-            'offers'     => $data,
-            'sendOffers' => $data
-        ]));
-    }
+        // Fetch tracks
+        $artist_tracks = ArtistTrack::where('user_id', $user->id)->latest()->get();
+        
+        // Safety fetch: Prevents 500 error if tables are missing or empty
+        try { $genres = Genre::all(); } catch (\Exception $e) { $genres = collect(); }
+        try { $languages = Language::all(); } catch (\Exception $e) { $languages = collect(); }
+        try { $features = CuratorFeature::all(); } catch (\Exception $e) { $features = collect(); }
+        
+        $notifications = $user->notifications()->latest()->get();
+        $unReadNotifications = $user->unreadNotifications()->latest()->get();
 
-    public function pending() {
-        $data = SendOffer::where(['artist_id' => Auth::id(), 'status' => 'pending'])->latest()->get();
-        return view('pages.artists.artist-offers.pending', $this->getDashboardContext(['offers' => $data, 'sendOffers' => $data]));
-    }
-
-    public function accepted() {
-        $data = SendOffer::where('artist_id', Auth::id())->whereIn('status', ['accepted', 'delivered'])->latest()->get();
-        return view('pages.artists.artist-offers.accepted', $this->getDashboardContext(['offers' => $data, 'sendOffers' => $data]));
-    }
-
-    public function completed() {
-        $data = SendOffer::where(['artist_id' => Auth::id(), 'status' => 'completed'])->latest()->get();
-        return view('pages.artists.artist-offers.completed', $this->getDashboardContext(['offers' => $data, 'sendOffers' => $data]));
-    }
-
-    public function rejected() {
-        $data = SendOffer::where(['artist_id' => Auth::id(), 'status' => 'rejected'])->latest()->get();
-        return view('pages.artists.artist-offers.rejected', $this->getDashboardContext(['offers' => $data, 'sendOffers' => $data]));
-    }
-
-    public function alternative() {
-        $data = SendOffer::where(['artist_id' => Auth::id(), 'status' => 'alternative'])->latest()->get();
-        return view('pages.artists.artist-offers.alternative', $this->getDashboardContext(['offers' => $data, 'sendOffers' => $data]));
-    }
-
-    public function offerShow($send_offer) {
-        try {
-            $decryptedId = decrypt($send_offer);
-            $offer = SendOffer::with(['userCurator', 'curatorOfferTemplate.offerType', 'artistTrack'])->findOrFail($decryptedId);
-
-            return view('pages.artists.artist-offers.curator-offer-details', $this->getDashboardContext([
-                'send_offer' => $offer
-            ]));
-        } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Offer details could not be loaded.');
-        }
+        // Safety Variables for the 2024 Layout design
+        $box = []; $flag = ""; $mystring = ""; $pos = 0;
+        $poshttp = ""; $poshttps = ""; $findhttp = ""; $findhttps = "";
+        
+        return view('pages.artists.artist-track.index', get_defined_vars());
     }
 }
