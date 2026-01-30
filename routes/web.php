@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Curator\SendOfferController;
 use App\Http\Controllers\MessengerController;
-use App\Http\Controllers\Artist\OfferController; 
+use App\Http\Controllers\Artist\OfferController;
 use App\Models\HomeSlider;
 use App\Models\Option;
 use App\Helpers\Helper;
@@ -47,23 +47,51 @@ Route::group(['middleware' => ['try_catch']], function() {
     });
 
     /**************** Artist Routes (The Fix) ****************/
-    Route::group(['middleware' => ['auth','verify_if_user','create_password','verified','artist_signup','approved_artist_admin','re_apply','rejected_artist_admin']], function() {
-        
-        Route::prefix('')->group(base_path('routes/client/auth.php'));
-        
-        // Overrides
-        Route::get('/pending-offer', [OfferController::class, 'pending'])->name('artist.custom.pending');
-        Route::get('/accepted-offer', [OfferController::class, 'accepted'])->name('artist.custom.accepted');
-        Route::get('/completed-offer', [OfferController::class, 'completed'])->name('artist.custom.completed');
-        Route::get('/rejected-offer', [OfferController::class, 'rejected'])->name('artist.custom.rejected');
-        Route::get('/alternative-offer', [OfferController::class, 'alternative'])->name('artist.custom.alternative');
+    Route::group([
+        'middleware' => [
+            'auth',
+            'verify_if_user',
+            'create_password',
+            'verified',
+            'artist_signup',
+            'approved_artist_admin',
+            're_apply',
+            'rejected_artist_admin'
+        ]
+    ], function() {
 
-        // Detail View
-        Route::get('/curator-offer/{send_offer}', [OfferController::class, 'offerShow'])->name('artist.offer.details_hijack');
+        Route::prefix('')->group(base_path('routes/client/auth.php'));
+
+        // Overrides (these are named uniquely to avoid collisions)
+        Route::get('/pending-offer',   [OfferController::class, 'pending'])->name('artist.custom.pending');
+        Route::get('/accepted-offer',  [OfferController::class, 'accepted'])->name('artist.custom.accepted');
+        Route::get('/completed-offer', [OfferController::class, 'completed'])->name('artist.custom.completed');
+        Route::get('/rejected-offer',  [OfferController::class, 'rejected'])->name('artist.custom.rejected');
+        Route::get('/alternative-offer',[OfferController::class, 'alternative'])->name('artist.custom.alternative');
+
+        // Detail View (THIS is what your blades expect)
+        Route::get('/curator-offer/{send_offer}', [OfferController::class, 'offerShow'])
+            ->name('artist.offer.show');
+
+        // Optional backwards-compat alias (only keep if you have legacy code calling it)
+        Route::get('/curator-offer/{send_offer}', [OfferController::class, 'offerShow'])
+            ->name('artist.offer.details_hijack');
     });
 
     /**************** Curator Routes ****************/
-    Route::group(['middleware' => ['auth','verify_if_curator','create_curator_password','verified','verified_phone_number_curator','curator_signup','approved_curator_admin','re_apply','rejected_curator_admin']], function() {
+    Route::group([
+        'middleware' => [
+            'auth',
+            'verify_if_curator',
+            'create_curator_password',
+            'verified',
+            'verified_phone_number_curator',
+            'curator_signup',
+            'approved_curator_admin',
+            're_apply',
+            'rejected_curator_admin'
+        ]
+    ], function() {
         Route::prefix('')->group(base_path('routes/client/curator_auth.php'));
     });
 
@@ -84,20 +112,33 @@ Route::get('/t', function () {
     dd('Event Run Successfully.');
 });
 
-Route::any('{url?}/{sub_url?}', [Helper::class, 'fallback']);
+/**
+ * NOTE:
+ * Keep "recovery routes" BEFORE fallback.
+ * Also avoid naming collisions with routes defined in routes/client/auth.php
+ */
 
 // --- ARTIST SIDEBAR RECOVERY ROUTES ---
-Route::get('/artist/settings-fix', function() { return redirect()->back(); })->name('artist.settings');
+Route::get('/artist/settings-fix', function() {
+    return redirect()->back();
+})->name('artist.settings');
 
 // --- ARTIST OFFERS RECOVERY ROUTES ---
+// IMPORTANT: do NOT use name('artist.offers') here because it's already defined elsewhere.
 Route::group(['middleware' => ['web', 'auth']], function () {
-    Route::get('/artist/offers', [App\Http\Controllers\ArtistController::class, 'artistProfile'])->name('artist.offers');
-    Route::get('/artist/pending', [App\Http\Controllers\ArtistController::class, 'artistProfile'])->name('artist.pending');
-    Route::get('/artist/approved', [App\Http\Controllers\ArtistController::class, 'artistProfile'])->name('artist.approved');
-    Route::get('/artist/rejected', [App\Http\Controllers\ArtistController::class, 'artistProfile'])->name('artist.rejected');
+    Route::get('/artist/offers',   [App\Http\Controllers\ArtistController::class, 'artistProfile'])->name('artist.profile.offers');
+    Route::get('/artist/pending',  [App\Http\Controllers\ArtistController::class, 'artistProfile'])->name('artist.profile.pending');
+    Route::get('/artist/approved', [App\Http\Controllers\ArtistController::class, 'artistProfile'])->name('artist.profile.approved');
+    Route::get('/artist/rejected', [App\Http\Controllers\ArtistController::class, 'artistProfile'])->name('artist.profile.rejected');
 });
+
 Route::get('/send-offer/{id}', [App\Http\Controllers\Artist\OfferController::class, 'sendOffer'])->name('artist.send.offer');
 
 // --- CURATOR PUBLIC PROFILE ---
 Route::get('/curator-profile', [App\Http\Controllers\Curator\CuratorController::class, 'curatorProfile'])->name('curator.public.profile');
 Route::get('/curator-profile/{user}', [App\Http\Controllers\Curator\CuratorController::class, 'curatorProfile']);
+
+/**
+ * Fallback MUST be last
+ */
+Route::any('{url?}/{sub_url?}', [Helper::class, 'fallback']);
