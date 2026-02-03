@@ -165,7 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
-        Biscolab\ReCaptcha\ReCaptchaServiceProvider::class,
+    
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
         Srmklive\PayPal\Providers\PayPalServiceProvider::class,
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
