@@ -233,7 +233,7 @@
                 </div>
             @endif
 
-            {{-- ADDED TEXT: ALWAYS VISIBLE INTRODUCTION --}}
+            {{-- REVIVED TEXT BLOCK --}}
             <div class="bgGradient p-a m-b">
                 <h6 class="text text-muted">Referral Program</h6>
                 <div class="form-group row">
@@ -258,110 +258,57 @@
                             $relationships = \App\Models\ReferralRelationship::where('referral_link_id',$referral->id)->get();
                             $count = 0;
                             foreach ($relationships as $key => $relationship) {
-                                $key = 1;
-                                if(!empty($relationship->campaign)) { $count+= $key; }
+                                if(!empty($relationship->campaign)) { $count++; }
                             }
                         @endphp
                         <p>Number of referred users: {{ $count }}</p>
-                        <p>*Earning potential based on referrals depending on the artist membership package purchased.</p>
                     @empty
-                        <p class="text-muted">No referrals generated yet.</p>
+                        <p class="text-muted">No active referral links found.</p>
                     @endforelse
                 @endif
+                <p class="text-xs text-muted">*Earning potential based on referrals depending on the artist membership package purchased.</p>
             </div>
         @endif
 
-        {{-- WIDGET GENERATOR TOOL --}}
+        {{-- WIDGET GENERATOR - RESPONSIVE & SCALED --}}
         <div id="us-widget-tool">
             <style>
-                #us-widget-tool { width: 65%; margin: 0 auto; min-width: 320px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #1e293b; color: #f8fafc; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); box-sizing: border-box; transition: all 0.3s ease; }
-                #us-widget-tool h2 { margin: 0 0 15px 0; text-align: center; font-size: 1.4rem; background: linear-gradient(to right, #fff, #cbd5e1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: flex; align-items: center; justify-content: center; gap: 10px; }
-                .us-toggle-btn { background: transparent; border: 1px solid #475569; color: #94a3b8; font-size: 0.75rem; padding: 4px 10px; border-radius: 15px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; -webkit-text-fill-color: #94a3b8; transition: all 0.2s; }
-                .us-toggle-btn:hover { color: white; border-color: #02b875; background: rgba(2, 184, 117, 0.1); -webkit-text-fill-color: white; }
-                #us-widget-content { display: block; overflow: hidden; }
-                #us-widget-tool .us-controls { display: flex; flex-direction: column; gap: 15px; margin-bottom: 20px; border-bottom: 1px solid #334155; padding-bottom: 20px; }
-                #us-widget-tool label { display: block; font-size: 0.75rem; color: #94a3b8; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px; }
-                #us-widget-tool .us-size-selector { display: flex; gap: 10px; flex-wrap: wrap; }
-                #us-widget-tool .us-size-btn { flex: 1; padding: 10px; border: 1px solid #334155; background: #0f172a; color: #94a3b8; border-radius: 6px; cursor: pointer; text-align: center; font-size: 0.85rem; transition: all 0.2s; }
-                #us-widget-tool .us-size-btn:hover { background: #1e293b; border-color: #02b875; color: white; }
-                #us-widget-tool .us-size-btn.active { background: #02b875; color: white; border-color: #02b875; box-shadow: 0 0 10px rgba(2, 184, 117, 0.3); }
-                #us-widget-tool .us-preview-wrapper { background: #0f172a; border: 2px dashed #334155; border-radius: 8px; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 150px; margin-bottom: 20px; position: relative; }
-                #us-widget-tool .us-preview-label { position: absolute; top: 8px; left: 10px; font-size: 10px; color: #475569; text-transform: uppercase; }
-                #usPreviewContainer { max-width: 100%; display: flex; justify-content: center; }
-                #us-widget-tool textarea { width: 100%; height: 80px; background: #0b1120; border: 1px solid #334155; color: #cbd5e1; padding: 12px; border-radius: 6px; font-family: monospace; font-size: 0.8rem; resize: none; box-sizing: border-box; display: block; }
-                #us-widget-tool .us-copy-btn { background: #02b875; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.9rem; margin-top: 10px; float: right; transition: background 0.2s; }
-                #us-widget-tool .us-copy-btn:hover { background: #029e63; }
-                #us-widget-tool::after { content: ""; display: table; clear: both; }
-                @media (max-width: 600px) { #us-widget-tool { width: 95%; padding: 15px; } }
+                #us-widget-tool { width: 100% !important; margin: 0 auto; min-width: 250px; font-family: sans-serif; background: #1e293b; color: #f8fafc; border-radius: 12px; padding: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); box-sizing: border-box; }
+                #us-widget-tool h2 { margin: 0 0 15px 0; text-align: center; font-size: 1.2rem; background: linear-gradient(to right, #fff, #cbd5e1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: flex; align-items: center; justify-content: center; gap: 10px; }
+                .us-size-selector { display: flex; gap: 5px; margin-bottom: 15px; flex-wrap: wrap; }
+                .us-size-btn { flex: 1; padding: 8px 4px; border: 1px solid #334155; background: #0f172a; color: #94a3b8; border-radius: 6px; cursor: pointer; text-align: center; font-size: 0.75rem; }
+                .us-size-btn.active { background: #02b875; color: white; border-color: #02b875; }
+                .us-preview-wrapper { background: #0f172a; border: 1px dashed #334155; border-radius: 8px; padding: 10px; margin-bottom: 15px; overflow: hidden; display: flex; justify-content: center; }
+                /* SCALE THE PREVIEW SO IT FITS SIDEBAR BUT REPRESENTS ACTUAL SIZE */
+                #usPreviewContainer { transform: scale(0.8); transform-origin: center top; width: 100%; max-height: 150px; }
+                #us-widget-tool textarea { width: 100%; height: 60px; background: #0b1120; border: 1px solid #334155; color: #cbd5e1; padding: 10px; border-radius: 6px; font-size: 0.75rem; resize: none; }
+                .us-copy-btn { background: #02b875; color: white; border: none; padding: 10px; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; margin-top: 10px; }
+                .us-toggle-btn { background: #334155; border: none; color: #fff; font-size: 0.6rem; padding: 2px 8px; border-radius: 10px; cursor: pointer; }
             </style>
-            <h2>Widget Generator <button id="usToggleBtn" class="us-toggle-btn" onclick="usToggleTool()">Hide</button></h2>
+
+            <h2>Widget <button id="usToggleBtn" class="us-toggle-btn" onclick="usToggleTool()">Hide</button></h2>
             <div id="us-widget-content">
                 <div class="us-controls">
-                    <div>
-                        <label>Select Widget Design</label>
-                        <div class="us-size-selector">
-                            <div class="us-size-btn active" onclick="usSetSize('sidebar')">Sidebar<br><small>300px</small></div>
-                            <div class="us-size-btn" onclick="usSetSize('banner')">Banner<br><small>728px</small></div>
-                            <div class="us-size-btn" onclick="usSetSize('large')">Large<br><small>970px</small></div>
-                        </div>
+                    <label style="font-size: 0.7rem; color: #94a3b8;">SELECT DESIGN</label>
+                    <div class="us-size-selector">
+                        <div class="us-size-btn active" onclick="usSetSize('sidebar')">Sidebar</div>
+                        <div class="us-size-btn" onclick="usSetSize('banner')">Banner</div>
+                        <div class="us-size-btn" onclick="usSetSize('large')">Large</div>
                     </div>
                 </div>
-                <div class="us-preview-wrapper"><span class="us-preview-label">Preview</span><div id="usPreviewContainer"></div></div>
-                <div><label>Copy Code</label><textarea id="usCodeOutput" readonly></textarea><button class="us-copy-btn" onclick="usCopyCode(this)">Copy Code</button></div>
+                <div class="us-preview-wrapper"><div id="usPreviewContainer"></div></div>
+                <textarea id="usCodeOutput" readonly></textarea>
+                <button class="us-copy-btn" onclick="usCopyCode(this)">Copy Code</button>
             </div>
         </div>
-
-        <script>
-            window.addEventListener('load', function() {
-                const LOGO = "https://upcomingsounds.com/images/logo.png";
-                let currentSize = 'sidebar';
-                const content = document.getElementById('us-widget-content');
-                const btn = document.getElementById('usToggleBtn');
-                if (localStorage.getItem('usWidgetState') === 'hidden') { content.style.display = 'none'; btn.innerText = 'Show'; }
-                window.usToggleTool = function() {
-                    if (content.style.display === 'none') { content.style.display = 'block'; btn.innerText = 'Hide'; localStorage.setItem('usWidgetState', 'visible'); }
-                    else { content.style.display = 'none'; btn.innerText = 'Show'; localStorage.setItem('usWidgetState', 'hidden'); }
-                };
-                function getReferralLink() {
-                    const inputs = document.getElementsByTagName('input');
-                    for(let i=0; i<inputs.length; i++) { if(inputs[i].value && inputs[i].value.includes('/ref/')) return inputs[i].value; }
-                    const links = document.getElementsByTagName('a');
-                    for(let i=0; i<links.length; i++) { if(links[i].href && links[i].href.includes('/ref/')) return links[i].href; }
-                    return "https://upcomingsounds.com/";
-                }
-                const layouts = { sidebar: { w: 300, h: 250, cls: 'us-layout-sidebar' }, banner: { w: 728, h: 90, cls: 'us-layout-banner' }, large: { w: 970, h: 250, cls: 'us-layout-large' } };
-                window.usSetSize = function(size) {
-                    currentSize = size;
-                    const btns = document.querySelectorAll('.us-size-btn');
-                    btns.forEach(b => b.classList.remove('active'));
-                    event.target.closest('.us-size-btn').classList.add('active');
-                    usUpdate();
-                };
-                window.usCopyCode = function(btn) {
-                    const txt = document.getElementById("usCodeOutput"); txt.select(); document.execCommand("copy");
-                    const oldText = btn.innerText; btn.innerText = "Copied!"; setTimeout(() => btn.innerText = oldText, 2000);
-                };
-                function usUpdate() {
-                    const url = getReferralLink();
-                    const cfg = layouts[currentSize];
-                    const css = `<style>body{margin:0;overflow:hidden;font-family:sans-serif}.us-root{width:100%;height:100%;background:linear-gradient(135deg,#111,#222);color:#fff;display:flex;box-sizing:border-box;position:relative;border:1px solid #333}.us-logo{display:block;object-fit:contain;max-width:100%}.us-cta{background:#fff;color:#000;text-decoration:none;padding:8px 16px;border-radius:20px;font-size:12px;font-weight:700;white-space:nowrap}.us-slider{overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}.us-track{display:flex;flex-direction:column;text-align:center;animation:s 9s infinite cubic-bezier(.4,0,.2,1)}.us-item{display:flex;align-items:center;justify-content:center;line-height:1.3;color:#ddd;text-align:center;padding:0 5px}@keyframes s{0%,25%{transform:translateY(0)}33%,58%{transform:translateY(-100%)}66%,92%{transform:translateY(-200%)}100%{transform:translateY(0)}}.us-s{flex-direction:column;align-items:center;justify-content:center;padding:20px}.us-b{flex-direction:row;align-items:center;justify-content:space-between;padding:0 25px}.us-l{flex-direction:row;align-items:center;justify-content:space-around;padding:0 40px}</style>`;
-                    let frameClass = currentSize === 'banner' ? 'us-b' : (currentSize === 'large' ? 'us-l' : 'us-s');
-                    const html = `<div class="us-root ${frameClass}"><img src="${LOGO}" class="us-logo"><div class="us-slider"><div class="us-track"><div class="us-item">Submit your music to my playlist</div><div class="us-item">Join our community for free</div><div class="us-item">Be heard on UpcomingSounds.com</div></div></div><a href="${url}" target="_blank" class="us-cta">Get Started</a></div>`;
-                    const srcDoc = `<html><head>${css}</head><body>${html}</body></html>`.replace(/"/g, '&quot;');
-                    document.getElementById('usCodeOutput').value = `<iframe srcdoc="${srcDoc}" width="${cfg.w}" height="${cfg.h}" style="border:none;" scrolling="no"></iframe>`;
-                    document.getElementById('usPreviewContainer').innerHTML = html;
-                }
-                usUpdate();
-            });
-        </script>
 
         <div class="b-b m-y"></div>
         <div class="nav text-sm _600">
             <a href="{{ url('about-us') }}" class="nav-link text-muted m-r-xs">About</a>
             <a href="{{ url('contact-us') }}" class="nav-link text-muted m-r-xs">Contact</a>
-            <a href="{{ url('term-of-service') }}" class="nav-link text-muted m-r-xs">Term of Service</a>
-            <a href="{{ url('privacy-policy') }}" class="nav-link text-muted m-r-xs">Policy Privacy</a>
+            <a href="{{ url('term-of-service') }}" class="nav-link text-muted m-r-xs">Terms</a>
+            <a href="{{ url('privacy-policy') }}" class="nav-link text-muted m-r-xs">Privacy</a>
         </div>
-        <p class="text-muted text-xs p-b-lg">&copy; Copyright {{ date('Y') }}</p>
+        <p class="text-muted text-xs p-b-lg">&copy; {{ date('Y') }} Upcoming Sounds</p>
     </div>
 </div>
