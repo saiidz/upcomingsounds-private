@@ -1,18 +1,19 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 @extends('pages.artists.panels.layout')
 
 {{-- page title --}}
 @section('title','My Campaigns')
 
 @section('page-style')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <style>
         .Item {
             background-color: rgba(120, 120, 120, 0.05);
             border-radius: 12px;
             border: 1px solid #eee;
             transition: all 0.3s ease;
+            margin-bottom: 20px;
         }
         .Item:hover {
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
@@ -23,6 +24,13 @@
             font-size: 11px;
         }
         .titleColor { color: #333; }
+        .item-media-content { 
+            width: 60px; 
+            height: 60px; 
+            background-size: cover; 
+            background-position: center; 
+            border-radius: 50%;
+        }
     </style>
 @endsection
 
