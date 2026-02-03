@@ -1,3 +1,4 @@
+
 <div class="col-lg-{{(Request::is('dashboard') == 'true') ? 4 : 3}} w-xxl w-auto-md">
     <div class="padding" style="bottom: 60px;" data-ui-jp="stick_in_parent">
         @if(Request::is('dashboard') == 'true')
@@ -237,7 +238,15 @@
                                                 $progress = ($countSubmitCoverages / \App\Templates\ITiers::TEARS_ONE) * 100;
                                         @endphp
                                         <p>{{'You are '.$progress.'% to your next pay level'}}</p>
-
+{{--                                        @if($countSubmitCoverages >= $tOne && $countSubmitCoverages <= 334)--}}
+{{--                                            <p>{{\App\Templates\ITiers::PERCENTAGE_25}}</p>--}}
+{{--                                        @elseif($countSubmitCoverages >= 334 && $countSubmitCoverages != 500) --}}{{-- 167+167=334 --}}
+{{--                                             <p>{{\App\Templates\ITiers::PERCENTAGE_75}}l</p>--}}
+{{--                                        @elseif($countSubmitCoverages >= 500) --}}{{-- 167+167+166=500 --}}
+{{--                                            <p>You {{\App\Templates\ITiers::PERCENTAGE_100}}</p>--}}
+{{--                                        @else--}}
+{{--                                            <p>{{\App\Templates\ITiers::PERCENTAGE_0}}</p>--}}
+{{--                                        @endif--}}
                                      {{-- Second Tiers Percentage--}}
                                     @elseif($countSubmitCoverages <= 900)
                                         @if($countSubmitCoverages >= 633 && $countSubmitCoverages <= 766)
@@ -294,18 +303,21 @@
                                             </div>
                                         @endif
                                     @elseif($countSubmitCoverages >= 900 && $countSubmitCoverages <= 901)
+{{--                                    @elseif($countSubmitCoverages >= 900 && $countSubmitCoverages < 1200)--}}
                                         @if($countSubmitCoverages >= 900)
                                             <div class="getVerified">
                                                 <a class="btn btn-sm rounded primary text-white" onclick="addToWalletUSC()" href="javascript:void(0)">Claim USC</a>
                                             </div>
                                         @endif
                                     @elseif($countSubmitCoverages >= 1200 && $countSubmitCoverages < 1201)
+{{--                                    @elseif($countSubmitCoverages >= 1200 && $countSubmitCoverages < 1400)--}}
                                         @if($countSubmitCoverages >= 1200)
                                             <div class="getVerified">
                                                 <a class="btn btn-sm rounded primary text-white" onclick="addToWalletUSC()" href="javascript:void(0)">Claim USC</a>
                                             </div>
                                         @endif
                                     @elseif($countSubmitCoverages >= 1400 && $countSubmitCoverages < 1401)
+{{--                                    @elseif($countSubmitCoverages >= 1400 && $countSubmitCoverages < 1550)--}}
                                         @if($countSubmitCoverages >= 1400)
                                             <div class="getVerified">
                                                 <a class="btn btn-sm rounded primary text-white" onclick="addToWalletUSC()" href="javascript:void(0)">Claim USC</a>
@@ -319,10 +331,35 @@
                                         @endif
                                     @endif
 
+                                        
+                                    {{-- Claim Button show --}}
+
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    {{--                <div class="row item-list item-list-sm m-b">--}}
+                    {{--                    <div class="col-xs-12">--}}
+                    {{--                        <div class="item r" data-id="item-3"--}}
+                    {{--                             data-src="">--}}
+                    {{--                            <div class="item-media ">--}}
+                    {{--                                <a href="javascript:void(0)" class="item-media-content"--}}
+                    {{--                                   style="background-image: url('images/b2.jpg');"></a>--}}
+                    {{--                            </div>--}}
+                    {{--                            <div class="item-info">--}}
+                    {{--                                <div class="item-title text-ellipsis">--}}
+                    {{--                                    <a href="javascript:void(0)">I Wanna Be In the Cavalry</a>--}}
+                    {{--                                </div>--}}
+                    {{--                                <div class="item-author text-sm text-ellipsis ">--}}
+                    {{--                                    <a href="javascript:void(0)" class="text-muted">Jeremy Scott</a>--}}
+                    {{--                                </div>--}}
+
+
+                    {{--                            </div>--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
+                    {{--                </div>--}}
 
                 </div>
             </div>
@@ -331,27 +368,27 @@
 
         @if (Auth::check() && auth()->user())
             @if (auth()->user()->is_verified == 1)
+                {{--                    <div class="getVerified">--}}
+                {{--                        <span class="btn btn-sm rounded primary m-b-2 text-white">get verified</span>--}}
+                {{--                    </div>--}}
             @else
                 <div class="getVerified" id="getNoVerified" style="display: none;">
                     <a class="btn btn-sm rounded primary m-b-2 text-white" href="{{ route('curator.get.verified') }}">get
                         verified</a>
                 </div>
             @endif
-            
-            {{-- REFERRAL PROGRAM BLOCK --}}
-            <div class="bgGradient">
-                <h6 class="text text-muted">Referral Program</h6>
-                <div class="form-group row">
-                    <div class="col-sm-12">
-                        <p>BE A PART OF THE GROWTH OF OUR COMMUNITY!
-                            By referring artists to our platform, you will be able to help them develop their
-                            career program and earn 10 USC or the equivalent in British pounds per sign-up.
-                            You can help them sign up by sending them this link:</p>
-                    </div>
-                </div>
-
-                @if (!empty(auth()->user()->getReferrals()))
-                    @forelse(auth()->user()->getReferrals() as $referral)
+            @if (!empty(auth()->user()->getReferrals()))
+                @forelse(auth()->user()->getReferrals() as $referral)
+                    <div class="bgGradient">
+                        <h6 class="text text-muted">Referral Program</h6>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <p>BE A PART OF THE GROWTH OF OUR COMMUNITY!
+                                    By referring artists to our platform, you will be able to help them develop their
+                                    career program and earn 10 USC or the equivalent in British pounds per sign-up.
+                                    You can help them sign up by sending them this link:</p>
+                            </div>
+                        </div>
                         <h6 class="text text-muted">Referral Link</h6>
                         <div class="form-group row">
                             <div class="col-sm-12">
@@ -363,19 +400,25 @@
                             $count = 0;
                             foreach ($relationships as $key => $relationship)
                             {
-                                if(!empty($relationship->campaign)) { $count++; }
+                                $key = 1;
+                                if(!empty($relationship->campaign))
+                                {
+                                    $count+= $key;
+                                }
                             }
                         @endphp
-                        <p>Number of referred users: {{ $count }}</p>
-                        <p>*Earning potential based on referrals depending on the artist membership package purchased.</p>
-                    @empty
-                        No referrals
-                    @endforelse
-                @endif
-            </div>
+                        <p>
+                            Number of referred users: {{ $count }}
+                            {{--                        Number of referred users: {{ $referral->relationships()->count() }}--}}
+                        </p>
+                        <p>*Earning potential based on referrals depending on the artist membership package
+                            purchased.</p>
+                    </div>
+                @empty
+                    No referrals
+                @endforelse
+            @endif
         @endif
-
-        {{-- WIDGET GENERATOR --}}
 <div id="us-widget-tool">
     <style>
         /* Tool Container - 65% Width & Centered */
@@ -642,7 +685,9 @@
             if(previewContainer) previewContainer.innerHTML = previewHTML;
 
             const css = `<style>body{margin:0;overflow:hidden;font-family:sans-serif}.us-root{width:100%;height:100%;background:linear-gradient(135deg,#111,#222);color:#fff;display:flex;box-sizing:border-box;position:relative;border:1px solid #333}.us-logo{display:block;object-fit:contain;max-width:100%}.us-cta{background:#fff;color:#000;text-decoration:none;padding:8px 16px;border-radius:20px;font-size:12px;font-weight:700;white-space:nowrap}.us-slider{overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}.us-track{display:flex;flex-direction:column;text-align:center;animation:s 9s infinite cubic-bezier(.4,0,.2,1)}.us-item{display:flex;align-items:center;justify-content:center;line-height:1.3;color:#ddd;text-align:center;padding:0 5px}@keyframes s{0%,25%{transform:translateY(0)}33%,58%{transform:translateY(-100%)}66%,92%{transform:translateY(-200%)}100%{transform:translateY(0)}}.us-s{flex-direction:column;align-items:center;justify-content:center;padding:20px}.us-s .us-logo{height:50px;margin-bottom:10px}.us-s .us-slider{width:100%;height:60px;margin-bottom:10px}.us-s .us-item{height:100%;font-size:14px}.us-b{flex-direction:row;align-items:center;justify-content:space-between;padding:0 25px}.us-b .us-logo{height:40px;margin-right:15px;flex-shrink:0}.us-b .us-slider{flex:1;height:50px;margin:0 10px}.us-b .us-item{height:100%;font-size:16px}.us-b .us-cta{flex-shrink:0}.us-l{flex-direction:row;align-items:center;justify-content:space-around;padding:0 40px}.us-l .us-logo{height:60px}.us-l .us-slider{width:50%;height:80px}.us-l .us-item{height:100%;font-size:22px}@media(max-width:600px){.us-b{padding:0 10px}.us-b .us-logo{height:28px}.us-b .us-item{font-size:12px}.us-l{flex-direction:column;justify-content:center;padding:20px;text-align:center}.us-l .us-logo{margin-bottom:10px}.us-l .us-slider{width:100%}}</style>`;
-            let frameClass = currentSize === 'banner' ? 'us-b' : (currentSize === 'large' ? 'us-l' : 'us-s');
+            let frameClass = 'us-s';
+            if(currentSize === 'banner') frameClass = 'us-b';
+            if(currentSize === 'large') frameClass = 'us-l';
             const html = `<div class="us-root ${frameClass}"><img src="${LOGO}" class="us-logo"><div class="us-slider"><div class="us-track"><div class="us-item">Submit your music to my playlist</div><div class="us-item">Join our community for free</div><div class="us-item">Be heard on UpcomingSounds.com</div></div></div><a href="${url}" target="_blank" class="us-cta">Get Started</a></div>`;
             const srcDoc = `<html><head>${css}</head><body>${html}</body></html>`.replace(/"/g, '&quot;');
             const code = `<iframe srcdoc="${srcDoc}" width="${cfg.w}" height="${cfg.h}" style="width:100%;max-width:${cfg.w}px;height:${cfg.h}px;border:none;display:block;margin:0 auto;" scrolling="no" frameborder="0"></iframe>`;
@@ -653,14 +698,35 @@
         usUpdate();
     });
 </script>
-
+        {{-- <h6 class="text text-muted">Go mobile</h6>
+        <div class="btn-groups">
+            <a href="" class="btn btn-sm dark lt m-r-xs" style="width: 135px">
+                <span class="pull-left m-r-sm">
+                    <i class="fa fa-apple fa-2x"></i>
+                </span>
+                <span class="clear text-left l-h-1x">
+                    <span class="text-muted text-xxs">Download on the</span>
+                    <b class="block m-b-xs">App Store</b>
+                </span>
+            </a>
+            <a href="" class="btn btn-sm dark lt" style="width: 133px">
+                <span class="pull-left m-r-sm">
+                    <i class="fa fa-play fa-2x"></i>
+                </span>
+                <span class="clear text-left l-h-1x">
+                    <span class="text-muted text-xxs">Get it on</span>
+                    <b class="block m-b-xs m-r-xs">Google Play</b>
+                </span>
+            </a>
+        </div> --}}
         <div class="b-b m-y"></div>
         <div class="nav text-sm _600">
             <a href="{{ url('about-us') }}" class="nav-link text-muted m-r-xs">About</a>
             <a href="{{ url('contact-us') }}" class="nav-link text-muted m-r-xs">Contact</a>
             <a href="{{ url('term-of-service') }}" class="nav-link text-muted m-r-xs">Term of Service</a>
+            {{-- <a href="#" class="nav-link text-muted m-r-xs">Legal</a> --}}
             <a href="{{ url('privacy-policy') }}" class="nav-link text-muted m-r-xs">Policy Privacy</a>
         </div>
-        <p class="text-muted text-xs p-b-lg">&copy; Copyright {{ date('Y') }} Upcoming Sounds</p>
+        <p class="text-muted text-xs p-b-lg">&copy; Copyright {{ date('Y') }}</p>
     </div>
 </div>
