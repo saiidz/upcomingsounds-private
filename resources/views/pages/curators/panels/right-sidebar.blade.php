@@ -1,7 +1,5 @@
 <div class="col-lg-{{(Request::is('dashboard') == 'true') ? 4 : 3}} w-xxl w-auto-md">
     <div class="padding" style="bottom: 60px;" data-ui-jp="stick_in_parent">
-        
-        {{-- 1. FULL ACTIVITY LADDER --}}
         @if(Request::is('dashboard') == 'true')
             <div id="coverageCurator" class="m-b" style="background-color: #373a3c;">
                 <div class="padding">
@@ -19,99 +17,351 @@
                         $tiersFive = \App\Templates\ITiers::TEARS_FIVE;
                         $tFive = $tiersFive/3;
                     @endphp
-                    
-                    <div class="text-center text-white m-b">
-                        <span class="amount activeAmount" style="font-size: 18px; font-weight: bold;">Status: Active</span>
+                    <span class="text">
+                    <div class="text-center text-white">
+                        @if($countSubmitCoverages >= \App\Templates\ITiers::TEARS_ONE && $countSubmitCoverages < 900)
+                            @if($countSubmitCoverages >= 500)
+                                <span class="amount activeAmount" >25</span> USC
+                            @else
+                                <span class="amount">0 USC</span>
+                            @endif
+                        @elseif($countSubmitCoverages >= 900 && $countSubmitCoverages < 1200)
+                            @if($countSubmitCoverages >= 900)
+                                <span class="amount activeAmount" >45</span> USC
+                            @else
+                                <span class="amount">0 USC</span>
+                            @endif
+                        @elseif($countSubmitCoverages >= 1200 && $countSubmitCoverages < 1400)
+                            @if($countSubmitCoverages >= 1200)
+                                <span class="amount activeAmount" >63 USC</span>
+                            @else
+                                <span class="amount">0 USC</span>
+                            @endif
+                        @elseif($countSubmitCoverages >= 1400 && $countSubmitCoverages < 1550)
+                            @if($countSubmitCoverages >= 1400)
+                                <span class="amount activeAmount" >79</span> USC
+                            @else
+                                <span class="amount">0 USC</span>
+                            @endif
+                        @elseif($countSubmitCoverages <= 1550)
+                            @if($countSubmitCoverages >= 1550)
+                                <span class="amount activeAmount" >91</span> USC
+                            @else
+                                <span class="amount">0 USC</span>
+                            @endif
+                        @else
+                            <span class="amount">0 USC</span>
+                        @endif
                         <img class="icon_UP" style="width:25px; height:25px;" src="{{asset('images/coin_bg.png')}}">
                     </div>
+                </span>
+                    <div class="row item-list item-list-sm m-b">
+                        <div class="col-xs-12">
+                            <div class="item r">
+                                <div class="progress" style="overflow: unset !important;">
+                                    <div style="justify-content: space-between !important;align-items: center !important;display: flex !important;">
+                                        <div><span class="text-white">0</span><img class="icon_UP" style="width:10px; height:10px;" src="{{asset('images/coin_bg.png')}}"></div>
+                                        <div><span class="text-white">25</span><img class="icon_UP" style="width:10px; height:10px;" src="{{asset('images/coin_bg.png')}}"></div>
+                                        <div><span class="text-white">45</span><img class="icon_UP" style="width:10px; height:10px;" src="{{asset('images/coin_bg.png')}}"></div>
+                                        <div><span class="text-white">63</span><img class="icon_UP" style="width:10px; height:10px;" src="{{asset('images/coin_bg.png')}}"></div>
+                                        <div><span class="text-white">79</span><img class="icon_UP" style="width:10px; height:10px;" src="{{asset('images/coin_bg.png')}}"></div>
+                                        <div><span class="text-white">91</span><img class="icon_UP" style="width:10px; height:10px;" src="{{asset('images/coin_bg.png')}}"></div>
+                                    </div>
 
-                    <div class="progress m-b-sm" style="overflow: unset !important; height: 25px; display: flex;">
-                        <div class="progress-bar {{ $countSubmitCoverages >= 500 ? 'green' : ($countSubmitCoverages >= 167 ? 'yellow' : 'grey-50') }}" style="width: 19%; margin-right: 2px; height: 100%;"></div>
-                        <div class="progress-bar {{ $countSubmitCoverages >= 900 ? 'green' : ($countSubmitCoverages >= 633 ? 'yellow' : 'grey-50') }}" style="width: 19%; margin-right: 2px; height: 100%;"></div>
-                        <div class="progress-bar {{ $countSubmitCoverages >= 1200 ? 'green' : ($countSubmitCoverages >= 1000 ? 'yellow' : 'grey-50') }}" style="width: 19%; margin-right: 2px; height: 100%;"></div>
-                        <div class="progress-bar {{ $countSubmitCoverages >= 1400 ? 'green' : ($countSubmitCoverages >= 1267 ? 'yellow' : 'grey-50') }}" style="width: 19%; margin-right: 2px; height: 100%;"></div>
-                        <div class="progress-bar {{ $countSubmitCoverages >= 1550 ? 'green' : ($countSubmitCoverages >= 1450 ? 'yellow' : 'grey-50') }}" style="width: 19%; margin-right: 2px; height: 100%;"></div>
+                                    <div class="progress-bar progressBar grey-50" style="width: 19%; height:30px !important;margin-right: 2px;">
+                                        @if($countSubmitCoverages <= \App\Templates\ITiers::TEARS_ONE)
+                                            @if($countSubmitCoverages >= $tOne && $countSubmitCoverages <= 334)
+                                                <div class="yellow" style="width: 25%; height:30px !important; padding-top: 5px;"></div>
+                                            @elseif($countSubmitCoverages >= 334 && $countSubmitCoverages != 500)
+                                                <div class="red" style="width: 75%; height:30px !important; padding-top: 5px;"></div>
+                                            @elseif($countSubmitCoverages >= 500)
+                                                <div class="green" style="width: 100%; height:30px !important; padding-top: 5px;"></div>
+                                            @else
+                                                <div class="grey-50" style="width: 25%; height:30px !important; padding-top: 5px;"></div>
+                                            @endif
+                                        @else
+                                            <div class="green" style="width: 100%; height:30px !important; padding-top: 5px;"></div>
+                                        @endif
+                                    </div>
+
+                                    <div class="progress-bar progressBar grey-50" style="width: 19%; height:30px !important;margin-right: 2px;">
+                                        @if($countSubmitCoverages <= 900)
+                                            @if($countSubmitCoverages >= 633 && $countSubmitCoverages <= 766)
+                                                <div class="yellow" style="width: 25%; height:30px !important; padding-top: 5px;"></div>
+                                            @elseif($countSubmitCoverages >= 766 && $countSubmitCoverages != 900)
+                                                <div class="red" style="width: 75%; height:30px !important; padding-top: 5px;"></div>
+                                            @elseif($countSubmitCoverages >= 900)
+                                                <div class="green" style="width: 100%; height:30px !important; padding-top: 5px;"></div>
+                                            @else
+                                                <div class="grey-50" style="width: 25%; height:30px !important; padding-top: 5px;"></div>
+                                            @endif
+                                        @else
+                                            <div class="green" style="width: 100%; height:30px !important; padding-top: 5px;"></div>
+                                        @endif
+                                    </div>
+
+                                    <div class="progress-bar progressBar grey-50" style="width: 19%; height:30px !important;margin-right: 2px;">
+                                        @if($countSubmitCoverages <= 1200)
+                                            @if($countSubmitCoverages >= 1000 && $countSubmitCoverages <= 1100)
+                                                <div class="yellow" style="width: 25%; height:30px !important; padding-top: 5px;"></div>
+                                            @elseif($countSubmitCoverages >= 1100 && $countSubmitCoverages != 1200)
+                                                <div class="red" style="width: 75%; height:30px !important; padding-top: 5px;"></div>
+                                            @elseif($countSubmitCoverages >= 1200)
+                                                <div class="green" style="width: 100%; height:30px !important; padding-top: 5px;"></div>
+                                            @else
+                                                <div class="grey-50" style="width: 25%; height:30px !important; padding-top: 5px;"></div>
+                                            @endif
+                                        @else
+                                            <div class="green" style="width: 100%; height:30px !important; padding-top: 5px;"></div>
+                                        @endif
+                                    </div>
+                                    
+                                    <div class="progress-bar progressBar grey-50" style="width: 19%; height:30px !important;margin-right: 2px;">
+                                        @if($countSubmitCoverages <= 1400)
+                                            @if($countSubmitCoverages >= 1267 && $countSubmitCoverages <= 1334)
+                                                <div class="yellow" style="width: 25%; height:30px !important; padding-top: 5px;"></div>
+                                            @elseif($countSubmitCoverages >= 1334 && $countSubmitCoverages != 1400)
+                                                <div class="red" style="width: 75%; height:30px !important; padding-top: 5px;"></div>
+                                            @elseif($countSubmitCoverages >= 1400)
+                                                <div class="green" style="width: 100%; height:30px !important; padding-top: 5px;"></div>
+                                            @else
+                                                <div class="grey-50" style="width: 25%; height:30px !important; padding-top: 5px;"></div>
+                                            @endif
+                                        @else
+                                            <div class="green" style="width: 100%; height:30px !important; padding-top: 5px;"></div>
+                                        @endif
+                                    </div>
+
+                                    <div class="progress-bar progressBar grey-50" style="width: 19%; height:30px !important;margin-right: 2px;">
+                                        @if($countSubmitCoverages <= 1550)
+                                            @if($countSubmitCoverages >= 1450 && $countSubmitCoverages <= 1500)
+                                                <div class="yellow" style="width: 25%; height:30px !important; padding-top: 5px;"></div>
+                                            @elseif($countSubmitCoverages >= 1500 && $countSubmitCoverages != 1550)
+                                                <div class="red" style="width: 75%; height:30px !important; padding-top: 5px;"></div>
+                                            @elseif($countSubmitCoverages >= 1550)
+                                                <div class="green" style="width: 100%; height:30px !important; padding-top: 5px;"></div>
+                                            @else
+                                                <div class="grey-50" style="width: 25%; height:30px !important; padding-top: 5px;"></div>
+                                            @endif
+                                        @else
+                                            <div class="green" style="width: 100%; height:30px !important; padding-top: 5px;"></div>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="text-white m-t-3">
+                                    @if($countSubmitCoverages <= \App\Templates\ITiers::TEARS_ONE)
+                                        @php $progress = ($countSubmitCoverages / \App\Templates\ITiers::TEARS_ONE) * 100; @endphp
+                                        <p>{{'You are '.$progress.'% to your next pay level'}}</p>
+                                    @elseif($countSubmitCoverages <= 900)
+                                        @if($countSubmitCoverages >= 633 && $countSubmitCoverages <= 766)
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_25}}</p>
+                                        @elseif($countSubmitCoverages >= 766 && $countSubmitCoverages != 900)
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_75}}</p>
+                                        @elseif($countSubmitCoverages >= 900)
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_100}}</p>
+                                        @else
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_0}}</p>
+                                        @endif
+                                    @elseif($countSubmitCoverages <= 1200)
+                                        @if($countSubmitCoverages >= 1000 && $countSubmitCoverages <= 1100)
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_25}}</p>
+                                        @elseif($countSubmitCoverages >= 1100 && $countSubmitCoverages != 1200)
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_75}}</p>
+                                        @elseif($countSubmitCoverages >= 1200)
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_100}}</p>
+                                        @else
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_0}}</p>
+                                        @endif
+                                    @elseif($countSubmitCoverages <= 1400)
+                                        @if($countSubmitCoverages >= 1267 && $countSubmitCoverages <= 1334)
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_25}}</p>
+                                        @elseif($countSubmitCoverages >= 1334 && $countSubmitCoverages != 1400)
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_75}}</p>
+                                        @elseif($countSubmitCoverages >= 1400)
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_100}}</p>
+                                        @else
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_0}}</p>
+                                        @endif
+                                    @elseif($countSubmitCoverages <= 1550)
+                                        @if($countSubmitCoverages >= 1450 && $countSubmitCoverages <= 1500)
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_25}}</p>
+                                        @elseif($countSubmitCoverages >= 1500 && $countSubmitCoverages != 1550)
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_75}}</p>
+                                        @elseif($countSubmitCoverages >= 1550)
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_100}}</p>
+                                        @else
+                                            <p>{{\App\Templates\ITiers::PERCENTAGE_0}}</p>
+                                        @endif
+                                    @else
+                                        <p>You are 100% to your next pay level</p>
+                                    @endif
+                                    
+                                    @if($countSubmitCoverages >= \App\Templates\ITiers::TEARS_ONE && $countSubmitCoverages < 900)
+                                        @if($countSubmitCoverages >= 500 && $countSubmitCoverages <= 501)
+                                            <div class="getVerified"><a class="btn btn-sm rounded primary text-white" onclick="addToWalletUSC()" href="javascript:void(0)">Claim USC</a></div>
+                                        @endif
+                                    @elseif($countSubmitCoverages >= 900 && $countSubmitCoverages <= 901)
+                                        @if($countSubmitCoverages >= 900)
+                                            <div class="getVerified"><a class="btn btn-sm rounded primary text-white" onclick="addToWalletUSC()" href="javascript:void(0)">Claim USC</a></div>
+                                        @endif
+                                    @elseif($countSubmitCoverages >= 1200 && $countSubmitCoverages < 1201)
+                                        @if($countSubmitCoverages >= 1200)
+                                            <div class="getVerified"><a class="btn btn-sm rounded primary text-white" onclick="addToWalletUSC()" href="javascript:void(0)">Claim USC</a></div>
+                                        @endif
+                                    @elseif($countSubmitCoverages >= 1400 && $countSubmitCoverages < 1401)
+                                        @if($countSubmitCoverages >= 1400)
+                                            <div class="getVerified"><a class="btn btn-sm rounded primary text-white" onclick="addToWalletUSC()" href="javascript:void(0)">Claim USC</a></div>
+                                        @endif
+                                    @elseif($countSubmitCoverages <= 1550)
+                                        @if($countSubmitCoverages >= 1550)
+                                            <div class="getVerified"><a class="btn btn-sm rounded primary text-white" onclick="addToWalletUSC()" href="javascript:void(0)">Claim USC</a></div>
+                                        @endif
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <p class="text-white text-xs text-center">Refer to Tier levels for USC rewards</p>
                 </div>
             </div>
         @endif
 
-        {{-- 2. REVIVED REFERRAL PROGRAM (ALWAYS VISIBLE) --}}
-        @if (Auth::check())
-            <div class="bgGradient p-a m-b" style="border: 1px solid rgba(0,0,0,0.1); border-radius: 4px;">
-                <h6 class="text text-muted _600">Referral Program</h6>
+        @if (Auth::check() && auth()->user())
+            @if (auth()->user()->is_verified != 1)
+                <div class="getVerified" id="getNoVerified" style="display: none;">
+                    <a class="btn btn-sm rounded primary m-b-2 text-white" href="{{ route('curator.get.verified') }}">get verified</a>
+                </div>
+            @endif
+
+            {{-- ADDED TEXT: ALWAYS VISIBLE INTRODUCTION --}}
+            <div class="bgGradient p-a m-b">
+                <h6 class="text text-muted">Referral Program</h6>
                 <div class="form-group row">
                     <div class="col-sm-12">
-                        <p class="text-sm">
-                            <strong>BE A PART OF THE GROWTH OF OUR COMMUNITY!</strong><br>
+                        <p>BE A PART OF THE GROWTH OF OUR COMMUNITY!
                             By referring artists to our platform, you will be able to help them develop their
-                            career program and earn <strong>10 USC</strong> or the equivalent in British pounds per sign-up.
-                        </p>
+                            career program and earn 10 USC or the equivalent in British pounds per sign-up.
+                            You can help them sign up by sending them this link:</p>
                     </div>
                 </div>
 
-                @php $referrals = auth()->user()->getReferrals(); @endphp
-                @if (!empty($referrals) && $referrals->count() > 0)
-                    @foreach($referrals as $referral)
-                        <h6 class="text text-muted text-xs">Your Referral Link</h6>
-                        <input id="tastemaker_name" class="form-control m-b-sm" value="{{ $referral->link }}" readonly style="font-size: 11px;">
-                        <p class="text-xs">Number of referred users: {{ \App\Models\ReferralRelationship::where('referral_link_id',$referral->id)->count() }}</p>
-                    @endforeach
-                @else
-                    <div class="alert alert-info text-xs">Your unique referral link will appear here once activated.</div>
+                @php $referralData = auth()->user()->getReferrals(); @endphp
+                @if (!empty($referralData))
+                    @forelse($referralData as $referral)
+                        <h6 class="text text-muted">Referral Link</h6>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <input id="tastemaker_name" class="form-control" value="{{ $referral->link }}">
+                            </div>
+                        </div>
+                        @php
+                            $relationships = \App\Models\ReferralRelationship::where('referral_link_id',$referral->id)->get();
+                            $count = 0;
+                            foreach ($relationships as $key => $relationship) {
+                                $key = 1;
+                                if(!empty($relationship->campaign)) { $count+= $key; }
+                            }
+                        @endphp
+                        <p>Number of referred users: {{ $count }}</p>
+                        <p>*Earning potential based on referrals depending on the artist membership package purchased.</p>
+                    @empty
+                        <p class="text-muted">No referrals generated yet.</p>
+                    @endforelse
                 @endif
-                <p class="text-xxs text-muted">*Earning potential depends on artist membership package.</p>
             </div>
         @endif
 
-        {{-- 3. ORIGINAL WIDGET GENERATOR (65% WIDTH) --}}
+        {{-- WIDGET GENERATOR TOOL --}}
         <div id="us-widget-tool">
             <style>
-                #us-widget-tool { width: 65%; margin: 20px auto; min-width: 320px; font-family: -apple-system, sans-serif; background: #1e293b; color: #f8fafc; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); box-sizing: border-box; }
+                #us-widget-tool { width: 65%; margin: 0 auto; min-width: 320px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #1e293b; color: #f8fafc; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); box-sizing: border-box; transition: all 0.3s ease; }
                 #us-widget-tool h2 { margin: 0 0 15px 0; text-align: center; font-size: 1.4rem; background: linear-gradient(to right, #fff, #cbd5e1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: flex; align-items: center; justify-content: center; gap: 10px; }
-                .us-size-selector { display: flex; gap: 10px; margin-bottom: 15px; }
-                .us-size-btn { flex: 1; padding: 10px; border: 1px solid #334155; background: #0f172a; color: #94a3b8; border-radius: 6px; cursor: pointer; text-align: center; font-size: 0.85rem; }
-                .us-size-btn.active { background: #02b875; color: white; border-color: #02b875; }
-                #us-widget-tool textarea { width: 100%; height: 80px; background: #0b1120; border: 1px solid #334155; color: #cbd5e1; padding: 12px; border-radius: 6px; resize: none; font-size: 11px; font-family: monospace; }
-                .us-copy-btn { background: #02b875; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 10px; float: right; }
+                .us-toggle-btn { background: transparent; border: 1px solid #475569; color: #94a3b8; font-size: 0.75rem; padding: 4px 10px; border-radius: 15px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; -webkit-text-fill-color: #94a3b8; transition: all 0.2s; }
+                .us-toggle-btn:hover { color: white; border-color: #02b875; background: rgba(2, 184, 117, 0.1); -webkit-text-fill-color: white; }
+                #us-widget-content { display: block; overflow: hidden; }
+                #us-widget-tool .us-controls { display: flex; flex-direction: column; gap: 15px; margin-bottom: 20px; border-bottom: 1px solid #334155; padding-bottom: 20px; }
+                #us-widget-tool label { display: block; font-size: 0.75rem; color: #94a3b8; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px; }
+                #us-widget-tool .us-size-selector { display: flex; gap: 10px; flex-wrap: wrap; }
+                #us-widget-tool .us-size-btn { flex: 1; padding: 10px; border: 1px solid #334155; background: #0f172a; color: #94a3b8; border-radius: 6px; cursor: pointer; text-align: center; font-size: 0.85rem; transition: all 0.2s; }
+                #us-widget-tool .us-size-btn:hover { background: #1e293b; border-color: #02b875; color: white; }
+                #us-widget-tool .us-size-btn.active { background: #02b875; color: white; border-color: #02b875; box-shadow: 0 0 10px rgba(2, 184, 117, 0.3); }
+                #us-widget-tool .us-preview-wrapper { background: #0f172a; border: 2px dashed #334155; border-radius: 8px; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 150px; margin-bottom: 20px; position: relative; }
+                #us-widget-tool .us-preview-label { position: absolute; top: 8px; left: 10px; font-size: 10px; color: #475569; text-transform: uppercase; }
+                #usPreviewContainer { max-width: 100%; display: flex; justify-content: center; }
+                #us-widget-tool textarea { width: 100%; height: 80px; background: #0b1120; border: 1px solid #334155; color: #cbd5e1; padding: 12px; border-radius: 6px; font-family: monospace; font-size: 0.8rem; resize: none; box-sizing: border-box; display: block; }
+                #us-widget-tool .us-copy-btn { background: #02b875; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.9rem; margin-top: 10px; float: right; transition: background 0.2s; }
+                #us-widget-tool .us-copy-btn:hover { background: #029e63; }
                 #us-widget-tool::after { content: ""; display: table; clear: both; }
+                @media (max-width: 600px) { #us-widget-tool { width: 95%; padding: 15px; } }
             </style>
-
-            <h2>Widget Generator</h2>
-            <div class="us-size-selector">
-                <div class="us-size-btn active" onclick="usSetSize('sidebar', this)">Sidebar</div>
-                <div class="us-size-btn" onclick="usSetSize('banner', this)">Banner</div>
-                <div class="us-size-btn" onclick="usSetSize('large', this)">Large</div>
+            <h2>Widget Generator <button id="usToggleBtn" class="us-toggle-btn" onclick="usToggleTool()">Hide</button></h2>
+            <div id="us-widget-content">
+                <div class="us-controls">
+                    <div>
+                        <label>Select Widget Design</label>
+                        <div class="us-size-selector">
+                            <div class="us-size-btn active" onclick="usSetSize('sidebar')">Sidebar<br><small>300px</small></div>
+                            <div class="us-size-btn" onclick="usSetSize('banner')">Banner<br><small>728px</small></div>
+                            <div class="us-size-btn" onclick="usSetSize('large')">Large<br><small>970px</small></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="us-preview-wrapper"><span class="us-preview-label">Preview</span><div id="usPreviewContainer"></div></div>
+                <div><label>Copy Code</label><textarea id="usCodeOutput" readonly></textarea><button class="us-copy-btn" onclick="usCopyCode(this)">Copy Code</button></div>
             </div>
-            <textarea id="usCodeOutput" readonly placeholder="Select a size to generate code..."></textarea>
-            <button class="us-copy-btn" onclick="usCopyCode(this)">Copy Code</button>
         </div>
 
-        {{-- FOOTER --}}
+        <script>
+            window.addEventListener('load', function() {
+                const LOGO = "https://upcomingsounds.com/images/logo.png";
+                let currentSize = 'sidebar';
+                const content = document.getElementById('us-widget-content');
+                const btn = document.getElementById('usToggleBtn');
+                if (localStorage.getItem('usWidgetState') === 'hidden') { content.style.display = 'none'; btn.innerText = 'Show'; }
+                window.usToggleTool = function() {
+                    if (content.style.display === 'none') { content.style.display = 'block'; btn.innerText = 'Hide'; localStorage.setItem('usWidgetState', 'visible'); }
+                    else { content.style.display = 'none'; btn.innerText = 'Show'; localStorage.setItem('usWidgetState', 'hidden'); }
+                };
+                function getReferralLink() {
+                    const inputs = document.getElementsByTagName('input');
+                    for(let i=0; i<inputs.length; i++) { if(inputs[i].value && inputs[i].value.includes('/ref/')) return inputs[i].value; }
+                    const links = document.getElementsByTagName('a');
+                    for(let i=0; i<links.length; i++) { if(links[i].href && links[i].href.includes('/ref/')) return links[i].href; }
+                    return "https://upcomingsounds.com/";
+                }
+                const layouts = { sidebar: { w: 300, h: 250, cls: 'us-layout-sidebar' }, banner: { w: 728, h: 90, cls: 'us-layout-banner' }, large: { w: 970, h: 250, cls: 'us-layout-large' } };
+                window.usSetSize = function(size) {
+                    currentSize = size;
+                    const btns = document.querySelectorAll('.us-size-btn');
+                    btns.forEach(b => b.classList.remove('active'));
+                    event.target.closest('.us-size-btn').classList.add('active');
+                    usUpdate();
+                };
+                window.usCopyCode = function(btn) {
+                    const txt = document.getElementById("usCodeOutput"); txt.select(); document.execCommand("copy");
+                    const oldText = btn.innerText; btn.innerText = "Copied!"; setTimeout(() => btn.innerText = oldText, 2000);
+                };
+                function usUpdate() {
+                    const url = getReferralLink();
+                    const cfg = layouts[currentSize];
+                    const css = `<style>body{margin:0;overflow:hidden;font-family:sans-serif}.us-root{width:100%;height:100%;background:linear-gradient(135deg,#111,#222);color:#fff;display:flex;box-sizing:border-box;position:relative;border:1px solid #333}.us-logo{display:block;object-fit:contain;max-width:100%}.us-cta{background:#fff;color:#000;text-decoration:none;padding:8px 16px;border-radius:20px;font-size:12px;font-weight:700;white-space:nowrap}.us-slider{overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}.us-track{display:flex;flex-direction:column;text-align:center;animation:s 9s infinite cubic-bezier(.4,0,.2,1)}.us-item{display:flex;align-items:center;justify-content:center;line-height:1.3;color:#ddd;text-align:center;padding:0 5px}@keyframes s{0%,25%{transform:translateY(0)}33%,58%{transform:translateY(-100%)}66%,92%{transform:translateY(-200%)}100%{transform:translateY(0)}}.us-s{flex-direction:column;align-items:center;justify-content:center;padding:20px}.us-b{flex-direction:row;align-items:center;justify-content:space-between;padding:0 25px}.us-l{flex-direction:row;align-items:center;justify-content:space-around;padding:0 40px}</style>`;
+                    let frameClass = currentSize === 'banner' ? 'us-b' : (currentSize === 'large' ? 'us-l' : 'us-s');
+                    const html = `<div class="us-root ${frameClass}"><img src="${LOGO}" class="us-logo"><div class="us-slider"><div class="us-track"><div class="us-item">Submit your music to my playlist</div><div class="us-item">Join our community for free</div><div class="us-item">Be heard on UpcomingSounds.com</div></div></div><a href="${url}" target="_blank" class="us-cta">Get Started</a></div>`;
+                    const srcDoc = `<html><head>${css}</head><body>${html}</body></html>`.replace(/"/g, '&quot;');
+                    document.getElementById('usCodeOutput').value = `<iframe srcdoc="${srcDoc}" width="${cfg.w}" height="${cfg.h}" style="border:none;" scrolling="no"></iframe>`;
+                    document.getElementById('usPreviewContainer').innerHTML = html;
+                }
+                usUpdate();
+            });
+        </script>
+
         <div class="b-b m-y"></div>
         <div class="nav text-sm _600">
             <a href="{{ url('about-us') }}" class="nav-link text-muted m-r-xs">About</a>
             <a href="{{ url('contact-us') }}" class="nav-link text-muted m-r-xs">Contact</a>
-            <a href="{{ url('term-of-service') }}" class="nav-link text-muted m-r-xs">Terms</a>
-            <a href="{{ url('privacy-policy') }}" class="nav-link text-muted m-r-xs">Privacy</a>
+            <a href="{{ url('term-of-service') }}" class="nav-link text-muted m-r-xs">Term of Service</a>
+            <a href="{{ url('privacy-policy') }}" class="nav-link text-muted m-r-xs">Policy Privacy</a>
         </div>
-        <p class="text-muted text-xs p-b-lg">&copy; {{ date('Y') }} Upcoming Sounds</p>
+        <p class="text-muted text-xs p-b-lg">&copy; Copyright {{ date('Y') }}</p>
     </div>
 </div>
-
-<script>
-    function usSetSize(size, element) {
-        document.querySelectorAll('.us-size-btn').forEach(btn => btn.classList.remove('active'));
-        element.classList.add('active');
-        // Add your specific widget generation JS here if needed
-    }
-    function usCopyCode(btn) {
-        var copyText = document.getElementById("usCodeOutput");
-        copyText.select();
-        document.execCommand("copy");
-        var original = btn.innerText;
-        btn.innerText = "Copied!";
-        setTimeout(function(){ btn.innerText = original; }, 2000);
-    }
-</script>
