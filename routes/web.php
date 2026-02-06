@@ -46,7 +46,7 @@ Route::group(['middleware' => ['try_catch']], function() {
         });
     });
 
-    /**************** Artist Routes (The Fix) ****************/
+    /**************** Artist Routes ****************/
     Route::group([
         'middleware' => [
             'auth',
@@ -62,20 +62,22 @@ Route::group(['middleware' => ['try_catch']], function() {
 
         Route::prefix('')->group(base_path('routes/client/auth.php'));
 
-        // Overrides (these are named uniquely to avoid collisions)
+        // My Campaigns Route (NEW)
+        Route::get('my-campaigns', [OfferController::class, 'campaigns'])->name('artist.campaigns');
+
+        // Offer Status Routes
         Route::get('/pending-offer',   [OfferController::class, 'pending'])->name('artist.custom.pending');
         Route::get('/accepted-offer',  [OfferController::class, 'accepted'])->name('artist.custom.accepted');
         Route::get('/completed-offer', [OfferController::class, 'completed'])->name('artist.custom.completed');
         Route::get('/rejected-offer',  [OfferController::class, 'rejected'])->name('artist.custom.rejected');
         Route::get('/alternative-offer',[OfferController::class, 'alternative'])->name('artist.custom.alternative');
 
-        // Detail View (THIS is what your blades expect)
+        // Offer Detail View
         Route::get('/curator-offer/{send_offer}', [OfferController::class, 'offerShow'])
             ->name('artist.offer.show');
 
-        // Optional backwards-compat alias (only keep if you have legacy code calling it)
-        Route::get('/curator-offer/{send_offer}', [OfferController::class, 'offerShow'])
-            ->name('artist.offer.details_hijack');
+        // Offer Payment
+        Route::post('offer-pay', [OfferController::class, 'payUSCeOffer'])->name('artist.offer.pay');
     });
 
     /**************** Curator Routes ****************/
