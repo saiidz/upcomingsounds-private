@@ -1,47 +1,84 @@
 <?php
 
-namespace App\Console;
+namespace App\Http;
 
-use Carbon\Carbon;
-use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
-class Kernel extends ConsoleKernel
+class Kernel extends HttpKernel
 {
     /**
-     * The Artisan commands provided by your application.
+     * The application's global HTTP middleware stack.
+     *
+     * These middleware are run during every request to your application.
      *
      * @var array
      */
-    protected $commands = [
-        Commands\NewsLetterSubscriptionSendEmail::class,
+    protected $middleware = [
+        // \App\Http\Middleware\TrustHosts::class,
+        \App\Http\Middleware\TrustProxies::class,
+        \Fruitcake\Cors\HandleCors::class,
+        \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
+        \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
+        \App\Http\Middleware\TrimStrings::class,
+        \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        \Spatie\CookieConsent\CookieConsentMiddleware::class,
     ];
 
     /**
-     * Define the application's command schedule.
+     * The application's route middleware groups.
      *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
-     * @return void
+     * @var array
      */
-    protected function schedule(Schedule $schedule)
-    {
-        // $schedule->command('inspire')->hourly();
-        $schedule->command('newsletter:subscription')->monthly();
-        $schedule->command('sendOffer:expired')->daily();
-        $schedule->command('submitCoverage:clear')->monthly();
-        $schedule->command('campaign:expired')->monthly();
-//        $schedule->command('submitCoverage:clear')->monthlyOn(Carbon::now()->day, '00:00');
-    }
+    protected $middlewareGroups = [
+        'web' => [
+            \App\Http\Middleware\EncryptCookies::class,
+            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+            \Illuminate\Session\Middleware\StartSession::class,
+            // \Illuminate\Session\Middleware\AuthenticateSession::class,
+            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+            \App\Http\Middleware\VerifyCsrfToken::class,
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \App\Http\Middleware\StoreReferralCode::class,
+            \App\Http\Middleware\TrackLastActiveAt::class,
+        ],
+
+        'api' => [
+            'throttle:api',
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        ],
+    ];
 
     /**
-     * Register the commands for the application.
+     * The application's route middleware.
      *
-     * @return void
+     * These middleware may be assigned to groups or used individually.
+     *
+     * @var array
      */
-    protected function commands()
-    {
-        $this->load(__DIR__.'/Commands');
-
-        require base_path('routes/console.php');
-    }
+    protected $routeMiddleware = [
+        'auth' => \App\Http\Middleware\Authenticate::class,
+        'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+        'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
+        'can' => \Illuminate\Auth\Middleware\Authorize::class,
+        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
+        'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
+        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'create_password' => \App\Http\Middleware\CheckCreatePassword::class,
+        'create_curator_password' => \App\Http\Middleware\CheckCuratorCreatePassword::class,
+        'artist_signup' => \App\Http\Middleware\EnsureSignUpArtistIsCompleted::class,
+        'curator_signup' => \App\Http\Middleware\EnsureSignUpCuratorIsCompleted::class,
+        'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'verified_phone_number_curator' => \App\Http\Middleware\VerifyPhoneNumberCurator::class,
+        'try_catch' => \App\Http\Middleware\TryCatchMiddleware::class,
+        'approved_curator_admin' => \App\Http\Middleware\ApprovedCuratorAdmin::class,
+        'rejected_curator_admin' => \App\Http\Middleware\RejectedCuratorAdmin::class,
+        'approved_artist_admin' => \App\Http\Middleware\ApprovedArtistAdmin::class,
+        'rejected_artist_admin' => \App\Http\Middleware\RejectedArtistAdmin::class,
+        'verify_if_admin' => \App\Http\Middleware\VerifyIfAdmin::class,
+        'verify_if_user' => \App\Http\Middleware\VerifyIfUser::class,
+        'verify_if_curator' => \App\Http\Middleware\VerifyIfCurator::class,
+        'check_if_blocked' => \App\Http\Middleware\CheckUserStatus::class,
+        're_apply' => \App\Http\Middleware\ReApply::class,
+    ];
 }
