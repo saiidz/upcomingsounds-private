@@ -1,7 +1,5 @@
 @extends('pages.artists.panels.layout')
-
 @section('title','My Campaigns')
-
 @section('page-style')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -11,14 +9,12 @@
         .item-media-content { width: 50px; height: 50px; background-size: cover; border-radius: 50%; }
     </style>
 @endsection
-
 @section('content')
 <div class="page-content">
     <div class="padding">
         <div class="page-title m-b">
             <h1 class="inline m-a-0">My Campaigns</h1>
         </div>
-
         <div class="row">
             <div class="col-lg-9">
                 @if(isset($sendOffers) && $sendOffers->count() > 0)
@@ -49,7 +45,6 @@
                     <div class="alert alert-info">No campaigns found.</div>
                 @endif
             </div>
-
             <div class="col-lg-3">
                 @include('pages.artists.panels.right-sidebar', ['user_artist' => auth()->user()])
             </div>
