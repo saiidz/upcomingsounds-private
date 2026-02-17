@@ -16,6 +16,9 @@
         svg.svg-inline--fa {
             font-size: inherit !important;
         }
+        /*.profile_public{*/
+        /*    margin-left: 12.5rem;*/
+        /*}*/
         .artist-features {
             display: flex;
             align-items: center;
@@ -51,7 +54,8 @@
             transform: translate(-50%, -50%);
             width: 100%;
             height: 100%;
-            border-radius: 50%;
+            /*border: 4px solid #fff; !* Add a white border around the profile image *!*/
+            border-radius: 50%; /* Make it a circle for a profile image effect */
         }
         .background-image {
             position: absolute;
@@ -59,25 +63,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; /* Ensure the image covers the container */
         }
         .cke_notifications_area {
             display: none;
-        }
-        /* Custom Pulse Bar Styles */
-        .pulse-step-active {
-            background-color: #06b6d4 !important;
-            box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
-            color: white !important;
-        }
-        .pulse-text-active {
-            color: #06b6d4 !important;
-            font-weight: 700;
         }
     </style>
 @endsection
 
 @section('content')
+    <!-- ############ PAGE START-->
+
     <div class="page-content">
         <div class="row-col">
             <div class="col-lg-8 b-r no-border-md">
@@ -88,73 +84,23 @@
                            class="btn btn-sm rounded proposition basicbtn">
                             Back</a>
                     </div>
-
-                    {{-- MASTER DESIGN FIX: THE UNIVERSAL PULSE BAR --}}
-                    @php $status = strtolower($send_offer->status); @endphp
-                    <div class="m-b-lg p-a-md rounded shadow-sm bg-white" style="border: 1px solid #edf2f7;">
-                        <div class="row-col text-center items-center">
-                            <div class="col-xs">
-                                <div class="m-b-xs">
-                                    <span class="btn btn-sm btn-icon rounded {{ $status != 'rejected' ? 'pulse-step-active' : 'bg-light' }}">
-                                        <i class="fa fa-paper-plane"></i>
-                                    </span>
-                                </div>
-                                <div class="text-xs {{ $status != 'rejected' ? 'pulse-text-active' : 'text-muted' }}">SENT</div>
-                            </div>
-
-                            <div class="col-xs p-y-sm text-muted" style="max-width: 30px;"> <i class="fa fa-angle-right"></i> </div>
-
-                            <div class="col-xs">
-                                <div class="m-b-xs">
-                                    <span class="btn btn-sm btn-icon rounded {{ in_array($status, ['accepted', 'delivered', 'completed']) ? 'pulse-step-active' : 'bg-light' }}">
-                                        <i class="fa fa-usd"></i>
-                                    </span>
-                                </div>
-                                <div class="text-xs {{ in_array($status, ['accepted', 'delivered', 'completed']) ? 'pulse-text-active' : 'text-muted' }}">PAID</div>
-                            </div>
-
-                            <div class="col-xs p-y-sm text-muted" style="max-width: 30px;"> <i class="fa fa-angle-right"></i> </div>
-
-                            <div class="col-xs">
-                                <div class="m-b-xs">
-                                    <span class="btn btn-sm btn-icon rounded {{ in_array($status, ['delivered', 'completed']) ? 'pulse-step-active' : 'bg-light' }}">
-                                        <i class="fa fa-gift"></i>
-                                    </span>
-                                </div>
-                                <div class="text-xs {{ in_array($status, ['delivered', 'completed']) ? 'pulse-text-active' : 'text-muted' }}">DELIVERED</div>
-                            </div>
-
-                            <div class="col-xs p-y-sm text-muted" style="max-width: 30px;"> <i class="fa fa-angle-right"></i> </div>
-
-                            <div class="col-xs">
-                                <div class="m-b-xs">
-                                    <span class="btn btn-sm btn-icon rounded {{ $status == 'completed' ? 'pulse-step-active' : 'bg-light' }}">
-                                        <i class="fa fa-check-circle"></i>
-                                    </span>
-                                </div>
-                                <div class="text-xs {{ $status == 'completed' ? 'pulse-text-active' : 'text-muted' }}">FINISHED</div>
-                            </div>
-                        </div>
-                    </div>
-                    {{-- END PULSE BAR --}}
-
                     <div class="row-col">
-                        {{-- LEFT COLUMN: PROFILE & BIO --}}
                         <div class="col-sm w w-auto-xs m-b">
                             <div class="item w">
                                 <div class="item-media">
                                     <div class="item-media-content">
                                         @php
                                             $mystring = $send_offer->userCurator->profile;
-                                            $findhttps   = 'https';
-                                            $findhttp   = 'http';
-                                            $poshttps = strpos($mystring, $findhttps);
-                                            $poshttp = strpos($mystring, $findhttp);
-                                            if($poshttps !== false){
-                                                $pos = $poshttps;
-                                            }else{
-                                                $pos = $poshttp;
-                                            }
+                                               $findhttps   = 'https';
+                                               $findhttp   = 'http';
+                                               $poshttps = strpos($mystring, $findhttps);
+
+                                               $poshttp = strpos($mystring, $findhttp);
+                                               if($poshttps != false){
+                                                   $pos = $poshttps;
+                                               }else{
+                                                   $pos = $poshttp;
+                                               }
                                         @endphp
                                         @if($pos === false)
                                             @if(!empty($send_offer->userCurator->profile))
@@ -172,6 +118,38 @@
                                     </div>
                                 </div>
                             </div>
+{{--                            <div class="item w rounded">--}}
+{{--                                <div class="item-media">--}}
+{{--                                    @php--}}
+{{--                                        $mystring = $send_offer->userCurator->profile;--}}
+{{--                                        $findhttps   = 'https';--}}
+{{--                                        $findhttp   = 'http';--}}
+{{--                                        $poshttps = strpos($mystring, $findhttps);--}}
+
+{{--                                        $poshttp = strpos($mystring, $findhttp);--}}
+{{--                                        if($poshttps != false){--}}
+{{--                                            $pos = $poshttps;--}}
+{{--                                        }else{--}}
+{{--                                            $pos = $poshttp;--}}
+{{--                                        }--}}
+{{--                                    @endphp--}}
+{{--                                    @if($pos === false)--}}
+{{--                                        @if(!empty($send_offer->userCurator->profile))--}}
+{{--                                            <div class="item-media-content" id="upload_profile"--}}
+{{--                                                 style="background-image: url({{URL('/')}}/uploads/profile/{{$send_offer->userCurator->profile}});"></div>--}}
+{{--                                        @else--}}
+{{--                                            <div class="item-media-content" id="upload_profile"--}}
+{{--                                                 style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>--}}
+{{--                                        @endif--}}
+{{--                                    @elseif($pos == 0)--}}
+{{--                                        <div class="item-media-content" id="upload_profile"--}}
+{{--                                             style="background-image: url({{$send_offer->userCurator->profile}});"></div>--}}
+{{--                                    @else--}}
+{{--                                        <div class="item-media-content" id="upload_profile"--}}
+{{--                                             style="background-image: url({{asset('images/profile_images_icons.svg')}});"></div>--}}
+{{--                                    @endif--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                             <div>
                                 @if (!empty($send_offer->userCurator->curatorUser->curator_bio))
                                     <div class="page-title m-b">
@@ -182,8 +160,6 @@
                                 @endif
                             </div>
                         </div>
-
-                        {{-- RIGHT COLUMN: IDENTITY & VISION RATING --}}
                         <div class="col-sm">
                             <div class="p-l-md no-padding-xs">
                                 <div class="page-title">
@@ -195,54 +171,88 @@
                                 <p class="item-desc text-ellipsis text-muted" data-ui-toggle-class="text-ellipsis">
                                     @if(!empty($send_offer->userCurator->curatorUser->curator_signup_from))
                                         {{Str::upper (ucwords(str_replace("_", " ", $send_offer->userCurator->curatorUser->curator_signup_from)))}}
+{{--                                        {{Str::upper ($send_offer->userCurator->curatorUser->curator_signup_from)}}--}}
                                     @endif
                                 </p>
-
-                                {{-- RATING BLOCK: PREPPED FOR RADIAL SVG VISION --}}
-                                @php
-                                    $avgRating = 0; $totalReviews = 0;
-                                    try {
-                                       if(isset($send_offer->userCurator) && class_exists('App\Models\CuratorRating')) {
-                                        $ratingsQuery = \App\Models\CuratorRating::where('curator_id', $send_offer->userCurator->id);
-                                            $avgRating = $ratingsQuery->avg('rating_stars') ?? 0;
-                                            $totalReviews = $ratingsQuery->count();
-                                        }
-                                    } catch (\Exception $e) {}
-                                @endphp
-
-                                <div class="m-b-sm" style="display: flex; align-items: center; gap: 8px;">
-                                    {{-- Temporary Star Layout (Will be replaced by your Radial Logic) --}}
-                                    <div class="text-warning" style="font-size: 14px;">
-                                        @for ($i = 1; $i <= 5; $i++)
-                                            <i class="fa {{ $i <= round($avgRating) ? 'fa-star' : 'fa-star-o' }}"></i>
-                                        @endfor
-                                    </div>
-                                    <span class="font-weight-bold" style="color: #02b875;">{{ number_format($avgRating, 1) }}</span>
-                                    <span class="text-muted small">({{ $totalReviews }} {{ Str::plural('review', $totalReviews) }})</span>
-                                </div>
-
                                 @if(!empty($send_offer->userCurator->curatorUser->country))
                                     <div class="block flag_style clearfix m-b">
                                         <img class="flag_icon" src="{{asset('images/flags')}}/{{$send_offer->userCurator->curatorUser->country->flag_icon}}.png" alt="{{$send_offer->userCurator->curatorUser->country->flag_icon}}">
-                                        <span class="text-muted" style="font-size:15px">{{($send_offer->userCurator->curatorUser->country) ? $send_offer->userCurator->curatorUser->country->name : ''}}</span>
+                                        <span class="text-muted"
+                                              style="font-size:15px">{{($send_offer->userCurator->curatorUser->country) ? $send_offer->userCurator->curatorUser->country->name : ''}}</span>
                                     </div>
                                 @endif
-
                                 <div class="row-col m-b" id="socialView_S">
                                     <div class="col-xs">
                                         @if(!empty($send_offer->userCurator->curatorUser->instagram_url))
-                                            <a href="{{$send_offer->userCurator->curatorUser->instagram_url}}" target="_blank" class="btn btn-icon btn-social rounded btn-social-colored light-blue-800" title="Instagram">
-                                                <i class="fa fa-instagram"></i><i class="fa fa-instagram"></i>
+                                            <a href="{{$send_offer->userCurator->curatorUser->instagram_url}}" target="_blank"
+                                               class="btn btn-icon btn-social rounded btn-social-colored light-blue-800"
+                                               title="Instagram">
+                                                <i class="fa fa-instagram"></i>
+                                                <i class="fa fa-instagram"></i>
                                             </a>
                                         @endif
                                         @if(!empty($send_offer->userCurator->curatorUser->facebook_url))
-                                            <a href="{{$send_offer->userCurator->curatorUser->facebook_url}}" target="_blank" class="btn btn-icon btn-social rounded btn-social-colored indigo" title="Facebook">
-                                                <i class="fa fa-facebook"></i><i class="fa fa-facebook"></i>
+                                            <a href="{{$send_offer->userCurator->curatorUser->facebook_url}}" target="_blank"
+                                               class="btn btn-icon btn-social rounded btn-social-colored indigo"
+                                               title="Facebook">
+                                                <i class="fa fa-facebook"></i>
+                                                <i class="fa fa-facebook"></i>
                                             </a>
                                         @endif
                                         @if(!empty($send_offer->userCurator->curatorUser->spotify_url))
-                                            <a href="{{$send_offer->userCurator->curatorUser->spotify_url}}" target="_blank" class="btn btn-icon btn-social rounded btn-social-colored light-green-500" title="Spotify">
-                                                <i class="fa fa-spotify"></i><i class="fa fa-spotify"></i>
+                                            <a href="{{$send_offer->userCurator->curatorUser->spotify_url}}" target="_blank"
+                                               class="btn btn-icon btn-social rounded btn-social-colored light-green-500"
+                                               title="Spotify">
+                                                <i class="fa fa-spotify"></i>
+                                                <i class="fa fa-spotify"></i>
+                                            </a>
+                                        @endif
+                                        @if(!empty($send_offer->userCurator->curatorUser->soundcloud_url))
+                                            <a href="{{$send_offer->userCurator->curatorUser->soundcloud_url}}" target="_blank"
+                                               class="btn btn-icon btn-social rounded btn-social-colored orange-700"
+                                               title="SoundCloud">
+                                                <i class="fa fa-soundcloud"></i>
+                                                <i class="fa fa-soundcloud"></i>
+                                            </a>
+                                        @endif
+                                        @if(!empty($send_offer->userCurator->curatorUser->youtube_url))
+                                            <a href="{{$send_offer->userCurator->curatorUser->youtube_url}}" target="_blank"
+                                               class="btn btn-icon btn-social rounded btn-social-colored red-600"
+                                               title="Youtube">
+                                                <i class="fa fa-youtube"></i>
+                                                <i class="fa fa-youtube"></i>
+                                            </a>
+                                        @endif
+                                        @if(!empty($send_offer->userCurator->curatorUser->website_url))
+                                            <a href="{{$send_offer->userCurator->curatorUser->website_url}}" target="_blank"
+                                               class="btn btn-icon btn-social rounded btn-social-colored"
+                                               style="background-color:#333;" title="Website">
+                                                <i class="fa fa-link"></i>
+                                                <i class="fa fa-link"></i>
+                                            </a>
+                                        @endif
+                                        @if(!empty($send_offer->userCurator->curatorUser->deezer_url))
+                                            <a href="{{$send_offer->userCurator->curatorUser->deezer_url}}" target="_blank"
+                                               class="btn btn-icon btn-social rounded btn-social-colored"
+                                               style="background-color:#eb9d00;" title="Deezer">
+                                                <i class="fab fa-deezer"></i>
+                                                <i class="fab fa-deezer"></i>
+                                            </a>
+                                        @endif
+                                        @if(!empty($send_offer->userCurator->curatorUser->apple_url))
+                                            <a href="{{$send_offer->userCurator->curatorUser->apple_url}}" target="_blank"
+                                               class="btn btn-icon btn-social rounded btn-social-colored"
+                                               style="background-color:#333;" title="Bandcamp">
+                                                <i class="fa fa-apple"></i>
+                                                <i class="fa fa-apple"></i>
+                                            </a>
+                                        @endif
+                                        @if(!empty($send_offer->userCurator->curatorUser->tiktok_url))
+                                            <a href="{{$send_offer->userCurator->curatorUser->tiktok_url}}" target="_blank"
+                                               class="btn btn-icon btn-social rounded btn-social-colored"
+                                               style="background-color:#333;" title="Tiktok">
+                                                <i class="fab fa-tiktok"></i>
+                                                <i class="fab fa-tiktok"></i>
                                             </a>
                                         @endif
                                     </div>
@@ -250,56 +260,246 @@
                             </div>
                         </div>
                     </div>
-
-                    {{-- SUBMISSION INFO --}}
                     <div class="padding p-y-0 m-b-md m-t-3">
                         <div class="page-title m-b">
-                            <h4 class="inline m-a-0 update_profile">Campaign Overview</h4>
+                            <h4 class="inline m-a-0 update_profile">Send Offer Info</h4>
                         </div>
                         <div class="form-group row">
-                            <div class="col-sm-3 form-control-label text-muted">Expiry Date:</div>
-                            <div class="col-sm-9">{{!empty($send_offer) ? getDateFormat($send_offer->expiry_date) : '----'}}</div>
+                            <div class="col-sm-2 form-control-label">Expiry Date:</div>
+                            <div class="col-sm-9">
+                                <div
+                                    class="col-sm-3 form-control-label text-muted">{{!empty($send_offer) ? getDateFormat($send_offer->expiry_date) : '----'}}</div>
+                            </div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-sm-3 form-control-label text-muted">Investment:</div>
-                            <div class="col-sm-9 font-weight-bold" style="color: #02b875;">{{!empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->contribution : 0}} USC</div>
+                            <div class="col-sm-2 form-control-label">Approximate Publish Date:</div>
+                            <div class="col-sm-9">
+                                <div
+                                    class="col-sm-3 form-control-label text-muted">{{!empty($send_offer) ? getDateFormat($send_offer->publish_date) : '----'}}</div>
+                            </div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-sm-3 form-control-label text-muted">Track Name:</div>
-                            <div class="col-sm-9 font-weight-bold">{{ !empty($send_offer->artistTrack) ? $send_offer->artistTrack->name : '----'}}</div>
+                            <div class="col-sm-2 form-control-label">Offer Status:</div>
+                            <div class="col-sm-9">
+                                <div
+                                    class="col-sm-3 form-control-label text-muted">
+                                    @if($send_offer->status == \App\Templates\IOfferTemplateStatus::PENDING)
+                                        <span class="text-danger">{{$send_offer->status}}</span>
+                                    @elseif($send_offer->status == \App\Templates\IOfferTemplateStatus::REJECTED)
+                                        <span class="text-danger">{{$send_offer->status}}</span>
+                                    @else
+                                        <span class="text-primary">{{$send_offer->status}}</span>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-2 form-control-label">Contribution:</div>
+                            <div class="col-sm-9">
+                                <div
+                                    class="col-sm-3 form-control-label text-muted">{{!empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->contribution : 0}} USC</div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-2 form-control-label">Offer Type:</div>
+                            <div class="col-sm-9">
+                                <div
+                                    class="col-sm-3 form-control-label text-muted">{{!empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->offerType->name : '----'}}</div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-2 form-control-label">Alternative Option:</div>
+                            <div class="col-sm-9">
+                                <div
+                                    class="col-sm-3 form-control-label text-muted">{{!empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->alternativeOption->name : '----'}}</div>
+                            </div>
                         </div>
                     </div>
 
-                    {{-- ACTION AREA: ACCEPT/PAY/RATE --}}
-                    <div class="padding text-center m-t-lg">
-                       @if($status == 'rejected')
-                             <div class="alert alert-danger" style="border-radius: 8px; font-weight: bold;">This Offer has been declined.</div>
-                        @elseif($status == 'accepted')
-                             <div class="alert alert-info shadow-sm" style="background-color: #f0f9ff; color: #0369a1; border-radius: 12px; font-weight: bold; border: 1px solid #bae6fd;">
-                                <i class="fa fa-clock-o"></i> Payment Successful. Awaiting curator delivery.
-                             </div>
-                        @elseif($status == 'delivered')
-                            <div class="alert alert-success shadow-sm" style="background-color: #f0fdf4; color: #15803d; border-radius: 12px; font-weight: bold; border: 1px solid #bbf7d0;">
-                                <div class="m-b-sm"><i class="fa fa-check-circle"></i> Work has been delivered!</div>
-                                <button type="button" class="btn btn-sm btn-primary rounded-pill shadow-sm" data-toggle="modal" data-target="#rateModal{{$send_offer->id}}">
-                                    Rate Curator & Close Campaign
-                                </button>
+                    <div class="padding p-y-0 m-b-md m-t-3">
+                        <div class="page-title m-b">
+                            <h4 class="inline m-a-0 update_profile">Track Info</h4>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-2 form-control-label">Track Name:</div>
+                            <div class="col-sm-9">
+                                <div
+                                    class="col-sm-3 form-control-label text-muted">{{ !empty($send_offer->artistTrack) ? $send_offer->artistTrack->name : '----'}}</div>
                             </div>
-                            @include('partials.rating_modal', ['offer' => $send_offer])
-                        @elseif($status == 'completed')
-                             <div class="alert alert-success" style="border-radius: 8px; font-weight: bold;">Campaign Successfully Completed.</div>
-                        @else
-                            <div id="curatorOfferBtn">
-                                <a href="javascript:void(0)" data-toggle="modal" data-target="#declineOffer" class="btn btn-sm rounded btn-danger m-r-sm shadow-sm">Decline</a>
-                                <a href="javascript:void(0)" data-toggle="modal" data-target="#confirmPayUSCModal" class="btn btn-sm rounded btn-success shadow-sm">Pay USC</a>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-2 form-control-label">Release Type:</div>
+                            <div class="col-sm-9">
+                                <div
+                                    class="col-sm-3 form-control-label text-muted">{{ !empty($send_offer->artistTrack) ? Str::ucfirst($send_offer->artistTrack->audio_cover) .' '. Str::ucfirst($send_offer->artistTrack->release_type)  : '----'}}</div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-2 form-control-label">Release Date:</div>
+                            <div class="col-sm-9">
+                                <div
+                                    class="col-sm-3 form-control-label text-muted">{{ !empty($send_offer->artistTrack) ? getDateFormat($send_offer->artistTrack->release_date) : '----'}}</div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-2 form-control-label">Description:</div>
+                            <div class="col-sm-9">
+                                <div class="col-sm-12 form-control-label text-muted">
+                                    <div id="desInfo">
+                                        {{ !empty($send_offer->artistTrack->description) ? Str::limit($send_offer->artistTrack->description, 100) : '-----'}}
+                                        <a href="javascript:void(0)" class="seeMoreBio" onclick="seeMoreDes()">Read more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-2 form-control-label">Pitch:</div>
+                            <div class="col-sm-9">
+                                <div class="col-sm-12 form-control-label text-muted">
+                                    <div id="pitchInfo">
+                                        {{ !empty($send_offer->artistTrack->pitch_description) ? Str::limit($send_offer->artistTrack->pitch_description, 100) : '-----'}}
+                                        <a href="javascript:void(0)" class="seeMoreBio" onclick="seeMorePitch()">Read more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="padding p-y-0 m-b-md m-t-3">
+                        <div class="page-title m-b">
+                            <h4 class="inline m-a-0 update_profile">Offer Description</h4>
+                        </div>
+                        <div class="form-group row">
+                            <div
+                                class="col-sm-12 form-control-label text-muted" id="descriptionContainerOfferText">
+
+                                {!! !empty($send_offer->curatorOfferTemplate) ? preg_replace(
+                                   '/<p>((http|https):\/\/[^\s]+)<\/p>/',
+                                   '<a href="$1" class="blue-tag" target="_blank">$1</a>',
+                                   $send_offer->curatorOfferTemplate->offer_text ?? '--'
+                               ) : '----' !!}
+{{--                                {!! !empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->offer_text : '----' !!}--}}
+                            </div>
+                        </div>
+                    </div>
+                    @if(!empty($send_offer) && $send_offer->status == \App\Templates\IOfferTemplateStatus::REJECTED)
+                        <div class="row">
+                            <div class="col-sm-12 text-muted">
+                                <h4 style="color:#ED4F32 !important; text-align:center">This Offer has been declined.</h4>
+                            </div>
+                        </div>
+                        <div class="padding p-y-0 m-b-md m-t-3">
+                            <div class="page-title m-b">
+                                <h4 class="inline m-a-0 update_profile">Decline Message</h4>
+                            </div>
+                            <div class="form-group row">
+                                <div
+                                    class="col-sm-12 form-control-label text-muted" style="color:#ED4F32 !important;">{!! !empty($send_offer->message) ? $send_offer->message : '----' !!}</div>
+                            </div>
+                        </div>
+                    @elseif(!empty($send_offer) && $send_offer->status == \App\Templates\IOfferTemplateStatus::ALTERNATIVE)
+                        <div class="row">
+                            <div class="col-sm-12 text-muted">
+                                <h4 style="color:#ED4F32 !important; text-align:center">This Offer has been Alternative.</h4>
+                            </div>
+                        </div>
+                        <div class="padding p-y-0 m-b-md m-t-3">
+                            <div class="page-title m-b">
+                                <h4 class="inline m-a-0 update_profile">Free Alternative Message</h4>
+                            </div>
+                            <div class="form-group row">
+                                <div
+                                    class="col-sm-12 form-control-label text-muted" style="color:#ED4F32 !important;">{!! !empty($send_offer->message) ? $send_offer->message : '----' !!}</div>
+                            </div>
+                        </div>
+                    @elseif(!empty($send_offer) && $send_offer->status == \App\Templates\IOfferTemplateStatus::ACCEPTED)
+                        <div class="row">
+                            <div class="col-sm-12 text-muted">
+                                <h4 style="color:#02b875 !important; text-align:center">This Offer has been Accepted.</h4>
+                            </div>
+                        </div>
+                    @elseif(!empty($send_offer) && $send_offer->status == \App\Templates\IOfferTemplateStatus::EXPIRED)
+                        <div class="row">
+                            <div class="col-sm-12 text-muted">
+                                <h4 style="color:#ED4F32 !important; text-align:center">This offer is Expired.</h4>
+                            </div>
+                        </div>
+                    @elseif(!empty($send_offer) && $send_offer->status == \App\Templates\IOfferTemplateStatus::COMPLETED)
+                        <div class="row">
+                            <div class="col-sm-12 text-muted">
+                                <h4 style="color:#02b875 !important; text-align:center">This offer is completed.</h4>
+                            </div>
+                        </div>
+                        @if(!empty($send_offer->submitWork))
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="padding p-y-0 m-b-md m-t-3">
+                                        <div class="page-title m-b">
+                                            <h4 class="inline m-a-0 update_profile">Submit Work Link</h4>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-12 form-control-label">
+                                                @if(!empty($send_offer->submitWork->submitWorkLinks))
+                                                    @foreach($send_offer->submitWork->submitWorkLinks as $link)
+                                                        <a href="{{$link->link}}" target="_blank" style="float:left !important;"
+                                                           class="btn btn-sm rounded add_track">
+                                                            View Completed Work</a>
+                                                    @endforeach
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="padding p-y-0 m-b-md m-t-3">
+                                        <div class="page-title m-b">
+                                            <h4 class="inline m-a-0 update_profile">Submit Work Images</h4>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-12 form-control-label">
+                                                @if(!empty($send_offer->submitWork->submitWorkImages))
+                                                    @foreach($send_offer->submitWork->submitWorkImages as $image)
+                                                        <div class="" id="">
+                                                            <a href="{{asset('uploads/submit_work_images')}}/{{$image->path}}" target="_blank" style="float:left !important;"
+                                                               class="btn btn-sm">
+                                                                <img src="{{asset('uploads/submit_work_images')}}/{{$image->path}}" alt="" style="height: 50px;">
+                                                            </a>
+                                                        </div>
+                                                    @endforeach
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         @endif
-                    </div>
+
+                    @else
+                        <div class="" id="curatorOfferBtn">
+                            <a href="javascript:void(0)" data-toggle="modal"
+                               data-target="#declineOffer" class="btn btn-sm rounded add_track decLine" style="background-color: #ED4F32 !important; ">
+                                Decline</a>
+                            <a href="javascript:void(0)" data-toggle="modal"
+                               data-target="#freeAlternativeOffer"  class="btn btn-sm rounded add_track ">
+                                Choose Free Alternative</a>
+{{--                            <a href="{{route('checkout.artist',['send_offer_id' => encrypt(!empty($send_offer) ? $send_offer->id : null), 'contribution' => encrypt(!empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->contribution : 0) , 'status' => true ])}}" class="btn btn-sm rounded add_track">--}}
+{{--                                Pay {{!empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->contribution : 0}} USC</a>--}}
+                            <a href="javascript:void(0)" class="btn btn-sm rounded add_track" data-toggle="modal"
+                               data-target="#confirmPayUSCModal">
+                                Pay {{!empty($send_offer->curatorOfferTemplate) ? $send_offer->curatorOfferTemplate->contribution : 0}} USC</a>
+                        </div>
+                    @endif
+
                 </div>
             </div>
 
-            {{-- SIDEBAR --}}
-            @if($send_offer->status == 'expired')
+            @include('pages.artists.artist-offers.modal.modal')
+
+
+            @if($send_offer->status == \App\Templates\IOfferTemplateStatus::EXPIRED)
                 @include('pages.curators.panels.right-sidebar')
             @else
                 @include('pages.chat.right-sidebar-chat')
@@ -307,34 +507,114 @@
         </div>
     </div>
 
-    @include('pages.artists.artist-offers.modal.modal')
+    <!-- ############ PAGE END-->
 @endsection
+
 
 @section('page-script')
     <script src="{{asset('app-assets/js/artist/artist.js')}}"></script>
+    <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
     <script>
-        var curator_bio = {!! json_encode($send_offer->userCurator->curatorUser->curator_bio ?? '') !!};
-        function seeMoreBio() { $('#bioInfo').html(curator_bio); }
+        $(document).ready(function() {
 
-        var track_pitch = {!! json_encode($send_offer->artistTrack->pitch_description ?? '') !!};
-        function seeMorePitch() { $('#pitchInfo').html(track_pitch); }
+            $('.ckeditor').ckeditor();
 
+        });
+    </script>
+    <script>
+        var preload = document.getElementById("loadings");
+        function loader(){
+            preload.style.display='none';
+        }
+        function showLoader(){
+            preload.style.display='block';
+        }
+    </script>
+    <script>
+
+        var curator_bio = {!! json_encode($send_offer->userCurator->curatorUser->curator_bio) !!};
+        if(curator_bio)
+        {
+            // var counter = 0
+            function seeMoreBio()
+            {
+                // counter += 1
+                // if(counter == 2)
+                // {
+                //     $('#bioInfo').empty();
+                //     $('#bioInfo').text(curator_bio.substring(0,50) + '.....');
+                //     // $('#bioInfo').html(curator_bio);
+                // }
+                $('#bioInfo').empty();
+                $('#bioInfo').html(curator_bio);
+            }
+        }
+
+        var track_des = {!! !empty($send_offer->artistTrack->description) ? json_encode($send_offer->artistTrack->description) : null !!};
+        if(track_des)
+        {
+            function seeMoreDes()
+            {
+                $('#desInfo').empty();
+                $('#desInfo').html(track_des);
+            }
+        }
+
+        var track_pitch = {!! !empty($send_offer->artistTrack->pitch_description) ? json_encode($send_offer->artistTrack->pitch_description) : null !!};
+        if(track_pitch)
+        {
+            function seeMorePitch()
+            {
+                $('#pitchInfo').empty();
+                $('#pitchInfo').html(track_pitch);
+            }
+        }
+    </script>
+    <script>
         $('#payUSCOffer').click(function (event) {
             event.preventDefault();
             var send_offer_id = "{!! encrypt(!empty($send_offer) ? $send_offer->id : null) !!}";
             var contribution = $('.UscOfferPay').attr('data-contribution');
+            var url= "{{route('artist.offer.pay')}}";
+            showLoader()
             $.ajax({
                 type: "POST",
-                url: "{{route('artist.offer.pay')}}",
-                data:{"_token": "{{ csrf_token() }}", "send_offer_id": send_offer_id, "contribution": contribution},
+                url: url,
+                data:{
+                    "_token": "{{ csrf_token() }}",
+                    "send_offer_id": send_offer_id,
+                    "contribution": contribution,
+                },
                 success: function (data) {
-                    if(data.success) {
+                    loader();
+                    if(data.success){
                         toastr.success(data.success);
                         window.location = '{{ URL::to('/accepted-offer') }}';
                     }
-                    else toastr.error(data.error || data.error_wallet);
+                    if (data.error_wallet) {
+                        toastr.error(data.error_wallet);
+                        window.open('{{ URL::to('/wallet') }}', '_blank');
+                    }
+                    if(data.error){
+                        toastr.error(data.error)
+                    }
                 }
             });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Check if the description contains a certain tag (e.g., <a>)
+            var description = document.getElementById("descriptionContainerOfferText").innerHTML;
+            var containsTag = description.includes("<a");
+
+            // If the tag exists, add a CSS class to change its color
+            if (containsTag) {
+                var tags = document.querySelectorAll("#descriptionContainerOfferText a");
+                tags.forEach(function(tag) {
+                    tag.classList.add("blue-tag");
+                });
+            }
         });
     </script>
 @endsection
