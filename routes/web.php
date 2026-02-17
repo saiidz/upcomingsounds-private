@@ -1,8 +1,8 @@
+
 <?php
 
 use App\Http\Controllers\Curator\SendOfferController;
 use App\Http\Controllers\MessengerController;
-use App\Http\Controllers\Artist\OfferController;
 use App\Models\HomeSlider;
 use App\Models\Option;
 use App\Helpers\Helper;
@@ -17,94 +17,90 @@ use App\Http\Controllers\Admin\BinshopsCommentWriterController;
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
 */
+//Route::get('/clear-cache', function(){
+//    Artisan::call('cache:clear');
+//    Artisan::call('config:clear');
+//    Artisan::call('route:clear');
+//    Artisan::call('view:clear');
+//    return "Cache Clear";
+//});
 
 Route::get('/', function () {
     $theme_home = Option::where('key', 'home_new_settings')->first();
     $homeSliders = HomeSlider::where('status',1)->latest()->get();
-    $testimonials = Testimonial::latest()->where('status',1)->get();
+    $testimonials = Testimonial::where('status',1)->latest()->get();
 
-    if(!empty($theme_home)) {
+    if(!empty($theme_home))
+    {
         $theme_home = json_decode($theme_home->value);
     }
     return view('welcome-new', get_defined_vars());
 });
 
+//Route::get('/', function () {
+//    $theme_home = Option::where('key', 'home_settings')->first();
+//    if(!empty($theme_home))
+//    {
+//        $theme_home = json_decode($theme_home->value);
+//    }
+//    return view('welcome', get_defined_vars());
+//});
+
+//Route::get('/', function () {
+//    return view('welcome');
+//})->middleware('guest');
+
 require __DIR__.'/auth.php';
+
 
 Route::group(['middleware' => ['try_catch']], function() {
 
-    /**************** Admin ****************/
+    /***************************************************** Admin *********************************************************/
+
     Route::prefix('admin')->group(base_path('routes/admin.php'));
 
     Route::group(['middleware' => ['web'], 'namespace' => '\BinshopsBlog\Controllers'], function () {
+
+        /** The main public facing blog routes - show all posts, view a category, view a single post, also the add comment route */
         Route::group(['prefix' => "/{locale}/".config('binshopsblog.blog_prefix', 'blog')], function () {
+
+            // throttle to a max of 10 attempts in 3 minutes:
             Route::group(['middleware' => 'throttle:10,3'], function () {
-                Route::post('save_comment/{blogPostSlug}', [BinshopsCommentWriterController::class,'addNewComment'])
+
+                Route::post('save_comment/{blogPostSlug}',
+                [BinshopsCommentWriterController::class,'addNewComment'])
                     ->name('binshopsblog.comments.add_new_comment');
+
             });
+
         });
     });
 
-    /**************** Artist Routes ****************/
-    Route::group([
-        'middleware' => [
-            'auth',
-            'verify_if_user',
-            'create_password',
-            'verified',
-            'artist_signup',
-            'approved_artist_admin',
-            're_apply',
-            'rejected_artist_admin'
-        ]
-    ], function() {
-
+    /***************************************************** Artist Routes *********************************************************/
+    Route::group(['middleware' => ['auth','verify_if_user','create_password','verified','artist_signup','approved_artist_admin','re_apply','rejected_artist_admin']], function() {
         Route::prefix('')->group(base_path('routes/client/auth.php'));
-
-        // My Campaigns Route (NEW)
-        Route::get('my-campaigns', [OfferController::class, 'campaigns'])->name('artist.campaigns');
-
-        // Offer Status Routes
-        Route::get('/pending-offer',   [OfferController::class, 'pending'])->name('artist.custom.pending');
-        Route::get('/accepted-offer',  [OfferController::class, 'accepted'])->name('artist.custom.accepted');
-        Route::get('/completed-offer', [OfferController::class, 'completed'])->name('artist.custom.completed');
-        Route::get('/rejected-offer',  [OfferController::class, 'rejected'])->name('artist.custom.rejected');
-        Route::get('/alternative-offer',[OfferController::class, 'alternative'])->name('artist.custom.alternative');
-
-        // Offer Detail View
-        Route::get('/curator-offer/{send_offer}', [OfferController::class, 'offerShow'])
-            ->name('artist.offer.show');
-
-        // Offer Payment
-        Route::post('offer-pay', [OfferController::class, 'payUSCeOffer'])->name('artist.offer.pay');
     });
 
-    /**************** Curator Routes ****************/
-    Route::group([
-        'middleware' => [
-            'auth',
-            'verify_if_curator',
-            'create_curator_password',
-            'verified',
-            'verified_phone_number_curator',
-            'curator_signup',
-            'approved_curator_admin',
-            're_apply',
-            'rejected_curator_admin'
-        ]
-    ], function() {
+    /***************************************************** Curators Routes *********************************************************/
+    Route::group(['middleware' => ['auth','verify_if_curator','create_curator_password','verified','verified_phone_number_curator','curator_signup','approved_curator_admin','re_apply','rejected_curator_admin']], function() {
         Route::prefix('')->group(base_path('routes/client/curator_auth.php'));
     });
 
-    Route::post('/submit-curator-rating', [OfferController::class, 'submitCuratorRating'])->name('artist.submit-rating');
-
-    /**************** Shared Routes ****************/
+    /***************************************************** Curators Routes *********************************************************/
     Route::group(['middleware' => ['auth']], function () {
         Route::get('get-chat', [MessengerController::class,'getChat'])->name('get.chat');
         Route::get('get-customer-chat', [MessengerController::class,'getCustomerChat'])->name('get.customer.chat');
         Route::post('save-message', [MessengerController::class,'saveMessage'])->name('save.messsage');
+//        Route::get('send-offer/{send_offer}', [SendOfferController::class,'sendOfferShow'])->name('curator.send.offer.show');
     });
+
+
 
     Route::prefix('')->group(base_path('routes/client/no_auth.php'));
 });
@@ -114,33 +110,4 @@ Route::get('/t', function () {
     dd('Event Run Successfully.');
 });
 
-/**
- * NOTE:
- * Keep "recovery routes" BEFORE fallback.
- * Also avoid naming collisions with routes defined in routes/client/auth.php
- */
-
-// --- ARTIST SIDEBAR RECOVERY ROUTES ---
-Route::get('/artist/settings-fix', function() {
-    return redirect()->back();
-})->name('artist.settings');
-
-// --- ARTIST OFFERS RECOVERY ROUTES ---
-// IMPORTANT: do NOT use name('artist.offers') here because it's already defined elsewhere.
-Route::group(['middleware' => ['web', 'auth']], function () {
-    Route::get('/artist/offers',   [App\Http\Controllers\ArtistController::class, 'artistProfile'])->name('artist.profile.offers');
-    Route::get('/artist/pending',  [App\Http\Controllers\ArtistController::class, 'artistProfile'])->name('artist.profile.pending');
-    Route::get('/artist/approved', [App\Http\Controllers\ArtistController::class, 'artistProfile'])->name('artist.profile.approved');
-    Route::get('/artist/rejected', [App\Http\Controllers\ArtistController::class, 'artistProfile'])->name('artist.profile.rejected');
-});
-
-Route::get('/send-offer/{id}', [App\Http\Controllers\Artist\OfferController::class, 'sendOffer'])->name('artist.send.offer');
-
-// --- CURATOR PUBLIC PROFILE ---
-Route::get('/curator-profile', [App\Http\Controllers\Curator\CuratorController::class, 'curatorProfile'])->name('curator.public.profile');
-Route::get('/curator-profile/{user}', [App\Http\Controllers\Curator\CuratorController::class, 'curatorProfile']);
-
-/**
- * Fallback MUST be last
- */
 Route::any('{url?}/{sub_url?}', [Helper::class, 'fallback']);
