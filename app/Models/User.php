@@ -39,7 +39,11 @@ class User extends Authenticatable
         'is_rejected' => 'bool',
         'is_approved' => 'bool',
     ];
-
+// Temporary compatibility method (prevents 500)
+public static function getReceivedCurstors($userId = null)
+{
+    return collect([]);
+}
     // --- CHAT & SIDEBAR RECOVERY ---
     public function getUserType()
     {
