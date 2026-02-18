@@ -110,4 +110,5 @@ Route::get('/t', function () {
     dd('Event Run Successfully.');
 });
 
-Route::any('{url?}/{sub_url?}', [Helper::class, 'fallback']);
+//Route::any('{url?}/{sub_url?}', [Helper::class, 'fallback']);
+Route::fallback([Helper::class, 'fallback']);
