@@ -17,10 +17,8 @@ class CuratorController extends Controller {
 
     // Fixes the "Method forCurators does not exist" error
     public function forCurators() {
-        $countries = Country::all();
-        $box = []; $flag = ""; $mystring = ""; $pos = 0;
-        return view('pages.curators.for-curators', get_defined_vars());
-    }
+    return $this->dashboard();
+}
 
     public function dashboard() {
         $user = auth()->user();
