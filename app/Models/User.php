@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Builder;
 use Laravel\Cashier\Billable;
 use Laravel\Passport\HasApiTokens;
 
@@ -14,10 +15,6 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable, SoftDeletes, HasApiTokens, Billable;
 
-    /**
-     * Only allow truly user-editable fields here.
-     * IMPORTANT: Do NOT mass-assign role/status/verification/security tokens.
-     */
     protected $fillable = [
         'name',
         'email',
@@ -39,12 +36,23 @@ class User extends Authenticatable
         'is_rejected' => 'bool',
         'is_approved' => 'bool',
     ];
-// Temporary compatibility method (prevents 500)
-public static function getReceivedCurstors($userId = null)
-{
-    return collect([]);
-}
-    // --- CHAT & SIDEBAR RECOVERY ---
+
+    /**
+     * ✅ THIS is the correct scope placement
+     */
+    public function scopeReceivedCurstors(Builder $query, $userId = null): Builder
+    {
+        return $query; // temporary no-op to prevent 500
+    }
+
+    /**
+     * Optional compatibility method
+     */
+    public static function getReceivedCurstors($userId = null): Collection
+    {
+        return collect([]);
+    }
+
     public function getUserType()
     {
         return $this->type ?? null;
@@ -70,7 +78,6 @@ public static function getReceivedCurstors($userId = null)
         return collect([]);
     }
 
-    // --- RELATIONSHIPS ---
     public function userTags()
     {
         return $this->hasMany(UserTag::class, 'user_id');
@@ -78,20 +85,14 @@ public static function getReceivedCurstors($userId = null)
 
     public function notifications()
     {
-        return $this->morphMany(\Illuminate\Notifications\DatabaseNotification::class, 'notifiable')
-            ->orderBy('created_at', 'desc');
+        return $this->morphMany(
+            \Illuminate\Notifications\DatabaseNotification::class,
+            'notifiable'
+        )->orderBy('created_at', 'desc');
     }
 
-    /**
-     * --- UNIVERSAL DATA MASKING ---
-     * This prevents "Undefined property" style breaks in blades
-     * when templates try to access optional profile fields.
-     *
-     * Note: This does NOT prevent SQL "Unknown column" errors when querying.
-     */
     public function __get($key)
     {
-        // If it's a real attribute, loaded relation, or a defined method/accessor, normal behavior.
         if (
             array_key_exists($key, $this->attributes) ||
             $this->relationLoaded($key) ||
@@ -100,7 +101,6 @@ public static function getReceivedCurstors($userId = null)
             return parent::__get($key);
         }
 
-        // Optional "profile-ish" fields that old blades might call.
         static $safety = [
             'facebook_url',
             'spotify_url',
@@ -116,11 +116,9 @@ public static function getReceivedCurstors($userId = null)
         ];
 
         if (in_array($key, $safety, true)) {
-            return ''; // or null if you prefer strictness
+            return '';
         }
 
-        // IMPORTANT: Don't call parent again (it can recurse / throw).
-        // Return null for unknown properties to avoid noisy exceptions.
         return null;
     }
 }
