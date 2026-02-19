@@ -42,7 +42,7 @@ class PromoteYourTrackController extends Controller
     public function index(Request $request)
     {
         $user_artist = Auth::user();
-        $curators = User::getReceivedCurstors()->count();
+      $curators = User::query()->receivedCurstors()->count();
         $page = 'artist-dashboard';
 
         $curator_features = CuratorFeature::all();
