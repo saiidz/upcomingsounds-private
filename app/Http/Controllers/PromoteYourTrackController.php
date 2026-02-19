@@ -188,7 +188,7 @@ class PromoteYourTrackController extends Controller
         {
             $curators = User::with('curatorUser')->whereHas('curatorUser', function($q){
                 $q->whereIn('curator_signup_from',['sound_expert_producer','brooker_booking','monitor_publisher_synch']);
-            })->getReceivedCurstors()->latest()->get();
+            })->receivedCurstors()->latest()->get();
 
             return response()->json([
                 'success' => 'we have '.$curators->count().' curators',
@@ -198,7 +198,7 @@ class PromoteYourTrackController extends Controller
         {
             $curators = User::with('curatorUser')->whereHas('curatorUser', function($q){
                 $q->whereIn('curator_signup_from',['playlist_curator','influencer','youtube_channel','radio_tv']);
-            })->getReceivedCurstors()->latest()->get();
+            })->receivedCurstors()->latest()->get();
             return response()->json([
                 'success' => 'we have '.$curators->count().' curators',
                 'curators' => $curators,
@@ -207,7 +207,7 @@ class PromoteYourTrackController extends Controller
         {
             $curators = User::with('curatorUser')->whereHas('curatorUser', function($q){
                 $q->whereIn('curator_signup_from',['journalist_media','label_manager','media']);
-            })->getReceivedCurstors()->latest()->get();
+            })->receivedCurstors()->latest()->get();
             return response()->json([
                 'success' => 'we have '.$curators->count().' curators',
                 'curators' => $curators,
@@ -222,19 +222,19 @@ class PromoteYourTrackController extends Controller
                 {
                     $curators = User::with('curatorUser')->whereHas('curatorUser', function($q){
                         $q->whereIn('curator_signup_from',['sound_expert_producer','brooker_booking','monitor_publisher_synch']);
-                    })->getReceivedCurstors()->latest()->get();
+                    })->receivedCurstors()->latest()->get();
 
                 }elseif($request->right_now_id == 2)
                 {
                     $curators = User::with('curatorUser')->whereHas('curatorUser', function($q){
                         $q->whereIn('curator_signup_from',['playlist_curator','influencer','youtube_channel','radio_tv']);
-                    })->getReceivedCurstors()->latest()->get();
+                    })->receivedCurstors()->latest()->get();
 
                 }elseif($request->right_now_id == 3)
                 {
                     $curators = User::with('curatorUser')->whereHas('curatorUser', function($q){
                         $q->whereIn('curator_signup_from',['journalist_media','label_manager','media']);
-                    })->getReceivedCurstors()->latest()->get();
+                    })->receivedCurstors()->latest()->get();
                 }else{
                     $curators = VerifiedCoverage::with('user','offerType')
                         ->where([
