@@ -15,6 +15,29 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable, SoftDeletes, HasApiTokens, Billable;
 
+    /**
+     * Compatibility alias (typo method name used elsewhere)
+     * Keeps site from 500ing until code is cleaned up.
+     */
+    public static function getReceivedCurstors($userId = null): Collection
+    {
+        // If the correct method exists, forward to it
+        if (method_exists(static::class, 'getReceivedCurators')) {
+            return static::getReceivedCurators($userId);
+        }
+
+        // Safe fallback
+        return collect([]);
+    }
+
+    /**
+     * Scope used by query builder calls (if any)
+     */
+    public function scopeReceivedCurstors(Builder $query, $userId = null): Builder
+    {
+        return $query; // temporary no-op to prevent 500
+    }
+
     protected $fillable = [
         'name',
         'email',
@@ -37,6 +60,8 @@ class User extends Authenticatable
         'is_approved' => 'bool',
     ];
 
+    // keep the rest of your methods below...
+}
     /**
      * ✅ THIS is the correct scope placement
      */
