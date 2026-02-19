@@ -15,9 +15,10 @@ class CuratorController extends Controller {
         return $this->dashboard();
     }
 
-    // Fixes the "Method forCurators does not exist" error
-    public function forCurators() {
-    return $this->dashboard();
+    // /for-curators landing page
+public function forCurators()
+{
+    return view('pages.curators.for-curators');
 }
 
     public function dashboard() {
