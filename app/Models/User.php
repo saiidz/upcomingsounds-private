@@ -9,12 +9,12 @@ use App\Templates\IMessageTemplates;
 use App\Templates\IOfferTemplateStatus;
 use App\Templates\IStatus;
 use App\Templates\IUserType;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Collection as SupportCollection;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Collection as SupportCollection;
 use Laravel\Cashier\Billable;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Support\Facades\Auth;
@@ -28,7 +28,6 @@ use LaravelIdea\Helper\App\Models\_IH_ReferralProgram_C;
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory, Notifiable, SoftDeletes, HasApiTokens, Billable;
-
     protected $fillable = [
         'name',
         'email',
