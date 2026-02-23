@@ -1,4 +1,4 @@
-```php
+
 <?php
 
 use Illuminate\Support\Facades\Route;
@@ -116,4 +116,4 @@ Route::get('/t', function () {
 |--------------------------------------------------------------------------
 */
 Route::fallback([Helper::class, 'fallback']);
-```
+
