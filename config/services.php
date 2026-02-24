@@ -77,7 +77,7 @@ return [
 //        'appId' => '1:250434995581:web:56053413df18e6f7cab814'
 //    ],
     'firebase' => [
-        'api_key' => 'AIzaSyDnmxZsLMDafaI88IXOoGjM2DK2j1HtY04',
+        'api_key' => 'AIzaSyBn4myJ8s4H6H-_ZTlB_nep4fPfX_nGbro',
         'auth_domain' => 'upcomingsounds.firebaseapp.com',
         'database_url' => 'https://upcomingsounds-default-rtdb.firebaseio.com/',
         'secret' => 'lFxem0KyJvbKhIWnlWDp3LWGaYFdip937opricEd',
