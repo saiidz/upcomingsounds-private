@@ -18,11 +18,11 @@ use App\Http\Controllers\Auth\AuthenticationSocializeController;
 */
 Route::get('login/{provider}', [AuthenticationSocializeController::class, 'redirectToProvider'])
     ->middleware('guest')
-    ->whereIn('provider', ['google','facebook','twitter','spotify'])
+    ->->where('provider', 'google|facebook|twitter|spotify')
     ->name('login.provider');
 
 Route::get('auth/callback/{provider}', [AuthenticationSocializeController::class, 'handleProviderCallback'])
-    ->whereIn('provider', ['google','facebook','twitter','spotify'])
+    ->where('provider', 'google|facebook|twitter|spotify')
     ->name('login.provider.callback');
 
 /*
