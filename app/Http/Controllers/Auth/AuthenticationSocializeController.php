@@ -24,15 +24,15 @@ class AuthenticationSocializeController extends Controller
      * Redirect the user to the Twitter authentication page.
      *
      */
-    public function redirectToProvider($provider, Request $request)
+    public function redirectToProvider(Request $request, $provider = 'google')
     {
         try {
             // session(['request_from' => $request->get('request_from')]);
-//        return Socialite::driver($provider)->setScopes(['openid', 'email'])->redirect();
+//        return Socialite::driver($provider)->scopes(['openid', 'email'])->redirect();
             if($provider == 'google')
             {
                 session(['request_from' => $request->get('request_from')]);
-                return Socialite::driver($provider)->setScopes(['openid', 'email'])->redirect();
+                return Socialite::driver($provider)->scopes(['openid', 'email'])->redirect();
             }else{
                 session(['request_from' => $request->get('request_from')]);
                 return Socialite::driver($provider)->redirect();

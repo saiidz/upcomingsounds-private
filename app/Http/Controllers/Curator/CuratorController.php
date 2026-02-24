@@ -10,12 +10,6 @@ use Illuminate\Http\Request;
 
 class CuratorController extends Controller {
 
-    // Fixes the "Method index does not exist" error
-   public function forCurators()
-{
-    return view('pages.curators.for-curators');
-}
-
     // /for-curators landing page
 public function forCurators()
 {

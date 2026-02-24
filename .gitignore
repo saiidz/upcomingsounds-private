@@ -15,3 +15,21 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+
+# backups / temp junk from server
+*.bak*
+*.bad*
+*.tmp
+*.log
+error_log
+FETCH_HEAD
+@php
+done
+curl
+parent_check.txt
+
+# large public assets you usually don't version
+/public/audio/
+/public/videos/
+/public/wp-content/
+/public/wp-includes/

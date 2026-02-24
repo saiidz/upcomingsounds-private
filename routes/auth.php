@@ -119,12 +119,9 @@ Route::any('/curator-logout', [AuthenticatedSessionController::class, 'destroyCu
     ->name('curator.logout');
 
 // Socialize Authenticated Controller
-Route::get('login/{provider}', [AuthenticationSocializeController::class, 'redirectToProvider'])
-    ->where('provider', 'google')
-    ->middleware('guest');
+// Route::get('login/{provider}', [AuthenticationSocializeController::class, 'redirectToProvider'])
 
-Route::get('auth/callback/{provider}', [AuthenticationSocializeController::class, 'handleProviderCallback'])
-    ->where('provider', 'google');
+// Route::get('auth/callback/{provider}', [AuthenticationSocializeController::class, 'handleProviderCallback'])
 
 
 

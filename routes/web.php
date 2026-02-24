@@ -117,3 +117,6 @@ Route::get('/t', function () {
 */
 Route::fallback([Helper::class, 'fallback']);
 
+
+
+// Auth routes
