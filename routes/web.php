@@ -1,9 +1,6 @@
-
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Artisan;
-use Twilio\Rest\Client;
 
 use App\Helpers\Helper;
 use App\Models\Option;
@@ -11,17 +8,28 @@ use App\Models\HomeSlider;
 use App\Models\Testimonial;
 
 use App\Http\Controllers\MessengerController;
-use App\Http\Controllers\Curator\SendOfferController;
-use App\Http\Controllers\Admin\AjaxController;
 use App\Http\Controllers\Admin\BinshopsCommentWriterController;
 use App\Http\Controllers\Auth\AuthenticationSocializeController;
+
+/*
+|--------------------------------------------------------------------------
+| SOCIAL LOGIN (PUBLIC — MUST BE BEFORE auth.php + fallback)
+|--------------------------------------------------------------------------
+*/
+Route::get('login/{provider}', [AuthenticationSocializeController::class, 'redirectToProvider'])
+    ->middleware('guest')
+    ->whereIn('provider', ['google','facebook','twitter','spotify'])
+    ->name('login.provider');
+
+Route::get('auth/callback/{provider}', [AuthenticationSocializeController::class, 'handleProviderCallback'])
+    ->whereIn('provider', ['google','facebook','twitter','spotify'])
+    ->name('login.provider.callback');
 
 /*
 |--------------------------------------------------------------------------
 | Home
 |--------------------------------------------------------------------------
 */
-
 Route::get('/', function () {
     $theme_home = Option::where('key', 'home_new_settings')->first();
     $homeSliders = HomeSlider::where('status',1)->latest()->get();
@@ -36,19 +44,7 @@ Route::get('/', function () {
 
 /*
 |--------------------------------------------------------------------------
-| GOOGLE LOGIN (PUBLIC — MUST BE BEFORE auth.php + fallback)
-|--------------------------------------------------------------------------
-*/
-
-Route::get('login/{provider}', [AuthenticationSocializeController::class, 'redirectToProvider'])
-    ->middleware('guest')
-    ->name('login.provider');
-
-Route::get('auth/callback/{provider}', [AuthenticationSocializeController::class, 'handleProviderCallback'])
-    ->name('login.provider.callback');
-/*
-|--------------------------------------------------------------------------
-| Load auth routes
+| Load auth routes (email login) ✅ ONLY ONCE
 |--------------------------------------------------------------------------
 */
 require __DIR__.'/auth.php';
@@ -58,7 +54,6 @@ require __DIR__.'/auth.php';
 | Application routes
 |--------------------------------------------------------------------------
 */
-
 Route::group(['middleware' => ['try_catch']], function() {
 
     /* ================= ADMIN ================= */
@@ -111,11 +106,7 @@ Route::get('/t', function () {
 
 /*
 |--------------------------------------------------------------------------
-| Fallback MUST be last
+| Fallback MUST be last ✅ ONLY ONCE
 |--------------------------------------------------------------------------
 */
 Route::fallback([Helper::class, 'fallback']);
-
-
-
-// Auth routes
