@@ -40,13 +40,12 @@ Route::get('/', function () {
 |--------------------------------------------------------------------------
 */
 
-Route::get('login/google', [AuthenticationSocializeController::class, 'redirectToProvider'])
+Route::get('login/{provider}', [AuthenticationSocializeController::class, 'redirectToProvider'])
     ->middleware('guest')
-    ->name('login.google');
+    ->name('login.provider');
 
-Route::get('auth/callback/google', [AuthenticationSocializeController::class, 'handleProviderCallback'])
-    ->name('login.google.callback');
-
+Route::get('auth/callback/{provider}', [AuthenticationSocializeController::class, 'handleProviderCallback'])
+    ->name('login.provider.callback');
 /*
 |--------------------------------------------------------------------------
 | Load auth routes
