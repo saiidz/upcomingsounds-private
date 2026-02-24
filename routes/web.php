@@ -22,7 +22,7 @@ Route::get('login/{provider}', [AuthenticationSocializeController::class, 'redir
     ->name('login.provider');
 
 Route::get('auth/callback/{provider}', [AuthenticationSocializeController::class, 'handleProviderCallback'])
-    ->where('provider', 'google|facebook|twitter|spotify')
+    ->->where('provider', 'google|facebook|twitter|spotify')
     ->name('login.provider.callback');
 
 /*
