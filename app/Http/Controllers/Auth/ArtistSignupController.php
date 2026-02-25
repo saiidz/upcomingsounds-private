@@ -241,7 +241,7 @@ class ArtistSignupController extends Controller
         }
 
         $artist_data = $request->session()->get('artist_data');
-        $artist_social = $request->session()->get('artist_data');
+        $artist_social = $request->session()->get('artist_social');
         $artist_tags = $request->session()->get('artist_tags');
 
         if(!empty($artist_data) && !empty($artist_social) && !empty($artist_tags)){
@@ -282,7 +282,7 @@ class ArtistSignupController extends Controller
     public function postArtistSignupStep6(Request $request)
     {
         $artist_data = $request->session()->get('artist_data');
-        $artist_social = $request->session()->get('artist_data');
+        $artist_social = $request->session()->get('artist_social');
         $artist_tags = $request->session()->get('artist_tags');
 
         if(!empty($artist_data) && !empty($artist_social) && !empty($artist_tags)){
@@ -335,7 +335,7 @@ class ArtistSignupController extends Controller
         $user = User::find($auth_id);
 
         if(isset($user) && empty($user->artistUser)){
-            if(isset($artist_data) || isset($artist_social) || isset($artist_tags) || isset($released)){
+            if(isset($artist_data) && isset($artist_social) && isset($artist_tags) && isset($released)){
                 if(isset($released['released_current'])){
                     $released_day = $released['released_current'];
                 }elseif (isset($released['released_finished'])){
@@ -376,7 +376,7 @@ class ArtistSignupController extends Controller
                 $data["title"] = "Thanks for signing up!";
 
                 Mail::send('pages.artists.emails.send_email_artist_signup', $data, function($message)use($data) {
-                    $message->from(IEmails::ARTIST_SIGNUP);
+                    $message->from(config('mail.from.address'), config('mail.from.name'));
                     $message->to($data["email"], $data["email"])
                         ->subject($data["title"]);
                 });
