@@ -1,3 +1,4 @@
+<!-- BLADE_MARKER: curator-offer-details.blade.php -->
 @extends('pages.artists.panels.layout')
 
 {{-- page title --}}
@@ -65,6 +66,9 @@
             height: 100%;
             object-fit: cover; /* Ensure the image covers the container */
         }
+        .cke_notifications_area {
+            display: none;
+        }
     </style>
 @endsection
 
@@ -76,7 +80,7 @@
             <div class="col-lg-8 b-r no-border-md">
                 <div class="padding">
                     <div class="page-title m-b proposition_header">
-                        <h1 class="inline m-a-0">Curator Offer Details</h1>
+                        <h1 class="inline m-a-0 titleColor">Curator Offer Details</h1>
                         <a href="{{ url()->previous() }}"
                            class="btn btn-sm rounded proposition basicbtn">
                             Back</a>
@@ -162,7 +166,7 @@
                                 <div class="page-title">
                                     <h1 class="inline">{{($send_offer->userCurator) ? $send_offer->userCurator->name : ''}}</h1>
                                     @if ($send_offer->userCurator->is_verified == 1)
-                                        <img src="{{ asset('images/verified_icon.svg') }}" style="width: 22px;" alt="">
+                                        <img src="{{ asset('images/verified_icon.svg') }}" style="width: 22px;vertical-align: inherit!important;" alt="">
                                     @endif
                                 </div>
                                 <p class="item-desc text-ellipsis text-muted" data-ui-toggle-class="text-ellipsis">
