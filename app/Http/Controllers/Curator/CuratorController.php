@@ -9,7 +9,12 @@ use App\Models\Language;
 use Illuminate\Http\Request;
 
 class CuratorController extends Controller {
-
+public function index()
+{
+    // pick the correct view you actually have
+    // common guess:
+    return view('client.curator.curator-home');
+}
     // /for-curators landing page
 public function forCurators()
 {
