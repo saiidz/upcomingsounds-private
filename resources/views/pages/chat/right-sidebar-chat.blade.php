@@ -123,7 +123,7 @@
                     message: message,
                     send_offerID: send_offerID,
                     con_id: {{ $conversation_id }},
-                    receiver_id: {{ $receiver_id }},
+                    receiver_id: @json($receiver_id ?? null),
                 },
                 method: 'post',
                 headers: {
